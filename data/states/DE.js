@@ -1,0 +1,2 @@
+window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
+window.CAMPING_STATE_DATA["DE"] = [{"id":"s90","name":"Big Oaks Campground","lat":38.738765,"lng":-75.1312,"stateCode":"DE","stateName":"Delaware","layer":"public","publicSubtype":"modern","description":"","website":"","rawCategory":"public","categoryLabel":"State / County / Town","sourceFolder":"State, county, and town Campgrounds","owner":"","layerLabel":"","cost":"","showers":""}];

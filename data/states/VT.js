@@ -1,0 +1,2 @@
+window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
+window.CAMPING_STATE_DATA["VT"] = [{"id":"s616","name":"Moose Alley","lat":45.120719,"lng":-71.248182,"stateCode":"VT","stateName":"Vermont","layer":"boondocking","publicSubtype":"rustic","description":"Free Camping supposed to be here","website":"","rawCategory":"boondocking","categoryLabel":"Boondocking","sourceFolder":"places from others","owner":"","layerLabel":"","cost":"","showers":""}];

@@ -1,0 +1,2 @@
+window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
+window.CAMPING_STATE_DATA["AL"] = [{"id":"s634","name":"Mystic Springs Free Campground","lat":30.855565,"lng":-87.311573,"stateCode":"AL","stateName":"Alabama","layer":"public","publicSubtype":"modern","description":"","website":"","rawCategory":"public","categoryLabel":"State / County / Town","sourceFolder":"State, county, and town Campgrounds","owner":"","layerLabel":"","cost":"","showers":""}];

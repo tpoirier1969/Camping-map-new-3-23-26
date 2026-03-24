@@ -1,0 +1,2 @@
+window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
+window.CAMPING_STATE_DATA["NV"] = [{"id":"s856","name":"Snow Canyon State Park","lat":37.217815,"lng":-113.639596,"stateCode":"NV","stateName":"Nevada","layer":"info","publicSubtype":null,"description":"","website":"","rawCategory":"info","categoryLabel":"Info / Reference","sourceFolder":"Parks and other places to see - not camping","owner":"","layerLabel":"","cost":"","showers":""}];

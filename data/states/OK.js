@@ -1,0 +1,2 @@
+window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
+window.CAMPING_STATE_DATA["OK"] = [{"id":"s321","name":"Fritch Fortress Campground","lat":35.680861,"lng":-101.598558,"stateCode":"OK","stateName":"Oklahoma","layer":"public","publicSubtype":"modern","description":"Free camping w/showers","website":"","rawCategory":"public","categoryLabel":"State / County / Town","sourceFolder":"State, county, and town Campgrounds","owner":"","layerLabel":"","cost":"","showers":""}];
