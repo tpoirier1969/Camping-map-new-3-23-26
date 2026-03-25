@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#294f3f">
-  <title>Camping Map v21.1.5</title>
+  <title>Camping Map v22.0 Recovery</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
 :root {
@@ -46,13 +46,11 @@ textarea{min-height:90px;resize:vertical}
 .quick-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
 .quick-filters button{border-radius:999px;border:1px solid #bfd0c0;background:#fff;padding:8px 13px}
 .quick-filters button.active{background:linear-gradient(180deg,#356a52,#294f3f);color:#fff;border-color:#294f3f}
-#countsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.count-card{background:#fff;border:1px solid #d8d1c3;border-radius:14px;padding:10px 12px}
-.count-card strong{display:block;font-size:1.1rem;margin-top:6px}
+
 .field-grid{display:grid;gap:8px}
 #draftQueue{min-height:150px}
 #statusBar{position:absolute;z-index:900;right:16px;bottom:16px;max-width:min(520px,calc(100vw - 32px));padding:10px 14px;border-radius:12px;background:rgba(27,34,30,.82);color:#fff;box-shadow:var(--shadow)}
-#mapReadout{position:absolute;z-index:1150;top:16px;right:16px;padding:11px 13px;border-radius:12px;border:1px solid rgba(34,43,39,.16);background:rgba(251,250,246,.96);box-shadow:var(--shadow);font-size:.93rem;line-height:1.35;min-width:258px}
+#mapReadout{position:absolute;z-index:1150;top:16px;right:16px;padding:11px 13px;border-radius:12px;border:1px solid rgba(34,43,39,.16);background:rgba(251,250,246,.96);box-shadow:var(--shadow);font-size:.93rem;line-height:1.25;min-width:258px}.readout-main{font-weight:600}.readout-mini{font-size:.78rem;color:#5f695f;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #mapLoading{position:absolute;z-index:1000;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(243,241,234,.6);color:#19311f;font-weight:600;pointer-events:none}
 #mapLoading.hidden{display:none}
 .leaflet-popup-content{margin:12px 14px}.popup-title{font-weight:700;font-size:1rem;margin-bottom:2px}.popup-meta{color:var(--muted);font-size:.9rem;margin-bottom:8px}.popup-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
@@ -70,7 +68,6 @@ textarea{min-height:90px;resize:vertical}
 .pin-info{--fill:#fff8dc;--stroke:#bea03a;--icon:#8b7218}
 .pin-draft{--fill:#fff8ea;--stroke:#b58a1e;--icon:#8a6b16}
 .legend-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--stroke);background:var(--fill);display:inline-block}.state-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 8px;border-radius:999px;background:#eef3ef;border:1px solid #d5ddd8;font-size:.9rem}.search-results{display:grid;gap:8px;margin-top:10px}.search-result{border:1px solid #d8d1c3;border-radius:12px;background:#fff;padding:10px 12px}
-.opportunity-legend{display:flex;align-items:center;gap:8px;font-size:.92rem;color:var(--muted)} .opp-swatch{width:22px;height:10px;border:2px dashed #2d8a57;border-radius:999px;background:rgba(74,163,92,.16);display:inline-block}
 
 .quick-filters button.partial{background:#edf5ef;border-color:#95b69a;color:#274634}
 .dropdown{position:relative}
@@ -88,7 +85,7 @@ textarea{min-height:90px;resize:vertical}
 <div id="app">
   <div id="map"></div>
   <div id="mapLoading">Loading map…</div>
-  <div id="mapReadout">Zoom -- · Cluster x-- · Grid -- · Markers --/--</div>
+  <div id="mapReadout"><div class="readout-main">Zoom -- · Cluster x-- · Markers --/--</div><div class="readout-mini">Loaded --</div></div>
   <button id="menuToggle" aria-label="Open controls">☰</button>
   <aside id="sidebar">
     <div class="sidebar-scroll">
@@ -109,12 +106,12 @@ textarea{min-height:90px;resize:vertical}
       <section class="section">
         <h2>Basemap</h2>
         <select id="basemapSelect">
-          <option value="topo-shaded">Topo shaded</option>
+          <option value="topo">Topo</option>
           <option value="opentopo">OpenTopo</option>
           <option value="osm">OpenStreetMap</option>
           <option value="satellite">Satellite</option>
         </select>
-        <div class="mini-note" style="margin-top:10px;">Topo shaded locks in the low-zoom shaded OpenTopo look when you zoom closer. OpenTopo stays the normal live topo map.</div>
+        <div class="mini-note" style="margin-top:10px;">Recovery build uses the classic four-way basemap set.</div>
       </section>
       <section class="section">
         <h2>State view</h2>
@@ -135,11 +132,6 @@ textarea{min-height:90px;resize:vertical}
         </div>
       </section>
       <section class="section">
-        <h2>Broad dispersed opportunity areas</h2>
-        <label class="check"><input id="oppToggle" type="checkbox" checked><span>Show opportunity-area outlines</span></label>
-        <div class="opportunity-legend" style="margin-top:10px;"><span class="opp-swatch"></span><span id="oppMeta">Loading opportunity areas…</span></div>
-      </section>
-      <section class="section">
         <h2>Add a site</h2>
         <label class="check"><input id="addMode" type="checkbox"><span>Click the map to drop a draft pin</span></label>
         <div class="field-grid" style="margin-top:10px;">
@@ -151,7 +143,6 @@ textarea{min-height:90px;resize:vertical}
         </div>
       </section>
       <section class="section"><h2>Manual site queue</h2><textarea id="draftQueue" readonly></textarea><div class="row wrap" style="margin-top:10px;"><button id="copyQueueBtn" class="secondary" type="button">Copy queue</button><button id="clearQueueBtn" class="secondary" type="button">Clear queue</button></div></section>
-      <section class="section"><h2>Visible counts</h2><div id="countsGrid"></div></section>
     </div>
   </aside>
   <div id="statusBar" hidden></div>
