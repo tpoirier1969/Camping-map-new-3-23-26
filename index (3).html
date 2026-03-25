@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#294f3f">
+  <title>Camping Map v21.1.2</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+:root {
+  --bg: #f3f1ea; --panel: rgba(251,250,246,.96); --panel-border:#d4cfc2; --text:#1c241f; --muted:#5b665d; --accent:#294f3f;
+  --shadow:0 8px 26px rgba(28,36,31,.14); --radius:16px;
+}
+*{box-sizing:border-box} html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)} body{overflow:hidden}
+a{color:#215fcb} button,input,select,textarea{font:inherit} button{cursor:pointer}
+#app{position:relative;width:100%;height:100%} #map{position:absolute;inset:0;background:#d7e4d2}
+#menuToggle{position:absolute;z-index:1100;top:16px;left:16px;width:44px;height:44px;border-radius:12px;border:1px solid var(--panel-border);background:var(--panel);box-shadow:var(--shadow)}
+#sidebar{position:absolute;z-index:1050;top:16px;left:16px;bottom:16px;width:min(420px,calc(100vw - 32px));background:var(--panel);border:1px solid var(--panel-border);border-radius:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;transform:translateX(0);transition:transform .2s ease}
+#sidebar.closed{transform:translateX(calc(-100% - 22px))}.sidebar-scroll{overflow:auto;padding:18px 18px 26px}.panel-head{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:14px}.panel-head h1{margin:0;font-size:1.7rem}.panel-head p{margin:6px 0 0;color:var(--muted)}
+#closeSidebar{border:1px solid var(--panel-border);background:white;border-radius:10px;width:36px;height:36px}.section{padding:14px 0 18px;border-top:1px solid #ddd7ca}.section:first-of-type{border-top:0}.section h2{margin:0 0 12px;font-size:1.05rem}.mini-note,.muted{color:var(--muted);font-size:.92rem}.row{display:flex;gap:8px;align-items:center}.row.wrap{flex-wrap:wrap}
+input[type=text],input[type=url],select,textarea{width:100%;border:1px solid #c8c2b6;background:#fff;color:var(--text);border-radius:10px;padding:10px 12px} textarea{min-height:90px;resize:vertical}
+.primary,.secondary,.chip{border-radius:10px;border:1px solid #b8c0b2;padding:9px 12px;background:#fff}.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.chip{padding:6px 10px;font-size:.92rem}
+.toggle-grid{display:grid;gap:8px}.check{display:flex;gap:10px;align-items:center;padding:8px 10px;border:1px solid #d6d1c5;border-radius:12px;background:#fff}.check.small{padding:7px 10px}.check input{margin:0}.check .meta{margin-left:auto;color:var(--muted);font-size:.9rem}
+#countsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.count-card{background:#fff;border:1px solid #d8d1c3;border-radius:14px;padding:10px 12px}.count-card strong{display:block;font-size:1.1rem;margin-top:6px}.field-grid{display:grid;gap:8px}
+#draftQueue{min-height:150px} #statusBar{position:absolute;z-index:900;right:16px;bottom:16px;max-width:min(500px,calc(100vw - 32px));padding:10px 14px;border-radius:12px;background:rgba(27,34,30,.82);color:#fff;box-shadow:var(--shadow)}
+#mapLoading{position:absolute;z-index:1000;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(243,241,234,.6);color:#19311f;font-weight:600;pointer-events:none}#mapLoading.hidden{display:none}.leaflet-popup-content{margin:12px 14px}.popup-title{font-weight:700;font-size:1rem;margin-bottom:2px}.popup-meta{color:var(--muted);font-size:.9rem;margin-bottom:8px}.popup-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.map-pin{width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:2px solid var(--stroke);background:var(--fill);color:var(--icon);box-shadow:0 2px 10px rgba(0,0,0,.14)}.map-pin svg{width:14px;height:14px;display:block}
+.pin-federal-modern{--fill:#2f6f53;--stroke:#245740;--icon:#fff}.pin-federal-rustic{--fill:#eef8f2;--stroke:#77a98d;--icon:#2f6f53}
+.pin-state-modern{--fill:#2d6fd7;--stroke:#255bb2;--icon:#fff}.pin-state-rustic{--fill:#eef5ff;--stroke:#7ba9ea;--icon:#2d67bc}
+.pin-local-modern{--fill:#7b54c7;--stroke:#6542a8;--icon:#fff}.pin-local-rustic{--fill:#f5efff;--stroke:#ac93dd;--icon:#6d4bbb}
+.pin-private-modern{--fill:#d97b1e;--stroke:#b8640f;--icon:#fff}.pin-private-rustic{--fill:#fff3e5;--stroke:#e2a35f;--icon:#c16a12}
+.pin-boondocking{--fill:#e8f6ec;--stroke:#348b45;--icon:#2f7e40}.pin-info{--fill:#fff8dc;--stroke:#bea03a;--icon:#8b7218}.pin-draft{--fill:#fff8ea;--stroke:#b58a1e;--icon:#8a6b16}
+.legend-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--stroke);background:var(--fill);display:inline-block}.state-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 8px;border-radius:999px;background:#eef3ef;border:1px solid #d5ddd8;font-size:.9rem}.search-results{display:grid;gap:8px;margin-top:10px}.search-result{border:1px solid #d8d1c3;border-radius:12px;background:#fff;padding:10px 12px}
+.opportunity-legend{display:flex;align-items:center;gap:8px;font-size:.92rem;color:var(--muted)} .opp-swatch{width:22px;height:10px;border:2px dashed #2d8a57;border-radius:999px;background:rgba(74,163,92,.12);display:inline-block}
+@media (max-width:900px){#sidebar{width:min(420px,calc(100vw - 32px))}}
+  </style>
+</head>
+<body>
+<div id="app">
+  <div id="map"></div>
+  <div id="mapLoading">Loading map…</div>
+  <button id="menuToggle" aria-label="Open controls">☰</button>
+  <aside id="sidebar">
+    <div class="sidebar-scroll">
+      <div class="panel-head">
+        <div>
+          <div class="state-badge">Rebuild <strong id="versionTag"></strong></div>
+          <h1>Camping Map</h1>
+          <p id="statusLine">Starting up…</p>
+          <p id="dataStats" class="mini-note"></p>
+        </div>
+        <button id="closeSidebar" aria-label="Close panel">✕</button>
+      </div>
+
+      <section class="section">
+        <h2>Find an area</h2>
+        <div class="row"><input id="searchInput" type="text" placeholder="City, park, address, or coordinates"><button id="searchBtn" class="primary" type="button">Go</button></div>
+        <div id="searchResults" class="search-results"></div>
+      </section>
+
+      <section class="section">
+        <h2>Basemap</h2>
+        <select id="basemapSelect"><option value="osm">OpenStreetMap</option><option value="topo">Topo</option><option value="satellite">Satellite</option></select>
+      </section>
+
+      <section class="section">
+        <button id="statesToggle" class="secondary" type="button" aria-expanded="false" style="width:100%;display:flex;justify-content:space-between;align-items:center;"><span>State data files</span><span id="statesToggleMeta" class="muted"></span></button>
+        <div id="statesPanel" style="display:none;margin-top:12px;">
+          <div class="field-grid" style="margin-bottom:12px;">
+            <label class="mini-note" for="stateQuickSelect">Quick state view</label>
+            <select id="stateQuickSelect"></select>
+          </div>
+          <div class="row wrap" style="justify-content:space-between; align-items:center; margin-bottom:10px;"><div class="mini-note">Toggle state files</div><div class="row wrap"><button id="selectAllStatesBtn" class="chip" type="button">Select all</button><button id="clearStatesBtn" class="chip" type="button">Deselect all</button></div></div>
+          <div id="stateList" class="toggle-grid"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Camping layers</h2>
+        <div id="layerList" class="toggle-grid"></div>
+      </section>
+
+      <section class="section">
+        <h2>Broad dispersed opportunity areas</h2>
+        <label class="check"><input id="oppToggle" type="checkbox" checked><span>Show opportunity-area outlines</span></label>
+        <div class="opportunity-legend" style="margin-top:10px;"><span class="opp-swatch"></span><span>Verified outline layer scaffold restored</span></div>
+      </section>
+
+      <section class="section">
+        <h2>Add a site</h2>
+        <label class="check"><input id="addMode" type="checkbox"><span>Click the map to drop a draft pin</span></label>
+        <div class="field-grid" style="margin-top:10px;">
+          <div class="mini-note" id="draftCoords">No draft point selected.</div>
+          <input id="draftName" type="text" placeholder="Site name">
+          <div class="row"><input id="draftState" type="text" maxlength="2" placeholder="State code"><select id="draftCategory">
+            <option value="federal-modern">Federal modern</option><option value="federal-rustic">Federal rustic</option>
+            <option value="state-modern">State modern</option><option value="state-rustic">State rustic</option>
+            <option value="local-modern">Local modern</option><option value="local-rustic">Local rustic</option>
+            <option value="private-modern">Private modern</option><option value="private-rustic">Private rustic</option>
+            <option value="boondocking">Boondocking</option><option value="info">Info</option></select></div>
+          <input id="draftWebsite" type="url" placeholder="Website URL"><textarea id="draftNotes" placeholder="Notes"></textarea>
+          <div class="row wrap"><button id="appendDraftBtn" class="primary" type="button">Append to queue</button><button id="clearDraftBtn" class="secondary" type="button">Clear draft pin</button></div>
+        </div>
+      </section>
+
+      <section class="section"><h2>Manual site queue</h2><textarea id="draftQueue" readonly></textarea><div class="row wrap" style="margin-top:10px;"><button id="copyQueueBtn" class="secondary" type="button">Copy queue</button><button id="clearQueueBtn" class="secondary" type="button">Clear queue</button></div></section>
+
+      <section class="section"><h2>Visible counts</h2><div id="countsGrid"></div></section>
+    </div>
+  </aside>
+  <div id="statusBar" hidden></div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data/states-manifest.js"></script>
+<script>
+(function(){
+  const VERSION='v21.1.2';
+  const manifest=window.CAMPING_MANIFEST||{states:[]}; window.CAMPING_STATE_DATA=window.CAMPING_STATE_DATA||{};
+  const STORAGE_KEYS={enabledStates:'campingMap.enabledStates.v2111',enabledLayers:'campingMap.enabledLayers.v2111',basemap:'campingMap.basemap.v2111',draftQueue:'campingMap.draftQueue.v2111',opp:'campingMap.opp.v2111',statesOpen:'campingMap.statesOpen.v2111'};
+  const layerDefs=[
+    {key:'federal-modern',label:'Federal · Modern',css:'pin-federal-modern'},
+    {key:'federal-rustic',label:'Federal · Rustic',css:'pin-federal-rustic'},
+    {key:'state-modern',label:'State · Modern',css:'pin-state-modern'},
+    {key:'state-rustic',label:'State · Rustic',css:'pin-state-rustic'},
+    {key:'local-modern',label:'Local · Modern',css:'pin-local-modern'},
+    {key:'local-rustic',label:'Local · Rustic',css:'pin-local-rustic'},
+    {key:'private-modern',label:'Private · Modern',css:'pin-private-modern'},
+    {key:'private-rustic',label:'Private · Rustic',css:'pin-private-rustic'},
+    {key:'boondocking',label:'Boondocking / dispersed',css:'pin-boondocking'},
+    {key:'info',label:'Info / reference',css:'pin-info'}
+  ];
+  const app={map:null,basemapLayer:null,tileLayers:{},markerGroup:null,oppLayer:null,draftMarker:null,locateMarker:null,enabledStates:new Set(loadStoredArray(STORAGE_KEYS.enabledStates, manifest.states.map(s=>s.code))),enabledLayers:new Set(loadStoredArray(STORAGE_KEYS.enabledLayers, layerDefs.map(d=>d.key))),showOpp: JSON.parse(localStorage.getItem(STORAGE_KEYS.opp) ?? 'true'),loadedStates:new Set(),statePromises:{},allSelectedSites:[],visibleSites:[],didInitialFit:false,basemapKey:localStorage.getItem(STORAGE_KEYS.basemap)||'osm',draftQueue:loadStoredArray(STORAGE_KEYS.draftQueue,[]),draftPoint:null,oppData:null};
+  const els={version:gid('versionTag'),menuToggle:gid('menuToggle'),sidebar:gid('sidebar'),closeSidebar:gid('closeSidebar'),statusLine:gid('statusLine'),statesToggle:gid('statesToggle'),statesToggleMeta:gid('statesToggleMeta'),statesPanel:gid('statesPanel'),stateQuickSelect:gid('stateQuickSelect'),stateList:gid('stateList'),selectAllStatesBtn:gid('selectAllStatesBtn'),clearStatesBtn:gid('clearStatesBtn'),layerList:gid('layerList'),basemapSelect:gid('basemapSelect'),searchInput:gid('searchInput'),searchBtn:gid('searchBtn'),searchResults:gid('searchResults'),countsGrid:gid('countsGrid'),dataStats:gid('dataStats'),statusBar:gid('statusBar'),mapLoading:gid('mapLoading'),addMode:gid('addMode'),draftCoords:gid('draftCoords'),draftName:gid('draftName'),draftState:gid('draftState'),draftCategory:gid('draftCategory'),draftWebsite:gid('draftWebsite'),draftNotes:gid('draftNotes'),appendDraftBtn:gid('appendDraftBtn'),clearDraftBtn:gid('clearDraftBtn'),draftQueue:gid('draftQueue'),copyQueueBtn:gid('copyQueueBtn'),clearQueueBtn:gid('clearQueueBtn'),oppToggle:gid('oppToggle')};
+  els.version.textContent=VERSION; els.draftQueue.value=app.draftQueue.join('\n'); els.basemapSelect.value=app.basemapKey; els.oppToggle.checked=app.showOpp;
+  const svg={tent:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 18.5 10.8 5h2.4L21 18.5h-3.1l-5.1-9.1-2.9 4.9 1.9 4.2H9.2l-1.5-3.2-1.7 3.2H3Zm6.8 0h4.5l-2.2-5-2.3 5Z"/></svg>',tree:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 4 5h-2.1l3.6 4.5H15l3 3.8h-4.2V22h-3.6v-6.7H6l3-3.8H6.5L10.1 7H8L12 2Z"/></svg>',camper:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 8.5h10.6c.8 0 1.6.4 2.1 1l2.3 2.6H21a1 1 0 0 1 1 1v4.9h-1.7a2.6 2.6 0 0 1-5.1 0H9.8a2.6 2.6 0 0 1-5.1 0H3v-8.5a1 1 0 0 1 1-1Zm1.2 1.8v2.8H14v-2.8H5.2Zm11 3.1h3.2l-1.6-1.8a1.1 1.1 0 0 0-.8-.4h-.8v2.2ZM7.2 19a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Zm10.6 0a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Z"/></svg>',info:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8A9.2 9.2 0 1 1 2.8 12 9.2 9.2 0 0 1 12 2.8Zm0 4a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm-1.7 5v1.8h1.1v3.6h-1.1V19h4.5v-1.8h-1.1v-5.4h-3.4Z"/></svg>',draft:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 17.5V20h2.5l8.6-8.6-2.5-2.5L4 17.5Zm12.4-9.9 1.5-1.5a1.2 1.2 0 0 1 1.7 0l.8.8a1.2 1.2 0 0 1 0 1.7l-1.5 1.5-2.5-2.5Z"/></svg>'};
+  function gid(id){return document.getElementById(id)}
+  function loadStoredArray(key,fallback){try{const raw=localStorage.getItem(key); if(!raw) return fallback.slice(); const parsed=JSON.parse(raw); return Array.isArray(parsed)?parsed:fallback.slice()}catch{return fallback.slice()}}
+  function saveSet(key,setObj){localStorage.setItem(key,JSON.stringify(Array.from(setObj)))}
+  function escapeHtml(str){return String(str||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+  function notify(msg,timeout=2600){els.statusBar.textContent=msg; els.statusBar.hidden=false; clearTimeout(notify._t); notify._t=setTimeout(()=>els.statusBar.hidden=true,timeout)}
+  function syncQuickStateSelect(){const selected=Array.from(app.enabledStates); const allCodes=manifest.states.map(s=>s.code); let value='__CUSTOM__'; if(selected.length===allCodes.length && allCodes.every(code=>app.enabledStates.has(code))) value='__ALL__'; else if(selected.length===1) value=selected[0]; if(els.stateQuickSelect) els.stateQuickSelect.value=value; }
+  function buildStateControls(){const sorted=manifest.states.slice().sort((a,b)=>a.name.localeCompare(b.name)); if(els.stateQuickSelect){ els.stateQuickSelect.innerHTML=['<option value="__ALL__">All states loading</option>','<option value="__CUSTOM__">Custom selection</option>',...sorted.map(s=>`<option value="${s.code}">${escapeHtml(s.name)} (${s.code})</option>`)].join(''); }
+    els.stateList.innerHTML=sorted.map(s=>`<label class="check"><input type="checkbox" data-state-toggle="${s.code}" ${app.enabledStates.has(s.code)?'checked':''}><span>${escapeHtml(s.name)}</span><span class="meta">${s.count}</span></label>`).join('');
+    syncQuickStateSelect();
+    els.stateList.querySelectorAll('[data-state-toggle]').forEach(i=>i.addEventListener('change', async e=>{const code=e.target.getAttribute('data-state-toggle'); e.target.checked?app.enabledStates.add(code):app.enabledStates.delete(code); saveSet(STORAGE_KEYS.enabledStates,app.enabledStates); syncQuickStateSelect(); syncStatesDropdown(); await refreshData();}))}
+  function buildLayerControls(){els.layerList.innerHTML=layerDefs.map(def=>`<label class="check small"><input type="checkbox" data-layer-toggle="${def.key}" ${app.enabledLayers.has(def.key)?'checked':''}><span class="legend-dot ${def.css}"></span><span>${escapeHtml(def.label)}</span></label>`).join(''); els.layerList.querySelectorAll('[data-layer-toggle]').forEach(i=>i.addEventListener('change',()=>{const k=i.getAttribute('data-layer-toggle'); i.checked?app.enabledLayers.add(k):app.enabledLayers.delete(k); saveSet(STORAGE_KEYS.enabledLayers,app.enabledLayers); renderVisibleSites(false)}))}
+  function initMap(){app.map=L.map('map',{zoomControl:true}).setView([44.9,-89.7],6); app.tileLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),topo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenTopoMap contributors'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18,attribution:'Tiles &copy; Esri'})}; setBasemap(app.basemapKey); app.markerGroup=L.layerGroup().addTo(app.map); app.oppLayer=L.geoJSON(null,{style:()=>({color:'#2d8a57',weight:2,opacity:.95,dashArray:'8 6',fillColor:'#4aa35c',fillOpacity:.12})}).addTo(app.map); app.map.on('click',e=>{if(els.addMode.checked) setDraftPoint(e.latlng.lat,e.latlng.lng)})}
+  function setBasemap(key){app.basemapKey=key in app.tileLayers?key:'osm'; if(app.basemapLayer) app.map.removeLayer(app.basemapLayer); app.basemapLayer=app.tileLayers[app.basemapKey]; app.basemapLayer.addTo(app.map); localStorage.setItem(STORAGE_KEYS.basemap,app.basemapKey)}
+  function stateFileFor(code){const item=manifest.states.find(s=>s.code===code); return item?item.file:null}
+  function loadState(code){if(window.CAMPING_STATE_DATA[code]){app.loadedStates.add(code); return Promise.resolve(window.CAMPING_STATE_DATA[code])} if(app.statePromises[code]) return app.statePromises[code]; const src=stateFileFor(code); if(!src) return Promise.reject(new Error('Missing state file for '+code)); app.statePromises[code]=new Promise((resolve,reject)=>{const script=document.createElement('script'); script.src=src; script.async=true; script.onload=()=>{app.loadedStates.add(code); resolve(window.CAMPING_STATE_DATA[code]||[])}; script.onerror=()=>reject(new Error('Could not load '+src)); document.head.appendChild(script)}); return app.statePromises[code]}
+  async function loadOpportunityAreas(){try{const res=await fetch('data/opportunity-areas.geojson'); app.oppData=await res.json(); renderOppLayer()}catch(err){console.error(err); notify('Opportunity-area file could not be loaded.',4000)}}
+  function renderOppLayer(){app.oppLayer.clearLayers(); if(!app.showOpp) return; const data=app.oppData; if(data && Array.isArray(data.features) && data.features.length) app.oppLayer.addData(data)}
+  async function refreshData(){const selected=Array.from(app.enabledStates); if(!selected.length){app.allSelectedSites=[]; renderVisibleSites(false); updateManifestStats(); return;} els.mapLoading.classList.remove('hidden'); els.statusLine.textContent='Loading state files…'; try{await Promise.all(selected.map(loadState)); app.allSelectedSites=selected.flatMap(code=>window.CAMPING_STATE_DATA[code]||[]); els.statusLine.textContent=`Loaded ${app.allSelectedSites.length} sites across ${selected.length} state file${selected.length===1?'':'s'}.`; renderVisibleSites(!app.didInitialFit); updateManifestStats()}catch(err){console.error(err); els.statusLine.textContent='One or more state files failed to load.'; notify('A state file failed to load. Check the browser console for details.',5000)}finally{els.mapLoading.classList.add('hidden')}}
+  function updateManifestStats(){els.dataStats.textContent=`${app.enabledStates.size} of ${manifest.states.length} state files enabled · ${app.allSelectedSites.length} records loaded.`}
+  function siteLayerKey(site){if(site.layer==='boondocking'||site.layer==='info') return site.layer; return `${site.layer}-${site.subtype}`}
+  function passesLayerFilter(site){return app.enabledLayers.has(siteLayerKey(site))}
+  function markerClass(site){return {'federal-modern':'pin-federal-modern','federal-rustic':'pin-federal-rustic','state-modern':'pin-state-modern','state-rustic':'pin-state-rustic','local-modern':'pin-local-modern','local-rustic':'pin-local-rustic','private-modern':'pin-private-modern','private-rustic':'pin-private-rustic','boondocking':'pin-boondocking','info':'pin-info'}[siteLayerKey(site)]||'pin-info'}
+  function iconFor(site){if(site.layer==='boondocking') return svg.tree; if(site.layer==='private') return svg.camper; if(site.layer==='info') return svg.info; return svg.tent}
+  function subtypeLabel(site){if(site.layer==='boondocking') return 'Rustic by definition'; if(site.layer==='info') return 'Info / reference'; return `${site.layer.charAt(0).toUpperCase()+site.layer.slice(1)} ${site.subtype.charAt(0).toUpperCase()+site.subtype.slice(1)}`}
+  function popupHtml(site){const nav=`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(site.lat+','+site.lng)}`; const bits=[]; if(site.owner) bits.push(`<div><strong>Owner:</strong> ${escapeHtml(site.owner)}</div>`); if(site.cost) bits.push(`<div><strong>Cost:</strong> ${escapeHtml(site.cost)}</div>`); if(site.showers) bits.push(`<div><strong>Showers:</strong> ${escapeHtml(site.showers)}</div>`); if(site.description) bits.push(`<div style="margin-top:8px;">${escapeHtml(site.description)}</div>`); return `<div class="popup-title">${escapeHtml(site.name)}</div><div class="popup-meta">${escapeHtml(site.stateName)} · ${escapeHtml(subtypeLabel(site))}</div>${bits.join('')}<div class="popup-actions"><a href="${nav}" target="_blank" rel="noopener">Navigate</a>${site.website?` <a href="${escapeHtml(site.website)}" target="_blank" rel="noopener">Website</a>`:''}</div>`}
+  function aggregateSitesForZoom(sites, zoom){ if(zoom>=8) return {items:sites.map(site=>({kind:'site',site}))}; const cellSize = zoom<=5 ? 0.8 : zoom<=6 ? 0.45 : 0.22; const buckets=new Map(); sites.forEach(site=>{const key=`${Math.round(site.lat/cellSize)}:${Math.round(site.lng/cellSize)}`; if(!buckets.has(key)) buckets.set(key,[]); buckets.get(key).push(site)}); const items=[]; buckets.forEach(bucket=>{ if(bucket.length===1){ items.push({kind:'site',site:bucket[0]}); return; } const lat=bucket.reduce((s,x)=>s+x.lat,0)/bucket.length; const lng=bucket.reduce((s,x)=>s+x.lng,0)/bucket.length; items.push({kind:'cluster',lat,lng,count:bucket.length,sites:bucket}); }); return {items:items.sort((a,b)=>(a.kind==='cluster'?0:1)-(b.kind==='cluster'?0:1))}; }
+  function renderVisibleSites(shouldFit){if(!app.map||!app.markerGroup) return; app.visibleSites=app.allSelectedSites.filter(passesLayerFilter); app.markerGroup.clearLayers(); const bounds=[]; const zoom=app.map.getZoom(); const rendered=aggregateSitesForZoom(app.visibleSites, zoom).items; rendered.forEach(item=>{ if(item.kind==='site'){ const site=item.site; const icon=L.divIcon({className:'',html:`<div class="map-pin ${markerClass(site)}">${iconFor(site)}</div>`,iconSize:[24,24],iconAnchor:[12,12],popupAnchor:[0,-12]}); const marker=L.marker([site.lat,site.lng],{icon,keyboard:false}); marker.bindPopup(popupHtml(site),{maxWidth:320}); marker.addTo(app.markerGroup); bounds.push([site.lat,site.lng]); } else { const icon=L.divIcon({className:'',html:`<div class="map-pin pin-info" style="width:30px;height:30px;font-weight:700;">${item.count}</div>`,iconSize:[30,30],iconAnchor:[15,15]}); const marker=L.marker([item.lat,item.lng],{icon,keyboard:false}); marker.on('click',()=>app.map.setView([item.lat,item.lng], Math.min(zoom+2, 10))); marker.bindPopup(`<div class="popup-title">${item.count} sites in this area</div><div class="popup-meta">Zoom in for individual campground markers.</div>`,{maxWidth:240}); marker.addTo(app.markerGroup); bounds.push([item.lat,item.lng]); }}); if(shouldFit && bounds.length){app.map.fitBounds(bounds,{padding:[32,32]}); app.didInitialFit=true} updateCounts(); els.statusLine.textContent=`Loaded ${app.allSelectedSites.length} sites across ${app.enabledStates.size} state file${app.enabledStates.size===1?'':'s'} · zoom ${zoom<8?'grouped':'detailed'} view.` }
+
+  function updateCounts(){const counts={}; layerDefs.forEach(d=>counts[d.key]=0); app.visibleSites.forEach(site=>counts[siteLayerKey(site)] = (counts[siteLayerKey(site)]||0)+1); const cards=[['Visible total',app.visibleSites.length],['Federal modern',counts['federal-modern']],['Federal rustic',counts['federal-rustic']],['State modern',counts['state-modern']],['State rustic',counts['state-rustic']],['Local modern',counts['local-modern']],['Local rustic',counts['local-rustic']],['Private modern',counts['private-modern']],['Private rustic',counts['private-rustic']],['Boondocking',counts['boondocking']],['Info',counts['info']]]; els.countsGrid.innerHTML=cards.map(([label,val])=>`<div class="count-card"><div class="muted">${escapeHtml(label)}</div><strong>${val||0}</strong></div>`).join('')}
+  async function searchPlaces(){const q=els.searchInput.value.trim(); if(!q) return; els.searchResults.innerHTML='<div class="muted">Searching…</div>'; try{const res=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&q='+encodeURIComponent(q),{headers:{Accept:'application/json'}}); const data=await res.json(); if(!Array.isArray(data)||!data.length){els.searchResults.innerHTML='<div class="muted">No results found.</div>'; return;} els.searchResults.innerHTML=data.map((item,idx)=>`<div class="search-result"><div><strong>${escapeHtml(item.display_name)}</strong></div><button class="secondary" data-search-index="${idx}">Go there</button></div>`).join(''); els.searchResults.querySelectorAll('[data-search-index]').forEach(btn=>btn.addEventListener('click',()=>{const item=data[Number(btn.getAttribute('data-search-index'))]; const lat=Number(item.lat),lng=Number(item.lon); app.map.setView([lat,lng],11); if(app.locateMarker) app.map.removeLayer(app.locateMarker); app.locateMarker=L.circleMarker([lat,lng],{radius:8,color:'#d44516',weight:2,fillColor:'#ffd7c9',fillOpacity:.95}).addTo(app.map)}))}catch(err){console.error(err); els.searchResults.innerHTML='<div class="muted">Search failed. Try again in a moment.</div>'}}
+  function setDraftPoint(lat,lng){app.draftPoint={lat:+lat.toFixed(6),lng:+lng.toFixed(6)}; els.draftCoords.textContent=`${app.draftPoint.lat}, ${app.draftPoint.lng}`; if(app.draftMarker) app.map.removeLayer(app.draftMarker); const icon=L.divIcon({className:'',html:`<div class="map-pin pin-draft">${svg.draft}</div>`,iconSize:[24,24],iconAnchor:[12,12]}); app.draftMarker=L.marker([lat,lng],{icon}).addTo(app.map)}
+  function appendDraftRecord(){if(!app.draftPoint){notify('Drop a draft pin on the map first.'); return;} const rec={name:els.draftName.value.trim()||'Untitled site',category:els.draftCategory.value,state:els.draftState.value.trim().toUpperCase()||'',lat:app.draftPoint.lat,lng:app.draftPoint.lng,website:els.draftWebsite.value.trim(),notes:els.draftNotes.value.trim()}; app.draftQueue.push(JSON.stringify(rec)); localStorage.setItem(STORAGE_KEYS.draftQueue,JSON.stringify(app.draftQueue)); els.draftQueue.value=app.draftQueue.join('\n'); notify('Draft appended to queue.'); els.draftName.value=''; els.draftWebsite.value=''; els.draftNotes.value=''}
+  function clearDraftPoint(){app.draftPoint=null; els.draftCoords.textContent='No draft point selected.'; if(app.draftMarker){app.map.removeLayer(app.draftMarker); app.draftMarker=null}}
+  function syncStatesDropdown(){ const open=JSON.parse(localStorage.getItem(STORAGE_KEYS.statesOpen)||'false'); els.statesPanel.style.display=open?'block':'none'; els.statesToggle.setAttribute('aria-expanded', open?'true':'false'); els.statesToggleMeta.textContent=`${app.enabledStates.size}/${manifest.states.length} selected ${open?'▾':'▸'}`; }
+  function bindEvents(){els.menuToggle.addEventListener('click',()=>els.sidebar.classList.toggle('closed')); els.closeSidebar.addEventListener('click',()=>els.sidebar.classList.add('closed')); els.basemapSelect.addEventListener('change',()=>setBasemap(els.basemapSelect.value)); els.searchBtn.addEventListener('click',searchPlaces); els.searchInput.addEventListener('keydown',e=>{if(e.key==='Enter') searchPlaces()}); els.statesToggle.addEventListener('click',()=>{const open=!(els.statesPanel.style.display==='block'); localStorage.setItem(STORAGE_KEYS.statesOpen, JSON.stringify(open)); syncStatesDropdown();}); if(els.stateQuickSelect){ els.stateQuickSelect.addEventListener('change', async e=>{const value=e.target.value; if(value==='__CUSTOM__'){ syncQuickStateSelect(); return; } app.enabledStates = value==='__ALL__' ? new Set(manifest.states.map(s=>s.code)) : new Set([value]); saveSet(STORAGE_KEYS.enabledStates,app.enabledStates); buildStateControls(); syncStatesDropdown(); await refreshData(); }); } els.selectAllStatesBtn.addEventListener('click', async()=>{app.enabledStates=new Set(manifest.states.map(s=>s.code)); saveSet(STORAGE_KEYS.enabledStates,app.enabledStates); buildStateControls(); syncStatesDropdown(); await refreshData()}); els.clearStatesBtn.addEventListener('click', async()=>{app.enabledStates=new Set(); saveSet(STORAGE_KEYS.enabledStates,app.enabledStates); buildStateControls(); syncStatesDropdown(); await refreshData()}); els.oppToggle.addEventListener('change',()=>{app.showOpp=els.oppToggle.checked; localStorage.setItem(STORAGE_KEYS.opp, JSON.stringify(app.showOpp)); renderOppLayer()}); els.appendDraftBtn.addEventListener('click',appendDraftRecord); els.clearDraftBtn.addEventListener('click',clearDraftPoint); els.copyQueueBtn.addEventListener('click', async()=>{try{await navigator.clipboard.writeText(els.draftQueue.value); notify('Queue copied to clipboard.')}catch{notify('Clipboard copy failed.',3200)}}); els.clearQueueBtn.addEventListener('click',()=>{app.draftQueue=[]; localStorage.setItem(STORAGE_KEYS.draftQueue,JSON.stringify(app.draftQueue)); els.draftQueue.value=''; notify('Queue cleared.')}); app.map.on('zoomend',()=>renderVisibleSites(false)); }
+
+  initMap(); buildStateControls(); buildLayerControls(); bindEvents(); syncStatesDropdown(); loadOpportunityAreas(); refreshData();
+})();
+</script>
+</body></html>
