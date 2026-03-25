@@ -1,1133 +1,306 @@
 {
-  "version": "v22.0.2",
-  "masterSiteCount": 1093,
-  "generatedStateCount": 27,
-  "reasonCounts": {
-    "mi_geometry": 500,
-    "prior21": 312,
-    "mo_geometry": 18,
-    "wi_geometry": 131,
-    "il_geometry": 46,
-    "sd_geometry": 5,
-    "mn_geometry": 17,
-    "ne_geometry": 12,
-    "me_geometry": 6,
-    "in_geometry": 5,
-    "ia_geometry": 11,
-    "ar_geometry": 23,
-    "oh_geometry": 2,
-    "nh_geometry": 1,
-    "explicit": 4
-  },
-  "stateCounts": {
-    "AL": 1,
-    "AZ": 6,
-    "AR": 33,
-    "CA": 9,
-    "CO": 32,
-    "DE": 1,
-    "IL": 98,
-    "IN": 8,
-    "IA": 20,
-    "KS": 4,
-    "LA": 3,
-    "ME": 6,
-    "MI": 507,
-    "MN": 25,
-    "MS": 2,
-    "MO": 36,
-    "MT": 7,
-    "NE": 17,
-    "NV": 1,
-    "OH": 1,
-    "OK": 1,
-    "SD": 6,
-    "TN": 22,
-    "UT": 10,
-    "WI": 222,
-    "WY": 14,
-    "NH": 1
-  },
-  "sampleCorrections": [
+  "version": "v22.1.0",
+  "totalRecords": 1103,
+  "states": [
+    {
+      "code": "AR",
+      "name": "Arkansas",
+      "count": 33,
+      "counts": {
+        "state_modern": 33
+      },
+      "file": "data/states/AR.js"
+    },
+    {
+      "code": "AZ",
+      "name": "Arizona",
+      "count": 6,
+      "counts": {
+        "state_modern": 4,
+        "federal_rustic": 1,
+        "info_modern": 1
+      },
+      "file": "data/states/AZ.js"
+    },
+    {
+      "code": "CA",
+      "name": "California",
+      "count": 9,
+      "counts": {
+        "state_modern": 6,
+        "boondocking_rustic": 3
+      },
+      "file": "data/states/CA.js"
+    },
+    {
+      "code": "CO",
+      "name": "Colorado",
+      "count": 33,
+      "counts": {
+        "state_modern": 8,
+        "federal_rustic": 7,
+        "boondocking_rustic": 15,
+        "info_modern": 3
+      },
+      "file": "data/states/CO.js"
+    },
+    {
+      "code": "DE",
+      "name": "Delaware",
+      "count": 1,
+      "counts": {
+        "private_modern": 1
+      },
+      "file": "data/states/DE.js"
+    },
+    {
+      "code": "FL",
+      "name": "Florida",
+      "count": 1,
+      "counts": {
+        "local_rustic": 1
+      },
+      "file": "data/states/FL.js"
+    },
+    {
+      "code": "IA",
+      "name": "Iowa",
+      "count": 20,
+      "counts": {
+        "state_modern": 15,
+        "local_modern": 3,
+        "boondocking_rustic": 1,
+        "info_modern": 1
+      },
+      "file": "data/states/IA.js"
+    },
+    {
+      "code": "IL",
+      "name": "Illinois",
+      "count": 102,
+      "counts": {
+        "private_modern": 5,
+        "state_modern": 85,
+        "local_modern": 5,
+        "federal_rustic": 4,
+        "boondocking_rustic": 3
+      },
+      "file": "data/states/IL.js"
+    },
+    {
+      "code": "IN",
+      "name": "Indiana",
+      "count": 5,
+      "counts": {
+        "private_modern": 1,
+        "federal_rustic": 1,
+        "boondocking_rustic": 1,
+        "info_modern": 1,
+        "state_modern": 1
+      },
+      "file": "data/states/IN.js"
+    },
     {
-      "id": "s7",
-      "name": "Addison Oaks County Park",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.8025656,
-      "lng": -83.1625893
-    },
-    {
-      "id": "s10",
-      "name": "Algonac State Park",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.647298,
-      "lng": -82.5145568
-    },
-    {
-      "id": "s23",
-      "name": "Apple Creek Campground & RV Park",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.192393,
-      "lng": -84.204494
-    },
-    {
-      "id": "s24",
-      "name": "Apple River Canyon State Park",
-      "from": "WI",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 42.4468486,
-      "lng": -90.0528942
-    },
-    {
-      "id": "s25",
-      "name": "Appleton Lake Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.5063233,
-      "lng": -83.8359833
-    },
-    {
-      "id": "s44",
-      "name": "Baileys Grove Campground",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 45.07181,
-      "lng": -87.135335
-    },
-    {
-      "id": "s45",
-      "name": "Baileys Woods Campground",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 45.071147,
-      "lng": -87.1444256
-    },
-    {
-      "id": "s63",
-      "name": "Beaufort Lake State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.5478074,
-      "lng": -88.1889037
-    },
-    {
-      "id": "s65",
-      "name": "Beaver Island Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.904267,
-      "lng": -89.1742311
-    },
-    {
-      "id": "s76",
-      "name": "Bewabic State Park",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.0942849,
-      "lng": -88.4255324
-    },
-    {
-      "id": "s78",
-      "name": "Bewabik Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.0892801,
-      "lng": -88.4350772
-    },
-    {
-      "id": "s86",
-      "name": "Big Eric's Bridge State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.8646395,
-      "lng": -88.0839707
-    },
-    {
-      "id": "s88",
-      "name": "Big Lake State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.6110982,
-      "lng": -88.5690704
-    },
-    {
-      "id": "s89",
-      "name": "Big Lake State Park",
-      "from": "IA",
-      "to": "NE",
-      "reason": "ne_geometry",
-      "lat": 40.0862149,
-      "lng": -95.3425882
-    },
-    {
-      "id": "s92",
-      "name": "Bishop Lake Campgrounds",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.5028578,
-      "lng": -83.8446521
-    },
-    {
-      "id": "s139",
-      "name": "Bruin Lake Modern Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.4236822,
-      "lng": -84.0426624
-    },
-    {
-      "id": "s143",
-      "name": "Buffalo Creek Wildlife Management Area",
-      "from": "CO",
-      "to": "NE",
-      "reason": "ne_geometry",
-      "lat": 41.7028324,
-      "lng": -103.5748979
-    },
-    {
-      "id": "s149",
-      "name": "Cade Lake County Park & Campground",
-      "from": "IN",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 41.796808,
-      "lng": -85.369557
-    },
-    {
-      "id": "s153",
-      "name": "Camp Cadiz",
-      "from": "TN",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 37.5774654,
-      "lng": -88.2453257
-    },
-    {
-      "id": "s165",
-      "name": "Carney Lake State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 45.8919444,
-      "lng": -87.94
-    },
-    {
-      "id": "s172",
-      "name": "Cave-In-Rock State Park",
-      "from": "TN",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 37.4687121,
-      "lng": -88.1550788
-    },
-    {
-      "id": "s199",
-      "name": "Cliffside Park Campgrounds",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 42.8196479,
-      "lng": -87.8233787
-    },
-    {
-      "id": "s220",
-      "name": "Craig Lake Trailhead",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.5993414,
-      "lng": -88.1896578
-    },
-    {
-      "id": "s224",
-      "name": "Crooked Lake Rustic Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.4211493,
-      "lng": -83.9799803
-    },
-    {
-      "id": "s234",
-      "name": "Dead River #1",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.6422225,
-      "lng": -87.8237293
-    },
-    {
-      "id": "s236",
-      "name": "Deer Lake State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.3258333,
-      "lng": -88.3241667
-    },
-    {
-      "id": "s248",
-      "name": "Devils River Campground",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 44.2986742,
-      "lng": -87.7769526
-    },
-    {
-      "id": "s253",
-      "name": "Dixon Springs State Park Campground",
-      "from": "TN",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 37.3833692,
-      "lng": -88.6662623
-    },
-    {
-      "id": "s259",
-      "name": "Dune Lake Campground",
-      "from": "IN",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.2573443,
-      "lng": -86.329028
-    },
-    {
-      "id": "s277",
-      "name": "Emily Lake State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.856845,
-      "lng": -88.8549562
-    },
-    {
-      "id": "s294",
-      "name": "Fish Creek Campground",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 45.1215566,
-      "lng": -87.2158391
-    },
-    {
-      "id": "s309",
-      "name": "Fort Massac State Park",
-      "from": "TN",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 37.144089,
-      "lng": -88.7115901
-    },
-    {
-      "id": "s310",
-      "name": "Fort Wilkins Historic State Park",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.4676544,
-      "lng": -87.8619897
-    },
-    {
-      "id": "s326",
-      "name": "Garden of the Gods Recreational Area",
-      "from": "TN",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 37.59202,
-      "lng": -88.3998047
-    },
-    {
-      "id": "s330",
-      "name": "Genes Pond State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.0725,
-      "lng": -87.8638889
-    },
-    {
-      "id": "s338",
-      "name": "Glidden Lake State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.0703753,
-      "lng": -88.2378151
-    },
-    {
-      "id": "s349",
-      "name": "Green Lake Rustic Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.3644995,
-      "lng": -84.0713019
-    },
-    {
-      "id": "s355",
-      "name": "Group Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.4660331,
-      "lng": -87.8774834
-    },
-    {
-      "id": "s370",
-      "name": "Hayes State Park Campground-East Loop",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.0658728,
-      "lng": -84.126153
-    },
-    {
-      "id": "s371",
-      "name": "Hayes State Park Campground-West Loop",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.0664426,
-      "lng": -84.1315262
-    },
-    {
-      "id": "s377",
-      "name": "Hell Creek Ranch Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.4402537,
-      "lng": -83.9651112
-    },
-    {
-      "id": "s391",
-      "name": "High Rock Bay",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.4267873,
-      "lng": -87.7144562
-    },
-    {
-      "id": "s413",
-      "name": "HTR Door County Campground & RV Resort",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 45.0667253,
-      "lng": -87.2621039
-    },
-    {
-      "id": "s420",
-      "name": "Indian Lake State Park Campground",
-      "from": "MI",
-      "to": "OH",
-      "reason": "oh_geometry",
-      "lat": 40.5148841,
-      "lng": -83.8996696
-    },
-    {
-      "id": "s434",
-      "name": "Island Lake-Canoe Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.5169855,
-      "lng": -83.690995
-    },
-    {
-      "id": "s437",
-      "name": "Jack Sinn Memorial Wildlife Management Area",
-      "from": "KS",
-      "to": "IA",
-      "reason": "ia_geometry",
-      "lat": 41.0306771,
-      "lng": -96.6443474
-    },
-    {
-      "id": "s439",
-      "name": "Jackson Falls",
-      "from": "TN",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 37.5081391,
-      "lng": -88.6832446
-    },
-    {
-      "id": "s444",
-      "name": "Jellystone Park Camp-Resort in Caledonia, WI",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 42.8345412,
-      "lng": -87.9139957
-    },
-    {
-      "id": "s450",
-      "name": "John W Kyle State Park",
-      "from": "MS",
-      "to": "AR",
-      "reason": "ar_geometry",
-      "lat": 34.4094107,
-      "lng": -89.8038626
-    },
-    {
-      "id": "s465",
-      "name": "King Lake State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.531111,
-      "lng": -88.4022222
-    },
-    {
-      "id": "s490",
-      "name": "Lake Chicot State Park",
-      "from": "MS",
-      "to": "AR",
-      "reason": "ar_geometry",
-      "lat": 33.3719416,
-      "lng": -91.1957801
-    },
-    {
-      "id": "s503",
-      "name": "Lake Linden Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.1898074,
-      "lng": -88.4042089
-    },
-    {
-      "id": "s568",
-      "name": "Lower Dam Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.18688685020441,
-      "lng": -87.66092363273724
-    },
-    {
-      "id": "s593",
-      "name": "McLain State Park",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.2332801,
-      "lng": -88.6159168
-    },
-    {
-      "id": "s606",
-      "name": "Michigamme beach area campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.5266966,
-      "lng": -88.1229844
-    },
-    {
-      "id": "s607",
-      "name": "Michigamme Shores Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.531763,
-      "lng": -88.0111239
-    },
-    {
-      "id": "s613",
-      "name": "Misery Bay Boat Launch",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.9984775,
-      "lng": -88.9794594
-    },
-    {
-      "id": "s616",
-      "name": "Moose Alley",
-      "from": "VT",
-      "to": "NH",
-      "reason": "nh_geometry",
-      "lat": 45.1207188,
-      "lng": -71.2481822
-    },
-    {
-      "id": "s621",
-      "name": "Mouth of the Huron",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.9116451,
-      "lng": -88.0441042
-    },
-    {
-      "id": "s627",
-      "name": "Murray Lake Rustic Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.509111,
-      "lng": -83.812415
-    },
-    {
-      "id": "s658",
-      "name": "Ojibwa Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.7891667,
-      "lng": -88.4711111
-    },
-    {
-      "id": "s664",
-      "name": "One Horse Gap Lake",
-      "from": "TN",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 37.5169939,
-      "lng": -88.4467095
-    },
-    {
-      "id": "s666",
-      "name": "Ontonagon Township Park and Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.881934,
-      "lng": -89.3038498
-    },
-    {
-      "id": "s675",
-      "name": "Palisades State Park",
-      "from": "IA",
-      "to": "MN",
-      "reason": "mn_geometry",
-      "lat": 43.6907022,
-      "lng": -96.5126387
-    },
-    {
-      "id": "s687",
-      "name": "Perkins Park",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.8131144,
-      "lng": -87.7263906
-    },
-    {
-      "id": "s688",
-      "name": "Perrault Lake Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.0296262,
-      "lng": -88.7310288
-    },
-    {
-      "id": "s704",
-      "name": "Pine Ridge Campground",
-      "from": "TN",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 37.6147709,
-      "lng": -88.2678149
-    },
-    {
-      "id": "s713",
-      "name": "Pinnacle Falls lot",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.7111579,
-      "lng": -87.8065897
-    },
-    {
-      "id": "s727",
-      "name": "Point Abbeye",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.9639027,
-      "lng": -88.1396852
-    },
-    {
-      "id": "s729",
-      "name": "Point Beach State Forest",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 44.1918378,
-      "lng": -87.5192908
-    },
-    {
-      "id": "s735",
-      "name": "Pontiac Lake State Recreation Area Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.6859718,
-      "lng": -83.4725745
-    },
-    {
-      "id": "s741",
-      "name": "Portage Lake Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.3289483,
-      "lng": -84.2366057
-    },
-    {
-      "id": "s742",
-      "name": "Portage Lake Campground, Waterloo Recreation Area",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.3281153,
-      "lng": -84.2416184
-    },
-    {
-      "id": "s753",
-      "name": "Proud Lake Rec Area - Modern Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.5632851,
-      "lng": -83.5277624
-    },
-    {
-      "id": "s754",
-      "name": "Proud Lake State Park - Organizational Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.5740746,
-      "lng": -83.5554242
-    },
-    {
-      "id": "s821",
-      "name": "Schoolcraft Township Park",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.1797402,
-      "lng": -88.2413117
-    },
-    {
-      "id": "s831",
-      "name": "Shamrock Park",
-      "from": "IN",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 41.9519924,
-      "lng": -86.3344904
-    },
-    {
-      "id": "s839",
-      "name": "Silver Lake - Boat in",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.6664939,
-      "lng": -87.8529904
-    },
-    {
-      "id": "s840",
-      "name": "Silver Lake 1",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.6612423,
-      "lng": -87.8371345
-    },
-    {
-      "id": "s841",
-      "name": "Silver Lake 2",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.650547,
-      "lng": -87.8510469
-    },
-    {
-      "id": "s842",
-      "name": "Silver Lake 3",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.6542482,
-      "lng": -87.8143247
-    },
-    {
-      "id": "s875",
-      "name": "Stannard Township RV Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.5370354,
-      "lng": -89.1770282
-    },
-    {
-      "id": "s887",
-      "name": "Sturgeon Gorge Boondocking",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.5737562,
-      "lng": -88.6635304
-    },
-    {
-      "id": "s888",
-      "name": "Sturgeon River bridge",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.6147989,
-      "lng": -88.4526484
-    },
-    {
-      "id": "s889",
-      "name": "Sturgeon River Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.570036,
-      "lng": -88.656507
-    },
-    {
-      "id": "s891",
-      "name": "Sugarloaf Lake Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.3419643,
-      "lng": -84.121542
-    },
-    {
-      "id": "s923",
-      "name": "Tower Rock Campground, Shawnee National Forest",
-      "from": "TN",
-      "to": "IL",
-      "reason": "il_geometry",
-      "lat": 37.4583352,
-      "lng": -88.232835
-    },
-    {
-      "id": "s931",
-      "name": "Trails End Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.4727408,
-      "lng": -87.9104344
-    },
-    {
-      "id": "s932",
-      "name": "Tranquil Timbers Campground",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 44.8478825,
-      "lng": -87.404201
-    },
-    {
-      "id": "s944",
-      "name": "Twin Lakes State Wildlife Management Area",
-      "from": "KS",
-      "to": "NE",
-      "reason": "ne_geometry",
-      "lat": 40.8284538,
-      "lng": -96.944732
-    },
-    {
-      "id": "s947",
-      "name": "Union Bay Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.8198972,
-      "lng": -89.6400293
-    },
-    {
-      "id": "s969",
-      "name": "Wallace Creek Campground",
-      "from": "MS",
-      "to": "AR",
-      "reason": "ar_geometry",
-      "lat": 34.159457,
-      "lng": -89.891585
-    },
-    {
-      "id": "s975",
-      "name": "Waterloo State Recreation Area",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 42.336258,
-      "lng": -84.1706505
-    },
-    {
-      "id": "s982",
-      "name": "Weborg Point Campground",
-      "from": "MI",
-      "to": "WI",
-      "reason": "wi_geometry",
-      "lat": 45.1342943,
-      "lng": -87.240084
-    },
-    {
-      "id": "s986",
-      "name": "West Branch State Forest Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.18731712595539,
-      "lng": -87.74713141313383
-    },
-    {
-      "id": "s1002",
-      "name": "Wilderness Campground",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 41.9359179,
-      "lng": -83.6137788
-    },
-    {
-      "id": "s1009",
-      "name": "Wilkins state park west camping ground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.4663134,
-      "lng": -87.8700101
-    },
-    {
-      "id": "s1010",
-      "name": "William C. Sterling State Park Campgrounds",
-      "from": "OH",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 41.9065545,
-      "lng": -83.3376647
-    },
-    {
-      "id": "s1018",
-      "name": "Witz marine and campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.8871116,
-      "lng": -88.2083892
-    },
-    {
-      "id": "s1024",
-      "name": "Yankee Hill State Wildlife Management Area",
-      "from": "KS",
-      "to": "NE",
-      "reason": "ne_geometry",
-      "lat": 40.7288236,
-      "lng": -96.7964571
-    },
-    {
-      "id": "s1026",
-      "name": "Yellow Dog #2",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.7156626,
-      "lng": -87.8410567
-    },
-    {
-      "id": "s1027",
-      "name": "Yellow Dog 3",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.7116544,
-      "lng": -87.8190803
-    },
-    {
-      "id": "s1031",
-      "name": "Bob Lake Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.66230759,
-      "lng": -88.91411255
-    },
-    {
-      "id": "s1032",
-      "name": "Courtney Lake Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.41583408,
-      "lng": -88.68205671
-    },
-    {
-      "id": "s1033",
-      "name": "Lake Ste. Kathryn Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.39317419,
-      "lng": -88.72262918
-    },
-    {
-      "id": "s1047",
-      "name": "Norway Lake Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.41583408,
-      "lng": -88.68205671
-    },
-    {
-      "id": "s1048",
-      "name": "Sparrow Rapids Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.50477544,
-      "lng": -88.94735023
-    },
-    {
-      "id": "s1049",
-      "name": "River Road RV Park & Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.865565,
-      "lng": -89.317878
-    },
-    {
-      "id": "s1052",
-      "name": "Lake Ste Kathryn Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.39317419,
-      "lng": -88.72262918
-    },
-    {
-      "id": "s1053",
-      "name": "Craig Lake Backcountry Campsites",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.539832,
-      "lng": -88.135471
-    },
-    {
-      "id": "s1055",
-      "name": "Agate Beach Park Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.03968205,
-      "lng": -88.9258144
-    },
-    {
-      "id": "s1057",
-      "name": "Hancock Recreation Area Beach & Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.13271326,
-      "lng": -88.6165734
-    },
-    {
-      "id": "s1058",
-      "name": "City of Houghton RV Park",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.12032087,
-      "lng": -88.58770467
-    },
-    {
-      "id": "s1059",
-      "name": "Keweenaw Waters Resort",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.112569,
-      "lng": -88.620485
-    },
-    {
-      "id": "s1060",
-      "name": "Lake Linden Village Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.18963604,
-      "lng": -88.4050754
-    },
-    {
-      "id": "s1061",
-      "name": "L'Anse Township Park & Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.782548,
-      "lng": -88.432739
-    },
-    {
-      "id": "s1062",
-      "name": "Ojibwa RV Park",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.77930838,
-      "lng": -88.49834628
-    },
-    {
-      "id": "s1063",
-      "name": "Baraga State Park",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.76052,
-      "lng": -88.49981
-    },
-    {
-      "id": "s1064",
-      "name": "Twin Lakes State Park",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 46.8909,
-      "lng": -88.8577
-    },
-    {
-      "id": "s1065",
-      "name": "Lake Fanny Hooe Resort & Campground",
-      "from": "WI",
-      "to": "MI",
-      "reason": "mi_geometry",
-      "lat": 47.469698,
-      "lng": -87.88719
+      "code": "KS",
+      "name": "Kansas",
+      "count": 4,
+      "counts": {
+        "info_modern": 4
+      },
+      "file": "data/states/KS.js"
+    },
+    {
+      "code": "LA",
+      "name": "Louisiana",
+      "count": 3,
+      "counts": {
+        "state_modern": 3
+      },
+      "file": "data/states/LA.js"
+    },
+    {
+      "code": "ME",
+      "name": "Maine",
+      "count": 6,
+      "counts": {
+        "boondocking_rustic": 3,
+        "state_modern": 2,
+        "info_modern": 1
+      },
+      "file": "data/states/ME.js"
+    },
+    {
+      "code": "MI",
+      "name": "Michigan",
+      "count": 513,
+      "counts": {
+        "state_rustic": 125,
+        "boondocking_rustic": 52,
+        "local_modern": 43,
+        "local_rustic": 3,
+        "private_modern": 35,
+        "state_modern": 224,
+        "federal_rustic": 22,
+        "federal_modern": 7,
+        "private_rustic": 2
+      },
+      "file": "data/states/MI.js"
+    },
+    {
+      "code": "MN",
+      "name": "Minnesota",
+      "count": 27,
+      "counts": {
+        "private_modern": 15,
+        "federal_rustic": 2,
+        "state_modern": 9,
+        "info_modern": 1
+      },
+      "file": "data/states/MN.js"
+    },
+    {
+      "code": "MO",
+      "name": "Missouri",
+      "count": 36,
+      "counts": {
+        "state_modern": 33,
+        "private_modern": 2,
+        "federal_rustic": 1
+      },
+      "file": "data/states/MO.js"
+    },
+    {
+      "code": "MS",
+      "name": "Mississippi",
+      "count": 2,
+      "counts": {
+        "federal_rustic": 2
+      },
+      "file": "data/states/MS.js"
+    },
+    {
+      "code": "MT",
+      "name": "Montana",
+      "count": 7,
+      "counts": {
+        "federal_rustic": 5,
+        "state_modern": 1,
+        "boondocking_rustic": 1
+      },
+      "file": "data/states/MT.js"
+    },
+    {
+      "code": "ND",
+      "name": "North Dakota",
+      "count": 2,
+      "counts": {
+        "boondocking_rustic": 1,
+        "federal_rustic": 1
+      },
+      "file": "data/states/ND.js"
+    },
+    {
+      "code": "NE",
+      "name": "Nebraska",
+      "count": 18,
+      "counts": {
+        "state_modern": 6,
+        "local_modern": 1,
+        "boondocking_rustic": 7,
+        "federal_rustic": 4
+      },
+      "file": "data/states/NE.js"
+    },
+    {
+      "code": "NH",
+      "name": "New Hampshire",
+      "count": 1,
+      "counts": {
+        "boondocking_rustic": 1
+      },
+      "file": "data/states/NH.js"
+    },
+    {
+      "code": "OH",
+      "name": "Ohio",
+      "count": 1,
+      "counts": {
+        "state_modern": 1
+      },
+      "file": "data/states/OH.js"
+    },
+    {
+      "code": "SD",
+      "name": "South Dakota",
+      "count": 8,
+      "counts": {
+        "boondocking_rustic": 3,
+        "federal_rustic": 2,
+        "state_modern": 2,
+        "info_modern": 1
+      },
+      "file": "data/states/SD.js"
+    },
+    {
+      "code": "TN",
+      "name": "Tennessee",
+      "count": 21,
+      "counts": {
+        "federal_rustic": 7,
+        "private_modern": 10,
+        "state_modern": 4
+      },
+      "file": "data/states/TN.js"
+    },
+    {
+      "code": "TX",
+      "name": "Texas",
+      "count": 1,
+      "counts": {
+        "federal_rustic": 1
+      },
+      "file": "data/states/TX.js"
+    },
+    {
+      "code": "UT",
+      "name": "Utah",
+      "count": 9,
+      "counts": {
+        "federal_rustic": 1,
+        "boondocking_rustic": 4,
+        "private_modern": 1,
+        "state_modern": 3
+      },
+      "file": "data/states/UT.js"
+    },
+    {
+      "code": "WI",
+      "name": "Wisconsin",
+      "count": 216,
+      "counts": {
+        "private_modern": 103,
+        "state_modern": 74,
+        "federal_rustic": 16,
+        "local_modern": 9,
+        "boondocking_rustic": 4,
+        "federal_modern": 7,
+        "private_rustic": 1,
+        "state_rustic": 1,
+        "info_modern": 1
+      },
+      "file": "data/states/WI.js"
+    },
+    {
+      "code": "WY",
+      "name": "Wyoming",
+      "count": 18,
+      "counts": {
+        "boondocking_rustic": 4,
+        "federal_rustic": 9,
+        "state_modern": 5
+      },
+      "file": "data/states/WY.js"
     }
-  ]
+  ],
+  "changes": 10
 }
