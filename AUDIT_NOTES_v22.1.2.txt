@@ -1,0 +1,13 @@
+v22.1.2 targeted state-split corrections
+- Campground #2: AR -> MO
+- John W Kyle State Park: AR -> MS
+- Roaring River State Park: AR -> MO
+- Table Rock State Park Campground 1: AR -> MO
+- Wallace Creek Campground: AR -> MS
+- Gifford Point WMA: IA -> NE
+- Nelson Dewey State Park: IA -> WI
+- Old Town Park: IA -> KS
+- Wyalusing Hardwood Forest: IA -> WI
+- Black River NFCG: WI -> MI
+- Bobcat Campground: WI -> MI
+- Henry Lake Campground: WI -> MI

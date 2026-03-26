@@ -1,306 +1,96 @@
 {
-  "version": "v22.1.0",
-  "totalRecords": 1103,
-  "states": [
+  "version": "v22.1.2",
+  "changed_records": [
     {
-      "code": "AR",
-      "name": "Arkansas",
-      "count": 33,
-      "counts": {
-        "state_modern": 33
-      },
-      "file": "data/states/AR.js"
+      "name": "Campground #2",
+      "from": "AR",
+      "to": "MO"
     },
     {
-      "code": "AZ",
-      "name": "Arizona",
-      "count": 6,
-      "counts": {
-        "state_modern": 4,
-        "federal_rustic": 1,
-        "info_modern": 1
-      },
-      "file": "data/states/AZ.js"
+      "name": "John W Kyle State Park",
+      "from": "AR",
+      "to": "MS"
     },
     {
-      "code": "CA",
-      "name": "California",
-      "count": 9,
-      "counts": {
-        "state_modern": 6,
-        "boondocking_rustic": 3
-      },
-      "file": "data/states/CA.js"
+      "name": "Roaring River State Park",
+      "from": "AR",
+      "to": "MO"
     },
     {
-      "code": "CO",
-      "name": "Colorado",
-      "count": 33,
-      "counts": {
-        "state_modern": 8,
-        "federal_rustic": 7,
-        "boondocking_rustic": 15,
-        "info_modern": 3
-      },
-      "file": "data/states/CO.js"
+      "name": "Table Rock State Park Campground 1",
+      "from": "AR",
+      "to": "MO"
     },
     {
-      "code": "DE",
-      "name": "Delaware",
-      "count": 1,
-      "counts": {
-        "private_modern": 1
-      },
-      "file": "data/states/DE.js"
+      "name": "Wallace Creek Campground",
+      "from": "AR",
+      "to": "MS"
     },
     {
-      "code": "FL",
-      "name": "Florida",
-      "count": 1,
-      "counts": {
-        "local_rustic": 1
-      },
-      "file": "data/states/FL.js"
+      "name": "Gifford Point WMA",
+      "from": "IA",
+      "to": "NE"
     },
     {
-      "code": "IA",
-      "name": "Iowa",
-      "count": 20,
-      "counts": {
-        "state_modern": 15,
-        "local_modern": 3,
-        "boondocking_rustic": 1,
-        "info_modern": 1
-      },
-      "file": "data/states/IA.js"
+      "name": "Nelson Dewey State Park",
+      "from": "IA",
+      "to": "WI"
     },
     {
-      "code": "IL",
-      "name": "Illinois",
-      "count": 102,
-      "counts": {
-        "private_modern": 5,
-        "state_modern": 85,
-        "local_modern": 5,
-        "federal_rustic": 4,
-        "boondocking_rustic": 3
-      },
-      "file": "data/states/IL.js"
+      "name": "Old Town Park",
+      "from": "IA",
+      "to": "KS"
     },
     {
-      "code": "IN",
-      "name": "Indiana",
-      "count": 5,
-      "counts": {
-        "private_modern": 1,
-        "federal_rustic": 1,
-        "boondocking_rustic": 1,
-        "info_modern": 1,
-        "state_modern": 1
-      },
-      "file": "data/states/IN.js"
+      "name": "Wyalusing Hardwood Forest",
+      "from": "IA",
+      "to": "WI"
     },
     {
-      "code": "KS",
-      "name": "Kansas",
-      "count": 4,
-      "counts": {
-        "info_modern": 4
-      },
-      "file": "data/states/KS.js"
+      "name": "Black River NFCG",
+      "from": "WI",
+      "to": "MI"
     },
     {
-      "code": "LA",
-      "name": "Louisiana",
-      "count": 3,
-      "counts": {
-        "state_modern": 3
-      },
-      "file": "data/states/LA.js"
+      "name": "Bobcat Campground",
+      "from": "WI",
+      "to": "MI"
     },
     {
-      "code": "ME",
-      "name": "Maine",
-      "count": 6,
-      "counts": {
-        "boondocking_rustic": 3,
-        "state_modern": 2,
-        "info_modern": 1
-      },
-      "file": "data/states/ME.js"
-    },
-    {
-      "code": "MI",
-      "name": "Michigan",
-      "count": 513,
-      "counts": {
-        "state_rustic": 125,
-        "boondocking_rustic": 52,
-        "local_modern": 43,
-        "local_rustic": 3,
-        "private_modern": 35,
-        "state_modern": 224,
-        "federal_rustic": 22,
-        "federal_modern": 7,
-        "private_rustic": 2
-      },
-      "file": "data/states/MI.js"
-    },
-    {
-      "code": "MN",
-      "name": "Minnesota",
-      "count": 27,
-      "counts": {
-        "private_modern": 15,
-        "federal_rustic": 2,
-        "state_modern": 9,
-        "info_modern": 1
-      },
-      "file": "data/states/MN.js"
-    },
-    {
-      "code": "MO",
-      "name": "Missouri",
-      "count": 36,
-      "counts": {
-        "state_modern": 33,
-        "private_modern": 2,
-        "federal_rustic": 1
-      },
-      "file": "data/states/MO.js"
-    },
-    {
-      "code": "MS",
-      "name": "Mississippi",
-      "count": 2,
-      "counts": {
-        "federal_rustic": 2
-      },
-      "file": "data/states/MS.js"
-    },
-    {
-      "code": "MT",
-      "name": "Montana",
-      "count": 7,
-      "counts": {
-        "federal_rustic": 5,
-        "state_modern": 1,
-        "boondocking_rustic": 1
-      },
-      "file": "data/states/MT.js"
-    },
-    {
-      "code": "ND",
-      "name": "North Dakota",
-      "count": 2,
-      "counts": {
-        "boondocking_rustic": 1,
-        "federal_rustic": 1
-      },
-      "file": "data/states/ND.js"
-    },
-    {
-      "code": "NE",
-      "name": "Nebraska",
-      "count": 18,
-      "counts": {
-        "state_modern": 6,
-        "local_modern": 1,
-        "boondocking_rustic": 7,
-        "federal_rustic": 4
-      },
-      "file": "data/states/NE.js"
-    },
-    {
-      "code": "NH",
-      "name": "New Hampshire",
-      "count": 1,
-      "counts": {
-        "boondocking_rustic": 1
-      },
-      "file": "data/states/NH.js"
-    },
-    {
-      "code": "OH",
-      "name": "Ohio",
-      "count": 1,
-      "counts": {
-        "state_modern": 1
-      },
-      "file": "data/states/OH.js"
-    },
-    {
-      "code": "SD",
-      "name": "South Dakota",
-      "count": 8,
-      "counts": {
-        "boondocking_rustic": 3,
-        "federal_rustic": 2,
-        "state_modern": 2,
-        "info_modern": 1
-      },
-      "file": "data/states/SD.js"
-    },
-    {
-      "code": "TN",
-      "name": "Tennessee",
-      "count": 21,
-      "counts": {
-        "federal_rustic": 7,
-        "private_modern": 10,
-        "state_modern": 4
-      },
-      "file": "data/states/TN.js"
-    },
-    {
-      "code": "TX",
-      "name": "Texas",
-      "count": 1,
-      "counts": {
-        "federal_rustic": 1
-      },
-      "file": "data/states/TX.js"
-    },
-    {
-      "code": "UT",
-      "name": "Utah",
-      "count": 9,
-      "counts": {
-        "federal_rustic": 1,
-        "boondocking_rustic": 4,
-        "private_modern": 1,
-        "state_modern": 3
-      },
-      "file": "data/states/UT.js"
-    },
-    {
-      "code": "WI",
-      "name": "Wisconsin",
-      "count": 216,
-      "counts": {
-        "private_modern": 103,
-        "state_modern": 74,
-        "federal_rustic": 16,
-        "local_modern": 9,
-        "boondocking_rustic": 4,
-        "federal_modern": 7,
-        "private_rustic": 1,
-        "state_rustic": 1,
-        "info_modern": 1
-      },
-      "file": "data/states/WI.js"
-    },
-    {
-      "code": "WY",
-      "name": "Wyoming",
-      "count": 18,
-      "counts": {
-        "boondocking_rustic": 4,
-        "federal_rustic": 9,
-        "state_modern": 5
-      },
-      "file": "data/states/WY.js"
+      "name": "Henry Lake Campground",
+      "from": "WI",
+      "to": "MI"
     }
   ],
-  "changes": 10
+  "state_counts": {
+    "AR": 28,
+    "MO": 40,
+    "MS": 4,
+    "AZ": 10,
+    "CA": 9,
+    "CO": 36,
+    "DE": 1,
+    "FL": 1,
+    "IA": 15,
+    "NE": 20,
+    "WI": 193,
+    "KS": 2,
+    "IL": 101,
+    "IN": 5,
+    "LA": 3,
+    "ME": 6,
+    "MI": 538,
+    "MN": 27,
+    "MT": 7,
+    "ND": 2,
+    "NH": 1,
+    "OH": 1,
+    "SD": 8,
+    "TN": 19,
+    "AL": 2,
+    "TX": 1,
+    "UT": 5,
+    "WY": 18
+  },
+  "notes": "Cross-state contamination fixes applied and state files regenerated from master."
 }
