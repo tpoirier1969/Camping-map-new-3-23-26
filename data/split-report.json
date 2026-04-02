@@ -1,5 +1,5 @@
 {
-  "version": "v22.1.2",
+  "version": "22.2.1",
   "changed_records": [
     {
       "name": "Campground #2",
@@ -92,5 +92,10 @@
     "UT": 5,
     "WY": 18
   },
-  "notes": "Cross-state contamination fixes applied and state files regenerated from master."
+  "notes": [
+    "Cross-state contamination fixes applied and state files regenerated from master.",
+    "22.2.1: 34 layer corrections based on official URL domains (33 federal, 1 state)."
+  ],
+  "generated_state_files": 27,
+  "total_records": 1103
 }

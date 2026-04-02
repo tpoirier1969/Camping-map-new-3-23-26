@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#294f3f">
-  <title>Camping Map v22.1.2 State Split Fixes</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icon-camping.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <title>Camping Map v22.3.1 Clean Build</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
 :root {
@@ -91,7 +95,7 @@ textarea{min-height:90px;resize:vertical}
     <div class="sidebar-scroll">
       <div class="panel-head">
         <div>
-          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.1.2</strong></div>
+          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.1</strong></div>
           <h1>Camping Map</h1>
           <p id="statusLine">Starting up…</p>
           <p id="dataStats" class="mini-note"></p>
@@ -131,6 +135,15 @@ textarea{min-height:90px;resize:vertical}
           </div>
         </div>
       </section>
+<section class="section">
+  <h2>Supabase sync</h2>
+  <div id="supabaseStatus" class="mini-note">Static fallback mode.</div>
+  <div class="field-grid" style="margin-top:10px;">
+    <div class="row"><input id="sbEmail" type="text" placeholder="Email"><input id="sbPassword" type="password" placeholder="Password"></div>
+    <div class="row wrap"><button id="sbSignInBtn" class="primary" type="button">Sign in</button><button id="sbSignOutBtn" class="secondary" type="button">Sign out</button></div>
+    <label class="check small"><input id="showPendingLayer" type="checkbox"><span>Needs Verification layer</span><span class="meta" id="pendingMeta">off</span></label>
+  </div>
+</section>
       <section class="section">
         <h2>Add a site</h2>
         <label class="check"><input id="addMode" type="checkbox"><span>Click the map to drop a draft pin</span></label>
@@ -139,7 +152,7 @@ textarea{min-height:90px;resize:vertical}
           <input id="draftName" type="text" placeholder="Site name">
           <div class="row"><input id="draftState" type="text" maxlength="2" placeholder="State code"><select id="draftCategory"><option value="federal-modern">Federal modern</option><option value="federal-rustic">Federal rustic</option><option value="state-modern">State modern</option><option value="state-rustic">State rustic</option><option value="local-modern">Local modern</option><option value="local-rustic">Local rustic</option><option value="private-modern">Private modern</option><option value="private-rustic">Private rustic</option><option value="boondocking">Boondocking</option><option value="info">Info</option></select></div>
           <input id="draftWebsite" type="url" placeholder="Website URL"><textarea id="draftNotes" placeholder="Notes"></textarea>
-          <div class="row wrap"><button id="appendDraftBtn" class="primary" type="button">Append to queue</button><button id="clearDraftBtn" class="secondary" type="button">Clear draft pin</button></div>
+          <div class="row wrap"><button id="appendDraftBtn" class="primary" type="button">Append to queue</button><button id="sendDraftSupabaseBtn" class="secondary" type="button">Send to Needs Verification</button><button id="clearDraftBtn" class="secondary" type="button">Clear draft pin</button></div>
         </div>
       </section>
       <section class="section"><h2>Manual site queue</h2><textarea id="draftQueue" readonly></textarea><div class="row wrap" style="margin-top:10px;"><button id="copyQueueBtn" class="secondary" type="button">Copy queue</button><button id="clearQueueBtn" class="secondary" type="button">Clear queue</button></div></section>
@@ -148,7 +161,9 @@ textarea{min-height:90px;resize:vertical}
   <div id="statusBar" hidden></div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="data/states-manifest-v22.1.2.js"></script>
-<script src="app-v22.1.2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="data/states-manifest-v22.3.1.js"></script>
+<script src="config.js"></script>
+<script src="app-v22.3.1.js"></script>
 </body>
 </html>
