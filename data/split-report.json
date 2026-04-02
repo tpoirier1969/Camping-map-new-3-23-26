@@ -1,101 +1,33 @@
 {
-  "version": "22.2.1",
-  "changed_records": [
-    {
-      "name": "Campground #2",
-      "from": "AR",
-      "to": "MO"
-    },
-    {
-      "name": "John W Kyle State Park",
-      "from": "AR",
-      "to": "MS"
-    },
-    {
-      "name": "Roaring River State Park",
-      "from": "AR",
-      "to": "MO"
-    },
-    {
-      "name": "Table Rock State Park Campground 1",
-      "from": "AR",
-      "to": "MO"
-    },
-    {
-      "name": "Wallace Creek Campground",
-      "from": "AR",
-      "to": "MS"
-    },
-    {
-      "name": "Gifford Point WMA",
-      "from": "IA",
-      "to": "NE"
-    },
-    {
-      "name": "Nelson Dewey State Park",
-      "from": "IA",
-      "to": "WI"
-    },
-    {
-      "name": "Old Town Park",
-      "from": "IA",
-      "to": "KS"
-    },
-    {
-      "name": "Wyalusing Hardwood Forest",
-      "from": "IA",
-      "to": "WI"
-    },
-    {
-      "name": "Black River NFCG",
-      "from": "WI",
-      "to": "MI"
-    },
-    {
-      "name": "Bobcat Campground",
-      "from": "WI",
-      "to": "MI"
-    },
-    {
-      "name": "Henry Lake Campground",
-      "from": "WI",
-      "to": "MI"
-    }
-  ],
-  "state_counts": {
+  "version": "v22.3.2",
+  "stateCounts": {
     "AR": 28,
-    "MO": 40,
+    "MO": 41,
     "MS": 4,
     "AZ": 10,
     "CA": 9,
-    "CO": 36,
+    "CO": 37,
     "DE": 1,
     "FL": 1,
-    "IA": 15,
+    "IA": 16,
     "NE": 20,
-    "WI": 193,
-    "KS": 2,
-    "IL": 101,
+    "WI": 190,
+    "IL": 100,
     "IN": 5,
     "LA": 3,
     "ME": 6,
-    "MI": 538,
+    "MI": 540,
     "MN": 27,
-    "MT": 7,
-    "ND": 2,
+    "ND": 3,
+    "MT": 6,
+    "WY": 19,
     "NH": 1,
     "OH": 1,
     "SD": 8,
     "TN": 19,
     "AL": 2,
     "TX": 1,
-    "UT": 5,
-    "WY": 18
+    "UT": 5
   },
-  "notes": [
-    "Cross-state contamination fixes applied and state files regenerated from master.",
-    "22.2.1: 34 layer corrections based on official URL domains (33 federal, 1 state)."
-  ],
-  "generated_state_files": 27,
-  "total_records": 1103
+  "pendingCount": 19
 }

@@ -1,15 +1,16 @@
-Camping Map v22.3.1 clean build.
+Camping Map v22.3.2 verification-layer build.
+
+Included:
+- index.html
+- app-v22.3.2.js
+- data/states-manifest-v22.3.2.js
+- data/pending-sites-v22.3.2.js
+- data/sites.master.json
+- data/states/*.js
+- SUPABASE_WIRING_v22.3.2.md
+- michigan-pending-log-v22.3.2.csv
 
 Highlights:
-- old asset clutter removed
-- state dropdown lists all 50 states
-- compact pickup + rooftop tent icon added
-- classic basemap set retained
-- static fallback still works without Supabase config
-- Supabase wiring docs included
-
-Primary files:
-- index.html
-- app-v22.3.1.js
-- data/states-manifest-v22.3.1.js
-- SUPABASE_WIRING_v22.3.1.md
+- Static map now shows a local Needs Verification layer.
+- Pending-site popup keeps the verification checkbox workflow for Supabase-backed promotion.
+- Michigan pending batch has been seeded from official forest-service comparisons.
