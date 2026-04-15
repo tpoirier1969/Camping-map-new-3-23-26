@@ -1,0 +1,188 @@
+Michigan research/backfill log v22.3.11
+
+State rustic records refreshed: 126
+Boondocking records refreshed: 55
+This pass applied official DNR state forest campground operating/amenity guidance across all Michigan state-rustic records currently in the file, removed boondocking cost display/data, and added cost-year metadata for the refreshed rustic records.
+
+Updated records:
+4 Mile State Forest Trail Camp
+46.006324, -85.619036
+Adams Trail Dirt Lot
+Ambrose Lake State Forest Campground
+Anderson Lake West State Forest Campground
+Andrus Lake State Forest Campground
+Arbutus Lake State Forest Campground
+Avery Lake State Forest Campground
+Bass Lake State Forest Campground
+Bass Lake State Forest Campground (Luce)
+Baxter Bridge State Forest Campground
+Bear Lake Dispersed Campsite
+Beaufort Lake State Forest Campground
+Big Bear Lake State Forest Campground
+Big Bear Point State Forest Campground
+Big Eric's Bridge State Forest Campground
+Big Knob State Forest Campground
+Big Lake State Forest Campground
+Black Creek State Forest Campground
+Black Lake State Forest Campground
+Black River State Forest Campground
+Blacksmith Bayou River Access Camping
+Blind Sucker #2 State Forest Campground
+Blind Sucker State Forest Campground
+Bodi Lake State Forest Campground
+Bond Falls East Campground
+Bond Falls West Campground
+Bray Creek State Forest Campground
+Canoe Harbor State Forest Campground
+Canoe Lake State Forest Campground
+Carney Lake State Forest Campground
+Carrieville State Forest Campground
+Castle Rock Ponds Dispersed Camping
+CCC Bridge State Forest Campground
+Cedar River North State Forest Campground
+Chicago Lake Dispersed Campsite
+Clear Lake Campsite
+Coalwood Trail Dispersed Campsite
+Council Lake Dispersed Campsite
+Craig Lake Backcountry Campsites
+Crooked Lake Rustic Campground
+Culhane Lake State Forest Campground
+Cusino Lake State Forest Campground
+Dead River #1
+Deer Lake State Forest Campground
+DeTour State Forest Campground
+Dispersed Camping Hovey Lake Equine Trailhead
+Duel Lake
+East Branch of the Fox River State Forest Campground
+East Branch Whitefish
+Emily Lake State Forest Campground
+Escanaba River boondock
+Escanaba River boondock
+Escanaba river site
+Ess Lake State Forest Campground
+Fisherman's Island State Park Rustic Campground
+Forks State Forest Campground
+Fox River State Forest Campground
+French Farm Lake Road Dispersed Camping
+Garey Lake State Forest Campground
+Genes Pond State Forest Campground
+Glidden Lake State Forest Campground
+Goose Lake State Forest Campground
+Government Landing
+Grass Lake State Forest Campground
+Graves Crossing State Forest Campground
+Green Lake Rustic Campground
+Guernsey Lake State Forest Campground
+Haakwood State Forest Campground
+Headquarters Lake Equestrian State Forest Campground and Trail Camp
+Healy Lake State Forest Campground
+Herman Lake Dispersed
+Hickey Marsh Dispersed Camping
+High Rock Bay
+Hog Island State Forest Campground
+Holland Lake State Forest Campground
+Hopkins Creek Trail Campground
+Huron-Manistee dispersed area - Boardman corridor
+Interlochen Green Lake Rustic Campground
+Island Lake-Canoe Campground
+Jackpine Lake Dispersed Campsite
+Jackson Lake State Forest Campground
+Jones Lake State Forest Campground
+Keystone Landing State Forest Campground
+King Lake State Forest Campground
+Kingston Lake State Forest Campground
+Lake Ann State Forest Campground
+Lake Dubonnet State Forest Campground
+Lake Dubonnet Trail Camp
+Lake Margrethe State Forest Campground
+Lake Marjory State Forest Campground
+Lake Michigan At St. Ignace Camping
+Lake Superior Beachfront (US Forest Land)
+Lake Superior North Shore Camping
+Lake Superior State Forest Campground
+Leelanau State Park Rustic Campground
+Leverentz Lake State Forest Campground
+Lincoln Bridge State Forest Campground
+Little Brevort Lake - North State Forest Campground
+Little Brevort Lake South State Forest Campground
+Little Lake State Forest Campground
+Long Lake (Missaukee) State Forest Campground
+Long Lake (Wexford) State Forest Campground
+Mackinac Trail Spur Site
+Manistee River Bridge State Forest Campground
+Maple Bay State Forest Campground
+McCollum Lake State Forest Campground
+Mead Creek State Forest Campground
+Mio Pond State Forest Campground
+Mouth of the Huron
+Mouth of Two Hearted River State Forest Campground
+Mud Lake State Forest Campground
+Munuscong State Forest Campgrounds
+Murray Lake Rustic Campground
+Muskrat Lake State Forest Campground
+Natalie State Forest Campground
+North Gemini Lake State Forest Campground
+Old US 131 State Forest Campground
+Ossineke State Forest Campground
+Parmalee Bridge State Forest Campground
+Peninsula Point Lighthouse Access Road Dispersed
+Pere Marquette State Forest dispersed area - Muncie Lakes unit
+Pickerel Lake State Forest Campground
+Pigeon Bridge State Forest Campground
+Pike Lake State Forest Campground
+Pine Grove State Forest Campground
+Pinnacle Falls lot
+Pinney Bridge State Forest Campground
+Platte River State Forest Campground
+Point Abbeye
+Point Detour boondocking
+Pretty Lake State Forest Campground
+Rainbow Bend State Forest Campground
+Rapid River Trail Camp
+Reedsburg Dam State Forest Campground
+Round Lake State Forest Campground
+Rustic Peshekee Cabin - Van Riper State Park
+Sawdust Hole River Access Camping
+Sawkaw Lake Dispersed Camping
+Sawmill Creek Boondock
+Scheck's Place State Forest Campground
+Schecks Place Trail Camp
+Search Bay Dispersed Camping
+Shoepac Lake State Forest Campground
+Shupac Lake State Forest Campground
+Silver Creek State Forest Campground
+Silver Lake - Boat in
+Silver Lake 1
+Silver Lake 2
+Silver Lake 3
+South Gemini Lake State Forest Campground
+Spring Lake State Forest Campground
+Steuben Lake - Manistique Rapid River Dispersed
+Stoney Creek Trail Camp
+Sturgeon Gorge Boondocking
+Sturgeon River bridge
+Sunrise Lake State Forest Campground
+Tank Lake
+Tomahawk Lake State Forest Campground
+Town Corner Lake State Forest Campground
+Triangle Lake - Manistique Rapid River Dispersed
+Trout Lake State Forest Campground
+Twin Lakes State Forest Campground
+Two Hearted River State Forest Campground
+Upper Manistee Backcountry Campsites - Red Bridge
+Upper Manistee River State Forest Campground
+USFS 3536 Dispersed Site
+Van Etten Lake State Forest Campground
+Veterans Memorial State Forest Campground
+Walsh Road Equestrian State Forest Campground and Trail Camp
+Weber Lake State Forest Campground
+West Branch State Forest Campground
+White Pine Canoe Campground
+Whitefish river site
+Wide Waters Dispersed Camping
+Yankee Springs Deep Lake Rustic Campground
+Yellow Dog #2
+Yellow Dog 3
+Black River / Bessemer Dispersed Camping Anchor
+Ottawa NF West Dispersed Camping Anchor
+Watersmeet / Marion / Golden Dispersed Camping Anchor
