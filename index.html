@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <title>Camping Map v22.3.5 Legend Placement + Symbol Fix</title>
+  <title>Camping Map v22.3.6 Rich Site Details</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
 :root {
@@ -62,7 +62,7 @@ textarea{min-height:90px;resize:vertical}
 .legend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 14px;margin-top:8px}.legend-item{display:flex;align-items:center;gap:8px;min-width:0}.legend-item span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .legend-pin{width:22px;height:22px;flex:0 0 22px;font-size:0}.legend-note{margin-top:8px;color:var(--muted);font-size:.8rem}
 .legend-mobile-wrap{display:none}.legend-mobile{border:1px solid #d6ddd2;border-radius:14px;background:#fff;padding:0}.legend-mobile summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;align-items:center;justify-content:space-between}.legend-mobile summary::-webkit-details-marker{display:none}.legend-mobile[open] summary{border-bottom:1px solid #e0e6de}.legend-mobile-body{padding:10px 12px 12px}
-.leaflet-popup-content{margin:12px 14px}.popup-title{font-weight:700;font-size:1rem;margin-bottom:2px}.popup-meta{color:var(--muted);font-size:.9rem;margin-bottom:8px}.popup-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.leaflet-popup-content{margin:12px 14px}.popup-title{font-weight:700;font-size:1rem;margin-bottom:2px}.popup-meta{color:var(--muted);font-size:.9rem;margin-bottom:8px}.popup-grid{display:grid;gap:6px;margin:8px 0}.popup-row{display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:start}.popup-row strong{color:#30473a}.popup-section{margin-top:10px;padding-top:10px;border-top:1px solid #e2e7df}.popup-copy{margin-top:6px;line-height:1.35}.popup-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.popup-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
 .map-pin{width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:2px solid var(--stroke);background:var(--fill);color:var(--icon);box-shadow:0 2px 10px rgba(0,0,0,.14)}
 .map-pin svg{width:58%;height:58%;display:block}
 .pin-federal-modern{--fill:#2f6f53;--stroke:#245740;--icon:#fff}
@@ -101,7 +101,7 @@ textarea{min-height:90px;resize:vertical}
     <div class="sidebar-scroll">
       <div class="panel-head">
         <div>
-          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.5</strong></div>
+          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.6</strong></div>
           <h1>Camping Map</h1>
           <p id="statusLine">Starting up…</p>
           <p id="dataStats" class="mini-note"></p>
@@ -163,7 +163,15 @@ textarea{min-height:90px;resize:vertical}
           <div class="mini-note" id="draftCoords">No draft point selected.</div>
           <input id="draftName" type="text" placeholder="Site name">
           <div class="row"><input id="draftState" type="text" maxlength="2" placeholder="State code"><select id="draftCategory"><option value="federal-modern">Federal modern</option><option value="federal-rustic">Federal rustic</option><option value="state-modern">State modern</option><option value="state-rustic">State rustic</option><option value="local-modern">Local modern</option><option value="local-rustic">Local rustic</option><option value="private-modern">Private modern</option><option value="private-rustic">Private rustic</option><option value="boondocking">Boondocking</option><option value="info">Info</option></select></div>
-          <input id="draftWebsite" type="url" placeholder="Website URL"><textarea id="draftNotes" placeholder="Notes"></textarea>
+          <input id="draftWebsite" type="url" placeholder="Website URL">
+          <textarea id="draftNotes" placeholder="Description / site summary"></textarea>
+          <div class="row"><input id="draftCost" type="text" placeholder="Cost / fees"><input id="draftShowers" type="text" placeholder="Showers"></div>
+          <input id="draftAccess" type="text" placeholder="Access / road notes (2WD, 4WD, tight turns, etc.)">
+          <textarea id="draftAmenities" placeholder="Amenities (vault toilet, pump, hookups, boat launch, etc.)"></textarea>
+          <input id="draftTrailheads" type="text" placeholder="Trailheads / nearby activities">
+          <input id="draftSeason" type="text" placeholder="Season / closure notes">
+          <div class="row"><input id="draftReview" type="text" placeholder="Review summary"><input id="draftRating" type="text" placeholder="Rating (for example 4.3/5)"></div>
+          <textarea id="draftExtraLinks" placeholder="Extra links or image links, one per line"></textarea>
           <div class="row wrap"><button id="appendDraftBtn" class="primary" type="button">Append to queue</button><button id="sendDraftSupabaseBtn" class="secondary" type="button">Send to Needs Verification</button><button id="clearDraftBtn" class="secondary" type="button">Clear draft pin</button></div>
         </div>
       </section>
@@ -177,6 +185,6 @@ textarea{min-height:90px;resize:vertical}
 <script src="data/states-manifest-v22.3.3.js"></script>
 <script src="data/pending-sites-v22.3.3.js"></script>
 <script src="config.js"></script>
-<script src="app-v22.3.5.js"></script>
+<script src="app-v22.3.6.js"></script>
 </body>
 </html>
