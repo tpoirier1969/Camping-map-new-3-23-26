@@ -1,0 +1,107 @@
+Michigan source-linked backfill v22.3.10
+
+Updated 100 additional Michigan records in this pass.
+Priority was boondocking and rustic records first, followed by remaining official-page sites with existing DNR, Forest Service, and NPS URLs.
+Cost-field cleanup and year formatting were intentionally deferred for the next build.
+
+Updated records:
+- Adams Trail Dirt Lot
+- Bay Furnace Campground
+- Bear Lake Dispersed Campsite
+- Black River / Bessemer Dispersed Camping Anchor
+- Black River Harbor Campground
+- Bobcat Lake Campground
+- Bond Falls East Campground
+- Bond Falls West Campground
+- Bowman Lake Backcountry Campsites
+- Burned Dam Campground
+- Carp River Campground
+- Castle Rock Ponds Dispersed Camping
+- Clear Lake Campsite
+- Coalwood Trail Dispersed Campsite
+- Cookson Lake Campsites
+- Corner Lake Campground
+- Council Lake Campsites
+- Courtney Lake Campground
+- Craig Lake Backcountry Campsites
+- Crooked Lake Campsites
+- D.H. Day Campground
+- Diamond Point Campground
+- Driftwood Campsite on Grand Island
+- Duck Lake Campsite on Grand Island
+- East Lake Campsites
+- Ewing Point Campsite
+- Golden Lake Campground
+- Gooseneck Lake Campsites
+- Government Landing
+- Hartwick Pines State Park Campground
+- Henry Lake Campground
+- Highbank Lake Campground
+- Hovey Lake Campsites
+- Huron-Manistee dispersed area - Boardman corridor
+- Hurricane River Campground
+- Imp Lake Campground
+- Ironjaw Lake Campsites
+- Island Lake Campground
+- Jackpine Lake Campsites
+- Lake Ann State Forest Campground
+- Lake Dubonnet State Forest Campground
+- Lake Dubonnet Trail Camp
+- Lake Gogebic State Park Campground
+- Lake Nineteen Campsites
+- Lake Ottawa Campground
+- Lake Ste Kathryn Campground
+- Lake Ste. Kathryn Campground
+- Lake Superior State Forest Campground
+- Leelanau State Park Rustic Campground
+- Leg Lake Campsites
+- Leverentz Lake State Forest Campground
+- Little Bass Lake Campsites
+- Little Beaver Lake Campground
+- Little Brevort Lake - North State Forest Campground
+- Little Brevort Lake South State Forest Campground
+- Loon Call Campsite on Grand Island
+- Lower Tahquamenon Falls Campground
+- Marion Lake Campground
+- Minerva Lake Campsites
+- Minnie Pond Campground
+- Moosehead Lake Campground
+- Mouth of Two Hearted River State Forest Campground
+- Mowe Lake Campsites
+- Muskegon State Park Campground
+- Nichols Lake South Campground
+- Norway Lake Campground
+- Ottawa NF West Dispersed Camping Anchor
+- Paint River Forks Campground
+- Pere Marquette State Forest dispersed area - Muncie Lakes unit
+- Petoskey State Park Tannery Creek Campground
+- Platte River Campground
+- Platte River State Forest Campground
+- Pomeroy Lake Campground
+- Portage Bay State Campground
+- Presque Isle State Park Campground
+- Robbins Pond Campground
+- Sawdust Hole River Access Camping
+- Scheck's Place State Forest Campground
+- Schecks Place Trail Camp
+- Seaton Creek Campground
+- Sleeper State Park Campground
+- South Higgins Lake State Park Campground
+- Sparrow Rapids Campground
+- Steuben Lake Campsites
+- Straits State Park Campground
+- Sturgeon River Campground
+- Sulak Campground
+- Swan Lake Campsites
+- Sylvania (Clark Lake) Campground
+- Tahquamenon River Mouth Campground
+- Triangle Lake Campsite
+- Twelvemile Beach Campground
+- Twin Lakes State Park
+- Upper Manistee Backcountry Campsites - Red Bridge
+- Van Riper State Park Campground
+- Veterans Memorial State Forest Campground
+- Walkup Lake Campground
+- Warren Dunes State Park Campground
+- Watersmeet / Marion / Golden Dispersed Camping Anchor
+- White Pine Backcountry Campground
