@@ -1,20 +1,21 @@
-Camping Map v22.3.3 auth-ui-fix build.
+Camping Map v22.3.4 Michigan default + legend build.
 
-Included:
+Included in this rebuild:
+- app-v22.3.4.js
 - index.html
-- app-v22.3.3.js
-- data/states-manifest-v22.3.3.js
-- data/pending-sites-v22.3.3.js
-- data/sites.master.json
-- data/states/*.js
-- SUPABASE_WIRING_v22.3.3.md
-- michigan-pending-log-v22.3.3.csv
+- existing data/states-manifest-v22.3.3.js
+- existing data/pending-sites-v22.3.3.js
+- existing Supabase wiring docs and support files
 
-Highlights:
-- Static map now shows a local Needs Verification layer.
-- Pending-site popup keeps the verification checkbox workflow for Supabase-backed promotion.
-- Michigan pending batch has been seeded from official forest-service comparisons.
+What changed in v22.3.4:
+- fresh localStorage keys so older saved state/layer combinations do not bleed into this build
+- default startup resets to Michigan with the normal main camping layers enabled
+- visible on-map legend added to explain symbol colors
+- layer redraw path made safer to reduce hiccups when switching layers
+- redraws now close stale popups and re-render on the next animation frame
+- status text is clearer when no layers are enabled or no sites are visible
 
-- Supabase auth text is clearer about missing/invalid config.js.
-- Sign-in now works from Enter in the auth fields because the inputs are inside a form.
-- Clicking Sign in without a valid config.js now explains why it cannot proceed.
+Still not included:
+- config.js
+
+For live sign-in and verified/pending table sync, your root-level config.js still has to be present and valid.
