@@ -1,0 +1,182 @@
+Michigan state-layer modern-site pass v22.3.13
+
+Updated the 172 remaining Michigan state-layer modern records in the current file.
+
+Method:
+- State parks / state recreation areas / Waterloo units were refreshed with park-level DNR detail and website links.
+- Remaining public campgrounds in the state layer were normalized as public-operator campgrounds so they stop inheriting a fake Michigan DNR identity.
+- Added costCheckedYear=2026 where a cost field was present.
+
+Updated records:
+- Alcona Park Campground (west side)
+- Algonac State Park
+- Aloha State Park
+- Aloha State Park Campground
+- Appleton Lake Campground
+- Au Train Beach Campground
+- Aune Osborn Campground
+- Baraga State Park
+- Baraga State Park Campground
+- Barnes Park Campground
+- Beaver Island Campground
+- Beechwood Campground
+- Bewabic State Park
+- Bewabic State Park Campground
+- Bewabik Campground
+- Big Bend Park
+- Bishop Lake Campgrounds
+- Blue Lake Park
+- Bobcat Campground
+- Brimley State Park Campground
+- Brower Park
+- Bruin Lake Modern Campground
+- Burt Lake State Park
+- Buttersville Park
+- Camp Pet-O-Se-Ga
+- Castle Rock Lakefront Campark
+- Cedar Campground
+- Cheboygan State Park Campground
+- Chocolay River RV & Campgrounds
+- Clear Lake State Campground
+- Cliffs Individual Campsite
+- Coldwater Lake Family Park
+- Colwell Lake Campground
+- Corner Lake Recreation Area
+- Craig Lake Trailhead
+- Devoe Campground
+- Drummond Island RV Park
+- Dune Lake Campground
+- Elk Hill Campground
+- F.J. McLain State Park Campground
+- Fairport Marina Campground
+- Farquar-Metsa Tourist Park
+- Fayette Historic State Park Campground
+- Fisher's Run Park
+- Fisherman's Island State Park South Campground
+- Flat Rock Campsite
+- Forest Lake Campground and Picnic Area
+- Forestville Campground
+- Fort Wilkins Historic State Park
+- Fort Wilkins Historic State Park Campground
+- Freighterview Campsite
+- Fuller Park Picnic Area
+- Gamefence Campsite
+- Garnet Lake Campground
+- Gitche Gumee RV Park and Campground
+- Green Lake Campground
+- Group Campground
+- Harrisville State Park
+- Hayes State Park Campground-East Loop
+- Hayes State Park Campground-West Loop
+- Herrick Recreational Area
+- Hoeft State Park
+- Holly McGinnis Lake Campground
+- Hovey Lake Campground
+- Indian Lake West Shore Campground
+- Ionia State Recreation Area Campground
+- Jack Pine Campground
+- John Gurney Park
+- Kneff Lake Campground
+- Lake Ann Park
+- Lake Gogebic State Park
+- Lake Linden Campground
+- Lake Michigan Campground
+- Lakeshore RV Campground
+- Little Duck Campsite
+- Little Dune 1 Campsite
+- Little Presque Isle Cabins
+- Little Wolf Lake State Campground
+- Lk Macatawa Campground
+- Log Lake Campground
+- Loons Point RV Park and Campground
+- Lower Dam Campground
+- Magnus Park
+- Manistique Lakeshore Campground
+- Markin Glen Campgrounds
+- McLain State Park
+- Mears State Park
+- Meinert Park
+- Merwin Creek Campground
+- Metamora Hadley Campground Store
+- Michigamme beach area campground
+- Milakokia Lake Campground
+- Misery Bay Boat Launch
+- Munising Tourist Park Campground
+- Murray Bay Group Campsite on Grand Island
+- Muskallonge Lake State Park
+- Muskallonge Lake State Park Campground
+- Muskegon State Park Beach Campground
+- Muskegon State Park Channel Campground
+- Neebish Island Resort
+- North Higgins Lake State Park
+- Oak CampGround
+- Ocqueoc Falls Campground
+- Ojibwa Campground
+- Old Orchard Park
+- Onaway State Park
+- Orchard Beach State Park
+- Otsego Lake State Park
+- Otter Lake Campground
+- Oxbow Park
+- P. J. Hoffmaster Campground
+- Paris Park
+- Perch Lake State Forest Campgound
+- Perkins Park
+- Perrault Lake Campground
+- Pete's Lake Campground
+- Petoskey State Park Campground
+- Pines Campground
+- Pioneer Park Campground
+- Pioneer Trail Park
+- Point Au Gres Park & Campground
+- Pontiac Lake State Recreation Area Campground
+- Poplar Campground
+- Porcupine Mountains Union Bay Campground
+- Porcupine Mountains Union Bay Campground
+- Port Crescent State Park Campsite
+- Portage Lake Campground
+- Portage Lake Campground, Waterloo Recreation Area
+- Presque Isle Campground
+- Proud Lake Rec Area - Modern Campground
+- Proud Lake State Park - Organizational Campground
+- Reed & Green Campground
+- Rifle River Campground & Canoe Livery
+- Riverside Park
+- Road's End Campsite
+- Robert Doerr Park
+- Roberts Landing Campground
+- Ross Lake State Campground
+- Sand Lake Campground
+- School Section Lake Veteran's Park
+- Seven Lakes State Park
+- Silver Lake State Park Campground
+- Sleeper State Park
+- Sleepy Hollow State Park
+- South Higgins Lake Camping
+- South Manistique Lake Campground
+- Spruce Campground
+- Straits State Park
+- Sugarloaf Lake Campground
+- Sunken Lake Park
+- Tahquamenon Falls State Park - Lower Falls Portage Campground
+- Tahquamenon Falls State Park Rivermouth Campgrounds
+- Tawas Point Campground
+- Tee Pee Campgrounds
+- Thunder Bay River State Forest
+- Tiki RV Park
+- Tioga campground
+- Tippy Dam Campground-MDNR
+- Tourist Park
+- Union Bay Campground
+- Van Buren State Park
+- Van Riper State Park
+- Wabasis Lake Park Beach
+- Waterloo State Recreation Area
+- Widewaters Campground
+- Wilkins state park west camping ground
+- William C. Sterling State Park Campgrounds
+- William Mitchell State Park Campground
+- Wilson State Park
+- Witz marine and campground
+- Woodland Park Campground
+- Young State Park
