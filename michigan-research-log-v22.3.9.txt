@@ -1,0 +1,32 @@
+Michigan research backfill v22.3.9
+Updated records from official DNR / U.S. Forest Service pages:
+- Blind Sucker #2 State Forest Campground
+- Bray Creek State Forest Campground
+- Carrieville State Forest Campground
+- Culhane Lake State Forest Campground
+- Forks State Forest Campground
+- Garey Lake State Forest Campground
+- Grass Lake State Forest Campground
+- Guernsey Lake State Forest Campground
+- Kingston Lake State Forest Campground
+- Holland State Park Campground
+- Indian Lake State Park Campground
+- Keith J. Charters Traverse City State Park Campground
+- Traverse City State Park Campground
+- Wilderness State Park Campground
+- Wilderness State Park Lakeshore Campground
+- Wilderness State Park Pines Campground
+- Wilderness State Park
+- Interlochen Duck Lake Modern Campground
+- Interlochen Green Lake Rustic Campground
+- Interlochen State Park
+- Ludington State Park Beechwood Campground
+- Ludington State Park Cedar Campground
+- Ludington State Park and Campgrounds
+- Fisherman's Island State Park Rustic Campground
+- Fisherman's Island State Park
+- Benton Lake Campground
+- Bermuda Campsite on Grand Island
+- Blacksmith Bayou River Access Camping
+- Bob Lake Campground
+- Bowman Bridge Campground
