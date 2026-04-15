@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <title>Camping Map v22.3.2b Clean Build</title>
+  <title>Camping Map v22.3.3 Clean Build</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
 :root {
@@ -95,7 +95,7 @@ textarea{min-height:90px;resize:vertical}
     <div class="sidebar-scroll">
       <div class="panel-head">
         <div>
-          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.2</strong></div>
+          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.3</strong></div>
           <h1>Camping Map</h1>
           <p id="statusLine">Starting up…</p>
           <p id="dataStats" class="mini-note"></p>
@@ -138,11 +138,11 @@ textarea{min-height:90px;resize:vertical}
 <section class="section">
   <h2>Supabase sync</h2>
   <div id="supabaseStatus" class="mini-note">Static fallback mode.</div>
-  <div class="field-grid" style="margin-top:10px;">
-    <div class="row"><input id="sbEmail" type="text" placeholder="Email"><input id="sbPassword" type="password" placeholder="Password"></div>
-    <div class="row wrap"><button id="sbSignInBtn" class="primary" type="button">Sign in</button><button id="sbSignOutBtn" class="secondary" type="button">Sign out</button></div>
+  <form id="sbAuthForm" class="field-grid" style="margin-top:10px;">
+    <div class="row"><input id="sbEmail" type="email" placeholder="Email" autocomplete="username email"><input id="sbPassword" type="password" placeholder="Password" autocomplete="current-password"></div>
+    <div class="row wrap"><button id="sbSignInBtn" class="primary" type="submit">Sign in</button><button id="sbSignOutBtn" class="secondary" type="button">Sign out</button></div>
     <label class="check small"><input id="showPendingLayer" type="checkbox"><span>Needs Verification layer</span><span class="meta" id="pendingMeta">off</span></label>
-  </div>
+  </form>
 </section>
       <section class="section">
         <h2>Add a site</h2>
@@ -162,9 +162,9 @@ textarea{min-height:90px;resize:vertical}
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="data/states-manifest-v22.3.2.js"></script>
-<script src="data/pending-sites-v22.3.2.js"></script>
+<script src="data/states-manifest-v22.3.3.js"></script>
+<script src="data/pending-sites-v22.3.3.js"></script>
 <script src="config.js"></script>
-<script src="app-v22.3.2.js"></script>
+<script src="app-v22.3.3.js"></script>
 </body>
 </html>
