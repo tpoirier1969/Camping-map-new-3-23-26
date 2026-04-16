@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <title>Camping Map v22.3.12 campsite load recovery</title>
+  <title>Camping Map v22.3.17 legend position fix</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
 :root {
@@ -57,7 +57,7 @@ textarea{min-height:90px;resize:vertical}
 #mapReadout{position:absolute;z-index:1150;top:16px;right:16px;padding:11px 13px;border-radius:12px;border:1px solid rgba(34,43,39,.16);background:rgba(251,250,246,.96);box-shadow:var(--shadow);font-size:.93rem;line-height:1.25;min-width:258px}.readout-main{font-weight:600}.readout-mini{font-size:.78rem;color:#5f695f;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #mapLoading{position:absolute;z-index:1000;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(243,241,234,.6);color:#19311f;font-weight:600;pointer-events:none}
 #mapLoading.hidden{display:none}
-.map-legend-panel{position:absolute;z-index:1000;left:16px;bottom:16px;max-width:min(520px,calc(100vw - 32px));padding:12px 14px;border-radius:14px;border:1px solid rgba(34,43,39,.16);background:rgba(251,250,246,.96);box-shadow:var(--shadow);font-size:.88rem;line-height:1.25}
+.map-legend-panel{position:absolute;z-index:1000;right:16px;left:auto;bottom:76px;max-width:min(360px,calc(100vw - 32px));padding:12px 14px;border-radius:14px;border:1px solid rgba(34,43,39,.16);background:rgba(251,250,246,.96);box-shadow:var(--shadow);font-size:.88rem;line-height:1.25}
 .map-legend-panel h3,.legend-mobile summary{margin:0;font-size:.92rem;color:#274634;font-weight:700}
 .legend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 14px;margin-top:8px}.legend-item{display:flex;align-items:center;gap:8px;min-width:0}.legend-item span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .legend-pin{width:22px;height:22px;flex:0 0 22px;font-size:0}.legend-note{margin-top:8px;color:var(--muted);font-size:.8rem}
@@ -101,7 +101,7 @@ textarea{min-height:90px;resize:vertical}
     <div class="sidebar-scroll">
       <div class="panel-head">
         <div>
-          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.12</strong></div>
+          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.17</strong></div>
           <h1>Camping Map</h1>
           <p id="statusLine">Starting up…</p>
           <p id="dataStats" class="mini-note"></p>
@@ -185,6 +185,6 @@ textarea{min-height:90px;resize:vertical}
 <script src="data/states-manifest-v22.3.3.js"></script>
 <script src="data/pending-sites-v22.3.3.js"></script>
 <script src="config.js"></script>
-<script src="app-v22.3.16.js"></script>
+<script src="app-v22.3.17.js"></script>
 </body>
 </html>
