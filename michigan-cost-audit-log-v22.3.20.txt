@@ -1,0 +1,7 @@
+Michigan cost audit pass 3 v22.3.20
+
+Updated 41 Michigan records with dated, source-linked cost text from official sources.
+
+Federal U.S. Forest Service exact-fee updates: Benton Lake, Bob Lake, Courtney Lake, Sturgeon River, Norway Lake, Lake Ste Kathryn, Lake Ste. Kathryn, Sparrow Rapids, Golden Lake, Henry Lake, Imp Lake, Marion Lake, Moosehead Lake, Paint River Forks, Burned Dam, Robbins Pond, Sylvania (Clark Lake), Highbank Lake, Minnie Pond, Walkup Lake, Diamond Point, Bermuda Campsite on Grand Island, Corner Lake, Council Lake, Crooked Lake, East Lake, Gooseneck Lake, Hovey Lake, Ironjaw Lake, Jackpine Lake, Lake Nineteen, Leg Lake, Little Bass Lake, Minerva Lake, Mowe Lake.
+
+Michigan DNR exact-rate/range updates: Bruin Lake Modern Campground, Clear Lake State Campground, Indian Lake West Shore Campground, Ludington State Park Beechwood Campground, Ludington State Park Cedar Campground, Tawas Point Campground, William Mitchell State Park Campground, Waterloo State Recreation Area, Elk Hill Campground, Interlochen State Park.
