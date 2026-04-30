@@ -1,0 +1,13 @@
+Michigan cost audit / structure pass v22.3.18
+
+Total Michigan records with cost-structure updates: 224
+Boondocking records normalized to no-cost display and flagged free: 55
+
+Buckets updated:
+- DNR state forest / rustic: 128
+- Michigan DNR park/recreation area rates: 78
+- NPS — Pictured Rocks: 3
+- Recreation.gov — Hiawatha National Forest gateway: 9
+- Recreation.gov — Huron-Manistee National Forests gateway: 5
+- Recreation.gov — Ottawa National Forest gateway: 2
+- Sleeping Bear Dunes / Recreation.gov: 3
