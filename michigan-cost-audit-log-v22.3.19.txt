@@ -1,0 +1,5 @@
+Michigan cost audit pass 2 v22.3.19
+
+Updated 21 additional Michigan local/private/county records with dated cost text and source URLs.
+Official/primary-source updates: Addison Oaks, Groveland Oaks, Cold Brook County Park, Luce County Park and Campground, Otsego Lake County Park, Lake Gogebic County Park, Little Girls Point County Park, Thunder Bay RV Park, Waterways Campground, Rippling River Resort, Trails End Campground, Tippy Dam Campground, Wilderness Campground.
+Third-party current-listing updates (flagged costNeedsReview=true): Whispering Oaks, Stargazers U.P. Campground, Apple Creek Campground & RV Park, Highway to Haven Family Campground, Mackinaw Mill Creek Camping, Alpine Campground & RV Park, Ahmeek Copper Mine Camp, Campers Cove RV Park & Canoe Livery.
