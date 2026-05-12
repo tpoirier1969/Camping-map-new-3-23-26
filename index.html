@@ -54,7 +54,7 @@ textarea{min-height:90px;resize:vertical}
 .field-grid{display:grid;gap:8px}
 #draftQueue{min-height:150px}
 #statusBar{position:absolute;z-index:900;right:16px;bottom:16px;max-width:min(520px,calc(100vw - 32px));padding:10px 14px;border-radius:12px;background:rgba(27,34,30,.82);color:#fff;box-shadow:var(--shadow)}
-#mapReadout{position:absolute;z-index:1150;top:16px;right:16px;padding:11px 13px;border-radius:12px;border:1px solid rgba(34,43,39,.16);background:rgba(251,250,246,.96);box-shadow:var(--shadow);font-size:.93rem;line-height:1.25;min-width:258px}.readout-main{font-weight:600}.readout-mini{font-size:.78rem;color:#5f695f;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mapReadout{display:none !important;position:absolute;z-index:1150;top:16px;right:16px;padding:11px 13px;border-radius:12px;border:1px solid rgba(34,43,39,.16);background:rgba(251,250,246,.96);box-shadow:var(--shadow);font-size:.93rem;line-height:1.25;min-width:258px}.readout-main{font-weight:600}.readout-mini{font-size:.78rem;color:#5f695f;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #mapLoading{position:absolute;z-index:1000;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(243,241,234,.6);color:#19311f;font-weight:600;pointer-events:none}
 #mapLoading.hidden{display:none}
 .map-legend-panel{position:absolute;z-index:1000;right:16px;left:auto;bottom:76px;max-width:min(360px,calc(100vw - 32px));padding:12px 14px;border-radius:14px;border:1px solid rgba(34,43,39,.16);background:rgba(251,250,246,.96);box-shadow:var(--shadow);font-size:.88rem;line-height:1.25}
@@ -318,8 +318,12 @@ textarea{min-height:90px;resize:vertical}
   }
   function fixPendingRow(){ const p=$('pendingMeta'); if(p)p.textContent=p.textContent||'off'; const lab=$('showPendingLayer')?.closest('label'); if(lab) lab.querySelector('span:not(.meta)')?.classList.add('label-text'); }
   function run(){setVersion(); refreshHeader(); hideNotes(); enhanceLayers(); addFilters(); setupPopups(); fixPendingRow();}
-  window.addEventListener('DOMContentLoaded',()=>{run(); setTimeout(run,150); setTimeout(run,700);});
-  new MutationObserver(()=>enhanceLayers()).observe(document.documentElement,{childList:true,subtree:true});
+  window.addEventListener('DOMContentLoaded',()=>{
+    run();
+    setTimeout(run,150);
+    setTimeout(run,700);
+    setTimeout(run,1600);
+  });
 })();
 </script>
 
