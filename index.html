@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <title>Camping Map v22.3.22 Michigan cost audit pass 2</title>
+  <title>Camping Map v22.3.23 mobile layout hotfix</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
 :root {
@@ -88,20 +88,41 @@ textarea{min-height:90px;resize:vertical}
 #stateSelectMeta:empty,#dataStats:empty{display:none}
 
 @media (max-width:900px){#sidebar{width:min(430px,calc(100vw - 32px))}#mapReadout{top:70px;right:12px;min-width:230px}#mapLegendDesktop{display:none}.legend-mobile-wrap{display:block}.legend-grid{grid-template-columns:1fr}}
+
+/* v22.3.23 mobile layout hotfix
+   Keeps the diagnostic Zoom/Cluster/Markers panel from eating the iPhone map. */
+@media (max-width:700px){
+  #menuToggle{top:max(10px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));width:44px;height:44px;z-index:1250}
+  #sidebar{top:max(62px,calc(env(safe-area-inset-top) + 58px));left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));bottom:max(8px,env(safe-area-inset-bottom));width:auto;border-radius:16px}
+  #sidebar.closed{transform:translateX(calc(-100% - 24px))}
+  .sidebar-scroll{padding:14px 14px 22px}
+  .panel-head{margin:-14px -14px 12px;padding:14px 14px 12px}
+  .panel-head h1{font-size:1.35rem}
+  .row{align-items:stretch}
+  .row:not(.wrap){flex-direction:column}
+  .row.wrap{gap:8px}
+  .primary,.secondary,.chip,.quick-filters button{min-height:42px}
+  #mapReadout{display:none !important}
+  #statusBar{left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));max-width:none;font-size:.88rem;padding:8px 10px}
+  .leaflet-control-zoom{margin-top:62px !important}
+  .leaflet-popup-content-wrapper{max-width:calc(100vw - 34px)}
+  .leaflet-popup-content{max-width:calc(100vw - 62px);max-height:62vh;overflow:auto}
+  .popup-row{grid-template-columns:1fr;gap:2px}
+}
   </style>
 </head>
 <body>
 <div id="app">
   <div id="map"></div>
   <div id="mapLoading">Loading map…</div>
-  <div id="mapReadout"><div class="readout-main">Zoom -- · Cluster x-- · Markers --/--</div><div class="readout-mini">Loaded --</div></div>
+  <div id="mapReadout" aria-hidden="true"><div class="readout-main">Zoom -- · Cluster x-- · Markers --/--</div><div class="readout-mini">Loaded --</div></div>
   <div id="mapLegendDesktop" class="map-legend-panel" aria-label="Map legend"></div>
   <button id="menuToggle" aria-label="Open controls">☰</button>
   <aside id="sidebar">
     <div class="sidebar-scroll">
       <div class="panel-head">
         <div>
-          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.22</strong></div>
+          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.23</strong></div>
           <h1>Camping Map</h1>
           <p id="statusLine">Starting up…</p>
           <p id="dataStats" class="mini-note"></p>
@@ -186,5 +207,12 @@ textarea{min-height:90px;resize:vertical}
 <script src="data/pending-sites-v22.3.3.js"></script>
 <script src="config.js"></script>
 <script src="app-v22.3.22.js"></script>
+<script>
+  /* Keep the visible build flag honest even though this is an index-only hotfix. */
+  window.addEventListener('DOMContentLoaded', function(){
+    var tag = document.getElementById('versionTag');
+    if (tag) tag.textContent = 'v22.3.23';
+  });
+</script>
 </body>
 </html>
