@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <title>Camping Map v22.3.25 rollback stable</title>
+  <title>Camping Map v22.3.26 sidebar redesign</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
 :root {
@@ -89,7 +89,7 @@ textarea{min-height:90px;resize:vertical}
 
 @media (max-width:900px){#sidebar{width:min(430px,calc(100vw - 32px))}#mapReadout{top:70px;right:12px;min-width:230px}#mapLegendDesktop{display:none}.legend-mobile-wrap{display:block}.legend-grid{grid-template-columns:1fr}}
 
-/* v22.3.25 rollback stable
+/* v22.3.26 sidebar redesign base
    Keeps the diagnostic Zoom/Cluster/Markers panel from eating the iPhone map. */
 @media (max-width:700px){
   #menuToggle{top:max(10px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));width:44px;height:44px;z-index:1250}
@@ -122,7 +122,7 @@ textarea{min-height:90px;resize:vertical}
     <div class="sidebar-scroll">
       <div class="panel-head">
         <div>
-          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.25</strong></div>
+          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.26</strong></div>
           <h1>Camping Map</h1>
           <p id="statusLine">Starting up…</p>
           <p id="dataStats" class="mini-note"></p>
@@ -142,12 +142,12 @@ textarea{min-height:90px;resize:vertical}
           <option value="osm">OpenStreetMap</option>
           <option value="satellite">Satellite</option>
         </select>
-        <div class="mini-note" style="margin-top:10px;">Recovery build uses the classic four-way basemap set.</div>
+        <div class="mini-note" style="margin-top:10px;"></div>
       </section>
       <section class="section">
         <h2>State view</h2>
         <select id="stateSelect"><option value="__ALL__">All mapped states</option></select>
-        <div id="stateSelectMeta" class="mini-note" style="margin-top:10px;">Showing all enabled state files.</div>
+        <div id="stateSelectMeta" class="mini-note" style="margin-top:10px;"></div>
       </section>
       <section class="section">
         <h2>Camping layers</h2>
@@ -211,8 +211,9 @@ textarea{min-height:90px;resize:vertical}
   /* Keep the visible build flag honest even though this is an index-only hotfix. */
   window.addEventListener('DOMContentLoaded', function(){
     var tag = document.getElementById('versionTag');
-    if (tag) tag.textContent = 'v22.3.25';
+    if (tag) tag.textContent = 'v22.3.26';
   });
 </script>
+<script src="ui-v22.3.26.js"></script>
 </body>
 </html>
