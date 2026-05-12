@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <title>Camping Map v22.3.24 mobile UI cleanup</title>
+  <title>Camping Map v22.3.25 rollback stable</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
 :root {
@@ -76,8 +76,6 @@ textarea{min-height:90px;resize:vertical}
 .pin-boondocking{--fill:#e8f6ec;--stroke:#348b45;--icon:#2f7e40}
 .pin-info{--fill:#fff8dc;--stroke:#bea03a;--icon:#8b7218}
 .pin-draft{--fill:#fff8ea;--stroke:#b58a1e;--icon:#8a6b16}
-.pin-corporate-parking{--fill:#f0f6ff;--stroke:#4d7fbf;--icon:#24517f}
-.pin-rest-truck{--fill:#f8f2ff;--stroke:#7e59a8;--icon:#5f3d88}
 .legend-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--stroke);background:var(--fill);display:inline-block}.state-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 8px;border-radius:999px;background:#eef3ef;border:1px solid #d5ddd8;font-size:.9rem}.search-results{display:grid;gap:8px;margin-top:10px}.search-result{border:1px solid #d8d1c3;border-radius:12px;background:#fff;padding:10px 12px}
 
 .quick-filters button.partial{background:#edf5ef;border-color:#95b69a;color:#274634}
@@ -91,7 +89,7 @@ textarea{min-height:90px;resize:vertical}
 
 @media (max-width:900px){#sidebar{width:min(430px,calc(100vw - 32px))}#mapReadout{top:70px;right:12px;min-width:230px}#mapLegendDesktop{display:none}.legend-mobile-wrap{display:block}.legend-grid{grid-template-columns:1fr}}
 
-/* v22.3.24 mobile UI cleanup
+/* v22.3.25 rollback stable
    Keeps the diagnostic Zoom/Cluster/Markers panel from eating the iPhone map. */
 @media (max-width:700px){
   #menuToggle{top:max(10px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));width:44px;height:44px;z-index:1250}
@@ -111,26 +109,6 @@ textarea{min-height:90px;resize:vertical}
   .leaflet-popup-content{max-width:calc(100vw - 62px);max-height:62vh;overflow:auto}
   .popup-row{grid-template-columns:1fr;gap:2px}
 }
-
-/* v22.3.24 mobile UI cleanup */
-.brand-lockup{display:flex;align-items:center;gap:12px}
-.brand-icon{width:54px;height:54px;border-radius:16px;border:2px solid rgba(255,255,255,.5);background:#fff;object-fit:cover;box-shadow:0 6px 14px rgba(0,0,0,.16)}
-.panel-head h1{font-size:1.55rem;line-height:1.04;letter-spacing:.02em;text-transform:uppercase}
-.panel-head .brand-sub{font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.86);margin:3px 0 0}
-#stateSelectMeta{display:none!important}
-#layerMenuPanel .layer-select-all{width:100%;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700}
-.layer-group-grid{display:grid;gap:8px;margin-bottom:10px}
-.layer-group-title{font-size:.82rem;font-weight:800;color:#496053;text-transform:uppercase;letter-spacing:.05em;margin:4px 0 2px}
-.layer-icon{width:24px;height:24px;flex:0 0 24px;font-size:0}
-.check{min-width:0}.check span:not(.meta){min-width:0}.check .label-text{overflow:hidden;text-overflow:ellipsis;white-space:normal}.check .meta{white-space:nowrap;flex:0 0 auto}
-.modal-backdrop{position:absolute;inset:0;z-index:1800;background:rgba(13,20,16,.42);display:none;align-items:center;justify-content:center;padding:16px}
-.modal-backdrop.open{display:flex}
-.modal-card{width:min(620px,calc(100vw - 24px));max-height:calc(100vh - 32px);overflow:auto;background:var(--panel);border:1px solid var(--panel-border);border-radius:20px;box-shadow:0 22px 70px rgba(0,0,0,.34);padding:16px}
-.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-4px 0 12px}.modal-head h2{margin:0;font-size:1.25rem;color:#243b2d}.modal-close{border:1px solid #cfd8cd;background:#fff;border-radius:12px;width:40px;height:40px;font-size:1.2rem}.modal-card .section{border-top:0;padding:0}.modal-card .section>h2{display:none}
-.section-launch{display:grid;gap:8px}.section-launch button{width:100%;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;font-weight:700}
-.filter-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.filter-grid label{display:grid;gap:5px;font-size:.86rem;color:#405246}.filter-grid select{padding:9px 10px}.filter-note{font-size:.78rem;color:var(--muted);margin-top:8px}
-@media(max-width:700px){.brand-icon{width:46px;height:46px;border-radius:13px}.panel-head h1{font-size:1.15rem}.modal-backdrop{align-items:flex-end;padding:8px}.modal-card{width:100%;max-height:88vh;border-radius:18px 18px 14px 14px}.filter-grid{grid-template-columns:1fr}.check .meta{margin-left:0}.check.small{align-items:flex-start}.check.small input{margin-top:3px}}
-
   </style>
 </head>
 <body>
@@ -144,7 +122,7 @@ textarea{min-height:90px;resize:vertical}
     <div class="sidebar-scroll">
       <div class="panel-head">
         <div>
-          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.24</strong></div>
+          <div class="state-badge" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18);color:#fff;">Rebuild <strong id="versionTag">v22.3.25</strong></div>
           <h1>Camping Map</h1>
           <p id="statusLine">Starting up…</p>
           <p id="dataStats" class="mini-note"></p>
@@ -164,18 +142,18 @@ textarea{min-height:90px;resize:vertical}
           <option value="osm">OpenStreetMap</option>
           <option value="satellite">Satellite</option>
         </select>
-        <div class="mini-note" style="margin-top:10px;"></div>
+        <div class="mini-note" style="margin-top:10px;">Recovery build uses the classic four-way basemap set.</div>
       </section>
       <section class="section">
         <h2>State view</h2>
         <select id="stateSelect"><option value="__ALL__">All mapped states</option></select>
-        <div id="stateSelectMeta" class="mini-note" style="margin-top:10px;" hidden></div>
+        <div id="stateSelectMeta" class="mini-note" style="margin-top:10px;">Showing all enabled state files.</div>
       </section>
       <section class="section">
         <h2>Camping layers</h2>
         <div class="quick-filters" id="layerQuickFilters">
-          <button type="button" data-layer-toggle-group="modern">Modern Campgrounds</button>
-          <button type="button" data-layer-toggle-group="rustic">Rustic Campgrounds</button>
+          <button type="button" data-layer-toggle-group="rustic">All Rustic</button>
+          <button type="button" data-layer-toggle-group="modern">All Modern</button>
         </div>
         <div class="dropdown">
           <button id="layerMenuButton" class="dropdown-btn" type="button" aria-expanded="false" aria-controls="layerMenuPanel"><span>Choose camping layers</span><span id="layerMenuSummary" class="summary-note">-- selected</span><span class="caret">▾</span></button>
@@ -229,103 +207,12 @@ textarea{min-height:90px;resize:vertical}
 <script src="data/pending-sites-v22.3.3.js"></script>
 <script src="config.js"></script>
 <script src="app-v22.3.22.js"></script>
-
 <script>
-(function(){
-  const VERSION='v22.3.24';
-  const SVG={
-    tent:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 18.5 10.8 5h2.4L21 18.5h-3.1l-5.1-9.1-2.9 4.9 1.9 4.2H9.2l-1.5-3.2-1.7 3.2H3Zm6.8 0h4.5l-2.2-5-2.3 5Z"/></svg>',
-    tree:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 4 5h-2.1l3.6 4.5H15l3 3.8h-4.2V22h-3.6v-6.7H6l3-3.8H6.5L10.1 7H8L12 2Z"/></svg>',
-    camper:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 8.5h10.6c.8 0 1.6.4 2.1 1l2.3 2.6H21a1 1 0 0 1 1 1v4.9h-1.7a2.6 2.6 0 0 1-5.1 0H9.8a2.6 2.6 0 0 1-5.1 0H3v-8.5a1 1 0 0 1 1-1Zm1.2 1.8v2.8H14v-2.8H5.2Zm11 3.1h3.2l-1.6-1.8a1.1 1.1 0 0 0-.8-.4h-.8v2.2ZM7.2 19a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Zm10.6 0a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Z"/></svg>',
-    parking:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M6 3h7.4c3 0 5.1 2.1 5.1 5s-2.1 5.1-5.1 5.1H9.6V21H6V3Zm3.6 3.2v3.7h3.4c1.1 0 1.9-.7 1.9-1.9s-.8-1.8-1.9-1.8H9.6Z"/></svg>',
-    info:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8A9.2 9.2 0 1 1 2.8 12 9.2 9.2 0 0 1 12 2.8Zm0 4a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm-1.7 5v1.8h1.1v3.6h-1.1V19h4.5v-1.8h-1.1v-5.4h-3.4Z"/></svg>',
-    draft:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 17.5V20h2.5l8.6-8.6-2.5-2.5L4 17.5Zm12.4-9.9 1.5-1.5a1.2 1.2 0 0 1 1.7 0l.8.8a1.2 1.2 0 0 1 0 1.7l-1.5 1.5-2.5-2.5Z"/></svg>'
-  };
-  const iconFor={
-    'federal-modern':['pin-federal-modern',SVG.tent],'state-modern':['pin-state-modern',SVG.tent],'local-modern':['pin-local-modern',SVG.tent],
-    'federal-rustic':['pin-federal-rustic',SVG.tree],'state-rustic':['pin-state-rustic',SVG.tree],'local-rustic':['pin-local-rustic',SVG.tree],
-    'private-modern':['pin-private-modern',SVG.camper],'private-rustic':['pin-private-rustic',SVG.camper],
-    'boondocking':['pin-boondocking',SVG.tree],'info':['pin-info',SVG.info],'pending':['pin-draft',SVG.draft],
-    'corporate-parking':['pin-corporate-parking',SVG.parking],'rest-truck':['pin-rest-truck',SVG.parking]
-  };
-  const groups={
-    modern:['federal-modern','state-modern','local-modern'],
-    rustic:['federal-rustic','state-rustic','local-rustic']
-  };
-  const $=id=>document.getElementById(id);
-  function setVersion(){document.title='Camping Map '+VERSION+' mobile UI cleanup'; const t=$('versionTag'); if(t)t.textContent=VERSION;}
-  function refreshHeader(){
-    const head=document.querySelector('.panel-head > div'); if(!head || head.dataset.v2424)return; head.dataset.v2424='1';
-    const badge=head.querySelector('.state-badge'); const h1=head.querySelector('h1');
-    if(h1) h1.innerHTML='Boondocking<br>Camping Map';
-    const img=document.createElement('img'); img.className='brand-icon'; img.src='assets/icon-192.png'; img.alt='Camping Map icon';
-    const wrap=document.createElement('div'); wrap.className='brand-lockup';
-    const text=document.createElement('div');
-    if(h1){ h1.parentNode.insertBefore(wrap,h1); wrap.appendChild(img); text.appendChild(h1); const sub=document.createElement('p'); sub.className='brand-sub'; sub.textContent='Public-land camping planner'; text.appendChild(sub); wrap.appendChild(text); }
-    if(badge) head.appendChild(badge);
-  }
-  function hideNotes(){ const n=$('stateSelectMeta'); if(n){n.textContent='';n.hidden=true;} document.querySelectorAll('.mini-note').forEach(el=>{ if(/Recovery build uses/i.test(el.textContent)) el.remove(); }); }
-  function syncChecks(keys,on){keys.forEach(k=>{const cb=document.querySelector('[data-layer-toggle="'+k+'"]'); if(cb && cb.checked!==on){cb.checked=on; cb.dispatchEvent(new Event('change',{bubbles:true}));}});}
-  function groupState(keys){const cbs=keys.map(k=>document.querySelector('[data-layer-toggle="'+k+'"]').checked).filter(v=>v!==undefined); return cbs.length && cbs.every(Boolean) ? 'on' : cbs.some(Boolean) ? 'partial' : 'off';}
-  function makeGroup(key,label,iconCss,svg){
-    const row=document.createElement('label'); row.className='check small layer-group-control'; row.dataset.groupControl=key;
-    row.innerHTML='<input type="checkbox"><span class="map-pin layer-icon '+iconCss+'">'+svg+'</span><span class="label-text">'+label+'</span><span class="meta"></span>';
-    row.querySelector('input').addEventListener('change',e=>syncChecks(groups[key], e.target.checked));
-    return row;
-  }
-  function enhanceLayers(){
-    const panel=$('layerMenuPanel'), list=$('layerList'); if(!panel || !list)return;
-    if(!panel.querySelector('.layer-select-all')){
-      const btn=document.createElement('button'); btn.type='button'; btn.className='primary layer-select-all'; btn.textContent='Select all visible layers';
-      btn.addEventListener('click',()=>{document.querySelectorAll('#layerList [data-layer-toggle]').forEach(cb=>{ if(!cb.disabled && !cb.checked){cb.checked=true;cb.dispatchEvent(new Event('change',{bubbles:true}));}});});
-      panel.insertBefore(btn,list);
-    }
-    list.querySelectorAll('label.check').forEach(label=>{
-      const cb=label.querySelector('[data-layer-toggle]'); if(!cb)return; const key=cb.getAttribute('data-layer-toggle');
-      const dot=label.querySelector('.legend-dot'); const found=iconFor[key];
-      if(dot && found){ const span=document.createElement('span'); span.className='map-pin layer-icon '+found[0]; span.innerHTML=found[1]; dot.replaceWith(span); }
-      const textSpans=[...label.querySelectorAll('span')].filter(s=>!s.classList.contains('map-pin')&&!s.classList.contains('meta'));
-      textSpans.forEach(sp=>sp.classList.add('label-text'));
-      if(['federal-modern','state-modern','local-modern','federal-rustic','state-rustic','local-rustic'].includes(key)){ label.style.display='none'; }
-    });
-    if(!list.querySelector('[data-v24-group-wrap]')){
-      const wrap=document.createElement('div'); wrap.dataset.v24GroupWrap='1'; wrap.className='layer-group-grid';
-      const title=document.createElement('div'); title.className='layer-group-title'; title.textContent='Combined public campground layers';
-      wrap.appendChild(title); wrap.appendChild(makeGroup('modern','Modern campgrounds', 'pin-state-modern', SVG.tent)); wrap.appendChild(makeGroup('rustic','Rustic campgrounds', 'pin-state-rustic', SVG.tree));
-      const title2=document.createElement('div'); title2.className='layer-group-title'; title2.textContent='Future parking layers'; wrap.appendChild(title2);
-      ['Corporate overnight parking','Rest areas / truck stops'].forEach((txt,i)=>{const row=document.createElement('label'); row.className='check small disabled-layer'; row.innerHTML='<input type="checkbox" disabled><span class="map-pin layer-icon '+(i?'pin-rest-truck':'pin-corporate-parking')+'">'+SVG.parking+'</span><span class="label-text">'+txt+'</span><span class="meta">coming</span>'; wrap.appendChild(row);});
-      list.insertBefore(wrap,list.firstChild);
-    }
-    Object.entries(groups).forEach(([key,keys])=>{ const row=list.querySelector('[data-group-control="'+key+'"]'); if(!row)return; const cb=row.querySelector('input'), meta=row.querySelector('.meta'); const st=groupState(keys); cb.checked=st==='on'; cb.indeterminate=st==='partial'; if(meta)meta.textContent=st==='partial'?'some':(st==='on'?'on':'off'); });
-  }
-  function addFilters(){
-    if($('filterCost'))return; const layers=document.querySelector('#layerQuickFilters')?.closest('.section'); if(!layers)return;
-    const sec=document.createElement('section'); sec.className='section'; sec.innerHTML='<h2>Filters</h2><div class="filter-grid"><label>Cost<select id="filterCost"><option value="any">Any cost</option><option value="free">Free</option><option value="10">$10 or less</option><option value="20">$20 or less</option><option value="30">$30 or less</option></select></label><label>Showers<select id="filterShowers"><option value="any">Any</option><option value="yes">Has showers</option><option value="no">No showers / unknown</option></select></label><label>Access<select id="filterAccess"><option value="any">Any access</option><option value="2wd">2WD friendly</option><option value="clearance">High-clearance noted</option><option value="4wd">4WD noted</option><option value="seasonal">Seasonal road noted</option></select></label><label>Amenities<select id="filterAmenities"><option value="any">Any amenities</option><option value="water">Water</option><option value="toilet">Toilet</option><option value="electric">Electric / hookup</option><option value="boat">Boat launch</option></select></label></div><div class="filter-note">Filter controls added in v22.3.24. Full marker filtering is queued for the next app-JS pass so this index-only update does not risk breaking map rendering.</div>';
-    layers.after(sec);
-  }
-  function makeModal(id,title,section){
-    const back=document.createElement('div'); back.id=id; back.className='modal-backdrop'; back.innerHTML='<div class="modal-card" role="dialog" aria-modal="true"><div class="modal-head"><h2>'+title+'</h2><button type="button" class="modal-close" aria-label="Close">×</button></div></div>';
-    document.getElementById('app').appendChild(back); back.querySelector('.modal-card').appendChild(section);
-    back.addEventListener('click',e=>{if(e.target===back)back.classList.remove('open')}); back.querySelector('.modal-close').addEventListener('click',()=>back.classList.remove('open')); return back;
-  }
-  function setupPopups(){
-    const side=document.querySelector('.sidebar-scroll'); if(!side || $('openAddSiteBtn'))return;
-    const sections=[...side.querySelectorAll('section.section')];
-    const addSec=sections.find(s=>/Add a site/i.test(s.querySelector('h2')?.textContent||''));
-    const queueSec=sections.find(s=>/Manual site queue/i.test(s.querySelector('h2')?.textContent||''));
-    if(addSec){ const launcher=document.createElement('section'); launcher.className='section section-launch'; launcher.innerHTML='<h2>Add a site</h2><button id="openAddSiteBtn" class="secondary" type="button"><span>Open Add A Site window</span><span>＋</span></button>'; addSec.before(launcher); const modal=makeModal('addSiteModal','Add A Site',addSec); $('openAddSiteBtn').addEventListener('click',()=>modal.classList.add('open')); }
-    if(queueSec){ const launcher=document.createElement('section'); launcher.className='section section-launch'; launcher.innerHTML='<h2>Manual site queue</h2><button id="openQueueBtn" class="secondary" type="button"><span>Open Manual Site Queue</span><span>☰</span></button>'; queueSec.before(launcher); const modal=makeModal('queueModal','Manual Site Queue',queueSec); $('openQueueBtn').addEventListener('click',()=>modal.classList.add('open')); }
-  }
-  function fixPendingRow(){ const p=$('pendingMeta'); if(p)p.textContent=p.textContent||'off'; const lab=$('showPendingLayer')?.closest('label'); if(lab) lab.querySelector('span:not(.meta)')?.classList.add('label-text'); }
-  function run(){setVersion(); refreshHeader(); hideNotes(); enhanceLayers(); addFilters(); setupPopups(); fixPendingRow();}
-  window.addEventListener('DOMContentLoaded',()=>{
-    run();
-    setTimeout(run,150);
-    setTimeout(run,700);
-    setTimeout(run,1600);
+  /* Keep the visible build flag honest even though this is an index-only hotfix. */
+  window.addEventListener('DOMContentLoaded', function(){
+    var tag = document.getElementById('versionTag');
+    if (tag) tag.textContent = 'v22.3.25';
   });
-})();
 </script>
-
 </body>
 </html>
