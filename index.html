@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <title>Boondocking & Camping Maps v22.3.30</title>
+  <title>Boondocking & Camping Maps v23.0.1</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
 :root{--bg:#edf1ea;--panel:rgba(248,247,241,.98);--panel-border:#c9cfbf;--text:#1c241f;--muted:#5b665d;--accent:#2f5f4a;--accent-2:#6f8f63;--accent-soft:#e5efe8;--shadow:0 10px 30px rgba(24,33,27,.18);--radius:16px}*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}body{overflow:hidden}a{color:#215fcb}button,input,select,textarea{font:inherit}button{cursor:pointer}#app{position:relative;width:100%;height:100%}#map{position:absolute;inset:0;background:#d7e4d2}.hidden{display:none!important}
@@ -16,7 +16,7 @@
 @media(max-width:900px){#mapLegendDesktop{display:none}.legend-mobile-wrap{display:block}.legend-grid{grid-template-columns:1fr}}
 @media(max-width:700px){#menuToggle{top:max(10px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));width:44px;height:44px;z-index:1250}#sidebar{top:max(62px,calc(env(safe-area-inset-top) + 58px));left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));bottom:64px;width:auto;border-radius:16px}.sidebar-scroll{padding:14px 14px 22px}.panel-head{margin:-14px -14px 12px;padding:14px}.brand-icon{width:48px;height:48px;border-radius:13px}.panel-head h1{font-size:1.05rem}.brand-sub{font-size:.76rem}.row:not(.wrap){flex-direction:column;align-items:stretch}.primary,.secondary,.chip{min-height:42px}.leaflet-control-zoom{margin-top:62px!important}.leaflet-popup-content-wrapper{max-width:calc(100vw - 34px)}.leaflet-popup-content{max-width:calc(100vw - 62px);max-height:62vh;overflow:auto}.popup-row{grid-template-columns:1fr;gap:2px}.filter-grid{grid-template-columns:1fr}.modal-backdrop{align-items:flex-end;padding:8px}.modal-card{width:100%;max-height:88vh;border-radius:18px 18px 14px 14px}.mobile-action-bar{position:absolute;z-index:1250;left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.mobile-action-bar button{border:1px solid rgba(36,60,46,.18);border-radius:14px;background:rgba(251,250,246,.96);box-shadow:0 6px 18px rgba(24,33,27,.16);padding:9px 4px;font-size:.78rem;font-weight:700}#statusBar{left:8px;right:8px;bottom:64px;max-width:none;font-size:.88rem;padding:8px 10px}}
   
-.state-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 8px}.state-toolbar .secondary{flex:1 1 140px}.state-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:220px;overflow:auto;border:1px solid #d6ddd2;border-radius:14px;background:#fff;padding:10px}.state-check{display:flex;align-items:center;gap:8px;min-width:0;padding:6px 7px;border-radius:10px}.state-check:hover{background:#eef5ef}.state-check input{margin:0;flex:0 0 auto}.state-check span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.state-note{margin-top:8px}.state-count-pill{display:inline-flex;align-items:center;justify-content:center;min-width:24px;padding:2px 6px;border-radius:999px;background:#edf3ec;color:#4a5d50;font-size:.76rem;margin-left:auto}@media(max-width:700px){.state-checklist{grid-template-columns:1fr;max-height:190px}}
+.state-dropdown{position:relative}.state-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px}.state-toolbar .secondary{flex:1 1 140px}.state-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:240px;overflow:auto;border:1px solid #d6ddd2;border-radius:14px;background:#fff;padding:10px}.state-check{display:flex;align-items:center;gap:8px;min-width:0;padding:6px 7px;border-radius:10px}.state-check:hover{background:#eef5ef}.state-check input{margin:0;flex:0 0 auto}.state-check span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.state-note{margin-top:8px}.state-count-pill{display:inline-flex;align-items:center;justify-content:center;min-width:24px;padding:2px 6px;border-radius:999px;background:#edf3ec;color:#4a5d50;font-size:.76rem;margin-left:auto}.caret{font-size:1rem;color:#476353}@media(max-width:700px){.state-checklist{grid-template-columns:1fr;max-height:250px}}
 </style>
 </head>
 <body>
@@ -29,7 +29,7 @@
     <div class="sidebar-scroll">
       <div class="panel-head">
         <img class="brand-icon" src="assets/icon-192.png" alt="Boondocking and Camping Maps icon">
-        <div><h1>Boondocking<br>&amp; Camping Maps</h1><p class="brand-sub">Public-land camping planner</p><div class="state-badge">Build <strong id="versionTag">v22.3.30</strong></div></div>
+        <div><h1>Boondocking<br>&amp; Camping Maps</h1><p class="brand-sub">Public-land camping planner</p><div class="state-badge">Build <strong id="versionTag">v23.0.1</strong></div></div>
         <button id="closeSidebar" aria-label="Close panel">✕</button>
       </div>
       <p id="statusLine" class="mini-note">Starting up…</p>
@@ -37,12 +37,18 @@
       <section class="section" id="searchSection"><h2>Find an area</h2><div class="row"><input id="searchInput" type="text" placeholder="City, park, address, site name, or coordinates"><button id="searchBtn" class="primary" type="button">Go</button><button id="nearMeBtn" class="secondary" type="button">Near Me</button></div><div id="searchResults" class="search-results"></div></section>
       <section class="section"><h2>Basemap</h2><select id="basemapSelect"><option value="topo">Topo</option><option value="opentopo">OpenTopo</option><option value="osm">OpenStreetMap</option><option value="satellite">Satellite</option></select></section>
       <section class="section" id="stateSection"><h2>State view</h2>
-        <select id="stateSelect"><option value="__ALL__">All mapped states</option></select>
-        <div class="state-toolbar" aria-label="Multi-state controls">
-          <button id="selectAllStates" class="secondary" type="button">Select all mapped</button>
-          <button id="clearStates" class="secondary" type="button">Clear states</button>
+        <div class="state-dropdown">
+          <button id="stateMenuButton" class="dropdown-btn" type="button" aria-expanded="false" aria-controls="stateMenuPanel">
+            <span>Choose states</span><span id="stateSelectionSummary" class="summary-note">Michigan selected</span><span class="caret">▾</span>
+          </button>
+          <div id="stateMenuPanel" class="dropdown-panel" hidden>
+            <div class="state-toolbar" aria-label="Multi-state controls">
+              <button id="selectAllStates" class="secondary" type="button">Select all mapped</button>
+              <button id="clearStates" class="secondary" type="button">Clear states</button>
+            </div>
+            <div id="stateChecklist" class="state-checklist" aria-label="Choose one or more states"></div>
+          </div>
         </div>
-        <div id="stateChecklist" class="state-checklist" aria-label="Choose multiple states"></div>
         <div id="stateSelectionNote" class="mini-note state-note">Choose one or more states. The map will zoom to the selected state area.</div>
       </section>
       <section class="section" id="layersSection"><h2>Map layers</h2><div class="quick-filters"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear all</button></div><div id="layerList" class="toggle-grid"></div></section>
@@ -62,6 +68,6 @@
 <script src="data/states-manifest-v22.3.3.js"></script>
 <script src="data/pending-sites-v22.3.3.js"></script>
 <script src="config.js"></script>
-<script src="app-v22.3.30.js"></script>
+<script src="app-v23.0.1.js"></script>
 </body>
 </html>
