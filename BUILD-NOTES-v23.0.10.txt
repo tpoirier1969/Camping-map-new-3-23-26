@@ -1,0 +1,22 @@
+Boondocking & Camping Maps v23.0.10
+
+Purpose:
+- Keep the v23.0.9 MDOT live rest/roadside loader working.
+- Add clearer traveler-stop terminology and diagnostics.
+- Do not add unverified local/county/township points yet.
+
+Included changes:
+- app-v23.0.10.js replaces app-v23.0.9.js.
+- index.html now references app-v23.0.10.js and states-manifest-v23.0.10.js.
+- data/states-manifest-v23.0.10.js replaces data/states-manifest-v23.0.9.js.
+- Rest/roadside source diagnostics are shown in the small data stats line.
+- Popups now show Useful for, Owner level, Location precision, and Source data links where available.
+- Reference tab now includes the traveler-stop inclusion/exclusion rule.
+
+Not included:
+- No config.js.
+- No SQL.
+- No new local traveler-stop points yet; these should be curated once coordinates are verified.
+
+Deployment:
+Upload the ZIP contents over the existing site. Keep your existing config.js in place.
