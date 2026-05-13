@@ -1,0 +1,32 @@
+# Build Notes — v23.0.27
+
+Changed-files-only package. Cumulative from v23.0.26.
+
+## Included files
+- index.html
+- app-v23.0.27.js
+- BUILD-NOTES-v23.0.27.txt
+
+## Not included
+- config.js is intentionally not included.
+- No Supabase/SQL changes.
+- No data files changed.
+
+## Carried forward from v23.0.25/v23.0.26
+- Rustic Campgrounds and Boondocking / Dispersed no longer share the same visual treatment.
+- Rustic uses the tree icon with tan/brown styling.
+- Boondocking uses the mountain-style icon with green styling.
+- Filters reset on every app load/refresh and stale saved filter state is overwritten with a blank filter state.
+
+## New in v23.0.27
+- The Near Me button now does more than zoom to the browser location.
+- On phone or desktop, Near Me asks for browser location permission, selects mapped states intersecting roughly a 200-mile radius around the user, loads those states, places a user marker, and zooms to the 200-mile area.
+- The radius is intentionally approximate and state-based for loading. The app loads nearby mapped state data, not a precise clipped circular data extract.
+- If no nearby mapped state is found, it falls back to Michigan.
+
+## Verification performed
+- app-v23.0.27.js syntax checked with Node.
+- index.html points to app-v23.0.27.js.
+- Confirmed Rustic/Boondocking icon/color changes are still present.
+- Confirmed startup filter reset is still present.
+- Confirmed config.js is not included in this ZIP.
