@@ -1,0 +1,44 @@
+# BUILD NOTES — v23.0.21
+
+Changed-files-only package.
+
+Purpose:
+- Add the right kind of Overnight Parking data: parking-lot-style retail overnight candidates, not RV parks or campgrounds.
+- Keep v23.0.20 RV-park cleanup intact.
+- Keep config.js excluded.
+
+Files included:
+- index.html
+- app-v23.0.21.js
+- data/states-manifest-v23.0.21.js
+- data/mi-overnight-parking-v23.0.21.js
+- data/mi-private-rv-parks-v23.0.21.js
+- BUILD-NOTES-v23.0.21.txt
+
+Data changes:
+- Added 11 Walmart Supercenter parking-lot-style overnight candidates to the Overnight Parking layer.
+- All Walmart records use overnightParking: "Limited" because Walmart's own guidance says permission depends on store management, parking availability, and local laws.
+- No RV parks were added to Overnight Parking.
+- Reclassified casino/RV park records remain in Private Campgrounds via the private RV park supplement.
+
+New Overnight Parking records:
+- Walmart Supercenter #5444 — Ironwood — 10305 Country Club Road, Ironwood, MI 49938 — Limited
+- Walmart Supercenter #2192 — Houghton — 995 Razorback Dr, Houghton, MI 49931 — Limited
+- Walmart Supercenter #2079 — Marquette — 3225 US Highway 41 W, Marquette, MI 49855 — Limited
+- Walmart Supercenter #2522 — Escanaba — 601 N Lincoln Rd, Escanaba, MI 49829 — Limited
+- Walmart Supercenter #2434 — Iron Mountain — 1920 S Stephenson Ave, Iron Mountain, MI 49801 — Limited
+- Walmart Supercenter #1936 — Sault Ste. Marie — 3763 I-75 Business Spur, Sault Sainte Marie, MI 49783 — Limited
+- Walmart Supercenter #2100 — Cheboygan — 1150 S Main St, Cheboygan, MI 49721 — Limited
+- Walmart Supercenter #1542 — Gaylord — 950 Edelweiss Parkway, Gaylord, MI 49735 — Limited
+- Walmart Supercenter #2417 — Petoskey — 1850 Anderson Rd, Petoskey, MI 49770 — Limited
+- Walmart Supercenter #2358 — Alpena — 1180 M-32 W, Alpena, MI 49707 — Limited
+- Walmart Supercenter #1432 — Cadillac — 8917 E 34 Rd, Cadillac, MI 49601 — Limited
+
+Source handling:
+- Store existence/address/phone: official Walmart store pages.
+- Walmart parking policy: Walmart corporate FAQ.
+- Coordinates: Walmart store-location dataset matched by store number and address.
+
+Install note:
+- Upload these files over the site root, preserving folders.
+- Do not upload or replace config.js.
