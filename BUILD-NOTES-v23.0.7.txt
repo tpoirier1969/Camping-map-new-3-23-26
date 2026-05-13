@@ -1,0 +1,29 @@
+Boondocking & Camping Maps v23.0.7 - clean rest/roadside loader build
+
+Included correction:
+- The app now supports manifest rows with files[] so a state can load multiple explicit data parts in order.
+- Michigan now loads data/states/MI.js first, then data/mi-rest-roadside-v23.0.7.js.
+- The rest/roadside data file appends records directly to window.CAMPING_STATE_DATA.MI.
+- The Rest Areas & Roadside Stops layer is enabled once for existing browsers via a one-time layer migration.
+- Popup rows now display facilityType, overnightParking, seasonStatus, seasonNotes, and lastChecked when present.
+
+No hacks used:
+- No document.write.
+- No Element.prototype patching.
+- No MutationObserver UI relabeling.
+- No external marker overlay outside the real app layer system.
+
+Not included:
+- config.js is intentionally omitted from this package.
+- No SQL/Supabase migration is included.
+
+Changed files:
+- index.html
+- app-v23.0.7.js
+- data/states-manifest-v22.3.3.js
+- data/mi-rest-roadside-v23.0.7.js
+- BUILD-NOTES-v23.0.7.txt
+
+Deployment:
+- Upload/extract this package over the existing site.
+- Keep your existing config.js in place.

@@ -1,6 +1,5 @@
-// Michigan Rest Areas & Roadside Stops data-only supplement v23.0.7a
-// Loader repair version: no document.write, no Element.prototype patching, no MutationObserver, no app-loader side effects.
-// This file is intentionally safe if it remains on the server or if an old script tag still points to it.
+// Michigan Rest Areas & Roadside Stops data part v23.0.7
+// Clean app-loader version: appends records to window.CAMPING_STATE_DATA.MI when loaded as an explicit state data part.
 (function(){
   'use strict';
   var rawRecords = [
@@ -420,6 +419,15 @@
     return Number.isFinite(Number(record.lat)) && Number.isFinite(Number(record.lng));
   });
   window.CAMPING_STATIC_SITE_SUPPLEMENTS = window.CAMPING_STATIC_SITE_SUPPLEMENTS || {};
-  window.CAMPING_STATIC_SITE_SUPPLEMENTS.MI_REST_ROADSIDE_V2307A = records;
+  window.CAMPING_STATIC_SITE_SUPPLEMENTS.MI_REST_ROADSIDE_V2307 = records;
   window.CAMPING_MI_REST_ROADSIDE_SUPPLEMENT = records;
+  window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
+  var stateRecords = window.CAMPING_STATE_DATA.MI = window.CAMPING_STATE_DATA.MI || [];
+  var existingIds = new Set(stateRecords.map(function(site){ return site && site.id; }));
+  records.forEach(function(record){
+    if(record && !existingIds.has(record.id)){
+      stateRecords.push(record);
+      existingIds.add(record.id);
+    }
+  });
 })();

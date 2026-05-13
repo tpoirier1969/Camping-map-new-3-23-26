@@ -1,4 +1,4 @@
-// Camping Map states manifest v22.3.26
+// Camping Map states manifest v23.0.7
 window.CAMPING_STATES_MANIFEST = {
   "AL": {
     "code": "AL",
@@ -76,7 +76,11 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 535
+    "files": [
+      "data/states/MI.js",
+      "data/mi-rest-roadside-v23.0.7.js"
+    ],
+    "count": 563
   },
   "MN": {
     "code": "MN",
