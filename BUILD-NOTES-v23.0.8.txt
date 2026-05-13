@@ -1,0 +1,25 @@
+Boondocking & Camping Maps v23.0.8 - Cache-safe rest/roadside loader fix
+
+Purpose:
+- Fixes v23.0.7 issue where the app could show the v23.0.7 shell but still use a cached old states-manifest-v22.3.3.js, preventing the Michigan rest/roadside supplement from loading.
+
+Included corrected files:
+- index.html now loads data/states-manifest-v23.0.8.js and app-v23.0.8.js.
+- app-v23.0.8.js keeps explicit files[] state-part loading support.
+- data/states-manifest-v23.0.8.js points Michigan to both data/states/MI.js and data/mi-rest-roadside-v23.0.8.js.
+- data/mi-rest-roadside-v23.0.8.js contains the 28 starter Michigan rest/welcome/roadside records.
+
+Not included:
+- config.js is not included and was not touched.
+- No SQL is required.
+
+Verification performed:
+- JS syntax check passed for app, manifest, MI base data, and rest/roadside supplement.
+- Michigan count after loading MI.js + rest/roadside supplement is 563.
+- Rest Areas & Roadside Stops layer has 28 records with valid coordinates.
+- The rest/roadside data does not contain a campingAllowed field.
+
+If no rest/roadside markers appear after upload:
+- Make sure Michigan is selected in the state dropdown.
+- Clear active filters, especially Showers.
+- Hard refresh once if the browser has aggressively cached old files.
