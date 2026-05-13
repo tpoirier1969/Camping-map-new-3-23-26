@@ -1,0 +1,23 @@
+Boondocking & Camping Maps v23.0.15
+
+Included:
+- Added first curated Upper Peninsula Local Traveler Stops supplement.
+- Added 15 public traveler-stop records from Michigan Water Trails listings with GPS coordinates.
+- Added app loader support for data/mi-local-traveler-stops-v23.0.15.js.
+- Kept MDOT live rest/roadside loader intact.
+- Kept v23.0.14 smaller traveler-stop icons.
+- Updated app/manifest references to v23.0.15 for cache-safe loading.
+
+Selection rules used:
+- Included public boat launches, waterfront parks, marinas/harbors, and water-access sites with practical traveler-stop value.
+- Required public parking and at least one traveler-use feature such as restroom, picnic area, water access, lighting, shelter, or scenic stop value.
+- Excluded campgrounds and sites already intended primarily as camping records.
+- Overnight parking remains Unknown unless the source explicitly says otherwise.
+- Camping is not implied.
+
+Not included:
+- No bulk DNR statewide boat-launch import.
+- No playground/sports/school-field filler.
+- No config.js.
+- No SQL.
+- No Supabase changes.
