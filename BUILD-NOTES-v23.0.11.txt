@@ -1,0 +1,17 @@
+Boondocking & Camping Maps v23.0.11
+
+Included:
+- Fixed Map Layers > Clear all so it truly clears every map layer.
+- Removed the old forced fallback that re-selected Modern Campgrounds and Rustic Campgrounds after Clear all.
+- Bumped app and manifest filenames to v23.0.11 for cache-safe loading.
+- Kept the v23.0.10 traveler-stop/rest-roadside work intact.
+
+Not included:
+- No config.js.
+- No SQL changes.
+- No new site data added in this patch.
+
+Expected behavior:
+- Select all checks every layer.
+- Clear all unchecks every layer, including Modern Campgrounds and Rustic Campgrounds.
+- Site count should drop to 0 visible records when all layers are cleared.
