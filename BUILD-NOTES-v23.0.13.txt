@@ -1,0 +1,22 @@
+Boondocking & Camping Maps v23.0.13
+
+Included:
+- Added a Clear filters button in the Filters section.
+- Clear filters resets Max cost, Access, and Showers in one deterministic action.
+- Added roadside-stop source/load diagnostics directly in the Map Layers section.
+- Rest/roadside diagnostics still also appear in the existing data status line when Michigan is loaded.
+- Traveler-stop popups now explicitly say that the stop is useful for short public pull-off/rest-stop use and that camping is not implied.
+- Kept the v23.0.12 quick-filter sync fix intact.
+- Kept the MDOT live rest/roadside loader intact.
+- Bumped app and manifest filenames to v23.0.13 for cache-safe loading.
+
+Not included:
+- No config.js.
+- No SQL changes.
+- No new site imports.
+- No Supabase changes.
+
+Expected behavior:
+- Clear filters should leave filter status as "No filters active."
+- Rest Areas & Roadside Stops should still show the MDOT live count when Michigan is loaded.
+- Popup wording should separate traveler-stop usefulness from overnight parking and camping assumptions.

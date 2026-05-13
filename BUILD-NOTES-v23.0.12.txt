@@ -1,0 +1,22 @@
+Boondocking & Camping Maps v23.0.12
+
+Included:
+- Fixed quick-filter button state handling on mobile and desktop.
+- Quick buttons now act as deterministic shortcuts for the real filter values instead of storing separate stale chip state.
+- Free toggles Max cost between Free only and Any cost.
+- <= $20 toggles Max cost between $20 or less and Any cost.
+- 2WD toggles Access between 2WD friendly and Any access.
+- Showers remains an independent quick filter.
+- Dropdown changes now immediately resync the matching quick buttons.
+- Stale saved quick-chip values from old localStorage are ignored/cleaned on load.
+- Bumped app and manifest filenames to v23.0.12 for cache-safe loading.
+
+Not included:
+- No config.js.
+- No SQL changes.
+- No new site data added in this patch.
+
+Expected behavior:
+- Quick buttons and dropdown filters should no longer visually disagree.
+- Turning a quick filter off removes the actual filter it controls.
+- Filter status text should match the active map filtering after every change.
