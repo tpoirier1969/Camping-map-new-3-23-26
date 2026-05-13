@@ -1,0 +1,5 @@
+{
+  "version": "v23.0.28",
+  "updated": "2026-05-13",
+  "notes": "Adds update checking and keeps Near Me/local-area map fitting around the user instead of whole-state bounds after manual state changes."
+}

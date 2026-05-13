@@ -1,0 +1,31 @@
+# Build Notes — v23.0.28
+
+Changed-files-only cumulative package. Upload these files over the matching site-relative paths.
+
+## Included files
+- index.html
+- app-v23.0.28.js
+- version.json
+- BUILD-NOTES-v23.0.28.txt
+
+## Not included
+- config.js is intentionally not included.
+- No data files changed.
+- No Supabase/SQL changes.
+
+## Carried forward from recent builds
+- Rustic and Boondocking no longer share the same icon/color treatment.
+- Filters reset on every app load/refresh.
+- Near Me selects mapped states near the user and zooms to an approximate 200-mile local area.
+
+## New in v23.0.28
+- Added a lightweight version.json file for update checking.
+- App checks version.json on startup with cache busting.
+- If version.json reports a newer version than the running app, the app shows an Update available notice with a Reload latest button.
+- Fixed local-area view behavior: once Near Me has established the user's local center, later state-selection changes keep the map fitted to the 200-mile local area instead of zooming out to full selected-state bounds.
+
+## Verification performed
+- app-v23.0.28.js syntax checked with Node.
+- index.html references app-v23.0.28.js.
+- version.json parses as JSON and reports v23.0.28.
+- ZIP excludes config.js.
