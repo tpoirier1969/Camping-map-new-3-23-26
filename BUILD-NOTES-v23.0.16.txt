@@ -1,0 +1,18 @@
+Boondocking & Camping Maps v23.0.16
+
+Included:
+- Fixed Clear states so it truly clears every selected state.
+- Fixed the empty-state behavior so the app no longer silently reselects Michigan after all states are cleared.
+- Fresh first-time users still default to Michigan.
+- If the user deliberately saves no selected states, that empty state persists across reloads.
+- With no states selected, no map site data is loaded until a state is selected.
+- Pending/Needs Verification records are also filtered to selected states.
+- Kept v23.0.15 local U.P. traveler-stop data.
+- Kept v23.0.14 smaller traveler-stop icons.
+- Kept MDOT live rest/roadside loader.
+
+Not included:
+- No new site data in this revision.
+- No config.js.
+- No SQL.
+- No Supabase changes.
