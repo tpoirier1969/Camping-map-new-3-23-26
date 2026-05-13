@@ -1,0 +1,29 @@
+Boondocking & Camping Maps v23.0.18
+
+Included:
+- Added first Michigan Overnight Parking batch.
+- Added 7 casino RV / overnight parking records:
+  - Kewadin Sault RV Park
+  - Kewadin St. Ignace RV Park
+  - Kewadin Manistique RV Park
+  - Kewadin Christmas RV Parking
+  - Kewadin Hessel RV Park
+  - Island Resort & Casino RV Park
+  - Ojibwa Casino Marquette RV Parking
+- Added loader support for data/mi-overnight-parking-v23.0.18.js.
+- Kept v23.0.17 local traveler stops.
+- Kept v23.0.16 state-clear fix.
+- Kept v23.0.14 smaller traveler-stop/overnight icons.
+
+Notes:
+- These are not casual “sleep anywhere” records.
+- Most are formal casino RV parking/RV park entries.
+- Overnight status is still marked conservatively where source confidence is lower.
+- Verify current rules, registration, rates, and seasonal/event closures before arrival.
+
+Not included:
+- No Walmart batch yet.
+- No Cracker Barrel batch yet.
+- No SQL.
+- No Supabase changes.
+- No config.js.
