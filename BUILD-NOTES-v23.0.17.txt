@@ -1,0 +1,22 @@
+Boondocking & Camping Maps v23.0.17
+
+Included:
+- Added 15 more curated Upper Peninsula local traveler stops.
+- The Michigan local traveler-stop supplement now contains 30 records total.
+- Added Lake Superior East / Keweenaw / Marquette-area traveler stops such as Shallows Parking Area, DeTour Boat Launch, Presque Isle Park Marina, McCarty's Cove, Eagle Harbor Marina, Naomikong Overlook, Tahquamenon Rivermouth Boat Launch, Little Lake Harbor, and Point Iroquois Lighthouse.
+- Kept the v23.0.16 state-clear behavior fix.
+- Kept v23.0.14 smaller traveler-stop icons.
+- Kept MDOT live rest/roadside loader.
+
+Selection rules used:
+- Included only stops with public traveler value: parking/restroom/picnic/scenic/water-access/trailhead usefulness.
+- Excluded ordinary playground/sports/school-field sites.
+- Excluded obvious campground-only records from this traveler-stop batch.
+- Overnight parking remains Unknown unless a source explicitly says otherwise.
+- Camping is not implied.
+
+Not included:
+- No bulk statewide boat-launch import.
+- No Supabase changes.
+- No SQL.
+- No config.js.
