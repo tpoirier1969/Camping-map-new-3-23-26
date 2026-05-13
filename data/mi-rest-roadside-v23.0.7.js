@@ -1,13 +1,9 @@
-// Michigan Rest Areas & Roadside Stops supplement v23.0.7
-// Additive loader for Boondocking & Camping Maps v23.0.6.
-// Does not touch config.js and does not rewrite existing Michigan campground records.
-// Coordinates in this starter pass are address/interchange-level pins unless locationPrecision says otherwise.
+// Michigan Rest Areas & Roadside Stops data-only supplement v23.0.7a
+// Loader repair version: no document.write, no Element.prototype patching, no MutationObserver, no app-loader side effects.
+// This file is intentionally safe if it remains on the server or if an old script tag still points to it.
 (function(){
   'use strict';
-  const LAST_CHECKED = '2026-05-13';
-  const SUPPLEMENT_VERSION = 'v23.0.7-rest-roadside-starter';
-  const SOURCE_NAME = 'Michigan Department of Transportation';
-  const rawRecords = [
+  var rawRecords = [
   {
     "id": "mi-mdot-wc-clare",
     "name": "Clare Welcome Center",
@@ -401,165 +397,29 @@
     "locationPrecision": "Approximate starter coordinate based on named highway/county; verify against MDOT ArcGIS before final production."
   }
 ];
-
-  function cleanText(value){ return String(value || '').trim(); }
-  function subtypeFromFacility(type){ return cleanText(type).toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'roadside-stop'; }
-  function seasonText(record){
-    const status = cleanText(record.seasonStatus) || 'Unknown';
-    const notes = cleanText(record.seasonNotes);
-    return notes ? status + ' — ' + notes : status;
+  function copy(obj){
+    var out={};
+    Object.keys(obj||{}).forEach(function(k){ out[k]=obj[k]; });
+    out.stateCode = out.stateCode || 'MI';
+    out.stateName = out.stateName || 'Michigan';
+    out.layer = out.layer || 'rest-truck';
+    out.subtype = out.subtype || 'roadside-stop';
+    out.siteForm = out.siteForm || 'traveler-facility';
+    out.owner = out.owner || 'Michigan Department of Transportation';
+    out.layerLabel = out.layerLabel || 'Rest Areas & Roadside Stops';
+    out.cost = out.cost || 'Free traveler facility; not a campground.';
+    out.costDisplay = out.costDisplay || 'Free traveler facility; not a campground.';
+    out.costIsFree = true;
+    out.showers = out.showers || 'No';
+    out.website = out.website || out.sourceUrl || '';
+    out.lastChecked = out.lastChecked || '2026-05-13';
+    out.reviewSummary = out.reviewSummary || 'MDOT traveler facility reference. Not a campground. Overnight parking status is tracked separately from camping legality.';
+    return out;
   }
-  function accessText(record){
-    const overnight = cleanText(record.overnightParking) || 'Unknown';
-    const precision = cleanText(record.locationPrecision);
-    const base = 'Paved public-road access. Overnight parking status: ' + overnight + '. This is not a campsite; obey posted signs and current MDOT facility notices.';
-    return precision ? base + ' Location note: ' + precision : base;
-  }
-  function descriptionText(record){
-    const type = cleanText(record.facilityType) || 'roadside facility';
-    const status = cleanText(record.overnightParking) || 'Unknown';
-    return cleanText(record.description) || (cleanText(record.name) + ' is included as an MDOT ' + type + ' for traveler rest/parking reference. Camping status is intentionally not tracked here; overnight parking status is ' + status + '.');
-  }
-  function normalize(record, index){
-    const sourceUrl = cleanText(record.sourceUrl);
-    const facilityType = cleanText(record.facilityType) || 'Roadside Stop';
-    const overnightParking = cleanText(record.overnightParking) || 'Unknown';
-    return Object.assign({
-      id: cleanText(record.id) || ('mi-mdot-roadside-' + index),
-      name: cleanText(record.name) || 'Unnamed MDOT roadside facility',
-      lat: Number(record.lat),
-      lng: Number(record.lng),
-      stateCode: 'MI',
-      stateName: 'Michigan',
-      layer: 'rest',
-      subtype: subtypeFromFacility(facilityType),
-      rawCategory: 'roadside facility',
-      categoryLabel: 'Rest Areas & Roadside Stops',
-      sourceFolder: 'MDOT Rest Areas & Roadside Stops',
-      owner: SOURCE_NAME,
-      layerLabel: 'Rest Areas & Roadside Stops',
-      facilityType: facilityType,
-      overnightParking: overnightParking,
-      seasonStatus: cleanText(record.seasonStatus) || 'Unknown',
-      seasonNotes: cleanText(record.seasonNotes),
-      sourceUrl: sourceUrl,
-      lastChecked: cleanText(record.lastChecked) || LAST_CHECKED,
-      cost: 'Free traveler facility; not a campground.',
-      costDisplay: 'Free traveler facility; not a campground.',
-      costIsFree: true,
-      showers: 'No',
-      access: accessText(record),
-      amenities: cleanText(record.amenities) || 'Traveler rest/roadside amenities; verify current amenities before relying on them.',
-      trailheads: cleanText(record.trailheads),
-      season: seasonText(record),
-      rating: '',
-      website: sourceUrl,
-      costSourceName: SOURCE_NAME,
-      costSourceUrl: sourceUrl,
-      costCheckedDate: (cleanText(record.lastChecked) || LAST_CHECKED).slice(0, 7),
-      costNeedsReview: overnightParking === 'Unknown',
-      description: descriptionText(record),
-      reviewSummary: 'MDOT traveler facility added for rest/roadside reference. Not a campground. Overnight parking status is tracked separately from camping legality.',
-      locationPrecision: cleanText(record.locationPrecision),
-      supplementVersion: SUPPLEMENT_VERSION
-    }, record);
-  }
-
-  const supplement = rawRecords.map(normalize).filter(function(record){
-    return Number.isFinite(record.lat) && Number.isFinite(record.lng);
+  var records = rawRecords.map(copy).filter(function(record){
+    return Number.isFinite(Number(record.lat)) && Number.isFinite(Number(record.lng));
   });
-
-  function mergeMichiganSupplement(){
-    window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
-    const existing = Array.isArray(window.CAMPING_STATE_DATA.MI) ? window.CAMPING_STATE_DATA.MI : [];
-    const seen = new Set(existing.map(function(item){ return String(item && item.id || ''); }));
-    const additions = supplement.filter(function(item){ return !seen.has(String(item.id)); });
-    if(additions.length){
-      window.CAMPING_STATE_DATA.MI = existing.concat(additions);
-    }
-    return additions.length;
-  }
-
-  function adjustManifestCount(){
-    const manifest = window.CAMPING_STATES_MANIFEST;
-    if(!manifest) return;
-    let mi = null;
-    if(Array.isArray(manifest.states)) mi = manifest.states.find(function(s){ return s && s.code === 'MI'; });
-    else mi = manifest.MI || manifest['MI'];
-    if(mi && !mi.__restRoadsideSupplementApplied){
-      mi.count = Number(mi.count || 0) + supplement.length;
-      mi.__restRoadsideSupplementApplied = true;
-    }
-  }
-
-  function patchStateScriptLoad(){
-    const original = Element.prototype.appendChild;
-    if(original.__miRestRoadsidePatched) return;
-    const patched = function(child){
-      try{
-        if(child && child.tagName === 'SCRIPT'){
-          const src = String(child.src || '');
-          const stateFile = child.dataset && child.dataset.stateFile;
-          if(stateFile === 'MI' || /\/data\/states\/MI\.js(?:$|\?)/.test(src)){
-            const existingOnload = child.onload;
-            child.onload = function(event){
-              mergeMichiganSupplement();
-              if(typeof existingOnload === 'function') return existingOnload.call(this, event);
-            };
-          }
-        }
-      }catch(error){
-        console.warn('Michigan rest/roadside supplement hook failed:', error);
-      }
-      return original.call(this, child);
-    };
-    patched.__miRestRoadsidePatched = true;
-    Element.prototype.appendChild = patched;
-  }
-
-  function relabelRestLayerUI(){
-    const update = function(){
-      document.querySelectorAll('[data-layer="rest-truck"]').forEach(function(input){
-        const row = input.closest('label');
-        const title = row && row.querySelector('.layer-title');
-        if(title) title.textContent = 'Rest Areas & Roadside Stops';
-      });
-      document.querySelectorAll('.legend-item').forEach(function(item){
-        const spans = item.querySelectorAll('span');
-        const label = spans && spans[spans.length - 1];
-        if(label && /Rest areas\s*\/\s*truck stops/i.test(label.textContent || '')){
-          label.textContent = 'Rest Areas & Roadside Stops';
-        }
-      });
-    };
-    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', update);
-    else update();
-    try{
-      new MutationObserver(update).observe(document.documentElement, { childList: true, subtree: true });
-    }catch(_error){ /* Older browser fallback: initial update only. */ }
-  }
-
-
-  function updateVersionFlag(){
-    const update = function(){
-      try{
-        const tag = document.getElementById('versionTag');
-        if(tag) tag.textContent = 'v23.0.7';
-        if(document && typeof document.title === 'string' && document.title.indexOf('v23.0.6') !== -1){
-          document.title = document.title.replace('v23.0.6', 'v23.0.7');
-        }
-      }catch(_error){ /* Version flag update is cosmetic; do not block data loading. */ }
-    };
-    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', update);
-    else update();
-    try{
-      new MutationObserver(update).observe(document.documentElement, { childList: true, subtree: true });
-    }catch(_error){ /* Older browser fallback: initial update only. */ }
-  }
-
-  window.CAMPING_MI_REST_ROADSIDE_SUPPLEMENT = supplement;
-  adjustManifestCount();
-  patchStateScriptLoad();
-  relabelRestLayerUI();
-  updateVersionFlag();
+  window.CAMPING_STATIC_SITE_SUPPLEMENTS = window.CAMPING_STATIC_SITE_SUPPLEMENTS || {};
+  window.CAMPING_STATIC_SITE_SUPPLEMENTS.MI_REST_ROADSIDE_V2307A = records;
+  window.CAMPING_MI_REST_ROADSIDE_SUPPLEMENT = records;
 })();

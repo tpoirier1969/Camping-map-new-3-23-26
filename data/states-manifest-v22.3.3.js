@@ -1,6 +1,4 @@
-// Camping Map states manifest v23.0.7 upload-ready loader
-// Based on v22.3.26 manifest. Adds synchronous loader for Michigan Rest Areas & Roadside Stops supplement.
-// No config.js changes required.
+// Camping Map states manifest v22.3.26
 window.CAMPING_STATES_MANIFEST = {
   "AL": {
     "code": "AL",
@@ -165,18 +163,3 @@ window.CAMPING_STATES_MANIFEST = {
     "count": 19
   }
 };
-
-// v23.0.7: Load Michigan Rest Areas & Roadside Stops automatically using the existing manifest slot.
-// This avoids any index.html/config.js edit while preserving the current app startup sequence.
-(function(){
-  var src = 'data/mi-rest-roadside-v23.0.7.js';
-  if (typeof document === 'undefined') return;
-  if (document.readyState === 'loading') {
-    document.write('<script src="' + src + '"><\/script>');
-    return;
-  }
-  var s = document.createElement('script');
-  s.src = src;
-  s.async = false;
-  document.head.appendChild(s);
-})();
