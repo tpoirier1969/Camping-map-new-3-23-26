@@ -1,0 +1,69 @@
+# Build Notes — v23.0.24
+
+Changed-files-only package. Upload these files over the matching site-relative paths.
+
+## Included files
+- index.html
+- app-v23.0.24.js
+- data/states-manifest-v23.0.24.js
+- data/mi-overnight-parking-v23.0.24.js
+- BUILD-NOTES-v23.0.24.txt
+
+## Not included
+- config.js is intentionally not included.
+- No Supabase/SQL changes.
+- No unchanged assets.
+
+## Data changes
+- Starting Overnight Parking records: 61.
+- Added 23 travel-center / truck-stop parking-lot-style Overnight Parking candidates.
+- New Overnight Parking total: 84.
+- Michigan manifest count: 633 → 656.
+
+## New records by operator
+- Pilot / Flying J / ONE9: 8
+  - Grand Ledge Flying J
+  - Saginaw Flying J
+  - Woodhaven Flying J
+  - Battle Creek Pilot
+  - Ottawa Lake Pilot
+  - Dexter Pilot, 750 Baker Rd
+  - Dexter Pilot, 195 Baker Rd
+  - Ionia ONE9
+- Love's Travel Stop: 9
+  - Bridgeport
+  - Grand Ledge
+  - Holland
+  - Marshall
+  - Frenchtown
+  - Alamo
+  - Milan
+  - St. Clair
+  - Capac
+- TravelCenters of America: 6
+  - Monroe
+  - Ann Arbor / Dexter
+  - Sawyer
+  - Battle Creek
+  - Tekonsha
+  - Saginaw / Bridgeport
+
+## Data philosophy applied
+- These are travel-center/truck-stop parking-lot records, not campgrounds or RV parks.
+- All new records use layer = overnight-parking and siteForm = parking-lot.
+- overnightParking remains Limited, because even where official pages support overnight/truck/RV parking, travelers still need to obey posted signs, use designated spaces, and avoid blocking truck operations.
+- Some source language is truck-driver-focused; passenger-car, van, and RV use should be treated as likely but still subject to site rules and staff direction.
+
+## Precision note
+- Pilot/Flying J/ONE9 official pages include coordinates.
+- Love's and TA records use official address/operator pages plus address-level or public truck-stop-directory coordinate support where available. They are property-level pins, not hand-selected exact overnight stalls.
+
+## Verification performed
+- app-v23.0.24.js syntax checked with Node.
+- Overnight data parsed successfully from JS assignment.
+- Record count verified: 84.
+- Added count verified: 23.
+- Confirmed every overnight record uses layer = overnight-parking.
+- Confirmed all new travel-center records use parkingFit language excluding campground/RV park use.
+- Confirmed no added record name contains RV Park, RV Resort, or Campground.
+- Confirmed ZIP excludes config.js.
