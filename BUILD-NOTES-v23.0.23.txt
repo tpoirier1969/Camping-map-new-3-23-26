@@ -1,0 +1,87 @@
+# Build Notes — v23.0.23
+
+Changed-files-only package. Upload these files over the matching site-relative paths.
+
+## Included files
+- index.html
+- app-v23.0.23.js
+- data/states-manifest-v23.0.23.js
+- data/mi-overnight-parking-v23.0.23.js
+- BUILD-NOTES-v23.0.23.txt
+
+## Not included
+- config.js is intentionally not included.
+- Unchanged assets are not included.
+- Supabase/SQL changes are not included.
+- The private RV park supplement is not repeated; the app still loads data/mi-private-rv-parks-v23.0.21.js from the earlier corrected package.
+
+## Data changes
+- Starting Overnight Parking records: 22.
+- Added 39 new parking-lot-style Overnight Parking candidates.
+- New total Overnight Parking records: 61.
+- Added the remaining 9 Michigan Cracker Barrel candidates from the AllStays Michigan Cracker Barrel location list:
+  - Flint
+  - Grandville
+  - Jackson
+  - Lansing
+  - Monroe
+  - Okemos
+  - Port Huron
+  - Roseville
+  - Stevensville
+- Added 30 corridor-priority Walmart candidates:
+  - Traverse City
+  - Grayling
+  - West Branch
+  - Tawas City
+  - Oscoda
+  - Manistee
+  - Ludington
+  - Big Rapids
+  - Mount Pleasant
+  - Midland
+  - Clare
+  - Alma
+  - Greenville
+  - Ionia
+  - Hastings
+  - St. Johns
+  - Owosso
+  - Caro
+  - Bad Axe
+  - Lapeer
+  - Adrian
+  - Coldwater
+  - Marshall
+  - Muskegon
+  - Whitehall
+  - Holland
+  - South Haven
+  - Plainwell
+  - Three Rivers
+  - Niles
+
+## Count changes
+- Overnight Parking records: 22 → 61.
+- Michigan manifest count: 594 → 633.
+
+## Data philosophy applied
+- Overnight Parking remains parking-lot-style only.
+- No RV parks/campgrounds were added to Overnight Parking.
+- Cracker Barrel entries are marked Limited because current reporting says overnight parking is location-by-location and staff/manager dependent.
+- Walmart entries are marked Limited because permission is store-by-store and depends on management, posted rules, local ordinances, and property constraints.
+- Locations without store-specific overnight approval are candidates, not guarantees.
+
+## Important QA note
+- Several newly added coordinates are business/address-level points and should be checked against aerial imagery for exact parking-lot placement before treating them as final pin placement.
+- This is still better than marking permission as Allowed. The layer now gives travelers practical candidate points while clearly warning them to call/check signs.
+
+## Verification performed
+- app-v23.0.23.js syntax checked with Node.
+- Overnight data parsed as JSON-like JS assignment.
+- Record count verified: 61.
+- Newly added count verified: 39.
+- Confirmed every overnight record uses layer = overnight-parking.
+- Confirmed no added record contains RV Park/RV Resort/Campground in the name.
+- Confirmed every record includes localParkingLikelihood, parkingPolicyNotes, locationEvidenceSummary, evidenceConfidence, and parkingFit.
+- Confirmed ZIP excludes config.js.
