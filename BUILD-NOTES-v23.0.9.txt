@@ -1,0 +1,17 @@
+Boondocking & Camping Maps v23.0.9
+
+Purpose:
+- Replace the hand-entered Michigan Rest Areas & Roadside Stops starter pins with official MDOT GIS-backed runtime loading.
+
+Changed files:
+- index.html
+- app-v23.0.9.js
+- data/states-manifest-v23.0.9.js
+
+Behavior:
+- Michigan base data still loads from data/states/MI.js.
+- Rest areas and Welcome Centers are fetched from MDOT MdotRestAreaPublic FeatureServer.
+- Roadside parks and scenic views are fetched from MDOT MdotRoadsideParkPublic FeatureServer.
+- The older 28-record static file remains only as fallback if live MDOT GIS cannot be reached.
+- No config.js included or changed.
+- No SQL required.
