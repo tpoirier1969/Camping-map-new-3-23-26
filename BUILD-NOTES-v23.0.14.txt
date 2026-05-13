@@ -1,0 +1,13 @@
+Boondocking & Camping Maps v23.0.14
+
+Included:
+- Reduced the icon size slightly for Overnight Parking pins/icons.
+- Reduced the icon size slightly for Rest Areas & Roadside Stops pins/icons.
+- Kept campground icons at the normal size for stronger visual emphasis.
+- Updated app/manifest references to v23.0.14 for cache-safe loading.
+
+Not included:
+- No new site data
+- No config.js
+- No SQL
+- No Supabase changes
