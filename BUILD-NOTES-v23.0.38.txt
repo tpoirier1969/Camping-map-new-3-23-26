@@ -1,0 +1,45 @@
+Boondocking & Camping Maps — v23.0.38
+
+Purpose:
+- Enact the Complete-or-Documented-Unknown data rule for Wisconsin DNR rustic campground additions/corrections.
+- Complete the official Northern Highland-American Legion State Forest rustic campground set to 14/14 by adding North Trout Lake Campground.
+- Correct selected existing Wisconsin DNR state forest rustic campground records that were already active but misclassified or incomplete.
+- Add Governor Knowles State Forest campgrounds listed on the official DNR camping page with official Get Directions coordinates.
+
+Changed files included:
+- index.html
+- app-v23.0.38.js
+- version.json
+- data/states-manifest-v23.0.38.js
+- data/states/WI.js
+- data/supplements/wi-nhal-rustic-verified-v23.0.38.js
+- data/supplements/wi-dnr-state-forest-rustic-verified-v23.0.38.js
+- BUILD-NOTES-v23.0.38.txt
+
+Excluded:
+- config.js
+- review/candidate JSON
+- audit JSON
+- old app JS files and old manifests
+
+Data gate applied:
+- No placeholder records were added.
+- Required active records include campground-level coordinates, official DNR source URL, owner, layer/subtype, access notes, amenities/cost/season where available, and source notes for fields not exposed by accessible official source text.
+- For records where official accessible DNR text did not expose a separate campground coordinate, the prior active app campground-level coordinate was retained only when the official DNR page confirmed the named campground and details. This is documented in locationPrecision/sourceNotes rather than hidden.
+
+Wisconsin DNR state forest rustic batch reconciliation:
+- NHAL rustic campgrounds: official DNR count 14; active supplement records 14; difference 0.
+- Black River rustic family campgrounds: official DNR page lists East Fork and Pigeon Creek as rustic; corrected active records 2; difference 0.
+- Brule River family campgrounds: official DNR page lists Bois Brule and Copper Range with no electric sites, hand pump and vault toilets; corrected active records 2; difference 0.
+- Flambeau River rustic family campgrounds: official DNR page lists Lake of the Pines and Connors Lake as rustic; corrected active records 2; difference 0.
+- Governor Earl Peshtigo River family campground: official DNR page lists Old Veteran's Lake Family Campground; corrected active record 1; difference 0.
+- Governor Knowles listed campgrounds: official DNR page lists St. Croix Family, Trade River Equestrian and Sioux Portage Group; added active records 3; difference 0.
+
+Not included yet:
+- This is not a claim that every Wisconsin State Park System primitive/backpack/boat-in/walk-in campsite statewide has been split into rustic vs modern. This build covers the verified Wisconsin DNR state forest rustic campground batch described above.
+
+Verification performed:
+- JavaScript syntax checks passed for app-v23.0.38.js and data files.
+- JSON parse checks passed for version.json and extracted Wisconsin arrays.
+- Manifest WI files list points to v23.0.38 supplements.
+- Deploy package excludes config.js and review/audit/candidate JSON.

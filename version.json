@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.37",
+  "version": "v23.0.38",
   "updated": "2026-05-14",
-  "notes": "Clean deploy package: excludes config.js and review/audit JSON; preserves v23.0.36 index.html reload targeting and adds explicit PWA start_url to index.html."
+  "notes": "Wisconsin DNR state forest rustic campground batch: NHAL reconciled to 14/14, selected non-NHAL DNR state forest rustic records completed/corrected, and Governor Knowles rustic campgrounds added."
 }
