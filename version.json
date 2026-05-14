@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.39",
+  "version": "v23.0.40",
   "updated": "2026-05-14",
-  "notes": "Adds a Boat / Backpack layer for water-access, canoe/kayak, hike-in, walk-in, and backpack camping while leaving primitive sites classified by actual site character as Rustic or Boondocking when appropriate."
+  "notes": "Completes the identified Wisconsin state-sponsored rustic / primitive / boat-backpack camping batch with verified active records and documented unknowns where official sources do not publish individual coordinates."
 }

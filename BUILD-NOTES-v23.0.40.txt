@@ -1,0 +1,71 @@
+Boondocking & Camping Maps — v23.0.40
+
+Purpose:
+- Complete the identified Wisconsin state-sponsored rustic / primitive / boat-backpack camping batch after the v23.0.39 Boat / Backpack layer was added.
+- Preserve the Complete-or-Documented-Unknown rule: no placeholder records, no candidates, no active partials.
+- Primitive records were classified by actual access/use:
+  - primitive drive-in/group campground => Rustic Campgrounds
+  - backpack / hike-in / walk-in / canoe / kayak / boat-in / river-island/sandbar systems => Boat / Backpack
+
+Changed files included:
+- index.html
+- app-v23.0.40.js
+- version.json
+- data/states-manifest-v23.0.40.js
+- data/states/WI.js
+- data/supplements/wi-dnr-rustic-boat-backpack-verified-v23.0.40.js
+- BUILD-NOTES-v23.0.40.txt
+
+Active data changes:
+- Corrected 2 existing WI records:
+  1. Whitewater Lake Campground — changed from modern to official DNR primitive/rustic campground and completed details.
+  2. Greenbush Group Campground — corrected from private/modern to official DNR non-electric group campground and completed details.
+- Added 19 new verified Wisconsin DNR records:
+  Rustic layer additions: 3
+    - New Glarus Woods Primitive Campgrounds
+    - Brunet Island North Campground
+    - Point Beach Outdoor Group Camp
+  Boat / Backpack layer additions: 16
+    - Straight Lake Hike-in Campsites
+    - Newport State Park Backpack Campsites
+    - Rock Island Primitive Walk-in Campsites
+    - Point Beach Ice Age Trail Campsite
+    - Point Beach Kayak Campsite
+    - Flambeau River Primitive Canoe Camps
+    - Flambeau River State Forest Backpack Camping Area
+    - Governor Earl Peshtigo River Remote Campsites
+    - Governor Earl Peshtigo River Boat-in Campsites
+    - Governor Thompson State Park Boat-in Campsites
+    - Menominee River Wisconsin Canoe Campsites
+    - Turtle-Flambeau Remote Water-access Campsites
+    - Willow Flowage Rustic Water-access Campsites
+    - Lower Wisconsin State Riverway Island and Sandbar Camping
+    - Kettle Moraine Southern Unit Backpack Shelters
+    - Kettle Moraine Northern Unit Backpack Shelters
+
+Count reconciliation:
+- Prior WI manifest count: 207
+- Existing WI records corrected in-place: 2 (count change 0)
+- New v23.0.40 supplement records: 19
+- New WI manifest count: 226
+
+Source/research notes:
+- Official Wisconsin DNR pages were used as primary sources for all records.
+- For normal campgrounds where DNR Get Directions coordinates were visible, those coordinates were used.
+- For distributed systems (river camps, flowage camps, backpack shelters, sandbars/islands), a system/area-level pin was intentionally used and documented in locationPrecision/sourceNotes rather than inventing individual campsite pins.
+- Where accessible DNR text did not publish individual coordinates, the record says so explicitly instead of pretending the coordinate is an individual campsite coordinate.
+
+Excluded:
+- config.js
+- review/candidate/audit JSON
+- incomplete candidate data
+- Supabase/SQL changes
+
+Verification performed:
+- JavaScript syntax checks passed.
+- WI.js JSON parses and contains 190 records after in-place corrections.
+- v23.0.40 supplement parses and contains 19 new records.
+- states-manifest-v23.0.40.js parses and loads the new supplement.
+- version.json parses.
+- index.html references app-v23.0.40.js and data/states-manifest-v23.0.40.js.
+- ZIP excludes config.js and review/candidate/audit JSON.
