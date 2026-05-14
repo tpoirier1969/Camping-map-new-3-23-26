@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.41",
+  "version": "v23.0.44",
   "updated": "2026-05-14",
-  "notes": "Wisconsin state-sponsored rustic inventory continuation: adds missing verified rustic, walk-in/cart-in, backpack/boat-in/equestrian/group camping records and includes property-ledger reconciliation notes."
+  "notes": "Wisconsin Boondocking / Dispersed audit removed one incomplete active boondocking record and fixed the WI manifest gap-closure supplement reference."
 }

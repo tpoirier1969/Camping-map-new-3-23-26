@@ -1,0 +1,32 @@
+Boondocking & Camping Maps — v23.0.44
+
+Purpose:
+- Run Wisconsin Boondocking / Dispersed active-layer audit.
+- Remove the lone active Wisconsin boondocking record because it failed the Complete-or-Documented-Unknown gate for boondocking legality/location sourcing.
+- Fix the v23.0.43 Wisconsin manifest reference that pointed at a non-existent gap-closure supplement path. The manifest now references the existing v23.0.42 gap-closure supplement.
+
+Changed files included:
+- index.html
+- app-v23.0.44.js
+- version.json
+- data/states-manifest-v23.0.44.js
+- data/states/WI.js
+- BUILD-NOTES-v23.0.44.txt
+
+Wisconsin boondocking audit result:
+- Active Wisconsin Boondocking / Dispersed records before audit: 1
+- Records kept active: 0
+- Records removed from active WI.js: 1
+- Removed record: s1098 — "First time to this area, it wasn't the last"
+- Reason: review-like/non-site title; no public source URL; no documented managing agency; no verified public-land/overnight-camping status; no amenities/access/cost/season data.
+
+Important scope note:
+- This is an active-layer audit, not a full Wisconsin boondocking discovery sweep.
+- No replacement/candidate records were added.
+
+Verification performed:
+- JavaScript syntax checks passed.
+- WI.js parses after removal.
+- Manifest parses and Wisconsin count recalculates to 250 active WI records across manifest-loaded files.
+- index.html references app-v23.0.44.js and data/states-manifest-v23.0.44.js.
+- ZIP excludes config.js and review/candidate/audit JSON.
