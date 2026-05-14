@@ -1,0 +1,34 @@
+Boondocking & Camping Maps — Build Notes v23.0.33
+
+Changed-files-only cumulative package from v23.0.32.
+
+What changed
+- Added data/states/MI2.js as a second Michigan base-data file, not a loose candidate overlay.
+- Updated the Michigan manifest entry to load data/states/MI.js followed by data/states/MI2.js.
+- Corrected Hurricane River records to the Hurricane River mouth coordinate (46.66607, -86.16794) instead of an offshore/Lake Superior placement.
+- Corrected Misery Bay records out of Modern Campgrounds and into Boondocking / dispersed with rustic subtype.
+- Added Mouth of the Montreal River as a Michigan Boondocking / dispersed site at the Montreal River mouth coordinate (47.3925361, -87.8410194).
+- Kept v23.0.32 Wisconsin verified NHAL rustic supplement and Great Lakes review queue bundled so this ZIP remains cumulative.
+
+Included files
+- index.html
+- app-v23.0.33.js
+- version.json
+- data/states-manifest-v23.0.33.js
+- data/states/MI2.js
+- data/supplements/wi-nhal-rustic-verified-v23.0.32.js
+- data/review-candidates/great-lakes-rustic-review-queue-v23.0.32.json
+- BUILD-NOTES-v23.0.33.txt
+
+Not included
+- config.js
+- SQL / Supabase changes
+- unverified Great Lakes active supplement files
+
+Verification
+- app-v23.0.33.js passes JavaScript syntax check.
+- data/states-manifest-v23.0.33.js passes JavaScript syntax check.
+- data/states/MI2.js passes JavaScript syntax check.
+- index.html points to app-v23.0.33.js and data/states-manifest-v23.0.33.js.
+- Manifest loads Michigan as MI.js + MI2.js.
+- ZIP excludes config.js.

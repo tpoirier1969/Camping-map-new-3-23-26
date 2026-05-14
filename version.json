@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.28",
-  "updated": "2026-05-13",
-  "notes": "Adds update checking and keeps Near Me/local-area map fitting around the user instead of whole-state bounds after manual state changes."
+  "version": "v23.0.33",
+  "updated": "2026-05-14",
+  "notes": "Michigan MI2 base data continuation: Hurricane River coordinate correction, Misery Bay layer correction, Montreal River mouth boondocking addition."
 }
