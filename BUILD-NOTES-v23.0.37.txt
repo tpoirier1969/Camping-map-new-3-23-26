@@ -1,0 +1,32 @@
+Boondocking & Camping Maps — v23.0.37 clean deploy
+
+Purpose:
+- Package a safe deploy ZIP from the uploaded v23.0.36/main source.
+- Preserve the v23.0.36 update/reload fix that targets index.html explicitly.
+- Add explicit PWA manifest start_url and scope so future iPhone/Home Screen installs launch ./index.html.
+- Exclude files that should not be deployed: config.js, review queue JSON, audit JSON, old build/dev logs, Supabase seed files, and legacy app/manifest versions.
+
+Changed/updated files:
+- index.html
+- app-v23.0.37.js
+- version.json
+- site.webmanifest
+- manifest.webmanifest
+- data/states-manifest-v23.0.37.js
+
+Carried forward as active data/assets:
+- Current state files in data/states/
+- data/pending-sites-v22.3.3.js for the Needs Verification layer
+- Michigan traveler/rest/parking active supplements used by app-v23.0.37.js
+- data/supplements/wi-nhal-rustic-verified-v23.0.32.js
+- assets/
+
+Explicitly excluded:
+- config.js
+- great-lakes-rustic-review-queue-v23.0.32.json
+- audit/review JSON and old audit/build/research logs
+- old app-v*.js files not referenced by index.html
+
+Important deployment note:
+- If the live server already has the old review queue JSON, a normal upload may not delete it. Delete great-lakes-rustic-review-queue-v23.0.32.json from the live host or deploy this ZIP into a clean directory.
+- An already-installed iPhone Home Screen icon may still point at the old JSON URL. Delete and re-add the Home Screen icon from the working index.html page after deployment.

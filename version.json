@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.36",
+  "version": "v23.0.37",
   "updated": "2026-05-14",
-  "notes": "Defensive update reload now targets index.html explicitly instead of reusing current data-file path."
+  "notes": "Clean deploy package: excludes config.js and review/audit JSON; preserves v23.0.36 index.html reload targeting and adds explicit PWA start_url to index.html."
 }
