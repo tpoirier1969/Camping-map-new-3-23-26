@@ -1,0 +1,29 @@
+Boondocking & Camping Maps — v23.0.36
+
+Purpose:
+- Fix defensive app reload/update behavior so the app targets index.html explicitly.
+- Prevent the update reload helper from preserving a bad current path such as a JSON data/review file URL.
+
+Changed files included:
+- index.html
+- app-v23.0.36.js
+- version.json
+- data/states-manifest-v23.0.36.js
+- data/states/MI2.js
+- data/supplements/wi-nhal-rustic-verified-v23.0.32.js
+
+Carried forward:
+- Rest stops only button and smaller layer toolbar buttons.
+- Michigan MI2 corrections/addition.
+- Verified Wisconsin NHAL supplement.
+
+Excluded:
+- config.js
+- review-candidates JSON
+- audit JSON
+
+Verification performed:
+- JavaScript syntax checks passed.
+- index.html references app-v23.0.36.js and data/states-manifest-v23.0.36.js.
+- version.json parses.
+- ZIP excludes config.js and review/audit JSON.

@@ -1,432 +1,89 @@
-window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
-window.CAMPING_STATE_DATA['WI'] = (window.CAMPING_STATE_DATA['WI'] || []).concat([
-  {
-    "id": "wi-nhal-rustic-big-lake",
-    "name": "Big Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 46.166183,
-    "lng": -89.788067,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the northwest corner of Big Lake. DNR lists sites 1801-1870. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "four vault toilet buildings; three hand pumps; trash/recycling dumpsters; boat launch within campground",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "April 30-Nov. 1",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-buffalo-lake",
-    "name": "Buffalo Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 45.87635,
-    "lng": -89.5623,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the southeast corner of Buffalo Lake. DNR lists sites 2001-2052. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "three vault toilet buildings; three hand pumps; trash/recycling dumpsters; boat launch; beach nearby; some double and walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "April 30-Columbus Day",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-carrol-lake",
-    "name": "Carrol Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 45.888417,
-    "lng": -89.634233,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the south-central part of Carrol Lake. DNR lists sites 101-119. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "two vault toilet buildings; two hand pumps; trash/recycling dumpsters; accessible fishing pier; boat launch; picnic area; small swimming area; some walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "Thursday before Memorial Day-Labor Day",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-cunard-lake",
-    "name": "Cunard Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 45.847033,
-    "lng": -89.583583,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the southwest corner of Cunard Lake. DNR lists sites 1101-1133. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "two vault toilet buildings; two hand pumps; trash/recycling dumpsters at entrance; adjacent boat launch and parking; designated quiet zone",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "Thursday before Memorial Day-Labor Day",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-east-star-lake",
-    "name": "East Star Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 46.025467,
-    "lng": -89.465233,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the southeast corner of Star Lake. DNR lists sites 1601-1630. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "two vault toilet buildings; two hand pumps; trash/recycling dumpsters; water access; adjacent boat landing; some ADA-accessible vault toilets; walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "Thursday before Memorial Day-Labor Day",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-indian-mounds",
-    "name": "Indian Mounds Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 45.8257,
-    "lng": -89.635433,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the northeast corner of Lake Tomahawk. DNR lists sites 1-39. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "three vault toilet buildings; three hand pumps; trash/recycling dumpsters; water access; adjacent boat launch with vault toilet; some ADA-accessible vault toilets; walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "April 30-Columbus Day",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-plum-lake",
-    "name": "Plum Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 45.9931,
-    "lng": -89.555267,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the southwest corner of Plum Lake. DNR lists sites 1201-1218. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "one vault toilet building; one hand pump; trash/recycling dumpsters; fishing pier and water access; some walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "Thursday before Memorial Day-Labor Day",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-razorback-lake",
-    "name": "Razorback Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 46.024083,
-    "lng": -89.5319,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the northwest corner of Razorback Lake. DNR lists sites 2101-2154. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "three ADA-accessible vault toilet buildings; three hand pumps; trash/recycling dumpsters; water access; boat launch; walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "Thursday before Memorial Day-Oct. 1",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-sandy-beach-lake",
-    "name": "Sandy Beach Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 46.101767,
-    "lng": -89.968083,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the southeast corner of Sandy Beach Lake. DNR lists sites 1901-1933. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "two vault toilet buildings; two hand pumps; trash/recycling dumpsters; large picnic/beach area with parking; nearby boat launch; walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "Thursday before Memorial Day-Labor Day",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-south-trout-lake",
-    "name": "South Trout Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 46.022783,
-    "lng": -89.654983,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the southeast corner of Trout Lake. DNR lists sites 1001-1023. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "one vault toilet building; one hand pump; trash/recycling dumpsters; boat launch; paved bike trail access; nearby dump station at North Trout; walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "Thursday before Memorial Day-Labor Day",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-starrett-lake",
-    "name": "Starrett Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 46.024,
-    "lng": -89.5754,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the southern end of Starrett Lake. DNR lists sites 1301-1344. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "four vault toilet buildings; three hand pumps; trash/recycling dumpsters; boat launch; designated quiet zone; walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "April 30-Columbus Day",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-upper-gresham-lake",
-    "name": "Upper Gresham Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 46.07655,
-    "lng": -89.727433,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the northeast corner of Upper Gresham Lake. DNR lists sites 1501-1525. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "one ADA-accessible vault toilet building; two hand pumps; trash/recycling dumpsters; water access; adjacent ADA fishing pier and boat-launch parking; walk-to/tent-only sites",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "Thursday before Memorial Day-Oct. 1",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  },
-  {
-    "id": "wi-nhal-rustic-west-star-lake",
-    "name": "West Star Lake Campground \u2014 Northern Highland-American Legion State Forest",
-    "lat": 46.033383,
-    "lng": -89.437567,
-    "stateCode": "WI",
-    "stateName": "Wisconsin",
-    "layer": "state",
-    "subtype": "rustic",
-    "siteForm": "campground",
-    "facilityType": "State forest rustic campground",
-    "owner": "Wisconsin DNR",
-    "ownerLevel": "State",
-    "sourceName": "Wisconsin DNR \u2014 NHAL Rustic Campgrounds",
-    "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "website": "https://dnr.wisconsin.gov/topic/StateForests/nhal/recreation/camping/rustic",
-    "lastChecked": "2026-05-14",
-    "verificationStatus": "verified",
-    "locationPrecision": "Official Wisconsin DNR campground GPS coordinate from the NHAL rustic campgrounds page; campground-level pin, not individual campsite pin.",
-    "rawCategory": "official Wisconsin DNR rustic state forest campground",
-    "categoryLabel": "Rustic Campgrounds",
-    "layerLabel": "Rustic Campgrounds",
-    "description": "Official Wisconsin DNR rustic campground in Northern Highland-American Legion State Forest, located at the Star Lake. DNR lists sites 1701-1718. Rustic campgrounds are described by DNR as smaller, quieter campgrounds with minimal facilities including hand-pumped water, vault toilets and no electricity.",
-    "access": "Drive-in state forest campground. Reservation required before setting up on any campsite. Verify road/opening status before arrival during shoulder seasons.",
-    "amenities": "two ADA-accessible vault toilet buildings; two hand pumps; trash/recycling dumpsters; water access; boat launch; nearby hiking trail",
-    "showers": "No showers listed for this rustic campground; DNR describes NHAL rustic campgrounds as hand-pumped water, vault toilets and no electricity.",
-    "cost": "Paid reservation; fee varies by site/date. Reserve through Wisconsin State Park System.",
-    "costDisplay": "Reservation required; fee varies by site/date.",
-    "season": "April 30-Nov. 1",
-    "reviewSummary": "Verified official Wisconsin DNR rustic campground record. Added only after official rustic classification, campground details, season and GPS coordinate were confirmed from the DNR page.",
-    "qualityGate": "final-level-official-source",
-    "sourceNotes": "Coordinates and campground details transcribed from Wisconsin DNR NHAL rustic campground page. North Trout Lake was intentionally not activated in this batch because the visible official coordinate conflicted with the expected campground area and needs separate confirmation."
-  }
-]);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#294f3f">
+  <link rel="icon" type="image/svg+xml" href="assets/icon-camping.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <title>Boondocking & Camping Maps v23.0.36</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+:root{--bg:#edf1ea;--panel:rgba(248,247,241,.98);--panel-border:#c9cfbf;--text:#1c241f;--muted:#5b665d;--accent:#2f5f4a;--accent-2:#6f8f63;--accent-soft:#e5efe8;--shadow:0 10px 30px rgba(24,33,27,.18);--radius:16px}*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}body{overflow:hidden}a{color:#215fcb}button,input,select,textarea{font:inherit}button{cursor:pointer}#app{position:relative;width:100%;height:100%}#map{position:absolute;inset:0;background:#d7e4d2}.hidden{display:none!important}
+#menuToggle{position:absolute;z-index:1100;top:16px;left:16px;width:46px;height:46px;border-radius:12px;border:1px solid rgba(27,49,36,.15);background:linear-gradient(180deg,#f7fbf8,#edf3ec);box-shadow:var(--shadow)}#sidebar{position:absolute;z-index:1050;top:16px;left:16px;bottom:16px;width:min(430px,calc(100vw - 32px));background:var(--panel);border:1px solid rgba(36,60,46,.14);border-radius:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;transform:translateX(0);transition:transform .2s ease}#sidebar.closed{transform:translateX(calc(-100% - 22px))}.sidebar-scroll{overflow:auto;padding:18px 18px 26px}.panel-head{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin:-18px -18px 14px;padding:18px;background:linear-gradient(135deg,#335f4d 0%,#6f8f63 100%);color:#fff}.brand-icon{width:58px;height:58px;border-radius:16px;border:2px solid rgba(255,255,255,.55);background:#fff;object-fit:cover;box-shadow:0 6px 14px rgba(0,0,0,.16)}.panel-head h1{margin:0;font-size:1.28rem;line-height:1.05;letter-spacing:.02em;text-transform:uppercase;color:#fff}.brand-sub{margin:4px 0 0;color:rgba(255,255,255,.86);font-size:.86rem}.state-badge{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.18);font-size:.82rem}#closeSidebar{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.14);color:#fff;border-radius:10px;width:36px;height:36px}.section{padding:14px 0 18px;border-top:1px solid #d8ddd2}.section:first-of-type{border-top:0}.section h2{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:1.05rem;color:#274634}.mini-note,.muted{color:var(--muted);font-size:.92rem}.row{display:flex;gap:8px;align-items:center}.row.wrap{flex-wrap:wrap}.field-grid{display:grid;gap:8px}input[type=text],input[type=url],input[type=email],input[type=password],select,textarea{width:100%;border:1px solid #c8d2c6;background:#fff;color:var(--text);border-radius:12px;padding:10px 12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}textarea{min-height:90px;resize:vertical}.primary,.secondary,.chip{border-radius:12px;border:1px solid #b8c8ba;padding:9px 12px;background:#fff}.primary{background:linear-gradient(180deg,#356a52,#294f3f);color:#fff;border-color:#294f3f}.secondary.active,.chip.active{background:linear-gradient(180deg,#356a52,#294f3f);color:#fff;border-color:#294f3f}.chip{padding:7px 10px;font-size:.9rem}.check{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid #d6ddd2;border-radius:12px;background:#fff}.check input{margin-top:3px}.check .meta{margin-left:auto;color:var(--muted);font-size:.86rem;white-space:nowrap}.toggle-grid{display:grid;gap:8px}.quick-filters,.filter-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.dropdown-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:14px;border:1px solid #bfd0c0;background:linear-gradient(180deg,#f8fcf9,#eef5ef);color:#214031;font-weight:600}.dropdown-panel{margin-top:10px;border:1px solid #cfe0d0;border-radius:16px;background:rgba(255,255,255,.92);box-shadow:0 8px 20px rgba(31,45,35,.08);padding:12px}.layer-toolbar{display:flex;gap:8px;margin-bottom:10px;align-items:center;flex-wrap:wrap}.layer-site-count{margin-left:auto;color:var(--muted);font-size:.86rem;white-space:nowrap}.dev-notice{margin:8px 0 0;color:rgba(255,255,255,.92);font-size:.82rem;line-height:1.28}.dev-notice a{color:#fff;text-decoration:underline}.layer-row{display:flex;gap:10px;align-items:center;min-width:0}.layer-title{min-width:0;overflow:hidden;text-overflow:ellipsis}.summary-note{margin-left:auto;color:#516457;font-weight:500;font-size:.92rem}.map-pin,.layer-icon{width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:2px solid var(--stroke);background:var(--fill);color:var(--icon);box-shadow:0 2px 10px rgba(0,0,0,.14);flex:0 0 24px}.map-pin.pin-parking,.layer-icon.pin-parking,.map-pin.pin-rest,.layer-icon.pin-rest{width:22px;height:22px;flex:0 0 22px}.map-pin svg,.layer-icon svg{width:58%;height:58%;display:block}.pin-modern{--fill:#2d6fd7;--stroke:#255bb2;--icon:#fff}.pin-rustic{--fill:#f5efe4;--stroke:#a07a43;--icon:#6f4d1d}.pin-private{--fill:#d97b1e;--stroke:#b8640f;--icon:#fff}.pin-boondocking{--fill:#e3f3e7;--stroke:#2f8a4b;--icon:#1f6d38}.pin-parking{--fill:#f0f6ff;--stroke:#4d7fbf;--icon:#24517f}.pin-rest{--fill:#f8f2ff;--stroke:#7e59a8;--icon:#5f3d88}.pin-info{--fill:#fff8dc;--stroke:#bea03a;--icon:#8b7218}.pin-draft{--fill:#fff8ea;--stroke:#b58a1e;--icon:#8a6b16}.pin-user{--fill:#fff;--stroke:#294f3f;--icon:#294f3f}.search-results{display:grid;gap:8px;margin-top:10px}.search-result{border:1px solid #d8d1c3;border-radius:12px;background:#fff;padding:10px 12px;text-align:left}.filter-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.filter-grid label{display:grid;gap:5px;font-size:.86rem;color:#405246}.filter-status{font-size:.82rem;color:var(--muted);margin-top:8px}#mapLoading{position:absolute;z-index:1000;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(243,241,234,.6);color:#19311f;font-weight:600;pointer-events:none}.map-legend-panel{position:absolute;z-index:1000;right:16px;bottom:76px;max-width:min(360px,calc(100vw - 32px));padding:12px 14px;border-radius:14px;border:1px solid rgba(34,43,39,.16);background:rgba(251,250,246,.96);box-shadow:var(--shadow);font-size:.88rem}.legend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 14px;margin-top:8px}.legend-item{display:flex;align-items:center;gap:8px;min-width:0}.legend-item span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.legend-mobile-wrap{display:none}.legend-mobile{border:1px solid #d6ddd2;border-radius:14px;background:#fff}.legend-mobile summary{cursor:pointer;padding:12px 14px;font-weight:700;color:#274634}.legend-mobile-body{padding:10px 12px 12px}.popup-title{font-weight:700;font-size:1rem}.popup-meta{color:var(--muted);font-size:.9rem;margin-bottom:8px}.popup-grid{display:grid;gap:6px;margin:8px 0}.popup-row{display:grid;grid-template-columns:110px 1fr;gap:8px}.popup-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.modal-backdrop{position:absolute;inset:0;z-index:1800;background:rgba(13,20,16,.42);display:none;align-items:center;justify-content:center;padding:16px}.modal-backdrop.open{display:flex}.modal-card{width:min(650px,calc(100vw - 24px));max-height:calc(100vh - 32px);overflow:auto;background:var(--panel);border:1px solid var(--panel-border);border-radius:20px;box-shadow:0 22px 70px rgba(0,0,0,.34);padding:16px}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-4px 0 12px}.modal-close{border:1px solid #cfd8cd;background:#fff;border-radius:12px;width:40px;height:40px;font-size:1.2rem}.section-launch{display:grid;gap:8px}.section-launch button{width:100%;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;font-weight:700}.mobile-action-bar{display:none}#statusBar{position:absolute;z-index:900;right:16px;bottom:16px;max-width:min(520px,calc(100vw - 32px));padding:10px 14px;border-radius:12px;background:rgba(27,34,30,.82);color:#fff;box-shadow:var(--shadow)}
+@media(max-width:900px){#mapLegendDesktop{display:none}.legend-mobile-wrap{display:block}.legend-grid{grid-template-columns:1fr}}
+@media(max-width:700px){#menuToggle{top:max(10px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));width:44px;height:44px;z-index:1250}#sidebar{top:max(62px,calc(env(safe-area-inset-top) + 58px));left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));bottom:64px;width:auto;border-radius:16px}.sidebar-scroll{padding:14px 14px 22px}.panel-head{margin:-14px -14px 12px;padding:14px}.brand-icon{width:48px;height:48px;border-radius:13px}.panel-head h1{font-size:1.05rem}.brand-sub{font-size:.76rem}.row:not(.wrap){flex-direction:column;align-items:stretch}.primary,.secondary,.chip{min-height:42px}.leaflet-control-zoom{margin-top:62px!important}.leaflet-popup-content-wrapper{max-width:calc(100vw - 34px)}.leaflet-popup-content{max-width:calc(100vw - 62px);max-height:62vh;overflow:auto}.popup-row{grid-template-columns:1fr;gap:2px}.filter-grid{grid-template-columns:1fr}.modal-backdrop{align-items:flex-end;padding:8px}.modal-card{width:100%;max-height:88vh;border-radius:18px 18px 14px 14px}.mobile-action-bar{position:absolute;z-index:1250;left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.mobile-action-bar button{border:1px solid rgba(36,60,46,.18);border-radius:14px;background:rgba(251,250,246,.96);box-shadow:0 6px 18px rgba(24,33,27,.16);padding:9px 4px;font-size:.78rem;font-weight:700}#statusBar{left:8px;right:8px;bottom:64px;max-width:none;font-size:.88rem;padding:8px 10px}}
+  
+.state-dropdown{position:relative}.state-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px}.state-toolbar .secondary{flex:1 1 140px}.state-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:240px;overflow:auto;border:1px solid #d6ddd2;border-radius:14px;background:#fff;padding:10px}.state-check{display:flex;align-items:center;gap:8px;min-width:0;padding:6px 7px;border-radius:10px}.state-check:hover{background:#eef5ef}.state-check input{margin:0;flex:0 0 auto}.state-check span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.state-note{margin-top:8px}.state-count-pill{display:inline-flex;align-items:center;justify-content:center;min-width:24px;padding:2px 6px;border-radius:999px;background:#edf3ec;color:#4a5d50;font-size:.76rem;margin-left:auto}.caret{font-size:1rem;color:#476353}@media(max-width:700px){.state-checklist{grid-template-columns:1fr;max-height:250px}}
+
+/* v23.0.6 reference-tab architecture update */
+.panel-head{background:linear-gradient(180deg,#fffaf0,#efe4c8)!important;color:#213b2d!important;border-bottom:1px solid #d9ccb2}
+.panel-head h1{color:#213b2d!important}.brand-sub{color:#556654!important}.state-badge{background:#eef3ef!important;border-color:#cdd8cf!important;color:#213b2d!important}#closeSidebar{background:#fff!important;color:#213b2d!important;border-color:#cfd8cd!important}
+.dev-notice{margin:8px 0 0;color:#3b473e!important;background:#fff8ea;border:1px solid #e3d5b8;border-radius:12px;padding:9px 11px;font-size:.82rem;line-height:1.28}.dev-notice a{color:#215fcb!important}
+.sidebar-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 10px}.sidebar-tab{border-radius:12px;border:1px solid #b8c8ba;padding:10px 12px;background:#fff;font-weight:700;color:#274634}.sidebar-tab.active{background:linear-gradient(180deg,#356a52,#294f3f);border-color:#294f3f;color:#fff}.tab-panel[hidden]{display:none!important}
+.reference-panel{display:grid;gap:12px}.reference-section{border:1px solid #d6ddd2;border-radius:14px;background:#fff;padding:12px}.reference-section h3{margin:0 0 8px;color:#274634;font-size:1rem}.reference-list{display:grid;gap:8px}.reference-item{border-top:1px solid #edf1ea;padding-top:8px}.reference-item:first-child{border-top:0;padding-top:0}.reference-item strong{display:block;color:#213b2d}.reference-item p{margin:4px 0;color:#4d5b51;font-size:.9rem;line-height:1.32}.reference-item a{font-size:.9rem}.reference-note{font-size:.84rem;color:var(--muted);line-height:1.35}.layer-toolbar{align-items:center}.layer-toolbar .secondary{font-size:.82rem;padding:6px 8px;min-height:32px}.rest-focus-btn.active{background:linear-gradient(180deg,#356a52,#294f3f);border-color:#294f3f;color:#fff}.layer-site-count{font-size:.82rem;white-space:normal;text-align:right;line-height:1.15;min-width:96px;max-width:150px}
+@media(max-width:700px){.sidebar-tabs{margin-top:10px}.layer-toolbar{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:stretch}.layer-toolbar .secondary{font-size:.78rem;padding:6px 6px}.layer-site-count{grid-column:1/-1;text-align:left;max-width:none}}
+
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="map"></div>
+  <div id="mapLoading">Loading map…</div>
+  <div id="mapLegendDesktop" class="map-legend-panel" aria-label="Map legend"></div>
+  <button id="menuToggle" aria-label="Open controls">☰</button>
+  <aside id="sidebar">
+    <div class="sidebar-scroll">
+      <div class="panel-head">
+        <img class="brand-icon" src="assets/icon-192.png" alt="Boondocking and Camping Maps icon">
+        <div><h1>Boondocking<br>&amp; Camping Maps</h1><p class="brand-sub">Public-land camping planner</p><div class="state-badge">Build <strong id="versionTag">v23.0.36</strong></div></div>
+        <button id="closeSidebar" aria-label="Close panel">✕</button>
+      </div>
+      <p id="statusLine" class="dev-notice">This app is still in active development. Errors may occur but should be corrected quickly. To report issues contact: <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a></p>
+      <p id="dataStats" class="mini-note" hidden></p>
+      <div class="sidebar-tabs" role="tablist" aria-label="Menu tabs"><button id="mainTabButton" class="sidebar-tab active" type="button" data-sidebar-tab="main">Map controls</button><button id="referenceTabButton" class="sidebar-tab" type="button" data-sidebar-tab="reference">Information &amp; reference</button></div>
+      <div id="mainTabPanel" class="tab-panel" role="tabpanel">
+      <section class="section" id="searchSection"><h2>Find an area</h2><div class="row"><input id="searchInput" type="text" placeholder="City, park, address, site name, or coordinates"><button id="searchBtn" class="primary" type="button">Go</button><button id="nearMeBtn" class="secondary" type="button">Near Me</button></div><div id="searchResults" class="search-results"></div></section>
+      <section class="section"><h2>Basemap</h2><select id="basemapSelect"><option value="topo">Topo</option><option value="opentopo">OpenTopo</option><option value="osm">OpenStreetMap</option><option value="satellite">Satellite</option></select></section>
+      <section class="section" id="stateSection"><h2>State view</h2>
+        <div class="state-dropdown">
+          <button id="stateMenuButton" class="dropdown-btn" type="button" aria-expanded="false" aria-controls="stateMenuPanel">
+            <span>Choose states</span><span id="stateSelectionSummary" class="summary-note">Michigan selected</span><span class="caret">▾</span>
+          </button>
+          <div id="stateMenuPanel" class="dropdown-panel" hidden>
+            <div class="state-toolbar" aria-label="Multi-state controls">
+              <button id="selectAllStates" class="secondary" type="button">Select all mapped</button>
+              <button id="clearStates" class="secondary" type="button">Clear states</button>
+            </div>
+            <div id="stateChecklist" class="state-checklist" aria-label="Choose one or more states"></div>
+          </div>
+        </div>
+        <div id="stateSelectionNote" class="mini-note state-note">Choose one or more states. The map will zoom to the selected state area.</div>
+      </section>
+      <section class="section" id="layersSection"><h2>Map layers</h2><div class="layer-toolbar"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear all</button><button id="restOnlyToggle" class="secondary rest-focus-btn" type="button" aria-pressed="false">Rest stops only</button><span id="layerSiteCount" class="layer-site-count">Showing 0 of 0 loaded sites</span></div><div id="restRoadsideStats" class="filter-status" hidden></div><div id="layerList" class="toggle-grid"></div></section>
+      <section class="section" id="filterSection"><h2>Filters</h2><div class="filter-chip-row"><button type="button" class="chip" data-filter-chip="free">Free</button><button type="button" class="chip" data-filter-chip="under20">≤ $20</button><button type="button" class="chip" data-filter-chip="showers">Showers</button><button type="button" class="chip" data-filter-chip="twowd">2WD</button><button id="clearFiltersBtn" type="button" class="secondary">Clear filters</button></div><div class="filter-grid"><label>Max cost<select id="costFilter"><option value="">Any cost</option><option value="0">Free only</option><option value="20">$20 or less</option><option value="30">$30 or less</option></select></label><label>Access<select id="accessFilter"><option value="">Any access</option><option value="2wd">2WD friendly</option><option value="hc">High clearance</option><option value="4wd">4WD noted</option></select></label></div><div id="filterStatus" class="filter-status">No filters active.</div></section>
+      <section class="section legend-mobile-wrap"><details id="legendPanelMobile" class="legend-mobile"><summary>Map legend</summary><div id="mapLegendMobile" class="legend-mobile-body"></div></details></section>
+      <section class="section"><h2>Supabase sync</h2><div id="supabaseStatus" class="mini-note">Static fallback mode.</div><form id="sbAuthForm" class="field-grid" style="margin-top:10px;"><div class="row"><input id="sbEmail" type="email" placeholder="Email" autocomplete="username email"><input id="sbPassword" type="password" placeholder="Password" autocomplete="current-password"></div><div class="row wrap"><button id="sbSignInBtn" class="primary" type="submit">Sign in</button><button id="sbSignOutBtn" class="secondary" type="button">Sign out</button></div><label class="check"><input id="showPendingLayer" type="checkbox"><span>Needs Verification layer</span><span class="meta" id="pendingMeta">off</span></label></form></section>
+      <section class="section section-launch"><button id="openAddSiteBtn" class="primary" type="button">Add a site <span>›</span></button><button id="openQueueBtn" class="secondary" type="button">Manual site queue <span>›</span></button></section>
+      </div>
+      <div id="referenceTabPanel" class="tab-panel" role="tabpanel" hidden>
+        <section class="section"><h2>Information &amp; reference</h2><div class="reference-note">Broad reference items are listed here instead of being plotted as tiny map dots. Campgrounds, boondocking, overnight parking, rest areas, and needs-verification items remain on the map.</div><div id="referenceContent" class="reference-panel" style="margin-top:12px;"></div></section>
+      </div>
+    </div>
+  </aside>
+  <div id="addSiteModal" class="modal-backdrop" aria-hidden="true"><div class="modal-card"><div class="modal-head"><h2>Add a site</h2><button class="modal-close" type="button" data-close-modal="addSiteModal">✕</button></div><label class="check"><input id="addMode" type="checkbox"><span>Click the map to drop a draft pin</span></label><div class="field-grid" style="margin-top:10px;"><div class="mini-note" id="draftCoords">No draft point selected.</div><input id="draftName" type="text" placeholder="Site name"><div class="row"><input id="draftState" type="text" maxlength="2" placeholder="State code"><select id="draftCategory"><option value="modern">Modern campground</option><option value="rustic">Rustic campground</option><option value="private">Private campground</option><option value="boondocking">Boondocking / dispersed</option><option value="overnight-parking">Overnight parking</option><option value="rest-truck">Roadside stop / rest area</option><option value="info">Info / reference</option></select></div><input id="draftWebsite" type="url" placeholder="Website URL"><textarea id="draftNotes" placeholder="Description / site summary"></textarea><div class="row"><input id="draftCost" type="text" placeholder="Cost / fees"><input id="draftShowers" type="text" placeholder="Showers"></div><input id="draftAccess" type="text" placeholder="Access / road notes (2WD, 4WD, tight turns, etc.)"><textarea id="draftAmenities" placeholder="Amenities (vault toilet, pump, hookups, boat launch, etc.)"></textarea><input id="draftTrailheads" type="text" placeholder="Trailheads / nearby activities"><input id="draftSeason" type="text" placeholder="Season / closure notes"><div class="row"><input id="draftReview" type="text" placeholder="Review summary"><input id="draftRating" type="text" placeholder="Rating (for example 4.3/5)"></div><textarea id="draftExtraLinks" placeholder="Extra links or image links, one per line"></textarea><div class="row wrap"><button id="appendDraftBtn" class="primary" type="button">Append to queue</button><button id="sendDraftSupabaseBtn" class="secondary" type="button">Send to Needs Verification</button><button id="clearDraftBtn" class="secondary" type="button">Clear draft pin</button></div></div></div></div>
+  <div id="queueModal" class="modal-backdrop" aria-hidden="true"><div class="modal-card"><div class="modal-head"><h2>Manual site queue</h2><button class="modal-close" type="button" data-close-modal="queueModal">✕</button></div><textarea id="draftQueue" readonly></textarea><div class="row wrap" style="margin-top:10px;"><button id="copyQueueBtn" class="secondary" type="button">Copy queue</button><button id="clearQueueBtn" class="secondary" type="button">Clear queue</button></div></div></div>
+  <div class="mobile-action-bar"><button type="button" data-mobile-action="layers">Layers</button><button type="button" data-mobile-action="filters">Filters</button><button type="button" data-mobile-action="add">Add Site</button><button type="button" data-mobile-action="search">Search</button></div>
+  <div id="statusBar" hidden></div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>window.CAMPING_APP_ENTRY = new URL('index.html', document.baseURI).href;</script>
+<script src="data/states-manifest-v23.0.36.js"></script>
+<script src="data/pending-sites-v22.3.3.js"></script>
+<script src="config.js"></script>
+<script src="app-v23.0.36.js"></script>
+</body>
+</html>

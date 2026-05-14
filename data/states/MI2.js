@@ -1,4 +1,4 @@
-// Camping Map Michigan base data continuation v23.0.33
+// Camping Map Michigan base data continuation v23.0.34
 // Purpose: final-level Michigan corrections/additions without rewriting the large MI.js base file.
 // This is a second Michigan base-data file, not a candidate overlay.
 (function(){
@@ -14,7 +14,7 @@
       if(pattern.test(nameOf(site))){
         Object.assign(site, patch, {
           dataCorrectionFile: 'data/states/MI2.js',
-          dataCorrectionVersion: 'v23.0.33',
+          dataCorrectionVersion: 'v23.0.34',
           dataCorrectionDate: checked
         });
         count++;
@@ -96,7 +96,7 @@
       verificationDate: checked,
       verificationNotes: 'Added at user request as a Michigan boondocking site. Montreal River mouth coordinate and public-land context checked; no modern campground services claimed.',
       dataCorrectionFile: 'data/states/MI2.js',
-      dataCorrectionVersion: 'v23.0.33',
+      dataCorrectionVersion: 'v23.0.34',
       dataCorrectionDate: checked
     });
   }
