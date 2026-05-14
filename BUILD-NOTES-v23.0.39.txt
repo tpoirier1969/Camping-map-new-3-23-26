@@ -1,0 +1,26 @@
+Boondocking & Camping Maps — v23.0.39
+
+Purpose:
+- Add a dedicated Boat / Backpack layer for boat-in, water-access, canoe/kayak, hike-in, walk-in, and backpack camping records.
+- Preserve the rule that primitive does not automatically mean Rustic. Primitive drive-in campgrounds may remain Rustic; primitive dispersed/informal-style sites may belong in Boondocking; boat/backpack access belongs in the new Boat / Backpack layer.
+- Make this a structure-only app change with no new active campground/site records added.
+
+Changed files included:
+- index.html
+- app-v23.0.39.js
+- version.json
+- data/states-manifest-v23.0.39.js
+- BUILD-NOTES-v23.0.39.txt
+
+Data policy carried forward:
+- No config.js included.
+- No review/candidate/audit JSON included.
+- No candidate/half-verified data added to active app layers.
+- No new Wisconsin rustic/boat/backpack records added in this revision; this only adds the layer needed for the next verified data batch.
+
+Verification performed:
+- JavaScript syntax check passed.
+- index.html references app-v23.0.39.js and data/states-manifest-v23.0.39.js.
+- version.json parses.
+- states manifest parses as JavaScript.
+- ZIP excludes config.js and review/candidate/audit JSON files.

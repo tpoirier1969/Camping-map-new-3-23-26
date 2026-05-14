@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.38",
+  "version": "v23.0.39",
   "updated": "2026-05-14",
-  "notes": "Wisconsin DNR state forest rustic campground batch: NHAL reconciled to 14/14, selected non-NHAL DNR state forest rustic records completed/corrected, and Governor Knowles rustic campgrounds added."
+  "notes": "Adds a Boat / Backpack layer for water-access, canoe/kayak, hike-in, walk-in, and backpack camping while leaving primitive sites classified by actual site character as Rustic or Boondocking when appropriate."
 }
