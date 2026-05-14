@@ -1,0 +1,49 @@
+Boondocking & Camping Maps — v23.0.41
+
+Purpose:
+- Correct the earlier scope failure by continuing the Wisconsin state-sponsored rustic/primitive/boat-backpack inventory instead of stopping at a clean subset.
+- Add verified active records only after source review; no placeholders and no candidate data.
+
+Changed files included:
+- index.html
+- app-v23.0.41.js
+- version.json
+- data/states-manifest-v23.0.41.js
+- data/supplements/wi-state-sponsored-rustic-inventory-v23.0.41.js
+- BUILD-NOTES-v23.0.41.txt
+
+New active records added: 21
+- Rustic / primitive / group / equestrian campground records: 12
+- Boat / Backpack / walk-in / cart-in / boat-in records: 9
+
+Wisconsin manifest count:
+- Previous v23.0.40 count: 226
+- New v23.0.41 count: 247
+
+Inventory reconciliation ledger:
+- DNR Find a Park pages 1-6: checked. Property inventory source; camping filters/categories include standard, group, backpack, boat-in, equestrian and winter camping.
+- NHAL rustic campgrounds: complete prior. 14/14 official DNR rustic campgrounds already active after v23.0.38.
+- State forest rustic family/group campgrounds outside NHAL: continued. Black River, Brule, Flambeau, Governor Earl, Governor Knowles completed in prior pass; Kettle Moraine Southern missing group/walk/horse records added in v23.0.41.
+- State park primitive/rustic/backpack/boat-in/group/equestrian records: continued. 21 additional records added in v23.0.41 from official DNR camping pages.
+- Modern-only family campgrounds: excluded from rustic pass. Properties with showers/flush/dump/electric-family focus and no separate rustic/primitive/backpack/boat/group component were not added to rustic/boat-backpack layers.
+- Unresolved: none deliberately parked. No candidate files created; if a campground had insufficient detail it was either represented as documented area/system record or excluded from active addition.
+
+Classification rule used:
+- Primitive drive-in/family/group/equestrian campground: Rustic layer.
+- Water-access, boat-in, canoe, kayak, backpack, hike-in, walk-in/cart-in records: Boat / Backpack layer.
+- Primitive dispersed/informal-style camping would go to Boondocking, but this v23.0.41 batch is official Wisconsin DNR state-sponsored campground/campsite/system data, not informal dispersed camping.
+
+Excluded:
+- config.js
+- review/candidate/audit JSON
+- unverified/candidate campsite data
+
+Verification performed:
+- JavaScript syntax checks passed.
+- New supplement parses as JS/JSON data.
+- version.json parses.
+- Manifest references v23.0.41 app/manifest and the new supplement.
+- ZIP excludes config.js and review/candidate/audit JSON.
+
+Source note:
+- Records are derived from official Wisconsin DNR camping pages and DNR Find a Park inventory pages checked on 2026-05-14.
