@@ -1,4 +1,4 @@
-// Camping Map states manifest v23.0.34
+// Camping Map states manifest v23.0.35
 window.CAMPING_STATES_MANIFEST = {
   "AL": {
     "code": "AL",
@@ -92,7 +92,7 @@ window.CAMPING_STATES_MANIFEST = {
       "Overnight Parking expansion batch 2: completed Michigan Cracker Barrel candidates and added corridor-priority Walmart candidates",
       "Overnight Parking expansion batch 3: added official/operator-supported travel centers and truck stops",
       "Michigan base data continuation MI2.js: Hurricane River coordinate fix, Misery Bay layer fix, Montreal River mouth boondocking addition",
-      "UI v23.0.34: Rest Areas & Roadside Stops moved out of layer list into one-tap focus mode"
+      "UI v23.0.35: Rest Areas & Roadside Stops moved out of layer list into one-tap focus mode"
     ]
   },
   "MN": {
