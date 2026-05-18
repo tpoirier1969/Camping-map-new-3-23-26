@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.49",
+  "version": "v23.0.50",
   "updated": "2026-05-18",
-  "notes": "Near Me now clears stale state-selection UI immediately and reports Near Me as its own mode, with the state summary/list based on the loaded states actually used by the 180-mile radius view. Includes corrected v46 Wisconsin private-campground audit ledger as a normal repo file."
+  "notes": "Near Me performance fix: 180-mile radius kept, stale state UI remains cleared, and Michigan live rest-area/roadside feeds no longer load during normal Near Me unless Rest Stops Only is active. Includes corrected v46 Wisconsin private-campground audit ledger as a normal repo file."
 }

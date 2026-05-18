@@ -1,0 +1,13 @@
+Build v23.0.50 — Near Me performance simplification
+
+Changed files only; no config.js included.
+
+Fixes:
+- Keeps Near Me at 180 miles.
+- Treats Near Me as a simple exclusive radius mode: clear previous state selection, get location, load only candidate states, filter by actual site distance.
+- Prevents Michigan live MDOT rest-area/roadside fetches from running during normal Near Me loading unless Rest Stops Only mode is active.
+- Loads Michigan dynamic supplements only when their layer actually needs them: private RV parks only when Private is enabled; overnight-parking supplement only when Overnight Parking is enabled; rest/roadside and local traveler stops only in Rest Stops Only mode.
+- Adds clearer Near Me loading text while geolocation/data loading is happening.
+
+No active site data changed.
+Ledger included as a normal top-level file per handoff preference.
