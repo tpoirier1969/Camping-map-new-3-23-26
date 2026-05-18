@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.52",
+  "version": "v23.0.54",
   "date": "2026-05-18",
-  "notes": "Wisconsin private campground enrichment batch 1: 15 private campground records filled with source, amenities, shower/cost/season notes where verified or documented unknown."
+  "notes": "Wisconsin private campground enrichment batches 3-4: 30 additional private campground records filled with source, amenities, shower/cost/season/access notes where verified or documented unknown."
 }

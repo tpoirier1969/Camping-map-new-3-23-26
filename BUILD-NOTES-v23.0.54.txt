@@ -1,0 +1,28 @@
+Boondocking & Camping Maps — Build v23.0.54
+Date: 2026-05-18
+Purpose: Wisconsin Private Campgrounds enrichment batches 3-4 combined into one delivery ZIP.
+
+Included changed files:
+- index.html
+- app-v23.0.54.js
+- version.json
+- BUILD-NOTES-v23.0.54.txt
+- data/states-manifest-v23.0.54.js
+- data/states/WI.js
+- Wisconsin-Master-Site-Audit-Ledger-v9-v23.0.54-private-enrichment-batches-3-4.xlsx
+
+Data changes:
+- Updated 30 Wisconsin Private Campground records with source/website, description, amenities/access, showers, cost/reservation note, season note and v23.0.54 audit metadata.
+- Standardized 3 current/operator names while retaining old-name trail in notes: Madison Campground -> Lantern DeForest RV Resort; Merry Macs Campground -> Merry Mac's Campground; Plymouth Rock Campground -> Plymouth Rock Camping Resort.
+- Added no rows.
+- Removed no rows.
+- Reclassified no rows.
+- Wisconsin active count remains 183.
+- Wisconsin Private layer count remains 88.
+- Private enrichment progress: 61 of 88 complete/documented-unknown after this build; 27 private records remain.
+
+Not included:
+- config.js is not included.
+- No candidate JSON, review JSON or audit JSON is included.
+- No nested ZIP file is included.
+- Wisconsin Private Campgrounds category is not fully closed yet; 27 private records remain after this package.
