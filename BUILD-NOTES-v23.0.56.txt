@@ -1,0 +1,30 @@
+Boondocking & Camping Maps — Build v23.0.56
+
+Purpose:
+- Fix duplicated visible version-flag rendering.
+
+Changed files:
+- index.html
+- app-v23.0.56.js
+- version.json
+- BUILD-NOTES-v23.0.56.txt
+- data/states-manifest-v23.0.56.js
+
+Included unchanged handoff file:
+- Wisconsin-Master-Site-Audit-Ledger-v10-v23.0.55-private-enrichment-final-close.xlsx
+
+Fix details:
+- Removed the hard-coded version number from the visible Build badge in index.html.
+- Removed the hard-coded version number from the HTML title in index.html.
+- Corrected the app runtime version constant from stale v23.0.53 to v23.0.56.
+- The visible version flag is now painted only by app-v23.0.56.js during initState().
+- version.json remains as update-check metadata only; it does not paint the visible version badge.
+
+Data changes:
+- No campground/site data changed.
+- No Wisconsin ledger content changed.
+
+Packaging rules checked:
+- No config.js included.
+- No nested ZIP included.
+- Ledger is included directly in the ZIP.

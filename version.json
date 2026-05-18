@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.55",
+  "version": "v23.0.56",
   "date": "2026-05-18",
-  "notes": "Wisconsin private campground enrichment final combined pass: remaining 27 active private records filled with source, amenities, shower/cost/season/access notes where verified or documented unknown; active Wisconsin Private layer audit scope closed."
+  "notes": "Version flag single-painter fix: index no longer hard-codes the visible build number; app-v23.0.56.js is the only visible version renderer. No site data changed."
 }
