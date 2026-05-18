@@ -1,0 +1,32 @@
+Boondocking & Camping Maps — Build v23.0.55
+Date: 2026-05-18
+Purpose: Wisconsin Private Campgrounds final enrichment/closure pass for the remaining active Private-layer rows.
+
+Included changed files:
+- index.html
+- app-v23.0.55.js
+- version.json
+- BUILD-NOTES-v23.0.55.txt
+- data/states-manifest-v23.0.55.js
+- data/states/WI.js
+- Wisconsin-Master-Site-Audit-Ledger-v10-v23.0.55-private-enrichment-final-close.xlsx
+
+Data changes:
+- Updated the remaining 27 Wisconsin Private Campground records with source/website, description, amenities/access, showers, cost/reservation note, season note and v23.0.55 audit metadata.
+- Added closure cleanup for 2 earlier private-audit rows that still had one blank display/source field: Blackhawk RV Campground costDisplay and Broken Bow Campground website/source-display.
+- Standardized current/operator display names where the source trail supported it.
+- Added no rows.
+- Removed no rows.
+- Reclassified no rows.
+- Wisconsin active count remains 183.
+- Wisconsin Private layer count remains 88.
+- Private enrichment progress: 88 of 88 active Private-layer records now enriched/verified or documented-unknown, with required display/source fields filled or documented unknown.
+- Wisconsin Private Campgrounds active-app audit/enrichment scope is closed by ledger evidence.
+
+Important limit:
+- This closes the active app Private layer only. It does not claim every possible private campground in Wisconsin has been reconciled against a complete statewide source universe.
+
+Not included:
+- config.js is not included.
+- No candidate JSON, review JSON or audit JSON is included.
+- No nested ZIP file is included.
