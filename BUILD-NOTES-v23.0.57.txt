@@ -1,0 +1,27 @@
+Build v23.0.57 — Wisconsin Modern/Public Campgrounds Enrichment Batches 1-2
+Date: 2026-05-18
+
+Changed files only package.
+
+What changed:
+- Updated 30 active Wisconsin public/modern campground records.
+- Added/filled source, website, description, amenities, access, showers, cost/reservation note, season note, and audit metadata where sources supported it.
+- Added brief app-visible documented-unknown statements where a field remained unverified after source checking.
+- Reclassified evidence-supported records:
+  * Audie Lake and Perch Lake County Campgrounds: state/modern -> local/modern
+  * Boot Lake Recreation Area Campground: federal/modern -> federal/rustic
+  * Camp New Wood County Park: local/modern -> local/rustic
+  * Kickapoo Valley Reserve Campsite U: state/modern -> state/rustic
+  * Flambeau River State Forest Campgrounds: state/modern -> state/rustic
+  * Gile Park Campground: state/modern -> local/modern
+  * Little Sand Bay Campground: state/modern -> local/modern
+  * Perch Lake Recreation Area Campground: state/modern -> federal/rustic
+- No rows added.
+- No rows removed.
+- config.js is not included.
+- No candidate/review/audit JSON included.
+
+Verification notes:
+- JS syntax checks were run.
+- Excel ledger opens and formula/error scan was run.
+- ZIP contains no nested ZIP and no config.js.

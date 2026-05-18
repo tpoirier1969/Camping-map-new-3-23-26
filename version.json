@@ -1,5 +1,11 @@
 {
-  "version": "v23.0.56",
+  "version": "v23.0.57",
   "date": "2026-05-18",
-  "notes": "Version flag single-painter fix: index no longer hard-codes the visible build number; app-v23.0.56.js is the only visible version renderer. No site data changed."
+  "build": "WI modern/public campground enrichment batches 1-2",
+  "notes": [
+    "Updated 30 active Wisconsin public/modern campground records.",
+    "Added brief app-visible documented-unknown statements when costs, showers, seasons, or site-specific access were not found after source checks.",
+    "Reclassified evidence-supported public records between state/federal/local and modern/rustic as needed.",
+    "No config.js included."
+  ]
 }
