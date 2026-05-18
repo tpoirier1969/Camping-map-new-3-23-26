@@ -1,0 +1,39 @@
+Camping Map v23.0.59 — Wisconsin Modern/Public final active-app closure
+
+What changed:
+- Returned to Wisconsin after v23.0.58 while retaining the Minnesota rest-area additions from v23.0.58.
+- Updated/enriched/reclassified 32 remaining Wisconsin modern/public queue records.
+- Removed 2 justified bad active records:
+  - s710 Pinewoods Campgrounds: duplicate blank general Pinewoods record; retained official s707 plus group-site s709.
+  - s953 US Forest Service - Lakewood/Laona District: district/office record, not an active campground marker.
+- Added brief app-visible missing-data statements where searches did not find rates, showers, seasons, or operator details.
+- No config.js included.
+- No candidate/review/audit JSON included.
+
+Counts after v23.0.59:
+- Wisconsin active records: 181
+- Layer counts: {'state': 51, 'federal': 22, 'private': 90, 'local': 17, 'info': 1}
+- Layer/subtype counts: {('state', 'modern'): 23, ('federal', 'rustic'): 20, ('private', 'modern'): 89, ('local', 'modern'): 13, ('state', 'rustic'): 28, ('federal', 'modern'): 2, ('local', 'rustic'): 4, ('private', 'rustic'): 1, ('info', 'modern'): 1}
+
+Included files:
+- index.html
+- app-v23.0.59.js
+- version.json
+- BUILD-NOTES-v23.0.59.txt
+- data/states-manifest-v23.0.59.js
+- data/states/WI.js
+- data/states/MN.js (retained from v23.0.58 so the Minnesota rest-area additions are preserved even if this package is applied directly)
+- Wisconsin-Master-Site-Audit-Ledger-v13-v23.0.59-wi-modern-public-final-close.xlsx
+
+Not included:
+- config.js
+- nested ZIP files
+- candidate/review/audit JSON
+
+Verification performed:
+- ZIP file structure checked.
+- JS syntax checked for app, manifest, and WI.js.
+- WI.js parsed as JSON from wrapper.
+- Manifest WI count matches WI.js record count.
+- Ledger workbook opens and formula/error scan found 0 error cells.
+- No active data added without source support; documented unknown text used where source searches did not resolve a field.
