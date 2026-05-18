@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.47",
+  "version": "v23.0.48",
   "updated": "2026-05-18",
-  "notes": "Near Me radius reduced to 180 miles and manual state changes now clear Near Me mode; stale map loads are ignored to prevent frozen/incorrect Wisconsin reloads after using Near Me. Includes corrected v46 Wisconsin private-campground audit ledger as a repo handoff file."
+  "notes": "Near Me now acts as an exclusive radius view: sites outside the 180-mile radius are filtered out even when their state file is loaded, and prior selected-state markers are cleared when the Near Me location is applied. Includes corrected v46 Wisconsin private-campground audit ledger as a repo handoff file."
 }

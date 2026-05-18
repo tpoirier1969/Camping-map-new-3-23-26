@@ -1,0 +1,19 @@
+Boondocking & Camping Maps — Build v23.0.48
+Date: 2026-05-18
+
+Purpose
+- Fix Near Me behavior after multiple states had already been selected/loaded.
+
+Included changes
+- Near Me remains at 180 miles.
+- Near Me now filters markers by actual distance from the user location, not merely by state file.
+- Previously loaded out-of-range markers are cleared when the Near Me location is applied.
+- Site count now honors the active Near Me radius filter.
+- Build references updated to app-v23.0.48.js and data/states-manifest-v23.0.48.js.
+- Corrected v46 Wisconsin private-campground audit ledger is included as a normal top-level repo file.
+
+Not included
+- No config.js.
+- No nested ZIP files.
+- No active site data changes.
+- No audit/candidate JSON.
