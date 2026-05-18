@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.46",
+  "version": "v23.0.47",
   "updated": "2026-05-18",
-  "notes": "Wisconsin Private Campgrounds audit corrected active-layer misclassifications, disambiguated Blackhawk records, and updated the v6 audit ledger. No new candidate data added."
+  "notes": "Near Me radius reduced to 180 miles and manual state changes now clear Near Me mode; stale map loads are ignored to prevent frozen/incorrect Wisconsin reloads after using Near Me. Includes corrected v46 Wisconsin private-campground audit ledger as a repo handoff file."
 }

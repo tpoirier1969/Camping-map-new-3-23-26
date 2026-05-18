@@ -1,0 +1,34 @@
+Boondocking & Camping Maps — Build v23.0.47
+Date: 2026-05-18
+
+Purpose
+- Fix Near Me follow-up behavior where manual state changes after using Near Me could leave the app stuck in the prior local-area mode.
+- Reduce Near Me radius from 200 miles to 180 miles.
+- Package the corrected v46 Wisconsin audit ledger directly alongside site files, not as a nested ZIP.
+
+Included app changes
+- app-v23.0.47.js
+  - VERSION updated to v23.0.47.
+  - NEAR_ME_RADIUS_MILES changed from 200 to 180.
+  - Added nearMeActive and loadSeq runtime state.
+  - Manual state selection now clears Near Me mode and removes the user-location marker.
+  - Map fitting only uses Near Me radius while Near Me mode is active.
+  - State-data loading now ignores stale async loads so rapid Near Me / Clear / Wisconsin selection cannot allow an old load to overwrite the newer selected-state view.
+- index.html
+  - Visible build flag updated to v23.0.47.
+  - Script references updated to app-v23.0.47.js and data/states-manifest-v23.0.47.js.
+- version.json
+  - Updated to v23.0.47.
+- data/states-manifest-v23.0.47.js
+  - Versioned manifest copy for the v23.0.47 entry point.
+- data/states/WI.js
+  - Carries forward the v23.0.46 Wisconsin private-campground audit data corrections.
+
+Included ledger
+- Wisconsin-Master-Site-Audit-Ledger-v6-v23.0.46-private-campgrounds-audit-CORRECTED.xlsx
+  - Included as a normal repo file at the ZIP root.
+
+Not included
+- config.js was not included.
+- No nested ZIP files were included.
+- No candidate/review/audit JSON files were included.
