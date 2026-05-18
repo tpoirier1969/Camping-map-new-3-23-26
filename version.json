@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.44",
-  "updated": "2026-05-14",
-  "notes": "Wisconsin Boondocking / Dispersed audit removed one incomplete active boondocking record and fixed the WI manifest gap-closure supplement reference."
+  "version": "v23.0.46",
+  "updated": "2026-05-18",
+  "notes": "Wisconsin Private Campgrounds audit corrected active-layer misclassifications, disambiguated Blackhawk records, and updated the v6 audit ledger. No new candidate data added."
 }

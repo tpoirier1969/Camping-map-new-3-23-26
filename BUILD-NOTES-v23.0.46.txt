@@ -1,0 +1,42 @@
+Build notes — v23.0.46 Wisconsin Private Campgrounds audit
+Date: 2026-05-18
+
+Source of truth used:
+- Uploaded ZIP: Camping-map-new-3-23-26-main.zip
+- Active Wisconsin file: data/states/WI.js
+- DATCP campground license CSV and official public/operator sources listed in the ledger
+
+Files changed/included in changed-files-only ZIP:
+- index.html
+- app-v23.0.46.js (copy of v23.0.44 app code for versioned loader reference; no functional JS code changes)
+- version.json
+- data/states-manifest-v23.0.46.js
+- data/states/WI.js
+- BUILD-NOTES-v23.0.46.txt
+
+Files intentionally NOT included:
+- config.js
+- candidate/review/audit JSON
+- unchanged README files
+
+Active Wisconsin count:
+- Base WI.js records before: 183
+- Base WI.js records after: 183
+- Private layer before: 96
+- Private layer after: 88
+
+App data changes:
+- s21 Anvil Lake Recreation Area Campground: Private -> Federal/Rustic
+- s99 Blackhawk RV Campground: kept Private/Modern, renamed/enriched to distinguish from public Blackhawk record
+- s100 Blackhawk County Park Campground: Private -> Local/Modern
+- s168 Castle Mound Campground: Private -> State/Modern
+- s189 Chipmunk Rapids Recreation Area Campground: Private -> Federal/Rustic
+- s199 Cliffside Park Campground: Private -> Local/Modern
+- s645 North Muskellunge Group Campground: Private -> State/Rustic
+- s806 Sandhill Station State Campground: Private -> State/Rustic
+- s946 Two Lakes Campground: Private -> Federal/Modern
+
+No rows were removed. No unverified candidate sites were added to active app layers.
+
+Important audit note:
+This v23.0.46 pass pulled the active private/private-source Wisconsin universe and corrected verified layer errors. It does not claim every remaining private campground row has fully enriched operator amenities/rates/seasons; the v6 ledger marks remaining enrichment work explicitly.
