@@ -1,6 +1,7 @@
 {
-  "version": "v23.0.58",
+  "version": "v23.0.60",
   "date": "2026-05-18",
-  "build": "wi-modern-public-batches-to-national-core-mn-rest-batch-1",
-  "notes": "Adds the first national core-layer batch: verified Minnesota MnDOT I-35/I-90 safety rest areas as Rest Areas & Roadside Stops. Keeps app version flag single-source behavior."
+  "build": "wi-rest-areas-batch-1",
+  "notes": "Added all 28 official WisDOT Safety Rest Areas / Welcome Centers to Wisconsin Rest Areas & Roadside Stops layer; no campground layer data changed.",
+  "buildDate": "2026-05-18"
 }

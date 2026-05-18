@@ -1,0 +1,22 @@
+v23.0.60 - Wisconsin Rest Areas / Roadside Stops batch 1
+
+Included changes:
+- Added all 28 official WisDOT Safety Rest Areas / Welcome Centers to Wisconsin Rest Areas & Roadside Stops layer.
+- Preserved Minnesota v23.0.58 rest-area additions by not touching MN.js.
+- Added brief missing-data statement for showers: no showers listed by WisDOT in reviewed amenities.
+- Added WisDOT camping/long-term-parking policy note to each record: camping prohibited; long-term parking over 24 continuous hours not allowed.
+- No campground/private/modern/rustic site data was changed in this build.
+
+Included files:
+- index.html
+- app-v23.0.60.js
+- version.json
+- BUILD-NOTES-v23.0.60.txt
+- data/states-manifest-v23.0.60.js
+- data/states/WI.js
+- Wisconsin-Master-Site-Audit-Ledger-v14-v23.0.60-wi-rest-areas-batch-1.xlsx
+
+Not included:
+- config.js
+- nested ZIPs
+- candidate/review/audit JSON
