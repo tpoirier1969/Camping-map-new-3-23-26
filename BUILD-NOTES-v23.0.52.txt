@@ -1,0 +1,30 @@
+Boondocking & Camping Maps — Build v23.0.52
+
+Scope:
+- Wisconsin Private Campgrounds enrichment batch 1.
+- Enriched 15 active Wisconsin private campground records with verified/operator or reputable-source website/source data, descriptions, amenities, access, cost/reservation notes, shower notes, season notes, and audit metadata.
+- No records were removed.
+- No layer reclassifications were made in this build.
+- No candidate/half-verified records were added.
+
+Records updated:
+- Apple Creek Campground
+- Badgerland Campground
+- Baileys Grove Campground
+- Baileys Woods Campground
+- Bear Lake Campground
+- Beaver's Resort
+- Breezy Hill Campground
+- Broken Bow Campground
+- Buffalo Lake Camping Resort
+- Camp Holiday Campground
+- Cedar Hills Campground
+- Chain O' Lakes Camping Resort
+- Circle K Campground
+- Crystal Lake Campground and RV Park
+- Deep Lake Campground
+
+Notes:
+- Broken Bow, Circle K, Crystal Lake and some amenity/rate/season fields remain documented-unknown or limited where no primary/operator confirmation was found in this pass.
+- This is a batch continuation, not a claim that the Wisconsin Private Campgrounds category is fully closed.
+- config.js is not included.
