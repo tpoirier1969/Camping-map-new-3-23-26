@@ -1,0 +1,18 @@
+Build v23.0.58 — National Core Layers pivot / Minnesota rest-area batch 1
+
+Included changes:
+- Starts the national core-layer priority workflow requested by Tod: boondocking/dispersed, rest areas/overnight parking where defensible, and rustic public camping first.
+- Adds 24 verified Minnesota MnDOT I-35/I-90 safety rest areas to the Rest Areas & Roadside Stops layer.
+- Uses official MnDOT rest-area pages for names, GPS coordinates, amenities, route/direction, owner, and parking-policy context.
+- Adds brief app-visible not-found text for showers: no showers listed by MnDOT in reviewed amenities.
+- Updates MN manifest count from 27 to 51.
+- Updates app version to v23.0.58 while preserving single-source visible version flag behavior.
+- Includes the Excel ledger directly in the changed-files ZIP.
+
+Not included / still outstanding:
+- Does not close Minnesota rest areas statewide. This is I-35/I-90 batch 1 only.
+- Does not add Minnesota I-94/non-interstate rest areas yet.
+- Does not claim overnight camping is legal at rest areas; the app notes MnDOT time limits and says not a campground.
+- Does not change Wisconsin site data.
+- Does not include config.js.
+- Does not include candidate/review/audit JSON.
