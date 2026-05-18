@@ -1,0 +1,19 @@
+Boondocking & Camping Maps — Build v23.0.49
+Date: 2026-05-18
+
+Purpose
+- Fix stale state-selection UI after using Near Me from a multi-state view.
+
+Included changes
+- Near Me still uses a 180-mile radius.
+- Clicking Near Me now immediately clears the previous manual state-selection UI while location is being fetched.
+- The state summary now treats Near Me as its own mode instead of reusing the previous “N states selected” wording.
+- After Near Me loads, the summary/note shows only the states used by the active Near Me radius view.
+- Build references updated to app-v23.0.49.js and data/states-manifest-v23.0.49.js.
+- Corrected v46 Wisconsin private-campground audit ledger is included as a normal top-level repo file.
+
+Not included
+- No config.js.
+- No nested ZIP files.
+- No active site data changes.
+- No audit/candidate JSON.

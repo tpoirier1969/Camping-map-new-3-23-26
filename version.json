@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.48",
+  "version": "v23.0.49",
   "updated": "2026-05-18",
-  "notes": "Near Me now acts as an exclusive radius view: sites outside the 180-mile radius are filtered out even when their state file is loaded, and prior selected-state markers are cleared when the Near Me location is applied. Includes corrected v46 Wisconsin private-campground audit ledger as a repo handoff file."
+  "notes": "Near Me now clears stale state-selection UI immediately and reports Near Me as its own mode, with the state summary/list based on the loaded states actually used by the 180-mile radius view. Includes corrected v46 Wisconsin private-campground audit ledger as a normal repo file."
 }
