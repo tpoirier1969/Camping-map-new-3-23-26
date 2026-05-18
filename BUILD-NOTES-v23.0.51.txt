@@ -1,0 +1,15 @@
+Boondocking & Camping Maps — Build v23.0.51
+
+Near Me state-list correction
+
+Changed:
+- Corrected the state-radius preloader so Near Me chooses candidate state files by the closest point on each state bounding box.
+- This fixes the bug where states that merely shared a similar longitude with the user were treated as within 180 miles.
+- Updated the Near Me state-selection UI to show/check only states that actually have visible results in the current 180-mile Near Me map view.
+- The Near Me note now says "Visible result states" instead of "Loaded states in range" to avoid confusing source-file loading with actual displayed results.
+
+Unchanged:
+- Near Me radius remains 180 miles.
+- No active campsite/campground data was changed.
+- config.js is not included.
+- No nested ZIP files are included.

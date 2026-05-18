@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.50",
+  "version": "v23.0.51",
   "updated": "2026-05-18",
   "notes": "Near Me performance fix: 180-mile radius kept, stale state UI remains cleared, and Michigan live rest-area/roadside feeds no longer load during normal Near Me unless Rest Stops Only is active. Includes corrected v46 Wisconsin private-campground audit ledger as a normal repo file."
 }
