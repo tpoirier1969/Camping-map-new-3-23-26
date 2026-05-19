@@ -3,1108 +3,142 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WNMU Pledge Program Library v0.21.51</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/pledge-icon-32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/pledge-icon-192.png">
-  <link rel="shortcut icon" href="assets/pledge-icon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/pledge-icon-192.png">
-  <link rel="stylesheet" href="assets/styles.css?v=0.21.51">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script defer src="config.js"></script>
-  <script defer src="assets/js/core.js?v=0.21.51"></script>
-  <script defer src="assets/js/program-filters.js?v=0.21.51"></script>
-  <script defer src="assets/js/dom.js?v=0.21.51"></script>
-  <script defer src="assets/js/data.js?v=0.21.51"></script>
-  <script defer src="assets/js/ui-list.js?v=0.21.51"></script>
-  <script defer src="assets/js/ui-workspace.js?v=0.21.51"></script>
-  <script defer src="assets/js/ui-scheduling.js?v=0.21.51"></script>
-  <script defer src="assets/js/ui-performance.js?v=0.21.51"></script>
-  <script defer src="assets/js/ui-imports.js?v=0.21.51"></script>
-  <script defer src="assets/js/auth.js?v=0.21.51"></script>
-  <script defer src="assets/js/ui-detail.js?v=0.21.51"></script>
-  <script defer src="assets/js/program-open.js?v=0.21.51"></script>
-  <script defer src="assets/js/library-load.js?v=0.21.51"></script>
-  <script defer src="assets/js/app.js?v=0.21.51"></script>
-  <script defer src="assets/js/app-init.js?v=0.21.51"></script>
-  </head>
+  <title>Boondocking & Camping Maps v23.0.61</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQRS6vD6Z5hBQFwQshlXL5Z8d8q4D4s=" crossorigin="">
+  <link rel="stylesheet" href="styles.css?v=23.0.61">
+  <style>
+    :root{--bg:#0e1a16;--panel:rgba(10,22,18,.94);--panel-border:rgba(255,255,255,.12);--text:#f2f5f3;--muted:#b9c6c0;--accent:#74c69d;--button:#20382f;--button-border:rgba(255,255,255,.18)}
+    html,body,#appShell,#map{margin:0;width:100%;height:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+    body{overflow:hidden}.hidden{display:none!important}#map{position:fixed;inset:0;z-index:1}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:rgba(14,26,22,.97);color:var(--text)}.leaflet-popup-content{min-width:260px;max-width:360px}.leaflet-container a{color:#9cd7ff}.leaflet-control-attribution{font-size:10px}
+    #menuToggle{position:fixed;left:12px;top:12px;z-index:1000;width:52px;height:52px;border-radius:14px;border:1px solid var(--button-border);background:rgba(14,26,22,.94);color:var(--text);font-size:30px;box-shadow:0 10px 28px rgba(0,0,0,.35);cursor:pointer}
+    #sidebar{position:fixed;left:12px;top:76px;z-index:999;width:min(370px,calc(100vw - 24px));max-height:calc(100vh - 94px);overflow:auto;border:1px solid var(--panel-border);border-radius:18px;background:var(--panel);box-shadow:0 10px 28px rgba(0,0,0,.35);padding:12px;backdrop-filter:blur(8px)}#sidebar.closed{display:none}.panel-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.panel-header h1{font-size:1.1rem;margin:.1rem 0}.panel-header p{margin:.15rem 0;color:var(--muted);font-size:.86rem}#versionTag{display:inline-block;margin-top:.15rem;color:#9be7bd;font-weight:700}.panel-section{border-top:1px solid rgba(255,255,255,.08);padding-top:12px;margin-top:12px}.panel-section h2,.panel-section h3{font-size:.95rem;margin:.1rem 0 .5rem}.tab-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.tab-row button.active{background:rgba(116,198,157,.18);border-color:rgba(116,198,157,.55)}
+    button,.ghost-button,.secondary{border:1px solid var(--button-border);border-radius:12px;background:var(--button);color:var(--text);padding:9px 11px;cursor:pointer;font:inherit}button:hover{border-color:rgba(255,255,255,.34)}.compact-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field-label{display:block;font-size:.82rem;color:var(--muted);margin:8px 0 5px}select,input,textarea{box-sizing:border-box;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:rgba(255,255,255,.06);color:var(--text);padding:9px 10px;font:inherit}select option{color:#111}textarea{width:100%}.note,.mini-note,.muted{color:var(--muted);font-size:.84rem}.state-dropdown{position:relative}.state-menu-panel{margin-top:8px;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(0,0,0,.18);max-height:220px;overflow:auto}.state-check,.layer-row,.check{display:flex;align-items:center;gap:8px;padding:6px 2px}.state-count-pill{margin-left:auto;color:var(--muted);font-style:normal;font-size:.78rem}.toggle-list{display:grid;gap:4px}.layer-icon{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px}.layer-icon svg{width:22px;height:22px}.layer-title{flex:1}.filter-chip-row{display:flex;flex-wrap:wrap;gap:6px}.filter-chip-row button.active{background:rgba(116,198,157,.22);border-color:rgba(116,198,157,.7)}.search-row{display:grid;grid-template-columns:1fr auto;gap:8px}.search-results{display:grid;gap:6px;margin-top:8px}.search-result{width:100%;text-align:left}.reference-list{display:grid;gap:8px}.reference-item{padding:9px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.04)}.reference-note{font-size:.86rem;color:var(--muted);line-height:1.35}.map-status{position:fixed;right:12px;bottom:12px;z-index:998;max-width:min(520px,calc(100vw - 24px));background:rgba(14,26,22,.92);border:1px solid var(--panel-border);border-radius:14px;padding:9px 12px;color:var(--muted);box-shadow:0 10px 28px rgba(0,0,0,.25)}#layerSiteCount{font-weight:700;color:var(--text)}#statusBar{position:fixed;left:50%;bottom:72px;z-index:1001;transform:translateX(-50%);background:rgba(14,26,22,.97);border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:9px 14px;box-shadow:0 10px 28px rgba(0,0,0,.35);font-weight:700}
+    #mapLoading{position:fixed;left:50%;top:18px;z-index:1001;transform:translateX(-50%);background:rgba(14,26,22,.94);border:1px solid var(--panel-border);border-radius:999px;padding:8px 13px;box-shadow:0 10px 28px rgba(0,0,0,.25)}.map-pin{display:inline-flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:999px;color:#102018;border:2px solid rgba(0,0,0,.45);box-shadow:0 2px 8px rgba(0,0,0,.5)}.map-pin svg{width:70%;height:70%}.pin-modern{background:#5cc8ff}.pin-rustic{background:#8fd14f}.pin-private{background:#f7b267}.pin-boondocking{background:#cdb4db}.pin-boat-backpack{background:#70d6ff}.pin-parking{background:#ffd166}.pin-rest{background:#f8f9fa}.pin-draft{background:#ff595e}.pin-info{background:#b8c0ff}.pin-user{background:#7dd3fc}.popup-grid{display:grid;gap:5px}.popup-row{display:grid;gap:2px;padding:4px 0;border-top:1px solid rgba(255,255,255,.08)}.popup-row strong{font-size:.78rem;color:#b9c6c0}.popup-copy{margin-top:8px;line-height:1.35}.popup-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.popup-actions a,.popup-actions button{font-size:.85rem;padding:6px 8px}.modal-backdrop{position:fixed;inset:0;z-index:1200;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.55)}.modal-backdrop.open{display:flex}.modal-card{width:min(720px,100%);max-height:88vh;overflow:auto;border-radius:18px;border:1px solid var(--panel-border);background:var(--panel);box-shadow:0 18px 50px rgba(0,0,0,.45);padding:14px}.modal-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.draft-form-grid{display:grid;gap:8px}.draft-form-grid input,.draft-form-grid select,.draft-form-grid textarea{width:100%}.draft-queue-text{min-height:160px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px}.mobile-actions{position:fixed;left:50%;bottom:14px;z-index:997;transform:translateX(-50%);display:none;gap:8px}@media(max-width:720px){#sidebar{width:calc(100vw - 24px)}.mobile-actions{display:flex}.map-status{bottom:72px;font-size:.82rem}.compact-row{grid-template-columns:1fr}}
+  </style>
+</head>
 <body>
-
-  <div id="auth-shell" class="auth-shell hidden">
-    <div class="auth-card">
-      <div class="brand-wrap auth-brand">
-        <img src="assets/WNMU-TV-logo-head2019.png" alt="WNMU-TV PBS logo" class="brand-logo auth-logo">
+  <div id="appShell">
+    <div id="map"></div>
+    <button id="menuToggle" type="button" aria-label="Open controls">☰</button>
+    <aside id="sidebar">
+      <div class="panel-header">
         <div>
-          <div class="brand-name">WNMU-TV PBS</div>
-          <h2 id="auth-title" class="auth-title">Pledge Program Library</h2>
-          <div class="muted">Sign in with GitHub for admin editing access.</div>
+          <h1>Boondocking & Camping Maps</h1>
+          <p>Static-file build focused on verified campground, boondocking, overnight parking, and traveler-stop layers.</p>
+          <div id="versionTag">v23.0.61</div>
         </div>
+        <button id="closeSidebar" type="button" class="ghost-button">Close</button>
       </div>
-      <div id="auth-message" class="auth-message"></div>
-      <div class="auth-actions-row">
-        <button type="button" id="login-github-button" class="primary">Sign in with GitHub</button>
-        <button type="button" id="cancel-login-button" class="ghost">Cancel</button>
+      <div class="tab-row">
+        <button id="mainTabButton" class="active" type="button" data-sidebar-tab="main">Map</button>
+        <button id="referenceTabButton" type="button" data-sidebar-tab="reference">Reference</button>
+      </div>
+      <div id="mainTabPanel">
+        <section class="panel-section" id="stateSection">
+          <h2>States</h2>
+          <button id="stateMenuButton" type="button" aria-expanded="false">Choose states</button>
+          <div id="stateMenuPanel" class="state-menu-panel" hidden>
+            <div class="compact-row">
+              <button id="selectAllStates" type="button">All mapped</button>
+              <button id="clearStates" type="button">Clear states</button>
+            </div>
+            <div id="stateChecklist" class="state-dropdown"></div>
+          </div>
+          <p id="stateSelectionSummary" class="note">Loading states…</p>
+          <p id="stateSelectionNote" class="note"></p>
+        </section>
+        <section class="panel-section" id="layersSection">
+          <h2>Layers</h2>
+          <div class="compact-row">
+            <button id="selectAllLayers" type="button">Select all</button>
+            <button id="clearAllLayers" type="button">Clear all</button>
+          </div>
+          <button id="restOnlyToggle" type="button" style="width:100%;margin-top:8px" aria-pressed="false">Rest stops only</button>
+          <label class="check"><input id="showPendingLayer" type="checkbox"> Show Needs Verification <span id="pendingMeta" class="mini-note">off</span></label>
+          <div id="layerList" class="toggle-list"></div>
+          <div id="mapLegendDesktop"></div>
+        </section>
+        <section class="panel-section" id="filterSection">
+          <h2>Filters</h2>
+          <label class="field-label" for="costFilter">Cost</label>
+          <select id="costFilter"><option value="">Any cost</option><option value="0">Free / no fee</option><option value="20">$20 or less</option><option value="40">$40 or less</option></select>
+          <label class="field-label" for="accessFilter">Access</label>
+          <select id="accessFilter"><option value="">Any access</option><option value="2wd">2WD / paved / passenger car</option><option value="hc">High clearance / rough road</option><option value="4wd">4WD</option></select>
+          <div class="filter-chip-row" style="margin-top:8px">
+            <button type="button" data-filter-chip="free">Free</button>
+            <button type="button" data-filter-chip="under20">≤ $20</button>
+            <button type="button" data-filter-chip="twowd">2WD</button>
+            <button type="button" data-filter-chip="showers">Showers</button>
+          </div>
+          <button id="clearFiltersBtn" type="button" style="width:100%;margin-top:8px">Clear filters</button>
+          <p id="filterStatus" class="note">No filters active.</p>
+        </section>
+        <section class="panel-section" id="searchSection">
+          <h2>Search</h2>
+          <div class="search-row"><input id="searchInput" type="search" placeholder="Search loaded sites or paste lat,lng"><button id="searchBtn" type="button">Search</button></div>
+          <div id="searchResults" class="search-results"></div>
+          <div class="compact-row" style="margin-top:8px"><button id="nearMeBtn" type="button">Near me</button><button id="openAddSiteBtn" type="button">Add draft pin</button></div>
+          <button id="openQueueBtn" type="button" style="width:100%;margin-top:8px">Open draft queue</button>
+        </section>
+        <section class="panel-section">
+          <h2>Basemap</h2>
+          <select id="basemapSelect"><option value="topo">Esri Topo</option><option value="satellite">Esri Satellite</option><option value="osm">OpenStreetMap</option><option value="opentopo">OpenTopoMap</option></select>
+          <p id="supabaseStatus" class="note">Static fallback mode.</p>
+          <p id="dataStats" class="note" hidden></p>
+          <p id="restRoadsideStats" class="note" hidden></p>
+        </section>
+      </div>
+      <div id="referenceTabPanel" hidden>
+        <section class="panel-section"><h2>Reference</h2><div id="referenceContent"></div></section>
+      </div>
+    </aside>
+    <div id="mapLoading" class="hidden">Loading map…</div>
+    <div class="map-status"><div id="layerSiteCount">No sites loaded.</div><div id="statusLine"></div></div>
+    <div id="statusBar" hidden></div>
+    <div class="mobile-actions"><button type="button" data-mobile-action="layers">Layers</button><button type="button" data-mobile-action="filters">Filters</button><button type="button" data-mobile-action="search">Search</button><button type="button" data-mobile-action="add">Add</button></div>
+  </div>
+
+  <div id="addSiteModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head"><h2>Add draft site</h2><button type="button" data-close-modal="addSiteModal">Close</button></div>
+      <label class="check"><input id="addMode" type="checkbox"> Click map to set draft point</label>
+      <p id="draftCoords" class="note">No draft point selected.</p>
+      <div class="draft-form-grid">
+        <input id="draftName" placeholder="Site name">
+        <div class="compact-row"><input id="draftState" placeholder="State code" value="WI"><select id="draftCategory"><option value="boondocking">Boondocking</option><option value="state">State campground</option><option value="federal">Federal campground</option><option value="local">Local campground</option><option value="private">Private campground</option><option value="overnight-parking">Overnight parking</option><option value="rest-truck">Rest / roadside stop</option><option value="pending">Needs Verification</option></select></div>
+        <input id="draftWebsite" placeholder="Website/source URL">
+        <textarea id="draftNotes" placeholder="Description / notes"></textarea>
+        <div class="compact-row"><input id="draftCost" placeholder="Cost"><input id="draftShowers" placeholder="Showers"></div>
+        <input id="draftAccess" placeholder="Access">
+        <input id="draftAmenities" placeholder="Amenities">
+        <input id="draftTrailheads" placeholder="Trailheads / nearby features">
+        <input id="draftSeason" placeholder="Season">
+        <textarea id="draftReview" placeholder="Review summary / verification notes"></textarea>
+        <div class="compact-row"><input id="draftRating" placeholder="Rating"><input id="draftExtraLinks" placeholder="Extra links"></div>
+        <div class="compact-row"><button id="appendDraftBtn" type="button">Append to queue</button><button id="clearDraftBtn" type="button">Clear draft</button></div>
       </div>
     </div>
   </div>
 
-  <div class="app-shell">
-    <header class="topbar">
-      <div class="brand-wrap">
-        <img src="assets/WNMU-TV-logo-head2019.png" alt="WNMU-TV PBS logo" class="brand-logo">
-        <div>
-          <div class="brand-name">WNMU-TV PBS</div>
-          <div class="title-row">
-            <h1 id="app-title">Pledge Program Library</h1>
-            <span class="version-pill" id="version-flag">v0.21.51</span>
-          </div>
-          <div class="status-line" id="config-status">Checking configuration…</div>
-          <div class="build-meta hidden" id="build-meta"></div>
-        </div>
-      </div>
-      <div class="topbar-actions">
-        <div class="role-chip" id="role-chip">Viewer</div>
-        <button type="button" class="ghost" id="admin-button">Admin sign in</button>
-        <button type="button" class="ghost hidden" id="logout-button">Sign out</button>
-                <button type="button" class="ghost" id="refresh-button">Refresh</button>
-      </div>
-    </header>
-
-    <div id="loading-banner" class="loading-banner hidden">
-      <div class="loading-title" id="loading-title">Loading…</div>
-      <div class="loading-detail" id="loading-detail"></div>
+  <div id="queueModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head"><h2>Draft queue</h2><button type="button" data-close-modal="queueModal">Close</button></div>
+      <textarea id="draftQueue" class="draft-queue-text"></textarea>
+      <div class="compact-row" style="margin-top:8px"><button id="copyQueueBtn" type="button">Copy queue</button><button id="clearQueueBtn" type="button">Clear queue</button></div>
+      <form id="sbAuthForm" style="margin-top:12px">
+        <h3>Supabase sign-in placeholder</h3>
+        <div class="compact-row"><input id="sbEmail" type="email" placeholder="Email"><input id="sbPassword" type="password" placeholder="Password"></div>
+        <div class="compact-row" style="margin-top:8px"><button type="submit">Sign in</button><button id="sbSignOutBtn" type="button">Sign out</button></div>
+      </form>
+      <button id="sendDraftSupabaseBtn" type="button" style="width:100%;margin-top:8px">Send draft to Supabase / queue fallback</button>
     </div>
-
-    <div id="update-banner" class="notice-strip update-banner hidden" aria-live="polite">
-      <div class="update-banner-mark" aria-hidden="true"></div>
-      <div class="update-banner-main">
-        <div class="update-banner-kicker-row">
-          <div class="update-banner-kicker">Update available</div>
-          <div id="update-banner-version-pill" class="update-banner-version-pill hidden"></div>
-        </div>
-        <div id="update-banner-text" class="update-banner-text"></div>
-      </div>
-      <div class="toolbar-actions wrap update-banner-actions">
-        <button type="button" class="primary" id="update-refresh-button">Load latest version</button>
-        <button type="button" class="ghost" id="update-dismiss-button">Later</button>
-      </div>
-    </div>
-
-    <section class="workspace-switcher">
-      <div class="workspace-button-row workspace-button-row-main">
-        <button type="button" class="workspace-tab active" data-workspace-button="library" aria-pressed="true">Program Library</button>
-        <button type="button" class="workspace-tab" data-workspace-button="scheduling" aria-pressed="false">Pledge Scheduling</button>
-        <button type="button" class="workspace-tab" data-workspace-button="imports" aria-pressed="false">Import Pledge Report</button>
-        <button type="button" class="workspace-tab" data-workspace-button="performance" aria-pressed="false">Pledge Performance</button>
-      </div>
-    </section>
-
-    <section class="workspace-pane" data-workspace-pane="library">
-      <section class="controls compact-controls">
-        <div class="filter-row">
-          <div class="filter-field narrow">
-            <label class="filter-label" for="search-field-select">Search in</label>
-            <select id="search-field-select">
-              <option value="">All fields</option>
-              <option value="title">Title</option>
-              <option value="nola_code">NOLA</option>
-              <option value="topic_primary">Topic</option>
-              <option value="topic_secondary">Secondary topic</option>
-              <option value="distributor">Distributor</option>
-              <option value="premium_summary">Premiums</option>
-            </select>
-          </div>
-          <div class="filter-field search-grow">
-            <label class="filter-label" for="search-input">Search text</label>
-            <input id="search-input" type="search" placeholder="Search title, NOLA, topic, distributor, description, or premiums.">
-          </div>
-          <div class="filter-actions filter-actions-inline">
-            <button type="button" id="reset-filters-button" class="mini-clear reset-all top-reset">Clear all filters</button>
-          </div>
-          <div class="filter-field">
-            <label class="filter-label" for="topic-filter">Topic</label>
-            <select id="topic-filter"></select>
-          </div>
-          <div class="filter-field">
-            <label class="filter-label" for="secondary-topic-filter">Secondary topic</label>
-            <select id="secondary-topic-filter"></select>
-          </div>
-          <div class="filter-field narrow">
-            <label class="filter-label" for="length-filter">Length</label>
-            <select id="length-filter"></select>
-          </div>
-          <div class="filter-field">
-            <label class="filter-label" for="distributor-filter">Distributor</label>
-            <select id="distributor-filter"></select>
-          </div>
-          <div class="filter-field narrow">
-            <label class="filter-label" for="status-filter">Library state</label>
-            <select id="status-filter">
-              <option value="all">All titles</option>
-              <option value="active" selected>Active only</option>
-              <option value="archived">Archived only</option>
-            </select>
-          </div>
-        </div>
-      </section>
-
-      <section class="list-panel">
-        <div class="list-meta">
-          <div>
-            <div class="list-title">Program list</div>
-            <div class="list-summary" id="result-summary">Waiting on data…</div>
-          </div>
-          <div class="list-sort-tools compact-sort-tools">
-            <button type="button" class="ghost hidden" id="add-program-button">Add Program</button>
-            <span class="sort-inline-note">Click a column heading to sort.</span>
-            <label class="filter-label sort-label hidden" for="sort-field-select">Sort list by</label>
-            <div class="sort-controls hidden">
-              <select id="sort-field-select">
-                <option value="title">Title</option>
-                <option value="length">Length</option>
-                <option value="topic" selected>Topic</option>
-                <option value="rights_begin">Rights Begin</option>
-                <option value="rights_end">Rights End</option>
-                <option value="last_aired">Last Aired</option>
-                <option value="avg_per_fundraiser">Average $ / fundraiser</option>
-              </select>
-              <button type="button" class="ghost sort-direction-button" id="sort-direction-button">↑ Asc</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="table-wrap all-rows-wrap">
-          <table class="programs-table">
-            <thead>
-              <tr>
-                <th class="col-title"><button type="button" class="sort-header-button" data-sort-field="title" data-sort-label="Title">Title</button></th>
-                <th class="col-length"><button type="button" class="sort-header-button" data-sort-field="length" data-sort-label="Length">Length</button></th>
-                <th class="col-topic"><button type="button" class="sort-header-button" data-sort-field="topic" data-sort-label="Topic">Topic</button></th>
-                <th class="col-distributor">Distributor</th>
-                <th class="col-total">Total $</th>
-                <th class="col-avg"><button type="button" class="sort-header-button" data-sort-field="avg_per_fundraiser" data-sort-label="Avg $ / event">Avg $ / event</button></th>
-                <th class="col-premiums">Premiums</th>
-                <th class="col-rights"><button type="button" class="sort-header-button" data-sort-field="rights_begin" data-sort-label="Rights Begin">Rights Begin</button></th>
-                <th class="col-rights"><button type="button" class="sort-header-button" data-sort-field="rights_end" data-sort-label="Rights End">Rights End</button></th>
-                <th class="col-airing"><button type="button" class="sort-header-button" data-sort-field="last_aired" data-sort-label="Last Aired">Last Aired</button></th>
-              </tr>
-            </thead>
-            <tbody id="library-body">
-              <tr><td colspan="10" class="placeholder-row">Loading library…</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </section>
-
-    <section class="workspace-pane hidden" data-workspace-pane="scheduling">
-      <section class="scheduling-shell">
-        <div class="schedule-main">
-          <section class="schedule-mobile-switcher" id="schedule-mobile-switcher">
-            <div class="schedule-mobile-switcher-head">
-              <div>
-                <div class="list-title">Scheduled fundraisers</div>
-                <div class="list-summary" id="schedule-mobile-summary">Choose a fundraiser to open its calendar on phone.</div>
-              </div>
-              <button type="button" class="ghost" id="schedule-mobile-new-button">New fundraiser</button>
-            </div>
-            <label class="filter-field">
-              <span class="filter-label">Open fundraiser</span>
-              <select id="schedule-mobile-select">
-                <option value="">Select fundraiser…</option>
-              </select>
-            </label>
-          </section>
-
-          <section class="schedule-open-strip" aria-label="Scheduled fundraisers">
-            <div class="schedule-sidebar-head schedule-sidebar-head-inline">
-              <div class="schedule-sidebar-title-group">
-                <div class="list-title">Scheduled fundraisers</div>
-                <div class="list-summary" id="schedule-summary">Checking fundraiser sync…</div>
-              </div>
-              <div class="schedule-sidebar-open-row">
-                <span class="filter-label inline">Open fundraiser</span>
-                <select id="schedule-desktop-select">
-                  <option value="">Select fundraiser…</option>
-                </select>
-                <button type="button" class="ghost" id="new-schedule-button">New fundraiser</button>
-              </div>
-            </div>
-            <div id="schedule-list" class="schedule-list hidden" aria-hidden="true"></div>
-          </section>
-
-          <section class="schedule-builder-card">
-            <div class="schedule-builder-head schedule-builder-head-compact">
-              <div class="schedule-builder-title-inline">
-                <h3 id="schedule-builder-title">New fundraiser</h3>
-              </div>
-              <div class="schedule-header-form-row">
-                <label class="filter-field schedule-field-title">
-                  <span class="filter-label">Fundraiser title</span>
-                  <input id="fundraiser-title-input" type="text" placeholder="Spring pledge drive">
-                </label>
-                <label class="filter-field narrow">
-                  <span class="filter-label">Start date</span>
-                  <input id="fundraiser-start-input" type="date">
-                </label>
-                <label class="filter-field narrow">
-                  <span class="filter-label">End date</span>
-                  <input id="fundraiser-end-input" type="date">
-                </label>
-              </div>
-              <div class="filter-actions schedule-builder-actions-top">
-                <button type="button" class="primary" id="schedule-generate-button">Build calendar</button>
-                <button type="button" class="ghost" id="schedule-build-from-imports-button">Build from imported reports</button>
-                <button type="button" class="ghost" id="schedule-rebuild-from-imports-button">Rebuild imported schedules</button>
-              </div>
-            </div>
-            <div class="schedule-form" id="schedule-form">
-              <div class="schedule-money-row schedule-money-row-combined">
-                <label class="filter-field narrow">
-                  <span class="filter-label">Broadcast $</span>
-                  <input id="fundraiser-broadcast-total" type="text" value="$0.00" readonly>
-                </label>
-                <label class="filter-field narrow">
-                  <span class="filter-label">Pledges</span>
-                  <input id="fundraiser-pledges-total" type="text" value="0" readonly>
-                </label>
-                <label class="filter-field narrow">
-                  <span class="filter-label">Import total</span>
-                  <input id="fundraiser-import-total" type="text" value="$0.00" readonly>
-                </label>
-                <label class="filter-field narrow">
-                  <span class="filter-label">Difference</span>
-                  <input id="fundraiser-import-difference" type="text" value="$0.00" readonly>
-                </label>
-                <label class="filter-field narrow">
-                  <span class="filter-label">Online $</span>
-                  <input id="fundraiser-online-input" type="number" min="0" step="0.01" placeholder="0.00">
-                </label>
-                <label class="filter-field narrow">
-                  <span class="filter-label">Mail $</span>
-                  <input id="fundraiser-mail-input" type="number" min="0" step="0.01" placeholder="0.00">
-                </label>
-                <label class="filter-field narrow">
-                  <span class="filter-label">Non-Specific $</span>
-                  <input id="fundraiser-non-specific-total" type="text" value="$0.00" readonly>
-                </label>
-                <label class="filter-field narrow">
-                  <span class="filter-label">Total raised $</span>
-                  <input id="fundraiser-grand-total" type="text" value="$0.00" readonly>
-                </label>
-              </div>
-              <div id="fundraiser-broadcast-diagnostic" class="schedule-broadcast-diagnostic hidden"></div>
-            </div>
-          </section>
-
-          <section id="schedule-empty" class="schedule-empty-state">Pick an existing fundraiser or build a new one to open the calendar.</section>
-
-          <section id="schedule-editor" class="schedule-editor hidden">
-            <div class="schedule-toolbar">
-              <div class="schedule-toolbar-group">
-                <span class="schedule-sub-label">Start</span>
-                <button type="button" class="ghost" id="schedule-start-earlier-button">−1 hr</button>
-                <button type="button" class="ghost" id="schedule-start-later-button">+1 hr</button>
-              </div>
-              <div class="schedule-toolbar-group schedule-toolbar-center">
-                <span id="schedule-window-label" class="schedule-window-label">6:00 AM – 12:00 AM</span>
-              </div>
-              <div class="schedule-toolbar-group">
-                <span class="schedule-sub-label">End</span>
-                <button type="button" class="ghost" id="schedule-end-earlier-button">−1 hr</button>
-                <button type="button" class="ghost" id="schedule-end-later-button">+1 hr</button>
-              </div>
-              <div class="schedule-toolbar-group">
-                <button type="button" class="ghost" id="schedule-zoom-out-button">−</button>
-                <span class="schedule-zoom-label">Zoom <span id="schedule-zoom-value">100%</span></span>
-                <button type="button" class="ghost" id="schedule-zoom-in-button">+</button>
-                <button type="button" class="ghost" id="schedule-export-button">Export day list</button>
-              </div>
-            </div>
-            <div id="schedule-grid" class="schedule-grid"></div>
-
-            <section class="schedule-program-details-wrap">
-              <div class="list-title">Scheduled program details</div>
-              <div id="schedule-program-details" class="schedule-program-details"></div>
-            </section>
-          </section>
-        </div>
-      </section>
-    </section>
-
-    <div id="schedule-program-backdrop" class="detail-backdrop hidden"></div>
-    <section id="schedule-program-modal" class="detail-modal hidden" aria-modal="true" role="dialog" aria-labelledby="schedule-modal-title">
-      <div class="detail-modal-card schedule-modal-card">
-        <div class="detail-header sticky">
-          <div>
-            <div class="detail-kicker">Pledge Scheduling</div>
-            <h2 id="schedule-modal-title">Schedule this slot</h2>
-            <div id="schedule-slot-label" class="schedule-slot-label"></div>
-          </div>
-          <div class="toolbar-actions">
-            <button type="button" class="ghost" id="schedule-clear-placement-button">Remove program</button>
-            <button type="button" class="ghost" id="schedule-program-close-button">Close</button>
-          </div>
-        </div>
-        <div class="schedule-program-picker" id="schedule-program-picker">
-          <div id="schedule-modal-warning" class="notice-strip hidden"></div>
-          <div id="schedule-slot-rescue" class="schedule-slot-rescue hidden"></div>
-          <div class="schedule-picker-search-row">
-            <label class="filter-field search-grow">
-              <span class="filter-label">Primary topic browse</span>
-              <select id="schedule-program-topic-select">
-                <option value="">All topics</option>
-              </select>
-            </label>
-            <label class="filter-field search-grow">
-              <span class="filter-label">Program title match</span>
-              <input id="schedule-program-search" type="search" placeholder="Type to match an existing title">
-            </label>
-          </div>
-          <div class="schedule-picker-flags-row schedule-picker-filters-row">
-            <label class="schedule-inline-check">
-              <input id="schedule-filter-unaired" type="checkbox">
-              <span>Unaired only</span>
-            </label>
-            <label class="schedule-inline-check">
-              <input id="schedule-filter-rights-start-year" type="checkbox">
-              <span>Rights start this year</span>
-            </label>
-            <label class="schedule-inline-check">
-              <input id="schedule-filter-top-earner" type="checkbox">
-              <span>Top earner ($500+ / fundraiser)</span>
-            </label>
-          </div>
-          <div id="schedule-program-results" class="schedule-program-results"></div>
-          <div id="schedule-selected-preview" class="schedule-selected-preview"></div>
-          <div class="schedule-live-break-row">
-            <label class="schedule-inline-check">
-              <input id="schedule-live-break-flag" type="checkbox">
-              <span>Mark this scheduled slot as a live-break night</span>
-            </label>
-          </div>
-          <div class="schedule-picker-actions">
-            <div class="toolbar-actions wrap">
-              <button type="button" class="ghost" id="schedule-copy-placement-button">Copy program</button>
-              <button type="button" class="ghost" id="schedule-paste-placement-button">Paste copied program here</button>
-            </div>
-            <div id="schedule-assignment-note" class="muted">Selecting a program will place a block sized to that title’s actual runtime when available.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="workspace-pane hidden" data-workspace-pane="imports">
-      <section class="import-shell">
-        <section class="import-toolbar-card performance-card">
-          <div class="performance-card-head">
-            <div>
-              <h3>Start importing pledge reports</h3>
-              <p class="muted">Load PBS Break Report CSV exports, let the app normalize the airings, then export or push the reconciled import set into Supabase. Fundraiser periods are inferred from actual fundraising activity.</p>
-            </div>
-            <span class="mini-chip" id="import-status-pill">Starter importer</span>
-          </div>
-          <div class="list-summary" id="import-status">Choose one or more PBS Break Report CSV files to analyze, then review the raw totals and import to Supabase.</div>
-          <div class="muted import-review-note">The CSV dollars column is treated as the source of truth for fundraiser totals. Non-specific dollars are calculated automatically.</div>
-          <div id="import-result-banner" class="import-result-banner hidden" aria-live="polite"></div>
-          <div class="import-toolbar-grid">
-            <div class="filter-field import-file-field">
-              <span class="filter-label">Report file</span>
-              <label id="import-drop-zone" class="import-drop-zone" for="import-file-input">
-                <span class="import-drop-zone-title">Drop report files here</span>
-                <span class="import-drop-zone-subtitle">or click to browse for CSV, TSV, or text exports</span>
-              </label>
-              <input id="import-file-input" type="file" accept=".csv,.tsv,.txt,.tab,.psv,.dat,.xls,.xlsx" multiple>
-            </div>
-            <label class="filter-field import-target-field">
-              <span class="filter-label">Import type</span>
-              <select id="import-target-select">
-                <option value="auto" selected>PBS Break Report CSV (recommended)</option>
-                <option value="airings">Force PBS Break Report-style airings</option>
-              </select>
-              <div class="field-help">Leave this on the PBS Break Report setting unless you know the file is a similar airing-level export.</div>
-            </label>
-            <div class="filter-actions filter-actions-inline import-actions-inline">
-              <button type="button" class="primary" id="import-supabase-button">Import / reimport matched rows to Supabase</button>
-              <button type="button" class="ghost" id="import-build-schedule-button">Create scheduler entries</button>
-              <button type="button" class="ghost" id="import-clear-button">Clear batch</button>
-            </div>
-          </div>
-          <details class="import-advanced-tools">
-            <summary>Advanced / fallback tools</summary>
-            <div class="filter-actions filter-actions-inline import-actions-inline import-actions-advanced">
-              <button type="button" class="ghost" id="import-refresh-button">Check table access</button>
-              <button type="button" class="ghost" id="import-export-airings-button">Export matched airings CSV</button>
-              <button type="button" class="ghost" id="import-export-drive-button">Export derived rollups CSV</button>
-            </div>
-          </details>
-        </section>
-
-        <section class="import-summary-grid" id="import-summary-grid">
-          <article class="import-stat-card"><div class="performance-stat-label">Files loaded</div><div class="performance-stat-value">0</div></article>
-          <article class="import-stat-card"><div class="performance-stat-label">Parsed rows</div><div class="performance-stat-value">0</div></article>
-          <article class="import-stat-card"><div class="performance-stat-label">Airings rows</div><div class="performance-stat-value">0</div></article>
-          <article class="import-stat-card"><div class="performance-stat-label">Derived rollups</div><div class="performance-stat-value">0</div></article>
-        </section>
-
-        <section class="performance-card import-table-status-card">
-          <div class="performance-card-head">
-            <h3>Table readiness</h3>
-            <span class="mini-chip" id="import-table-pill">Pending probe</span>
-          </div>
-          <div id="import-table-status" class="import-table-status"></div>
-          <div id="import-warning-list" class="import-warning-list"></div>
-        </section>
-
-        <section class="performance-card">
-          <div class="performance-card-head">
-            <h3>Batch file audit</h3>
-            <span class="mini-chip" id="import-file-pill">No files</span>
-          </div>
-          <div class="table-wrap import-file-table-wrap">
-            <table class="programs-table import-file-table">
-              <thead>
-                <tr>
-                  <th>File</th>
-                  <th>Delimiter</th>
-                  <th>Detected format</th>
-                  <th>Parsed rows</th>
-                  <th>Airings</th>
-                  <th>Raw program $</th>
-                  <th>Raw non-specific $</th>
-                  <th>Raw file total $</th>
-                  <th>Difference</th>
-                  <th>Fundraiser dates</th>
-                  <th>Issues</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody id="import-file-body">
-                <tr><td colspan="12" class="placeholder-row">No reports analyzed yet.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="filter-actions filter-actions-inline import-actions-inline import-actions-bottom">
-            <button type="button" class="primary import-supabase-trigger">Import / reimport matched rows to Supabase</button>
-          </div>
-
-        </section>
-
-        <section class="performance-card">
-          <div class="performance-card-head">
-            <h3>Money accounting ledger</h3>
-            <span class="mini-chip" id="import-accounting-pill">No rows</span>
-          </div>
-          <div class="muted import-review-note">Temporary diagnostic view. This shows where the importer says each dollar-bearing row went: raw total, non-specific, matched, unmatched, or skipped.</div>
-          <div class="table-wrap import-file-table-wrap">
-            <table class="programs-table import-file-table">
-              <thead>
-                <tr>
-                  <th>File</th>
-                  <th>Raw $</th>
-                  <th>Normalized $</th>
-                  <th>Matched $</th>
-                  <th>Unmatched $</th>
-                  <th>Non-specific $</th>
-                  <th>Raw − normalized</th>
-                  <th>Raw − matched</th>
-                </tr>
-              </thead>
-              <tbody id="import-accounting-summary-body">
-                <tr><td colspan="8" class="placeholder-row">No accounting ledger yet.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="table-wrap import-preview-wrap import-accounting-wrap">
-            <table class="programs-table import-preview-table import-accounting-table">
-              <thead>
-                <tr>
-                  <th>File</th>
-                  <th>Row</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Title</th>
-                  <th>NOLA</th>
-                  <th>Dollars</th>
-                  <th>Pledges</th>
-                  <th>Bucket</th>
-                  <th>Normalized</th>
-                  <th>Match</th>
-                  <th>Note</th>
-                </tr>
-              </thead>
-              <tbody id="import-accounting-body">
-                <tr><td colspan="12" class="placeholder-row">No accounting ledger yet.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="import-preview-grid">
-          <article class="performance-card">
-            <div class="performance-card-head">
-              <h3>Normalized airings preview</h3>
-              <span class="mini-chip" id="import-airings-pill">0 rows</span>
-            </div>
-            <div class="table-wrap import-preview-wrap">
-              <table class="programs-table import-preview-table">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>NOLA</th>
-                    <th>Aired at</th>
-                    <th>Dollars</th>
-                    <th>Pledges</th>
-                    <th>Program minutes</th>
-                    <th>Match status</th>
-                    <th>Matched library title</th>
-                  </tr>
-                </thead>
-                <tbody id="import-airings-body">
-                  <tr><td colspan="8" class="placeholder-row">No normalized airings rows yet.</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
-
-          <article class="performance-card">
-            <div class="performance-card-head">
-              <h3>Derived fundraiser rollups preview</h3>
-              <span class="mini-chip" id="import-drive-pill">0 derived rows</span>
-            </div>
-            <div class="table-wrap import-preview-wrap">
-              <table class="programs-table import-preview-table">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>NOLA</th>
-                    <th>Fundraiser</th>
-                    <th>Drive start</th>
-                    <th>Drive end</th>
-                    <th>Total dollars</th>
-                    <th>Total pledges</th>
-                    <th>Airings</th>
-                  </tr>
-                </thead>
-                <tbody id="import-drive-body">
-                  <tr><td colspan="8" class="placeholder-row">No derived fundraiser rollups yet.</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
-        </section>
-
-        <section class="performance-card">
-          <div class="performance-card-head import-unmatched-head">
-            <div>
-              <h3>Unmatched rows needing attention</h3>
-              <p class="muted">Review unmatched report rows, map them to the correct pledge title, then import or reimport without worrying about duplicates.</p>
-            </div>
-            <div class="import-unmatched-head-actions">
-              <button type="button" class="ghost" id="import-apply-all-button">Apply all staged matches</button>
-              <span class="mini-chip" id="import-unmatched-pill">0 rows</span>
-            </div>
-          </div>
-          <div class="table-wrap import-preview-wrap import-unmatched-wrap">
-            <table class="programs-table import-preview-table import-unmatched-table">
-              <thead>
-                <tr>
-                  <th>Imported title</th>
-                  <th>NOLA</th>
-                  <th>Air date</th>
-                  <th>Air time</th>
-                  <th>Dollars</th>
-                  <th>Why unmatched</th>
-                  <th>Match to library title</th>
-                  <th>Always equals this</th>
-                  <th>Apply</th>
-                </tr>
-              </thead>
-              <tbody id="import-unmatched-body">
-                <tr><td colspan="9" class="placeholder-row">No unmatched rows right now.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="filter-actions filter-actions-inline import-actions-inline import-actions-bottom">
-            <button type="button" class="ghost import-apply-all-trigger">Apply all staged matches</button>
-            <button type="button" class="primary import-supabase-trigger">Import / reimport matched rows to Supabase</button>
-          </div>
-        </section>
-
-        <section class="performance-card">
-          <div class="performance-card-head import-unmatched-head">
-            <div>
-              <h3>Quarantined / unlinked imported rows</h3>
-              <p class="muted">These rows already exist in imported airings but still have no library link. You can link them, approve them to stay unlinked, or delete them.</p>
-            </div>
-            <div class="import-unmatched-head-actions">
-              <input type="search" id="import-quarantine-filter" class="import-quarantine-filter" placeholder="Filter quarantined rows by title, NOLA, date, file, or reason">
-              <button type="button" class="ghost" id="import-refresh-quarantine-button">Refresh</button>
-              <span class="mini-chip" id="import-existing-unlinked-pill">0 rows</span>
-            </div>
-          </div>
-          <div class="table-wrap import-preview-wrap import-unmatched-wrap">
-            <table class="programs-table import-preview-table import-unmatched-table">
-              <thead>
-                <tr>
-                  <th>Imported title</th>
-                  <th>NOLA</th>
-                  <th>Air date</th>
-                  <th>Air time</th>
-                  <th>Dollars</th>
-                  <th>Why quarantined</th>
-                  <th>Match to library title</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="import-existing-unlinked-body">
-                <tr><td colspan="8" class="placeholder-row">No quarantined rows right now.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div id="import-quarantine-preview" class="import-quarantine-preview">Choose a quarantined row to inspect the imported fields and review why it is still unlinked.</div>
-        </section>
-
-        <section class="performance-card">
-          <div class="performance-card-head import-unmatched-head">
-            <div>
-              <h3>Excluded suspect rows</h3>
-              <p class="muted">These are imported airing events that analytics excluded under the current analysis criteria. Review the reason, then link, approve, or delete the underlying imported rows here instead of letting them vanish offstage.</p>
-            </div>
-            <div class="import-unmatched-head-actions">
-              <input type="search" id="import-suspect-filter" class="import-quarantine-filter" placeholder="Filter suspect rows by title, NOLA, date, file, or reason">
-              <button type="button" class="ghost" id="import-refresh-suspect-button">Refresh</button>
-              <span class="mini-chip" id="import-suspect-pill">0 rows</span>
-            </div>
-          </div>
-          <div class="table-wrap import-preview-wrap import-unmatched-wrap">
-            <table class="programs-table import-preview-table import-unmatched-table import-suspect-table">
-              <thead>
-                <tr>
-                  <th>Imported title</th>
-                  <th>NOLA</th>
-                  <th>Air date</th>
-                  <th>Air time</th>
-                  <th>Dollars</th>
-                  <th>Why excluded</th>
-                  <th>Match to library title</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="import-suspect-body">
-                <tr><td colspan="8" class="placeholder-row">Refresh to load suspect rows from the current analytics criteria.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div id="import-suspect-preview" class="import-quarantine-preview">Choose a suspect row to inspect the imported fields and review exactly why analytics excluded it.</div>
-        </section>
-      </section>
-    </section>
-
-    <section class="workspace-pane hidden" data-workspace-pane="performance">
-      <section class="performance-shell">
-        <section class="performance-toolbar-card">
-          <div>
-            <div class="list-title">Pledge Performance comparisons</div>
-            <div class="list-summary" id="performance-status">Open Pledge Performance to load the first comparison set.</div>
-          </div>
-          <div class="performance-date-row">
-            <label class="filter-field narrow">
-              <span class="filter-label">Start date</span>
-              <input id="performance-start-date" type="date">
-            </label>
-            <label class="checkbox-inline performance-all-dates-toggle performance-all-dates-inline">
-              <input id="performance-use-all-dates" type="checkbox">
-              <span>Use all available dates</span>
-            </label>
-            <label class="filter-field narrow">
-              <span class="filter-label">End date</span>
-              <input id="performance-end-date" type="date">
-            </label>
-            <div class="filter-actions filter-actions-inline performance-actions-inline performance-date-actions">
-              <button type="button" class="ghost" id="performance-refresh-button">Refresh performance</button>
-              <button type="button" class="ghost" id="performance-export-button">Export chart (SVG)</button>
-            </div>
-          </div>
-          <div class="performance-quick-filter-card">
-            <div class="performance-quick-filter-head">
-              <div class="list-title tiny">Quick filters</div>
-              <span class="mini-chip" id="performance-quick-filter-pill">Set a date range first</span>
-            </div>
-            <div class="performance-quick-filter-groups" id="performance-quick-filter-row">
-              <div class="performance-quick-filter-group">
-                <div class="performance-quick-filter-label">Program level</div>
-                <div class="performance-quick-filter-row">
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="top_earners">Top earners</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="best_average">Best average earners</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="prime_time">Prime time winners</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="best_daytime">Best daytime performers</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="recent_momentum">Recent momentum</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="repeat_fatigue">Repeat fatigue</button>
-                </div>
-              </div>
-              <div class="performance-quick-filter-group">
-                <div class="performance-quick-filter-label">Topic level</div>
-                <div class="performance-quick-filter-row">
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="topic_winners">Top Topics</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="topic_time_performance">Topic Time Performance</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="topic_slot_winners">Topic winners by slot</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="topic_week_split">Topic week split</button>
-                </div>
-              </div>
-              <div class="performance-quick-filter-group">
-                <div class="performance-quick-filter-label">Day / time level</div>
-                <div class="performance-quick-filter-row">
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="weekend_weekday">Weekend vs weekday earnings</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="day_of_week">Day of week comparisons</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="daypart">Day-part comparisons</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="weekday_dayparts">Weekday day-parts</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="saturday_dayparts">Saturday day-parts</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="sunday_dayparts">Sunday day-parts</button>
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="daypart_heatmap">Day-part heatmap</button>
-                </div>
-              </div>
-              <div class="performance-quick-filter-group">
-                <div class="performance-quick-filter-label">Breaks / production</div>
-                <div class="performance-quick-filter-row">
-                  <button type="button" class="quick-filter-btn" data-performance-quick-filter="live_break_impact">Live break impact</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="performance-toolbar-grid expanded">
-            <label class="filter-field narrow">
-              <span class="filter-label">Main topic</span>
-              <select id="performance-topic-select"></select>
-            </label>
-            <label class="filter-field narrow">
-              <span class="filter-label">Fundraiser month</span>
-              <select id="performance-month-select">
-                <option value="">All months</option>
-                <option value="0">January</option>
-                <option value="1">February</option>
-                <option value="2">March</option>
-                <option value="3">April</option>
-                <option value="4">May</option>
-                <option value="5">June</option>
-                <option value="6">July</option>
-                <option value="7">August</option>
-                <option value="8">September</option>
-                <option value="9">October</option>
-                <option value="10">November</option>
-                <option value="11">December</option>
-              </select>
-            </label>
-            <label class="filter-field narrow">
-              <span class="filter-label">Day set</span>
-              <select id="performance-day-set-select">
-                <option value="" selected>All week</option>
-                <option value="mon_fri">Mon-Fri</option>
-                <option value="saturday">Saturday</option>
-                <option value="sunday">Sunday</option>
-                <option value="weekend">Weekend</option>
-              </select>
-            </label>
-            <label class="filter-field narrow">
-              <span class="filter-label">Compare by</span>
-              <select id="performance-criterion-select">
-                <option value="program">Program</option>
-                <option value="date">Date</option>
-                <option value="day">Day of week</option>
-                <option value="daypart">Day-part</option>
-                <option value="weekpart">Weekend vs weekday</option>
-                <option value="time">Time</option>
-                <option value="topic_time">Topic time slot</option>
-                <option value="topic_dayset">Topic week split</option>
-                <option value="topic" selected>Topic</option>
-                <option value="local_breaks">Local cut-ins</option>
-                <option value="live_breaks">Live breaks</option>
-                <option value="premiums">Premium metadata</option>
-                <option value="distributor">Distributor</option>
-              </select>
-            </label>
-            <label class="filter-field narrow">
-              <span class="filter-label">Metric</span>
-              <select id="performance-metric-select">
-                <option value="avg_dollars">Average dollars / airing</option>
-                <option value="total_dollars">Total dollars</option>
-                <option value="airings">Airing count</option>
-                <option value="avg_pledges">Average pledges / airing</option>
-                <option value="total_pledges">Total pledges</option>
-                <option value="avg_sustainers">Average sustainers / airing</option>
-                <option value="total_sustainers">Total sustainers</option>
-                <option value="dollars_per_pledge">Dollars / pledge</option>
-                <option value="dollars_per_minute">Dollars / minute</option>
-                <option value="pledges_per_minute">Pledges / minute</option>
-              </select>
-            </label>
-            <label class="filter-field narrow">
-              <span class="filter-label">Chart type</span>
-              <select id="performance-chart-type-select">
-                <option value="auto" selected>Auto</option>
-                <option value="line">Line</option>
-                <option value="split_line">Split lines</option>
-                <option value="heatmap">Heatmap</option>
-                <option value="bar">Vertical bars</option>
-              </select>
-            </label>
-            <label class="filter-field narrow">
-              <span class="filter-label">Show top</span>
-              <select id="performance-topn-select">
-                <option value="8">8</option>
-                <option value="12" selected>12</option>
-                <option value="16">16</option>
-                <option value="24">24</option>
-                <option value="999">All</option>
-              </select>
-            </label>
-            <label class="filter-field search-grow">
-              <span class="filter-label">Label contains</span>
-              <input id="performance-filter-input" type="search" placeholder="Optional label filter, like Saturday, Music, or PBS">
-            </label>
-          </div>
-
-          <section class="performance-card performance-criteria-card performance-snapshot-card">
-            <div class="performance-snapshot-row">
-              <div id="performance-criteria-bar" class="performance-criteria-bar"></div>
-              <section class="performance-stat-grid performance-stat-grid-inline" id="performance-stat-grid">
-                <article class="performance-stat-card"><div class="performance-stat-label">Airings used</div><div class="performance-stat-value">—</div></article>
-                <article class="performance-stat-card"><div class="performance-stat-label">Programs represented</div><div class="performance-stat-value">—</div></article>
-                <article class="performance-stat-card"><div class="performance-stat-label">Dollars represented</div><div class="performance-stat-value">—</div></article>
-                <article class="performance-stat-card"><div class="performance-stat-label">Pledges / sustainers</div><div class="performance-stat-value">—</div></article>
-              </section>
-            </div>
-          </section>
-        </section>
-
-        <section class="performance-card performance-slot-fit-accuracy-card">
-          <div class="performance-card-head">
-            <h3>Slot Fit projection accuracy</h3>
-            <span class="mini-chip" id="performance-slot-fit-accuracy-pill">Waiting on scheduled imports</span>
-          </div>
-          <div id="performance-slot-fit-accuracy" class="performance-slot-fit-accuracy">Schedule imported fundraiser entries with Slot Fit projections to compare projected dollars against actual imported results.</div>
-        </section>
-
-        <section class="performance-main-grid">
-          <article class="performance-card">
-            <div class="performance-card-head">
-              <h3 id="performance-chart-title">Performance chart</h3>
-              <span class="mini-chip" id="performance-chart-pill">Awaiting data</span>
-            </div>
-            <div id="performance-chart" class="performance-chart"></div>
-          </article>
-
-          <article class="performance-card">
-            <div class="performance-card-head">
-              <h3>Comparison table</h3>
-              <span class="mini-chip" id="performance-table-pill">Top groups</span>
-            </div>
-            <div class="table-wrap performance-table-wrap">
-              <table class="programs-table performance-table">
-                <thead>
-                  <tr>
-                    <th id="performance-table-group-header">Group</th>
-                    <th>Airings</th>
-                    <th>Total dollars</th>
-                    <th id="performance-table-metric-header">Avg dollars / airing</th>
-                    <th id="performance-table-confidence-header">Confidence</th>
-                    <th>Titles</th>
-                  </tr>
-                </thead>
-                <tbody id="performance-table-body">
-                  <tr><td colspan="6" class="placeholder-row">Open Pledge Performance to load comparison data.</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
-        </section>
-
-        <section class="performance-card performance-slot-drill-card">
-          <div class="performance-card-head">
-            <h3>Analytics drill-down</h3>
-            <span class="mini-chip" id="performance-slot-drill-pill">Click a result</span>
-          </div>
-          <div id="performance-slot-drilldown" class="performance-slot-drilldown">Click a chart element or comparison-table row to see the exact titles, fundraisers, and airings behind that result.</div>
-        </section>
-
-        <section class="performance-card performance-intelligence-card">
-          <div class="performance-card-head">
-            <h3>Scheduling intelligence</h3>
-            <span class="mini-chip" id="performance-intelligence-pill">Topic-aware</span>
-          </div>
-          <div class="performance-slot-compare-controls" id="performance-slot-compare-controls">
-            <label class="filter-field narrow">
-              <span class="filter-label">Slot A</span>
-              <select id="performance-slot-compare-a"></select>
-            </label>
-            <label class="filter-field narrow">
-              <span class="filter-label">Slot B</span>
-              <select id="performance-slot-compare-b"></select>
-            </label>
-          </div>
-          <div id="performance-intelligence" class="performance-intelligence">Choose a main topic to see best slots, weekday/Saturday/Sunday splits, and a head-to-head slot comparison.</div>
-        </section>
-
-        <section class="performance-card performance-explain-card">
-          <div class="performance-card-head">
-            <h3>How to read this comparison</h3>
-            <span class="mini-chip">Method</span>
-          </div>
-          <div class="table-wrap performance-explain-wrap">
-            <table class="programs-table performance-explain-table">
-              <thead>
-                <tr>
-                  <th>Setting</th>
-                  <th>Current value</th>
-                  <th>How to read it</th>
-                </tr>
-              </thead>
-              <tbody id="performance-explain-body">
-                <tr><td colspan="3" class="placeholder-row">Choose some criteria and open Pledge Performance.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="performance-card performance-insights-card">
-          <div class="performance-card-head">
-            <h3>Source notes</h3>
-            <span class="mini-chip" id="performance-notes-pill">Starter framework</span>
-          </div>
-          <div id="performance-source-notes" class="performance-source-notes"></div>
-        </section>
-      </section>
-    </section>
-
-<div id="detail-backdrop" class="detail-backdrop hidden"></div>
-    <section id="detail-modal" class="detail-modal hidden" aria-modal="true" role="dialog" aria-labelledby="detail-title">
-      <div class="detail-modal-card">
-        <div class="detail-header sticky">
-          <div>
-            <div class="detail-kicker">Pledge program detail</div>
-            <h2 id="detail-title">Program detail</h2>
-            <p id="detail-subtitle" class="muted">Choose a title from the library.</p>
-          </div>
-          <div class="toolbar-actions">
-            <button type="button" class="ghost hidden" id="detail-edit-button">Edit</button>
-            <button type="button" class="ghost danger hidden" id="detail-delete-button">Delete</button>
-            <button type="button" class="ghost" id="detail-close-button">Close</button>
-          </div>
-        </div>
-
-        <div id="detail-notice" class="notice-strip hidden"></div>
-
-        <div id="detail-empty" class="detail-empty hidden">
-          Choose a title from the library to inspect timing, air history, premium notes, and segment structure.
-        </div>
-
-        <div id="detail-content" class="detail-scroll hidden">
-          <form id="detail-edit-form" class="detail-edit-form hidden">
-            <div class="detail-block">
-              <div class="section-head"><h3 id="detail-form-heading">Edit program</h3><div class="mini-chip">Admin</div></div>
-              <div class="detail-form-stack compact-program-form">
-                <div class="detail-form-row detail-form-row-main">
-                  <label class="detail-form-field detail-field-title"><span class="filter-label">Title</span><input type="text" name="title" required></label>
-                  <label class="detail-form-field detail-field-nola"><span class="filter-label">NOLA</span><input type="text" name="nola_code"></label>
-                  <label class="detail-form-field detail-field-distributor"><span class="filter-label">Distributor</span><input type="text" name="distributor"></label>
-                </div>
-                <div class="detail-form-row detail-form-row-compact">
-                  <label class="detail-form-field"><span class="filter-label">Bucket length</span><input type="number" name="length_bucket_minutes" min="0" step="30"></label>
-                  <label class="detail-form-field"><span class="filter-label">Runtime</span><input type="text" name="actual_runtime_input" placeholder="00:56:46 or 57"></label>
-                  <label class="detail-form-field"><span class="filter-label">Rights begin</span><input type="text" name="rights_start" inputmode="numeric" placeholder="MM/DD/YY"></label>
-                  <label class="detail-form-field"><span class="filter-label">Rights end</span><input type="text" name="rights_end" inputmode="numeric" placeholder="MM/DD/YY"></label>
-                  <label class="detail-form-field"><span class="filter-label">Primary topic</span><input type="text" name="topic_primary"></label>
-                  <label class="detail-form-field"><span class="filter-label">Secondary topic</span><input type="text" name="topic_secondary"></label>
-                  <label class="detail-form-field"><span class="filter-label">Package type</span><input type="text" name="package_type"></label>
-                  <label class="detail-form-field"><span class="filter-label">Source</span><select name="source_format"><option value=""></option><option value="sIX">sIX</option><option value="FTP">FTP</option><option value="Server">Server</option><option value="Other">Other</option></select></label>
-                </div>
-                <div class="detail-form-row detail-form-row-single">
-                  <label class="detail-form-field"><span class="filter-label">Rights notes</span><textarea name="rights_notes" rows="1"></textarea></label>
-                </div>
-                <div class="detail-form-row detail-form-row-split">
-                  <label class="detail-form-field"><span class="filter-label">Premium summary</span><textarea name="premium_summary" rows="4"></textarea></label>
-                  <label class="detail-form-field"><span class="filter-label">Description / notes</span><textarea name="program_notes" rows="4"></textarea></label>
-                </div>
-                <div class="detail-block detail-editor-subblock timing-editor-subblock">
-                  <div class="section-head">
-                    <h3>Break timings</h3>
-                    <div class="toolbar-actions">
-                      <button type="button" class="ghost" id="detail-add-timing-row-button">Add timing row</button>
-                    </div>
-                  </div>
-                  <div id="detail-timing-editor" class="detail-timing-editor"></div>
-                </div>
-                <div class="detail-block detail-editor-subblock">
-                  <div class="section-head">
-                    <h3>Additional editable program fields</h3>
-                    <div class="mini-chip">Base row</div>
-                  </div>
-                  <div id="detail-extra-fields-editor" class="detail-extra-fields-editor"></div>
-                </div>
-              </div>
-              <div class="toolbar-actions detail-form-actions">
-                <button type="submit" class="primary" id="detail-save-button">Save</button>
-                <button type="button" class="ghost" id="detail-cancel-edit-button">Cancel</button>
-              </div>
-            </div>
-          </form>
-          <section class="detail-block detail-readonly-block detail-lead-block">
-            <div id="detail-program-meta" class="detail-program-meta"></div>
-            <div id="detail-program-description" class="detail-program-description"></div>
-          </section>
-
-          <section class="detail-block detail-readonly-block">
-            <h3>Overview</h3>
-            <dl class="overview-grid" id="overview-grid"></dl>
-          </section>
-
-          <section class="detail-block detail-readonly-block">
-            <div class="section-head">
-              <h3>Timing &amp; segment structure</h3>
-              <div id="timing-count-chip" class="mini-chip">0</div>
-            </div>
-            <div id="timing-list" class="version-stack"></div>
-          </section>
-
-          <section class="detail-block detail-readonly-block">
-            <div class="section-head">
-              <h3>Air dates &amp; contributions</h3>
-              <div id="airing-count-chip" class="mini-chip">0</div>
-            </div>
-            <div id="airing-list" class="simple-list"></div>
-          </section>
-
-          <section class="detail-block detail-readonly-block">
-            <div class="section-head">
-              <h3>Premiums</h3>
-              <div id="premium-count-chip" class="mini-chip">0</div>
-            </div>
-            <div id="premiums-list" class="simple-list"></div>
-          </section>
-
-          <section class="detail-block detail-readonly-block">
-            <div class="section-head">
-              <h3>Income over time</h3>
-              <div id="detail-graph-pill" class="mini-chip">Needs 2 fundraisers</div>
-            </div>
-            <div id="detail-performance-graph" class="detail-performance-graph"></div>
-          </section>
-
-          <section class="detail-block detail-readonly-block">
-            <div class="section-head">
-              <h3>All known program fields</h3>
-              <div class="mini-chip">Full row</div>
-            </div>
-            <div id="all-fields-list" class="simple-list"></div>
-          </section>
-        </div>
-      </div>
-    </section>
-
-    <footer class="site-footer">
-      <div>WNMU-TV PBS · Pledge Program Library</div>
-      <div id="footer-version">v0.21.51</div>
-    </footer>
   </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="data/states-manifest-v23.0.61.js?v=23.0.61"></script>
+  <script src="app-v23.0.61.js?v=23.0.61"></script>
 </body>
 </html>

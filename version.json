@@ -1,4 +1,8 @@
 {
-  "appVersion": "0.21.51",
-  "minimumConfigVersion": 1
+  "version": "v23.0.61",
+  "build": "v23.0.61",
+  "appVersion": "v23.0.61",
+  "minimumConfigVersion": 1,
+  "updated": "2026-05-19",
+  "summary": "Wisconsin safe-import revision: 3 WisDOT Park & Ride limited overnight records; Maribel/Denmark rest areas deferred while closed; existing NHAL rustic supplement retained without duplication."
 }
