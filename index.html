@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Boondocking & Camping Maps v23.0.61</title>
+  <title>Boondocking & Camping Maps v23.0.62</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQRS6vD6Z5hBQFwQshlXL5Z8d8q4D4s=" crossorigin="">
-  <link rel="stylesheet" href="styles.css?v=23.0.61">
+  <link rel="stylesheet" href="styles.css?v=23.0.62">
   <style>
     :root{--bg:#0e1a16;--panel:rgba(10,22,18,.94);--panel-border:rgba(255,255,255,.12);--text:#f2f5f3;--muted:#b9c6c0;--accent:#74c69d;--button:#20382f;--button-border:rgba(255,255,255,.18)}
+    /* Leaflet core-positioning fallback. Keeps the map usable if the external Leaflet CSS is delayed, blocked, or cached badly. */
+    .leaflet-container{overflow:hidden;position:relative;outline:0}.leaflet-pane,.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile-container,.leaflet-pane>svg,.leaflet-pane>canvas,.leaflet-zoom-box,.leaflet-image-layer,.leaflet-layer{position:absolute;left:0;top:0}.leaflet-tile{visibility:hidden;user-select:none;-webkit-user-select:none}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-animated{transform-origin:0 0}.leaflet-tile-container{pointer-events:none}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-control{position:relative;z-index:800;pointer-events:auto}.leaflet-top,.leaflet-bottom{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control-container .leaflet-top,.leaflet-control-container .leaflet-bottom{pointer-events:none}.leaflet-control-container .leaflet-control{clear:both}.leaflet-left .leaflet-control{float:left;margin-left:10px}.leaflet-right .leaflet-control{float:right;margin-right:10px}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}
     html,body,#appShell,#map{margin:0;width:100%;height:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
     body{overflow:hidden}.hidden{display:none!important}#map{position:fixed;inset:0;z-index:1}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:rgba(14,26,22,.97);color:var(--text)}.leaflet-popup-content{min-width:260px;max-width:360px}.leaflet-container a{color:#9cd7ff}.leaflet-control-attribution{font-size:10px}
     #menuToggle{position:fixed;left:12px;top:12px;z-index:1000;width:52px;height:52px;border-radius:14px;border:1px solid var(--button-border);background:rgba(14,26,22,.94);color:var(--text);font-size:30px;box-shadow:0 10px 28px rgba(0,0,0,.35);cursor:pointer}
@@ -28,7 +30,7 @@
         <div>
           <h1>Boondocking & Camping Maps</h1>
           <p>Static-file build focused on verified campground, boondocking, overnight parking, and traveler-stop layers.</p>
-          <div id="versionTag">v23.0.61</div>
+          <div id="versionTag">v23.0.62</div>
         </div>
         <button id="closeSidebar" type="button" class="ghost-button">Close</button>
       </div>
@@ -138,7 +140,7 @@
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="data/states-manifest-v23.0.61.js?v=23.0.61"></script>
-  <script src="app-v23.0.61.js?v=23.0.61"></script>
+  <script src="data/states-manifest-v23.0.62.js?v=23.0.62"></script>
+  <script src="app-v23.0.62.js?v=23.0.62"></script>
 </body>
 </html>

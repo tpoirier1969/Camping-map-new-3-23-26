@@ -1,10 +1,11 @@
 {
-  "version": "v23.0.61",
+  "version": "v23.0.62",
   "project": "Boondocking & Camping Maps",
   "recordsLoadedForWisconsinViaManifest": 269,
   "wisconsinActiveRestRoadsideRecords": 26,
   "wisconsinDeferredClosedRestAreas": 2,
   "wisconsinNewParkAndRideOvernightRecords": 3,
   "configIncluded": false,
-  "updated": "2026-05-19"
+  "updated": "2026-05-19",
+  "changeSummary": "Leaflet CSS fallback hotfix only; no site-data changes."
 }

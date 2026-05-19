@@ -1,8 +1,8 @@
 {
-  "version": "v23.0.61",
-  "build": "v23.0.61",
-  "appVersion": "v23.0.61",
+  "version": "v23.0.62",
+  "build": "v23.0.62",
+  "appVersion": "v23.0.62",
   "minimumConfigVersion": 1,
   "updated": "2026-05-19",
-  "summary": "Wisconsin safe-import revision: 3 WisDOT Park & Ride limited overnight records; Maribel/Denmark rest areas deferred while closed; existing NHAL rustic supplement retained without duplication."
+  "summary": "Leaflet CSS fallback hotfix: embeds core Leaflet positioning rules in index.html so map tiles do not scatter if external Leaflet CSS fails or caches badly. No data changes."
 }
