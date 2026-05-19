@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.63",
+  "version": "v23.0.64",
   "updated": "2026-05-19",
-  "notes": "Recovery build: restores known-good v23.0.37 camping UI shell and preserves v23.0.61 Wisconsin safe-import data changes. Changed/new files only; excludes config.js."
+  "notes": "Adds a shrink/expand control for the desktop map legend. Changed/new files only; excludes config.js."
 }
