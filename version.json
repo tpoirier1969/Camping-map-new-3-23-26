@@ -1,8 +1,5 @@
 {
-  "version": "v23.0.62",
-  "build": "v23.0.62",
-  "appVersion": "v23.0.62",
-  "minimumConfigVersion": 1,
+  "version": "v23.0.63",
   "updated": "2026-05-19",
-  "summary": "Leaflet CSS fallback hotfix: embeds core Leaflet positioning rules in index.html so map tiles do not scatter if external Leaflet CSS fails or caches badly. No data changes."
+  "notes": "Recovery build: restores known-good v23.0.37 camping UI shell and preserves v23.0.61 Wisconsin safe-import data changes. Changed/new files only; excludes config.js."
 }

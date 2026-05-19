@@ -1,4 +1,4 @@
-// Wisconsin state data — updated v23.0.61
+// Wisconsin state data — updated v23.0.63
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_STATE_DATA['WI'] = [
   {

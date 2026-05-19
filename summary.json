@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.62",
+  "version": "v23.0.63",
   "project": "Boondocking & Camping Maps",
   "recordsLoadedForWisconsinViaManifest": 269,
   "wisconsinActiveRestRoadsideRecords": 26,
@@ -7,5 +7,5 @@
   "wisconsinNewParkAndRideOvernightRecords": 3,
   "configIncluded": false,
   "updated": "2026-05-19",
-  "changeSummary": "Leaflet CSS fallback hotfix only; no site-data changes."
+  "notes": "Restored known-good v23.0.37 camping UI shell; preserves Wisconsin safe-import data from v23.0.61."
 }
