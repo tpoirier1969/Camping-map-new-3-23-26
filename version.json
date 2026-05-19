@@ -1,7 +1,4 @@
 {
-  "version": "v23.0.60",
-  "date": "2026-05-18",
-  "build": "wi-rest-areas-batch-1",
-  "notes": "Added all 28 official WisDOT Safety Rest Areas / Welcome Centers to Wisconsin Rest Areas & Roadside Stops layer; no campground layer data changed.",
-  "buildDate": "2026-05-18"
+  "appVersion": "0.21.51",
+  "minimumConfigVersion": 1
 }
