@@ -1,10 +1,8 @@
 {
-  "version": "v23.0.67",
-  "date": "2026-05-20",
+  "version": "v23.0.68",
   "state": "WI",
-  "changedFilesOnly": true,
+  "change": "Added 7 Wisconsin traveler-stop records using user-provided coordinates marked Medium confidence; continued holding unresolved/fake-pin-risk sites.",
+  "recordsAdded": 7,
   "configIncluded": false,
-  "addedRecords": 2,
-  "updatedRecords": 0,
-  "notes": "Adds 2 held-back Wisconsin secondary traveler stops with medium-confidence coordinates from deeper audit; keeps coordinate-incomplete lock/dam, split-access, Lower Wisconsin corridor, and duplicate-risk candidates out of import."
+  "delivery": "changed-files-only"
 }
