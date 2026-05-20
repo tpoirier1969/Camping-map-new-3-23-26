@@ -1,8 +1,10 @@
 {
-  "version": "v23.0.68",
+  "version": "v23.0.69",
   "state": "WI",
-  "change": "Added 7 Wisconsin traveler-stop records using user-provided coordinates marked Medium confidence; continued holding unresolved/fake-pin-risk sites.",
-  "recordsAdded": 7,
+  "change": "Corrected Wayside County Park / State Highway 16 Wayside Park coordinate after QA found the v23.0.68 user coordinate plotted far from Jefferson County/Ixonia. No new records added.",
+  "recordsAdded": 0,
+  "recordsCorrected": 1,
+  "wisconsinManifestCount": 316,
   "configIncluded": false,
   "delivery": "changed-files-only"
 }

@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.68",
+  "version": "v23.0.69",
   "date": "2026-05-20",
-  "notes": "Wisconsin user-coordinate rescue for held-back traveler stops; changed-files-only delivery; no config.js."
+  "notes": "Wisconsin QA correction: fixed Wayside County Park / State Highway 16 Wayside Park coordinate after v23.0.68 user-coordinate audit; changed-files-only delivery; no config.js."
 }
