@@ -1,10 +1,10 @@
 {
-  "version": "v23.0.66",
+  "version": "v23.0.67",
   "date": "2026-05-20",
   "state": "WI",
   "changedFilesOnly": true,
   "configIncluded": false,
-  "addedRecords": 21,
+  "addedRecords": 2,
   "updatedRecords": 0,
-  "notes": "Adds Crex Meadows seasonal camping, verified casino/RV cleanup records, and 14 secondary traveler-stop pull-offs. Holds unresolved/fake-pin candidates out of import."
+  "notes": "Adds 2 held-back Wisconsin secondary traveler stops with medium-confidence coordinates from deeper audit; keeps coordinate-incomplete lock/dam, split-access, Lower Wisconsin corridor, and duplicate-risk candidates out of import."
 }
