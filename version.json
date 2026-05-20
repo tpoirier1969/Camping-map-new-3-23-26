@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.64",
-  "updated": "2026-05-19",
-  "notes": "Adds a shrink/expand control for the desktop map legend. Changed/new files only; excludes config.js."
+  "version": "v23.0.65",
+  "date": "2026-05-20",
+  "label": "Wisconsin verification cleanup"
 }

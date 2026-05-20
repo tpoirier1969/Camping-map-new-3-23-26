@@ -1,11 +1,10 @@
 {
-  "version": "v23.0.64",
-  "project": "Boondocking & Camping Maps",
-  "recordsLoadedForWisconsinViaManifest": 269,
-  "wisconsinActiveRestRoadsideRecords": 26,
-  "wisconsinDeferredClosedRestAreas": 2,
-  "wisconsinNewParkAndRideOvernightRecords": 3,
+  "version": "v23.0.65",
+  "date": "2026-05-20",
+  "state": "WI",
+  "changedFilesOnly": true,
   "configIncluded": false,
-  "updated": "2026-05-19",
-  "notes": "Adds desktop legend shrink/expand toggle while preserving v23.0.63 recovered UI and Wisconsin data."
+  "addedRecords": 17,
+  "updatedRecords": 1,
+  "notes": "Adds verified Wisconsin campground and Boat / Backpack cleanup records from worker verification batches. Keeps unresolved coordinate/representation records out of import."
 }
