@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.69",
-  "date": "2026-05-20",
-  "notes": "Wisconsin QA correction: fixed Wayside County Park / State Highway 16 Wayside Park coordinate after v23.0.68 user-coordinate audit; changed-files-only delivery; no config.js."
+  "version": "v23.0.72",
+  "date": "2026-05-21",
+  "notes": "Live location follow: the app now automatically requests location permission, shows the user marker with accuracy circle, follows live movement, and loads the local Near Me map area without requiring a Show My Location button; changed-files-only delivery; no config.js."
 }

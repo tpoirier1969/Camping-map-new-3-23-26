@@ -1,10 +1,20 @@
 {
-  "version": "v23.0.69",
-  "state": "WI",
-  "change": "Corrected Wayside County Park / State Highway 16 Wayside Park coordinate after QA found the v23.0.68 user coordinate plotted far from Jefferson County/Ixonia. No new records added.",
-  "recordsAdded": 0,
-  "recordsCorrected": 1,
-  "wisconsinManifestCount": 316,
+  "version": "v23.0.72",
+  "state": "app",
+  "change": "Combined overlay package for sites currently at v23.0.69. Includes v23.0.70 Wisconsin central-corridor traveler stops, v23.0.71 Wisconsin user-coordinate central-corridor traveler stops, and v23.0.72 automatic live location follow.",
+  "recordsAdded": 12,
+  "recordsCorrected": 0,
+  "wisconsinManifestCount": 328,
   "configIncluded": false,
-  "delivery": "changed-files-only"
+  "delivery": "changed-files-only combined v23.0.69-to-v23.0.72 overlay",
+  "filesChanged": [
+    "app-v23.0.72.js",
+    "index.html",
+    "summary.json",
+    "version.json",
+    "data/states-manifest.js",
+    "data/states-manifest-v23.0.72.js",
+    "data/supplements/wi-central-corridor-traveler-stops-v23.0.70.js",
+    "data/supplements/wi-user-coordinate-central-corridor-traveler-stops-v23.0.71.js"
+  ]
 }
