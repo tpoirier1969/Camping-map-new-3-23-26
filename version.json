@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.73",
+  "version": "v23.0.74",
   "date": "2026-05-24",
-  "notes": "Popup distance and directions: when live user location is available, site popups now show straight-line distance from the user and a driving-directions link that opens Google Maps from the current location to the selected site; changed-files-only delivery; no config.js."
+  "notes": "Polishes map iconography on top of v23.0.73: replaces the live-location dot with a navigation-style arrow marker and upgrades the Boat / Backpack icon styling with a larger teal badge and clearer symbol; changed-files-only delivery; no config.js."
 }

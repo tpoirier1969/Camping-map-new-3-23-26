@@ -1,18 +1,18 @@
 {
-  "version": "v23.0.73",
+  "version": "v23.0.74",
   "state": "app",
-  "change": "Adds the middle-ground distance feature on top of v23.0.72: site popups show straight-line distance from live user location and include a Google Maps driving-directions link from current location to the selected site.",
+  "change": "Improves icon clarity on top of v23.0.73: the live-location marker now uses a navigation-style arrow and the Boat / Backpack layer now uses a clearer, larger, styled icon that stands out like the other map markers.",
   "recordsAdded": 0,
   "recordsCorrected": 0,
   "wisconsinManifestCount": 328,
   "configIncluded": false,
-  "delivery": "changed-files-only v23.0.72-to-v23.0.73 overlay",
+  "delivery": "changed-files-only v23.0.73-to-v23.0.74 overlay",
   "filesChanged": [
-    "app-v23.0.73.js",
+    "app-v23.0.74.js",
     "index.html",
     "summary.json",
     "version.json",
     "data/states-manifest.js",
-    "data/states-manifest-v23.0.73.js"
+    "data/states-manifest-v23.0.74.js"
   ]
 }
