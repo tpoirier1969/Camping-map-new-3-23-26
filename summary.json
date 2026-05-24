@@ -1,20 +1,18 @@
 {
-  "version": "v23.0.72",
+  "version": "v23.0.73",
   "state": "app",
-  "change": "Combined overlay package for sites currently at v23.0.69. Includes v23.0.70 Wisconsin central-corridor traveler stops, v23.0.71 Wisconsin user-coordinate central-corridor traveler stops, and v23.0.72 automatic live location follow.",
-  "recordsAdded": 12,
+  "change": "Adds the middle-ground distance feature on top of v23.0.72: site popups show straight-line distance from live user location and include a Google Maps driving-directions link from current location to the selected site.",
+  "recordsAdded": 0,
   "recordsCorrected": 0,
   "wisconsinManifestCount": 328,
   "configIncluded": false,
-  "delivery": "changed-files-only combined v23.0.69-to-v23.0.72 overlay",
+  "delivery": "changed-files-only v23.0.72-to-v23.0.73 overlay",
   "filesChanged": [
-    "app-v23.0.72.js",
+    "app-v23.0.73.js",
     "index.html",
     "summary.json",
     "version.json",
     "data/states-manifest.js",
-    "data/states-manifest-v23.0.72.js",
-    "data/supplements/wi-central-corridor-traveler-stops-v23.0.70.js",
-    "data/supplements/wi-user-coordinate-central-corridor-traveler-stops-v23.0.71.js"
+    "data/states-manifest-v23.0.73.js"
   ]
 }
