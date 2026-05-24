@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.74",
+  "version": "v23.0.75",
   "date": "2026-05-24",
-  "notes": "Polishes map iconography on top of v23.0.73: replaces the live-location dot with a navigation-style arrow marker and upgrades the Boat / Backpack icon styling with a larger teal badge and clearer symbol; changed-files-only delivery; no config.js."
+  "notes": "Hotfix for v23.0.74 icon polish: rebuilds the icon changes from the stable v23.0.73 base, keeps the Boat / Backpack icon upgrade, and uses a simpler live-location arrow marker without the heading-rotation refactor; changed-files-only delivery; no config.js."
 }

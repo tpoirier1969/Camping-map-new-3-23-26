@@ -1,18 +1,18 @@
 {
-  "version": "v23.0.74",
+  "version": "v23.0.75",
   "state": "app",
-  "change": "Improves icon clarity on top of v23.0.73: the live-location marker now uses a navigation-style arrow and the Boat / Backpack layer now uses a clearer, larger, styled icon that stands out like the other map markers.",
+  "change": "Hotfixes v23.0.74 by rebuilding the icon polish from the stable v23.0.73 code path. Keeps the upgraded Boat / Backpack marker and replaces the user dot with a simple navigation arrow marker while avoiding the more complex heading-rotation logic.",
   "recordsAdded": 0,
   "recordsCorrected": 0,
   "wisconsinManifestCount": 328,
   "configIncluded": false,
-  "delivery": "changed-files-only v23.0.73-to-v23.0.74 overlay",
+  "delivery": "changed-files-only v23.0.73/v23.0.74-to-v23.0.75 overlay",
   "filesChanged": [
-    "app-v23.0.74.js",
+    "app-v23.0.75.js",
     "index.html",
     "summary.json",
     "version.json",
     "data/states-manifest.js",
-    "data/states-manifest-v23.0.74.js"
+    "data/states-manifest-v23.0.75.js"
   ]
 }
