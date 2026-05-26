@@ -1,18 +1,18 @@
 {
-  "version": "v23.0.75",
+  "version": "v23.0.80",
   "state": "app",
-  "change": "Hotfixes v23.0.74 by rebuilding the icon polish from the stable v23.0.73 code path. Keeps the upgraded Boat / Backpack marker and replaces the user dot with a simple navigation arrow marker while avoiding the more complex heading-rotation logic.",
+  "change": "Builds on v23.0.79. Adds phone-safe Back to Map controls and sticky modal/panel close behavior, plus multi-select access filters so users can combine 2WD, high-clearance, 4WD, cost, showers, and quick filters.",
   "recordsAdded": 0,
   "recordsCorrected": 0,
   "wisconsinManifestCount": 328,
   "configIncluded": false,
-  "delivery": "changed-files-only v23.0.73/v23.0.74-to-v23.0.75 overlay",
+  "delivery": "changed-files-only v23.0.79-to-v23.0.80 overlay",
   "filesChanged": [
-    "app-v23.0.75.js",
+    "app-v23.0.80.js",
     "index.html",
     "summary.json",
     "version.json",
     "data/states-manifest.js",
-    "data/states-manifest-v23.0.75.js"
+    "data/states-manifest-v23.0.80.js"
   ]
 }

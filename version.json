@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.75",
-  "date": "2026-05-24",
-  "notes": "Hotfix for v23.0.74 icon polish: rebuilds the icon changes from the stable v23.0.73 base, keeps the Boat / Backpack icon upgrade, and uses a simpler live-location arrow marker without the heading-rotation refactor; changed-files-only delivery; no config.js."
+  "version": "v23.0.80",
+  "date": "2026-05-26",
+  "notes": "Includes v23.0.79 phone/PWA location-permission changes, adds safer phone panel escape controls, and upgrades filters so multiple access filters can be selected together."
 }
