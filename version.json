@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.80",
+  "version": "v23.0.81",
   "date": "2026-05-26",
-  "notes": "Includes v23.0.79 phone/PWA location-permission changes, adds safer phone panel escape controls, and upgrades filters so multiple access filters can be selected together."
+  "notes": "Hotfix for v23.0.80 phone panels: fixes mobile CSS specificity so Where, Layers, and More panels actually show their sections instead of opening empty."
 }

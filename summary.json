@@ -1,18 +1,18 @@
 {
-  "version": "v23.0.80",
+  "version": "v23.0.81",
   "state": "app",
-  "change": "Builds on v23.0.79. Adds phone-safe Back to Map controls and sticky modal/panel close behavior, plus multi-select access filters so users can combine 2WD, high-clearance, 4WD, cost, showers, and quick filters.",
+  "change": "Fixes the v23.0.80 mobile panel visibility bug. Where, Layers, and More now override the mobile hide-all rule with correctly specific selectors. Includes all v23.0.80 changes: v23.0.79 phone/PWA location behavior, Back to Map controls, and multi-select filters.",
   "recordsAdded": 0,
   "recordsCorrected": 0,
   "wisconsinManifestCount": 328,
   "configIncluded": false,
-  "delivery": "changed-files-only v23.0.79-to-v23.0.80 overlay",
+  "delivery": "changed-files-only v23.0.80-to-v23.0.81 overlay",
   "filesChanged": [
-    "app-v23.0.80.js",
+    "app-v23.0.81.js",
     "index.html",
     "summary.json",
     "version.json",
     "data/states-manifest.js",
-    "data/states-manifest-v23.0.80.js"
+    "data/states-manifest-v23.0.81.js"
   ]
 }
