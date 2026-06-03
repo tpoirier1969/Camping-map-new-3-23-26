@@ -1,5 +1,4 @@
 {
-  "version": "v23.0.88",
-  "label": "v23.0.88 route shaping + free filter fix",
-  "generated": "2026-06-03"
+  "version": "v23.0.90",
+  "label": "v23.0.90 independent waterfront filters"
 }
