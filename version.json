@@ -1,4 +1,5 @@
 {
-  "version": "v23.0.90",
-  "label": "v23.0.90 independent waterfront filters"
+  "version": "v23.0.91",
+  "label": "v23.0.91 route time + wider route handles",
+  "notes": "Adds visible OSRM route time/distance summary and wider route-shaping influence points with fallback."
 }
