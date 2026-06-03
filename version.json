@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.84",
-  "date": "2026-06-03",
-  "notes": "Exact rustic / primitive point import for selected Wisconsin CNF and Michigan Hiawatha / Grand Island records; no config.js changes."
+  "version": "v23.0.86",
+  "build": "v23.0.86",
+  "label": "Route Search phase 1 — OSRM near-route filtering"
 }
