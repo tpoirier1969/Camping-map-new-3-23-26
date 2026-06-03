@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.91",
-  "label": "v23.0.91 route time + wider route handles",
-  "notes": "Adds visible OSRM route time/distance summary and wider route-shaping influence points with fallback."
+  "version": "v23.0.92",
+  "label": "v23.0.92 keep zoom after route reshaping",
+  "notes": "Keeps current map center and zoom after dragging a route handle while preserving route time and wider handle behavior."
 }
