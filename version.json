@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.81",
-  "date": "2026-05-26",
-  "notes": "Hotfix for v23.0.80 phone panels: fixes mobile CSS specificity so Where, Layers, and More panels actually show their sections instead of opening empty."
+  "version": "v23.0.84",
+  "date": "2026-06-03",
+  "notes": "Exact rustic / primitive point import for selected Wisconsin CNF and Michigan Hiawatha / Grand Island records; no config.js changes."
 }
