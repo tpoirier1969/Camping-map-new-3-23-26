@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.86",
-  "build": "v23.0.86",
-  "label": "Route Search phase 1 — OSRM near-route filtering"
+  "version": "v23.0.88",
+  "label": "v23.0.88 route shaping + free filter fix",
+  "generated": "2026-06-03"
 }

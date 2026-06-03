@@ -37,7 +37,7 @@
   body.mobile-panel-active .panel-head h1{font-size:.95rem;line-height:1.1}
   body.mobile-panel-active .state-badge{font-size:.75rem;margin-top:0}
   body.mobile-panel-active #mainTabPanel>.section{display:none}
-  body.mobile-mode-where #mainTabPanel>#searchSection,body.mobile-mode-where #mainTabPanel>#stateSection{display:block}
+  body.mobile-mode-where #mainTabPanel>#searchSection,body.mobile-mode-where #mainTabPanel>#routeSection,body.mobile-mode-where #mainTabPanel>#stateSection{display:block}
   body.mobile-mode-layers #mainTabPanel>#layersSection{display:block}
   body.mobile-mode-more #mainTabPanel>#filterSection,body.mobile-mode-more #mainTabPanel>#basemapSection,body.mobile-mode-more #mainTabPanel>#mobileLegendSection,body.mobile-mode-more #mainTabPanel>#syncSection,body.mobile-mode-more #mainTabPanel>#toolsSection{display:block}
   body.mobile-mode-layers #layerList{max-height:42vh;overflow:auto;padding-right:2px}
@@ -69,14 +69,17 @@
   }
 }
 
+/* v23.0.88 desktop section buttons */
+.desktop-action-bar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:0 0 12px}.desktop-action-bar button{border:1px solid rgba(36,60,46,.18);border-radius:14px;background:rgba(251,250,246,.96);box-shadow:0 4px 12px rgba(24,33,27,.10);padding:9px 4px;font-size:.82rem;font-weight:800;color:#274634}.desktop-action-bar button.active{background:linear-gradient(180deg,#356a52,#294f3f);color:#fff;border-color:#294f3f}@media(max-width:700px){.desktop-action-bar{display:none!important}}@media(min-width:701px){body.desktop-panel-active #mainTabPanel>.section{display:none}body.desktop-mode-where #mainTabPanel>#searchSection,body.desktop-mode-where #mainTabPanel>#routeSection,body.desktop-mode-where #mainTabPanel>#stateSection,body.desktop-mode-where #mainTabPanel>#basemapSection{display:block}body.desktop-mode-layers #mainTabPanel>#layersSection{display:block}body.desktop-mode-more #mainTabPanel>#filterSection,body.desktop-mode-more #mainTabPanel>#syncSection,body.desktop-mode-more #mainTabPanel>#toolsSection{display:block}body.desktop-mode-layers #layerList{max-height:calc(100vh - 310px);overflow:auto;padding-right:2px}}
+
 </style>
 
   <style>
-.route-grid{display:grid;gap:8px}.route-grid label{display:grid;gap:5px;font-size:.86rem;color:#405246}.route-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.route-row .primary,.route-row .secondary{white-space:nowrap}.route-stop-row{display:grid;grid-template-columns:1fr auto;gap:8px}.route-status{font-size:.82rem;color:var(--muted);margin-top:8px}.route-service-note{font-size:.78rem;color:var(--muted);line-height:1.35;margin-top:8px}
+.route-grid{display:grid;gap:8px}.route-grid label{display:grid;gap:5px;font-size:.86rem;color:#405246}.route-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.route-row .primary,.route-row .secondary{white-space:nowrap}.route-stop-row{display:grid;grid-template-columns:1fr auto;gap:8px}.route-status{font-size:.82rem;color:var(--muted);margin-top:8px}.route-service-note{font-size:.78rem;color:var(--muted);line-height:1.35;margin-top:8px}.route-shape-handle{display:grid;place-items:center;width:28px;height:28px;border-radius:999px;background:#fff;border:3px solid #246ad4;box-shadow:0 3px 10px rgba(0,0,0,.28);color:#246ad4;font-weight:900;cursor:grab}.route-shape-handle span{line-height:1;transform:rotate(90deg);font-size:16px}.route-shape-handle:active{cursor:grabbing}
 @media(max-width:700px){.route-stop-row{grid-template-columns:1fr}.route-row{display:grid;grid-template-columns:1fr 1fr}.route-row .primary,.route-row .secondary{width:100%}}
   </style>
 </head>
-<body>
+<body class="desktop-panel-active desktop-mode-where">
 <div id="app">
   <div id="map"></div>
   <div id="mapLoading">Loading map…</div>
@@ -92,9 +95,10 @@
       <p id="statusLine" class="dev-notice">This app is still in active development. Errors may occur but should be corrected quickly. To report issues contact: <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a></p>
       <p id="dataStats" class="mini-note" hidden></p>
       <div class="sidebar-tabs" role="tablist" aria-label="Menu tabs"><button id="mainTabButton" class="sidebar-tab active" type="button" data-sidebar-tab="main">Map controls</button><button id="referenceTabButton" class="sidebar-tab" type="button" data-sidebar-tab="reference">Information &amp; reference</button></div>
+      <div class="desktop-action-bar" aria-label="Map control sections"><button type="button" data-desktop-action="map">Map</button><button type="button" data-desktop-action="where">Where</button><button type="button" data-desktop-action="layers">Layers</button><button type="button" data-desktop-action="more">More</button></div>
       <div id="mainTabPanel" class="tab-panel" role="tabpanel">
       <section class="section" id="searchSection"><h2>Find an area</h2><div class="row"><input id="searchInput" type="text" placeholder="City, park, address, site name, or coordinates"><button id="searchBtn" class="primary" type="button">Go</button><button id="nearMeBtn" class="secondary" type="button">Near Me</button></div><div class="row location-row"><button id="enableLocationBtn" class="secondary" type="button">Enable location</button><span id="locationStatus" class="mini-note">Location is off until you enable it.</span></div><div id="searchResults" class="search-results"></div></section>
-      <section class="section" id="routeSection"><h2>Route Search</h2><div class="route-grid"><label>Start<input id="routeStart" type="text" placeholder="Ishpeming, MI or 46.4885, -87.6676"></label><div id="routeStops" class="route-grid"></div><button id="routeAddStopBtn" class="secondary" type="button">+ Add stop</button><label>Destination<input id="routeEnd" type="text" placeholder="Detroit, MI"></label><label>Show campsites within<select id="routeMiles"><option value="5">5 miles of route</option><option value="10">10 miles of route</option><option value="25" selected>25 miles of route</option><option value="50">50 miles of route</option><option value="75">75 miles of route</option></select></label><div class="route-row"><button id="routeGoBtn" class="primary" type="button">Map route</button><button id="routeClearBtn" class="secondary" type="button">Clear route</button></div><div id="routeStatus" class="route-status">Route Search is off.</div><div class="route-service-note">Uses OSRM routing with OpenStreetMap place lookup. Best for planning, not turn-by-turn navigation.</div></div></section>
+      <section class="section" id="routeSection"><h2>Route Search</h2><div class="route-grid"><label>Start<input id="routeStart" type="text" placeholder="Ishpeming, MI or 46.4885, -87.6676"></label><div id="routeStops" class="route-grid"></div><button id="routeAddStopBtn" class="secondary" type="button">+ Add stop</button><label>Destination<input id="routeEnd" type="text" placeholder="Detroit, MI"></label><label>Show campsites within<select id="routeMiles"><option value="5">5 miles of route</option><option value="10">10 miles of route</option><option value="25" selected>25 miles of route</option><option value="50">50 miles of route</option><option value="75">75 miles of route</option></select></label><div class="route-row"><button id="routeGoBtn" class="primary" type="button">Map route</button><button id="routeClearBtn" class="secondary" type="button">Clear route</button></div><div id="routeStatus" class="route-status">Route Search is off.</div><div class="route-service-note">Uses OSRM routing with OpenStreetMap place lookup. After mapping a route, click the blue route line to add a handle, then drag the handle onto another road to reshape the route. Alt-click a handle to remove it.</div></div></section>
       <section class="section" id="basemapSection"><h2>Basemap</h2><select id="basemapSelect"><option value="topo">Topo</option><option value="opentopo">OpenTopo</option><option value="osm">OpenStreetMap</option><option value="satellite">Satellite</option></select></section>
       <section class="section" id="stateSection"><h2>State view</h2>
         <div class="state-dropdown">
@@ -134,6 +138,6 @@
 <script src="data/states-manifest-v23.0.84.js"></script>
 <script src="data/pending-sites-v22.3.3.js"></script>
 <script src="config.js"></script>
-<script src="app-v23.0.86.js"></script>
+<script src="app-v23.0.88.js"></script>
 </body>
 </html>
