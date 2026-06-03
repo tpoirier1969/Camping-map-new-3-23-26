@@ -1,0 +1,33 @@
+v23.0.82 changed-files package — Green Bay → Ishpeming boondocking/rule-area update
+
+Upload these files to the same paths in the repo:
+1. data/states/MI2.js
+2. data/supplements/wi-hardcase-cleanup-v23.0.66.js
+
+No config.js included.
+No manifest/index.html included.
+
+Why no manifest/index.html:
+- This package modifies files already listed in the v23.0.81 manifest, so the new records should load without adding new manifest entries.
+- Because the manifest counts are not changed, any purely manifest-based state-count badge may remain stale until a later full build.
+
+Included:
+- MI Import-after-cleanup boondocking/rule_area records:
+  - Hiawatha National Forest Rapid River / Manistique Dispersed Camping Rule Area
+  - Delta County Forestland Rustic Camping Permit Rule Area
+- MI Needs Verification validation lead:
+  - Marquette County Forest Camping Registration Rule Area — Needs Verification
+- WI Import-after-cleanup boondocking/rule_area records:
+  - Marinette County Forest Camping Permit Rule Area
+  - Oconto County Forest Permit Camping Rule Area
+  - Chequamegon-Nicolet National Forest — Nicolet Unit Dispersed Camping Rule Area
+- WI system records:
+  - Governor Earl Peshtigo River State Forest — Remote / Boat-In Campsite System
+  - Menominee River State Recreation Area — Wisconsin Canoe Campsite System
+- WI Needs Verification validation lead:
+  - Florence County Forest Camping Rule Area — Needs Verification
+
+Not included yet:
+- Area outline overlay support. The records include areaOverlayStatus/areaOverlayNote placeholders only.
+- Mobile state-list scroll CSS fix. That needs index.html or the relevant stylesheet edited in a separate UI build.
+- Visible version flag update. That needs index.html edited.
