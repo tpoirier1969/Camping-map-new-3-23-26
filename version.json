@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.92",
-  "label": "v23.0.92 keep zoom after route reshaping",
-  "notes": "Keeps current map center and zoom after dragging a route handle while preserving route time and wider handle behavior."
+  "version": "v23.0.93",
+  "label": "v23.0.93 route cleanup + radius control + saved routes",
+  "notes": "Removes hidden wide route helper points, adds custom route-radius slider/number input, and adds saved routes in local browser storage."
 }
