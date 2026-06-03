@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.93",
-  "label": "v23.0.93 route cleanup + radius control + saved routes",
-  "notes": "Removes hidden wide route helper points, adds custom route-radius slider/number input, and adds saved routes in local browser storage."
+  "version": "v23.0.94",
+  "label": "v23.0.94 cloud saved routes",
+  "notes": "Changes saved routes from local browser storage to Supabase cloud storage with signed-in cross-device save/load/delete."
 }
