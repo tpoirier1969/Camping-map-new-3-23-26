@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.97",
-  "label": "v23.0.97 collapse login controls when signed in",
-  "notes": "Hides sign-in/create-account fields after login and shows a single Log out button."
+  "version": "v23.0.98",
+  "label": "v23.0.98 auto-load saved routes on selection",
+  "notes": "Selecting a cloud saved route now automatically rebuilds/draws the route. The manual reload button remains as a fallback."
 }
