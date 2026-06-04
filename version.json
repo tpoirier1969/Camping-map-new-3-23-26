@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.98",
-  "label": "v23.0.98 auto-load saved routes on selection",
-  "notes": "Selecting a cloud saved route now automatically rebuilds/draws the route. The manual reload button remains as a fallback."
+  "version": "v23.1.0",
+  "label": "v23.1.0 area outline foundation",
+  "notes": "Adds official area outline plumbing for rule_area/system records using official GeoJSON or ArcGIS query sources. No new campsite data."
 }
