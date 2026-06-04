@@ -1,5 +1,5 @@
 {
-  "version": "v23.0.95",
-  "label": "v23.0.95 account create/sign-in for cloud routes",
-  "notes": "Adds Create account UI using Supabase Auth and clearer signed-in/signed-out account state for cloud saved routes."
+  "version": "v23.0.96",
+  "label": "v23.0.96 visible create-account controls for saved routes",
+  "notes": "Adds visible Create account and sign-in controls directly inside Route Search saved-routes area."
 }
