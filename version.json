@@ -1,5 +1,5 @@
 {
-  "version": "v23.1.1",
-  "label": "v23.1.1 official area outline data batch",
-  "notes": "Adds standalone official area outline selector and first official GIS outline batch for selected WI county forests and USFS national forests. No fake centroids or hand-drawn outlines."
+  "version": "v23.1.2",
+  "label": "v23.1.2 multi-select area outlines",
+  "notes": "Changes official area outlines from a single dropdown to multi-select checkboxes so multiple official context boundaries can show at once."
 }
