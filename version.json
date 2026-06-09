@@ -1,5 +1,5 @@
 {
-  "version": "v23.1.4",
-  "label": "v23.1.4 better outline labels and rule details",
-  "notes": "Places labels on major separated polygon pieces instead of one bounds-center label, and deepens area rules popup details."
+  "version": "v23.1.5",
+  "label": "v23.1.5 MI/WI boondocking cleanup and WI primitive water-access exact sites",
+  "notes": "Adds 114 official exact Wisconsin DNR Boat/Backpack primitive water-access campsite pins, demotes superseded representative Turtle-Flambeau/Willow system pins to reference, and updates MI/WI area-outline status/coverage for the current boondocking cleanup pass."
 }
