@@ -1,5 +1,5 @@
 {
-  "version": "v23.1.5",
-  "label": "v23.1.5 MI/WI boondocking cleanup and WI primitive water-access exact sites",
-  "notes": "Adds 114 official exact Wisconsin DNR Boat/Backpack primitive water-access campsite pins, demotes superseded representative Turtle-Flambeau/Willow system pins to reference, and updates MI/WI area-outline status/coverage for the current boondocking cleanup pass."
+  "version": "v23.1.6",
+  "label": "v23.1.6 USFS ownership context overlays",
+  "notes": "Adds official USFS Basic Ownership context overlays for Ottawa, Hiawatha, and Chequamegon-Nicolet National Forests, split into USFS-owned surface and non-FS/inholding context. Keeps ownership overlays as context only, not camping-permission polygons."
 }
