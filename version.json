@@ -1,5 +1,5 @@
 {
-  "version": "v23.1.6",
-  "label": "v23.1.6 USFS ownership context overlays",
-  "notes": "Adds official USFS Basic Ownership context overlays for Ottawa, Hiawatha, and Chequamegon-Nicolet National Forests, split into USFS-owned surface and non-FS/inholding context. Keeps ownership overlays as context only, not camping-permission polygons."
+  "version": "v23.1.7",
+  "label": "v23.1.7 Wisconsin boondocking outline focus",
+  "notes": "Keeps exact campsite pins unchanged and adds a Wisconsin boondocking/dispersed outline focus so official county-forest and Chequamegon-Nicolet rule-area opportunities are visible from the Boondocking / Dispersed workflow without creating fake campsite pins."
 }
