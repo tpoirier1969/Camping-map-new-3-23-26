@@ -1,5 +1,5 @@
 {
-  "version": "v23.1.7",
-  "label": "v23.1.7 Wisconsin boondocking outline focus",
-  "notes": "Keeps exact campsite pins unchanged and adds a Wisconsin boondocking/dispersed outline focus so official county-forest and Chequamegon-Nicolet rule-area opportunities are visible from the Boondocking / Dispersed workflow without creating fake campsite pins."
+  "version": "v23.1.8",
+  "label": "v23.1.8 Wisconsin boondocking site verification import",
+  "notes": "Adds 11 verified Wisconsin Chequamegon-Nicolet coordinate-backed Boondocking / Dispersed site records from the hard verification pass and keeps Old Knowles Creek Road Dam in Needs Verification due to dam/impoundment/interpretive/resource-management conflict risk. No config.js changes."
 }
