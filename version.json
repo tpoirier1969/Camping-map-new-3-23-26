@@ -1,5 +1,5 @@
 {
-  "version": "v23.1.8",
-  "label": "v23.1.8 Wisconsin boondocking site verification import",
-  "notes": "Adds 11 verified Wisconsin Chequamegon-Nicolet coordinate-backed Boondocking / Dispersed site records from the hard verification pass and keeps Old Knowles Creek Road Dam in Needs Verification due to dam/impoundment/interpretive/resource-management conflict risk. No config.js changes."
+  "version": "v23.1.10",
+  "label": "v23.1.10 Wisconsin CNF lake-area boondocking sites",
+  "notes": "Adds verified Three Lakes / Hidden Lakes CNF coordinate-backed boondocking/dispersed lake-area sites plus one walk-in primitive record; retains v23.1.9 area-outline dropdown and zoom-aware label behavior."
 }
