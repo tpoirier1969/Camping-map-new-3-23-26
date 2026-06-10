@@ -1,0 +1,58 @@
+Boondocking & Camping Maps — v23.1.12 data-safe changed-files build
+Date: 2026-06-10
+
+Purpose:
+Add verified Wisconsin primitive / boondocking records from the post-v23.1.11 worker batch without touching config.js.
+
+This is a data-safe build for the current v23.1.10 loader/index structure. It updates the manifest file that the current index already loads and adds supplements. It intentionally does not include config.js, index.html, app-v23.1.10.js, app-v23.1.12.js, or version.json.
+
+Why no app/version bump:
+The currently deployed app file hardcodes VERSION='v23.1.10'. Bumping version.json without safely copying the full app file forward would cause the app to keep seeing a newer remote version and nag for an update. This package therefore ships only verified data changes.
+
+Files included:
+- data/states-manifest-v23.1.10.js
+- data/supplements/wi-cnf-corridor-boondocking-v23.1.11.js
+- data/supplements/wi-wiwide-primitive-boondocking-v23.1.12.js
+
+Wisconsin count:
+- Previous v23.1.10 baseline: 472
+- v23.1.11 Camp 3 + Burnt Bridge: +2
+- v23.1.12 new additions: +15
+- New manifest count: 489
+
+New v23.1.12 additions:
+
+Boondocking / Dispersed:
+1. Turtle Lake Dispersed — 45.4013834, -88.5152573
+
+Rustic / Primitive:
+1. KVR Camp AA — Anderson Camp — 43.592052, -90.635433
+2. KVR Camp J — Mule Camp — 43.620310, -90.610931
+3. KVR Camp K — Jug Creek Camp — 43.626899, -90.592744
+4. KVR Camp KK — Nofsinger Camp — 43.628796, -90.598693
+5. KVR Camp N — Daines Valley Camp — 43.628832, -90.629857
+6. KVR Camp O — Ma & Pa’s Park Camp — 43.628982, -90.636191
+7. KVR Camp OO — Steinmetz Camp — 43.631685, -90.646342
+8. KVR Camp P — Potts Corners Camp — 43.655500, -90.650160
+9. KVR Camp Q — Cutoff Camp — 43.645563, -90.587800
+10. KVR Camp T — Clark Camp — 43.667674, -90.591740
+11. KVR Camp U — Hay Valley Camp — 43.678711, -90.607027
+
+Boat / Backpack:
+1. Sailor Creek Campsite — 45.273371, -90.563060
+2. Northside Lake Eleven Campsite — 45.18019872, -90.58552936
+3. KVR Camp V — Bridge 8 Camp — 43.664262, -90.587006
+
+v23.1.11 records retained in this package for baseline safety:
+1. Camp 3 Dispersed — 45.62817900000001, -88.59914110000001 — Boondocking / Dispersed
+2. Burnt Bridge Dispersed — 45.562444799999994, -88.4952108 — Boondocking / Dispersed
+
+Classification notes:
+- KVR vehicle-access sites are Rustic / Primitive, not Boondocking / Dispersed. They are official, paid, designated primitive sites with parking at the site.
+- KVR Camp V is Boat / Backpack because KVR labels it non-vehicle river access.
+- Sailor Creek and Northside Lake Eleven are Boat / Backpack because they are hike-in/backcountry Ice Age Trail / CNF primitive sites.
+- Ludington Lake is not included in this build. It should be handled in a separate Rustic / Primitive campground follow-up because the worker result identified it as developed campground / boat landing context, not boondocking, and no exact new rustic campground record was supplied for this build.
+
+No removals.
+No config.js.
+No broad polygons or fake pins.
