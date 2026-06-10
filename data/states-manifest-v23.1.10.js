@@ -1,4 +1,4 @@
-// Camping Map states manifest v23.1.10
+// Camping Map states manifest v23.1.11 data-only patch (filename retained for v23.1.10 index compatibility)
 window.CAMPING_STATES_MANIFEST = {
   "AL": {
     "code": "AL",
@@ -194,9 +194,10 @@ window.CAMPING_STATES_MANIFEST = {
       "data/supplements/wi-primitive-water-access-exact-v23.1.5.js",
       "data/supplements/wi-boondocking-sites-verified-v23.1.8.js",
       "data/supplements/wi-cnf-lake-area-boondocking-v23.1.10.js",
+      "data/supplements/wi-cnf-corridor-boondocking-v23.1.11.js",
       "data/supplements/wi-exact-rustic-primitive-v23.0.84.js"
     ],
-    "count": 472,
+    "count": 474,
     "dynamicSources": [
       "Verified Wisconsin DNR NHAL rustic campground supplement v23.0.38 (14/14 official NHAL rustic campgrounds)",
       "Verified Wisconsin DNR non-NHAL state forest rustic campground corrections/additions v23.0.38",
@@ -217,6 +218,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.5: added 114 official exact Wisconsin DNR primitive water-access Boat/Backpack pins: Turtle-Flambeau 66, Willow/Lower Tomahawk confirmed 31, and NHAL reservable boat-in 17. Demoted old Turtle-Flambeau and Willow representative system markers to reference records to avoid duplicate non-exact pins.",
       "v23.1.8: added 11 verified Wisconsin CNF Boondocking / Dispersed coordinate-backed site records and 1 Old Knowles Creek Road Dam Needs Verification hold from the hard verification pass.",
       "v23.1.10: added 10 verified Three Lakes / Hidden Lakes CNF Boondocking / Dispersed lake-area records and 1 Three Johns Lake walk-in primitive Boat/Backpack-style record; rejected Robinson and held FlowMama/Cooper Dam/county-forest coordinate-missing leads out of active layers.",
+      "v23.1.11 data-only: added 2 verified CNF corridor Boondocking / Dispersed records: Camp 3 Dispersed and Burnt Bridge; Goodman 1–4, Armstrong Creek, Himley/Turtle/Lincoln/Perch remain Needs Verification outside active layer.",
       "v23.0.84: refreshed exact official CNF rustic backlog records and added Lauterman National Recreation Area as a Boat / Backpack walk-in/canoe-in camping record"
     ]
   },

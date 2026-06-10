@@ -1,0 +1,31 @@
+Build notes — v23.1.11 data-only changed-files package
+
+Package: boondocking_wi_cnf_corridor_sites_v23_1_11_data_only_changed_files.zip
+Date: 2026-06-10
+
+Changed files included:
+- data/states-manifest-v23.1.10.js
+- data/supplements/wi-cnf-corridor-boondocking-v23.1.11.js
+- BUILD-NOTES-v23.1.11.txt
+
+No config.js.
+No index.html or app-v23.1.11.js included.
+
+Reason for data-only packaging:
+The live repo has v23.1.10 source files. The app JS hardcodes VERSION='v23.1.10'. A normal v23.1.11 wrapper would require copying the full current app file forward and changing that constant. Because the full app source file was not available in the local sandbox as a complete editable file, this package intentionally updates the manifest file currently loaded by index.html (data/states-manifest-v23.1.10.js) and adds the new supplement. This avoids a broken version-update loop.
+
+Wisconsin count:
+- Previous manifest count: 472
+- Added records: 2
+- New manifest count: 474
+
+Added Boondocking / Dispersed records:
+1. Camp 3 Dispersed — 45.62817900000001, -88.59914110000001
+2. Burnt Bridge Dispersed — 45.562444799999994, -88.4952108
+
+Held out of active import:
+- Goodman dispersed 1–4 remain Needs Verification pending point-level Marinette County Forest ownership/access proof.
+- Armstrong Creek remains Needs Verification.
+- Himley Lake, Turtle Lake, Lincoln Lake, and Perch Lake remain Needs Verification.
+- Logger Lake rejected as lake access/parking/boardwalk, not campsite.
+- Ludington/Luddington Lake should be treated as Correct Different Layer / Rustic Campground follow-up, not discarded as boondocking.
