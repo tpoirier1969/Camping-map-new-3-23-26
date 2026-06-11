@@ -51,3 +51,8 @@ to:
   <script src="app-v23.1.14.js"></script>
 
 No config.js included.
+
+CORRECTION PACKAGE:
+- Full index.html is included.
+- No manual script editing required.
+- index.html already loads app-v23.1.14.js.
