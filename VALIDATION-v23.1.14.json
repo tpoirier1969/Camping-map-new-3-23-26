@@ -1,0 +1,15 @@
+{
+  "version": "v23.1.14",
+  "previousWisconsinCount": 522,
+  "newRecords": 7,
+  "newWisconsinCount": 529,
+  "newLayerCounts": {
+    "boondocking": 1,
+    "rustic": 6
+  },
+  "includedVersionJson": true,
+  "includedAppLoader": true,
+  "includedIndexHtml": false,
+  "indexHtmlReason": "Full minified index.html was not safely available through connector; deployment note gives exact one-line script switch.",
+  "configIncluded": false
+}

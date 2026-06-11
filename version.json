@@ -1,5 +1,6 @@
 {
-  "version": "v23.1.10",
-  "label": "v23.1.10 Wisconsin CNF lake-area boondocking sites",
-  "notes": "Adds verified Three Lakes / Hidden Lakes CNF coordinate-backed boondocking/dispersed lake-area sites plus one walk-in primitive record; retains v23.1.9 area-outline dropdown and zoom-aware label behavior."
+  "version": "v23.1.14",
+  "label": "v23.1.14",
+  "date": "2026-06-11",
+  "notes": "Wisconsin live-data advance: Robinson Lake Community Reported boondocking cluster and six Oconto County Forest permit-area rule records. Version flag update included for version.json; index/app script switch still required for visible app tag."
 }

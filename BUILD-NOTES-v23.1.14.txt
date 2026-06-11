@@ -1,0 +1,53 @@
+TOD'S BOONDOCKING & CAMPING MAPS — v23.1.14 CHANGED FILES
+
+Purpose:
+Move the live Wisconsin data forward from the v23.1.10 visible baseline without creating new layers.
+
+Adds:
+1. Robinson Lake Dispersed Cluster
+   - Layer: Boondocking / Dispersed
+   - Status: Community Reported
+   - Geometry: Representative Road/Cluster Pin
+   - Not an official exact campsite.
+
+2. Six Oconto County Forest Permit Area records
+   - Layer: Rustic / Primitive
+   - Status: Verified Legal
+   - Geometry treatment: Area / Rule-Area Record
+   - These are section-based permit-area labels, not campsite dots.
+   - Must be clipped/interpreted against actual Oconto County Forest ownership; do not treat whole PLSS sections as blanket legal camping.
+
+Oconto records:
+- Town of Abrams, T27N-R20E
+- Town of Bagley, T30N-R18E
+- Town of Brazeau, T31N-R18E
+- Town of Breed, T30N-R17E
+- Town of Morgan, T27N-R19E
+- Town of Stiles, T28N-R20E
+
+Holds / not included:
+- Goodman 1–4 remain Needs Verification.
+- Willow Flowage exact campsite dots remain blocked by unavailable/extraction-resistant official GPS PDF tables.
+- Meadow Valley exact camping-area dots not extracted.
+- Richfield 360 exact primitive campsite dots not extracted.
+- Turtle-Flambeau exact remote campsite dots not extracted.
+- Perch Lake five-walk-in premise rejected for now based on current official page found.
+- FlowMama, Chinty, Audie Lake not promoted.
+- Broad Oconto County Forest polygon not added.
+
+Version files included:
+- version.json -> v23.1.14
+- app-v23.1.14.js safe loader
+
+Important live deployment note:
+The currently fetched live index.html still references:
+  data/states-manifest-v23.1.10.js
+  app-v23.1.10.js
+
+This package retains the manifest filename for compatibility and includes an app-v23.1.14.js loader.
+To make the visible app tag show v23.1.14, index.html should switch:
+  <script src="app-v23.1.10.js"></script>
+to:
+  <script src="app-v23.1.14.js"></script>
+
+No config.js included.

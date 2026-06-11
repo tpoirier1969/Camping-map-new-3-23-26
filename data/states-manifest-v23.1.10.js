@@ -1,4 +1,4 @@
-// Camping Map states manifest v23.1.11 data-only patch (filename retained for v23.1.10 index compatibility)
+// Camping Map states manifest v23.1.14 live-data patch (filename retained for current index compatibility)
 window.CAMPING_STATES_MANIFEST = {
   "AL": {
     "code": "AL",
@@ -197,9 +197,10 @@ window.CAMPING_STATES_MANIFEST = {
       "data/supplements/wi-cnf-corridor-boondocking-v23.1.11.js",
       "data/supplements/wi-wiwide-primitive-boondocking-v23.1.12.js",
       "data/supplements/wi-accelerated-sites-areas-v23.1.13.js",
+      "data/supplements/wi-robinson-oconto-permit-areas-v23.1.14.js",
       "data/supplements/wi-exact-rustic-primitive-v23.0.84.js"
     ],
-    "count": 522,
+    "count": 529,
     "dynamicSources": [
       "Verified Wisconsin DNR NHAL rustic campground supplement v23.0.38 (14/14 official NHAL rustic campgrounds)",
       "Verified Wisconsin DNR non-NHAL state forest rustic campground corrections/additions v23.0.38",
