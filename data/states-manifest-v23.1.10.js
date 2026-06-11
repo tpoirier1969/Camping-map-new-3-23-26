@@ -196,9 +196,10 @@ window.CAMPING_STATES_MANIFEST = {
       "data/supplements/wi-cnf-lake-area-boondocking-v23.1.10.js",
       "data/supplements/wi-cnf-corridor-boondocking-v23.1.11.js",
       "data/supplements/wi-wiwide-primitive-boondocking-v23.1.12.js",
+      "data/supplements/wi-accelerated-sites-areas-v23.1.13.js",
       "data/supplements/wi-exact-rustic-primitive-v23.0.84.js"
     ],
-    "count": 489,
+    "count": 522,
     "dynamicSources": [
       "Verified Wisconsin DNR NHAL rustic campground supplement v23.0.38 (14/14 official NHAL rustic campgrounds)",
       "Verified Wisconsin DNR non-NHAL state forest rustic campground corrections/additions v23.0.38",
@@ -221,6 +222,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.10: added 10 verified Three Lakes / Hidden Lakes CNF Boondocking / Dispersed lake-area records and 1 Three Johns Lake walk-in primitive Boat/Backpack-style record; rejected Robinson and held FlowMama/Cooper Dam/county-forest coordinate-missing leads out of active layers.",
       "v23.1.11 data-only: added 2 verified CNF corridor Boondocking / Dispersed records: Camp 3 Dispersed and Burnt Bridge; Goodman 1–4, Armstrong Creek, Himley/Turtle/Lincoln/Perch remain Needs Verification outside active layer.",
       "v23.1.12 data-only: adds 1 verified Turtle Lake CNF Boondocking / Dispersed record, 11 official Kickapoo Valley Reserve Rustic / Primitive vehicle-access sites, and 3 Boat / Backpack primitive walk-in/paddle-in records; keeps KVR vehicle sites out of Boondocking because they are paid designated primitive sites.",
+      "v23.1.13 data-only: added 33 Wisconsin accelerated records from penalty-box promotions and worker handoffs: 5 site/cluster records, 19 county/DNR/river area-rule records, and 9 federal/state/reserve system area records using existing layers only; popup text carries Verified Legal, Community Reported, and Research Needed status.",
       "v23.0.84: refreshed exact official CNF rustic backlog records and added Lauterman National Recreation Area as a Boat / Backpack walk-in/canoe-in camping record"
     ]
   },

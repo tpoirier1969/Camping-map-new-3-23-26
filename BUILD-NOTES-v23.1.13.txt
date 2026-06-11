@@ -1,0 +1,47 @@
+TOD’S BOONDOCKING & CAMPING MAPS — v23.1.13 DATA-SAFE CHANGED FILES
+
+Build type:
+- Data-only / changed-files package
+- No config.js
+- No app/index/version bump, because current app-v23.1.10.js hardcodes VERSION='v23.1.10' and index loads data/states-manifest-v23.1.10.js
+- This package keeps the v23.1.10 manifest filename for compatibility and adds cumulative v23.1.11/v23.1.12 supplement files plus the new v23.1.13 supplement.
+
+Changed/included files:
+- data/states-manifest-v23.1.10.js
+- data/supplements/wi-cnf-corridor-boondocking-v23.1.11.js
+- data/supplements/wi-wiwide-primitive-boondocking-v23.1.12.js
+- data/supplements/wi-accelerated-sites-areas-v23.1.13.js
+
+Wisconsin count:
+- Previous v23.1.12 data-safe count: 489
+- New v23.1.13 count: 522
+- New records added by v23.1.13 supplement: 33
+
+Layer distribution in new v23.1.13 supplement:
+- Boondocking / Dispersed: 10
+- Rustic / Primitive: 12
+- Boat / Backpack: 10
+- Needs Verification: 1
+
+Penalty-box promotions included:
+- Foster Falls Rustic Site — Rustic / Primitive — Verified Legal
+- Potato River Falls Rustic Sites — Rustic / Primitive — Verified Legal
+- Afterhours Meadow — Boondocking / Dispersed — Community Reported representative road/cluster pin
+- FlowMama Trail Head Dispersed — Needs Verification — Research Needed
+
+Worker handoff records included:
+- Worker 2 central/southwest: Lower Wisconsin Riverway, Black River canoe sites near Hawk Island, Dunnville/Chippewa sandbar camping, Meadow Valley WA, Richfield 360, Jackson County Forest, Clark County Forest.
+- Worker 3 county forests: Chippewa, Bayfield, Douglas, Price, Washburn, Marinette, Florence, Rusk, Marathon, Wood, Oconto, Eau Claire, Sawyer.
+- Worker 4 public-land systems: CNF dispersed area, Black River SF backpack, Brule River SF backpack, Flambeau River SF primitive system, NHAL primitive system, Turtle-Flambeau, Willow Flowage, KVR system context, St. Croix/Namekagon.
+
+Records intentionally not promoted:
+- Chinty Lake Roadside Camp — reported No Camping sign
+- Grace Lake Road — Minnesota/wrong state and location-confused
+- Schoen Park / Earl Park Landing — held for official St. Croix/Namekagon exact campsite pass, not boondocking dots
+- Spearhead Point / Stockfarm Bridge — campground context, not boondocking
+- Goodman 1–4 — still requires parcel/community support before promotion
+- Himley original coordinate, Perch Lake, Armstrong Creek — still dirty/unclear point identity
+
+Important implementation note:
+- Area/rule records use existing layers only and are written as representative area/system markers. Popup/status fields say they are not exact campsite dots.
+- No new map layers were added.
