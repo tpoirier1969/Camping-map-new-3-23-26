@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.15",
-  "label": "v23.1.15",
+  "version": "v23.1.16",
+  "label": "v23.1.16",
   "date": "2026-06-12",
-  "notes": "Minnesota Superior National Forest rustic/backcountry seed import: 14 official USDA Forest Service Rustic / Primitive system records; marker icon styling restored and protected in styles/marker-icons.css; restored existing Search / Near Me / Route controls required by the app startup workflow."
+  "notes": "Wisconsin safe-add batch: 4 official Chequamegon-Nicolet NF Rustic / Primitive campground system records and 2 verified county-forest Boondocking / Dispersed rule-area records; McCaslin, Anvil, NHAL duplicates, and unresolved county/DNR leads held out."
 }

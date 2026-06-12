@@ -1,0 +1,243 @@
+// Camping Map states manifest v23.1.16 Wisconsin CNF rustic + county forest rule-area safe adds
+window.CAMPING_STATES_MANIFEST = {
+  "AL": {
+    "code": "AL",
+    "name": "Alabama",
+    "file": "data/states/AL.js",
+    "count": 2
+  },
+  "AZ": {
+    "code": "AZ",
+    "name": "Arizona",
+    "file": "data/states/AZ.js",
+    "count": 10
+  },
+  "AR": {
+    "code": "AR",
+    "name": "Arkansas",
+    "file": "data/states/AR.js",
+    "count": 28
+  },
+  "CA": {
+    "code": "CA",
+    "name": "California",
+    "file": "data/states/CA.js",
+    "count": 9
+  },
+  "CO": {
+    "code": "CO",
+    "name": "Colorado",
+    "file": "data/states/CO.js",
+    "count": 37
+  },
+  "DE": {
+    "code": "DE",
+    "name": "Delaware",
+    "file": "data/states/DE.js",
+    "count": 1
+  },
+  "FL": {
+    "code": "FL",
+    "name": "Florida",
+    "file": "data/states/FL.js",
+    "count": 1
+  },
+  "IL": {
+    "code": "IL",
+    "name": "Illinois",
+    "file": "data/states/IL.js",
+    "count": 100
+  },
+  "IN": {
+    "code": "IN",
+    "name": "Indiana",
+    "file": "data/states/IN.js",
+    "count": 5
+  },
+  "IA": {
+    "code": "IA",
+    "name": "Iowa",
+    "file": "data/states/IA.js",
+    "count": 16
+  },
+  "LA": {
+    "code": "LA",
+    "name": "Louisiana",
+    "file": "data/states/LA.js",
+    "count": 3
+  },
+  "ME": {
+    "code": "ME",
+    "name": "Maine",
+    "file": "data/states/ME.js",
+    "count": 6
+  },
+  "MI": {
+    "code": "MI",
+    "name": "Michigan",
+    "file": "data/states/MI.js",
+    "files": [
+      "data/states/MI.js",
+      "data/states/MI2.js",
+      "data/supplements/mi-exact-rustic-primitive-v23.0.84.js"
+    ],
+    "count": 660,
+    "dynamicSources": [
+      "MDOT rest areas / welcome centers",
+      "MDOT roadside parks / scenic views",
+      "Local traveler-stop supplement ready for curated entries",
+      "Private/casino RV park supplement separated from Overnight Parking",
+      "Overnight Parking layer limited to parking-lot style records",
+      "Retail overnight-parking candidate batch: Walmart locations marked Limited / call manager",
+      "Cumulative parking-lot batch: Cracker Barrel and Bass Pro/Cabela’s candidates with local-likelihood/evidence notes",
+      "Overnight Parking expansion batch 2: completed Michigan Cracker Barrel candidates and added corridor-priority Walmart candidates",
+      "Overnight Parking expansion batch 3: added official/operator-supported travel centers and truck stops",
+      "Michigan base data continuation MI2.js: Hurricane River coordinate fix, Misery Bay layer fix, Montreal River mouth boondocking addition",
+      "UI v23.0.35: Rest Areas & Roadside Stops moved out of layer list into one-tap focus mode",
+      "v23.0.84: corrected/refreshed Hiawatha exact rustic/primitive backlog records and added missing Indian River, Hemlock, and Channel Marker exact official records"
+    ]
+  },
+  "MN": {
+    "code": "MN",
+    "name": "Minnesota",
+    "file": "data/states/MN.js",
+    "files": [
+      "data/states/MN.js",
+      "data/supplements/mn-superior-nf-rustic-v23.1.15.js"
+    ],
+    "count": 65,
+    "dynamicSources": [
+      "v23.0.58 National Core Layers: 24 verified MnDOT I-35/I-90 rest areas added as Rest Areas & Roadside Stops",
+      "v23.1.15: added 14 official Superior National Forest rustic/backcountry system records as Rustic / Primitive seed import records."
+    ]
+  },
+  "MS": {
+    "code": "MS",
+    "name": "Mississippi",
+    "file": "data/states/MS.js",
+    "count": 4
+  },
+  "MO": {
+    "code": "MO",
+    "name": "Missouri",
+    "file": "data/states/MO.js",
+    "count": 41
+  },
+  "MT": {
+    "code": "MT",
+    "name": "Montana",
+    "file": "data/states/MT.js",
+    "count": 6
+  },
+  "NE": {
+    "code": "NE",
+    "name": "Nebraska",
+    "file": "data/states/NE.js",
+    "count": 20
+  },
+  "NH": {
+    "code": "NH",
+    "name": "New Hampshire",
+    "file": "data/states/NH.js",
+    "count": 1
+  },
+  "ND": {
+    "code": "ND",
+    "name": "North Dakota",
+    "file": "data/states/ND.js",
+    "count": 3
+  },
+  "OH": {
+    "code": "OH",
+    "name": "Ohio",
+    "file": "data/states/OH.js",
+    "count": 1
+  },
+  "SD": {
+    "code": "SD",
+    "name": "South Dakota",
+    "file": "data/states/SD.js",
+    "count": 8
+  },
+  "TN": {
+    "code": "TN",
+    "name": "Tennessee",
+    "file": "data/states/TN.js",
+    "count": 19
+  },
+  "TX": {
+    "code": "TX",
+    "name": "Texas",
+    "file": "data/states/TX.js",
+    "count": 1
+  },
+  "UT": {
+    "code": "UT",
+    "name": "Utah",
+    "file": "data/states/UT.js",
+    "count": 5
+  },
+  "WI": {
+    "code": "WI",
+    "name": "Wisconsin",
+    "file": "data/states/WI.js",
+    "files": [
+      "data/states/WI.js",
+      "data/supplements/wi-nhal-rustic-verified-v23.0.38.js",
+      "data/supplements/wi-dnr-state-forest-rustic-verified-v23.0.38.js",
+      "data/supplements/wi-dnr-rustic-boat-backpack-verified-v23.0.40.js",
+      "data/supplements/wi-state-sponsored-rustic-inventory-v23.0.41.js",
+      "data/supplements/wi-verified-campgrounds-cleanup-v23.0.65.js",
+      "data/supplements/wi-boat-backpack-cleanup-v23.0.65.js",
+      "data/supplements/wi-hardcase-cleanup-v23.0.66.js",
+      "data/supplements/wi-casino-rv-cleanup-v23.0.66.js",
+      "data/supplements/wi-secondary-traveler-stops-v23.0.66.js",
+      "data/supplements/wi-heldback-traveler-stop-rescue-v23.0.67.js",
+      "data/supplements/wi-user-coordinate-rescue-v23.0.69.js",
+      "data/supplements/wi-central-corridor-traveler-stops-v23.0.70.js",
+      "data/supplements/wi-user-coordinate-central-corridor-traveler-stops-v23.0.71.js",
+      "data/supplements/wi-primitive-water-access-exact-v23.1.5.js",
+      "data/supplements/wi-boondocking-sites-verified-v23.1.8.js",
+      "data/supplements/wi-cnf-lake-area-boondocking-v23.1.10.js",
+      "data/supplements/wi-cnf-corridor-boondocking-v23.1.11.js",
+      "data/supplements/wi-wiwide-primitive-boondocking-v23.1.12.js",
+      "data/supplements/wi-accelerated-sites-areas-v23.1.13.js",
+      "data/supplements/wi-robinson-oconto-permit-areas-v23.1.14.js",
+      "data/supplements/wi-exact-rustic-primitive-v23.0.84.js",
+      "data/supplements/wi-cnf-county-safe-adds-v23.1.16.js"
+    ],
+    "count": 535,
+    "dynamicSources": [
+      "Verified Wisconsin DNR NHAL rustic campground supplement v23.0.38 (14/14 official NHAL rustic campgrounds)",
+      "Verified Wisconsin DNR non-NHAL state forest rustic campground corrections/additions v23.0.38",
+      "v23.0.40 Wisconsin DNR rustic/primitive/boat-backpack completion batch: 2 corrected active WI records plus 19 new verified system/campground records",
+      "v23.0.43: closes 12-row DNR rustic gap list with 10 new records and 2 corrected group-camp records",
+      "v23.0.44: Wisconsin Boondocking / Dispersed audit removed one incomplete, unverified active boondocking record",
+      "v23.0.46: Wisconsin Private Campgrounds active-layer audit corrected 8 misclassified public/private-source records and disambiguated Blackhawk private/local records",
+      "v23.0.59 Wisconsin active-app modern/public final closure: remaining modern/public records audited; KVR/NHAL/USFS/county rustic corrections; duplicate/non-site records removed; v58 Minnesota rest-area additions retained.",
+      "v23.0.60: added 28 official WisDOT Safety Rest Areas / Welcome Centers to Rest Areas & Roadside Stops layer; camping not implied and WisDOT camping/long-term parking policy summarized.",
+      "v23.0.61: added 3 official WisDOT Park & Ride limited overnight/weekend parking records; deferred Maribel/Denmark rest areas out of active Rest Areas layer while closed; did not duplicate existing NHAL rustic supplement records.",
+      "v23.0.65: verified 20/22 Wisconsin campground limbo records, added 11 missing verified campground records, corrected Headwaters Wilderness to Boat / Backpack, and added 6 verified Boat / Backpack cleanup records; held McClintock, Twelve Foot Falls, Crex Meadows and Lower Wisconsin corridor items where coordinates/representation remain unresolved.",
+      "v23.0.66: adds Crex Meadows seasonal wildlife-area camping, one verified casino RV overnight-parking record, five casino/private RV campground records, and 14 verified secondary traveler-stop pull-offs; continues holding McClintock, Twelve Foot Falls, Lake of the Torches, Gibraltar, and Lower Wisconsin River corridor fake-pin candidates.",
+      "v23.0.67: imports 2 held-back Wisconsin secondary traveler stops with medium-confidence coordinates (Highway 45 Wayside Park and Robert M. Carmody County Park); continues holding Upper Fox lock/dam sites, Princeton split points, Lower Wisconsin access workflow, Franklin split points, Sailor Lake picnic point, and other coordinate-incomplete candidates.",
+      "v23.0.68: imports 7 user-coordinate-rescued Wisconsin traveler stops (Berlin, Grand River, Princeton Lock Road, Andrew Krakow, Wayside County Park, Tornado Memorial, Sailor Lake Picnic Area) with medium coordinate confidence; continues holding Eureka, White River, Joy Park, Lower Wisconsin corridor, Franklin, Perch Lake, and unresolved split/access records.",
+      "v23.0.69: corrected Wayside County Park / State Highway 16 Wayside Park coordinate after QA found the v23.0.68 user coordinate plotted far from Jefferson County/Ixonia; no new Wisconsin records added; Wisconsin count remains 316.",
+      "v23.0.70: added 3 medium-confidence Wisconsin central-corridor traveler stops from cleanup batch (Hoffman Hills State Recreation Area, Fischer Creek Conservation Area, Cherney Maribel Caves County Park); held Rib Mountain, Mountain-Bay, Devil’s River, Riverview Park and other candidates pending stronger coordinates.",
+      "v23.0.71: added 9 Medium-confidence Wisconsin central-corridor traveler stops/rescues from Tod-supplied Google coordinates; renamed the supplied Mountain-Bay Weston coordinate to the Shawano Trail Information Center because the source/coordinate were Shawano, not Weston; held Mountain-Bay Green Bay/Howard because no coordinate was supplied.",
+      "v23.1.5: added 114 official exact Wisconsin DNR primitive water-access Boat/Backpack pins: Turtle-Flambeau 66, Willow/Lower Tomahawk confirmed 31, and NHAL reservable boat-in 17. Demoted old Turtle-Flambeau and Willow representative system markers to reference records to avoid duplicate non-exact pins.",
+      "v23.1.8: added 11 verified Wisconsin CNF Boondocking / Dispersed coordinate-backed site records and 1 Old Knowles Creek Road Dam Needs Verification hold from the hard verification pass.",
+      "v23.1.10: added 10 verified Three Lakes / Hidden Lakes CNF Boondocking / Dispersed lake-area records and 1 Three Johns Lake walk-in primitive Boat/Backpack-style record; rejected Robinson and held FlowMama/Cooper Dam/county-forest coordinate-missing leads out of active layers.",
+      "v23.1.11 data-only: added 2 verified CNF corridor Boondocking / Dispersed records: Camp 3 Dispersed and Burnt Bridge; Goodman 1–4, Armstrong Creek, Himley/Turtle/Lincoln/Perch remain Needs Verification outside active layer.",
+      "v23.1.12 data-only: adds 1 verified Turtle Lake CNF Boondocking / Dispersed record, 11 official Kickapoo Valley Reserve Rustic / Primitive vehicle-access sites, and 3 Boat / Backpack primitive walk-in/paddle-in records; keeps KVR vehicle sites out of Boondocking because they are paid designated primitive sites.",
+      "v23.1.13 data-only: added 33 Wisconsin accelerated records from penalty-box promotions and worker handoffs: 5 site/cluster records, 19 county/DNR/river area-rule records, and 9 federal/state/reserve system area records using existing layers only; popup text carries Verified Legal, Community Reported, and Research Needed status.",
+      "v23.0.84: refreshed exact official CNF rustic backlog records and added Lauterman National Recreation Area as a Boat / Backpack walk-in/canoe-in camping record",
+      "v23.1.16: added 4 official CNF Rustic / Primitive campground system records and 2 verified county-forest Boondocking / Dispersed rule-area records; held McCaslin, Anvil duplicate, NHAL duplicate, and unresolved county/DNR leads out of active import."
+    ]
+  },
+  "WY": {
+    "code": "WY",
+    "name": "Wyoming",
+    "file": "data/states/WY.js",
+    "count": 19
+  }
+};

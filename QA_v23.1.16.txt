@@ -1,0 +1,57 @@
+TOD'S BOONDOCKING & CAMPING MAPS — v23.1.16 QA
+Date: 2026-06-12
+
+Package purpose:
+Wisconsin safe-add batch based on latest worker returns.
+Adds 6 Wisconsin records:
+- 4 official Chequamegon-Nicolet NF Rustic / Primitive campground system points
+- 2 verified county-forest Boondocking / Dispersed rule-area records
+
+Files included:
+- index.html
+- styles/marker-icons.css
+- app-v23.1.16.js
+- version.json
+- data/states-manifest-v23.1.16.js
+- data/supplements/mn-superior-nf-rustic-v23.1.15.js
+- data/supplements/wi-cnf-county-safe-adds-v23.1.16.js
+
+Validation performed:
+PASS node --check app-v23.1.16.js
+PASS node --check data/states-manifest-v23.1.16.js
+PASS node --check data/supplements/mn-superior-nf-rustic-v23.1.15.js
+PASS node --check data/supplements/wi-cnf-county-safe-adds-v23.1.16.js
+PASS index.html references data/states-manifest-v23.1.16.js
+PASS index.html references app-v23.1.16.js
+PASS index.html no longer references v23.1.15 manifest/app wrapper
+PASS Search / Near Me / Route workflow controls remain restored in index.html
+PASS styles/marker-icons.css included and marker restore protected
+PASS version.json reports v23.1.16
+PASS manifest WI count updated from 529 to 535
+PASS manifest MN count retained at 65
+PASS manifest includes data/supplements/wi-cnf-county-safe-adds-v23.1.16.js
+PASS supplement adds exactly 6 records when evaluated against empty WI list
+PASS supplement patch metadata reports added: 6
+PASS all 6 v23.1.16 records have exactCampsiteLocation: false
+PASS only existing layer keys used: rustic and boondocking
+PASS legalityStatus is Verified Legal on all 6 records
+PASS held-out/duplicate items not included in v23.1.16 supplement: McCaslin, Anvil, NHAL, Turtle-Flambeau
+
+Records added:
+1. Birch Grove Recreation Area — Rustic / Primitive — Verified Legal — System / Campground Point
+2. Kentuck Lake Recreation Area — Rustic / Primitive — Verified Legal — System / Campground Point
+3. Laurel Lake Recreation Area — Rustic / Primitive — Verified Legal — System / Campground Point
+4. Luna - White Deer Lake Recreation Area — Rustic / Primitive — Verified Legal — System / Campground Point
+5. Langlade County Forest Dispersed Camping Rule Area — Boondocking / Dispersed — Verified Legal — Area / Rule-Area Record
+6. Sawyer County Forest Camping Permit Rule Area — Boondocking / Dispersed — Verified Legal — Area / Rule-Area Record
+
+Held out based on worker returns:
+- McCaslin Brook: Needs Verification; point-level ownership/MVUM not hard-pass verified.
+- Marinette, Florence, Price, Rusk county forest records: Needs Verification; label-point/geometry not build-ready.
+- Anvil Lake Recreation Area: duplicate already live as s21.
+- NHAL 17 boat-in sites: duplicate already live in v23.1.5 primitive water-access supplement.
+- CNF Perch/Deer/Cloud/Woodbury/Range Line/Lincoln leads: Needs Verification; no point-level land/MVUM/access proof.
+- DNR remote/boat/backpack systems: no new exact official coordinates recovered.
+
+No config.js included.
+No repo changes made.
