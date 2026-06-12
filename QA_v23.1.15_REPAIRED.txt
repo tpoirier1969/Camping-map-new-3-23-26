@@ -1,0 +1,32 @@
+VALIDATION PASSED — v23.1.15 repaired package
+
+Root cause found:
+- The prior v23.1.15 index.html omitted existing Search / Near Me UI elements required by app-v23.1.10.js during bindEvents().
+- Missing required IDs included searchInput, searchBtn, searchResults, and nearMeBtn.
+- Result: startup crashed before loadEnabledStates() completed, leaving the map stuck on Loading map/data.
+
+Repair applied:
+- Restored the existing Search / Near Me / Route workflow controls in index.html.
+- Did not redesign the workflow or create a new app pattern.
+- Kept the existing app-v23.1.15 wrapper pattern.
+- Kept the protected marker stylesheet pattern.
+- Added CAMPING_DATA_PATCHES metadata to the MN supplement, matching existing supplement workflow style.
+
+Package validation:
+PASS: version remains v23.1.15
+PASS: version.json date is 2026-06-12
+PASS: index.html loads styles/marker-icons.css
+PASS: index.html loads data/states-manifest-v23.1.15.js
+PASS: index.html loads app-v23.1.15.js
+PASS: index.html restores searchSection, searchInput, searchBtn, searchResults, nearMeBtn, enableLocationBtn, locationStatus
+PASS: index.html restores routeStart, routeEnd, routeGoBtn, routeStatus and related route controls
+PASS: styles/marker-icons.css contains old restored marker CSS values and all required marker/icon classes
+PASS: Minnesota manifest count is 65
+PASS: Wisconsin manifest count remains 529
+PASS: supplement contains exactly 14 MN records
+PASS: all 14 records are Rustic / Primitive / Verified Legal system points
+PASS: no Boondocking / Dispersed additions
+PASS: no Boat / Backpack additions
+PASS: no Turtle-Flambeau, Willow, Goodman, or Wisconsin additions
+PASS: no config.js included
+PASS: JS syntax checks pass for app wrapper, manifest, and MN supplement
