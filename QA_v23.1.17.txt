@@ -1,0 +1,68 @@
+v23.1.17 QA — Wisconsin north-central/northwest CNF rustic corridor safe adds
+
+Scope:
+- Adds 15 official USDA Forest Service Chequamegon-Nicolet NF Rustic / Primitive campground/recreation-area system records.
+- These are official system/campground points, not individual campsite pins.
+- No new Boondocking / Dispersed community dots added.
+- No new county forest rule-area records added.
+- Douglas County, Price, Rusk, Marinette, Florence, Ashland/Bayfield county-forest geometry-only leads, Mason/Chequamegon, Chippewa Flowage coordinate extraction, and DNR remote systems remain held.
+- No config.js included.
+
+Added records:
+1. Eastwood Recreation Area
+2. Picnic Point Recreation Area
+3. Spearhead Point Recreation Area
+4. Day Lake Recreation Area
+5. East Twin Recreation Area
+6. Black Lake Recreation Area
+7. Moose Lake Recreation Area
+8. Perch Lake Recreation Area
+9. Wanoka Lake Recreation Area
+10. Emily Lake Recreation Area
+11. Namekagon Lake Recreation Area
+12. Two Lakes Recreation Area
+13. Stockfarm Bridge Recreation Area
+14. Beaver Lake Recreation Area
+15. Twin Lakes Recreation Area
+
+Expected count changes:
+- Wisconsin: 535 -> 550
+- Minnesota: remains 65
+
+Files included:
+- index.html
+- styles/marker-icons.css
+- app-v23.1.17.js
+- version.json
+- data/states-manifest-v23.1.17.js
+- data/supplements/mn-superior-nf-rustic-v23.1.15.js
+- data/supplements/wi-cnf-county-safe-adds-v23.1.16.js
+- data/supplements/wi-cnf-northwest-rustic-corridor-v23.1.17.js
+- QA_v23.1.17.txt
+
+QA checks performed:
+PASS app-v23.1.17.js syntax
+PASS data/states-manifest-v23.1.17.js syntax
+PASS data/supplements/wi-cnf-northwest-rustic-corridor-v23.1.17.js syntax
+PASS retained data/supplements/wi-cnf-county-safe-adds-v23.1.16.js syntax
+PASS retained data/supplements/mn-superior-nf-rustic-v23.1.15.js syntax
+PASS index.html points to data/states-manifest-v23.1.17.js
+PASS index.html points to app-v23.1.17.js
+PASS index.html has no v23.1.16 script references
+PASS Search / Near Me / Route controls remain restored
+PASS version.json reports v23.1.17
+PASS manifest WI count is 550
+PASS manifest MN count remains 65
+PASS v23.1.17 supplement loads 15 records in isolation
+PASS v23.1.17 supplement records have unique IDs
+PASS all v23.1.17 supplement records are Rustic / Primitive, Verified Legal, exactCampsiteLocation=false
+PASS patch metadata reports v23.1.17 WI added=15
+PASS no config.js included
+
+Hold/reject notes:
+- Douglas County not added; v23.1.13 already contains Douglas County Forest Special Camping Area-style record and latest worker reports conflicted on new geometry proof.
+- Price/Rusk/Marinette/Florence held: rule proof exists, but no actual build coordinate/label point was recovered in the worker output.
+- Bayfield/Ashland/Taylor county forest geometry-only leads held until rule proof and label geometry are both build-ready.
+- Mason/Chequamegon roadside lead held; no NFS point ownership + MVUM hard pass.
+- Chippewa Flowage and Governor Earl DNR systems held for future official coordinate extraction.
+- Namekagon and Two Lakes included as official USFS public campground system points with fee/layer-fit cautions in popup fields.
