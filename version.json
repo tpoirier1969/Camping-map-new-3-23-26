@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.14",
-  "label": "v23.1.14",
+  "version": "v23.1.15",
+  "label": "v23.1.15",
   "date": "2026-06-11",
-  "notes": "Wisconsin live-data advance: Robinson Lake Community Reported boondocking cluster and six Oconto County Forest permit-area rule records. Version flag update included for version.json; index/app script switch still required for visible app tag."
+  "notes": "Minnesota Superior National Forest rustic/backcountry seed import: 14 official USDA Forest Service Rustic / Primitive system records. Icon regression fix restores old round marker/icon visual style via styles/marker-icons.css."
 }
