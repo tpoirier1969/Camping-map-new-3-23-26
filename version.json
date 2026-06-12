@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.17",
-  "label": "v23.1.17",
+  "version": "v23.1.18",
+  "label": "v23.1.18",
   "date": "2026-06-12",
-  "notes": "Wisconsin north-central/northwest travel-band safe add: 15 official Chequamegon-Nicolet NF Rustic / Primitive campground/recreation-area system points; no new dispersed boondocking dots or unresolved county/DNR rule-area records included."
+  "notes": "Wisconsin statewide grid-pass safe add: 60 records total \u2014 52 exact NPS Apostle Islands Boat / Backpack campsite/group-site points, 2 official CNF Rustic / Primitive system points, 3 Vilas County Rustic / Primitive campground points, and 3 Governor Knowles State Forest Rustic / Primitive campground system points. Held unresolved county/DNR rule-area geometry, suspect duplicate-coordinate NPS rows, and coordinate-missing backpack/remote systems."
 }

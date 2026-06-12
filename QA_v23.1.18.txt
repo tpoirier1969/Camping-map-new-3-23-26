@@ -1,0 +1,34 @@
+v23.1.18 FULL FIXED FILES QA
+Date: 2026-06-12
+
+Scope:
+- Built from repaired/full v23.1.17 package baseline.
+- Added data/supplements/wi-grid-pass-safe-adds-v23.1.18.js.
+- Updated index.html to load data/states-manifest-v23.1.18.js and app-v23.1.18.js.
+- Updated version.json to v23.1.18.
+- No config.js included.
+
+Included additions: 60 Wisconsin records
+- 52 NPS Apostle Islands National Lakeshore exact Boat / Backpack campsite/group-site points.
+- 2 official Chequamegon-Nicolet NF Rustic / Primitive campground/recreation-area system points: West Point, Sailor Lake.
+- 3 Vilas County Rustic / Primitive campground system points: Tamarack Springs, Rummels Road, River Road Equestrian.
+- 3 Governor Knowles State Forest Rustic / Primitive campground system points: St. Croix Family, Trade River Equestrian, Sioux Portage Group.
+
+Held out:
+- Apostle Islands Cat 1 and Devils 1 because worker source gives the same coordinate for different islands.
+- Apostle Islands South Twin 2 and 3 because worker source gives the same coordinate for both.
+- Apostle Islands Sand Island sites because worker source says NPS coordinates are being updated.
+- Price/Rusk/Marinette/Florence/Clark/Black River/Lower Wisconsin/Kettle Moraine/Flambeau/Governor Earl/Chippewa Flowage/Van Loon and similar rule-area or remote systems where official coordinates/geometry were not recovered.
+- Worker 3 foraging-app QA paste ignored as wrong project data.
+
+Expected counts:
+- WI count 550 -> 610.
+- MN count remains 65.
+
+QA checks performed by script:
+- app-v23.1.18.js syntax check.
+- data/states-manifest-v23.1.18.js syntax check.
+- wi-grid-pass-safe-adds-v23.1.18.js syntax check.
+- Retained prior v23.1.15/v23.1.16/v23.1.17 supplements.
+- index.html script references checked.
+- Search / Near Me / Route controls preserved from repaired index.html.
