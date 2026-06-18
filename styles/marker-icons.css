@@ -2,6 +2,20 @@
   Tod's Boondocking & Camping Maps — marker/icon style restore.
   Restores the pre-regression marker styling and keeps it protected outside index.html.
   Do not inline or redesign this CSS during future index rewrites.
+
+  ICON POLICY LOCK — approved by Tod.
+  Do not change these marker/icon assignments, shapes, or colors unless Tod explicitly asks.
+
+  Canonical icon set:
+  - Modern campgrounds: RV icon
+  - Rustic / Primitive: Tent icon
+  - Private campgrounds: red stop-sign shape with white tent
+  - Boondocking / Dispersed: tree icon
+  - Boat / Backpack: backpacker along water icon
+  - Overnight Parking: P icon
+  - Rest Areas & Roadside Stops: reversed R icon (colored fill, white letter)
+  - Needs Verification: draft/pencil icon
+  - Info / Reference: info icon
 */
 
 .map-pin,
@@ -35,6 +49,12 @@
   flex: 0 0 26px;
 }
 
+.map-pin.pin-private,
+.layer-icon.pin-private {
+  border-radius: 0;
+  clip-path: polygon(30% 3%, 70% 3%, 97% 30%, 97% 70%, 70% 97%, 30% 97%, 3% 70%, 3% 30%);
+}
+
 .map-pin svg,
 .layer-icon svg {
   width: 58%;
@@ -44,13 +64,19 @@
 
 .map-pin.pin-boat-backpack svg,
 .layer-icon.pin-boat-backpack svg {
-  width: 64%;
-  height: 64%;
+  width: 70%;
+  height: 70%;
+}
+
+.map-pin.pin-private svg,
+.layer-icon.pin-private svg {
+  width: 62%;
+  height: 62%;
 }
 
 .pin-modern {
-  --fill: #2d6fd7;
-  --stroke: #255bb2;
+  --fill: #3f6f9f;
+  --stroke: #2e547b;
   --icon: #fff;
 }
 
@@ -61,8 +87,8 @@
 }
 
 .pin-private {
-  --fill: #d97b1e;
-  --stroke: #b8640f;
+  --fill: #b43a3a;
+  --stroke: #ffffff;
   --icon: #fff;
 }
 
@@ -73,21 +99,21 @@
 }
 
 .pin-boat-backpack {
-  --fill: #0e8076;
-  --stroke: #0a655e;
-  --icon: #fff;
+  --fill: #e7f6f6;
+  --stroke: #287b83;
+  --icon: #287b83;
 }
 
 .pin-parking {
-  --fill: #f0f6ff;
-  --stroke: #4d7fbf;
-  --icon: #24517f;
+  --fill: #ffffff;
+  --stroke: #6a6f78;
+  --icon: #4a515b;
 }
 
 .pin-rest {
-  --fill: #f8f2ff;
-  --stroke: #7e59a8;
-  --icon: #5f3d88;
+  --fill: #4f6c86;
+  --stroke: #355067;
+  --icon: #fff;
 }
 
 .pin-info {

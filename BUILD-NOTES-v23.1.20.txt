@@ -1,0 +1,21 @@
+Tod's Boondocking & Camping Maps — Build Notes v23.1.20
+Date: 2026-06-18
+
+Summary:
+- Applied the approved layer icon set from Tod's v22.3.20-inspired mockups.
+- Locked icon policy in a dedicated note file and in the marker CSS/app comments.
+- Updated the app script reference to app-v23.1.20.js.
+
+Layer icon assignments:
+- Modern campgrounds: RV
+- Rustic / Primitive: Tent
+- Private campgrounds: red stop-sign shape with white tent
+- Boondocking / Dispersed: Tree
+- Boat / Backpack: backpacker along water
+- Overnight Parking: P
+- Rest Areas & Roadside Stops: reversed R
+- Needs Verification: draft/pencil
+- Info / Reference: info icon
+
+Protection note:
+These icons are now policy-locked unless Tod explicitly requests a new icon revision.

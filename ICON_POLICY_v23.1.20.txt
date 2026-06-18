@@ -1,0 +1,50 @@
+TOD'S BOONDOCKING & CAMPING MAPS — ICON POLICY LOCK
+Build: v23.1.20
+Date: 2026-06-18
+
+Approved canonical layer icons. Do not change any of the following unless Tod explicitly requests a new icon revision.
+Do not let future wrappers, app rewrites, CSS cleanups, or “visual refresh” work alter these assignments.
+
+Current approved icon mapping:
+1. Modern campgrounds
+   - icon: RV
+   - marker style: blue round marker, white RV
+
+2. Rustic / Primitive
+   - icon: Tent
+   - marker style: tan/brown round marker
+
+3. Private campgrounds
+   - icon: white tent
+   - marker shape/style: red stop-sign shape with white border
+
+4. Boondocking / Dispersed
+   - icon: Tree
+   - marker style: green round marker
+
+5. Boat / Backpack
+   - icon: backpacker along water
+   - marker style: aqua/teal round marker
+
+6. Overnight Parking
+   - icon: P
+   - marker style: white marker with dark gray P
+
+7. Rest Areas & Roadside Stops
+   - icon: R
+   - marker style: reversed marker with colored background and white R
+
+8. Needs Verification
+   - icon: draft/pencil
+
+9. Info / Reference
+   - icon: info circle
+
+Implementation files controlling this policy:
+- app-v23.1.20.js
+- styles/marker-icons.css
+- index.html (script reference)
+- version.json
+
+Reminder:
+If a future chat proposes changing icons “for clarity,” “consistency,” or “modernization,” do not do it without Tod’s explicit approval.

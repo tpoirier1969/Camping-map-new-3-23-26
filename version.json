@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.19",
-  "label": "v23.1.19-mi-layer-fix",
-  "date": "2026-06-17",
-  "notes": "Michigan-only direct data correction: corrected existing Michigan DNR State Forest Campground / Trail Camp and rustic special-unit records into Rustic / Primitive, moved six confirmed backcountry/island/non-normal-vehicle-access records to Boat / Backpack, and moved Thunder Bay River State Forest to Needs Verification. No records, coordinates, Wisconsin data, other-state data, runtime correction supplement, or config.js changes."
+  "version": "v23.1.20",
+  "label": "v23.1.20",
+  "date": "2026-06-18",
+  "notes": "Layer icon policy lock: Modern uses RV, Rustic uses tent, Private uses red stop-sign with white tent, Boondocking uses tree, Boat / Backpack uses backpacker along water, Overnight Parking uses P, Rest Areas use reversed R. Added icon policy notes to prevent accidental overwrites."
 }
