@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.20",
-  "label": "v23.1.20",
+  "version": "v23.1.21",
+  "label": "v23.1.21",
   "date": "2026-06-18",
-  "notes": "Layer icon policy lock: Modern uses RV, Rustic uses tent, Private uses red stop-sign with white tent, Boondocking uses tree, Boat / Backpack uses backpacker along water, Overnight Parking uses P, Rest Areas use reversed R. Added icon policy notes to prevent accidental overwrites."
+  "notes": "Modern criteria audit cleanup batch 1: moves audited current Modern records to Rustic / Primitive, Boat / Backpack, Boondocking / Dispersed, Info / Reference, or Needs Verification; removes final reject/duplicate rows; keeps approved icon policy unchanged."
 }

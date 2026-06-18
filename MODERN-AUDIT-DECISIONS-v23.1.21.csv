@@ -1,0 +1,75 @@
+state,id,final_action,destination_layer,reason
+AR,s226,MOVE TO NEEDS VERIFICATION,Needs Verification,"Electric camping was found, but official accessible source chain did not prove campground shower/bathhouse support under Tod’s Modern rule."
+AR,s238,MOVE TO NEEDS VERIFICATION,Needs Verification,"Electric/full-hookup campsite classes were found, but official accessible source chain did not prove campground bathhouse/showers."
+AR,s441,MOVE TO NEEDS VERIFICATION,Needs Verification,"Electric sites and seasonal restrooms were found, but official accessible source chain did not prove showers."
+AR,s490,MOVE TO NEEDS VERIFICATION,Needs Verification,"Electric/full-hookup camping and restrooms were found, but official accessible source chain did not prove showers."
+AR,s494,MOVE TO NEEDS VERIFICATION,Needs Verification,"Electric campsite classes were found, but official accessible source chain did not prove campground shower/bathhouse support."
+AR,s517,MOVE TO NEEDS VERIFICATION,Needs Verification,"Electric camping was found, but official accessible source chain did not prove campground shower/bathhouse support."
+AR,s620,MOVE TO NEEDS VERIFICATION,Needs Verification,"Class AAA camping was found, but official accessible source chain did not prove campground shower/bathhouse support."
+AR,s691,MOVE TO NEEDS VERIFICATION,Needs Verification,"Developed camping was found, but official accessible source chain did not prove electric + modern plumbing + showers as a complete triad."
+AR,s757,MOVE TO NEEDS VERIFICATION,Needs Verification,"Electric camping was found, but official accessible source chain did not prove campground shower/bathhouse support."
+AR,s1017,MOVE TO NEEDS VERIFICATION,Needs Verification,Official Arkansas source chain did not expose the full Modern triad of electric + modern plumbing + showers.
+AR,s1022,MOVE TO NEEDS VERIFICATION,Needs Verification,Official Arkansas source chain did not expose the full Modern triad of electric + modern plumbing + showers.
+AR,s146,MOVE TO NEEDS VERIFICATION,Needs Verification,"Electric campsite classes were found, but final official-source chain did not prove shower/bathhouse support."
+AR,s161,MOVE TO NEEDS VERIFICATION,Needs Verification,Official source chain did not prove all three Modern criteria.
+AR,s488,MOVE TO NEEDS VERIFICATION,Needs Verification,Official source chain did not prove all three Modern criteria.
+AR,s491,MOVE TO NEEDS VERIFICATION,Needs Verification,Official source chain did not prove all three Modern criteria.
+AR,s522,MOVE TO NEEDS VERIFICATION,Needs Verification,Official sources show mixed RV and primitive camping under one broad recreation-area record; a single Modern classification is not honest.
+AR,s962,MOVE TO NEEDS VERIFICATION,Needs Verification,Prior keep decision relied on non-final/third-party support; official proof for all three Modern criteria was not retained.
+AR,s212,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,"Official source shows primitive/no-hookup camping; no electric, no modern bathhouse/shower service proven."
+AR,s240,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,"Official source chain supports trail/primitive camping context, not Modern campground service."
+AR,s495,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Official source chain supports limited-service camping with no showers; not Modern under Tod’s rule.
+AR,s396,MOVE TO BOAT / BACKPACK,Boat / Backpack,Official source chain supports primitive hike/bike-in campsites with no normal vehicle access.
+AZ,s756,MOVE TO BOONDOCKING / DISPERSED,Boondocking / Dispersed,"Official BLM La Posa LTVA source supports a long-term visitor/rule-area camping record, not a Modern campground loop."
+AZ,s531,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,NPS developed drive-in campground without proof of electric hookups and showers.
+AZ,s213,MOVE TO BOAT / BACKPACK,Boat / Backpack,Grand Canyon corridor/backcountry campground; no normal vehicle access.
+AZ,s241,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Kaibab NF campground; no electric hookups and no shower proof.
+AZ,s419,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,"Kaibab NF campground; primitive/vault-toilet service, no Modern proof."
+AZ,s647,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,North Rim campground lacks electric hookup criterion; not Modern under Tod’s rule.
+CA,s271,MOVE TO INFO / REFERENCE,Info / Reference,"Visitor center / information stop, not an overnight campground."
+CA,s796,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Inyo NF campground lacks electric hookup and shower proof.
+CA,s773,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Official overnight parkway camping opportunity but low-service/roadside style; not Modern under Tod’s three-part rule.
+CO,s8,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,USFS Alamosa Campground has low-service/vault-toilet context and no Modern proof.
+CO,s406,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,USFS Hornsilver Campground has vault/basic service and no Modern proof.
+CO,s449,MOVE TO NEEDS VERIFICATION,Needs Verification,CPW confirms campground identity but accessible official source chain did not prove electric + modern plumbing + showers.
+CO,s518,MOVE TO NEEDS VERIFICATION,Needs Verification,"CPW confirms park/campsites, but final source chain did not prove all three Modern criteria."
+CO,s20,MOVE TO NEEDS VERIFICATION,Needs Verification,Official manager/source chain did not prove Modern amenities or a clearer alternate layer.
+CO,s194,MOVE TO NEEDS VERIFICATION,Needs Verification,Official manager/source chain did not prove Modern amenities or a clearer alternate layer.
+CO,s558,MOVE TO NEEDS VERIFICATION,Needs Verification,"Private/operator campground identity likely, but accessible operator source chain did not prove all three Modern criteria."
+CO,s711,MOVE TO NEEDS VERIFICATION,Needs Verification,"Pingree Park is a broad place/area proxy, not an identified campground point. Possible future rule-area candidate requires MVUM/official geometry."
+CO,s112,MOVE TO INFO / REFERENCE,Info / Reference,"Agency office/reference point, not a campground."
+CO,s203,MOVE TO INFO / REFERENCE,Info / Reference,"Agency/reference point, not a campground."
+CO,s204,MOVE TO INFO / REFERENCE,Info / Reference,"Travel information/reference point, not a campground."
+CO,s121,MOVE TO INFO / REFERENCE,Info / Reference,"Membership/platform reference, not public campground proof."
+CO,s323,MOVE TO INFO / REFERENCE,Info / Reference,"Generic USFS reference, not a campground."
+CO,s414,MOVE TO INFO / REFERENCE,Info / Reference,"Generic public-lands reference, not a campground."
+CO,s954,MOVE TO INFO / REFERENCE,Info / Reference,"Third-party/reference guide, not a campground record."
+LA,s57,MOVE TO NEEDS VERIFICATION,Needs Verification,"Official page proves water/electric hookups, but accessible source chain did not prove shower/modern-restroom support."
+LA,s288,MOVE TO NEEDS VERIFICATION,Needs Verification,"Official page proves water/electric hookups, but accessible source chain did not prove shower/bathhouse support."
+LA,s304,MOVE TO NEEDS VERIFICATION,Needs Verification,"Official page proves full hookups on premium sites, but accessible source chain did not prove shower/bathhouse support."
+MS,s450,MOVE TO NEEDS VERIFICATION,Needs Verification,"State park identity confirmed, but accessible official source chain did not prove electric + flush/modern restrooms + showers."
+MS,s969,MOVE TO NEEDS VERIFICATION,Needs Verification,"Likely public/federal campground identity, but official source chain did not expose a usable Modern amenity table."
+MI,s49,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Official USFS source shows one primitive campsite with no restroom and no potable water.
+MI,s1079,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Official/current row supports one primitive campsite with no restroom and no potable water.
+MI,s1031,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,"Official USFS source shows vault toilets and hand-pump water, with no electric or shower proof."
+MI,s1080,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Official/current row supports primitive campsite/carry-in context with no modern services.
+MI,s298,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Michigan DNR/current row supports rustic campground with vault toilets/hand-pumped water and no showers/electric.
+MI,s825,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Township campground has electric but no showers and vault-toilet context; electric alone is not Modern.
+MI,s1085,MOVE TO BOAT / BACKPACK,Boat / Backpack,"Grand Island campsite access is hike/bike/boat only, not normal vehicle access."
+MI,s1087,MOVE TO BOAT / BACKPACK,Boat / Backpack,"Grand Island campsite access is hike/bike/boat only, not normal vehicle access."
+MI,s626,MOVE TO BOAT / BACKPACK,Boat / Backpack,"Grand Island group campsite access is hike/bike/boat only, not normal vehicle access."
+NE,s15,MOVE TO NEEDS VERIFICATION,Needs Verification,WMA identity exists but coordinate is not proven as an exact legal campsite or formal campground.
+NE,s143,MOVE TO NEEDS VERIFICATION,Needs Verification,WMA identity exists but coordinate is not proven as an exact legal campsite or formal campground.
+NE,s56,MOVE TO NEEDS VERIFICATION,Needs Verification,"Electricity noted, but official plumbing/shower proof was not found; electric alone is not Modern."
+NE,s822,MOVE TO NEEDS VERIFICATION,Needs Verification,Official Modern proof and exact park/unit identity were not strong enough.
+NE,s886,MOVE TO NEEDS VERIFICATION,Needs Verification,Current row is explicitly identity/coordinate uncertain; no honest Modern decision can be made.
+UT,s885,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Federal developed campground without proven electric hookup criterion.
+UT,s856,MOVE TO NEEDS VERIFICATION,Needs Verification,"Official page proves partial hookups, but accessible source chain did not prove all three Modern criteria."
+WY,s258,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Official low-service public campground; not Modern.
+WY,s270,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,NF campground without Modern proof.
+WY,s36,MOVE TO RUSTIC / PRIMITIVE,Rustic / Primitive,Official identity supports a public county park campground but not Modern amenities.
+SD,s857,MOVE TO INFO / REFERENCE,Info / Reference,"App/reference record, not an overnight campground."
+WY,s1099,REJECT / DO NOT IMPORT — remove from active data,Reject / Do Not Import,No official distinct campground/site identity; duplicate-like user KML point near Ayres Natural Bridge.
+WY,s1101,REJECT / DO NOT IMPORT — remove from active data,Reject / Do Not Import,No official East Table Rock #2 campground identity; likely duplicate/misnamed user KML point near East Table Creek/Table Rock.
+SD,s256,REJECT / DO NOT IMPORT — remove from active data,Reject / Do Not Import,Vague/source-free stop-over record; not identifiable as an official public campground/operator campground.
+MT,s966,REJECT / DO NOT IMPORT — remove from active data,Reject / Do Not Import,Private/source-free/nonpublic-looking record with no official/operator proof of public campground importability.

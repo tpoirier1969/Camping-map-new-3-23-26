@@ -1,0 +1,39 @@
+TOD’S BOONDOCKING & CAMPING MAPS
+v23.1.21 — modern-audit-cleanup1
+
+Build date: 2026-06-18
+
+Changed files included:
+- version.json
+- data/states-manifest-v23.1.18.js
+- data/supplements/modern-audit-cleanup-v23.1.21.js
+- BUILD-NOTES-v23.1.21.txt
+- MODERN-AUDIT-DECISIONS-v23.1.21.csv
+
+What this package does:
+- Adds a v23.1.21 Modern audit correction supplement to affected state loads.
+- Moves audited current Modern records to final destination layers: Rustic / Primitive, Boat / Backpack, Boondocking / Dispersed, Info / Reference, or Needs Verification.
+- Treats Needs Verification as a real final layer for records where Modern was not officially proven.
+- Keeps Pingree Park as Needs Verification / identity-needed, not Reject.
+- Removes only the final reject/duplicate/non-importable rows from the active data arrays: Ayres #2, East Table Rock #2, Dude Ranch stop over, and Wagon Wheel Campground when found.
+- Does not change coordinates.
+- Does not change icon policy.
+- Does not touch config.js.
+- Does not include Wisconsin changes.
+
+Important implementation note:
+index.html currently loads data/states-manifest-v23.1.18.js. To avoid reconstructing the very large index/app bundle from connector-truncated output, this package replaces that same manifest path with v23.1.21 manifest content and appends the correction supplement to affected state file arrays. The visible version tag is patched by the correction supplement after affected state data loads, and version.json reports v23.1.21.
+
+Upload/overwrite these files exactly:
+1. version.json
+2. data/states-manifest-v23.1.18.js
+3. data/supplements/modern-audit-cleanup-v23.1.21.js
+
+QA performed:
+- JSON parse validation for version.json.
+- Node syntax validation for data/states-manifest-v23.1.18.js.
+- Node syntax validation for data/supplements/modern-audit-cleanup-v23.1.21.js.
+- Runtime smoke test with sample state arrays confirmed Rustic, Boat/Backpack, Boondocking, Info, Needs Verification, and removal paths.
+
+Known limitation:
+The base app script filename remains app-v23.1.20.js in index.html. The data package uses version.json plus the v23.1.21 correction supplement to display the visible version after state-data load. If Tod wants a strict app-v23.1.21.js/index.html rename package, upload the latest full package ZIP so the app bundle and index can be rebuilt byte-for-byte instead of approximated through connector snippets.
