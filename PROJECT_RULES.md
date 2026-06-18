@@ -455,3 +455,409 @@ Be honest about blockers and uncertainty.
 Accuracy beats more pins.
 
 Wrong layers are bugs. Fake campsite dots are bugs. Centroids pretending to be campsites are bugs. Modern records without electric + modern restrooms + showers are bugs. Broad systems pretending to be only one camping type are bugs. Needs Verification should be rare, justified, and useful.
+
+## Assignment Pass Types and Grid-Lock Workflow
+
+Every assignment must declare its pass type before work starts.
+
+Do not let workers do vague “general research” unless the assignment is explicitly a Recon Pass.
+
+Approved pass types:
+
+* RECON PASS
+* PROOF PASS
+* NEEDS VERIFICATION RESCUE
+* QA PASS
+* BUILD / PACKAGE PASS
+
+Workers must return only the output appropriate to the assigned pass.
+
+---
+
+### 1. RECON PASS
+
+Purpose:
+
+Find possible candidates inside a defined area and site-type lane.
+
+Use Recon when entering new territory, working a new grid tile, searching a county/township/corridor for unknown gaps, or building an initial lead list.
+
+Recon is not final proof.
+
+Recon workers should not deep-research every lead. They should quickly identify candidates worth later proof work.
+
+Recon output table:
+
+| Candidate | Area / Tile | Likely Layer | Source Lead | Duplicate Risk | Priority | Recommended Next Action |
+| --------- | ----------- | ------------ | ----------- | -------------- | -------- | ----------------------- |
+
+Allowed Recon outcomes:
+
+* RESEARCH NEXT
+* DUPLICATE / LIKELY ALREADY COVERED
+* OUT OF SCOPE
+* LOW PRIORITY
+* NEEDS SPECIAL SOURCE / TOOL
+* REJECT LEAD
+
+Recon workers must not return a pile of links. Every lead needs a short reason and next action.
+
+---
+
+### 2. PROOF PASS
+
+Purpose:
+
+Turn selected candidates or known records into final map decisions.
+
+Use Proof when working a selected recon list, a known lead list, a specific campground/system, a known active record, or an official source with extractable records.
+
+Proof workers must check:
+
+* active app/repo records first
+* duplicate/supplement risk
+* official/operator sources where available
+* community/social proof if allowed
+* correct layer
+* coordinate honesty
+* whether the site is an exact point, system marker, or area/rule marker
+* whether the details must mention multiple camping types
+
+Proof output table:
+
+| Site | Active ID if Any | Final Action | Destination Layer | Coordinate Action | Sources Checked | Status Recommendation | Notes / Details Needed |
+| ---- | ---------------- | ------------ | ----------------- | ----------------- | --------------- | --------------------- | ---------------------- |
+
+Allowed Proof outcomes:
+
+* ADD CANDIDATE
+* KEEP CURRENT LAYER
+* ALREADY CORRECT — NO ACTION
+* MOVE / CORRECTION CANDIDATE
+* MOVE TO [approved layer]
+* MOVE TO NEEDS VERIFICATION
+* REJECT / DO NOT IMPORT — recommendation only
+* NO ACTIVE ROW FOUND
+* UNATTAINABLE FROM ACCESSIBLE SOURCES
+* EXTERNAL ACCESS REQUIRED
+
+---
+
+### 3. NEEDS VERIFICATION RESCUE
+
+Purpose:
+
+Move records out of Needs Verification when possible, or justify why they must remain there.
+
+Use this only for targeted batches, not whole-map wandering.
+
+Needs Verification Rescue should be assigned by:
+
+* state
+* region
+* grid tile
+* county
+* corridor
+* park/forest system
+* record cluster
+* limited record count
+
+Recommended batch size:
+
+* 10–25 records per worker, depending on complexity
+
+For each record, worker must decide:
+
+* promote to a correct layer
+* move to Info / Reference
+* recommend Reject / Do Not Import
+* keep in Needs Verification with strong justification
+
+To keep a record in Needs Verification, worker must answer:
+
+1. What sources were checked?
+2. What exact fact is still unresolved?
+3. Why would more research harm the current assignment goal?
+
+No answers to those three questions means Needs Verification is not justified.
+
+---
+
+### 4. QA PASS
+
+Purpose:
+
+Review worker/supervisor output or a package for correctness.
+
+QA is not research expansion.
+
+QA workers must stay inside the assigned QA scope.
+
+QA may check:
+
+* layer correctness
+* source quality
+* coordinate honesty
+* duplicate/supplement conflicts
+* community-proof labeling
+* Needs Verification justification
+* version consistency
+* package file completeness
+* runtime/syntax issues
+* visible app behavior
+
+QA output must be findings only unless Tod explicitly asks for fixes or a package.
+
+---
+
+### 5. BUILD / PACKAGE PASS
+
+Purpose:
+
+Package already-reconciled accepted decisions.
+
+Build workers do not roam for new research.
+
+Build workers do not invent patch files, bandaids, temporary files, or hidden runtime overrides.
+
+Build starts only after Tod asks for a build/package and the current full baseline is available.
+
+If required files are missing, stale, truncated, or not available from the repo, STOP and ask Tod for the current live repo/package ZIP.
+
+A build must return complete fixed files or a full fixed-files ZIP with changelog, changed files, and QA results.
+
+---
+
+## Grid-Lock Assignment System
+
+Every worker assignment must have a unique assignment ID.
+
+The assignment ID is the lock. No other worker should work the same geography + site type + pass unless assigned as QA or supervisor review.
+
+Recommended format:
+
+`STATE-AREA-TILE-SITETYPE-PASS`
+
+Examples:
+
+* `WI-FLO-02-BOON-RECON`
+* `WI-FLO-02-RUSTIC-PROOF`
+* `MI-MQT-ISH-OVERNIGHT-RECON`
+* `WI-CNF-LAKEWOOD-BOAT-PROOF`
+* `MI-UP-US2-SEG03-RUSTIC-PROOF`
+* `WI-NEEDSVER-FLO-01-RESCUE`
+
+A worker does not own “camping in Florence County.”
+
+A worker owns a specific locked assignment, such as:
+
+`WI-FLO-02-BOON-RECON`
+
+Meaning:
+
+* Wisconsin
+* Florence County / tile 02
+* Boondocking / Dispersed
+* Recon only
+
+---
+
+## Choosing the Right Area Unit
+
+Use different area units depending on the work.
+
+For rural public-land work, use:
+
+* county
+* township group
+* ranger district
+* forest unit
+* official map section
+* 10–15 mile grid tile
+* lake/river corridor
+
+Best for:
+
+* Boondocking / Dispersed
+* Rustic / Primitive
+* Boat / Backpack
+* rule-area records
+* USFS / DNR / county forest work
+
+For city/township work, use:
+
+* city
+* village
+* township
+* metro area
+* county road corridor
+* municipal boundary
+
+Best for:
+
+* Overnight Parking
+* municipal campgrounds
+* fairgrounds
+* city/county parks
+* private/operator campgrounds
+* rest/roadside/traveler stops
+
+For route-corridor work, use:
+
+* route segment
+* start/end landmarks
+* road-mile range
+* defined buffer, usually 10–25 miles depending on goal
+
+Best for:
+
+* trip-planning gaps
+* Green Bay to UP route work
+* US-2 / US-41 / M-28 / Highway 70 corridors
+* practical travel corridors Tod is likely to use
+
+---
+
+## Assignment Size
+
+Keep assignments small enough to finish cleanly.
+
+Recommended sizes:
+
+* rural tile: 10–15 miles square, or one manageable township group
+* county pass: one or two site types only
+* corridor pass: 30–60 road miles per worker
+* city/township pass: one municipality or small town cluster
+* Needs Verification rescue: 10–25 records per worker
+
+If workers regularly run out of time or return vague results, the assignment is too broad.
+
+---
+
+## Site-Type Lanes
+
+For new territory, assign by geography plus site type.
+
+Example three-worker split for one county/tile:
+
+| Worker   | Assignment              |
+| -------- | ----------------------- |
+| Worker 1 | Rustic / Primitive      |
+| Worker 2 | Boondocking / Dispersed |
+| Worker 3 | Boat / Backpack         |
+
+For city/township work:
+
+| Worker   | Assignment                                     |
+| -------- | ---------------------------------------------- |
+| Worker 1 | municipal/county/public campgrounds            |
+| Worker 2 | Overnight Parking / traveler stops             |
+| Worker 3 | private/operator campgrounds + duplicate check |
+
+Workers may work the same geography only if their site-type lanes are different.
+
+Workers may work the same site type only if their geography is different.
+
+---
+
+## Required “Do Not Work” List
+
+Every assignment must say what the worker should not work.
+
+Examples:
+
+* Do not work outside this tile.
+* Do not work Modern/private campgrounds in this pass.
+* Do not work boat launches unless overnight camping is explicitly supported.
+* Do not add sites already covered by exact campsite supplements.
+* Do not chase out-of-scope leads.
+* Do not package.
+* Do not edit repo files.
+* Do not move records to Needs Verification casually.
+
+Out-of-scope leads should be listed under Handoff Notes only.
+
+---
+
+## Supervisor Workflow
+
+For new territory:
+
+1. Define Tod’s current goal.
+2. Choose the geography unit.
+3. Create grid/township/corridor assignment IDs.
+4. Assign Recon Passes by site type.
+5. Review recon candidate lists.
+6. Select candidates worth proof work.
+7. Assign Proof Passes.
+8. Reconcile proof results.
+9. Separate adds, moves, rejects, coordinate changes, and Needs Verification items.
+10. Build only after Tod asks for a package.
+
+For known corrections or existing records:
+
+1. Skip Recon.
+2. Assign Proof Pass or Needs Verification Rescue.
+3. Reconcile results.
+4. Build only after Tod asks for a package.
+
+For official source extraction:
+
+1. Skip Recon.
+2. Assign Proof/Extraction directly.
+3. Require exact source-backed coordinates or honest area/rule markers.
+4. Reconcile before build.
+
+---
+
+## Master Assignment Ledger
+
+Supervisors should maintain a master ledger for worker assignments.
+
+Recommended fields:
+
+| Field                     | Purpose                         |
+| ------------------------- | ------------------------------- |
+| Assignment ID             | Unique lock                     |
+| Geography                 | County/tile/township/corridor   |
+| Boundary                  | Exact scope                     |
+| Site Type                 | Rustic, Boat, Boondocking, etc. |
+| Pass Type                 | Recon, Proof, Rescue, QA, Build |
+| Worker                    | Assigned person                 |
+| Status                    | Current state                   |
+| Active Files Checked?     | Yes / No                        |
+| Output Received?          | Yes / No                        |
+| Accepted Records          | Count                           |
+| Rejected / Closed Records | Count                           |
+| Needs Verification Count  | Count                           |
+| Follow-Up Required        | Short note                      |
+| Build Version             | If packaged                     |
+
+Recommended statuses:
+
+* UNASSIGNED
+* ASSIGNED
+* IN PROGRESS
+* RETURNED
+* SUPERVISOR REVIEW
+* ACCEPTED
+* BUILT
+* BLOCKED
+* CLOSED — NO ADD
+* CLOSED — DUPLICATE
+
+No worker should start a tile/type/pass unless it is assigned and locked.
+
+---
+
+## Key Operating Rule
+
+Recon workers find candidates.
+
+Proof workers make decisions.
+
+QA workers check decisions.
+
+Build workers package accepted decisions.
+
+Do not mix those jobs unless the assignment explicitly says so.
