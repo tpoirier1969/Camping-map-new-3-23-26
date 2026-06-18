@@ -2,5 +2,5 @@
   "version": "v23.1.21",
   "label": "v23.1.21",
   "date": "2026-06-18",
-  "notes": "Modern criteria audit cleanup batch 1: moves audited current Modern records to Rustic / Primitive, Boat / Backpack, Boondocking / Dispersed, Info / Reference, or Needs Verification; removes final reject/duplicate rows; keeps approved icon policy unchanged."
+  "notes": "Modern criteria audit cleanup batch 1. Full fixed-files revision: index.html loads app-v23.1.21.js; app VERSION is v23.1.21; manifest loads the Modern audit cleanup supplement; approved icon policy unchanged."
 }

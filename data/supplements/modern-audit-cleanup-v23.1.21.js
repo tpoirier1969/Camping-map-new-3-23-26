@@ -1131,10 +1131,12 @@
   }
   function applyAll(){
     window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
-    Object.keys(CORRECTIONS).forEach(stateCode => {
+    const stateCodes = new Set([].concat(Object.keys(CORRECTIONS), Object.keys(REMOVALS)));
+    stateCodes.forEach(stateCode => {
       const list = window.CAMPING_STATE_DATA[stateCode];
       if(!Array.isArray(list)) return;
-      Object.keys(CORRECTIONS[stateCode]).forEach(id => applyCorrection(stateCode, list, id, CORRECTIONS[stateCode][id]));
+      const stateCorrections = CORRECTIONS[stateCode] || {};
+      Object.keys(stateCorrections).forEach(id => applyCorrection(stateCode, list, id, stateCorrections[id]));
       applyRemovals(stateCode, list);
     });
     patchVisibleVersion();

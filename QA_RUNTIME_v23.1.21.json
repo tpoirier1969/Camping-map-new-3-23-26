@@ -1,0 +1,234 @@
+{
+  "affected": [
+    "AZ",
+    "AR",
+    "CA",
+    "CO",
+    "LA",
+    "MI",
+    "MS",
+    "MT",
+    "NE",
+    "SD",
+    "UT",
+    "WY"
+  ],
+  "report": [
+    {
+      "code": "AR",
+      "id": "s226",
+      "found": true,
+      "layer": "pending",
+      "subtype": "modern-proof-needed",
+      "category": "Needs Verification",
+      "expect": "pending"
+    },
+    {
+      "code": "AR",
+      "id": "s221",
+      "found": true,
+      "layer": "state",
+      "subtype": "modern",
+      "category": "State / County / Town",
+      "expect": "modern"
+    },
+    {
+      "code": "AZ",
+      "id": "s756",
+      "found": true,
+      "layer": "boondocking",
+      "subtype": "dispersed",
+      "category": "Boondocking / Dispersed",
+      "expect": "boondocking"
+    },
+    {
+      "code": "AZ",
+      "id": "s213",
+      "found": true,
+      "layer": "boat-backpack",
+      "subtype": "backpack",
+      "category": "Boat / Backpack",
+      "expect": "boat-backpack"
+    },
+    {
+      "code": "CA",
+      "id": "s271",
+      "found": true,
+      "layer": "info",
+      "subtype": "reference",
+      "category": "Info / Reference",
+      "expect": "info"
+    },
+    {
+      "code": "CO",
+      "id": "s711",
+      "found": true,
+      "layer": "pending",
+      "subtype": "modern-proof-needed",
+      "category": "Needs Verification",
+      "expect": "pending"
+    },
+    {
+      "code": "MI",
+      "id": "s49",
+      "found": true,
+      "layer": "rustic",
+      "subtype": "rustic",
+      "category": "Rustic / Primitive",
+      "expect": "federal"
+    },
+    {
+      "code": "MI",
+      "id": "s298",
+      "found": true,
+      "layer": "rustic",
+      "subtype": "rustic",
+      "category": "Rustic / Primitive",
+      "expect": "state"
+    },
+    {
+      "code": "NE",
+      "id": "s15",
+      "found": true,
+      "layer": "pending",
+      "subtype": "modern-proof-needed",
+      "category": "Needs Verification",
+      "expect": "pending"
+    },
+    {
+      "code": "UT",
+      "id": "s856",
+      "found": true,
+      "layer": "pending",
+      "subtype": "modern-proof-needed",
+      "category": "Needs Verification",
+      "expect": "pending"
+    },
+    {
+      "code": "WY",
+      "id": "s36",
+      "found": true,
+      "layer": "rustic",
+      "subtype": "rustic",
+      "category": "Rustic / Primitive",
+      "expect": "state"
+    },
+    {
+      "removedCount": 4,
+      "removed": [
+        "MT:s966:Wagon Wheel Campground",
+        "SD:s256:Dude Ranch stop over",
+        "WY:s1099:Ayres #2",
+        "WY:s1101:East Table Rock #2"
+      ]
+    }
+  ],
+  "totals": {
+    "AZ": {
+      "total": 10,
+      "byLayer": {
+        "boat-backpack": 1,
+        "rustic": 4,
+        "federal": 2,
+        "boondocking": 3
+      }
+    },
+    "AR": {
+      "total": 28,
+      "byLayer": {
+        "pending": 17,
+        "rustic": 3,
+        "state": 7,
+        "boat-backpack": 1
+      }
+    },
+    "CA": {
+      "total": 9,
+      "byLayer": {
+        "boondocking": 3,
+        "info": 1,
+        "state": 3,
+        "rustic": 2
+      }
+    },
+    "CO": {
+      "total": 37,
+      "byLayer": {
+        "rustic": 2,
+        "pending": 6,
+        "boondocking": 15,
+        "federal": 7,
+        "info": 7
+      }
+    },
+    "LA": {
+      "total": 3,
+      "byLayer": {
+        "pending": 3
+      }
+    },
+    "MI": {
+      "total": 542,
+      "byLayer": {
+        "rustic": 134,
+        "boondocking": 59,
+        "local": 141,
+        "private": 39,
+        "state": 91,
+        "federal": 65,
+        "boat-backpack": 11,
+        "pending": 1,
+        "info": 1
+      }
+    },
+    "MS": {
+      "total": 4,
+      "byLayer": {
+        "pending": 2,
+        "federal": 2
+      }
+    },
+    "MT": {
+      "total": 5,
+      "byLayer": {
+        "federal": 4,
+        "boondocking": 1
+      }
+    },
+    "NE": {
+      "total": 20,
+      "byLayer": {
+        "boondocking": 8,
+        "state": 3,
+        "pending": 5,
+        "federal": 4
+      }
+    },
+    "SD": {
+      "total": 7,
+      "byLayer": {
+        "boondocking": 3,
+        "federal": 2,
+        "state": 1,
+        "info": 1
+      }
+    },
+    "UT": {
+      "total": 5,
+      "byLayer": {
+        "boondocking": 2,
+        "private": 1,
+        "pending": 1,
+        "rustic": 1
+      }
+    },
+    "WY": {
+      "total": 17,
+      "byLayer": {
+        "federal": 10,
+        "boondocking": 4,
+        "rustic": 3
+      }
+    }
+  }
+}

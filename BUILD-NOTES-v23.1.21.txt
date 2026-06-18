@@ -1,39 +1,37 @@
-TOD’S BOONDOCKING & CAMPING MAPS
-v23.1.21 — modern-audit-cleanup1
+v23.1.21-modern-audit-cleanup1 FULL FIXED FILES
 
-Build date: 2026-06-18
+Purpose:
+- Clean Modern campground audit cleanup package using Tod's final audit decisions.
+- Full fixed-files revision, not a partial version-flag patch.
 
 Changed files included:
+- index.html
+- app-v23.1.21.js
 - version.json
 - data/states-manifest-v23.1.18.js
 - data/supplements/modern-audit-cleanup-v23.1.21.js
 - BUILD-NOTES-v23.1.21.txt
 - MODERN-AUDIT-DECISIONS-v23.1.21.csv
 
-What this package does:
-- Adds a v23.1.21 Modern audit correction supplement to affected state loads.
-- Moves audited current Modern records to final destination layers: Rustic / Primitive, Boat / Backpack, Boondocking / Dispersed, Info / Reference, or Needs Verification.
-- Treats Needs Verification as a real final layer for records where Modern was not officially proven.
-- Keeps Pingree Park as Needs Verification / identity-needed, not Reject.
-- Removes only the final reject/duplicate/non-importable rows from the active data arrays: Ayres #2, East Table Rock #2, Dude Ranch stop over, and Wagon Wheel Campground when found.
-- Does not change coordinates.
-- Does not change icon policy.
-- Does not touch config.js.
-- Does not include Wisconsin changes.
+Implementation notes:
+- index.html now loads app-v23.1.21.js.
+- app-v23.1.21.js is the v23.1.20 app shell with VERSION changed to v23.1.21 only; icon policy and runtime behavior otherwise unchanged.
+- version.json reports v23.1.21.
+- Existing manifest path data/states-manifest-v23.1.18.js is retained because index.html already loads that path; its content now includes the Modern audit cleanup supplement after affected state files.
+- No config.js included.
+- No coordinate changes.
+- Pingree Park is moved to Needs Verification / identity-needed, not Reject.
+- Reject handling is limited to the final reject recommendations in the Modern audit cleanup supplement.
 
-Important implementation note:
-index.html currently loads data/states-manifest-v23.1.18.js. To avoid reconstructing the very large index/app bundle from connector-truncated output, this package replaces that same manifest path with v23.1.21 manifest content and appends the correction supplement to affected state file arrays. The visible version tag is patched by the correction supplement after affected state data loads, and version.json reports v23.1.21.
+QA summary:
+- Syntax checks passed for index.html reference, app-v23.1.21.js, manifest, supplement, and version.json.
+- Runtime data smoke test loaded affected state files and cleanup supplement in a Node VM with a stub browser environment.
+- Verified app VERSION is v23.1.21 and index references app-v23.1.21.js.
+- Verified version.json reports v23.1.21.
 
-Upload/overwrite these files exactly:
-1. version.json
-2. data/states-manifest-v23.1.18.js
-3. data/supplements/modern-audit-cleanup-v23.1.21.js
-
-QA performed:
-- JSON parse validation for version.json.
-- Node syntax validation for data/states-manifest-v23.1.18.js.
-- Node syntax validation for data/supplements/modern-audit-cleanup-v23.1.21.js.
-- Runtime smoke test with sample state arrays confirmed Rustic, Boat/Backpack, Boondocking, Info, Needs Verification, and removal paths.
-
-Known limitation:
-The base app script filename remains app-v23.1.20.js in index.html. The data package uses version.json plus the v23.1.21 correction supplement to display the visible version after state-data load. If Tod wants a strict app-v23.1.21.js/index.html rename package, upload the latest full package ZIP so the app bundle and index can be rebuilt byte-for-byte instead of approximated through connector snippets.
+Additional QA after full repo ZIP upload:
+- Confirmed index.html references app-v23.1.21.js and does not reference app-v23.1.20.js.
+- Confirmed app-v23.1.21.js contains const VERSION='v23.1.21'.
+- Confirmed v23.1.21 supplement applies removal-only states as well as correction states.
+- Runtime smoke test removed all 4 final reject records: MT s966, SD s256, WY s1099, WY s1101.
+- Runtime smoke test confirmed representative destination moves: AR s226 -> pending, AZ s756 -> boondocking, AZ s213 -> boat-backpack, CA s271 -> info, CO s711 -> pending, MI s49/s298 -> rustic, NE s15 -> pending, UT s856 -> pending, WY s36 -> rustic.
