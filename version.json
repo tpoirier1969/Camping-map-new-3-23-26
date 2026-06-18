@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.18",
-  "label": "v23.1.18",
-  "date": "2026-06-12",
-  "notes": "Wisconsin statewide grid-pass safe add: 60 records total \u2014 52 exact NPS Apostle Islands Boat / Backpack campsite/group-site points, 2 official CNF Rustic / Primitive system points, 3 Vilas County Rustic / Primitive campground points, and 3 Governor Knowles State Forest Rustic / Primitive campground system points. Held unresolved county/DNR rule-area geometry, suspect duplicate-coordinate NPS rows, and coordinate-missing backpack/remote systems."
+  "version": "v23.1.19",
+  "label": "v23.1.19-mi-layer-fix",
+  "date": "2026-06-17",
+  "notes": "Michigan-only direct data correction: corrected existing Michigan DNR State Forest Campground / Trail Camp and rustic special-unit records into Rustic / Primitive, moved six confirmed backcountry/island/non-normal-vehicle-access records to Boat / Backpack, and moved Thunder Bay River State Forest to Needs Verification. No records, coordinates, Wisconsin data, other-state data, runtime correction supplement, or config.js changes."
 }
