@@ -1,244 +1,36 @@
-// Camping Map states manifest v23.1.21 Modern audit cleanup1
-// Full replacement for the currently loaded manifest path. Adds data/supplements/modern-audit-cleanup-v23.1.21.js to affected states; preserves existing state files.
+// Camping Map states manifest v23.1.22 Wisconsin cleanup/correction data revision
+// Full replacement for the currently loaded manifest path. Adds data/supplements/wi-cleanup-corrections-v23.1.22.js to Wisconsin only; preserves existing app/script version identity.
 window.CAMPING_STATES_MANIFEST = {
-  "AL": {
-    "code": "AL",
-    "name": "Alabama",
-    "file": "data/states/AL.js",
-    "count": 2
-  },
-  "AZ": {
-    "code": "AZ",
-    "name": "Arizona",
-    "file": "data/states/AZ.js",
-    "count": 10,
-    "files": [
-      "data/states/AZ.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "AR": {
-    "code": "AR",
-    "name": "Arkansas",
-    "file": "data/states/AR.js",
-    "count": 28,
-    "files": [
-      "data/states/AR.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "CA": {
-    "code": "CA",
-    "name": "California",
-    "file": "data/states/CA.js",
-    "count": 9,
-    "files": [
-      "data/states/CA.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "CO": {
-    "code": "CO",
-    "name": "Colorado",
-    "file": "data/states/CO.js",
-    "count": 37,
-    "files": [
-      "data/states/CO.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "DE": {
-    "code": "DE",
-    "name": "Delaware",
-    "file": "data/states/DE.js",
-    "count": 1
-  },
-  "FL": {
-    "code": "FL",
-    "name": "Florida",
-    "file": "data/states/FL.js",
-    "count": 1
-  },
-  "IL": {
-    "code": "IL",
-    "name": "Illinois",
-    "file": "data/states/IL.js",
-    "count": 100
-  },
-  "IN": {
-    "code": "IN",
-    "name": "Indiana",
-    "file": "data/states/IN.js",
-    "count": 5
-  },
-  "IA": {
-    "code": "IA",
-    "name": "Iowa",
-    "file": "data/states/IA.js",
-    "count": 16
-  },
-  "LA": {
-    "code": "LA",
-    "name": "Louisiana",
-    "file": "data/states/LA.js",
-    "count": 3,
-    "files": [
-      "data/states/LA.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "ME": {
-    "code": "ME",
-    "name": "Maine",
-    "file": "data/states/ME.js",
-    "count": 6
-  },
-  "MI": {
-    "code": "MI",
-    "name": "Michigan",
-    "file": "data/states/MI.js",
-    "count": 660,
-    "files": [
-      "data/states/MI.js",
-      "data/states/MI2.js",
-      "data/supplements/mi-exact-rustic-primitive-v23.0.84.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "MN": {
-    "code": "MN",
-    "name": "Minnesota",
-    "file": "data/states/MN.js",
-    "count": 65,
-    "files": [
-      "data/states/MN.js",
-      "data/supplements/mn-superior-nf-rustic-v23.1.15.js"
-    ]
-  },
-  "MS": {
-    "code": "MS",
-    "name": "Mississippi",
-    "file": "data/states/MS.js",
-    "count": 4,
-    "files": [
-      "data/states/MS.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "MO": {
-    "code": "MO",
-    "name": "Missouri",
-    "file": "data/states/MO.js",
-    "count": 41
-  },
-  "MT": {
-    "code": "MT",
-    "name": "Montana",
-    "file": "data/states/MT.js",
-    "count": 5,
-    "files": [
-      "data/states/MT.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "NE": {
-    "code": "NE",
-    "name": "Nebraska",
-    "file": "data/states/NE.js",
-    "count": 20,
-    "files": [
-      "data/states/NE.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "NH": {
-    "code": "NH",
-    "name": "New Hampshire",
-    "file": "data/states/NH.js",
-    "count": 1
-  },
-  "ND": {
-    "code": "ND",
-    "name": "North Dakota",
-    "file": "data/states/ND.js",
-    "count": 3
-  },
-  "OH": {
-    "code": "OH",
-    "name": "Ohio",
-    "file": "data/states/OH.js",
-    "count": 1
-  },
-  "SD": {
-    "code": "SD",
-    "name": "South Dakota",
-    "file": "data/states/SD.js",
-    "count": 7,
-    "files": [
-      "data/states/SD.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "TN": {
-    "code": "TN",
-    "name": "Tennessee",
-    "file": "data/states/TN.js",
-    "count": 19
-  },
-  "TX": {
-    "code": "TX",
-    "name": "Texas",
-    "file": "data/states/TX.js",
-    "count": 1
-  },
-  "UT": {
-    "code": "UT",
-    "name": "Utah",
-    "file": "data/states/UT.js",
-    "count": 5,
-    "files": [
-      "data/states/UT.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
+  "AL": {"code":"AL","name":"Alabama","file":"data/states/AL.js","count":2},
+  "AZ": {"code":"AZ","name":"Arizona","file":"data/states/AZ.js","count":10,"files":["data/states/AZ.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "AR": {"code":"AR","name":"Arkansas","file":"data/states/AR.js","count":28,"files":["data/states/AR.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "CA": {"code":"CA","name":"California","file":"data/states/CA.js","count":9,"files":["data/states/CA.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "CO": {"code":"CO","name":"Colorado","file":"data/states/CO.js","count":37,"files":["data/states/CO.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "DE": {"code":"DE","name":"Delaware","file":"data/states/DE.js","count":1},
+  "FL": {"code":"FL","name":"Florida","file":"data/states/FL.js","count":1},
+  "IL": {"code":"IL","name":"Illinois","file":"data/states/IL.js","count":100},
+  "IN": {"code":"IN","name":"Indiana","file":"data/states/IN.js","count":5},
+  "IA": {"code":"IA","name":"Iowa","file":"data/states/IA.js","count":16},
+  "LA": {"code":"LA","name":"Louisiana","file":"data/states/LA.js","count":3,"files":["data/states/LA.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "ME": {"code":"ME","name":"Maine","file":"data/states/ME.js","count":6},
+  "MI": {"code":"MI","name":"Michigan","file":"data/states/MI.js","count":660,"files":["data/states/MI.js","data/states/MI2.js","data/supplements/mi-exact-rustic-primitive-v23.0.84.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "MN": {"code":"MN","name":"Minnesota","file":"data/states/MN.js","count":65,"files":["data/states/MN.js","data/supplements/mn-superior-nf-rustic-v23.1.15.js"]},
+  "MS": {"code":"MS","name":"Mississippi","file":"data/states/MS.js","count":4,"files":["data/states/MS.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "MO": {"code":"MO","name":"Missouri","file":"data/states/MO.js","count":41},
+  "MT": {"code":"MT","name":"Montana","file":"data/states/MT.js","count":5,"files":["data/states/MT.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "NE": {"code":"NE","name":"Nebraska","file":"data/states/NE.js","count":20,"files":["data/states/NE.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "NH": {"code":"NH","name":"New Hampshire","file":"data/states/NH.js","count":1},
+  "ND": {"code":"ND","name":"North Dakota","file":"data/states/ND.js","count":3},
+  "OH": {"code":"OH","name":"Ohio","file":"data/states/OH.js","count":1},
+  "SD": {"code":"SD","name":"South Dakota","file":"data/states/SD.js","count":7,"files":["data/states/SD.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "TN": {"code":"TN","name":"Tennessee","file":"data/states/TN.js","count":19},
+  "TX": {"code":"TX","name":"Texas","file":"data/states/TX.js","count":1},
+  "UT": {"code":"UT","name":"Utah","file":"data/states/UT.js","count":5,"files":["data/states/UT.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
   "WI": {
     "code": "WI",
     "name": "Wisconsin",
     "file": "data/states/WI.js",
-    "count": 610,
+    "count": 595,
     "files": [
       "data/states/WI.js",
       "data/supplements/wi-nhal-rustic-verified-v23.0.38.js",
@@ -264,20 +56,12 @@ window.CAMPING_STATES_MANIFEST = {
       "data/supplements/wi-exact-rustic-primitive-v23.0.84.js",
       "data/supplements/wi-cnf-county-safe-adds-v23.1.16.js",
       "data/supplements/wi-cnf-northwest-rustic-corridor-v23.1.17.js",
-      "data/supplements/wi-grid-pass-safe-adds-v23.1.18.js"
-    ]
-  },
-  "WY": {
-    "code": "WY",
-    "name": "Wyoming",
-    "file": "data/states/WY.js",
-    "count": 17,
-    "files": [
-      "data/states/WY.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+      "data/supplements/wi-grid-pass-safe-adds-v23.1.18.js",
+      "data/supplements/wi-cleanup-corrections-v23.1.22.js"
     ],
     "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+      "v23.1.22: Wisconsin cleanup/correction data supplement applied; reconciles post-guard count, removes stale Black Lake duplicate, and enriches selected CNF/county rule-area records without adding new sites."
     ]
-  }
+  },
+  "WY": {"code":"WY","name":"Wyoming","file":"data/states/WY.js","count":17,"files":["data/states/WY.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]}
 };
