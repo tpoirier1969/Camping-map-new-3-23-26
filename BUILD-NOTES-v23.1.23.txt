@@ -1,0 +1,40 @@
+BUILD NOTES v23.1.23
+Date: 2026-06-22
+Baseline: Uploaded live repo/package ZIP Camping-map-new-3-23-26-main (1).zip
+
+Scope:
+- Governor Earl DNR PDF exact/area revision.
+- Area-outline UI revision: area outline checklist is now state-group checkboxes instead of individual outline checkboxes.
+- Wisconsin cleanup carry-forward corrections accepted by supervisor.
+
+Data changes:
+- Added data/supplements/wi-governor-earl-area-corrections-v23.1.23.js.
+- Added 7 Governor Earl boat-in/canoe campsite records from official Wisconsin DNR geospatial PDF campsite symbols:
+  - High Falls Flowage: Loon Landing, Mallard's Cove, Eagle's Nest, Honker's Hideaway.
+  - Caldron Falls Reservoir: Thunder Mountain View, Heron's Retreat, Crane Bay.
+- Added 3 Governor Earl remote campsite cluster/area markers from official DNR Remote Campsites PDF GPS coordinates:
+  - Johnson Falls Remote Campsites.
+  - Seymour Rapids Remote Campsites.
+  - Medicine Brook Remote Campsites.
+- Demoted older Governor Earl representative/system markers to Info / Reference so they do not duplicate the new site/area records.
+- Patched stale s94 Black Lake Campground into official USFS Black Lake Recreation Area rustic/system campground point.
+- Moved six Oconto County Forest permit-area records from Rustic / Primitive to Boondocking / Dispersed.
+- Moved Douglas Afterhours Meadow from active Boondocking / Dispersed to Needs Verification.
+- Clarified existing NHAL primitive system area marker using uploaded DNR Paddling Routes PDF review; no new NHAL exact records added.
+- Clarified existing St. Croix / Namekagon primitive shoreline system marker using uploaded 2024 NPS section map review; no exact NPS campsite pins added from non-geospatial PDFs.
+
+App changes:
+- Added app-v23.1.23.js from app-v23.1.21.js.
+- Updated app VERSION constant to v23.1.23.
+- Updated Official area outline menu behavior: users now check a state group to show all official area outlines for that state, rather than selecting individual outlines.
+- Updated index.html to load data/states-manifest-v23.1.23.js and app-v23.1.23.js.
+
+Manifest/version changes:
+- Added data/states-manifest-v23.1.23.js.
+- Wisconsin manifest count: 606.
+- Updated version.json to v23.1.23.
+
+Files intentionally not changed:
+- config.js not changed and not included in fixed-files ZIP.
+- area-outlines-v23.1.10.js not changed.
+- icons and icon policy not changed.

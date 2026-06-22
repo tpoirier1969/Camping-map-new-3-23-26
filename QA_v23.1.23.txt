@@ -1,0 +1,52 @@
+QA v23.1.23
+Date: 2026-06-22
+
+Baseline:
+- Uploaded live package ZIP used: Camping-map-new-3-23-26-main (1).zip.
+- PROJECT_RULES.md reviewed before package work.
+
+Syntax checks:
+- node --check app-v23.1.23.js: PASS
+- node --check data/states-manifest-v23.1.23.js: PASS
+- node --check data/supplements/wi-governor-earl-area-corrections-v23.1.23.js: PASS
+
+Version/load checks:
+- version.json reports v23.1.23: PASS
+- index.html loads data/states-manifest-v23.1.23.js: PASS
+- index.html loads app-v23.1.23.js: PASS
+- app-v23.1.23.js VERSION constant is v23.1.23: PASS
+- config.js unchanged/not included in fixed-files ZIP: PASS
+
+Runtime data checks:
+- Wisconsin manifest count: 606.
+- Wisconsin runtime load count after all manifest files: 606.
+- New Governor Earl v23.1.23 records found: 10.
+  - 7 boat-in/canoe campsite records.
+  - 3 remote campsite cluster/area markers.
+- Older Governor Earl representative/system records demoted to Info / Reference: 3.
+- Black Lake s94 patched to official Black Lake Recreation Area rustic/system point: PASS.
+- Intended absent wi-cnf-black-lake-recreation-area-v23117 still absent; s94 is the active corrected row by design: PASS.
+- Oconto County Forest permit-area layer corrections to Boondocking / Dispersed: 6 records: PASS.
+- Douglas Afterhours Meadow moved to Needs Verification: PASS.
+
+Coordinate/source honesty checks:
+- Governor Earl boat-in coordinates are derived from official DNR geospatial PDF campsite symbol centers, not surveyed GPS coordinate tables. Records are labeled accordingly.
+- Governor Earl remote records use official DNR Remote Campsites PDF published GPS coordinates for named clusters/areas, not individual campsite pins.
+- NHAL Paddling Routes PDF was reviewed as an official area/system source; no exact stopover-site coordinates were imported.
+- St. Croix / Namekagon 2024 NPS maps were reviewed as official area/system sources; no non-geospatial map symbols were converted to exact campsite pins.
+
+Area-outline UI checks:
+- Area outline menu now renders one checkbox per selected state with available outlines.
+- Checking a state group shows all available official area outlines for that state.
+- Unchecking a state group hides all active official area outlines for that state.
+- Individual area checkboxes are no longer rendered in the menu.
+
+Count impacts:
+- Baseline Wisconsin runtime count: 596.
+- New Governor Earl records added: +10.
+- Patches/demotions/layer corrections: no row-count change.
+- New Wisconsin runtime count: 606.
+
+Known limits:
+- No exact NHAL stopover campsite coordinates were extracted from the uploaded paddling routes PDF.
+- No exact St. Croix / Namekagon campsite coordinates were extracted from the uploaded NPS section maps because those PDFs do not expose geospatial PDF metadata.

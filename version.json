@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.21",
-  "label": "v23.1.21",
-  "date": "2026-06-18",
-  "notes": "Modern criteria audit cleanup batch 1. Full fixed-files revision: index.html loads app-v23.1.21.js; app VERSION is v23.1.21; manifest loads the Modern audit cleanup supplement; approved icon policy unchanged."
+  "version": "v23.1.23",
+  "label": "v23.1.23",
+  "date": "2026-06-22",
+  "notes": "Governor Earl DNR PDF exact/area revision. Adds seven Governor Earl boat-in campsite markers from official DNR geospatial PDFs and three remote campsite cluster/area markers from official DNR GPS coordinates; demotes older Governor Earl representative markers to Info/reference; patches Black Lake, Oconto County Forest permit-area layers, Douglas Afterhours Meadow status, and clarifies NHAL/St. Croix area-system records. App now uses state-level area-outline checkboxes."
 }
