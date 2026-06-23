@@ -1,0 +1,22 @@
+DELETE OLD VERSION FILES — v23.1.25
+
+After copying this fixed-files package into the live app folder, delete these stale version-identity files if they exist:
+
+version.json
+app-v23.1.21.js
+app-v23.1.22.js
+app-v23.1.23.js
+app-v23.1.24.js
+data/states-manifest-v23.1.21.js
+data/states-manifest-v23.1.22.js
+data/states-manifest-v23.1.23.js
+data/states-manifest-v23.1.24.js
+
+Do NOT delete historical data supplement files merely because their filenames contain older version numbers. Many are still referenced by data/states-manifest.js.
+
+The live runtime entry files after this cleanup are:
+
+version.js
+index.html
+app.js
+data/states-manifest.js

@@ -1,0 +1,28 @@
+QA — v23.1.25
+Tod’s Boondocking & Camping Maps
+Date: 2026-06-23
+
+Scope:
+Technical version/runtime cleanup only.
+
+Checks performed:
+- app.js syntax check passed with node --check.
+- data/states-manifest.js syntax check passed with node --check.
+- version.js syntax check passed with node --check.
+- index.html no longer references app-v23.1.24.js.
+- index.html no longer references data/states-manifest-v23.1.24.js.
+- index.html loads version.js before the app and manifest loader.
+- app.js no longer contains a hardcoded current VERSION constant.
+- app.js reads current visible build from window.CAMPING_BUILD.version.
+- update checker now fetches version.js instead of version.json.
+- data/states-manifest.js keeps Wisconsin count at 621.
+- New Wisconsin Jackson/Clark supplement remains referenced once in WI manifest files list.
+- No data record files were changed in this cleanup.
+- No config.js, CSS, icon, or unrelated asset files included.
+
+Runtime-version grep:
+- Current runtime version string appears in version.js only among runtime files.
+- Build notes and QA docs mention the package version as documentation.
+
+Known deployment note:
+A fixed-files ZIP cannot delete stale live files by itself. Delete old app-v*.js, old states-manifest-v*.js, and version.json from the live folder after copying this package, or leave them unreferenced only if deletion is inconvenient. The new index.html does not load them.

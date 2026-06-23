@@ -1,0 +1,43 @@
+BUILD NOTES — v23.1.25
+Tod’s Boondocking & Camping Maps
+Date: 2026-06-23
+
+Purpose:
+Technical cleanup only. This package makes version.js the single runtime source for the current app version and stops the app from carrying a separate hardcoded version constant or versioned app/manifest filenames.
+
+Baseline:
+- Built from v23.1.24 fixed-files package over the uploaded full repo/package baseline.
+- No campsite records were added, removed, or edited in this revision.
+- v23.1.24 Wisconsin Jackson/Clark supplement is carried forward unchanged so the Wisconsin count remains 621.
+
+Changed runtime behavior:
+- index.html now loads version.js first.
+- app.js reads VERSION from window.CAMPING_BUILD.version.
+- update checker fetches version.js, not version.json.
+- live app filename is now app.js.
+- live manifest filename is now data/states-manifest.js.
+- index.html uses the build value from version.js to cache-bust app.js/manifest/config/data script requests.
+
+Important deployment cleanup:
+Delete old version-identity files from the live folder after copying this package:
+- version.json
+- app-v23.1.21.js
+- app-v23.1.22.js
+- app-v23.1.23.js
+- app-v23.1.24.js
+- data/states-manifest-v23.1.21.js
+- data/states-manifest-v23.1.22.js
+- data/states-manifest-v23.1.23.js
+- data/states-manifest-v23.1.24.js
+
+Older historical data supplements with versioned names should NOT be deleted unless the manifest no longer references them.
+
+Files included:
+- version.js
+- index.html
+- app.js
+- data/states-manifest.js
+- data/supplements/wi-jackson-clark-new-candidates-v23.1.24.js
+- BUILD-NOTES-v23.1.25.txt
+- QA_v23.1.25.txt
+- DELETE_OLD_VERSION_FILES-v23.1.25.txt

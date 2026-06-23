@@ -57,11 +57,20 @@
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>window.CAMPING_APP_ENTRY = new URL('index.html', document.baseURI).href;</script>
-<script src="data/states-manifest-v23.1.24.js"></script>
-<script src="data/pending-sites-v22.3.3.js"></script>
-<script src="data/area-outlines-v23.1.10.js"></script>
-<script src="config.js"></script>
-<script src="app-v23.1.24.js"></script>
+<script src="version.js"></script>
+<script>
+(function(){
+  var build = (window.CAMPING_BUILD && window.CAMPING_BUILD.version) || String(Date.now());
+  window.CAMPING_APP_ENTRY = new URL('index.html', document.baseURI).href;
+  function loadCampingScript(src){
+    document.write('<script src="' + src + '?build=' + encodeURIComponent(build) + '"><\/script>');
+  }
+  loadCampingScript('data/states-manifest.js');
+  loadCampingScript('data/pending-sites-v22.3.3.js');
+  loadCampingScript('data/area-outlines-v23.1.10.js');
+  loadCampingScript('config.js');
+  loadCampingScript('app.js');
+})();
+</script>
 </body>
 </html>
