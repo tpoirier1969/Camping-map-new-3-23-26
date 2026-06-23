@@ -1,10 +1,10 @@
 // Tod's Boondocking & Camping Maps — runtime build identity
-// v23.1.27 legacy loader bridge: keeps version.js as the current app version source and bridges old app/manifest filenames to current live files.
+// v23.1.28 Montana exact official-source build batch 1.
 (function(){
   'use strict';
   window.CAMPING_BUILD = {
-    version: 'v23.1.27',
+    version: 'v23.1.28',
     released: '2026-06-23',
-    summary: 'Legacy loader bridge hotfix: old app-v23.1.xx and states-manifest-v23.1.xx filenames now load the current app.js/states-manifest.js runtime.'
+    summary: 'Montana exact official-source build batch 1: adds high-confidence campground/site records from the six-worker Montana proof pass; area/rule and blocked extraction leads held for follow-up.'
   };
 })();

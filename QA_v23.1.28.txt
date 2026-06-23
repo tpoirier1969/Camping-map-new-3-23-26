@@ -1,0 +1,35 @@
+v23.1.28 QA — Montana exact official-source build batch 1
+
+Syntax checks passed:
+- node --check version.js
+- node --check app.js
+- node --check data/states-manifest.js
+- node --check data/supplements/mt-exact-build-batch1-v23.1.28.js
+
+Runtime simulation:
+- Loaded base data/states/MT.js: 6 rows
+- Applied data/supplements/modern-audit-cleanup-v23.1.21.js: 5 active rows; s966 removed
+- Applied data/supplements/mt-exact-build-batch1-v23.1.28.js: 75 active MT rows
+- New v23.1.28 additions: 70
+- Duplicate IDs after supplement: 0
+- Invalid/non-numeric coordinates: 0
+- s966 Wagon Wheel remains removed/stale: yes
+
+Added layer counts:
+- Modern Campgrounds: 5
+- Rustic / Primitive: 58
+- Boondocking / Dispersed: 1
+- Boat / Backpack: 6
+
+Manifest QA:
+- MT count updated from 5 to 75
+- MT files list includes mt-exact-build-batch1-v23.1.28.js
+
+Held from this build by design:
+- Area/rule candidates requiring geometry decisions
+- External-access/coordinate-extraction leads
+- Broad dispersed systems not yet honestly placeable
+- Worker 2 out-of-scope duplicate Missouri Headwaters row
+- s966 Wagon Wheel stale removed row
+- Howrey/Howery Island merge issue with Myers Bridge FAS
+- Bundy Bridge, Afterbay, Grapevine pending cleaner proof/coordinate extraction

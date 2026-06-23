@@ -1,0 +1,28 @@
+v23.1.28 — Montana exact official-source build batch 1
+
+Scope:
+- Conservative first Montana data build after the six-worker statewide proof pass.
+- Adds 70 high-confidence, official-source Montana records with coordinates captured in worker ledgers.
+- Existing active Montana baseline after v23.1.27 overlay: 5 records.
+- New Montana manifest count: 75.
+
+Layer counts added:
+- Modern Campgrounds: 5
+- Rustic / Primitive: 58
+- Boondocking / Dispersed: 1
+- Boat / Backpack: 6
+
+Explicitly held out:
+- Broad area/rule records needing geometry decisions.
+- External-access/coordinate-extraction leads.
+- Worker 2 duplicate/out-of-scope Missouri Headwaters row; Worker 3 owns the Gallatin record.
+- s966 Wagon Wheel Campground remains removed/stale and is not restored.
+- Howrey/Howery Island held because it overlaps Myers Bridge FAS.
+- Bundy Bridge, Afterbay, Grapevine held pending cleaner official camping/coordinate proof.
+
+Changed files:
+- version.js
+- data/states-manifest.js
+- data/supplements/mt-exact-build-batch1-v23.1.28.js
+
+No app UI/code changes. No CSS/icon/config changes.
