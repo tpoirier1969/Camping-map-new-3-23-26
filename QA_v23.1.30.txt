@@ -1,0 +1,15 @@
+v23.1.30 QA
+
+Static checks:
+- app.js syntax check via node --check: PASS
+- index.html contains v23.1.30 references: PASS
+- version.js reports v23.1.30: PASS
+- Legacy app-v23.1.21 through app-v23.1.30 bridge files included: PASS
+- Legacy states-manifest-v23.1.21 through v23.1.30 bridge files included: PASS
+
+Behavior targeted:
+- Montana marker data unchanged; v23.1.29 layerKey fix preserved.
+- Multi-state/all-state loading now shows progress and avoids stale state UI.
+- Large official-outline loads are capped/disabled for broad multi-state selections.
+- Area outline details are not written into the legend panel.
+- Area outline label cards are hidden below zoom 9.

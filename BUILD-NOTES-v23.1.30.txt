@@ -1,0 +1,22 @@
+Tod's Boondocking & Camping Maps — v23.1.30
+
+Purpose:
+- Multi-state/all-state map stability and area-outline UI hotfix.
+
+Fixes:
+- Retires stale Layers controls from the left menu even if a cached index.html still contains them.
+- Keeps layer controls in the floating Map layers legend.
+- Keeps the legend stable; area-outline rules/details now stay in map popups rather than being dumped into the legend.
+- Hides area-outline label cards at statewide/regional zoom levels; only outlines remain visible when zoomed out.
+- Limits outline label clutter and reduces label count per polygon.
+- Turns off Official Area Outlines automatically for large multi-state selections to prevent heavy redraw/blank-map behavior.
+- Adds progressive marker drawing/loading feedback for large selections.
+- Adds safer multi-state load/status synchronization.
+
+Data:
+- No campsite records added or removed.
+- Montana remains 75 active records from v23.1.28 batch 1.
+- s966 Wagon Wheel remains stale/removed by existing cleanup.
+
+Install:
+- Copy these files over the live app root, preserving paths.
