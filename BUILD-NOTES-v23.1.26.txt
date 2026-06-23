@@ -1,0 +1,53 @@
+Tod's Boondocking & Camping Maps
+v23.1.26 — UI control-home cleanup
+
+Baseline:
+- Full live repo/package ZIP: Camping-map-new-3-23-26-main.zip
+- v23.1.25 fixed-files overlay applied first.
+
+Purpose:
+- Clean up the control interface without changing campsite data.
+- Keep v23.1.25 single-version architecture intact.
+
+Changed behavior:
+- Sidebar controls are now split into five unique homes:
+  1. Options
+  2. Where
+  3. Route
+  4. Layers
+  5. Filters
+- Each home opens as its own panel; panels no longer scroll down into each other.
+- Desktop sidebar has a five-button home navigation row.
+- Phone bottom bar now has Map, Options, Where, Route, Layers, and Filters.
+- Route controls were moved out of Find/Near Me and into the Route home.
+- Account, map type, add-site tools, manual queue, mobile legend, and information/reference live in Options.
+- State selection and Find/Near Me live in Where.
+- Layer visibility and Needs Verification live in Layers.
+- Filters contain cost, waterfront, access, and quick-filter controls.
+
+Official Area Outlines:
+- Simplified from a per-state dropdown/control cluster into a normal on/off layer.
+- The new Official Area Outlines toggle shows all official context outlines for the active states.
+- Changing active states refreshes the shown outlines when the toggle is on.
+- Fit shown outlines remains available.
+- Turning outlines off clears all outline layers.
+
+Data impact:
+- No campsite data changed.
+- No state manifest changed.
+- No record counts changed.
+- No layer assignments changed.
+- No coordinate changes.
+
+Changed files:
+- index.html
+- app.js
+- version.js
+
+Intentionally not changed:
+- data/states-manifest.js
+- data/states/*.js
+- data/supplements/*.js
+- config.js
+- CSS/icon assets
+- Montana data/workflow

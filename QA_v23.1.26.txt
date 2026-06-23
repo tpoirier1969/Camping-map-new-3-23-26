@@ -1,0 +1,34 @@
+Tod's Boondocking & Camping Maps
+v23.1.26 QA notes
+
+Syntax/static checks:
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/states-manifest.js: PASS
+
+HTML structure checks:
+- Duplicate id scan: PASS, no duplicate IDs found.
+- Required control panels present: optionsPanel, wherePanel, routePanel, layersPanel, filtersPanel.
+- Required controls present: areaOutlineLayerToggle, areaOutlineMeta, showPendingLayer, basemapSelect, stateChecklist, routeStart, layerList, costFilter, referenceContent.
+- Mobile action buttons present: Map, Options, Where, Route, Layers, Filters.
+- Desktop/sidebar home buttons present: Options, Where, Route, Layers, Filters.
+
+Version checks:
+- Current build version v23.1.26 appears in version.js only among live runtime files checked.
+- app.js still reads VERSION from window.CAMPING_BUILD.
+- index.html still loads version.js before app.js.
+
+Data/load checks:
+- No data files were edited in this package.
+- Wisconsin count remains whatever v23.1.25/v23.1.24 supplied; no new records were added here.
+- Montana remains unchanged.
+
+Behavior checks by static inspection:
+- Control homes use data-control-home/data-control-panel and setControlHome(); only one panel is shown at a time.
+- Desktop and phone mode handlers no longer scroll to sections inside one long panel.
+- Official Area Outlines use localStorage key campingMap.areaOutlines.v23126 and are rendered for all active states when on.
+- State changes call refreshAreaOutlineLayerForStateSelection(); outlines refresh when the outline layer is enabled.
+- Existing add-site modal, queue modal, route saving, state selection, layer selection, pending layer, and filters retain their original element IDs.
+
+Limitations:
+- Browser/live-map smoke testing was not performed inside this environment. The package was checked statically and by JS syntax checks.
