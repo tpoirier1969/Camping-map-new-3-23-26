@@ -73,13 +73,18 @@ function layerKey(site){
   if(layer==='overnight-parking')return 'overnight-parking';
   if(layer==='rest-truck'||layer==='rest-roadside'||layer==='roadside-stop')return 'rest-truck';
   if(layer==='private')return 'private';
-  if(layer==='boondocking')return 'boondocking';
+  // v23.1.29: canonical supplement layer values must win before keyword fallback.
+  // v23.1.28 Montana exact build used layer:'rustic' with subtype:'rustic / primitive';
+  // older logic treated those as Info/Reference and hid 58 valid markers.
+  if(layer==='modern')return 'modern';
+  if(layer==='rustic')return 'rustic';
+  if(layer==='boondocking'||layer==='boondocking-dispersed'||layer==='dispersed')return 'boondocking';
   if(['boat-backpack','boat','boat-in','backpack','hike-in','walk-in','water-access','canoe','kayak'].includes(layer))return 'boat-backpack';
-  if(layer==='info')return 'info';
-  if(['state','federal','local'].includes(layer)&&subtype==='rustic')return 'rustic';
-  if(['state','federal','local'].includes(layer)&&subtype==='modern')return 'modern';
-  if(subtype==='rustic')return 'rustic';
-  if(subtype==='modern')return 'modern';
+  if(layer==='info'||layer==='info-reference')return 'info';
+  if(['state','federal','local'].includes(layer)&&subtype.includes('rustic'))return 'rustic';
+  if(['state','federal','local'].includes(layer)&&subtype.includes('modern'))return 'modern';
+  if(subtype.includes('rustic'))return 'rustic';
+  if(subtype.includes('modern'))return 'modern';
   if(/rest|roadside|wayside|truck/.test(raw))return 'rest-truck';
   if(/overnight|parking|walmart|cracker|cabela|bass pro|municipal lot/.test(raw))return 'overnight-parking';
   // v23.0.40: boat/backpack access gets its own layer. Primitive alone is not enough; it can remain Rustic or Boondocking depending on the site.
@@ -132,9 +137,18 @@ function clearNearMeMode(){app.nearMeActive=false;app.liveLocationLoading=false;
 function setEnabledStates(codes,fit=true){clearNearMeMode();const valid=new Set(mappedStateEntries().map(s=>s.code)); const picked=(codes||[]).filter(c=>valid.has(c)); app.enabledStates=new Set(picked); saveJson(STORE.states,[...app.enabledStates]); syncStateControls(); refreshAreaOutlineLayerForStateSelection(false); loadEnabledStates(fit)}
 function buildLayerList(){const box=$('layerList'); box.innerHTML=MAP_LAYERS.map(l=>`<label class="check layer-row"><input type="checkbox" data-layer="${l.key}" ${app.enabledLayers.has(l.key)?'checked':''}><span class="layer-icon ${l.css}">${l.icon}</span><span class="layer-title">${esc(l.label)}</span></label>`).join('');}
 function legendCollapsedStored(){try{return localStorage.getItem('campingMap.legendCollapsed.v1')==='1'}catch(e){return false}}
+function legendAreaOutlineOn(){try{return localStorage.getItem(STORE.areaOutlines)==='1'}catch(e){return false}}
 function setLegendCollapsed(collapsed){const panel=$('mapLegendDesktop');if(!panel)return;panel.classList.toggle('collapsed',!!collapsed);const btn=$('legendToggleDesktop');if(btn){btn.setAttribute('aria-expanded',String(!collapsed));btn.setAttribute('aria-label',collapsed?'Expand map legend':'Shrink map legend')}try{localStorage.setItem('campingMap.legendCollapsed.v1',collapsed?'1':'0')}catch(e){}}
 function toggleLegendCollapsed(){const panel=$('mapLegendDesktop');setLegendCollapsed(!(panel&&panel.classList.contains('collapsed')))}
-function buildLegend(){const mobileItems=MAP_LAYERS.map(l=>`<div class="legend-item"><span class="layer-icon ${l.css}">${l.icon}</span><span>${esc(l.label)}</span></div>`).join('');const desktopItems=MAP_LAYERS.map(l=>`<label class="legend-item legend-layer-toggle"><input type="checkbox" data-layer="${l.key}" ${app.enabledLayers.has(l.key)?'checked':''}><span class="layer-icon ${l.css}">${l.icon}</span><span>${esc(l.label)}</span></label>`).join('');const desktopHtml=`<div class="legend-head"><h3>Map layers</h3><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div><div class="legend-grid legend-layer-grid">${desktopItems}</div>`;const mobileHtml=`<div class="legend-grid">${mobileItems}</div>`; if($('mapLegendDesktop')){$('mapLegendDesktop').innerHTML=desktopHtml;$('legendToggleDesktop').onclick=toggleLegendCollapsed;setLegendCollapsed(legendCollapsedStored())} if($('mapLegendMobile'))$('mapLegendMobile').innerHTML=mobileHtml;}
+function buildLegend(){
+  const layerItems=MAP_LAYERS.map(l=>`<label class="legend-item legend-layer-toggle"><input type="checkbox" data-layer="${l.key}" ${app.enabledLayers.has(l.key)?'checked':''}><span class="layer-icon ${l.css}">${l.icon}</span><span>${esc(l.label)}</span></label>`).join('');
+  const outlineOn=legendAreaOutlineOn();
+  const areaItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input id="areaOutlineLayerToggle" type="checkbox" ${outlineOn?'checked':''}><span class="layer-icon pin-boondocking">${ICONS.tree}</span><span>Official Area Outlines</span></label>`;
+  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3><div id="layerSiteCount" class="layer-site-count">Showing 0 of 0 loaded sites</div></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div><div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide outlines</button><button id="showAreaOutlineBtn" class="secondary" type="button">Fit outlines</button></div><div id="restRoadsideStats" class="filter-status" hidden></div><div id="areaOutlineCount" class="mini-note">No official context outlines loaded.</div><div id="areaOutlineStatus" class="area-outline-status">No official area outline is currently shown.</div><div id="areaOutlineChecklist" class="area-outline-checklist hidden" aria-hidden="true"></div><div id="areaOutlineSelectionSummary" class="summary-note hidden">None available</div>`;
+  const mobileHtml=`<div class="legend-grid legend-layer-grid">${layerItems}</div>`;
+  if($('mapLegendDesktop')){$('mapLegendDesktop').innerHTML=desktopHtml;$('legendToggleDesktop').onclick=toggleLegendCollapsed;setLegendCollapsed(legendCollapsedStored())}
+  if($('mapLegendMobile'))$('mapLegendMobile').innerHTML=mobileHtml;
+}
 function syncLayerControls(){const boxes=$$('input[data-layer]');boxes.forEach(cb=>{cb.checked=app.enabledLayers.has(cb.dataset.layer)});const pending=$('showPendingLayer');if(pending)pending.checked=app.enabledLayers.has('pending')}
 function applyLayerCheckboxChange(e){if(!e.target.dataset.layer)return;app.restOnlyMode=false;syncRestOnlyToggle();e.target.checked?app.enabledLayers.add(e.target.dataset.layer):app.enabledLayers.delete(e.target.dataset.layer);saveLayers();localStorage.setItem(STORE.pending,app.enabledLayers.has('pending')?'1':'0');updatePendingMeta();syncLayerControls();loadEnabledStates(false)}
 
@@ -210,7 +224,7 @@ function showSidebarTab(tab){
   if(isRef)renderReferences();
 }
 
-const CONTROL_HOMES=['options','where','route','layers','filters'];
+const CONTROL_HOMES=['options','where','route','filters'];
 function preferredControlHome(){
   let saved='';
   try{saved=localStorage.getItem(STORE.controlHome)||localStorage.getItem(STORE.desktopMode)||'';}catch(_e){}
@@ -226,7 +240,6 @@ function setControlHome(home){
   });
   try{localStorage.setItem(STORE.controlHome,safe);localStorage.setItem(STORE.desktopMode,safe);}catch(_e){}
   if(safe==='options')renderReferences();
-  if(safe==='layers')renderAreaOutlineList();
 }
 function bindControlHomeNav(){
   $$('[data-control-home]').forEach(btn=>{btn.onclick=()=>{showSidebarTab('main');setControlHome(btn.dataset.controlHome);};});
@@ -2091,7 +2104,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 // CAMPING_RUNTIME_VERSION_LAST_WORD: repaint after late-loading data/supplement scripts so old helper code cannot leave a stale build badge behind.
 try{
   paintRuntimeVersion();
-  window.addEventListener('load', function(){ paintRuntimeVersion(); setTimeout(paintRuntimeVersion, 250); setTimeout(paintRuntimeVersion, 1000); });
+  window.addEventListener('load', function(){ paintRuntimeVersion(); setTimeout(paintRuntimeVersion, 250); setTimeout(paintRuntimeVersion, 1000); setTimeout(paintRuntimeVersion, 3000); });
 }catch(_e){}
 
 })();

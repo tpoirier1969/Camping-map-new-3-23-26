@@ -1,0 +1,28 @@
+Tod's Boondocking & Camping Maps — v23.1.29
+Montana marker rendering + layer legend UI hotfix
+
+Purpose:
+- Fix live Montana view where state chooser showed 75 records but only about 17 markers rendered.
+- Move layer controls out of the left sidebar menu and into the floating map legend.
+- Fix the map legend Shrink/Expand button display/behavior.
+- Reinforce current runtime version badge repaint.
+
+Root cause:
+- v23.1.28 Montana exact build records used canonical data layer values such as layer: "rustic" and subtype: "rustic / primitive".
+- Existing app layerKey() did not recognize explicit layer === "rustic" or subtype containing "rustic" unless subtype equaled exactly "rustic".
+- Result: 58 Montana Rustic / Primitive records were interpreted as Info / Reference and siteMatches() intentionally does not draw Info / Reference markers.
+- Visible Montana markers were therefore mostly Modern, Boat / Backpack, Boondocking, and older base rows: about 17 visible markers.
+
+Changes:
+- app.js: layerKey() now recognizes explicit canonical layer values: modern, rustic, boondocking/dispersed, boat-backpack, private, overnight-parking, rest-truck, info.
+- app.js: subtype matching now uses includes('rustic') and includes('modern') rather than strict equality only.
+- app.js/index.html: layer controls are now in the map legend; Layers is no longer a left menu home or phone action.
+- index.html: added CSS for legend Shrink/Expand states and corrected button text behavior.
+- index.html: active-development notice text is black for readability.
+- Bridge files included again for old app-v23.1.xx and states-manifest-v23.1.xx entry paths.
+
+Data:
+- No new campsite records added.
+- v23.1.28 Montana supplement is preserved.
+- Montana expected active runtime remains 75.
+- s966 Wagon Wheel remains removed by modern-audit cleanup.

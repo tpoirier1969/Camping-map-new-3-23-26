@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  if(window.CAMPING_LEGACY_MANIFEST_BRIDGE_LOADED) return;
-  window.CAMPING_LEGACY_MANIFEST_BRIDGE_LOADED = true;
-  document.write('<script src="data/states-manifest.js?legacyBridge=' + Date.now() + '"><\/script>');
+  var s=document.createElement('script');
+  s.src='data/states-manifest.js?bridge=v23.1.29&ts='+Date.now();
+  document.head.appendChild(s);
 })();

@@ -1,0 +1,22 @@
+QA — v23.1.29
+
+Checks performed:
+- app.js syntax check: PASS
+- version.js syntax check: PASS
+- states-manifest.js syntax check: PASS
+- Montana v23.1.28 supplement syntax check: PASS
+- Legacy app bridge syntax check: PASS
+- Legacy manifest bridge syntax check: PASS
+- Runtime simulation: base MT + modern-audit cleanup + v23.1.28 Montana supplement = 75 active MT records.
+- Runtime simulation duplicate ID count: 0.
+- Runtime simulation s966 active check: false.
+- Layer rendering simulation after v23.1.29 layerKey fix:
+  - Rustic / Primitive: 62 active MT records
+  - Modern: 5 active MT records
+  - Boondocking / Dispersed: 2 active MT records
+  - Boat / Backpack: 6 active MT records
+  - Total drawable Montana camping markers with all layers on: 75
+
+Known held items:
+- No new delta extraction results were built into this hotfix.
+- This package only fixes runtime/UI behavior around the already-built v23.1.28 Montana batch.
