@@ -2,6 +2,8 @@
 'use strict';
 const BUILD=window.CAMPING_BUILD||{};
 const VERSION=BUILD.version||'dev';
+window.CAMPING_RUNTIME_VERSION = VERSION;
+function paintRuntimeVersion(){try{const vt=document.getElementById('versionTag'); if(vt) vt.textContent=VERSION; if(document && document.title && !document.title.includes(VERSION)) document.title='Boondocking & Camping Maps '+VERSION;}catch(_e){}}
 const DEFAULT_STATE='MI';
 
 /*
@@ -2086,4 +2088,10 @@ async function checkForAppUpdate(){
 
 function boot(){initState();initMap();buildControls();initSupabase().catch(()=>{});loadEnabledStates(true).catch(e=>{console.error(e);setLoading(false);notify('Map load failed.');});checkForAppUpdate();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+// CAMPING_RUNTIME_VERSION_LAST_WORD: repaint after late-loading data/supplement scripts so old helper code cannot leave a stale build badge behind.
+try{
+  paintRuntimeVersion();
+  window.addEventListener('load', function(){ paintRuntimeVersion(); setTimeout(paintRuntimeVersion, 250); setTimeout(paintRuntimeVersion, 1000); });
+}catch(_e){}
+
 })();

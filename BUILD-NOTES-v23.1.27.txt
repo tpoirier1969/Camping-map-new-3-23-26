@@ -1,0 +1,17 @@
+v23.1.27 legacy loader bridge hotfix
+
+Purpose:
+- Fix cases where the live page or browser cache still loads old versioned entry files such as app-v23.1.21.js after v23.1.25/v23.1.26 were installed.
+- Keep version.js as the current runtime version source.
+- Do not change campsite data, UI layout, coordinates, or manifest counts.
+
+Included bridge files:
+- app-v23.1.21.js / app-v23.1.23.js / app-v23.1.24.js / app-v23.1.25.js / app-v23.1.26.js now load version.js and app.js.
+- data/states-manifest-v23.1.21.js / v23.1.23 / v23.1.24 / v23.1.25 / v23.1.26 now load data/states-manifest.js.
+
+Why:
+- If an old cached index.html asks for an old app-v23.1.xx.js file, the old file could still paint the badge as v23.1.21. These bridge files route those legacy requests into the current stable runtime.
+
+Install note:
+- Copy these files over the live folder.
+- Then do a hard refresh or Edge kiosk restart. If the browser already cached app-v23.1.21.js, a hard refresh/clear cache may still be needed once.

@@ -1,0 +1,13 @@
+QA v23.1.27
+
+- node --check version.js passed.
+- node --check app.js passed.
+- node --check data/states-manifest.js passed.
+- node --check legacy app bridge files passed.
+- node --check legacy states-manifest bridge files passed.
+- Current runtime version is defined in version.js.
+- app.js reads window.CAMPING_BUILD.version and no longer hardcodes const VERSION='v23.x'.
+- Added delayed version badge repaint to prevent late-loading helper/supplement code from leaving stale visible version text.
+- No campsite data changed.
+- Wisconsin count remains 621.
+- Montana count remains 5.
