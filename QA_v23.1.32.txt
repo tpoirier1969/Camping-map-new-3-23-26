@@ -1,0 +1,48 @@
+Tod's Boondocking & Camping Maps — v23.1.32 QA
+
+Baseline QA:
+- Read PROJECT_RULES.md before packaging.
+- Used uploaded full live ZIP plus v23.1.31 fixed-files overlay as the working baseline.
+- Built v23.1.32 as a fixed-files overlay, not a full repo package.
+- v23.1.32 app.js/index.html are full replacements that include the v23.1.31 app-side changes plus the v23.1.32 update/legend changes.
+
+Syntax / file checks:
+- node --check app.js: PASS
+- version.js reports v23.1.32: PASS
+- version.json reports v23.1.32: PASS
+- index.html loads version.js with timestamped buildProbe before app/data scripts: PASS
+- index.html still loads stable app.js and data/states-manifest.js with ?build=<runtime build>: PASS
+- No config.js included: PASS
+- No data/state/supplement files included: PASS
+
+Version behavior checks:
+- Main sidebar header no longer contains id="versionTag": PASS
+- app.js no longer references id="versionTag": PASS
+- Options contains id="appVersionText" for non-prominent build display: PASS
+- update gate contains no Dismiss button: PASS
+- update gate provides Reload latest only: PASS
+- update checker fetches version.js?ts=<timestamp> with cache:'no-store': PASS
+- cache-busted reload targets index.html?refresh=<timestamp>: PASS
+
+Legend order checks:
+- MAP_LAYERS order after filtering is:
+  boondocking, rustic, modern, private, boat-backpack, pending, overnight-parking
+- Official Area Outlines is appended after those layer checkboxes.
+- Resulting visible legend order is:
+  Boondocking, Rustic, Modern, Private, Boat / Backpack, Needs Verification, Overnight parking, Official Area Outlines.
+- layerDef fallback no longer depends on a numeric LAYERS index: PASS
+
+Data/count impact:
+- No data files changed.
+- Expected record count impact: 0
+- Expected layer-change count: 0
+- Expected coordinate-change count: 0
+- Expected reject/delete count: 0
+
+Browser QA still recommended after install:
+- Confirm the main header no longer shows a build badge.
+- Confirm Options > App version shows v23.1.32.
+- Confirm stale browser/app build shows the hard update gate and cannot dismiss it.
+- Confirm Reload latest moves the app to current build.
+- Confirm layer legend order on desktop and phone.
+- Confirm the v23.1.31 performance/location/route changes still operate.

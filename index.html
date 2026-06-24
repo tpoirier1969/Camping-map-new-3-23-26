@@ -56,7 +56,7 @@
     <div class="sidebar-scroll">
       <div class="panel-head">
         <img class="brand-icon" src="assets/icon-192.png" alt="Boondocking and Camping Maps icon">
-        <div><h1>Boondocking<br>&amp; Camping Maps</h1><p class="brand-sub">Public-land camping planner</p><div class="state-badge">Build <strong id="versionTag">loading…</strong></div></div>
+        <div><h1>Boondocking<br>&amp; Camping Maps</h1><p class="brand-sub">Public-land camping planner</p></div>
         <button id="closeSidebar" aria-label="Close panel">✕</button>
       </div>
       <p id="statusLine" class="dev-notice">This app is still in active development. Errors may occur but should be corrected quickly. To report issues contact: <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a></p>
@@ -70,7 +70,7 @@
       <div id="mainTabPanel" class="tab-panel" role="tabpanel">
         <div id="optionsPanel" class="control-home-panel" data-control-panel="options">
           <section class="section control-home-title"><h2>Options</h2><div class="mini-note">Account, map type, adding sites, and reference tools live here.</div></section>
-          <section class="section" id="basemapSection"><h2>Map type</h2><select id="basemapSelect"><option value="topo">Topo</option><option value="opentopo">OpenTopo</option><option value="osm">OpenStreetMap</option><option value="satellite">Satellite</option></select></section>
+          <section class="section" id="basemapSection"><h2>Map type</h2><select id="basemapSelect"><option value="topo">Topo</option><option value="opentopo">OpenTopo</option><option value="osm">OpenStreetMap</option><option value="satellite">Satellite</option></select></section><section class="section" id="appVersionSection"><h2>App version</h2><div class="mini-note">Running <strong id="appVersionText">loading…</strong>. If a newer build is published, the app will require a cache-busted reload.</div></section>
           <section class="section" id="syncSection"><h2>Account / cloud sync</h2><div id="supabaseStatus" class="mini-note">Static fallback mode.</div><form id="sbAuthForm" class="field-grid" style="margin-top:10px;"><div id="accountAuthControls" class="field-grid"><div class="row"><input id="sbEmail" type="email" placeholder="Email" autocomplete="username email"><input id="sbPassword" type="password" placeholder="Password" autocomplete="current-password"></div><div class="row wrap"><button id="sbSignInBtn" class="primary" type="submit">Sign in</button><button id="sbCreateAccountBtn" class="secondary" type="button">Create account</button></div></div><button id="sbSignOutBtn" class="secondary" type="button" hidden>Log out</button><div class="mini-note">Accounts use Supabase Auth. Once signed in, saved routes are tied to that user and can load on another device.</div></form></section>
           <section class="section section-launch" id="toolsSection"><h2>Site tools</h2><button id="openAddSiteBtn" class="primary" type="button">Add a site <span>›</span></button><button id="openQueueBtn" class="secondary" type="button">Manual site queue <span>›</span></button></section>
           <section class="section legend-mobile-wrap" id="mobileLegendSection"><details id="legendPanelMobile" class="legend-mobile"><summary>Map legend</summary><div id="mapLegendMobile" class="legend-mobile-body"></div></details></section>
@@ -100,7 +100,11 @@
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="version.js"></script>
+<script>
+(function(){
+  document.write('<script src="version.js?buildProbe=' + Date.now() + '"><\/script>');
+})();
+</script>
 <script>
 (function(){
   var build = (window.CAMPING_BUILD && window.CAMPING_BUILD.version) || String(Date.now());

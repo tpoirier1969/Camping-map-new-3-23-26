@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.31",
-  "build": "v23.1.31",
+  "version": "v23.1.32",
+  "build": "v23.1.32",
   "released": "2026-06-24",
-  "notes": "UI performance, cache/update gate, location and route controls"
+  "notes": "Hard cache-busted update gate, quieter version display, and reordered map legend layers"
 }

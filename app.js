@@ -3,7 +3,7 @@
 const BUILD=window.CAMPING_BUILD||{};
 const VERSION=BUILD.version||'dev';
 window.CAMPING_RUNTIME_VERSION = VERSION;
-function paintRuntimeVersion(){try{const vt=document.getElementById('versionTag'); if(vt) vt.textContent=VERSION; if(document && document.title && !document.title.includes(VERSION)) document.title='Boondocking & Camping Maps '+VERSION;}catch(_e){}}
+function paintRuntimeVersion(){try{const vt=document.getElementById('appVersionText'); if(vt) vt.textContent=VERSION; if(document) document.title='Boondocking & Camping Maps';}catch(_e){}}
 const DEFAULT_STATE='MI';
 
 /*
@@ -38,15 +38,15 @@ const STORE={states:'campingMap.enabledStates.v22328',layers:'campingMap.layers.
 const SAVED_ROUTES_TABLE='boondocking_saved_routes';
 const ICONS={tent:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M3 18.5 10.8 5h2.4L21 18.5h-3.1l-5.1-9.1-2.9 4.9 1.9 4.2H9.2l-1.5-3.2-1.7 3.2H3Zm6.8 0h4.5l-2.2-5-2.3 5Z\"/></svg>',tree:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"m12 2 4 5h-2.1l3.6 4.5H15l3 3.8h-4.2V22h-3.6v-6.7H6l3-3.8H6.5L10.1 7H8L12 2Z\"/></svg>',camper:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M4 8.5h10.6c.8 0 1.6.4 2.1 1l2.3 2.6H21a1 1 0 0 1 1 1v4.9h-1.7a2.6 2.6 0 0 1-5.1 0H9.8a2.6 2.6 0 0 1-5.1 0H3v-8.5a1 1 0 0 1 1-1Zm1.2 1.8v2.8H14v-2.8H5.2Zm11 3.1h3.2l-1.6-1.8a1.1 1.1 0 0 0-.8-.4h-.8v2.2ZM7.2 19a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Zm10.6 0a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Z\"/></svg>',stopTent:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M9 2.5h6l6.5 6.5v6L15 21.5H9L2.5 15V9L9 2.5Zm2 5.2-4 8h2.4l1-2h3.2l1 2H17l-4-8h-2Zm.9 4.2h.2l1 2h-2.2l1-2Z\"/></svg>',parking:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M6 3h7.4c3 0 5.1 2.1 5.1 5s-2.1 5.1-5.1 5.1H9.6V21H6V3Zm3.6 3.2v3.7h3.4c1.1 0 1.9-.7 1.9-1.9s-.8-1.8-1.9-1.8H9.6Z\"/></svg>',restR:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M6 3h7.2c3 0 5.1 1.9 5.1 4.8 0 2-1 3.5-2.8 4.3l3.3 5h-4.1L12 12.8H9.6V21H6V3Zm3.6 3v3.8h3c1.3 0 2.1-.7 2.1-1.9 0-1.2-.8-1.9-2.1-1.9h-3Z\"/></svg>',backpackerWater:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M10.2 3.3a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4Zm1.7 4.2 2 1.1c.6.3 1 .9 1 1.5V12h-1.8v-1.3l-1.1-.6-.8 2.5 1.9 1.9v3.6h-1.8V15.3l-1.8-1.8-.8 2.4-1.6-.5 1.2-3.8.8-2.4c.3-1 1.2-1.7 2.3-1.7h.5Zm-4.7 3.7 1.5.7-1.4 2.9 1.6 1.6-1.3 1.2-2.4-2.4 2-4Zm9.4 3.3c1.1 0 2 .3 2.9.8l-.8 1.4c-.7-.3-1.3-.5-2.1-.5-1.2 0-1.8.5-2.6 1.1-.8.6-1.7 1.3-3.2 1.3-1.4 0-2.4-.6-3.2-1.3-.7-.5-1.4-1.1-2.6-1.1-.7 0-1.4.2-2 .5L2 16c.9-.5 1.8-.8 2.9-.8 1.7 0 2.7.7 3.5 1.4.7.5 1.2 1 2.3 1 .9 0 1.5-.4 2.2-1 .9-.8 2-1.6 3.7-1.6Zm.9 4c.7 0 1.4.2 2.1.5l-.8 1.4c-.4-.2-.8-.3-1.3-.3-.8 0-1.2.3-1.9.8-.7.5-1.6 1.1-3 1.1-1.3 0-2.2-.6-2.9-1-.6-.4-1-.7-1.8-.7-.5 0-.9.1-1.3.3l-.8-1.4c.7-.3 1.3-.5 2.1-.5 1.3 0 2.2.6 2.9 1 .6.4 1 .7 1.8.7.9 0 1.4-.3 2-.8.8-.5 1.7-1.1 2.9-1.1Z\"/></svg>',info:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 2.8A9.2 9.2 0 1 1 2.8 12 9.2 9.2 0 0 1 12 2.8Zm0 4a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm-1.7 5v1.8h1.1v3.6h-1.1V19h4.5v-1.8h-1.1v-5.4h-3.4Z\"/></svg>',draft:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M4 17.5V20h2.5l8.6-8.6-2.5-2.5L4 17.5Zm12.4-9.9 1.5-1.5a1.2 1.2 0 0 1 1.7 0l.8.8a1.2 1.2 0 0 1 0 1.7l-1.5 1.5-2.5-2.5Z\"/></svg>',navArrow:'<svg viewBox=\"0 0 28 28\"><circle cx=\"14\" cy=\"14\" r=\"11.5\" fill=\"#ffffff\"/><path fill=\"#1e78ff\" d=\"M14 3.8 20.8 21l-6.8-3.2L7.2 21 14 3.8Z\"/><circle cx=\"14\" cy=\"14\" r=\"11.5\" fill=\"none\" stroke=\"rgba(18,69,140,.22)\" stroke-width=\"1\"/></svg>',dot:'<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"6\" fill=\"currentColor\"/></svg>'};
 const LAYERS=[
- {key:'modern',label:'Modern campgrounds',css:'pin-modern',icon:ICONS.camper},
- {key:'rustic',label:'Rustic campgrounds',css:'pin-rustic',icon:ICONS.tent},
- {key:'private',label:'Private campgrounds',css:'pin-private',icon:ICONS.stopTent},
  {key:'boondocking',label:'Boondocking / dispersed',css:'pin-boondocking',icon:ICONS.tree},
+ {key:'rustic',label:'Rustic campgrounds',css:'pin-rustic',icon:ICONS.tent},
+ {key:'modern',label:'Modern campgrounds',css:'pin-modern',icon:ICONS.camper},
+ {key:'private',label:'Private campgrounds',css:'pin-private',icon:ICONS.stopTent},
  {key:'boat-backpack',label:'Boat / Backpack',css:'pin-boat-backpack',icon:ICONS.backpackerWater},
+ {key:'pending',label:'Needs Verification',css:'pin-draft',icon:ICONS.draft},
  {key:'overnight-parking',label:'Overnight parking',css:'pin-parking',icon:ICONS.parking},
  {key:'rest-truck',label:'Rest Areas & Roadside Stops',css:'pin-rest',icon:ICONS.restR},
- {key:'info',label:'Info / reference',css:'pin-info',icon:ICONS.info},
- {key:'pending',label:'Needs Verification',css:'pin-draft',icon:ICONS.draft}
+ {key:'info',label:'Info / reference',css:'pin-info',icon:ICONS.info}
 ];
 const MAP_LAYER_KEYS=new Set(['modern','rustic','private','boondocking','boat-backpack','overnight-parking','rest-truck','pending']);
 const LAYER_CONTROL_KEYS=new Set(['modern','rustic','private','boondocking','boat-backpack','overnight-parking','pending']);
@@ -93,7 +93,7 @@ function layerKey(site){
   if(/reference/.test(raw))return 'info';
   return 'info';
 }
-function layerDef(key){return LAYERS.find(l=>l.key===key)||LAYERS[6];}function markerTypeNotice(site){const key=layerKey(site);const markerType=String(site.markerType||site.marker_type||'').toLowerCase().replace(/-/g,'_');const verification=(String(site.verificationStatus||'')+' '+String(site.validationStatus||'')+' '+String(site.status||'')+' '+String(site.layerLabel||'')+' '+String(site.categoryLabel||'')+' '+String(site.subtype||'')+' '+String(site.name||'')).toLowerCase();if(key==='pending'||site.pending||verification.includes('needs verification')||verification.includes('needs-verification'))return 'Needs Verification — not an import-ready legal camping marker.';if(markerType==='rule_area'||markerType==='rulearea')return 'Rule/permit information marker — not a campsite pin.';if(markerType==='system')return 'Camping system marker — not an individual campsite pin.';return '';}
+function layerDef(key){return LAYERS.find(l=>l.key===key)||LAYERS.find(l=>l.key==='info')||LAYERS[0];}function markerTypeNotice(site){const key=layerKey(site);const markerType=String(site.markerType||site.marker_type||'').toLowerCase().replace(/-/g,'_');const verification=(String(site.verificationStatus||'')+' '+String(site.validationStatus||'')+' '+String(site.status||'')+' '+String(site.layerLabel||'')+' '+String(site.categoryLabel||'')+' '+String(site.subtype||'')+' '+String(site.name||'')).toLowerCase();if(key==='pending'||site.pending||verification.includes('needs verification')||verification.includes('needs-verification'))return 'Needs Verification — not an import-ready legal camping marker.';if(markerType==='rule_area'||markerType==='rulearea')return 'Rule/permit information marker — not a campsite pin.';if(markerType==='system')return 'Camping system marker — not an individual campsite pin.';return '';}
 function notify(msg,ms=3000){const el=$('statusBar');if(!el)return;el.textContent=msg;el.hidden=false;clearTimeout(notify.t);notify.t=setTimeout(()=>el.hidden=true,ms)}
 function setLoading(on,msg){const el=$('mapLoading');if(!el)return;if(msg)el.textContent=msg;el.classList.toggle('hidden',!on);}
 function setLocationStatus(msg){
@@ -124,7 +124,7 @@ function migrateLayerKeys(rawLayers){
 }
 function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
-function initState(){document.title='Boondocking & Camping Maps '+VERSION; const vt=$('versionTag'); if(vt)vt.textContent=VERSION; app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
+function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
 function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=localStorage.getItem(STORE.basemap)||'topo'; (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',updateAreaOutlineLabelVisibility);}
 function retireLegacyLayerControls(){
   // v23.1.30: layer controls now live only in the floating Map layers legend.
@@ -2314,21 +2314,14 @@ function cacheBustedReload(){
   window.location.replace(url.href);
 }
 function showUpdateNotice(remoteVersion){
-  const line=$('statusLine');
-  if(line){
-    line.dataset.lockedNotice='1';
-    line.innerHTML=`Update required: <strong>${esc(remoteVersion)}</strong>. <button id="reloadLatestBtn" class="secondary" type="button" style="margin-left:8px;padding:5px 8px;min-height:0">Reload latest</button>`;
-  }
   if(!$('updateGate')){
     const gate=document.createElement('div');
     gate.id='updateGate';
     gate.className='update-gate';
-    gate.innerHTML=`<div class="update-gate-card" role="dialog" aria-modal="true" aria-label="Update required"><h2>Update required</h2><p>This browser is running <strong>${esc(VERSION)}</strong>, but the live app is <strong>${esc(remoteVersion)}</strong>.</p><p>Reload latest uses a cache-busted refresh so the kiosk/browser quits clinging to old files like a tick on a hound.</p><div class="update-gate-actions"><button id="updateGateReload" class="primary" type="button">Reload latest</button><button id="updateGateDismiss" class="secondary" type="button">Dismiss for now</button></div></div>`;
+    gate.innerHTML=`<div class="update-gate-card" role="dialog" aria-modal="true" aria-label="Update required"><h2>Update required</h2><p>This browser is running <strong>${esc(VERSION)}</strong>, but the live app is <strong>${esc(remoteVersion)}</strong>.</p><p>Reload latest uses a cache-busted refresh so the browser stops using stale map files.</p><div class="update-gate-actions"><button id="updateGateReload" class="primary" type="button">Reload latest</button></div></div>`;
     document.body.appendChild(gate);
   }
-  const reload=$('reloadLatestBtn'); if(reload)reload.onclick=cacheBustedReload;
   const gateReload=$('updateGateReload'); if(gateReload)gateReload.onclick=cacheBustedReload;
-  const dismiss=$('updateGateDismiss'); if(dismiss)dismiss.onclick=()=>{$('updateGate')?.remove();};
 }
 
 function extractBuildVersionFromVersionJs(text){
@@ -2346,10 +2339,9 @@ async function checkForAppUpdate(){
 
 function boot(){initState();initMap();buildControls();initSupabase().catch(()=>{});loadEnabledStates(true).catch(e=>{console.error(e);setLoading(false);notify('Map load failed.');});checkForAppUpdate();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
-// CAMPING_RUNTIME_VERSION_LAST_WORD: repaint after late-loading data/supplement scripts so old helper code cannot leave a stale build badge behind.
 try{
   paintRuntimeVersion();
-  window.addEventListener('load', function(){ paintRuntimeVersion(); setTimeout(paintRuntimeVersion, 250); setTimeout(paintRuntimeVersion, 1000); setTimeout(paintRuntimeVersion, 3000); });
+  window.addEventListener('load', function(){ paintRuntimeVersion(); setTimeout(paintRuntimeVersion, 250); });
 }catch(_e){}
 
 })();

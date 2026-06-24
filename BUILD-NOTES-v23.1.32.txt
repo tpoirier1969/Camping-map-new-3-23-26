@@ -1,0 +1,67 @@
+Tod's Boondocking & Camping Maps — v23.1.32 fixed-files overlay
+
+Baseline:
+- Full uploaded live ZIP: Camping-map-new-3-23-26-main.zip
+- Applied prior fixed-files overlay: v23.1.31_ui_performance_location_routes_FIXED_FILES.zip
+- This package is a fixed-files overlay on top of v23.1.31.
+
+Purpose:
+- Tighten cache/update behavior after Tod observed the visible build flag flickering between stale and current versions.
+- Remove unnecessary prominent version/build flagging from the normal map UI.
+- Keep version identity where it is actually useful: Options > App version and the hard update gate.
+- Reorder map layers in the legend per Tod's requested order.
+
+Changed files:
+- app.js
+- index.html
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.32.txt
+- QA_v23.1.32.txt
+
+Changes:
+1. Version / cache-busting
+- version.js now reports v23.1.32.
+- index.html now loads version.js with a timestamped buildProbe query before loading app/data scripts.
+- app/data/config scripts still load with ?build=<current runtime version>.
+- The update checker still fetches version.js with cache:'no-store' and a timestamp.
+- The stale-version notice is now a hard update gate with one action: Reload latest.
+- Removed the dismiss option from the stale-version gate.
+- Reload latest uses a cache-busted index reload.
+
+2. Visible version behavior
+- Removed the visible Build badge from the main sidebar header.
+- Removed the late repeated build-badge repaint behavior that could make stale/current version flicker more visible.
+- Added a small Options > App version section showing the running build.
+- The document title is no longer rewritten with the build number.
+
+3. Layer legend order
+- Reordered layer controls to:
+  1. Boondocking / dispersed
+  2. Rustic campgrounds
+  3. Modern campgrounds
+  4. Private campgrounds
+  5. Boat / Backpack
+  6. Needs Verification
+  7. Overnight parking
+  8. Official Area Outlines
+- Rest Areas & Roadside Stops and Info / Reference remain non-primary/non-legend layers as before.
+- Updated layerDef fallback so changing LAYERS order does not accidentally make unknown/fallback records display as the wrong layer.
+
+Data impact:
+- No campsite records changed.
+- No source URLs changed.
+- No coordinates changed.
+- No layers changed in data.
+- No counts changed by this package.
+
+Intentionally not changed:
+- config.js was not included.
+- State data and supplements were not included.
+- Area outline data was not included.
+- Icons/marker meanings were not changed.
+
+Install note:
+- This ZIP contains full replacement app/index/version files carrying the v23.1.31 UI/performance work plus the v23.1.32 update/legend changes.
+- Because the changed files are full replacements, install this latest ZIP over the current live package; you do not need to install v23.1.31 separately first.
+- If the browser/kiosk still clings to old files, use the new hard Reload latest gate or force-refresh once after install.
