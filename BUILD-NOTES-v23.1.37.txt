@@ -1,0 +1,21 @@
+Tod's Boondocking & Camping Maps — v23.1.37 UI polish fixed files
+
+Purpose:
+Small UI follow-up after v23.1.36 Kentucky quick exact batch 1.
+
+Changes:
+- State view summary now includes a smaller total-site count, e.g. "Kentucky selected (51 total sites)" or "3 states selected (### total sites)".
+- Find / Nearby controls were rearranged so Nearby actions are at the top of the section.
+- Nearby buttons now use shorter/two-line labels:
+  - Near My / Location
+  - Near Point / on Map
+  - Clear / Nearby
+- "Near This Map Spot" wording changed to "Near Point on Map".
+- Nearby point selection now drops a draggable marker and explains that the point can be dragged.
+- Route map-pick clicks now immediately drop visible draggable route markers for start, stops, and destination.
+- Route-picked markers update the matching route input when dragged.
+- Active mapped routes show draggable start/stop/destination markers as well as route reshape handles.
+
+No campsite data changed.
+No manifest changes.
+No config.js included.

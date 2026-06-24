@@ -1,6 +1,7 @@
 {
-  "version": "v23.1.36",
-  "build": "v23.1.36",
+  "version": "v23.1.37",
+  "build": "v23.1.37",
   "released": "2026-06-24",
-  "notes": "Adds Kentucky quick official exact batch 1: 51 new Kentucky records across Modern, Rustic / Primitive, Boat / Backpack, Boondocking / Dispersed, and Private layers; adds Area Outlines legend caution note."
+  "label": "Boondocking & Camping Maps v23.1.37",
+  "notes": "Small UI update: state total counts, Nearby layout, and visible draggable map-picked route/Nearby points."
 }

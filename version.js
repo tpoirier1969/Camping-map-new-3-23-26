@@ -1,2 +1,3 @@
-// Tod's Boondocking & Camping Maps — runtime build identity
-window.CAMPING_BUILD = Object.freeze({version:'v23.1.36'});
+window.CAMPING_APP_VERSION = 'v23.1.37';
+window.CAMPING_APP_BUILD = 'v23.1.37';
+window.CAMPING_APP_RELEASED = '2026-06-24';

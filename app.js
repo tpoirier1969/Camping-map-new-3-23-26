@@ -136,8 +136,35 @@ function buildControls(){retireLegacyLayerControls(); buildStateSelect(); buildL
 function buildStateSelect(){buildStateChecklist(); syncStateControls();}
 function mappedStateEntries(){return manifestEntries().filter(s=>Number(s.count||0)>0 || s.file || (Array.isArray(s.files)&&s.files.length))}
 function buildStateChecklist(){const box=$('stateChecklist'); if(!box)return; const rows=mappedStateEntries(); box.innerHTML=rows.map(s=>`<label class="state-check"><input type="checkbox" data-state-code="${esc(s.code)}"><span>${esc(s.name||s.code)}</span><em class="state-count-pill">${Number(s.count||0)}</em></label>`).join('');}
-function selectedStateSummary(){const n=app.enabledStates.size; const mapped=mappedStateEntries().length; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); if(!app.localAreaCenter)return 'Nearby: locating…'; if(codes.length===0)return `Nearby: ${nearRadiusMiles()} mi`; if(codes.length===1)return `Nearby: ${stateLabel(codes[0])}`; return `Nearby: ${codes.length} states in range`;} if(n===0)return 'No states selected'; if(n===1)return `${stateLabel([...app.enabledStates][0])} selected`; if(n===mapped)return `All ${mapped} mapped states`; return `${n} states selected`;}
-function syncStateControls(){const activeUiStates=app.nearMeActive?new Set(nearMeVisibleStateCodes()):app.enabledStates; $$('[data-state-code]').forEach(cb=>{cb.checked=activeUiStates.has(cb.dataset.stateCode)}); const summary=$('stateSelectionSummary'); if(summary)summary.textContent=selectedStateSummary(); const note=$('stateSelectionNote'); if(note){const n=app.enabledStates.size; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); const names=codes.map(stateLabel).join(', '); note.textContent=app.localAreaCenter?(codes.length?`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. Visible result states: ${names}.`:`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. No visible results are currently inside the radius.`):'Nearby search is getting your location…';}else{note.textContent=n===0?'No states selected. Choose one or more states to load map data.':(n===1?`${stateLabel([...app.enabledStates][0])} selected.`:`${n} states selected. The map will zoom to the combined selected area.`);}}}
+function selectedStateTotalSites(codes){
+  const rows=manifestEntries();
+  const selected=Array.isArray(codes)?codes.filter(Boolean):selectedStateCodes();
+  const byCode=new Map(rows.map(s=>[String(s.code||'').toUpperCase(),Number(s.count||0)]));
+  return selected.reduce((sum,code)=>sum+(Number(byCode.get(String(code||'').toUpperCase()))||0),0);
+}
+function selectedStateSummaryParts(){
+  const n=app.enabledStates.size;
+  const mapped=mappedStateEntries().length;
+  if(app.nearMeActive){
+    const codes=nearMeVisibleStateCodes();
+    if(!app.localAreaCenter)return {text:'Nearby: locating…',total:null};
+    if(codes.length===0)return {text:`Nearby: ${nearRadiusMiles()} mi`,total:0};
+    if(codes.length===1)return {text:`Nearby: ${stateLabel(codes[0])}`,total:selectedStateTotalSites(codes)};
+    return {text:`Nearby: ${codes.length} states in range`,total:selectedStateTotalSites(codes)};
+  }
+  if(n===0)return {text:'No states selected',total:0};
+  const codes=[...app.enabledStates];
+  if(n===1)return {text:`${stateLabel(codes[0])} selected`,total:selectedStateTotalSites(codes)};
+  if(n===mapped)return {text:`All ${mapped} mapped states`,total:selectedStateTotalSites(codes)};
+  return {text:`${n} states selected`,total:selectedStateTotalSites(codes)};
+}
+function selectedStateSummaryHtml(){
+  const p=selectedStateSummaryParts();
+  const total=Number(p.total);
+  const suffix=Number.isFinite(total)?` <small>(${total} total site${total===1?'':'s'})</small>`:'';
+  return `${esc(p.text)}${suffix}`;
+}
+function syncStateControls(){const activeUiStates=app.nearMeActive?new Set(nearMeVisibleStateCodes()):app.enabledStates; $$('[data-state-code]').forEach(cb=>{cb.checked=activeUiStates.has(cb.dataset.stateCode)}); const summary=$('stateSelectionSummary'); if(summary)summary.innerHTML=selectedStateSummaryHtml(); const note=$('stateSelectionNote'); if(note){const n=app.enabledStates.size; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); const names=codes.map(stateLabel).join(', '); note.textContent=app.localAreaCenter?(codes.length?`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. Visible result states: ${names}.`:`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. No visible results are currently inside the radius.`):'Nearby search is getting your location…';}else{note.textContent=n===0?'No states selected. Choose one or more states to load map data.':(n===1?`${stateLabel([...app.enabledStates][0])} selected.`:`${n} states selected. The map will zoom to the combined selected area.`);}}}
 function stateLabel(code){const row=manifestEntries().find(s=>s.code===code); return row?(row.name||row.code):code}
 function clearNearMeMode(){app.nearMeActive=false;app.nearPickMode=false;app.liveLocationLoading=false;app.liveLocationLastLoadCenter=null;if(app.liveLocationWatchId!=null&&navigator.geolocation){navigator.geolocation.clearWatch(app.liveLocationWatchId);app.liveLocationWatchId=null;}app.liveLocationStarted=false;}
 async function setEnabledStates(codes,fit=true){
@@ -339,19 +366,68 @@ function routeStopInputs(){return $$('[data-route-stop]').map(i=>i.value.trim())
 function routePlaceInputs(){return [$('routeStart')?.value.trim()||'',...routeStopInputs(),$('routeEnd')?.value.trim()||''].filter(Boolean);}
 function addRouteStopInput(value=''){
   const box=$('routeStops');
-  if(!box)return;
+  if(!box)return null;
   const row=document.createElement('div');
   row.className='route-stop-row';
   row.innerHTML=`<input type="text" data-route-stop placeholder="Optional stop / waypoint" value="${esc(value)}"><button class="secondary" type="button" aria-label="Remove stop">Remove</button>`;
-  row.querySelector('button').onclick=()=>row.remove();
+  const input=row.querySelector('input');
+  row.querySelector('button').onclick=()=>{row.remove();drawRouteLine();};
+  if(input)input.addEventListener('change',()=>drawRouteLine());
   box.appendChild(row);
+  return input;
 }
 function latLngFieldValue(ll){return `${Number(ll.lat).toFixed(6)}, ${Number(ll.lng).toFixed(6)}`;}
+function routePointMarkerIcon(kind,index){
+  const text=kind==='start'?'A':(kind==='end'?'B':String(index+1));
+  const cls=kind==='start'?'route-point-start':(kind==='end'?'route-point-end':'route-point-stop');
+  return L.divIcon({className:'',html:`<span class="route-point-marker ${cls}">${esc(text)}</span>`,iconSize:[28,28],iconAnchor:[14,14],popupAnchor:[0,-14]});
+}
+function routePointEntries(){
+  const entries=[];
+  const startInput=$('routeStart');
+  const endInput=$('routeEnd');
+  const stopInputs=$$('[data-route-stop]');
+  const inputs=[startInput,...stopInputs,endInput].filter(Boolean);
+  const base=Array.isArray(app.routeSearch.basePoints)?app.routeSearch.basePoints:[];
+  inputs.forEach((input,idx)=>{
+    const kind=idx===0?'start':(idx===inputs.length-1?'end':'stop');
+    const stopIndex=Math.max(0,idx-1);
+    const label=kind==='start'?'Start':(kind==='end'?'Destination':`Stop ${stopIndex+1}`);
+    const parsed=parseLatLngText(input.value);
+    const p=(app.routeSearch.active&&base[idx]&&Number.isFinite(Number(base[idx].lat))&&Number.isFinite(Number(base[idx].lng)))?base[idx]:parsed;
+    if(p&&Number.isFinite(Number(p.lat))&&Number.isFinite(Number(p.lng))){
+      entries.push({input,idx,kind,stopIndex,label,lat:Number(p.lat),lng:Number(p.lng)});
+    }
+  });
+  return entries;
+}
+function updateRouteBasePointFromMarker(entry,ll){
+  const value=latLngFieldValue(ll);
+  if(entry.input)entry.input.value=value;
+  if(app.routeSearch.active&&Array.isArray(app.routeSearch.basePoints)&&app.routeSearch.basePoints[entry.idx]){
+    app.routeSearch.basePoints[entry.idx].lat=Number(ll.lat);
+    app.routeSearch.basePoints[entry.idx].lng=Number(ll.lng);
+    app.routeSearch.basePoints[entry.idx].label=value;
+    rerouteWithShapePoints(true);
+  }else{
+    drawRouteLine();
+    notify(`${entry.label} moved to ${value}.`);
+  }
+}
+function addRoutePointMarkers(){
+  if(!app.routeSearch.layer)return;
+  routePointEntries().forEach(entry=>{
+    const marker=L.marker([entry.lat,entry.lng],{icon:routePointMarkerIcon(entry.kind,entry.stopIndex),draggable:true,keyboard:true,title:`${entry.label} — drag to adjust`});
+    marker.bindTooltip(entry.label,{direction:'top',offset:[0,-16],opacity:.92});
+    marker.on('dragend',()=>updateRouteBasePointFromMarker(entry,marker.getLatLng()));
+    app.routeSearch.layer.addLayer(marker);
+  });
+}
 function beginRouteMapPick(mode){
   app.routeSearch.pickMode=mode;
   app.nearPickMode=false;
   const label=mode==='start'?'route start':(mode==='end'?'route destination':'route stop');
-  notify(`Click the map to set the ${label}.`);
+  notify(`Click the map to set the ${label}. A marker will appear so you can drag it if needed.`);
 }
 function applyRouteMapPick(ll){
   const value=latLngFieldValue(ll);
@@ -360,7 +436,8 @@ function applyRouteMapPick(ll){
   else if(mode==='end'&&$('routeEnd'))$('routeEnd').value=value;
   else if(mode==='stop')addRouteStopInput(value);
   app.routeSearch.pickMode=null;
-  notify('Route point added from map click.');
+  drawRouteLine();
+  notify(`Route point added at ${value}. Drag its marker to adjust it.`);
   return true;
 }
 function handleMapPickClick(ll){
@@ -712,22 +789,25 @@ function routePointsWithShapes(){
 }
 function drawRouteLine(){
   if(app.routeSearch.layer)app.routeSearch.layer.clearLayers();
+  if(!app.routeSearch.layer)return;
   const coords=app.routeSearch.coords||[];
-  if(!coords.length||!app.routeSearch.layer)return;
-  const line=L.polyline(coords.map(p=>[p.lat,p.lng]),{color:'#246ad4',weight:7,opacity:.82,lineCap:'round',lineJoin:'round',interactive:true});
-  line.on('click',e=>addRouteShapePoint(e.latlng));
-  app.routeSearch.layer.addLayer(line);
-  (app.routeSearch.shapePoints||[]).forEach((pt,idx)=>{
-    const marker=L.marker([pt.lat,pt.lng],{icon:routeHandleIcon(),draggable:true,keyboard:true,title:'Drag to reshape route'});
-    marker.on('dragend',()=>{
-      const ll=marker.getLatLng();
-      app.routeSearch.shapePoints[idx].lat=ll.lat;
-      app.routeSearch.shapePoints[idx].lng=ll.lng;
-      rerouteWithShapePoints(true);
+  if(coords.length){
+    const line=L.polyline(coords.map(p=>[p.lat,p.lng]),{color:'#246ad4',weight:7,opacity:.82,lineCap:'round',lineJoin:'round',interactive:true});
+    line.on('click',e=>addRouteShapePoint(e.latlng));
+    app.routeSearch.layer.addLayer(line);
+    (app.routeSearch.shapePoints||[]).forEach((pt,idx)=>{
+      const marker=L.marker([pt.lat,pt.lng],{icon:routeHandleIcon(),draggable:true,keyboard:true,title:'Drag to reshape route'});
+      marker.on('dragend',()=>{
+        const ll=marker.getLatLng();
+        app.routeSearch.shapePoints[idx].lat=ll.lat;
+        app.routeSearch.shapePoints[idx].lng=ll.lng;
+        rerouteWithShapePoints(true);
+      });
+      marker.on('click',e=>{if(e.originalEvent&&e.originalEvent.altKey){app.routeSearch.shapePoints.splice(idx,1);rerouteWithShapePoints(true);}});
+      app.routeSearch.layer.addLayer(marker);
     });
-    marker.on('click',e=>{if(e.originalEvent&&e.originalEvent.altKey){app.routeSearch.shapePoints.splice(idx,1);rerouteWithShapePoints(true);}});
-    app.routeSearch.layer.addLayer(marker);
-  });
+  }
+  addRoutePointMarkers();
 }
 function addRouteShapePoint(latlng){
   if(!(app.routeSearch&&app.routeSearch.active)){return;}
@@ -2255,7 +2335,10 @@ function mappedStatesNearLocation(lat,lng){const codes=mappedStateEntries().map(
 function setNearCenterMarker(ll,label='Nearby center'){
   const latLng=L.latLng(ll[0],ll[1]);
   const icon=L.divIcon({className:'',html:`<span class="map-pin pin-boondocking">${ICONS.dot}</span>`,iconSize:[22,22],iconAnchor:[11,11],popupAnchor:[0,-10]});
-  if(app.nearCenterMarker){app.nearCenterMarker.setLatLng(latLng);}else{app.nearCenterMarker=L.marker(latLng,{icon}).addTo(app.map).bindPopup(label);}
+  if(app.nearCenterMarker){app.nearCenterMarker.setLatLng(latLng);}else{
+    app.nearCenterMarker=L.marker(latLng,{icon,draggable:true,title:'Nearby center — drag to move'}).addTo(app.map).bindPopup(label);
+    app.nearCenterMarker.on('dragend',()=>{const p=app.nearCenterMarker.getLatLng();applyNearMapLocation(Number(p.lat),Number(p.lng));});
+  }
 }
 async function applyNearMapLocation(lat,lng){
   if(!Number.isFinite(lat)||!Number.isFinite(lng)){notify('That map spot does not have usable coordinates.');return;}
@@ -2273,7 +2356,7 @@ async function applyNearMapLocation(lat,lng){
   try{await loadEnabledStates(false);fitNearMeRadius([lat,lng]);}
   finally{setLoading(false);}
 }
-function beginNearMapPick(){app.nearPickMode=true;app.routeSearch.pickMode=null;notify('Click the map center for Nearby search.');setLocationStatus('Click the map to choose a Nearby search center.');}
+function beginNearMapPick(){app.nearPickMode=true;app.routeSearch.pickMode=null;notify('Click the map to choose a Nearby center. A marker will appear and can be dragged.');setLocationStatus('Click the map to choose a Nearby search center.');}
 function clearNearbyMode(){clearNearMeMode();if(app.nearCenterMarker){app.nearCenterMarker.remove();app.nearCenterMarker=null;}if(app.userMarker){app.userMarker.remove();app.userMarker=null;}if(app.userAccuracyCircle){app.userAccuracyCircle.remove();app.userAccuracyCircle=null;}setLocationStatus('Nearby search is off.');syncStateControls();renderMarkers(true);notify('Nearby search cleared.');}
 function showUserMarker(ll,accuracyMeters){
   const latLng=L.latLng(ll[0],ll[1]);

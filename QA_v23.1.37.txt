@@ -1,0 +1,20 @@
+QA — v23.1.37
+
+Static checks:
+- node --check app.js: PASS
+- version.js reports v23.1.37
+- version.json reports v23.1.37
+
+Manual/visual checks expected after install:
+- State view summary shows selected-state text plus smaller "(x total sites)" count.
+- Find / Nearby section shows Nearby action buttons at the top.
+- Nearby button wording is: Near My Location, Near Point on Map, Clear Nearby, split over two lines.
+- Near Point on Map click creates a visible draggable nearby-center marker.
+- Route Pick on map for start/stop/destination creates a visible draggable route marker immediately.
+- Dragging a route marker updates the corresponding coordinate input.
+- Active route line still draws and route reshape handles still work.
+
+Regression reminders:
+- v23.1.36 Kentucky count should remain 51.
+- v23.1.35 Montana count should remain 170.
+- s966 Wagon Wheel Campground should remain removed/inactive.
