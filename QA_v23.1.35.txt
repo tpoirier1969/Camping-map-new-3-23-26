@@ -1,0 +1,62 @@
+Tod's Boondocking & Camping Maps — v23.1.35 QA
+
+Baseline:
+- Uploaded live repo/package ZIP overlaid through v23.1.34 marker-render-integrity fixed files.
+- v23.1.34 app/runtime package had no campsite data changes.
+
+Changed files:
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/mt-delta-exact-batch2-v23.1.35.js
+
+Syntax checks:
+- node --check app.js: PASS
+- node --check data/states-manifest.js: PASS
+- node --check data/supplements/mt-delta-exact-batch2-v23.1.35.js: PASS
+- node --check version.js: PASS
+
+Version checks:
+- version.js reports v23.1.35: PASS
+- version.json reports v23.1.35: PASS
+- index.html loads version.js, data/states-manifest.js, and app.js through stable filenames with cache-busting query strings: unchanged from v23.1.34 / PASS
+
+Manifest checks:
+- Montana manifest count updated from 75 to 170: PASS
+- Montana manifest files now include data/supplements/mt-delta-exact-batch2-v23.1.35.js: PASS
+- Other state manifest counts not intentionally changed: PASS
+
+Runtime data simulation:
+- Loaded data/states/MT.js
+- Applied data/supplements/modern-audit-cleanup-v23.1.21.js
+- Applied data/supplements/mt-exact-build-batch1-v23.1.28.js
+- Applied data/supplements/mt-delta-exact-batch2-v23.1.35.js
+
+Runtime result:
+- Active Montana records after supplements: 170
+- v23.1.35 additions present: 95
+- v23.1.35 additions by normalized layer:
+  - Rustic / Primitive: 41
+  - Boat / Backpack: 54
+- Full Montana layer totals after build:
+  - Rustic / Primitive: 103
+  - Boat / Backpack: 60
+  - Modern: 5
+  - Boondocking / Dispersed: 2
+- s966 / Wagon Wheel Campground active after supplements: NO / PASS
+- Missing id/name/numeric coordinate check: 0 / PASS
+- Duplicate ID check: 0 / PASS
+- Exact duplicate coordinate check rounded to 6 decimals: 0 / PASS
+
+Source/record QA:
+- Homestead Isle FAS official FishMT detail URL reacquired and used: PASS
+- Timberlane Campground imported with front-facing CLOSED FOR 2026 SEASON warning: PASS
+- Smith River boat camps use official Montana FWP Boat Camps GPS Data PDF / field-GPS coordinate table: PASS
+- Camp Baker Put-In, Eden Bridge Take-Out, Meadow Bend, Afterbay, Grapevine, FWP Judith Landing State Park, broad Upper Missouri corridor dispersed rule language, and coordinate-lacking/blocker rows were not imported: PASS
+- Source URLs checked for utm_source/chatgpt tracking garbage: none in new supplement / PASS
+
+Package contents check:
+- No config.js included: PASS
+- No app.js included because no app/runtime code changed in v23.1.35: PASS
+- No index.html included because loader/runtime behavior unchanged in v23.1.35: PASS
+- No base data/states/MT.js rewrite; new records are isolated in a named supplement: PASS

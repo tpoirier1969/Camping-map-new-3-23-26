@@ -1,0 +1,26 @@
+Tod's Boondocking & Camping Maps — v23.1.35
+
+Build: Montana delta exact official-source batch 2
+Date: 2026-06-24
+Baseline: uploaded live repo/package ZIP overlaid through v23.1.34 marker-render-integrity fixed files.
+
+Changed files:
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/mt-delta-exact-batch2-v23.1.35.js
+
+Data changes:
+- Montana active manifest count: 75 -> 170.
+- Added 95 Montana official-source records.
+- Layer impact: +41 Rustic / Primitive; +54 Boat / Backpack.
+- No Modern, Private, Boondocking / Dispersed, Needs Verification, Overnight Parking, Rest Areas, or Info / Reference adds.
+- No existing campsite records removed.
+- s966 Wagon Wheel Campground remains stale/removed by the existing modern-audit cleanup supplement.
+
+Notable handling:
+- Homestead Isle FAS was verified to official FishMT detail URL and included as Boat / Backpack / water-access island camping.
+- Timberlane Campground included with a front-facing CLOSED FOR 2026 SEASON warning.
+- Smith River boat camps use the official Montana FWP Boat Camps GPS Data PDF / field-GPS coordinates.
+- Camp Baker Put-In, Eden Bridge Take-Out, Meadow Bend, Afterbay, Grapevine, FWP Judith Landing State Park, broad Upper Missouri corridor dispersed rule language, and other coordinate-lacking/blocker rows were not imported.
+- Source URLs were cleaned; utm_source/chatgpt tracking parameters were stripped.
