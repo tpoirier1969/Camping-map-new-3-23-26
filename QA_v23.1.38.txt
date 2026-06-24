@@ -1,0 +1,48 @@
+QA — v23.1.38
+
+Baseline used:
+- Full uploaded repo/package ZIP.
+- Overlaid fixed-files v23.1.31 through v23.1.37 before applying v23.1.38.
+- PROJECT_RULES.md reviewed before build.
+
+Data change:
+- Added 6 Kentucky State Parks / ReserveAmerica exact-coordinate campground records.
+- All 6 additions are Modern Campgrounds.
+- Kentucky active count increases from 51 to 57.
+
+Expected Kentucky counts after build:
+- Total Kentucky records: 57
+- Modern Campgrounds: 25
+- Rustic / Primitive: 20
+- Boat / Backpack: 8
+- Boondocking / Dispersed: 2
+- Private Campgrounds: 2
+
+Expected v23.1.38 add counts:
+- Modern Campgrounds: 6
+- Total adds: 6
+
+Checks performed:
+- node --check app.js: pass.
+- node --check index-loaded app not required; index is static HTML carried forward from v23.1.37.
+- node --check data/states-manifest.js: pass.
+- node --check data/states/KY.js: pass.
+- node --check data/supplements/ky-state-parks-rescue-v23.1.38.js: pass.
+- Runtime load simulation for KY base + v23.1.38 supplement: pass.
+- Kentucky before supplement: 51.
+- Kentucky after supplement: 57.
+- v23.1.38 additions loaded: 6.
+- Duplicate ID check: 0 duplicates.
+- Exact duplicate coordinate check: 0 duplicates.
+- Missing id/name/coordinate check: 0 missing.
+- Layer count check: matches expected.
+- Source URL cleanup check for utm_source/chatgpt tracking garbage: 0 bad URLs found.
+
+Known held blockers:
+- Jenny Wiley kayak/canoe access-only campsites: official camping proof exists, but exact separate paddle-access site coordinates are still needed.
+- Yatesville Lake kayak/canoe access-only campsites: official camping proof exists, but exact separate B01–B16 / hike-in site coordinates are still needed.
+- LBL requires official Recreation Sites ZIP / USDA INFRA / GIS extraction.
+- USACE/Recreation.gov requires RIDB/API/USACE GIS or official map coordinates.
+- NPS Mammoth Cave / Big South Fork frontcountry and backcountry targets require NPS GIS/RIDB/campsite coordinate extraction.
+- KYTC rest areas require RestAreaLocations MapServer export/query.
+- Private campground blocked leads require operator-published coordinates or direct operator confirmation.

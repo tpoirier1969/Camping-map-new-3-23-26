@@ -1,0 +1,28 @@
+Tod’s Boondocking & Camping Maps — v23.1.38
+Kentucky State Parks coordinate rescue batch
+
+Changed files:
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/ky-state-parks-rescue-v23.1.38.js
+
+Data changes:
+- Adds 6 Kentucky State Parks / ReserveAmerica exact-coordinate campground records.
+- All 6 are Modern Campgrounds.
+- Kentucky active count increases from 51 to 57.
+
+Added records:
+1. Lake Malone State Park Campground
+2. Nolin Lake State Park Campground
+3. Paintsville Lake State Park Campground
+4. Pennyrile Forest State Resort Park Campground / Equestrian
+5. Taylorsville Lake State Park Campground / Equestrian
+6. Yatesville Lake State Park Main Campground / Pleasant Ridge
+
+Held out:
+- Jenny Wiley kayak/canoe access-only campsites — official camping proof exists, but exact separate campsite coordinates were not available.
+- Yatesville Lake kayak/canoe access-only campsites — official camping proof exists, but exact separate B01–B16 / hike-in site coordinates were not available.
+- LBL, USACE/Recreation.gov, NPS Mammoth/Big South Fork, KYTC rest areas, and blocked private/operator rows remain external-access follow-up targets.
+
+No app/UI changes in this revision. v23.1.37 UI changes are preserved in the live baseline.
