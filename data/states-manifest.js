@@ -11,6 +11,7 @@ window.CAMPING_STATES_MANIFEST = {
   "IL": {"code":"IL","name":"Illinois","file":"data/states/IL.js","count":100},
   "IN": {"code":"IN","name":"Indiana","file":"data/states/IN.js","count":5},
   "IA": {"code":"IA","name":"Iowa","file":"data/states/IA.js","count":16},
+  "KY": {"code":"KY","name":"Kentucky","file":"data/states/KY.js","count":51,"files":["data/states/KY.js"],"dynamicSources":["v23.1.36: Kentucky quick official exact batch 1 adds 51 records from official/operator proof returns: 19 Modern, 20 Rustic / Primitive, 8 Boat / Backpack, 2 Boondocking / Dispersed, and 2 Private Campgrounds. LBL, USACE/Recreation.gov, rest-area GIS, and coordinate-lacking leads are intentionally held for follow-up extraction."]},
   "LA": {"code":"LA","name":"Louisiana","file":"data/states/LA.js","count":3,"files":["data/states/LA.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
   "ME": {"code":"ME","name":"Maine","file":"data/states/ME.js","count":6},
   "MI": {"code":"MI","name":"Michigan","file":"data/states/MI.js","count":660,"files":["data/states/MI.js","data/states/MI2.js","data/supplements/mi-exact-rustic-primitive-v23.0.84.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},

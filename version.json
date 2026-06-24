@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.35",
-  "build": "v23.1.35",
+  "version": "v23.1.36",
+  "build": "v23.1.36",
   "released": "2026-06-24",
-  "notes": "Adds Montana delta exact official-source batch 2: 95 new Montana records, 41 Rustic / Primitive and 54 Boat / Backpack. No app/runtime code changes."
+  "notes": "Adds Kentucky quick official exact batch 1: 51 new Kentucky records across Modern, Rustic / Primitive, Boat / Backpack, Boondocking / Dispersed, and Private layers; adds Area Outlines legend caution note."
 }

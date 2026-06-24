@@ -1,0 +1,40 @@
+Tod's Boondocking & Camping Maps — v23.1.36
+
+Build: Kentucky quick official exact batch 1 + small Area Outlines UI note
+Date: 2026-06-24
+Baseline: uploaded live repo/package ZIP overlaid sequentially through v23.1.35 Montana delta exact batch 2.
+
+Changed files:
+- version.js
+- version.json
+- app.js
+- index.html
+- data/states-manifest.js
+- data/states/KY.js
+
+Data changes:
+- Adds Kentucky as a mapped state.
+- Kentucky active manifest count: 0 -> 51.
+- Added 51 official/operator-source Kentucky records.
+- Layer impact: +19 Modern Campgrounds; +20 Rustic / Primitive; +8 Boat / Backpack; +2 Boondocking / Dispersed; +2 Private Campgrounds.
+- No Overnight Parking, Rest Areas & Roadside Stops, Needs Verification, or Info / Reference adds.
+- No existing campsite records removed.
+
+Source-system handling:
+- Kentucky State Parks: 23 build-ready official reservation/GPS records imported.
+- Daniel Boone NF: 21 build-ready official USFS records imported; Twin Knobs Group Campground rejected as separate stacked duplicate and folded into main Twin Knobs notes.
+- NPS Kentucky: 5 Cumberland Gap NHP exact backcountry campsite records imported.
+- Private/operator lane: 2 KOA operator-coordinate records imported.
+- Land Between the Lakes: held out; official camping proof exists but exact official coordinate extraction requires LBL Recreation Sites ZIP or USDA INFRA/GIS acquisition.
+- USACE/Recreation.gov lake campgrounds: held out; official pages prove facilities but exact facility coordinates were not exposed in the worker pass.
+- KYTC rest areas: held out pending official GIS point extraction.
+
+UI change:
+- The Official Area Outlines checkbox in the Map Layers legend now includes a note: “Works best with one or two states selected; may pause for larger selections.”
+
+Cautions preserved:
+- Paragon Dispersed Camping Area imports with a temporary-closure/high-water warning from the USFS source used.
+- Cumberland Falls and Kentucky Dam Village import with status/closure verification cautions from the KSP reservation-source text used by workers.
+
+URL hygiene:
+- Tracking parameters such as utm_source and _ga were stripped from source URLs.

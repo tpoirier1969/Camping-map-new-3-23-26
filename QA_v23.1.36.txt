@@ -1,0 +1,58 @@
+Tod's Boondocking & Camping Maps — v23.1.36 QA
+
+Baseline:
+- Uploaded live repo/package ZIP overlaid sequentially through v23.1.35 Montana delta exact batch 2.
+- PROJECT_RULES.md reviewed before build.
+
+Changed files checked:
+- app.js
+- index.html
+- version.js
+- version.json
+- data/states-manifest.js
+- data/states/KY.js
+
+Syntax checks:
+- node --check app.js: PASS
+- node --check data/states-manifest.js: PASS
+- node --check data/states/KY.js: PASS
+
+Version checks:
+- version.js reports v23.1.36: PASS
+- version.json reports v23.1.36: PASS
+
+Kentucky runtime simulation:
+- Manifest KY count: 51
+- Loaded KY count: 51
+- Layer counts:
+  - Modern Campgrounds: 19
+  - Rustic / Primitive: 20
+  - Boat / Backpack: 8
+  - Boondocking / Dispersed: 2
+  - Private Campgrounds: 2
+  - Overnight Parking: 0
+  - Rest Areas & Roadside Stops: 0
+  - Needs Verification: 0
+  - Info / Reference: 0
+- KY duplicate IDs: 0
+- KY exact duplicate coordinates: 0
+- KY missing IDs/names/coordinates: 0
+- Source URL tracking junk check: PASS; no utm/chatgpt/_ga parameters in KY source URLs.
+
+Montana regression check:
+- Manifest MT count: 170
+- Loaded MT count: 170
+- v23.1.35 Montana additions still loaded: 95
+- s966 Wagon Wheel Campground remains inactive/removed: PASS
+
+UI check:
+- Official Area Outlines legend checkbox now includes the note: “Works best with one or two states selected; may pause for larger selections.”
+- Existing v23.1.34 marker-render-integrity logic preserved.
+- No config.js included.
+
+Known held-out Kentucky systems:
+- Land Between the Lakes: official camping proof exists, but exact official coordinates require LBL Recreation Sites ZIP / USDA INFRA / GIS extraction.
+- USACE/Recreation.gov lake campgrounds: official facility proof exists, but exact coordinates require Recreation.gov/RIDB/API/GIS extraction.
+- KYTC rest areas: official rest-area system exists, but exact point extraction requires KYTC GIS.
+- Mammoth Cave / Big South Fork campgrounds and Mammoth Cave backcountry: official proof exists, but exact facility/campsite coordinates require NPS GIS or Recreation.gov/RIDB metadata.
+- Additional Kentucky State Parks blocked rows require reservation metadata, official campground map, GIS, or working direct campground detail URLs.
