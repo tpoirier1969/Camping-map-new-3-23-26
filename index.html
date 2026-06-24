@@ -44,6 +44,13 @@
 .update-gate-card p{margin:8px 0;color:var(--muted);line-height:1.4}
 .update-gate-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 
+.version-badge{display:inline-flex;align-items:center;gap:6px;margin-top:6px;width:max-content;padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.26);color:#fff;font-size:.76rem;font-weight:800;letter-spacing:.01em}
+.legend-zoom-tools{display:grid;gap:4px;margin:6px 0 8px;padding:7px 8px;border:1px solid rgba(40,93,66,.16);border-radius:12px;background:rgba(255,255,255,.72)}
+.legend-zoom-tools label{display:grid;grid-template-columns:auto auto;gap:4px 8px;align-items:center;font-size:.78rem;font-weight:800;color:#274634}
+.legend-zoom-tools input[type=range]{grid-column:1 / -1;width:100%;padding:0;box-shadow:none}
+.map-legend-panel.collapsed{max-width:min(310px,calc(100vw - 32px))}
+.map-legend-panel.collapsed .legend-zoom-tools{margin-bottom:0}
+
 </style>
 </head>
 <body class="desktop-panel-active desktop-mode-where">
@@ -56,7 +63,7 @@
     <div class="sidebar-scroll">
       <div class="panel-head">
         <img class="brand-icon" src="assets/icon-192.png" alt="Boondocking and Camping Maps icon">
-        <div><h1>Boondocking<br>&amp; Camping Maps</h1><p class="brand-sub">Public-land camping planner</p></div>
+        <div><h1>Boondocking<br>&amp; Camping Maps</h1><p class="brand-sub">Public-land camping planner</p><span id="appVersionBadge" class="version-badge">loading…</span></div>
         <button id="closeSidebar" aria-label="Close panel">✕</button>
       </div>
       <p id="statusLine" class="dev-notice">This app is still in active development. Errors may occur but should be corrected quickly. To report issues contact: <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a></p>

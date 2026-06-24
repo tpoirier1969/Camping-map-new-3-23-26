@@ -3,7 +3,7 @@
 const BUILD=window.CAMPING_BUILD||{};
 const VERSION=BUILD.version||'dev';
 window.CAMPING_RUNTIME_VERSION = VERSION;
-function paintRuntimeVersion(){try{const vt=document.getElementById('appVersionText'); if(vt) vt.textContent=VERSION; if(document) document.title='Boondocking & Camping Maps';}catch(_e){}}
+function paintRuntimeVersion(){try{const vt=document.getElementById('appVersionText'); if(vt) vt.textContent=VERSION; const vb=document.getElementById('appVersionBadge'); if(vb) vb.textContent=VERSION; if(document) document.title='Boondocking & Camping Maps';}catch(_e){}}
 const DEFAULT_STATE='MI';
 
 /*
@@ -125,7 +125,7 @@ function migrateLayerKeys(rawLayers){
 function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
-function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=localStorage.getItem(STORE.basemap)||'topo'; (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',updateAreaOutlineLabelVisibility);}
+function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=localStorage.getItem(STORE.basemap)||'topo'; (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();});}
 function retireLegacyLayerControls(){
   // v23.1.30: layer controls now live only in the floating Map layers legend.
   // Remove stale cached layer panels so their duplicate IDs do not steal button/change handlers.
@@ -158,14 +158,36 @@ function legendCollapsedStored(){try{return localStorage.getItem('campingMap.leg
 function legendAreaOutlineOn(){try{return localStorage.getItem(STORE.areaOutlines)==='1'}catch(e){return false}}
 function setLegendCollapsed(collapsed){const panel=$('mapLegendDesktop');if(!panel)return;panel.classList.toggle('collapsed',!!collapsed);const btn=$('legendToggleDesktop');if(btn){btn.setAttribute('aria-expanded',String(!collapsed));btn.setAttribute('aria-label',collapsed?'Expand map legend':'Shrink map legend')}try{localStorage.setItem('campingMap.legendCollapsed.v1',collapsed?'1':'0')}catch(e){}}
 function toggleLegendCollapsed(){const panel=$('mapLegendDesktop');setLegendCollapsed(!(panel&&panel.classList.contains('collapsed')))}
+function legendZoomHtml(context){
+  const zoom=(app.map&&Number.isFinite(app.map.getZoom&&app.map.getZoom()))?Math.round(app.map.getZoom()):6;
+  return `<div class="legend-zoom-tools" data-legend-zoom-wrap="${esc(context||'desktop')}"><label>Map zoom <span data-legend-zoom-label>${zoom}</span><input data-legend-zoom="1" type="range" min="4" max="18" step="1" value="${zoom}" aria-label="Map zoom level"></label></div>`;
+}
+function syncLegendZoomControls(){
+  if(!app.map)return;
+  const z=Math.round(app.map.getZoom&&app.map.getZoom());
+  if(!Number.isFinite(z))return;
+  $$('[data-legend-zoom]').forEach(input=>{if(String(input.value)!==String(z))input.value=String(z);});
+  $$('[data-legend-zoom-label]').forEach(el=>{el.textContent=String(z);});
+}
+function applyLegendZoom(value){
+  if(!app.map)return;
+  let z=Math.round(Number(value));
+  if(!Number.isFinite(z))return;
+  const min=Number.isFinite(app.map.getMinZoom&&app.map.getMinZoom())?app.map.getMinZoom():4;
+  const max=Number.isFinite(app.map.getMaxZoom&&app.map.getMaxZoom())?Math.min(app.map.getMaxZoom(),18):18;
+  z=Math.max(min,Math.min(max,z));
+  app.map.setZoom(z,{animate:false});
+  syncLegendZoomControls();
+}
 function buildLegend(){
   const layerItems=MAP_LAYERS.map(l=>`<label class="legend-item legend-layer-toggle"><input type="checkbox" data-layer="${l.key}" ${app.enabledLayers.has(l.key)?'checked':''}><span class="layer-icon ${l.css}">${l.icon}</span><span>${esc(l.label)}</span></label>`).join('');
   const outlineOn=legendAreaOutlineOn();
   const areaItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-area-outline-toggle="1" type="checkbox" ${outlineOn?'checked':''}><span class="layer-icon pin-boondocking">${ICONS.tree}</span><span>Official Area Outlines</span></label>`;
-  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3><div id="layerSiteCount" class="layer-site-count">Showing 0 of 0 loaded sites</div></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div><div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide outlines</button><button id="showAreaOutlineBtn" class="secondary" type="button">Fit outlines</button></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
-  const mobileHtml=`<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div>`;
+  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3><div id="layerSiteCount" class="layer-site-count">Showing 0 of 0 loaded sites</div></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide outlines</button></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
+  const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div>`;
   if($('mapLegendDesktop')){$('mapLegendDesktop').innerHTML=desktopHtml;$('legendToggleDesktop').onclick=toggleLegendCollapsed;setLegendCollapsed(legendCollapsedStored())}
   if($('mapLegendMobile'))$('mapLegendMobile').innerHTML=mobileHtml;
+  syncLegendZoomControls();
 }
 function syncLayerControls(){const boxes=$$('input[data-layer]');boxes.forEach(cb=>{cb.checked=app.enabledLayers.has(cb.dataset.layer)});const pending=$('showPendingLayer');if(pending)pending.checked=app.enabledLayers.has('pending');updateAreaOutlineLayerControls();}
 function applyLayerCheckboxChange(e){if(!e.target.dataset.layer)return;const key=e.target.dataset.layer;app.restOnlyMode=false;syncRestOnlyToggle();e.target.checked?app.enabledLayers.add(key):app.enabledLayers.delete(key);saveLayers();localStorage.setItem(STORE.pending,app.enabledLayers.has('pending')?'1':'0');updatePendingMeta();syncLayerControls();toggleMarkerLayer(key,e.target.checked)}
@@ -877,9 +899,9 @@ function bindEvents(){
   const selectAllLayersMobile=$('selectAllLayersMobile'); if(selectAllLayersMobile)selectAllLayersMobile.onclick=()=>{app.restOnlyMode=false;syncRestOnlyToggle();setAllLayers(true)};
   const clearAllLayersMobile=$('clearAllLayersMobile'); if(clearAllLayersMobile)clearAllLayersMobile.onclick=()=>{app.restOnlyMode=false;syncRestOnlyToggle();setAllLayers(false)};
   const restOnlyToggle=$('restOnlyToggle'); if(restOnlyToggle)restOnlyToggle.onclick=toggleRestOnlyMode;
-  $$('[data-area-outline-toggle]').forEach(areaToggle=>{areaToggle.onchange=e=>setAreaOutlineLayerEnabled(e.target.checked,true);});
-  const clearOutlineBtn=$('clearAreaOutlineBtn'); if(clearOutlineBtn)clearOutlineBtn.onclick=()=>setAreaOutlineLayerEnabled(false,true);
-  const showOutlineBtn=$('showAreaOutlineBtn'); if(showOutlineBtn)showOutlineBtn.onclick=()=>fitAreaOutline();
+  $$('[data-area-outline-toggle]').forEach(areaToggle=>{areaToggle.onchange=e=>setAreaOutlineLayerEnabled(e.target.checked,false);});
+  $$('[data-legend-zoom]').forEach(z=>{z.oninput=e=>applyLegendZoom(e.target.value);});
+  const clearOutlineBtn=$('clearAreaOutlineBtn'); if(clearOutlineBtn)clearOutlineBtn.onclick=()=>setAreaOutlineLayerEnabled(false,false);
   const layerList=$('layerList'); if(layerList)layerList.addEventListener('change',applyLayerCheckboxChange);
   const desktopLegend=$('mapLegendDesktop'); if(desktopLegend)desktopLegend.addEventListener('change',applyLayerCheckboxChange);
   const showPending=$('showPendingLayer'); if(showPending)showPending.onchange=e=>{e.target.checked?app.enabledLayers.add('pending'):app.enabledLayers.delete('pending');localStorage.setItem(STORE.pending,e.target.checked?'1':'0');saveLayers();updatePendingMeta();syncLayerControls();toggleMarkerLayer('pending',e.target.checked)};
@@ -1408,13 +1430,11 @@ function areaOutlinePopup(site){
   const outline=areaOutlineCandidate(site);
   if(!outline)return '';
   const key=registerAreaOutlineSite(site);
-  const exact=outline.exactCampingBoundary?'Exact legal camping boundary claimed by source':'Context boundary only';
-  const caution=outline.caution||'Context outline only — not a legal campsite boundary.';
   if(areaOutlineIsAvailable(outline)){
-    return `<div class="popup-notice area-outline-notice"><strong>Official area outline available.</strong><br>${esc(exact)}. ${esc(caution)}</div><div class="popup-actions"><button class="secondary" type="button" onclick="window.__campingApp&&window.__campingApp.showAreaOutlineByKey&&window.__campingApp.showAreaOutlineByKey('${jsString(key)}')">Show official area outline</button><button class="secondary" type="button" onclick="window.__campingApp&&window.__campingApp.clearAreaOutline&&window.__campingApp.clearAreaOutline()">Clear outline</button></div>`;
+    return `<div class="popup-notice area-outline-notice"><strong>Official area outline available.</strong><br>This shows the general agency/planning area for context. It is not a campsite pin and it does not mean camping is legal everywhere inside the outline. Open it, then verify current rules, closures, road access, private inholdings, permits, and posted signs before camping.</div><div class="popup-actions"><button class="secondary" type="button" onclick="window.__campingApp&&window.__campingApp.showAreaOutlineByKey&&window.__campingApp.showAreaOutlineByKey('${jsString(key)}')">Show official area outline</button><button class="secondary" type="button" onclick="window.__campingApp&&window.__campingApp.clearAreaOutline&&window.__campingApp.clearAreaOutline()">Clear outline</button></div>`;
   }
   if(outline.status&&outline.status!=='available'){
-    return `<div class="popup-notice area-outline-notice"><strong>Area outline not import-ready.</strong><br>${esc(caution)}</div>`;
+    return `<div class="popup-notice area-outline-notice"><strong>Area outline not ready.</strong><br>This record has area/rule context, but the app does not yet have a clean official outline to draw.</div>`;
   }
   return '';
 }
@@ -1693,17 +1713,47 @@ function fitAreaOutline(){
   if(b&&b.isValid())app.map.fitBounds(b,{padding:[34,34],animate:false}); updateAreaOutlineLabelVisibility();
 }
 
+function friendlyAreaText(value,fallback){
+  const raw=String(value||'').trim();
+  if(!raw)return fallback||'';
+  const low=raw.toLowerCase();
+  if(low.includes('filtered to')||low.includes('ownership classification')||low.includes('inholding context')){
+    return 'Public-land/agency boundary context for planning. The outline may include private inholdings, closed areas, water, roads, or other places where camping is not allowed.';
+  }
+  return raw
+    .replace(/\bcontext for\b/ig,'Planning area for')
+    .replace(/\binholding context only\b/ig,'private inholdings may exist inside the outline')
+    .replace(/\bfiltered to\b/ig,'shown as')
+    .trim();
+}
+function generalAreaRuleChecklist(site,outline){
+  const sourceDetails=Array.isArray(outline.rulesDetails)?outline.rulesDetails.map(d=>String(d||'').trim()).filter(Boolean):[];
+  const defaults=[
+    'Confirm with the current managing agency map/page that overnight camping is allowed at the exact spot you plan to use.',
+    'Check whether camping is dispersed, designated-site-only, reservation-only, permit-required, fee-based, or temporarily closed.',
+    'Verify stay limits, seasonal closures, fire restrictions, campfire rules, food-storage rules, and whether local orders are in effect.',
+    'Verify distance rules from water, trails, roads, developed recreation sites, private property, and posted closed areas.',
+    'Use only roads and access routes that are legal for your vehicle; do not assume every road inside an outline is open or passable.',
+    'Watch for private inholdings inside public-land boundaries. Do not camp on private land without permission.',
+    'Pack out trash and follow Leave No Trace / local quiet-hour and sanitation rules.'
+  ];
+  const seen=new Set();
+  return sourceDetails.concat(defaults).filter(item=>{const k=item.toLowerCase(); if(seen.has(k))return false; seen.add(k); return true;});
+}
 function areaRulesHtml(site,outline){
   const sourceUrl=outline.sourceUrl||areaOutlineFetchUrl(outline)||site.website||'';
-  const details=Array.isArray(outline.rulesDetails)?outline.rulesDetails:[];
+  const boundary=friendlyAreaText(outline.boundaryRepresents,'General public-land/agency planning boundary.');
+  const legal=friendlyAreaText(outline.officialCampingLegality||outline.rulesSummary||site.officialCampingLegality,'Camping may be allowed only where the current agency rules, maps, closures, permits, and posted signs allow it.');
+  const caution=friendlyAreaText(outline.caution,'This outline is not a legal campsite boundary and may include places where camping is not allowed.');
+  const source=friendlyAreaText(outline.sourceName,'Official/source boundary data');
   const rules=[
-    ['Boundary represents',outline.boundaryRepresents],
-    ['Camping rule summary',outline.officialCampingLegality||outline.rulesSummary||site.officialCampingLegality],
-    ['Exact legal camping boundary',outline.exactCampingBoundary?'Yes':'No — context boundary only'],
-    ['Caution',outline.caution],
-    ['Source',outline.sourceName]
+    ['What this outline means',boundary],
+    ['Camping status',legal],
+    ['Important limitation',caution],
+    ['Source',source]
   ].filter(r=>r[1]);
-  return `<div class="area-rules-popup"><div class="popup-title">${esc(site.name||outline.name||'Official area outline')}</div><div class="popup-notice">Context outline only — not a legal campsite boundary.</div><div class="popup-grid">${rules.map(r=>`<div class="popup-row"><strong>${esc(r[0])}</strong><span>${esc(r[1])}</span></div>`).join('')}</div>${details.length?`<div class="area-rules-detail"><strong>Rule details to verify before camping</strong><ul>${details.map(d=>`<li>${esc(d)}</li>`).join('')}</ul></div>`:''}${sourceUrl?`<div class="popup-actions"><a class="secondary" target="_blank" rel="noopener" href="${esc(sourceUrl)}">Official source</a></div>`:''}</div>`;
+  const verify=generalAreaRuleChecklist(site,outline);
+  return `<div class="area-rules-popup"><div class="popup-title">${esc(site.name||outline.name||'Official area outline')}</div><div class="popup-notice"><strong>Area/rule marker — not a campsite pin.</strong><br>This outline helps you understand the planning area. It does not prove that every spot inside it is legal, accessible, public, or open for camping.</div><div class="popup-grid">${rules.map(r=>`<div class="popup-row"><strong>${esc(r[0])}</strong><span>${esc(r[1])}</span></div>`).join('')}</div><div class="area-rules-detail"><strong>Rules to verify before camping here</strong><ul>${verify.map(d=>`<li>${esc(d)}</li>`).join('')}</ul></div>${sourceUrl?`<div class="popup-actions"><a class="secondary" target="_blank" rel="noopener" href="${esc(sourceUrl)}">Official source</a></div>`:''}</div>`;
 }
 function areaOutlineLabelText(site,idx,total){
   let name=String(site.name||'Area outline').replace('Chequamegon-Nicolet National Forest','Cheq-Nicolet NF').replace('National Forest','NF').replace('County Forest','County Forest');
@@ -1790,23 +1840,34 @@ function ringLatLngBounds(ring){
 function areaOutlineLabelShouldShow(bounds){
   if(!app.map||!bounds||!bounds.isValid||!bounds.isValid())return false;
   const zoom=app.map.getZoom&&app.map.getZoom();
-  // v23.1.30: do not show outline label cards at statewide/regional zoom levels.
-  // At low zoom they become giant clutter; outlines alone are enough.
   if(Number.isFinite(zoom)&&zoom<9)return false;
   const view=app.map.getBounds&&app.map.getBounds();
-  if(!view||!view.isValid||!view.isValid())return false;
+  if(!view||!view.isValid||!view.isValid()||!bounds.intersects(view))return false;
   const areaLat=Math.max(0.002,Math.abs(bounds.getNorth()-bounds.getSouth()));
   const areaLng=Math.max(0.002,Math.abs(bounds.getEast()-bounds.getWest()));
   const viewLat=Math.abs(view.getNorth()-view.getSouth());
   const viewLng=Math.abs(view.getEast()-view.getWest());
   return viewLat<=areaLat*1.15&&viewLng<=areaLng*1.15;
 }
+function visibleAreaOutlineLabelPoint(bounds){
+  if(!app.map||!bounds||!bounds.isValid||!bounds.isValid())return null;
+  const view=app.map.getBounds&&app.map.getBounds();
+  if(!view||!view.isValid||!view.isValid()||!bounds.intersects(view))return null;
+  const south=Math.max(bounds.getSouth(),view.getSouth());
+  const north=Math.min(bounds.getNorth(),view.getNorth());
+  const west=Math.max(bounds.getWest(),view.getWest());
+  const east=Math.min(bounds.getEast(),view.getEast());
+  if(!(north>south&&east>west))return null;
+  return L.latLng((south+north)/2,(west+east)/2);
+}
 function updateAreaOutlineLabelVisibility(){
   const labels=app.areaOutline&&Array.isArray(app.areaOutline.labelMarkers)?app.areaOutline.labelMarkers:[];
   labels.forEach(marker=>{
     const el=marker.getElement&&marker.getElement();
-    if(!el)return;
-    el.classList.toggle('area-outline-label-hidden',!areaOutlineLabelShouldShow(marker._areaOutlineLabelBounds));
+    const show=areaOutlineLabelShouldShow(marker._areaOutlineLabelBounds);
+    const pos=show?visibleAreaOutlineLabelPoint(marker._areaOutlineLabelBounds):null;
+    if(show&&pos&&marker.setLatLng)marker.setLatLng(pos);
+    if(el)el.classList.toggle('area-outline-label-hidden',!(show&&pos));
   });
 }
 function labelRingsForOutline(geo){

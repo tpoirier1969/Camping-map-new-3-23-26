@@ -1,0 +1,38 @@
+Tod's Boondocking & Camping Maps
+QA: v23.1.33
+Date: 2026-06-24
+
+Package baseline:
+- Started from v23.1.32 fixed-files overlay.
+- Produced fixed-files overlay only.
+
+Automated/static QA:
+- node --check app.js: PASS
+- version.js reports v23.1.33: PASS
+- version.json reports v23.1.33: PASS
+- index.html loads stable runtime files: version.js, data/states-manifest.js, app.js: PASS
+- No config.js included: PASS
+- No campsite/state data files included: PASS
+- No manifest/state count changes expected: PASS
+- Fit Outlines button removed from app.js/index output: PASS
+- showAreaOutlineBtn binding removed: PASS
+- Legend zoom slider IDs/data attributes present: PASS
+- Version badge ID present: PASS
+
+Manual/browser QA to perform after install:
+1. Confirm the sidebar header shows a stable v23.1.33 badge.
+2. Confirm Options > App version also shows v23.1.33.
+3. Confirm the update gate still appears only when the live version is newer than the running version.
+4. Confirm the desktop Map layers legend includes a Map zoom slider.
+5. Collapse/Shrink the legend and confirm the zoom slider remains visible and usable.
+6. Confirm the Fit Outlines button is gone.
+7. Turn Official Area Outlines on and verify outline cards appear only at useful zoom levels.
+8. Pan/zoom within a broad outline away from its old centroid and confirm the card relocates into the visible window when the outline intersects the view.
+9. Open an area outline popup and confirm the wording is user-facing and includes a practical Rules to verify before camping checklist.
+10. Spot-check normal campsite marker popups and layer toggles to confirm v23.1.31/v23.1.32 behavior was preserved.
+
+Data-impact QA:
+- Campsite add count: 0
+- Campsite removal/reject count: 0
+- Layer-change count: 0
+- Coordinate-change count: 0

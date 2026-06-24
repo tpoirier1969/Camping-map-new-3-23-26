@@ -1,0 +1,54 @@
+Tod's Boondocking & Camping Maps
+Build: v23.1.33
+Package: v23.1.33_outline_legend_zoom_rules_FIXED_FILES.zip
+Date: 2026-06-24
+
+Baseline:
+- Built as a fixed-files overlay on top of v23.1.32_cache_update_legend_FIXED_FILES.zip.
+- v23.1.32 already included the v23.1.31 performance/location/route changes.
+
+Changed files:
+- app.js
+- index.html
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.33.txt
+- QA_v23.1.33.txt
+
+Not changed:
+- No campsite/state data files changed.
+- No supplement files changed.
+- No manifest count changes.
+- No config.js included.
+- No marker icon mapping changes.
+
+Changelog:
+1. Restored a stable visible version badge.
+   - Added a small non-floating version badge in the sidebar header.
+   - Kept Options > App version text.
+   - The version is painted from the runtime VERSION value instead of a drifting old badge path.
+
+2. Added map zoom slider to the floating layer legend.
+   - Added a Map zoom range slider to the desktop floating Map layers panel.
+   - Added the same zoom slider to the mobile/Options map legend section.
+   - The slider syncs when the map zoom changes.
+   - The zoom slider remains visible when the desktop legend is shrunk/collapsed.
+
+3. Removed dead Fit Outlines control.
+   - Removed the Fit outlines button from the legend.
+   - Removed its click binding.
+   - Existing internal fitAreaOutline() remains available for code paths that still intentionally fit after selecting a specific outline.
+
+4. Improved area-outline information cards.
+   - Area label/card markers now move to the visible portion of the current map window when the outline intersects the viewport.
+   - This makes large outlines such as national forests easier to inspect when the user is zoomed into part of the area away from the original centroid.
+   - Label cards still stay hidden at broad/low zoom levels to avoid clutter.
+
+5. Rewrote area-outline popup language for normal users.
+   - Removed/softened vague internal wording such as filtered/ownership/inholding context language where possible at runtime.
+   - Area popups now explain that an outline is a planning/rule area, not a campsite pin or legal camping boundary.
+   - Added a default Rules to verify before camping checklist when the source data does not provide practical rule bullets.
+   - The checklist covers agency confirmation, designated/dispersed status, permits/fees, stay limits, closures, fire rules, distance rules, road legality, private inholdings, and Leave No Trace basics.
+
+Known limitation:
+- Large GeoJSON outlines may still draw slowly because the app still renders the full official outline geometry. This revision improves usability and reduces failed/dead controls; it does not simplify or tile the official outline datasets.
