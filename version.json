@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.38",
-  "build": "v23.1.38",
+  "version": "v23.1.39",
+  "build": "v23.1.39",
   "released": "2026-06-24",
-  "label": "Boondocking & Camping Maps v23.1.38",
-  "notes": "Kentucky State Parks coordinate rescue batch: adds 6 official modern campground records; no app UI changes."
+  "label": "Boondocking & Camping Maps v23.1.39",
+  "notes": "Kentucky area outline context rescue: adds two official fetchable Kentucky area-outline records; no campsite count changes."
 }

@@ -1,0 +1,26 @@
+Tod's Boondocking & Camping Maps — v23.1.39
+Kentucky area outline context rescue
+
+Changed files:
+- index.html
+- version.js
+- version.json
+- data/states-manifest.js
+- data/area-outlines-v23.1.39.js
+
+What changed:
+- Added two official fetchable Kentucky area-outline records to the Official Area Outlines system:
+  1. Daniel Boone National Forest administrative boundary — Info / Reference context only; not a camping-permission polygon.
+  2. Clifty Wilderness backcountry rule area — Boat / Backpack/backcountry context; official USFS wilderness polygon; not exact campsite points.
+- Updated index.html to load data/area-outlines-v23.1.39.js.
+- Bumped version files to v23.1.39.
+
+What did not change:
+- No campsite/site records were added.
+- Kentucky site count remains 57.
+- No LBL, USACE/Recreation.gov, KYTC rest-area, Mammoth Cave river corridor, or Big South Fork area geometry was imported because workers did not recover clean build-ready geometry.
+- No config.js changes.
+
+Important handling notes:
+- Daniel Boone NF boundary is context only because the administrative boundary may include private/other lands and exclusions.
+- Clifty Wilderness is a wilderness/backcountry context outline only; users must verify DBNF/RRG rules, pass requirements, distance restrictions, closures, fire restrictions, and access.

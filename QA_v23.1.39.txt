@@ -1,0 +1,33 @@
+QA — v23.1.39
+
+Syntax checks:
+- node --check data/area-outlines-v23.1.39.js: PASS
+- node --check data/states-manifest.js: PASS
+
+Version checks:
+- version.js reports v23.1.39
+- version.json reports v23.1.39
+- states-manifest.js bottom app version reports v23.1.39
+
+Data checks:
+- Kentucky site-count unchanged: 57
+- No KY.js or site supplement data changed in this package
+- New area outline records added: 2
+  - ky-daniel-boone-admin-boundary-outline-v23139
+  - ky-clifty-wilderness-backcountry-rule-outline-v23139
+- No duplicate area-outline IDs found in data/area-outlines-v23.1.39.js
+- No utm_source or ChatGPT tracking strings found in changed files
+
+Held out / not built:
+- LBL Recreation Sites / boundary ZIP extraction: blocked by ZIP/GIS extraction need
+- NPS Mammoth Cave Green/Nolin river corridor: blocked pending official line/corridor geometry clipped to park boundary
+- Big South Fork KY-side backcountry/canoe area: blocked pending official KY-side clipped geometry
+- USACE/Recreation.gov Rough/Green River facility geometry: blocked pending RIDB/Recreation.gov/USACE/operator geometry
+- KYTC rest areas: blocked pending exact KYTC RestAreaLocations feature export
+
+Manual browser QA recommended after install:
+- Select Kentucky only.
+- Turn on Official Area Outlines.
+- Confirm two Kentucky outlines are available.
+- Confirm Kentucky site count remains 57.
+- Confirm area popups label these as context/rule outlines, not exact campsite pins.
