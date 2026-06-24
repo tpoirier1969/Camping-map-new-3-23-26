@@ -1,0 +1,58 @@
+TOD’S BOONDOCKING & CAMPING MAPS
+BUILD NOTES — v23.1.31
+
+Purpose:
+UI/performance revision after v23.1.30 stabilized multistate rendering but left layer toggles and outline/state-selection behavior too heavy.
+
+Changed files:
+- app.js
+- index.html
+- version.js
+- version.json
+
+Data changes:
+- None.
+- No campsite records added, removed, moved, or relayered.
+- Manifest counts unchanged. Montana remains 75. Wisconsin remains 621.
+
+Main changes:
+- Layer checkbox changes no longer call loadEnabledStates() for normal map layers.
+- Marker rendering now caches current marker groups by layer so turning Modern, Rustic, Boondocking, etc. on/off does not rebuild every other layer.
+- Full marker rebuilds still happen when the actual site/filter context changes: selected states, route, nearby radius/center, search, filters, or loaded data.
+- Pending/Needs Verification sites are loaded with the selected state data so that layer can also toggle without reloading state data.
+- State changes now pause/clear area outlines first, load/render campsite markers first, then restore outlines only if the selection is safe.
+- Official Area Outlines now remain logically “on” but paused for large selections instead of silently losing the user’s intent.
+- Added request sequencing for area-outline loads so stale outline batches are ignored after state changes.
+- Added Pledge-style hard update gate when version.js reports a newer build.
+- Kept cache-busted reload behavior with a stronger blocking/interruption dialog.
+- Options moved last in the control order on desktop and phone.
+- Removed the duplicate Route sign-in controls; the single sign-in remains under Options.
+- Route section now says sign-in under Options is required for cloud saved routes.
+- Where search now enters a search-filter mode: matching loaded results are the only campsite markers shown until cleared.
+- Reworked Nearby controls:
+  - Removed “Near Me — 180 miles.”
+  - Renamed live-location action to “Near My Location.”
+  - Added 0–350 mile Nearby distance slider/number control.
+  - Added “Near This Map Spot” map-click center selection.
+  - Added “Clear Nearby.”
+- Route section now supports map-click picking for start, destination, and stops.
+- Route summary duplicate text above the summary card was reduced; the summary card remains the main route summary.
+- Cloud saved routes can now be edited more naturally: loading a saved route fills the route name, and Save / update route updates the selected saved route instead of creating a duplicate.
+
+Cache/update notes:
+- Existing cache-busting remains: index.html appends ?build=<version> to runtime scripts, and update checking fetches version.js with cache:'no-store'.
+- v23.1.31 strengthens the update notice into a hard gate with cache-busted refresh.
+
+QA performed:
+- app.js syntax check passed with node --check.
+- index.html still loads version.js, data/states-manifest.js, config.js, and app.js using the stable runtime loader.
+- version.js reports v23.1.31.
+- version.json reports v23.1.31.
+- No data/state/supplement files changed.
+- Route duplicate sign-in controls removed from index.html; only Options account form remains.
+- “Near Me — 180 miles” and “Use live location” removed from index.html.
+- Stable app/manifest paths preserved.
+- config.js not included in this fixed-files package.
+
+Known caveat:
+- Browser-only interaction QA is still recommended after install: single-state load, multistate load, Select All Mapped, layer checkbox toggles, search mode, Near My Location, Near This Map Spot, route map-point picking, saved-route update, and update-gate behavior.

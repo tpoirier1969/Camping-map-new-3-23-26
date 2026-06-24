@@ -1,5 +1,6 @@
 {
-  "version": "v23.1.24",
-  "released": "2026-06-23",
-  "summary": "Wisconsin Jackson/Clark proof-build package: adds 15 official public campground/group-camp records, corrects Jackson/Clark county forest permit-area layers to Boondocking / Dispersed, and enriches Black River backpack rule-area popup/source details."
+  "version": "v23.1.31",
+  "build": "v23.1.31",
+  "released": "2026-06-24",
+  "notes": "UI performance, cache/update gate, location and route controls"
 }

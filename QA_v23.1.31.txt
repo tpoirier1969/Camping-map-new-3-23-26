@@ -1,0 +1,48 @@
+QA — v23.1.31 UI/performance revision
+
+Baseline:
+- Source baseline: uploaded Camping-map-new-3-23-26-main.zip.
+- Starting app version: v23.1.30.
+- New app version: v23.1.31.
+
+Changed files:
+- app.js
+- index.html
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.31.txt
+- QA_v23.1.31.txt
+
+Automated/static QA:
+- node --check app.js: PASS.
+- version.js runtime version: v23.1.31 PASS.
+- version.json version: v23.1.31 PASS.
+- index.html loads stable app.js: PASS.
+- index.html runtime loader still applies ?build=<version> cache-buster to manifest/data/config/app scripts: PASS.
+- Route duplicate sign-in controls absent from index.html: PASS.
+- Options account form still present: PASS.
+- Nearby UI labels updated: PASS.
+- Data files changed: NONE.
+- config.js included: NO.
+
+Expected data impact:
+- Campsite add count: 0.
+- Campsite removal count: 0.
+- Layer-change count: 0.
+- Coordinate-change count: 0.
+- Manifest count changes: 0.
+- Montana manifest count remains 75.
+- Wisconsin manifest count remains 621.
+
+Manual/browser QA recommended after deployment:
+1. Hard refresh/load and verify visible Build badge shows v23.1.31.
+2. Select only Montana and verify expected markers draw.
+3. Toggle Modern/Rustic/Boondocking individually and verify other layers do not visibly redraw.
+4. Select Wisconsin + Montana + multiple states and verify the map does not blank.
+5. Turn Official Area Outlines on, then change state selection; verify markers draw first and outlines pause/resume safely.
+6. Use search in Where and verify only matching loaded markers remain visible until Clear is clicked.
+7. Use Near My Location and verify location permission produces nearby results using the selected radius.
+8. Use Near This Map Spot and verify map click selects center and filters results.
+9. Route: pick start/destination/stops from the map and verify route maps.
+10. Cloud saved routes: load an existing route, edit, and Save / update route; verify it updates the selected cloud row.
+11. Version gate: temporarily make deployed version.js newer than running app and verify hard update dialog appears with cache-busted reload.
