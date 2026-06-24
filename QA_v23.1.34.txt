@@ -1,0 +1,40 @@
+QA — v23.1.34 marker render integrity hotfix
+
+Package baseline:
+- Started from uploaded Camping-map-new-3-23-26-main.zip.
+- Applied v23.1.31, v23.1.32, and v23.1.33 fixed-file overlays before applying v23.1.34 changes.
+
+Static checks:
+- node --check app.js: PASS.
+- version.js reports v23.1.34: PASS.
+- version.json reports v23.1.34: PASS.
+- index.html still loads stable version.js + states-manifest.js + app.js runtime structure: PASS.
+- No config.js included: PASS.
+
+Data impact checks:
+- Campsite data files changed: none.
+- State files changed: none.
+- Supplement files changed: none.
+- Record adds: 0.
+- Record removals: 0.
+- Layer changes: 0.
+- Coordinate changes: 0.
+
+Michigan static data sanity check after manifest files:
+- MI static loaded records counted by script: 542.
+- MI manifest count remains 660; the known difference is because some Michigan private/overnight/rest/traveler records are dynamic/conditional loads.
+- MI static Boondocking / Dispersed records counted by normalized layer logic: 59.
+- MI static invalid coordinate count: 0.
+
+Runtime behavior to browser-test after install:
+1. Open Michigan only.
+2. Turn on Boondocking / Dispersed only.
+3. Confirm the Map Layers count line reports the Boondocking expected count.
+4. Confirm markers continue drawing until the expected count is reached.
+5. If the expected/drawn counts mismatch, confirm the legend shows a visible render warning rather than silently hiding markers.
+6. Check browser console: window.__campingApp.renderDiagnostics.last should show loadedLayerCounts, expectedByLayer, visibleExpectedByLayer, drawnByLayer, mismatches, and markerErrors.
+7. Test layer toggles after Michigan is loaded; toggling Modern should not force Boondocking markers to rebuild.
+8. Test with search/nearby/route filters off to avoid intentionally reduced marker counts.
+
+Known limitation:
+- Full browser/Leaflet rendering cannot be fully executed in this packaging environment, so final confirmation must be done in the live browser.

@@ -1,0 +1,40 @@
+Tod's Boondocking & Camping Maps — v23.1.34
+Marker render integrity / missing-layer diagnostics hotfix
+
+Baseline used:
+- Uploaded full package: Camping-map-new-3-23-26-main.zip
+- Applied overlays in order: v23.1.31, v23.1.32, v23.1.33
+
+Reason for revision:
+- Tod reported that most Michigan Boondocking / Dispersed sites appeared to disappear after the recent UI/render changes.
+- The app needed a runtime guardrail so layer/data counts cannot silently diverge from drawn marker counts.
+
+Changed files:
+- app.js
+- index.html
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.34.txt
+- QA_v23.1.34.txt
+
+Changes:
+- Added marker render integrity diagnostics.
+- Counts loaded data by normalized layer before drawing.
+- Counts drawable marker candidates by layer after active non-layer filters.
+- Counts actual Leaflet markers created per cached layer group.
+- Validates expected marker count against drawn marker count after each complete render.
+- If the expected/drawn marker count does not match, the app automatically retries the marker render once.
+- If the mismatch remains, the app shows a visible warning in the Map Layers legend and status toast with expected vs drawn counts and the first reported errors.
+- Marker creation now catches per-site marker/popup/icon errors so one bad record cannot halt the entire layer render.
+- Layer count readout now includes visible expected counts by layer, making missing Boondocking/Rustic/etc. counts easier to spot immediately.
+- Diagnostics are available in the browser console through window.__campingApp.renderDiagnostics.
+
+Data changes:
+- None.
+- No campsite records added, removed, re-layered, or coordinate-changed.
+- No state files changed.
+- No supplement files changed.
+- No config.js included.
+
+Known note:
+- This does not prove why a user's browser showed fewer Michigan Boondocking markers. It adds the guardrails needed to expose whether the issue is layer state, active filters/search/nearby mode, data load, marker rendering, or a bad record interrupting marker creation.

@@ -1,6 +1,6 @@
 {
-  "version": "v23.1.33",
-  "build": "v23.1.33",
+  "version": "v23.1.34",
+  "build": "v23.1.34",
   "released": "2026-06-24",
-  "notes": "Restored stable version badge, added legend zoom slider, removed Fit Outlines button, improved viewport-aware area outline cards and user-facing area rules"
+  "notes": "Adds marker render integrity checks, per-layer draw counts, one-shot redraw on count mismatch, and visible diagnostics when loaded data does not match drawn marker counts."
 }

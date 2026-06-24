@@ -56,7 +56,7 @@ function markerSizeForLayer(key){if(key==='boat-backpack')return 26;return SMALL
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
-const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},draftPoint:null,draftQueue:[],supabase:null,session:null,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0};
+const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},draftPoint:null,draftQueue:[],supabase:null,session:null,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
 window.__campingApp=app;
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function readJson(key,fb){try{return JSON.parse(localStorage.getItem(key)||'null')??fb}catch{return fb}}
@@ -183,8 +183,8 @@ function buildLegend(){
   const layerItems=MAP_LAYERS.map(l=>`<label class="legend-item legend-layer-toggle"><input type="checkbox" data-layer="${l.key}" ${app.enabledLayers.has(l.key)?'checked':''}><span class="layer-icon ${l.css}">${l.icon}</span><span>${esc(l.label)}</span></label>`).join('');
   const outlineOn=legendAreaOutlineOn();
   const areaItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-area-outline-toggle="1" type="checkbox" ${outlineOn?'checked':''}><span class="layer-icon pin-boondocking">${ICONS.tree}</span><span>Official Area Outlines</span></label>`;
-  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3><div id="layerSiteCount" class="layer-site-count">Showing 0 of 0 loaded sites</div></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide outlines</button></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
-  const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div>`;
+  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3><div id="layerSiteCount" class="layer-site-count">Showing 0 of 0 loaded sites</div></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide outlines</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
+  const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div>`;
   if($('mapLegendDesktop')){$('mapLegendDesktop').innerHTML=desktopHtml;$('legendToggleDesktop').onclick=toggleLegendCollapsed;setLegendCollapsed(legendCollapsedStored())}
   if($('mapLegendMobile'))$('mapLegendMobile').innerHTML=mobileHtml;
   syncLegendZoomControls();
@@ -2047,6 +2047,58 @@ function syncEnabledMarkerGroups(){
   enabledMapLayerKeys().forEach(key=>{if(app.markerGroups&&app.markerGroups[key])app.markerLayer.addLayer(app.markerGroups[key]);});
   syncShownSitesFromMarkerBase();
 }
+function countLayerGroupMarkers(group){
+  if(!group||typeof group.getLayers!=='function')return 0;
+  return group.getLayers().reduce((sum,layer)=>{
+    if(layer&&typeof layer.getLatLng==='function')return sum+1;
+    return sum+countLayerGroupMarkers(layer);
+  },0);
+}
+function incrementLayerCount(counts,key){counts[key]=(counts[key]||0)+1;return counts;}
+function layerCountText(counts,keys){
+  return (keys||MAP_LAYERS.map(l=>l.key)).map(key=>{
+    const n=counts&&counts[key]||0;
+    return n?`${layerDef(key).label}: ${n}`:'';
+  }).filter(Boolean).join(' · ');
+}
+function loadedSiteLayerDiagnostics(){
+  const raw={},invalidCoords={},filteredOut={},drawable={};
+  (app.sites||[]).forEach(site=>{
+    const key=layerKey(site);
+    incrementLayerCount(raw,key);
+    const lat=Number(site&&site.lat),lng=Number(site&&site.lng);
+    if(!Number.isFinite(lat)||!Number.isFinite(lng)){incrementLayerCount(invalidCoords,key);return;}
+    if(!MAP_LAYER_KEYS.has(key))return;
+    if(sitePassesNonLayerFilters(site))incrementLayerCount(drawable,key);
+    else incrementLayerCount(filteredOut,key);
+  });
+  return {raw,invalidCoords,filteredOut,drawable};
+}
+function setRenderIntegrityStatus(message,isError=false){
+  $$('[data-render-integrity-status]').forEach(el=>{
+    el.hidden=!message;
+    el.textContent=message||'';
+    el.classList.toggle('render-error',!!isError);
+  });
+}
+function visibleRenderExpectedCounts(expectedByLayer){
+  const enabled=new Set(enabledMapLayerKeys());
+  const out={};
+  Object.keys(expectedByLayer||{}).forEach(key=>{if(enabled.has(key))out[key]=expectedByLayer[key];});
+  return out;
+}
+function validateMarkerRender(expectedByLayer,markerErrors){
+  const drawnByLayer={};
+  MAP_LAYERS.forEach(l=>{drawnByLayer[l.key]=countLayerGroupMarkers(app.markerGroups&&app.markerGroups[l.key]);});
+  const mismatches=[];
+  MAP_LAYERS.forEach(l=>{
+    const expected=expectedByLayer[l.key]||0;
+    const drawn=drawnByLayer[l.key]||0;
+    if(expected!==drawn)mismatches.push(`${l.label}: expected ${expected}, drew ${drawn}`);
+  });
+  const ok=mismatches.length===0&&(!markerErrors||markerErrors.length===0);
+  return {ok,drawnByLayer,mismatches,markerErrors:markerErrors||[]};
+}
 function updateMarkerReadouts(total,prefix='Showing'){
   const countEl=$('layerSiteCount');
   if(countEl){
@@ -2054,7 +2106,9 @@ function updateMarkerReadouts(total,prefix='Showing'){
     const searchSuffix=(app.search&&app.search.active)?' matching search':'';
     const boOutlineCount=(app.enabledLayers&&app.enabledLayers.has('boondocking'))?boondockingOutlineRecords().length:0;
     const outlineSuffix=boOutlineCount?` + ${boOutlineCount} official boondocking rule-area outline${boOutlineCount===1?'':'s'} available`:'';
-    countEl.textContent=app.restOnlyMode?`Rest stops only: ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}`:`${prefix} ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}${outlineSuffix}`;
+    const layerBits=app.renderDiagnostics&&app.renderDiagnostics.last&&app.renderDiagnostics.last.visibleExpectedByLayer?layerCountText(app.renderDiagnostics.last.visibleExpectedByLayer,enabledMapLayerKeys()):'';
+    const layerSuffix=layerBits?` — ${layerBits}`:'';
+    countEl.textContent=app.restOnlyMode?`Rest stops only: ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}${layerSuffix}`:`${prefix} ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}${layerSuffix}${outlineSuffix}`;
   }
   updateRouteStatus();
   updateRestRoadsideDiagnostics();
@@ -2064,32 +2118,53 @@ function updateMarkerReadouts(total,prefix='Showing'){
 function toggleMarkerLayer(key,on){
   if(app.markerLayerCacheKey!==markerCacheKey()){renderMarkers(false);return;}
   syncEnabledMarkerGroups();
+  if(app.renderDiagnostics&&app.renderDiagnostics.last){app.renderDiagnostics.last.visibleExpectedByLayer=visibleRenderExpectedCounts(app.renderDiagnostics.last.expectedByLayer||{});}
   updateMarkerReadouts((app.markerBaseCandidates||[]).length,'Showing');
 }
-async function renderMarkers(fit){
+async function renderMarkers(fit,attempt=0){
   const renderId=++app.renderSeq;
   resetMarkerLayerGroups();
+  setRenderIntegrityStatus('',false);
   if(app.areaOutline){app.areaOutline.registry={}; (app.areaOutline.standalone||[]).forEach(site=>{app.areaOutline.registry[site.id]=site;});}
+  const layerDiagnostics=loadedSiteLayerDiagnostics();
   const candidates=[];
-  app.sites.forEach(site=>{if(sitePassesNonLayerFilters(site))candidates.push(site);});
+  const expectedByLayer={};
+  app.sites.forEach(site=>{
+    if(sitePassesNonLayerFilters(site)){
+      const key=layerKey(site);
+      if(MAP_LAYER_KEYS.has(key))incrementLayerCount(expectedByLayer,key);
+      candidates.push(site);
+    }
+  });
   app.markerBaseCandidates=candidates;
+  app.renderDiagnostics.last={loadedLayerCounts:layerDiagnostics.raw,drawableByLayer:layerDiagnostics.drawable,filteredOutByLayer:layerDiagnostics.filteredOut,invalidCoordsByLayer:layerDiagnostics.invalidCoords,expectedByLayer,visibleExpectedByLayer:visibleRenderExpectedCounts(expectedByLayer),drawnByLayer:{},mismatches:[],markerErrors:[],attempt};
   const total=candidates.length;
   syncShownSitesFromMarkerBase();
   updateMarkerReadouts(total,candidates.length>450?'Drawing':'Showing');
   const bounds=[];
+  const markerErrors=[];
   const chunkSize=candidates.length>900?120:(candidates.length>450?180:candidates.length||1);
   for(let start=0;start<candidates.length;start+=chunkSize){
-    if(renderId!==app.renderSeq)return;
+    if(renderId!==app.renderSeq){
+      app.renderDiagnostics.warnings.push({type:'interrupted',message:'Marker render was interrupted by a newer map request.',time:new Date().toISOString()});
+      return;
+    }
     const end=Math.min(start+chunkSize,candidates.length);
     for(let i=start;i<end;i++){
       const site=candidates[i];
-      const key=layerKey(site);
-      if(!MAP_LAYER_KEYS.has(key))continue;
-      const lat=Number(site.lat),lng=Number(site.lng);
-      const m=L.marker([lat,lng],{icon:markerIcon(site)}).bindPopup(popup(site));
-      if(!app.markerGroups[key])app.markerGroups[key]=L.layerGroup();
-      app.markerGroups[key].addLayer(m);
-      bounds.push([lat,lng]);
+      try{
+        const key=layerKey(site);
+        if(!MAP_LAYER_KEYS.has(key))continue;
+        const lat=Number(site.lat),lng=Number(site.lng);
+        if(!Number.isFinite(lat)||!Number.isFinite(lng)){markerErrors.push(`${site&&site.name||site&&site.id||'Unnamed site'}: invalid coordinates`);continue;}
+        const m=L.marker([lat,lng],{icon:markerIcon(site)}).bindPopup(popup(site));
+        if(!app.markerGroups[key])app.markerGroups[key]=L.layerGroup();
+        app.markerGroups[key].addLayer(m);
+        bounds.push([lat,lng]);
+      }catch(err){
+        markerErrors.push(`${site&&site.name||site&&site.id||'Unnamed site'}: ${err&&err.message?err.message:String(err)}`);
+        console.error('Marker render failed for site',site,err);
+      }
     }
     syncEnabledMarkerGroups();
     updateMarkerReadouts(total,end<candidates.length?'Drawing':'Showing');
@@ -2098,11 +2173,33 @@ async function renderMarkers(fit){
       await new Promise(requestAnimationFrame);
     }
   }
-  if(renderId!==app.renderSeq)return;
+  if(renderId!==app.renderSeq){
+    app.renderDiagnostics.warnings.push({type:'interrupted',message:'Marker render finished after a newer map request and was ignored.',time:new Date().toISOString()});
+    return;
+  }
+  const validation=validateMarkerRender(expectedByLayer,markerErrors);
+  app.renderDiagnostics.last=Object.assign(app.renderDiagnostics.last||{},{drawnByLayer:validation.drawnByLayer,mismatches:validation.mismatches,markerErrors:validation.markerErrors,visibleExpectedByLayer:visibleRenderExpectedCounts(expectedByLayer),attempt});
+  if(!validation.ok){
+    const detail=validation.mismatches.concat(validation.markerErrors.slice(0,4)).join(' · ');
+    console.error('Marker render integrity failure',app.renderDiagnostics.last);
+    if(attempt<1){
+      setLoading(true,'Marker count mismatch detected. Redrawing once…');
+      await new Promise(resolve=>setTimeout(resolve,60));
+      return renderMarkers(fit,attempt+1);
+    }
+    const msg=`Map render warning: data expected ${Object.values(expectedByLayer).reduce((a,b)=>a+b,0)} drawable markers but drew ${Object.values(validation.drawnByLayer).reduce((a,b)=>a+b,0)}. ${detail}`;
+    setRenderIntegrityStatus(msg,true);
+    notify(msg,12000);
+  }else{
+    const visible=visibleRenderExpectedCounts(expectedByLayer);
+    const visibleText=layerCountText(visible,enabledMapLayerKeys());
+    setRenderIntegrityStatus(visibleText?`Render check OK: ${visibleText}`:'Render check OK.',false);
+  }
   app.markerLayerCacheKey=markerCacheKey();
   if(candidates.length>450)setLoading(false);
   const statusEl=$('statusLine');
   if(statusEl && !statusEl.dataset.lockedNotice){statusEl.innerHTML='This app is still in active development. Errors may occur but should be corrected quickly. To report issues contact: <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>'; statusEl.dataset.lockedNotice='1';}
+  updateMarkerReadouts(total,'Showing');
   if(fit){fitCurrentPreferredView()}
 }
 
