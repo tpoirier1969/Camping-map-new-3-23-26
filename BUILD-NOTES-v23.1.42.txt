@@ -1,0 +1,40 @@
+TOD’S BOONDOCKING & CAMPING MAPS — BUILD NOTES v23.1.42
+
+Purpose:
+- Fix the post-v23.1.40/v23.1.41 startup failure where the app could sit on a black/loading screen and never reach the map.
+- Treat v23.1.41 as the Illinois data baseline and preserve its Johnson Creek / Kinkaid Lake Village / Devils Kitchen fixes.
+- Repair the stale-file regression introduced in v23.1.41 where index.html loaded data/area-outlines-v23.1.10.js instead of the current v23.1.39 outline bundle.
+- Add visible startup diagnostics so boot errors show a readable message instead of leaving the spinner forever.
+
+Changed files:
+- BUILD-NOTES-v23.1.42.txt
+- app.js
+- index.html
+- QA_v23.1.42.txt
+- version.js
+- version.json
+
+Startup/load fixes:
+- index.html now loads data/area-outlines-v23.1.39.js again.
+- index.html includes an early startup-error guard for script/runtime failures before app.js fully boots.
+- index.html adds script-load error reporting for required startup files.
+- app.js now guards initState(), initMap(), buildControls(), and loadEnabledStates() instead of only catching loadEnabledStates().
+- app.js now checks for required DOM shell elements and Leaflet before starting the map.
+- If Leaflet or another early dependency fails, the loading overlay displays a visible error with the failed stage.
+
+Data handling:
+- No campsite/site records changed in v23.1.42.
+- Illinois remains at 103 records from v23.1.41.
+- v23.1.41 Illinois supplement remains active and unchanged.
+- config.js is not included because it did not change.
+
+QA:
+- PROJECT_RULES.md reviewed.
+- app.js syntax checked with Node.
+- version.js syntax checked with Node.
+- data/states-manifest.js syntax checked with Node.
+- data/supplements/il-final-cleanup-v23.1.41.js syntax checked with Node.
+- data/area-outlines-v23.1.39.js syntax checked with Node.
+- version.json parsed successfully.
+- index.html confirmed to reference v23.1.39 area outlines, not v23.1.10.
+- Fixed-files ZIP contains full replacement files only.
