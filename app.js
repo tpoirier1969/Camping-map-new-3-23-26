@@ -2508,8 +2508,53 @@ async function checkForAppUpdate(){
   }catch(_e){}
 }
 
-function boot(){initState();initMap();buildControls();initSupabase().catch(()=>{});loadEnabledStates(true).catch(e=>{console.error(e);setLoading(false);notify('Map load failed.');});checkForAppUpdate();}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+function startupStatus(msg){
+  try{window.CAMPING_STARTUP_STAGE=msg||'';}catch(_e){}
+  try{setLoading(true,msg||'Loading map…');}catch(_e){
+    try{const el=document.getElementById('mapLoading'); if(el){el.classList.remove('hidden'); if(msg)el.textContent=msg;}}catch(__e){}
+  }
+}
+function startupFail(error,stage){
+  const where=stage||window.CAMPING_STARTUP_STAGE||'startup';
+  const detail=(error&&error.message)?error.message:String(error||'Unknown error');
+  const msg=`Map startup failed during ${where}: ${detail}`;
+  try{console.error(msg,error);}catch(_e){}
+  try{
+    const el=document.getElementById('mapLoading');
+    if(el){
+      el.classList.remove('hidden');
+      el.textContent=msg+' — refresh once. If it repeats, open the browser console and send the error.';
+      el.style.background='rgba(255,248,230,.96)';
+      el.style.color='#5b2200';
+      el.style.pointerEvents='auto';
+      el.style.padding='24px';
+      el.style.textAlign='center';
+      el.style.lineHeight='1.45';
+    }
+  }catch(_e){}
+  try{notify(msg,12000);}catch(_e){}
+  try{if(window.CAMPING_STARTUP_FAIL)window.CAMPING_STARTUP_FAIL(msg,error);}catch(_e){}
+}
+function requireDom(id){const el=$(id); if(!el)throw new Error(`Missing required DOM element #${id}`); return el;}
+function requireLeaflet(){if(!window.L||!L.map||!L.layerGroup||!L.tileLayer)throw new Error('Leaflet did not load. Check the network/CDN or provide a local Leaflet fallback.');}
+function boot(){
+  if(boot.started)return;
+  boot.started=true;
+  let stage='startup';
+  try{
+    window.CAMPING_BOOT_STARTED=true;
+    stage='checking page elements'; startupStatus('Checking app shell…'); requireDom('map'); requireDom('mapLoading');
+    stage='checking map library'; startupStatus('Checking map library…'); requireLeaflet();
+    stage='restoring settings'; startupStatus('Restoring settings…'); initState();
+    stage='starting map'; startupStatus('Starting map…'); initMap();
+    stage='building controls'; startupStatus('Building controls…'); buildControls();
+    try{Promise.resolve(initSupabase()).catch(()=>{});}catch(_supabaseError){}
+    stage='loading states'; startupStatus('Loading states…');
+    Promise.resolve(loadEnabledStates(true)).then(()=>{window.CAMPING_BOOT_OK=true;}).catch(e=>startupFail(e,'loading states'));
+    checkForAppUpdate();
+  }catch(e){startupFail(e,stage);}
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 try{
   paintRuntimeVersion();
   window.addEventListener('load', function(){ paintRuntimeVersion(); setTimeout(paintRuntimeVersion, 250); });

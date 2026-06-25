@@ -1,0 +1,40 @@
+QA — v23.1.43 Minnesota exact batch 1
+
+Static syntax checks:
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/states-manifest.js: PASS
+- node --check data/supplements/mn-superior-nf-rustic-v23.1.15.js: PASS
+- node --check data/supplements/mn-exact-batch1-v23.1.43.js: PASS
+- python json parse version.json: PASS
+
+Startup carry-forward checks:
+- index.html loads data/area-outlines-v23.1.39.js: PASS
+- index.html does not reference data/area-outlines-v23.1.10.js: PASS
+- v23.1.42 startup recovery app.js/index.html carried forward in this package: PASS
+
+Minnesota runtime simulation:
+- Loaded data/states/MN.js: PASS
+- Loaded data/supplements/mn-superior-nf-rustic-v23.1.15.js: PASS
+- Loaded data/supplements/mn-exact-batch1-v23.1.43.js: PASS
+- Final simulated Minnesota record count: 89
+- v23.1.43 supplement added: 24
+- v23.1.43 supplement skipped coordinate duplicates: 0
+
+Spot checks:
+- Cadotte Lake Campground present, Rustic / Primitive: PASS
+- Bearskin Lake Backcountry Site present, Boat / Backpack: PASS
+- Bimijiwan Recreation Area present, Rustic / Primitive: PASS
+- Chippewa Campground Loop present, Modern: PASS
+- s898 Superior National Forest moved to Info / Reference: PASS
+- s190 Chippewa National Forest moved to Info / Reference: PASS
+- s855 Snake River Campground moved to Rustic / Primitive: PASS
+- s46 Baker Campground moved to Modern Campgrounds: PASS
+- s528 Lebanon Hills official-source enrichment present: PASS
+- s899 Sylvan Park & Riverview official-source enrichment present: PASS
+
+Not QA-tested here:
+- Live browser/kiosk cache behavior after install.
+- External map tile/CDN behavior.
+- Visual popup layout for all 24 new records.
+- Exact individual campsite extraction for held DNR/BWCA/Voyageurs leads.

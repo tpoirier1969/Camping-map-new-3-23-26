@@ -108,21 +108,59 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+// v23.1.42 startup guard: make early script/boot failures visible instead of leaving the black loading screen forever.
 (function(){
-  document.write('<script src="version.js?buildProbe=' + Date.now() + '"><\/script>');
+  window.CAMPING_STARTUP_STAGE = 'preload';
+  window.CAMPING_STARTUP_FAIL = function(message, error){
+    try{
+      var el = document.getElementById('mapLoading');
+      if(el){
+        el.classList.remove('hidden');
+        el.textContent = message || 'Map startup failed. Open the browser console for details.';
+        el.style.background = 'rgba(255,248,230,.96)';
+        el.style.color = '#5b2200';
+        el.style.pointerEvents = 'auto';
+        el.style.padding = '24px';
+        el.style.textAlign = 'center';
+        el.style.lineHeight = '1.45';
+      }
+    }catch(_e){}
+    try{
+      if(error) console.error(message, error);
+      else console.error(message);
+    }catch(_e){}
+  };
+  window.addEventListener('error', function(event){
+    if(window.CAMPING_BOOT_OK) return;
+    var msg = event && event.message ? event.message : 'unknown startup error';
+    window.CAMPING_STARTUP_FAIL('Map startup failed while loading scripts: ' + msg, event && (event.error || event));
+  });
+  window.addEventListener('unhandledrejection', function(event){
+    if(window.CAMPING_BOOT_OK) return;
+    var reason = event && event.reason;
+    var msg = reason && reason.message ? reason.message : String(reason || 'unhandled startup promise rejection');
+    window.CAMPING_STARTUP_FAIL('Map startup failed: ' + msg, reason);
+  });
 })();
 </script>
 <script>
 (function(){
-  var build = (window.CAMPING_BUILD && window.CAMPING_BUILD.version) || String(Date.now());
+  document.write("<script src=\"version.js?buildProbe=" + Date.now() + "\" onerror=\"window.CAMPING_STARTUP_FAIL&&window.CAMPING_STARTUP_FAIL('Failed to load version.js')\"><\/script>");
+})();
+</script>
+<script>
+(function(){
+  var build = (window.CAMPING_BUILD && window.CAMPING_BUILD.version) || window.CAMPING_APP_VERSION || String(Date.now());
   window.CAMPING_APP_ENTRY = new URL('index.html', document.baseURI).href;
-  function loadCampingScript(src){
-    document.write('<script src="' + src + '?build=' + encodeURIComponent(build) + '"><\/script>');
+  function loadCampingScript(src, optional){
+    var url = src + '?build=' + encodeURIComponent(build);
+    var err = optional ? '' : ' onerror="window.CAMPING_STARTUP_FAIL&&window.CAMPING_STARTUP_FAIL(\'Failed to load ' + src + '\')"';
+    document.write('<script src="' + url + '"' + err + '><\/script>');
   }
   loadCampingScript('data/states-manifest.js');
   loadCampingScript('data/pending-sites-v22.3.3.js');
-  loadCampingScript('data/area-outlines-v23.1.10.js');
-  loadCampingScript('config.js');
+  loadCampingScript('data/area-outlines-v23.1.39.js', true);
+  loadCampingScript('config.js', true);
   loadCampingScript('app.js');
 })();
 </script>

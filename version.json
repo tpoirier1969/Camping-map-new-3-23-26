@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.41",
-  "build": "v23.1.41",
+  "version": "v23.1.43",
+  "build": "v23.1.43",
   "released": "2026-06-25",
-  "label": "Boondocking & Camping Maps v23.1.41",
-  "notes": "Illinois Kinkaid/Devils Kitchen correction: restores Johnson Creek as separate from Kinkaid Lake Village Marina, adds Kinkaid Lake Village Marina & Campground plus Devils Kitchen Lake Campground and Group Campground from Tod-supplied exact coordinates with official/operator proof, fixes version build object, and hardens state-script loading."
+  "label": "Boondocking & Camping Maps v23.1.43",
+  "notes": "Minnesota exact batch 1: adds 24 official-source Superior NF / Chippewa NF campground and backcountry/system records, corrects broad forest rows to Info / Reference, fixes Snake River to Rustic / Primitive, and enriches/corrects selected official local Modern records while preserving v23.1.42 startup recovery."
 }

@@ -1,0 +1,91 @@
+TOD’S BOONDOCKING & CAMPING MAPS — BUILD NOTES v23.1.43
+Minnesota exact batch 1 / worker-proof import
+
+Baseline:
+- Built on the v23.1.42 startup recovery file set.
+- Preserves v23.1.42 startup/load recovery behavior, including the corrected v23.1.39 area-outline loader and guarded app boot.
+- Minnesota active manifest count before this package: 65.
+
+Purpose:
+- Import only the safe, official-coordinate Minnesota records from the first worker returns.
+- Avoid DNR/state-park/county candidates that proved camping exists but lacked honest official coordinates.
+- Correct broad forest rows that were acting like campground pins.
+- Correct/enrich selected existing Minnesota records where official proof was sufficient.
+
+Changed files:
+- BUILD-NOTES-v23.1.43.txt
+- QA_v23.1.43.txt
+- app.js
+- index.html
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/mn-exact-batch1-v23.1.43.js
+
+Minnesota manifest count:
+- Before: 65
+- After: 89
+- Net new records: +24
+
+New official-coordinate records added:
+
+Superior National Forest / Rustic & Primitive:
+1. Cadotte Lake Campground — Rustic / Primitive — 47.37912964, -91.91743269
+2. Birch Lake Campground & Backcountry Sites — Rustic / Primitive system marker — 47.759391, -91.78198493
+3. Crescent Lake Campground & Backcountry Sites — Rustic / Primitive system marker — 47.82520417, -90.77299267
+4. Devil Track Lake Campground — Rustic / Primitive — 47.82742923, -90.46401447
+5. Divide Lake Campground & Backcountry Sites — Rustic / Primitive system marker — 47.60995677, -91.25635807
+6. East Bearskin Lake Campground — Rustic / Primitive — 48.03669264, -90.39614491
+
+Superior National Forest / Boat-Backpack system markers:
+7. Bearskin Lake Backcountry Site — Boat / Backpack system marker — 48.0702467, -90.44267203
+8. Ball Club Lake Backcountry / Dispersed Campsite System — Boat / Backpack system marker — 47.91383742, -90.49299415
+9. Big Lake Backcountry Campsite System — Boat / Backpack system marker — 47.52062935, -91.84820106
+10. Ham Lake Backcountry Sites System — Boat / Backpack system marker — 48.06879574, -90.81177752
+11. Ojibway and Triangle Lakes Island Backcountry Sites System — Boat / Backpack system marker — 47.95563705, -91.56213322
+12. Pine Lake Boat/Foot-Access Site System — Boat / Backpack system marker — 47.46458895, -91.78399442
+13. Homer Lake Dispersed Campsite System — Boat / Backpack system marker — 47.90445471, -90.66006778
+14. Picket Lake Backcountry Campsite System — Boat / Backpack system marker — 48.03061864, -91.85060514
+15. Crane Lake Backcountry Campsite System — Boat / Backpack system marker — 48.289356, -92.455413
+
+Chippewa National Forest / exact facility records:
+16. Bimijiwan Recreation Area — Rustic / Primitive — 47.450313, -94.483736
+17. Cass Lake Campground Loop — Boat / Backpack / walk-in campground loop — 47.37958, -94.528962
+18. Chippewa Campground Loop — Modern Campgrounds — 47.382284, -94.508411
+19. Deer Lake Campground — Rustic / Primitive — 47.514166, -94.105804
+20. East Seelye Bay Campground — Rustic / Primitive — 47.524724, -94.095559
+21. Mosomo Point Campground — Rustic / Primitive — 47.518225, -94.048098
+22. Mabel Lake Campground — Rustic / Primitive — 47.04983, -94.071902
+23. South Pike Bay Campground — Rustic / Primitive — 47.329519, -94.587672
+24. Noma Lake Campground / Backcountry Camping Site — Boat / Backpack / carry-in backcountry system — 47.754899, -93.967732
+
+Existing Minnesota rows corrected/enriched:
+- s898 Superior National Forest moved to Info / Reference; broad forest-level coordinate retained as reference only, not a campground pin.
+- s190 Chippewa National Forest moved to Info / Reference; broad forest-level coordinate retained as reference only, not a campground pin.
+- s877 State and National forests kept as Info / Reference and clarified as a broad rule/reference marker only.
+- s855 Snake River Campground moved from old state/modern handling to Rustic / Primitive based on official DNR proof of 12 campsites, vault toilets, drinking water, canoe landing, and no electricity.
+- s46 Baker Campground moved from Private Campgrounds to Modern Campgrounds based on official Three Rivers Park District proof.
+- s528 Lebanon Hills Campground enriched with official Dakota County source; kept as Modern Campgrounds.
+- s899 Sylvan Park & Riverview Campgrounds enriched with official City of Lanesboro source and kept as Modern Campgrounds.
+
+Held out intentionally:
+- DNR state park/state forest/county campground candidates where workers proved camping exists but exact official coordinates were not recovered.
+- BWCAW individual campsite layer; exact official per-site GIS/API work still required.
+- Voyageurs National Park exact campsite layer; requires NPS/Recreation.gov/GIS extraction.
+- State forest dispersed camping rule areas; require official DNR boundary geometry, not centroids.
+- Western/southern Minnesota state park candidates blocked by ReserveMN/DNR GeoPDF/GIS coordinate extraction.
+
+QA:
+- Syntax checked new MN supplement with Node.
+- Syntax checked manifest, app.js, version.js, and existing MN Superior NF supplement.
+- Parsed version.json.
+- Simulated MN runtime load with MN.js + v23.1.15 supplement + v23.1.43 supplement.
+- Final simulated MN runtime count: 89.
+- New v23.1.43 records added in simulation: 24.
+- Verified broad Superior NF and Chippewa NF rows now resolve as Info / Reference.
+- Verified Snake River resolves as Rustic / Primitive.
+- Verified Baker, Lebanon Hills, and Sylvan/Riverview resolve as Modern Campgrounds.
+- Verified index.html still loads data/area-outlines-v23.1.39.js and does not regress to v23.1.10.
+
+Config note:
+- config.js is not included because it did not change.
