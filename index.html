@@ -108,19 +108,6 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// v23.1.40: allow fractional Leaflet zoom so the legend zoom slider and zoom buttons feel smoother.
-(function(){
-  if(!window.L || !L.map) return;
-  var originalMap = L.map;
-  L.map = function(id, options){
-    options = Object.assign({ zoomSnap: 0.25, zoomDelta: 0.25, wheelPxPerZoomLevel: 80 }, options || {});
-    var map = originalMap.call(this, id, options);
-    window.CAMPING_LEAFLET_MAP = map;
-    return map;
-  };
-})();
-</script>
-<script>
 (function(){
   document.write('<script src="version.js?buildProbe=' + Date.now() + '"><\/script>');
 })();
@@ -134,70 +121,9 @@
   }
   loadCampingScript('data/states-manifest.js');
   loadCampingScript('data/pending-sites-v22.3.3.js');
-  loadCampingScript('data/area-outlines-v23.1.39.js');
+  loadCampingScript('data/area-outlines-v23.1.10.js');
   loadCampingScript('config.js');
   loadCampingScript('app.js');
-})();
-</script>
-<script>
-// v23.1.40: make the visible map zoom range controls support quarter-step zoom stops.
-(function(){
-  var STEP = 0.25;
-  function currentMap(){ return window.CAMPING_LEAFLET_MAP || null; }
-  function cleanZoom(z){
-    var n = Number(z);
-    if(!Number.isFinite(n)) return '';
-    if(Math.abs(n - Math.round(n)) < 0.001) return String(Math.round(n));
-    return n.toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
-  }
-  function syncZoomSliders(){
-    var map = currentMap();
-    if(!map || !map.getZoom) return;
-    var z = map.getZoom();
-    var rounded = Math.round(z / STEP) * STEP;
-    document.querySelectorAll('[data-legend-zoom]').forEach(function(input){
-      input.step = String(STEP);
-      input.min = String(Number.isFinite(map.getMinZoom && map.getMinZoom()) ? map.getMinZoom() : 4);
-      input.max = String(Number.isFinite(map.getMaxZoom && map.getMaxZoom()) ? Math.min(map.getMaxZoom(),18) : 18);
-      if(Math.abs(Number(input.value) - rounded) > 0.01) input.value = String(rounded);
-      input.setAttribute('aria-label','Map zoom level (quarter-step)');
-    });
-    document.querySelectorAll('[data-legend-zoom-label]').forEach(function(label){ label.textContent = cleanZoom(z); });
-  }
-  function installMapListener(){
-    var map = currentMap();
-    if(!map || map.__smoothZoomListenerInstalled) return false;
-    map.__smoothZoomListenerInstalled = true;
-    map.on('zoomend moveend', syncZoomSliders);
-    return true;
-  }
-  function onSmoothZoomInput(event){
-    var input = event.target && event.target.closest ? event.target.closest('[data-legend-zoom]') : null;
-    if(!input) return;
-    var map = currentMap();
-    if(!map || !map.setZoom) return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    var min = Number.isFinite(map.getMinZoom && map.getMinZoom()) ? map.getMinZoom() : 4;
-    var max = Number.isFinite(map.getMaxZoom && map.getMaxZoom()) ? Math.min(map.getMaxZoom(),18) : 18;
-    var z = Math.max(min, Math.min(max, Number(input.value)));
-    if(Number.isFinite(z)) map.setZoom(z, { animate:false });
-    syncZoomSliders();
-  }
-  function installSmoothZoom(){
-    document.addEventListener('input', onSmoothZoomInput, true);
-    var observer = new MutationObserver(function(){ installMapListener(); syncZoomSliders(); });
-    if(document.body) observer.observe(document.body, { childList:true, subtree:true });
-    var tries = 0;
-    var timer = setInterval(function(){
-      tries++;
-      installMapListener();
-      syncZoomSliders();
-      if((currentMap() && document.querySelector('[data-legend-zoom]')) || tries > 40) clearInterval(timer);
-    }, 250);
-  }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', installSmoothZoom);
-  else installSmoothZoom();
 })();
 </script>
 </body>

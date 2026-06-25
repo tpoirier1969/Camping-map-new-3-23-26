@@ -1,0 +1,43 @@
+TOD’S BOONDOCKING & CAMPING MAPS — BUILD NOTES v23.1.41
+
+Baseline: repo/package v23.1.39 plus the v23.1.40 intent, superseded cleanly by this overlay.
+
+Purpose:
+- Correct the v23.1.40 Kinkaid merge mistake: Johnson Creek Recreation Area is not Kinkaid Lake Village Marina & Campground.
+- Restore Johnson Creek Recreation Area as its own active row and update it to Tod-supplied coordinates.
+- Add Kinkaid Lake Village Marina & Campground as a separate Private Campgrounds / Modern record.
+- Add Devils Kitchen Lake Campground and Devils Kitchen Group Campground as separate Rustic / Primitive records.
+- Keep broad Kinkaid Lake as Info / Reference only because IDNR says camping is not allowed on DNR property.
+- Fix the app version badge showing “dev” by defining window.CAMPING_BUILD in version.js and adding a fallback to CAMPING_APP_VERSION in app.js.
+- Harden state-file loading with cache-busted dynamic data scripts and a timeout fallback so the app does not hang indefinitely at “Loading Alabama (1 of 28)…” if one state file stalls.
+- Move the smooth zoom change into app.js instead of index-only monkey patching. Map zoom now uses quarter-step zoomSnap/zoomDelta and legend sliders support 0.25 steps.
+
+Changed files:
+- app.js
+- index.html
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/il-final-cleanup-v23.1.41.js
+
+Illinois count:
+- Manifest count changes from 100 to 103.
+- Net adds: 3 records.
+
+New records:
+1. Kinkaid Lake Village Marina & Campground — Private Campgrounds / Modern — 37.799181078721766, -89.41360062354141
+2. Devils Kitchen Lake Campground — Rustic / Primitive — 37.645463221074806, -89.10824469347529
+3. Devils Kitchen Group Campground — Rustic / Primitive — 37.642691415643284, -89.10693260388003
+
+Corrected existing records:
+- Johnson Creek Recreation Area restored as separate from Kinkaid Lake Village Marina & Campground; coordinate updated to 37.83359459282547, -89.51894527535929.
+- Broad Kinkaid Lake row remains Info / Reference only.
+- v23.1.40 rustic layer corrections are carried forward in the v23.1.41 supplement.
+
+QA:
+- Supplement syntax checked.
+- Manifest syntax checked.
+- Version.js now defines CAMPING_BUILD and CAMPING_APP_VERSION.
+- app.js syntax checked with Node.
+- Illinois supplement simulated against base IL data: final count 103; Johnson Creek restored; three new records present; Kinkaid broad row Info / Reference.
+- ZIP contains full fixed replacement files only; config.js is not included because it did not change.

@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 const BUILD=window.CAMPING_BUILD||{};
-const VERSION=BUILD.version||'dev';
+const VERSION=BUILD.version||window.CAMPING_APP_VERSION||'dev';
 window.CAMPING_RUNTIME_VERSION = VERSION;
 function paintRuntimeVersion(){try{const vt=document.getElementById('appVersionText'); if(vt) vt.textContent=VERSION; const vb=document.getElementById('appVersionBadge'); if(vb) vb.textContent=VERSION; if(document) document.title='Boondocking & Camping Maps';}catch(_e){}}
 const DEFAULT_STATE='MI';
@@ -125,7 +125,7 @@ function migrateLayerKeys(rawLayers){
 function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
-function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=localStorage.getItem(STORE.basemap)||'topo'; (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();});}
+function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=localStorage.getItem(STORE.basemap)||'topo'; (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();});}
 function retireLegacyLayerControls(){
   // v23.1.30: layer controls now live only in the floating Map layers legend.
   // Remove stale cached layer panels so their duplicate IDs do not steal button/change handlers.
@@ -136,35 +136,8 @@ function buildControls(){retireLegacyLayerControls(); buildStateSelect(); buildL
 function buildStateSelect(){buildStateChecklist(); syncStateControls();}
 function mappedStateEntries(){return manifestEntries().filter(s=>Number(s.count||0)>0 || s.file || (Array.isArray(s.files)&&s.files.length))}
 function buildStateChecklist(){const box=$('stateChecklist'); if(!box)return; const rows=mappedStateEntries(); box.innerHTML=rows.map(s=>`<label class="state-check"><input type="checkbox" data-state-code="${esc(s.code)}"><span>${esc(s.name||s.code)}</span><em class="state-count-pill">${Number(s.count||0)}</em></label>`).join('');}
-function selectedStateTotalSites(codes){
-  const rows=manifestEntries();
-  const selected=Array.isArray(codes)?codes.filter(Boolean):selectedStateCodes();
-  const byCode=new Map(rows.map(s=>[String(s.code||'').toUpperCase(),Number(s.count||0)]));
-  return selected.reduce((sum,code)=>sum+(Number(byCode.get(String(code||'').toUpperCase()))||0),0);
-}
-function selectedStateSummaryParts(){
-  const n=app.enabledStates.size;
-  const mapped=mappedStateEntries().length;
-  if(app.nearMeActive){
-    const codes=nearMeVisibleStateCodes();
-    if(!app.localAreaCenter)return {text:'Nearby: locating…',total:null};
-    if(codes.length===0)return {text:`Nearby: ${nearRadiusMiles()} mi`,total:0};
-    if(codes.length===1)return {text:`Nearby: ${stateLabel(codes[0])}`,total:selectedStateTotalSites(codes)};
-    return {text:`Nearby: ${codes.length} states in range`,total:selectedStateTotalSites(codes)};
-  }
-  if(n===0)return {text:'No states selected',total:0};
-  const codes=[...app.enabledStates];
-  if(n===1)return {text:`${stateLabel(codes[0])} selected`,total:selectedStateTotalSites(codes)};
-  if(n===mapped)return {text:`All ${mapped} mapped states`,total:selectedStateTotalSites(codes)};
-  return {text:`${n} states selected`,total:selectedStateTotalSites(codes)};
-}
-function selectedStateSummaryHtml(){
-  const p=selectedStateSummaryParts();
-  const total=Number(p.total);
-  const suffix=Number.isFinite(total)?` <small>(${total} total site${total===1?'':'s'})</small>`:'';
-  return `${esc(p.text)}${suffix}`;
-}
-function syncStateControls(){const activeUiStates=app.nearMeActive?new Set(nearMeVisibleStateCodes()):app.enabledStates; $$('[data-state-code]').forEach(cb=>{cb.checked=activeUiStates.has(cb.dataset.stateCode)}); const summary=$('stateSelectionSummary'); if(summary)summary.innerHTML=selectedStateSummaryHtml(); const note=$('stateSelectionNote'); if(note){const n=app.enabledStates.size; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); const names=codes.map(stateLabel).join(', '); note.textContent=app.localAreaCenter?(codes.length?`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. Visible result states: ${names}.`:`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. No visible results are currently inside the radius.`):'Nearby search is getting your location…';}else{note.textContent=n===0?'No states selected. Choose one or more states to load map data.':(n===1?`${stateLabel([...app.enabledStates][0])} selected.`:`${n} states selected. The map will zoom to the combined selected area.`);}}}
+function selectedStateSummary(){const n=app.enabledStates.size; const mapped=mappedStateEntries().length; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); if(!app.localAreaCenter)return 'Nearby: locating…'; if(codes.length===0)return `Nearby: ${nearRadiusMiles()} mi`; if(codes.length===1)return `Nearby: ${stateLabel(codes[0])}`; return `Nearby: ${codes.length} states in range`;} if(n===0)return 'No states selected'; if(n===1)return `${stateLabel([...app.enabledStates][0])} selected`; if(n===mapped)return `All ${mapped} mapped states`; return `${n} states selected`;}
+function syncStateControls(){const activeUiStates=app.nearMeActive?new Set(nearMeVisibleStateCodes()):app.enabledStates; $$('[data-state-code]').forEach(cb=>{cb.checked=activeUiStates.has(cb.dataset.stateCode)}); const summary=$('stateSelectionSummary'); if(summary)summary.textContent=selectedStateSummary(); const note=$('stateSelectionNote'); if(note){const n=app.enabledStates.size; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); const names=codes.map(stateLabel).join(', '); note.textContent=app.localAreaCenter?(codes.length?`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. Visible result states: ${names}.`:`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. No visible results are currently inside the radius.`):'Nearby search is getting your location…';}else{note.textContent=n===0?'No states selected. Choose one or more states to load map data.':(n===1?`${stateLabel([...app.enabledStates][0])} selected.`:`${n} states selected. The map will zoom to the combined selected area.`);}}}
 function stateLabel(code){const row=manifestEntries().find(s=>s.code===code); return row?(row.name||row.code):code}
 function clearNearMeMode(){app.nearMeActive=false;app.nearPickMode=false;app.liveLocationLoading=false;app.liveLocationLastLoadCenter=null;if(app.liveLocationWatchId!=null&&navigator.geolocation){navigator.geolocation.clearWatch(app.liveLocationWatchId);app.liveLocationWatchId=null;}app.liveLocationStarted=false;}
 async function setEnabledStates(codes,fit=true){
@@ -185,20 +158,33 @@ function legendCollapsedStored(){try{return localStorage.getItem('campingMap.leg
 function legendAreaOutlineOn(){try{return localStorage.getItem(STORE.areaOutlines)==='1'}catch(e){return false}}
 function setLegendCollapsed(collapsed){const panel=$('mapLegendDesktop');if(!panel)return;panel.classList.toggle('collapsed',!!collapsed);const btn=$('legendToggleDesktop');if(btn){btn.setAttribute('aria-expanded',String(!collapsed));btn.setAttribute('aria-label',collapsed?'Expand map legend':'Shrink map legend')}try{localStorage.setItem('campingMap.legendCollapsed.v1',collapsed?'1':'0')}catch(e){}}
 function toggleLegendCollapsed(){const panel=$('mapLegendDesktop');setLegendCollapsed(!(panel&&panel.classList.contains('collapsed')))}
+function formatZoomLabel(value){
+  const n=Number(value);
+  if(!Number.isFinite(n))return '';
+  if(Math.abs(n-Math.round(n))<.001)return String(Math.round(n));
+  return n.toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
+}
+function roundedZoomStep(value){
+  const n=Number(value);
+  if(!Number.isFinite(n))return 6;
+  return Math.round(n/.25)*.25;
+}
 function legendZoomHtml(context){
-  const zoom=(app.map&&Number.isFinite(app.map.getZoom&&app.map.getZoom()))?Math.round(app.map.getZoom()):6;
-  return `<div class="legend-zoom-tools" data-legend-zoom-wrap="${esc(context||'desktop')}"><label>Map zoom <span data-legend-zoom-label>${zoom}</span><input data-legend-zoom="1" type="range" min="4" max="18" step="1" value="${zoom}" aria-label="Map zoom level"></label></div>`;
+  const zoom=(app.map&&Number.isFinite(app.map.getZoom&&app.map.getZoom()))?roundedZoomStep(app.map.getZoom()):6;
+  return `<div class="legend-zoom-tools" data-legend-zoom-wrap="${esc(context||'desktop')}"><label>Map zoom <span data-legend-zoom-label>${formatZoomLabel(zoom)}</span><input data-legend-zoom="1" type="range" min="4" max="18" step="0.25" value="${zoom}" aria-label="Map zoom level"></label></div>`;
 }
 function syncLegendZoomControls(){
   if(!app.map)return;
-  const z=Math.round(app.map.getZoom&&app.map.getZoom());
+  const z=roundedZoomStep(app.map.getZoom&&app.map.getZoom());
   if(!Number.isFinite(z))return;
-  $$('[data-legend-zoom]').forEach(input=>{if(String(input.value)!==String(z))input.value=String(z);});
-  $$('[data-legend-zoom-label]').forEach(el=>{el.textContent=String(z);});
+  const min=Number.isFinite(app.map.getMinZoom&&app.map.getMinZoom())?app.map.getMinZoom():4;
+  const max=Number.isFinite(app.map.getMaxZoom&&app.map.getMaxZoom())?Math.min(app.map.getMaxZoom(),18):18;
+  $$('[data-legend-zoom]').forEach(input=>{input.step='0.25';input.min=String(min);input.max=String(max);if(Math.abs(Number(input.value)-z)>.01)input.value=String(z);});
+  $$('[data-legend-zoom-label]').forEach(el=>{el.textContent=formatZoomLabel(z);});
 }
 function applyLegendZoom(value){
   if(!app.map)return;
-  let z=Math.round(Number(value));
+  let z=roundedZoomStep(value);
   if(!Number.isFinite(z))return;
   const min=Number.isFinite(app.map.getMinZoom&&app.map.getMinZoom())?app.map.getMinZoom():4;
   const max=Number.isFinite(app.map.getMaxZoom&&app.map.getMaxZoom())?Math.min(app.map.getMaxZoom(),18):18;
@@ -209,7 +195,7 @@ function applyLegendZoom(value){
 function buildLegend(){
   const layerItems=MAP_LAYERS.map(l=>`<label class="legend-item legend-layer-toggle"><input type="checkbox" data-layer="${l.key}" ${app.enabledLayers.has(l.key)?'checked':''}><span class="layer-icon ${l.css}">${l.icon}</span><span>${esc(l.label)}</span></label>`).join('');
   const outlineOn=legendAreaOutlineOn();
-  const areaItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-area-outline-toggle="1" type="checkbox" ${outlineOn?'checked':''}><span class="layer-icon pin-boondocking">${ICONS.tree}</span><span class="legend-item-text"><span>Official Area Outlines</span><span class="legend-item-note">Works best with one or two states selected; may pause for larger selections.</span></span></label>`;
+  const areaItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-area-outline-toggle="1" type="checkbox" ${outlineOn?'checked':''}><span class="layer-icon pin-boondocking">${ICONS.tree}</span><span>Official Area Outlines</span></label>`;
   const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3><div id="layerSiteCount" class="layer-site-count">Showing 0 of 0 loaded sites</div></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide outlines</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
   const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div>`;
   if($('mapLegendDesktop')){$('mapLegendDesktop').innerHTML=desktopHtml;$('legendToggleDesktop').onclick=toggleLegendCollapsed;setLegendCollapsed(legendCollapsedStored())}
@@ -366,68 +352,19 @@ function routeStopInputs(){return $$('[data-route-stop]').map(i=>i.value.trim())
 function routePlaceInputs(){return [$('routeStart')?.value.trim()||'',...routeStopInputs(),$('routeEnd')?.value.trim()||''].filter(Boolean);}
 function addRouteStopInput(value=''){
   const box=$('routeStops');
-  if(!box)return null;
+  if(!box)return;
   const row=document.createElement('div');
   row.className='route-stop-row';
   row.innerHTML=`<input type="text" data-route-stop placeholder="Optional stop / waypoint" value="${esc(value)}"><button class="secondary" type="button" aria-label="Remove stop">Remove</button>`;
-  const input=row.querySelector('input');
-  row.querySelector('button').onclick=()=>{row.remove();drawRouteLine();};
-  if(input)input.addEventListener('change',()=>drawRouteLine());
+  row.querySelector('button').onclick=()=>row.remove();
   box.appendChild(row);
-  return input;
 }
 function latLngFieldValue(ll){return `${Number(ll.lat).toFixed(6)}, ${Number(ll.lng).toFixed(6)}`;}
-function routePointMarkerIcon(kind,index){
-  const text=kind==='start'?'A':(kind==='end'?'B':String(index+1));
-  const cls=kind==='start'?'route-point-start':(kind==='end'?'route-point-end':'route-point-stop');
-  return L.divIcon({className:'',html:`<span class="route-point-marker ${cls}">${esc(text)}</span>`,iconSize:[28,28],iconAnchor:[14,14],popupAnchor:[0,-14]});
-}
-function routePointEntries(){
-  const entries=[];
-  const startInput=$('routeStart');
-  const endInput=$('routeEnd');
-  const stopInputs=$$('[data-route-stop]');
-  const inputs=[startInput,...stopInputs,endInput].filter(Boolean);
-  const base=Array.isArray(app.routeSearch.basePoints)?app.routeSearch.basePoints:[];
-  inputs.forEach((input,idx)=>{
-    const kind=idx===0?'start':(idx===inputs.length-1?'end':'stop');
-    const stopIndex=Math.max(0,idx-1);
-    const label=kind==='start'?'Start':(kind==='end'?'Destination':`Stop ${stopIndex+1}`);
-    const parsed=parseLatLngText(input.value);
-    const p=(app.routeSearch.active&&base[idx]&&Number.isFinite(Number(base[idx].lat))&&Number.isFinite(Number(base[idx].lng)))?base[idx]:parsed;
-    if(p&&Number.isFinite(Number(p.lat))&&Number.isFinite(Number(p.lng))){
-      entries.push({input,idx,kind,stopIndex,label,lat:Number(p.lat),lng:Number(p.lng)});
-    }
-  });
-  return entries;
-}
-function updateRouteBasePointFromMarker(entry,ll){
-  const value=latLngFieldValue(ll);
-  if(entry.input)entry.input.value=value;
-  if(app.routeSearch.active&&Array.isArray(app.routeSearch.basePoints)&&app.routeSearch.basePoints[entry.idx]){
-    app.routeSearch.basePoints[entry.idx].lat=Number(ll.lat);
-    app.routeSearch.basePoints[entry.idx].lng=Number(ll.lng);
-    app.routeSearch.basePoints[entry.idx].label=value;
-    rerouteWithShapePoints(true);
-  }else{
-    drawRouteLine();
-    notify(`${entry.label} moved to ${value}.`);
-  }
-}
-function addRoutePointMarkers(){
-  if(!app.routeSearch.layer)return;
-  routePointEntries().forEach(entry=>{
-    const marker=L.marker([entry.lat,entry.lng],{icon:routePointMarkerIcon(entry.kind,entry.stopIndex),draggable:true,keyboard:true,title:`${entry.label} — drag to adjust`});
-    marker.bindTooltip(entry.label,{direction:'top',offset:[0,-16],opacity:.92});
-    marker.on('dragend',()=>updateRouteBasePointFromMarker(entry,marker.getLatLng()));
-    app.routeSearch.layer.addLayer(marker);
-  });
-}
 function beginRouteMapPick(mode){
   app.routeSearch.pickMode=mode;
   app.nearPickMode=false;
   const label=mode==='start'?'route start':(mode==='end'?'route destination':'route stop');
-  notify(`Click the map to set the ${label}. A marker will appear so you can drag it if needed.`);
+  notify(`Click the map to set the ${label}.`);
 }
 function applyRouteMapPick(ll){
   const value=latLngFieldValue(ll);
@@ -436,8 +373,7 @@ function applyRouteMapPick(ll){
   else if(mode==='end'&&$('routeEnd'))$('routeEnd').value=value;
   else if(mode==='stop')addRouteStopInput(value);
   app.routeSearch.pickMode=null;
-  drawRouteLine();
-  notify(`Route point added at ${value}. Drag its marker to adjust it.`);
+  notify('Route point added from map click.');
   return true;
 }
 function handleMapPickClick(ll){
@@ -789,25 +725,22 @@ function routePointsWithShapes(){
 }
 function drawRouteLine(){
   if(app.routeSearch.layer)app.routeSearch.layer.clearLayers();
-  if(!app.routeSearch.layer)return;
   const coords=app.routeSearch.coords||[];
-  if(coords.length){
-    const line=L.polyline(coords.map(p=>[p.lat,p.lng]),{color:'#246ad4',weight:7,opacity:.82,lineCap:'round',lineJoin:'round',interactive:true});
-    line.on('click',e=>addRouteShapePoint(e.latlng));
-    app.routeSearch.layer.addLayer(line);
-    (app.routeSearch.shapePoints||[]).forEach((pt,idx)=>{
-      const marker=L.marker([pt.lat,pt.lng],{icon:routeHandleIcon(),draggable:true,keyboard:true,title:'Drag to reshape route'});
-      marker.on('dragend',()=>{
-        const ll=marker.getLatLng();
-        app.routeSearch.shapePoints[idx].lat=ll.lat;
-        app.routeSearch.shapePoints[idx].lng=ll.lng;
-        rerouteWithShapePoints(true);
-      });
-      marker.on('click',e=>{if(e.originalEvent&&e.originalEvent.altKey){app.routeSearch.shapePoints.splice(idx,1);rerouteWithShapePoints(true);}});
-      app.routeSearch.layer.addLayer(marker);
+  if(!coords.length||!app.routeSearch.layer)return;
+  const line=L.polyline(coords.map(p=>[p.lat,p.lng]),{color:'#246ad4',weight:7,opacity:.82,lineCap:'round',lineJoin:'round',interactive:true});
+  line.on('click',e=>addRouteShapePoint(e.latlng));
+  app.routeSearch.layer.addLayer(line);
+  (app.routeSearch.shapePoints||[]).forEach((pt,idx)=>{
+    const marker=L.marker([pt.lat,pt.lng],{icon:routeHandleIcon(),draggable:true,keyboard:true,title:'Drag to reshape route'});
+    marker.on('dragend',()=>{
+      const ll=marker.getLatLng();
+      app.routeSearch.shapePoints[idx].lat=ll.lat;
+      app.routeSearch.shapePoints[idx].lng=ll.lng;
+      rerouteWithShapePoints(true);
     });
-  }
-  addRoutePointMarkers();
+    marker.on('click',e=>{if(e.originalEvent&&e.originalEvent.altKey){app.routeSearch.shapePoints.splice(idx,1);rerouteWithShapePoints(true);}});
+    app.routeSearch.layer.addLayer(marker);
+  });
 }
 function addRouteShapePoint(latlng){
   if(!(app.routeSearch&&app.routeSearch.active)){return;}
@@ -1169,7 +1102,7 @@ async function loadEnabledStates(fit){
   await renderMarkers(fit);
   if(loadId===app.loadSeq)setLoading(false);
 }
-function loadScriptOnce(src,attr,val){return new Promise(res=>{const existing=document.querySelector(`script[${attr}="${val}"]`); if(existing)return res(); const s=document.createElement('script');s.src=src;s.setAttribute(attr,val);s.onload=()=>res();s.onerror=()=>{console.warn('Failed to load data file',src);res()};document.head.appendChild(s)})}
+function loadScriptOnce(src,attr,val){return new Promise(res=>{let done=false;const finish=()=>{if(done)return;done=true;res();};const existing=document.querySelector(`script[${attr}="${val}"]`);if(existing){if(existing.dataset.loaded==='1'||existing.dataset.failed==='1')return finish();existing.addEventListener('load',finish,{once:true});existing.addEventListener('error',finish,{once:true});setTimeout(finish,15000);return;}const s=document.createElement('script');const sep=String(src).includes('?')?'&':'?';s.src=src+sep+'build='+encodeURIComponent(VERSION||Date.now());s.setAttribute(attr,val);const timer=setTimeout(()=>{s.dataset.failed='1';console.warn('Timed out loading data file',src);finish();},15000);s.onload=()=>{clearTimeout(timer);s.dataset.loaded='1';finish();};s.onerror=()=>{clearTimeout(timer);s.dataset.failed='1';console.warn('Failed to load data file',src);finish();};document.head.appendChild(s)})}
 
 const MDOT_LIVE_REST_ROADSIDE={
   enabled:true,
@@ -2335,10 +2268,7 @@ function mappedStatesNearLocation(lat,lng){const codes=mappedStateEntries().map(
 function setNearCenterMarker(ll,label='Nearby center'){
   const latLng=L.latLng(ll[0],ll[1]);
   const icon=L.divIcon({className:'',html:`<span class="map-pin pin-boondocking">${ICONS.dot}</span>`,iconSize:[22,22],iconAnchor:[11,11],popupAnchor:[0,-10]});
-  if(app.nearCenterMarker){app.nearCenterMarker.setLatLng(latLng);}else{
-    app.nearCenterMarker=L.marker(latLng,{icon,draggable:true,title:'Nearby center — drag to move'}).addTo(app.map).bindPopup(label);
-    app.nearCenterMarker.on('dragend',()=>{const p=app.nearCenterMarker.getLatLng();applyNearMapLocation(Number(p.lat),Number(p.lng));});
-  }
+  if(app.nearCenterMarker){app.nearCenterMarker.setLatLng(latLng);}else{app.nearCenterMarker=L.marker(latLng,{icon}).addTo(app.map).bindPopup(label);}
 }
 async function applyNearMapLocation(lat,lng){
   if(!Number.isFinite(lat)||!Number.isFinite(lng)){notify('That map spot does not have usable coordinates.');return;}
@@ -2356,7 +2286,7 @@ async function applyNearMapLocation(lat,lng){
   try{await loadEnabledStates(false);fitNearMeRadius([lat,lng]);}
   finally{setLoading(false);}
 }
-function beginNearMapPick(){app.nearPickMode=true;app.routeSearch.pickMode=null;notify('Click the map to choose a Nearby center. A marker will appear and can be dragged.');setLocationStatus('Click the map to choose a Nearby search center.');}
+function beginNearMapPick(){app.nearPickMode=true;app.routeSearch.pickMode=null;notify('Click the map center for Nearby search.');setLocationStatus('Click the map to choose a Nearby search center.');}
 function clearNearbyMode(){clearNearMeMode();if(app.nearCenterMarker){app.nearCenterMarker.remove();app.nearCenterMarker=null;}if(app.userMarker){app.userMarker.remove();app.userMarker=null;}if(app.userAccuracyCircle){app.userAccuracyCircle.remove();app.userAccuracyCircle=null;}setLocationStatus('Nearby search is off.');syncStateControls();renderMarkers(true);notify('Nearby search cleared.');}
 function showUserMarker(ll,accuracyMeters){
   const latLng=L.latLng(ll[0],ll[1]);

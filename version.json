@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.40",
-  "build": "v23.1.40",
+  "version": "v23.1.41",
+  "build": "v23.1.41",
   "released": "2026-06-25",
-  "label": "Boondocking & Camping Maps v23.1.40",
-  "notes": "Illinois final cleanup: applies official-source layer corrections, Kinkaid operator/private campground cleanup, removes broad Kinkaid boondocking interpretation from camping layers, and smooths map zoom control."
+  "label": "Boondocking & Camping Maps v23.1.41",
+  "notes": "Illinois Kinkaid/Devils Kitchen correction: restores Johnson Creek as separate from Kinkaid Lake Village Marina, adds Kinkaid Lake Village Marina & Campground plus Devils Kitchen Lake Campground and Group Campground from Tod-supplied exact coordinates with official/operator proof, fixes version build object, and hardens state-script loading."
 }
