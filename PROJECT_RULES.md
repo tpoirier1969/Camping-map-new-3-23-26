@@ -150,6 +150,28 @@ Use Boondocking / Dispersed for legal dispersed/remote camping, designated dispe
 
 If the source supports a broad area but not an exact campsite, the record must clearly say it is an area/rule marker, not an exact campsite pin.
 
+### Community-supported boondocking proof
+
+For **Boondocking / Dispersed** records, community/social evidence may be primary proof.
+
+Three or more independent community/social pins, reports, reviews, or listings in close proximity, from different parties or clearly independent source chains, count as proof equivalent to one official listing for a Boondocking / Dispersed candidate.
+
+This applies especially where official agencies provide only broad dispersed-camping rule areas and do not publish exact usable dispersed locations.
+
+Use this standard:
+
+* **3+ independent community/social pins or reports in close proximity:** valid proof for a Boondocking / Dispersed candidate, unless contradicted by official/private/closure/no-camping evidence.
+* **1–2 community/social pins or reports:** valid lead requiring more research. Do not reject solely because it is community-sourced.
+* **Same pin/listing recycled across multiple sites from one party or source chain:** count as one source, not multiple independent confirmations.
+* **Official no-camping, closure, private-land, day-use-only, unsafe/illegal access, or posted restriction conflict:** reject or hold, depending on severity.
+
+Community-supported boondocking records must be labeled honestly. Recommended wording:
+
+“Community-supported dispersed camping location. This is not an agency-designated campsite. Multiple independent community/social reports support overnight dispersed use in this area. Verify land ownership, current postings, road access, fire restrictions, stay limits, and local rules before staying.”
+
+Do not use community proof to override official disproof. Do not import fake centroids, lake centers, forest centers, trailheads, boat ramps, parking lots, private driveways, or vague “somewhere around here” pins as boondocking records.
+
+
 Private Campgrounds:
 
 Use Private Campgrounds for private/operator campgrounds that offer public-facing overnight camping and have official/operator proof or acceptable community/social proof.
