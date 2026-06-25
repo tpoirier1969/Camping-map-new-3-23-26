@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.39",
-  "build": "v23.1.39",
-  "released": "2026-06-24",
-  "label": "Boondocking & Camping Maps v23.1.39",
-  "notes": "Kentucky area outline context rescue: adds two official fetchable Kentucky area-outline records; no campsite count changes."
+  "version": "v23.1.40",
+  "build": "v23.1.40",
+  "released": "2026-06-25",
+  "label": "Boondocking & Camping Maps v23.1.40",
+  "notes": "Illinois final cleanup: applies official-source layer corrections, Kinkaid operator/private campground cleanup, removes broad Kinkaid boondocking interpretation from camping layers, and smooths map zoom control."
 }

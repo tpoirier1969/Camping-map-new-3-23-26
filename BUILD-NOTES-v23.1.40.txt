@@ -1,0 +1,47 @@
+TOD'S BOONDOCKING & CAMPING MAPS — BUILD NOTES v23.1.40
+
+Baseline:
+- Repo-live v23.1.39.
+- Illinois active in manifest with 100 records before this overlay.
+- Research-only worker returns were reviewed before packaging.
+
+Changed files:
+- version.json
+- version.js
+- index.html
+- data/states-manifest.js
+- data/supplements/il-rustic-cleanup-v23.1.40.js
+
+Data changes:
+- Adds Illinois cleanup supplement to manifest; no Illinois count change.
+- Corrects these active Illinois records to Rustic / Primitive using official IDNR proof and existing active coordinates only:
+  - Apple River Canyon State Park
+  - Hennepin Canal - Lock 6 Campground
+  - Hennepin Canal Lock 11 - campground
+  - Green River State Wildlife Management Area
+  - Big River Campground / Shady Pines
+  - Delabar State Park
+  - Trail of Tears State Forest
+  - Pyramid State Recreation Area
+  - Randolph County State Recreation Area
+  - Saline County State Fish and Wildlife Area
+- Corrects Johnson Creek Recreation Area / Kinkaid Lake Village Marina & Campground to Private Campgrounds / Modern using official operator proof and existing active coordinate only.
+- Moves broad Kinkaid Lake camping/boondocking interpretation to Info / Reference. The popup warns that IDNR says camping is not allowed on DNR property and that USFS/Shawnee and district/operator camping must be handled separately.
+- No new campsite coordinates were added. Coordinate-blocked leads remain held.
+
+UI change:
+- Adds a smooth/fractional map zoom patch in index.html.
+- Leaflet maps now use zoomSnap 0.25, zoomDelta 0.25, and a softer wheel zoom response.
+- Existing legend zoom sliders are upgraded to quarter-step stops without removing the +/- zoom buttons.
+
+Explicit non-changes:
+- No app.js change was included.
+- No config.js change.
+- No new Illinois exact-coordinate adds.
+- No Shawnee/USFS cleanup beyond moving broad non-USFS Kinkaid context out of camping layers.
+
+QA notes:
+- Supplement was syntax-checked by construction and can be loaded after data/states/IL.js because manifest files load sequentially.
+- Illinois manifest count remains 100.
+- Kinkaid Lake Village / Johnson Creek stays an existing active coordinate correction; no address geocode, marina dock point, or map-click coordinate was invented.
+- The smooth zoom patch stores the Leaflet map created by app.js as window.CAMPING_LEAFLET_MAP and intercepts legend zoom slider input before the older whole-step app handler rounds it.
