@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.43",
-  "build": "v23.1.43",
+  "version": "v23.1.44",
+  "build": "v23.1.44",
   "released": "2026-06-25",
-  "label": "Boondocking & Camping Maps v23.1.43",
-  "notes": "Minnesota exact batch 1: adds 24 official-source Superior NF / Chippewa NF campground and backcountry/system records, corrects broad forest rows to Info / Reference, fixes Snake River to Rustic / Primitive, and enriches/corrects selected official local Modern records while preserving v23.1.42 startup recovery."
+  "label": "Boondocking & Camping Maps v23.1.44",
+  "notes": "Minnesota large-add batch 2: adds 59 records from reconciled worker returns — 21 USFS official facility/system records, 21 MN DNR state forest/watercraft official map-derived approximate markers, 13 MN DNR state park/SRA official map-derived approximate markers, 3 county/regional campground records, and 1 community-supported Rum River/Game Refuge Road boondocking marker. Voyageurs exact sites and DNR state forest polygons remain held for technical extraction."
 }

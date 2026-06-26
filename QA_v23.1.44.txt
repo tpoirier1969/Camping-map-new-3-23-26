@@ -1,0 +1,64 @@
+# QA — v23.1.44
+
+Build: v23.1.44
+Date: 2026-06-25
+Baseline: live repo v23.1.43.
+
+## Package QA results
+
+PASS — PROJECT_RULES.md reviewed from live repo before build.
+PASS — Live `PROJECT_RULES.md` already contains the community-supported boondocking proof rule; no duplicate edit made.
+PASS — `version.json` parses as JSON and reports v23.1.44.
+PASS — `version.js` reports v23.1.44 for CAMPING_APP_VERSION, CAMPING_APP_BUILD, and CAMPING_BUILD.
+PASS — `data/states-manifest.js` syntax checked; MN manifest count is 148.
+PASS — MN manifest includes `data/supplements/mn-largeadd-batch2-v23.1.44.js`.
+PASS — New supplement syntax checked with Node.
+PASS — New supplement simulated in a fresh `window.CAMPING_STATE_DATA.MN=[]` runtime; it adds 59 records.
+PASS — New supplement has 59 unique IDs.
+PASS — New supplement has 59 unique names.
+PASS — New supplement has no exact duplicate coordinate pairs internally.
+PASS — No `config.js` included in the ZIP.
+PASS — No icon/CSS/app UI file changes included.
+PASS — `index.html` was reviewed; it loads `version.js`, `data/states-manifest.js`, optional `config.js`, and `app.js` through the current loader, so no script-reference edit was required.
+
+## Count impact
+
+Starting MN count: 89
+Added records in new supplement: 59
+Expected MN count after overlay: 148
+
+## New records by source lane
+
+- Worker 1 USFS official facility/system: 21
+- Worker 2 MN DNR state park/SRA approximate official map markers: 13
+- Worker 3 MN DNR state forest/watercraft approximate official map markers: 21
+- Worker 4 county/regional/operator: 3
+- Worker 6 community-supported boondocking: 1
+
+## New records by layer
+
+- Modern Campgrounds: 4
+- Rustic / Primitive: 38
+- Boat / Backpack: 16
+- Boondocking / Dispersed: 1
+
+## Special spot checks
+
+PASS — Stony Point Campground includes loud closed/construction/TBD warning.
+PASS — Official map-derived approximate campground records include approximate-marker warning text.
+PASS — MN DNR watercraft markers include watercraft-specific warning text.
+PASS — Rum River / Game Refuge Road includes community-supported dispersed warning text and `communityProofCount: 3+`.
+PASS — Voyageurs exact campsite points were not imported.
+PASS — DNR state forest dispersed polygons were not imported as point proxies.
+PASS — No lake centers, island centers, forest centers, trailheads, parking lots, boat ramps, dams, offices, or no-coordinate rows were imported as campsite pins.
+
+## Holds / exclusions confirmed
+
+- Cut Foot Horse Camp — held for official coordinate extraction.
+- Norway Beach Picnic Shelter — rejected/not imported; not overnight camping.
+- Voyageurs campsite inventory — held for exact official coordinate feed.
+- DNR state forest polygons — held for actual geometry export.
+- Lake Auburn hike-in/bicycle-in component — held to avoid same-coordinate duplicate.
+- Lake Elmo / St. Croix Bluffs / Old Wadena / Elm Creek Horse Camp — held due blank numeric coordinates.
+- Johnson Landing — held; below 3-independent-source threshold.
+- Lake Shetek/s745 correction — held until identity resolved.

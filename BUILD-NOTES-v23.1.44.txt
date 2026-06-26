@@ -1,0 +1,54 @@
+# BUILD NOTES — v23.1.44
+
+Build: v23.1.44
+Date: 2026-06-25
+Baseline: live repo default branch at v23.1.43, using current PROJECT_RULES.md and the uploaded MN v23.1.44 latest worker feedback ZIP.
+Package type: fixed-files overlay ZIP. No repo commit, branch, or PR was created.
+
+## Changelog
+
+- Added `data/supplements/mn-largeadd-batch2-v23.1.44.js`.
+- Added 59 Minnesota records from reconciled worker returns:
+  - 21 USFS official facility/system coordinate records.
+  - 21 MN DNR state forest campground/watercraft official map-derived approximate marker records.
+  - 13 MN DNR state park/SRA official map-derived approximate marker records.
+  - 3 county/regional/operator campground records.
+  - 1 Rum River / Game Refuge Road community-supported Boondocking / Dispersed marker.
+- Updated Minnesota manifest count from 89 to 148 and added the new supplement reference.
+- Updated app build identity files to v23.1.44.
+- Preserved v23.1.42 startup recovery behavior by not changing `index.html` or `app.js`.
+
+## Records intentionally held out
+
+- Voyageurs National Park exact campsite inventory: held until official/NPS/Recreation.gov/RIDB/API/DevTools coordinate feed is recovered. No lake, island, shoreline, trailhead, or visitor-center proxy dots were added.
+- MN DNR state forest dispersed-camping polygons: held until actual DNR-managed-land geometry is exported and QA'd.
+- Cut Foot Horse Camp: official facility proof exists, but coordinate remains blocked.
+- Norway Beach Picnic Shelter: rejected/not imported because it is not overnight camping.
+- Lake Auburn hike-in/bicycle-in component: held as same-coordinate duplicate risk; mentioned in main Lake Auburn details instead of a second marker.
+- Lake Elmo, St. Croix Bluffs, Old Wadena, and Elm Creek Horse Camp no-coordinate rows: held.
+- Johnson Landing: held because worker proof did not meet the 3-independent-source threshold.
+- Lake Shetek/Prairie Campground correction: held until s745 identity is resolved.
+
+## Important notes
+
+- Stony Point Campground is included only with a loud `Site Closed / construction into summer 2026 / camping availability TBD` warning.
+- Approximate DNR map-derived records use explicit approximate-marker warning language and `needsFollowup: true`.
+- Rum River / Game Refuge Road is labeled as community-supported dispersed camping, not an official/designated campsite.
+- `PROJECT_RULES.md` was reviewed. The live repo file already contains the new community-supported boondocking proof section, so it was verified but not duplicated in this overlay.
+
+## Changed files
+
+- BUILD-NOTES-v23.1.44.txt
+- QA_v23.1.44.txt
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/mn-largeadd-batch2-v23.1.44.js
+
+## Files intentionally not changed
+
+- PROJECT_RULES.md — already contains the clarified community-supported boondocking rule.
+- index.html — already loads `version.js`, `data/states-manifest.js`, and `app.js` through current startup-recovery loader.
+- app.js — no runtime code change required.
+- config.js — not changed and not included.
+- data/states/MN.js — not changed; additions are isolated in the new supplement.
