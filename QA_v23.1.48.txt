@@ -1,0 +1,108 @@
+QA v23.1.48 — Wisconsin consolidation cleanup
+
+Baseline and files:
+- Baseline ZIP version: v23.1.47.
+- PROJECT_RULES.md read before package work.
+- Wisconsin old active manifest file references: 28 total (27 supplements plus WI.js).
+- Wisconsin final manifest file references: 1 (`data/states/WI.js`).
+
+Count preservation:
+- Old runtime Wisconsin count after loading WI.js + active supplements: 621
+- New runtime Wisconsin count from consolidated WI.js only: 621
+- Manifest Wisconsin count: 621
+- Count-preserving cleanup: PASS
+
+Old Wisconsin load chain:
+| File | Before | After | Delta |
+|---|---:|---:|---:|
+| `data/states/WI.js` | 0 | 212 | 212 |
+| `data/supplements/wi-nhal-rustic-verified-v23.0.38.js` | 212 | 226 | 14 |
+| `data/supplements/wi-dnr-state-forest-rustic-verified-v23.0.38.js` | 226 | 229 | 3 |
+| `data/supplements/wi-dnr-rustic-boat-backpack-verified-v23.0.40.js` | 229 | 248 | 19 |
+| `data/supplements/wi-state-sponsored-rustic-inventory-v23.0.41.js` | 248 | 269 | 21 |
+| `data/supplements/wi-verified-campgrounds-cleanup-v23.0.65.js` | 269 | 280 | 11 |
+| `data/supplements/wi-boat-backpack-cleanup-v23.0.65.js` | 280 | 286 | 6 |
+| `data/supplements/wi-hardcase-cleanup-v23.0.66.js` | 286 | 293 | 7 |
+| `data/supplements/wi-casino-rv-cleanup-v23.0.66.js` | 293 | 299 | 6 |
+| `data/supplements/wi-secondary-traveler-stops-v23.0.66.js` | 299 | 313 | 14 |
+| `data/supplements/wi-heldback-traveler-stop-rescue-v23.0.67.js` | 313 | 315 | 2 |
+| `data/supplements/wi-user-coordinate-rescue-v23.0.69.js` | 315 | 322 | 7 |
+| `data/supplements/wi-central-corridor-traveler-stops-v23.0.70.js` | 322 | 325 | 3 |
+| `data/supplements/wi-user-coordinate-central-corridor-traveler-stops-v23.0.71.js` | 325 | 334 | 9 |
+| `data/supplements/wi-primitive-water-access-exact-v23.1.5.js` | 334 | 448 | 114 |
+| `data/supplements/wi-boondocking-sites-verified-v23.1.8.js` | 448 | 460 | 12 |
+| `data/supplements/wi-cnf-lake-area-boondocking-v23.1.10.js` | 460 | 471 | 11 |
+| `data/supplements/wi-cnf-corridor-boondocking-v23.1.11.js` | 471 | 473 | 2 |
+| `data/supplements/wi-wiwide-primitive-boondocking-v23.1.12.js` | 473 | 488 | 15 |
+| `data/supplements/wi-accelerated-sites-areas-v23.1.13.js` | 488 | 521 | 33 |
+| `data/supplements/wi-robinson-oconto-permit-areas-v23.1.14.js` | 521 | 528 | 7 |
+| `data/supplements/wi-exact-rustic-primitive-v23.0.84.js` | 528 | 529 | 1 |
+| `data/supplements/wi-cnf-county-safe-adds-v23.1.16.js` | 529 | 534 | 5 |
+| `data/supplements/wi-cnf-northwest-rustic-corridor-v23.1.17.js` | 534 | 540 | 6 |
+| `data/supplements/wi-grid-pass-safe-adds-v23.1.18.js` | 540 | 596 | 56 |
+| `data/supplements/wi-cleanup-corrections-v23.1.22.js` | 596 | 596 | 0 |
+| `data/supplements/wi-governor-earl-area-corrections-v23.1.23.js` | 596 | 606 | 10 |
+| `data/supplements/wi-jackson-clark-new-candidates-v23.1.24.js` | 606 | 621 | 15 |
+
+Layer counts after consolidation:
+| Layer key | Count |
+|---|---:|
+| `boat-backpack` | 211 |
+| `boondocking` | 46 |
+| `federal` | 28 |
+| `info` | 7 |
+| `local` | 17 |
+| `modern` | 8 |
+| `overnight-parking` | 4 |
+| `pending` | 5 |
+| `private` | 95 |
+| `rest-truck` | 61 |
+| `rustic` | 45 |
+| `state` | 94 |
+
+Duplicate checks after consolidation:
+- Duplicate IDs: 0 PASS
+- Duplicate exact normalized names: 3 FOLLOW-UP ONLY — preserved; no surprise deletion in consolidation package.
+- Duplicate exact 6-decimal coordinate pairs: 16 FOLLOW-UP ONLY — many are likely multi-record park/system markers sharing facility coordinates; preserved.
+
+Duplicate exact normalized names noted for later review:
+- plum lake campground — northern highland-american legion state forest: s720 / Plum Lake Campground — Northern Highland-American Legion State Forest; wi-nhal-rustic-plum-lake / Plum Lake Campground — Northern Highland-American Legion State Forest
+- sandy beach lake campground — northern highland-american legion state forest: s807 / Sandy Beach Lake Campground — Northern Highland-American Legion State Forest; wi-nhal-rustic-sandy-beach-lake / Sandy Beach Lake Campground — Northern Highland-American Legion State Forest
+- meadow valley wildlife area primitive camping areas: wi-meadow-valley-wildlife-area-primitive-camping / Meadow Valley Wildlife Area Primitive Camping Areas; wi-meadow-valley-wa-primitive-area-v23113 / Meadow Valley Wildlife Area Primitive Camping Areas
+
+First duplicate exact 6-decimal coordinate pairs noted for later review:
+- 46.788113,-90.673727: s80 / Big Bay State Park Campground; wi-big-bay-outdoor-group-camp / Big Bay State Park Outdoor Group Camp
+- 45.983990,-90.934760: s94 / Black Lake Recreation Area; wi-traveler-black-lake-south-boat-launch / Black Lake South Boat Launch Picnic Area
+- 43.022467,-89.849940: s116 / Blue Mound State Park Family Campground; wi-blue-mound-bike-hike-sites / Blue Mound State Park Bike/Hike-in Sites
+- 45.179948,-91.161381: s141 / Brunet Island State Park Campgrounds; wi-brunet-island-north-campground / Brunet Island North Campground
+- 43.945762,-90.003602: s142 / Buckhorn State Park Campgrounds; wi-buckhorn-backpack-cart-in-campsites / Buckhorn State Park Backpack and Cart-in Campsites; wi-buckhorn-east-group-camp / Buckhorn State Park East-side Group Tent Camps
+- 46.376156,-90.643968: s208 / Copper Falls State Park Campgrounds; wi-copper-falls-south-campground / Copper Falls South Campground; wi-copper-falls-group-camp / Copper Falls Group Tent Camp; wi-copper-falls-backpack-campsite / Copper Falls Backpack Campsite
+- 43.016908,-90.141311: s341 / Governor Dodge State Park Campgrounds; wi-gov-dodge-hickory-ridge-group-camp / Governor Dodge Hickory Ridge Group Camp; wi-gov-dodge-backpack-campsites / Governor Dodge Backpack Campsites
+- 43.751100,-88.100900: s353 / Greenbush Group Campground — Kettle Moraine State Forest Northern Unit; wi-kmn-backpack-shelters / Kettle Moraine Northern Unit Backpack Shelters
+- 45.782613,-90.717177: s514 / Lake of the Pines Campground — Flambeau River State Forest; wi-flambeau-river-backpack-camping-area / Flambeau River State Forest Backpack Camping Area
+- 45.347075,-88.199725: s662 / Old Veteran's Lake Family Campground — Governor Earl Peshtigo River State Forest; wi-govearl-remote-campsites / Governor Earl Remote Campsites — system reference
+- 42.959651,-88.439784: s707 / Pinewoods Campground — Kettle Moraine State Forest Southern Unit; wi-kms-southern-walk-in-campsites / Kettle Moraine Southern Unit Walk-in Campsites
+- 44.191838,-87.519291: s729 / Point Beach State Forest Campground; wi-point-beach-outdoor-group-camp / Point Beach Outdoor Group Camp; wi-point-beach-ice-age-trail-campsite / Point Beach Ice Age Trail Campsite; wi-point-beach-kayak-campsite / Point Beach Kayak Campsite
+- 42.781600,-88.691000: s996 / Whitewater Lake Campground — Kettle Moraine State Forest Southern Unit; wi-kms-hickory-woods-group-camp / Kettle Moraine Southern Unit Hickory Woods Group Camp
+- 43.697627,-90.574175: s1000 / Wildcat Mountain State Park Family Campground; wi-wildcat-cart-in-campsites / Wildcat Mountain Cart-in Campsites; wi-wildcat-horse-campground / Wildcat Mountain Horse Campground; wi-wildcat-outdoor-group-camp / Wildcat Mountain Outdoor Group Campground
+- 45.323300,-88.221800: wi-govearl-boat-in-campsites / Governor Earl Boat-in Campsites — system reference; wi-govthompson-boat-in-campsites / Governor Thompson State Park Boat-in Campsites; wi-governor-earl-peshtigo-remote-boat-in-system-v23082 / Governor Earl Remote / Boat-in Campsite System — reference
+- 45.924167,-88.496944: wi-traveler-lauterman-trailhead / Lauterman National Recreation Area Trailhead; wi-lauterman-national-recreation-area-walk-in-canoe-in-v23084 / Lauterman National Recreation Area Walk-In / Canoe-In Campsites
+
+Syntax / parse checks:
+- `node --check data/states/WI.js`: PASS
+- `node --check data/states-manifest.js`: PASS
+- `node --check version.js`: PASS
+- `python json parse version.json`: PASS
+- Consolidated WI.js runtime simulation: PASS, 621 rows
+- Manifest no longer references `data/supplements/wi-*.js`: PASS
+- ZIP integrity: PASS
+
+Files intentionally not changed:
+- app.js — v23.1.47 performance popup preserved
+- index.html
+- config.js
+- area outline files
+- non-Wisconsin states
+
+Result:
+- PASS. v23.1.48 removes the Wisconsin runtime supplement chain without changing the accepted Wisconsin record count.

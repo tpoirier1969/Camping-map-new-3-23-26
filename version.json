@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.47",
-  "build": "v23.1.47",
+  "version": "v23.1.48",
+  "build": "v23.1.48",
   "released": "2026-06-28",
-  "label": "Boondocking & Camping Maps v23.1.47",
-  "notes": "Performance warning popup refinement: keeps the v23.1.46 Illinois consolidation and Minnesota consolidation baseline, and changes the selected-record performance check into an obvious confirmation popup at 1,000+ selected records with clear Continue/Cancel behavior."
+  "label": "Boondocking & Camping Maps v23.1.48",
+  "notes": "Wisconsin consolidation cleanup: folds all active Wisconsin supplement data/corrections through v23.1.24 into data/states/WI.js, removes Wisconsin supplement runtime references from the manifest, preserves final Wisconsin count at 621, and keeps the v23.1.47 selected-record performance popup behavior."
 }

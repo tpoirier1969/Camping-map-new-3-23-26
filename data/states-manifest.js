@@ -33,39 +33,10 @@ window.CAMPING_STATES_MANIFEST = {
     "file": "data/states/WI.js",
     "count": 621,
     "files": [
-      "data/states/WI.js",
-      "data/supplements/wi-nhal-rustic-verified-v23.0.38.js",
-      "data/supplements/wi-dnr-state-forest-rustic-verified-v23.0.38.js",
-      "data/supplements/wi-dnr-rustic-boat-backpack-verified-v23.0.40.js",
-      "data/supplements/wi-state-sponsored-rustic-inventory-v23.0.41.js",
-      "data/supplements/wi-verified-campgrounds-cleanup-v23.0.65.js",
-      "data/supplements/wi-boat-backpack-cleanup-v23.0.65.js",
-      "data/supplements/wi-hardcase-cleanup-v23.0.66.js",
-      "data/supplements/wi-casino-rv-cleanup-v23.0.66.js",
-      "data/supplements/wi-secondary-traveler-stops-v23.0.66.js",
-      "data/supplements/wi-heldback-traveler-stop-rescue-v23.0.67.js",
-      "data/supplements/wi-user-coordinate-rescue-v23.0.69.js",
-      "data/supplements/wi-central-corridor-traveler-stops-v23.0.70.js",
-      "data/supplements/wi-user-coordinate-central-corridor-traveler-stops-v23.0.71.js",
-      "data/supplements/wi-primitive-water-access-exact-v23.1.5.js",
-      "data/supplements/wi-boondocking-sites-verified-v23.1.8.js",
-      "data/supplements/wi-cnf-lake-area-boondocking-v23.1.10.js",
-      "data/supplements/wi-cnf-corridor-boondocking-v23.1.11.js",
-      "data/supplements/wi-wiwide-primitive-boondocking-v23.1.12.js",
-      "data/supplements/wi-accelerated-sites-areas-v23.1.13.js",
-      "data/supplements/wi-robinson-oconto-permit-areas-v23.1.14.js",
-      "data/supplements/wi-exact-rustic-primitive-v23.0.84.js",
-      "data/supplements/wi-cnf-county-safe-adds-v23.1.16.js",
-      "data/supplements/wi-cnf-northwest-rustic-corridor-v23.1.17.js",
-      "data/supplements/wi-grid-pass-safe-adds-v23.1.18.js",
-      "data/supplements/wi-cleanup-corrections-v23.1.22.js",
-      "data/supplements/wi-governor-earl-area-corrections-v23.1.23.js",
-      "data/supplements/wi-jackson-clark-new-candidates-v23.1.24.js"
+      "data/states/WI.js"
     ],
     "dynamicSources": [
-      "v23.1.22: Wisconsin cleanup/correction data supplement applied; reconciles post-guard count, removes stale Black Lake duplicate, and enriches selected CNF/county rule-area records without adding new sites.",
-      "v23.1.23: Governor Earl DNR PDF review adds seven boat-in campsite markers and three remote campsite cluster/area markers; also patches Black Lake, Oconto permit-area layers, Douglas Afterhours Meadow status, and clarifies NHAL/St. Croix area/system records.",
-      "v23.1.24: Jackson/Clark proof-build supplement adds 15 official public campground/group-camp records, corrects Jackson/Clark county forest permit-area records to Boondocking / Dispersed, and enriches Black River backpack rule-area popup/source details."
+      "v23.1.48: Wisconsin consolidation cleanup folds all active Wisconsin runtime supplements through v23.1.24 into data/states/WI.js. Final loaded Wisconsin count remains 621; historical supplement files are retired from active manifest loading."
     ]
   },
   "WY": {"code":"WY","name":"Wyoming","file":"data/states/WY.js","count":17,"files":["data/states/WY.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]}

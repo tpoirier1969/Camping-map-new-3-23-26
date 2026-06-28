@@ -1,0 +1,39 @@
+BUILD-NOTES v23.1.48 — Wisconsin consolidation cleanup
+
+Baseline:
+- Source ZIP: user-uploaded current project ZIP, v23.1.47.
+- PROJECT_RULES.md reviewed before build.
+- Wisconsin manifest before cleanup loaded data/states/WI.js plus 27 active Wisconsin supplement files.
+
+Purpose:
+- Consolidate Wisconsin runtime data into the owning state file.
+- Remove historical Wisconsin supplement files from active manifest loading.
+- Preserve all currently loaded Wisconsin records and keep counts stable.
+- Keep v23.1.47 selected-record performance popup behavior unchanged.
+
+Changed files:
+- data/states/WI.js
+- data/states-manifest.js
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.48.txt
+- QA_v23.1.48.txt
+- DELETE-OBSOLETE-WI-SUPPLEMENTS-v23.1.48.txt
+
+Intentionally not changed:
+- app.js (v23.1.47 performance popup behavior already present and preserved)
+- index.html
+- config.js
+- area outline files
+- non-Wisconsin state data files
+
+Wisconsin load consolidation:
+- Base WI.js row count: 212
+- Loaded Wisconsin count after all old active WI supplements: 621
+- New consolidated WI.js row count: 621
+- Manifest Wisconsin files after cleanup: data/states/WI.js only
+
+Important:
+- This package does not delete obsolete supplement files from the repo filesystem.
+- After installing and verifying v23.1.48, the Wisconsin supplement files listed in DELETE-OBSOLETE-WI-SUPPLEMENTS-v23.1.48.txt are no longer active runtime dependencies and can be removed in repo cleanup.
+- Existing duplicate-name/duplicate-coordinate situations are preserved and documented in QA. No site deletion or dedupe pruning was performed in this cleanup.
