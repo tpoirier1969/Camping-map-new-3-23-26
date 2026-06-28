@@ -1,0 +1,43 @@
+QA — v23.1.45 Minnesota consolidation cleanup
+
+PROJECT_RULES.md reviewed from uploaded baseline before package work.
+
+Runtime count preservation:
+- v23.1.44 integrated MN.js before consolidation: 110 rows.
+- After applying active MN v23.1.15 supplement: 124 rows.
+- After applying active MN v23.1.43 supplement: 148 rows.
+- Consolidated MN.js row count: 148.
+- Manifest Minnesota count: 148.
+
+Duplicate checks on consolidated MN.js:
+- Duplicate IDs: 0.
+- Duplicate exact normalized names: 0.
+- Duplicate exact 6-decimal coordinate pairs: 0.
+
+Layer counts after consolidation:
+- modern: 8
+- private: 15
+- info: 3
+- state: 5
+- rustic: 65
+- rest-truck: 24
+- boat-backpack: 27
+- boondocking: 1
+
+Syntax/parse checks:
+- node --check data/states/MN.js: passed.
+- node --check data/states-manifest.js: passed.
+- node --check version.js: passed.
+- version.json JSON parse: passed.
+- Runtime simulation loading consolidated MN.js only for Minnesota: 148 rows.
+- Manifest MN files list verified as ["data/states/MN.js"] only.
+
+Intentional non-changes:
+- No campsite decisions changed.
+- No coordinates changed beyond previously accepted v23.1.43/v23.1.44 data.
+- No layers changed beyond previously accepted supplements already applied at runtime.
+- No app.js, index.html, config.js, CSS, icon, or area-outline changes.
+
+Install caution:
+- Use this after v23.1.44_MN_INTEGRATED_KEEP_59_FIXED_FILES.zip or instead of it on the v23.1.43 baseline.
+- Do not use the earlier v23.1.44 loader-recovery package that rolled Minnesota back to 89.

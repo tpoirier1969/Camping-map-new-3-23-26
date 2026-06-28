@@ -1,0 +1,9 @@
+OBSOLETE MINNESOTA SUPPLEMENT FILES — v23.1.45
+
+These Minnesota supplement files are no longer referenced by data/states-manifest.js after v23.1.45 because their accepted runtime data has been consolidated into data/states/MN.js:
+
+- data/supplements/mn-superior-nf-rustic-v23.1.15.js
+- data/supplements/mn-exact-batch1-v23.1.43.js
+- data/supplements/mn-largeadd-batch2-v23.1.44.js, if it was copied from the earlier bad v23.1.44 package
+
+This fixed-files ZIP removes the runtime references but cannot delete files already sitting in your repo/folder. These files can be deleted from the repo after this package is installed and verified.

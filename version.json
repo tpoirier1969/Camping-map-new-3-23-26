@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.44",
-  "build": "v23.1.44",
-  "released": "2026-06-25",
-  "label": "Boondocking & Camping Maps v23.1.44",
-  "notes": "Minnesota large-add batch 2: adds 59 records from reconciled worker returns — 21 USFS official facility/system records, 21 MN DNR state forest/watercraft official map-derived approximate markers, 13 MN DNR state park/SRA official map-derived approximate markers, 3 county/regional campground records, and 1 community-supported Rum River/Game Refuge Road boondocking marker. Voyageurs exact sites and DNR state forest polygons remain held for technical extraction."
+  "version": "v23.1.45",
+  "build": "v23.1.45",
+  "released": "2026-06-28",
+  "label": "Boondocking & Camping Maps v23.1.45",
+  "notes": "Minnesota cleanup/consolidation: folds active Minnesota supplement data from v23.1.15 and v23.1.43 plus the 59 accepted v23.1.44 large-add records into data/states/MN.js. Removes Minnesota supplement runtime dependencies from the manifest while preserving the final Minnesota count at 148."
 }

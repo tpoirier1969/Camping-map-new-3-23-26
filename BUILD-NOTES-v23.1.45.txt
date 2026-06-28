@@ -1,0 +1,37 @@
+BUILD NOTES — v23.1.45 Minnesota consolidation cleanup
+
+Baseline source:
+- Uploaded clean site ZIP: Camping-map-new-3-23-26-main.zip, v23.1.43 baseline.
+- Applied previously corrected v23.1.44 integrated Minnesota package as the source for the 59 accepted Minnesota large-add records.
+
+Purpose:
+- Start data-architecture cleanup by consolidating Minnesota runtime data into the owning state file.
+- Remove active Minnesota supplement dependencies from data/states-manifest.js.
+- Preserve all accepted Minnesota records and the final runtime count.
+
+Changed files:
+- data/states/MN.js
+- data/states-manifest.js
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.45.txt
+- QA_v23.1.45.txt
+- DELETE-OBSOLETE-MN-SUPPLEMENTS-v23.1.45.txt
+
+Minnesota cleanup performed:
+- Loaded v23.1.44 integrated data/states/MN.js: 110 rows.
+- Applied data/supplements/mn-superior-nf-rustic-v23.1.15.js: +14 rows, 124 rows.
+- Applied data/supplements/mn-exact-batch1-v23.1.43.js: final 148 rows after v23.1.43 corrections and additions.
+- Serialized the final 148-row Minnesota runtime array into data/states/MN.js.
+- Updated Minnesota manifest entry to load only data/states/MN.js.
+- No Minnesota records intentionally removed.
+
+Obsolete active Minnesota runtime supplement references removed from manifest:
+- data/supplements/mn-superior-nf-rustic-v23.1.15.js
+- data/supplements/mn-exact-batch1-v23.1.43.js
+
+Notes:
+- This fixed-files overlay does not physically delete obsolete supplement files from an installed repo. It removes them from runtime loading.
+- See DELETE-OBSOLETE-MN-SUPPLEMENTS-v23.1.45.txt for the repo-file cleanup list.
+- No config.js included.
+- No app.js or index.html changes included.
