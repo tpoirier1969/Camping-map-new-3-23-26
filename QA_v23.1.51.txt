@@ -1,0 +1,51 @@
+QA — v23.1.51
+
+Baseline reviewed:
+- v23.1.50_sd_expansion_cleanup_FIXED_FILES.zip
+- Uploaded project ZIP PROJECT_RULES.md reviewed before packaging.
+
+Record-count QA:
+- SD before v23.1.51: 91
+- New records added: 11
+- SD after v23.1.51: 102
+- Manifest SD count after v23.1.51: 102
+
+Layer-count impact for new records:
+- Modern Campgrounds: 3
+- Rustic / Primitive: 4
+- Boondocking / Dispersed: 4
+
+Duplicate QA after merge:
+- Duplicate IDs: 0
+- Duplicate exact normalized names: 0
+- Duplicate exact 6-decimal coordinate pairs: 0
+
+Coordinate QA notes:
+- Fort Pierre/Richland/Sherriff/Limestone Butte records are explicitly labeled as official/MVUM-derived approximate area/rule markers, not exact campsite pins.
+- Cow Creek shoreline is explicitly labeled as an official map-derived primitive shoreline site-cluster marker, separate from the existing Cow Creek modern main campground marker.
+- Municipal records use official/operator campground proof and campground-area/address/map context. They are not individual campsite pins. Where Modern triad proof was incomplete, records were kept Rustic / Primitive.
+
+Files changed:
+- data/states/SD.js
+- data/states-manifest.js
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.51.txt
+- QA_v23.1.51.txt
+- SD_DEEPER_DIG_SUPERVISOR_REVIEW_v23.1.51.txt
+
+Files intentionally not changed:
+- app.js
+- index.html
+- config.js
+- non-SD state files
+- supplement files
+
+Syntax/parse QA:
+- data/states/SD.js: passed Node load check
+- data/states-manifest.js: passed Node load check
+- version.js: passed Node load check
+- version.json: parsed successfully
+- ZIP integrity: passed
+
+No new supplement files created.

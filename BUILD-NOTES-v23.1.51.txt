@@ -1,0 +1,61 @@
+BUILD NOTES — v23.1.51
+
+Package: v23.1.51_sd_deeper_dig_final_FIXED_FILES.zip
+Date: 2026-06-28
+
+Purpose:
+South Dakota final deeper-dig merge after v23.1.50, before moving on to North Dakota.
+
+Baseline:
+Built from v23.1.50_sd_expansion_cleanup_FIXED_FILES.zip, which already incorporated the v23.1.47 performance popup baseline plus v23.1.48 Wisconsin and v23.1.49 Kentucky cleanup overlays. PROJECT_RULES.md from the uploaded project ZIP was reviewed before packaging.
+
+Record impact:
+- SD before v23.1.51: 91 records
+- New accepted records: 11
+- SD after v23.1.51: 102 records
+
+New records by layer:
+- Modern Campgrounds: 3
+- Rustic / Primitive: 4
+- Boondocking / Dispersed: 4
+
+Accepted adds:
+Boondocking / Dispersed area markers:
+- Richland Dam Vehicle-Use Dispersed Area
+- Richland Wildlife 208-A Vehicle-Use Dispersed Area
+- Sherriff Dam Vehicle-Use Dispersed Area
+- Limestone Butte Dispersed Camping Area
+
+Rustic / Primitive:
+- Cow Creek Primitive Shoreline Sites 39–46
+- Flandreau City Park Campground
+- Lake Mitchell Campground
+- Split Rock Park Campground
+
+Modern Campgrounds:
+- Melgaard Park Campground
+- Sexauer Park Campground
+- Vermillion Lions Campground / Lions Park Campsites
+
+Important holds/rejects from deeper dig:
+- Sage Creek, Spearfish City Campground, Alkali Creek Trailhead Campground, Left Tailrace, Lake Carthage, Dell Rapids, W.H. Lyon Fairgrounds, Alcester, Elk Point, Colome, Goat Island, James River Island, Wind Cave backcountry, and Badlands North Unit backcountry remain held for exact-coordinate, official-GIS, official reservation metadata, or schema/area support.
+- Bow Creek and Green Island are Nebraska-side NPS records, not SD imports.
+- Jewel Cave and Mount Rushmore remain Reject / Do Not Import for camping because official NPS sources prohibit camping/overnight parking.
+
+Files changed:
+- data/states/SD.js
+- data/states-manifest.js
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.51.txt
+- QA_v23.1.51.txt
+- SD_DEEPER_DIG_SUPERVISOR_REVIEW_v23.1.51.txt
+
+Files intentionally not changed:
+- app.js
+- index.html
+- config.js
+- non-SD state files
+- supplement files
+
+No new supplement files were created.

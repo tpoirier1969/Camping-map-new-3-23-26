@@ -1,0 +1,46 @@
+SOUTH DAKOTA DEEPER-DIG SUPERVISOR REVIEW — v23.1.51
+
+Accepted into SD.js:
+
+Worker B — Dispersed / Boondocking Geometry Rescue
+- Richland Dam Vehicle-Use Dispersed Area — accepted as Boondocking / Dispersed approximate official MVUM area marker.
+- Richland Wildlife 208-A Vehicle-Use Dispersed Area — accepted as Boondocking / Dispersed approximate official MVUM area marker.
+- Sherriff Dam Vehicle-Use Dispersed Area — accepted as Boondocking / Dispersed approximate official MVUM area marker.
+- Limestone Butte Dispersed Camping Area — accepted as Boondocking / Dispersed approximate official USFS/MVUM area marker.
+- Cow Creek Primitive Shoreline Sites 39–46 — accepted as Rustic / Primitive official map-derived shoreline site-cluster marker, separate from the existing Cow Creek modern main campground row.
+
+Worker C — Municipal / County Campground Coordinate Rescue
+- Melgaard Park Campground — accepted as Modern. Official city proof supports electric sites, restrooms, showers, and dump station. Coordinate remains campground-area marker, not exact campsite pin.
+- Sexauer Park Campground — accepted as Modern. Official city proof and campground map support electric, potable water, dump station, restrooms with showers, and campground layout.
+- Flandreau City Park Campground — accepted as Rustic / Primitive. Official city proof supports camping, electric/water hookups, dump station, and showers; flush/modern restroom proof was not recovered, so not Modern.
+- Lake Mitchell Campground — accepted as Rustic / Primitive. Official city proof supports RV/tent camping and hookups; shower proof was not recovered, so not Modern.
+- Split Rock Park Campground — accepted as Rustic / Primitive. Operator proof supports RV/tent camping, electric, water, toilets, and public campground use; no shower proof.
+- Vermillion Lions Campground / Lions Park Campsites — accepted as Modern. Official city proof supports designated sites, electric/water, restrooms, and showers.
+
+Held / not imported:
+
+Worker A
+- Sage Creek Campground — official campground exists, but no honest official coordinate recovered.
+- Spearfish City Campground — strong Modern lead, coordinate still not safe.
+- Alkali Creek Trailhead Campground — official camping exists, but no safe BLM trailhead campground coordinate recovered.
+- Left Tailrace Campground — official Modern lead, but boat-ramp coordinate rejected.
+- Lake Carthage Lakeside Use Area — official camping proof, no safe coordinate.
+- Custer State Park / Angostura approximate rows from v23.1.50 — no coordinate upgrades; public GFP longitudes remain too truncated or unsuitable for exact upgrades.
+
+Worker C holds
+- Dell Rapids Campground — official proof strong, no import-safe coordinate.
+- W.H. Lyon Fairgrounds Campground — public seasonal camping proof, no campground geometry/coordinate.
+- Alcester City Park Campsites — official proof, no safe coordinate and no restroom/shower proof.
+- Elk Point City Campground / Heritage Park — likely real, but official detail not accessible enough.
+- Colome City Camp Sites — official proof, no safe coordinate.
+- White River City Park Camping — not importable from accessible official/operator sources.
+
+Worker D
+- Bow Creek and Green Island — official NPS primitive camping, but Nebraska-side records; reject for SD import.
+- Goat Island and James River Island — official NPS opportunities, but no honest campsite/area geometry recovered.
+- Wind Cave backcountry and Badlands North Unit backcountry — area/rule records only; no honest point marker under current schema.
+- Sage Creek — still coordinate-blocked.
+- Jewel Cave and Mount Rushmore — official no-camping/no-overnight-parking; reject.
+
+Supervisor decision:
+This is the final South Dakota last-pass merge before North Dakota. Remaining SD holds should not be forced into the map. They need GIS/API/official map extraction or agency contact, not another casual web pass.

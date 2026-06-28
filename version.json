@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.50",
-  "build": "v23.1.50",
+  "version": "v23.1.51",
+  "build": "v23.1.51",
   "released": "2026-06-28",
-  "label": "Boondocking & Camping Maps v23.1.50",
-  "notes": "South Dakota expansion cleanup: integrates 84 accepted official-source / official-map-derived SD additions directly into data/states/SD.js, folds the active SD modern-audit effect into the owning state file, removes the SD modern-audit runtime dependency from the manifest, preserves v23.1.47+ performance warning popup behavior, and includes last-pass South Dakota deeper-dig worker instructions."
+  "label": "Boondocking & Camping Maps v23.1.51",
+  "notes": "South Dakota final deeper-dig merge: adds 11 accepted official/operator/MVUM-supported SD records directly into data/states/SD.js after v23.1.50, including Fort Pierre/Buffalo Gap dispersed area markers, Cow Creek primitive shoreline cluster, and six municipal/public campgrounds. SD count increases from 91 to 102. No supplements created."
 }
