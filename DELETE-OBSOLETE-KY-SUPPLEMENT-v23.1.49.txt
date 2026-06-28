@@ -1,0 +1,12 @@
+DELETE OBSOLETE KENTUCKY SUPPLEMENT — v23.1.49
+
+After v23.1.49 is installed and verified, this file is no longer referenced by data/states-manifest.js and can be deleted from the repo:
+
+- data/supplements/ky-state-parks-rescue-v23.1.38.js
+
+Reason:
+- Its 6 accepted Kentucky State Parks coordinate-rescue records have been folded into data/states/KY.js.
+- Kentucky now loads from data/states/KY.js only.
+- Final Kentucky count remains 57.
+
+Do not delete any non-Kentucky supplement files as part of this package.

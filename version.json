@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.48",
-  "build": "v23.1.48",
+  "version": "v23.1.49",
+  "build": "v23.1.49",
   "released": "2026-06-28",
-  "label": "Boondocking & Camping Maps v23.1.48",
-  "notes": "Wisconsin consolidation cleanup: folds all active Wisconsin supplement data/corrections through v23.1.24 into data/states/WI.js, removes Wisconsin supplement runtime references from the manifest, preserves final Wisconsin count at 621, and keeps the v23.1.47 selected-record performance popup behavior."
+  "label": "Boondocking & Camping Maps v23.1.49",
+  "notes": "Kentucky consolidation cleanup: folds active v23.1.38 Kentucky State Parks coordinate-rescue supplement data into data/states/KY.js, removes Kentucky supplement runtime references from the manifest, preserves final Kentucky count at 57, and keeps the v23.1.47 selected-record performance popup behavior."
 }

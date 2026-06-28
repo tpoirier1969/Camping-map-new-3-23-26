@@ -1,0 +1,39 @@
+QA — v23.1.49 Kentucky consolidation cleanup
+
+Baseline:
+- Current working baseline built from uploaded current ZIP plus v23.1.48 Wisconsin consolidation overlay.
+- Baseline version before build: v23.1.48.
+- PROJECT_RULES.md reviewed.
+
+Kentucky load simulation before cleanup:
+- data/states/KY.js base load: 51 rows.
+- data/supplements/ky-state-parks-rescue-v23.1.38.js applied: 57 rows.
+
+Kentucky consolidation:
+- Serialized the final loaded Kentucky runtime array into data/states/KY.js.
+- Removed data/supplements/ky-state-parks-rescue-v23.1.38.js from the active Kentucky manifest file list.
+- Final Kentucky manifest count remains 57.
+
+Kentucky QA after cleanup:
+- data/states/KY.js only load count: 57.
+- Duplicate ID check: 0 duplicate IDs.
+- Duplicate normalized exact name check: 0 duplicate names.
+- Duplicate exact 6-decimal coordinate-pair check: 0 duplicate coordinate pairs.
+
+Syntax / package QA:
+- node --check data/states/KY.js: PASS.
+- node --check data/states-manifest.js: PASS.
+- node --check version.js: PASS.
+- version.json parse: PASS.
+- ZIP integrity test: PASS.
+
+Scope controls:
+- No campsite records added.
+- No campsite records removed.
+- No layer decisions changed.
+- No coordinates changed beyond preserving the already-loaded v23.1.38 Kentucky records in KY.js.
+- No new supplement files created.
+- app.js not changed; v23.1.47 performance warning popup remains in effect.
+
+Follow-up:
+- After install and verification, delete data/supplements/ky-state-parks-rescue-v23.1.38.js from the repo if present.

@@ -1,0 +1,32 @@
+BUILD NOTES — v23.1.49 Kentucky consolidation cleanup
+
+Baseline used:
+- Uploaded current project ZIP with v23.1.47 app behavior, overlaid with delivered v23.1.48 Wisconsin consolidation cleanup.
+- Baseline version before this package: v23.1.48.
+- PROJECT_RULES.md was reviewed before build work.
+
+Purpose:
+- Continue state-data cleanup by consolidating Kentucky active runtime supplement data into the owning Kentucky state file.
+- Preserve Kentucky count and current site decisions.
+- Do not add new campsite records, remove records, change layers, or create new supplement files.
+
+Changes:
+- data/states/KY.js now contains the fully loaded Kentucky runtime data: the 51 base Kentucky rows plus the 6 v23.1.38 Kentucky State Parks coordinate-rescue records.
+- data/states-manifest.js now loads only data/states/KY.js for Kentucky.
+- data/supplements/ky-state-parks-rescue-v23.1.38.js is no longer an active Kentucky runtime dependency.
+- version.js and version.json updated to v23.1.49.
+
+Count impact:
+- Kentucky before cleanup: 51 base rows + 6 supplement rows = 57 loaded rows.
+- Kentucky after cleanup: 57 rows in data/states/KY.js only.
+- Net site count change: 0.
+
+Files intentionally not changed:
+- app.js — v23.1.47 performance popup behavior remains intact.
+- index.html.
+- config.js.
+- area outline files.
+- non-Kentucky state files.
+
+Obsolete runtime file after verification:
+- data/supplements/ky-state-parks-rescue-v23.1.38.js may be deleted from the repo after v23.1.49 is installed and verified.
