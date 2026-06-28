@@ -1,0 +1,56 @@
+QA — v23.1.50 South Dakota expansion cleanup
+
+PROJECT_RULES.md reviewed: YES.
+Baseline version after overlays: v23.1.49.
+Package target version: v23.1.50.
+
+South Dakota runtime before this build:
+- Base SD.js rows before SD modern-audit cleanup: 8.
+- v23.1.21 SD runtime effect removed s256 and corrected s857, producing 7 active SD records.
+
+South Dakota after this build:
+- Final SD.js rows: 91.
+- New records added: 84.
+- Existing records updated/enriched: 4.
+- Records removed from active SD.js: 1 (s256, already removed at runtime by v23.1.21).
+- Manifest SD count: 91.
+- SD manifest files: data/states/SD.js only.
+- No new SD supplement files created.
+
+New record layer counts:
+- Modern: 51
+- Rustic / Primitive: 32
+- Boondocking / Dispersed: 1
+- Official map-derived approximate records: 15
+
+Duplicate QA:
+- Duplicate IDs in SD.js: 0.
+- Duplicate exact normalized names in SD.js: 0.
+- Duplicate exact 6-decimal coordinate pairs in SD.js: 0.
+
+Known preserved legacy concerns:
+- Some pre-existing SD legacy/community/KML rows remain because this build did not have official disproof or clean duplicate proof for them.
+- s41 was not duplicated; it was converted to official Pinnacles Dispersed Camping Area.
+- s1093 Bismarck Lake was not duplicated; it was updated with official USFS proof.
+- s675 Palisades was not duplicated; it was updated with official SD GFP proof.
+
+Held / not imported:
+- Sage Creek Campground — official camping proof, no honest coordinate recovered.
+- Spearfish City Campground — official municipal/operator proof, official coordinate needed.
+- Alkali Creek Trailhead campground — official BLM camping proof, BLM map/GIS coordinate needed.
+- Left Tailrace Campground — Recreation.gov proof, coordinate/API/GIS extraction needed.
+- Little White River Recreation Area / Lacreek NWR — official camping proof, coordinate needed.
+- Limestone Butte — official dispersed camping language, coordinate/geometry needed.
+- Richland Dam / Sherriff-Sheriff Dam / Fort Pierre NG dispersed areas — MVUM/GIS extraction needed.
+- Municipal/fairground leads without official coordinates remain held for deeper-dig follow-up.
+- Broad Black Hills NF dispersed-rule area not imported as a fake pin.
+
+Syntax QA:
+- data/states/SD.js syntax: PASSED via node --check.
+- data/states-manifest.js syntax: PASSED via node --check.
+- version.js syntax: PASSED via node --check.
+- version.json parse: PASSED.
+- index.html script reference: unchanged from baseline.
+- app.js/performance warning popup: unchanged from v23.1.47 behavior.
+- config.js included: NO.
+- ZIP integrity: PASSED.

@@ -1,0 +1,34 @@
+BUILD NOTES — v23.1.50 South Dakota expansion cleanup
+
+Baseline:
+- Source baseline: uploaded project ZIP at v23.1.47, overlaid with v23.1.48 Wisconsin consolidation and v23.1.49 Kentucky consolidation fixed files.
+- PROJECT_RULES.md reviewed before build.
+
+What changed:
+- Integrated accepted South Dakota worker proof returns directly into data/states/SD.js.
+- Added 84 new South Dakota records: 51 Modern, 32 Rustic / Primitive, 1 Boondocking / Dispersed.
+- Folded the active South Dakota effect of modern-audit-cleanup-v23.1.21 into data/states/SD.js.
+- Removed the SD runtime dependency on data/supplements/modern-audit-cleanup-v23.1.21 from data/states-manifest.js. The shared supplement file itself is not deleted because other states may still depend on it.
+- Removed s256 Dude Ranch stop-over from active SD data because v23.1.21 already removed it at runtime as vague/source-free and not identifiable as a campground.
+- Updated legacy rows: s41 -> Pinnacles Dispersed Camping Area official correction, s1093 -> Bismarck Lake official coordinate/layer enrichment, s675 -> Palisades official coordinate/enrichment, s857 -> Info / Reference correction folded from modern-audit.
+- Preserved legacy SD boondocking/KML rows that were not officially disproven or duplicate-resolved.
+- Added SD_LAST_PASS_DEEPER_DIG_WORKER_HANDOFF_v23.1.50.txt for the final South Dakota deeper-dig worker pass before North Dakota.
+
+Files changed:
+- data/states/SD.js
+- data/states-manifest.js
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.50.txt
+- QA_v23.1.50.txt
+- SD_LAST_PASS_DEEPER_DIG_WORKER_HANDOFF_v23.1.50.txt
+
+Files intentionally not changed:
+- app.js
+- index.html
+- config.js
+- data/supplements/modern-audit-cleanup-v23.1.21.js
+- non-South-Dakota state files except those already supplied by prior overlays
+
+Install note:
+Install this package after v23.1.49 or over a v23.1.47 project with the v23.1.48 and v23.1.49 fixed-files overlays applied. This fixed-files ZIP includes only changed files for v23.1.50, not a full project copy.

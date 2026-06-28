@@ -23,7 +23,7 @@ window.CAMPING_STATES_MANIFEST = {
   "NH": {"code":"NH","name":"New Hampshire","file":"data/states/NH.js","count":1},
   "ND": {"code":"ND","name":"North Dakota","file":"data/states/ND.js","count":3},
   "OH": {"code":"OH","name":"Ohio","file":"data/states/OH.js","count":1},
-  "SD": {"code":"SD","name":"South Dakota","file":"data/states/SD.js","count":7,"files":["data/states/SD.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "SD": {"code":"SD","name":"South Dakota","file":"data/states/SD.js","count":91,"files":["data/states/SD.js"],"dynamicSources":["v23.1.50: South Dakota expansion cleanup folds the active SD modern-audit effect into data/states/SD.js, removes the vague Dude Ranch stop-over row already removed at runtime by v23.1.21, updates three legacy rows with official proof, and adds 84 official-source / official-map-derived South Dakota records directly to the owning state file. No SD supplement file is required for runtime loading after this build."]},
   "TN": {"code":"TN","name":"Tennessee","file":"data/states/TN.js","count":19},
   "TX": {"code":"TX","name":"Texas","file":"data/states/TX.js","count":1},
   "UT": {"code":"UT","name":"Utah","file":"data/states/UT.js","count":5,"files":["data/states/UT.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
