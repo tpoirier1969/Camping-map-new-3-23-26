@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.45",
-  "build": "v23.1.45",
+  "version": "v23.1.46",
+  "build": "v23.1.46",
   "released": "2026-06-28",
-  "label": "Boondocking & Camping Maps v23.1.45",
-  "notes": "Minnesota cleanup/consolidation: folds active Minnesota supplement data from v23.1.15 and v23.1.43 plus the 59 accepted v23.1.44 large-add records into data/states/MN.js. Removes Minnesota supplement runtime dependencies from the manifest while preserving the final Minnesota count at 148."
+  "label": "Boondocking & Camping Maps v23.1.46",
+  "notes": "Illinois cleanup/consolidation plus site-count performance warning: folds the active Illinois v23.1.41 supplement into data/states/IL.js, removes Illinois supplement runtime dependency from the manifest while preserving the Illinois count at 103, and adds a selected-record performance warning/confirmation for large multi-state loads."
 }

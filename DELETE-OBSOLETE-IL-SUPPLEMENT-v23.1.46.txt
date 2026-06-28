@@ -1,0 +1,11 @@
+OBSOLETE ILLINOIS RUNTIME SUPPLEMENT AFTER v23.1.46
+
+After v23.1.46 is installed and verified, this file is no longer referenced by data/states-manifest.js:
+
+- data/supplements/il-final-cleanup-v23.1.41.js
+
+Its active corrections/additions have been folded into:
+
+- data/states/IL.js
+
+Do not delete it before confirming the app loads v23.1.46 correctly. Once confirmed, it can be removed from the repo to reduce runtime clutter.

@@ -1,0 +1,43 @@
+QA — v23.1.46 Illinois consolidation + site-count performance warning
+
+Baseline
+- Used Tod-supplied current package ZIP plus v23.1.45 overlay.
+- Read PROJECT_RULES.md before build.
+- Starting baseline version: v23.1.45.
+
+Illinois consolidation QA
+- Loaded data/states/IL.js baseline: 100 rows.
+- Loaded data/states/IL.js + data/supplements/il-final-cleanup-v23.1.41.js: 103 rows.
+- Serialized the resulting 103 Illinois records into data/states/IL.js.
+- Updated manifest so Illinois loads only data/states/IL.js.
+- Final Illinois count in manifest: 103.
+- Duplicate Illinois IDs after consolidation: 0.
+- Duplicate Illinois normalized names after consolidation: 0.
+- Duplicate Illinois exact 6-decimal coordinate pairs after consolidation: 0.
+
+Performance warning QA
+- app.js syntax check passed.
+- Added selected-record estimate helper using manifest counts.
+- Added warning text for 1,000+ selected records.
+- Added confirm prompt for 1,500+ selected records.
+- Select All Map now passes source:'select-all' into setEnabledStates so the confirmation message is explicit.
+- Clear States bypasses performance confirmation.
+- Existing setEnabledStates callers remain compatible because the third options argument is optional.
+
+Syntax / parse checks
+- node --check app.js: PASS.
+- node --check data/states/IL.js: PASS.
+- node --check data/states-manifest.js: PASS.
+- node --check version.js: PASS.
+- version.json JSON.parse: PASS.
+
+Manifest checks
+- Illinois active files list after package: ["data/states/IL.js"].
+- Minnesota remains consolidated from v23.1.45: ["data/states/MN.js"], count 148.
+- Michigan still has MI.js, MI2.js, mi-exact-rustic-primitive-v23.0.84.js, and modern-audit-cleanup-v23.1.21.js active; not changed in this package.
+
+Package checks
+- config.js not included.
+- index.html not included.
+- No new supplement files included.
+- ZIP integrity test passed.

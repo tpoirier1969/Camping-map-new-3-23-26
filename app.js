@@ -136,18 +136,67 @@ function buildControls(){retireLegacyLayerControls(); buildStateSelect(); buildL
 function buildStateSelect(){buildStateChecklist(); syncStateControls();}
 function mappedStateEntries(){return manifestEntries().filter(s=>Number(s.count||0)>0 || s.file || (Array.isArray(s.files)&&s.files.length))}
 function buildStateChecklist(){const box=$('stateChecklist'); if(!box)return; const rows=mappedStateEntries(); box.innerHTML=rows.map(s=>`<label class="state-check"><input type="checkbox" data-state-code="${esc(s.code)}"><span>${esc(s.name||s.code)}</span><em class="state-count-pill">${Number(s.count||0)}</em></label>`).join('');}
+function selectedStateRecordEstimate(codes){
+  const picked=new Set((codes||[]).map(c=>String(c||'').toUpperCase()).filter(Boolean));
+  if(!picked.size)return 0;
+  return manifestEntries().reduce((sum,row)=>picked.has(String(row.code||'').toUpperCase())?sum+Number(row.count||0):sum,0);
+}
+function formatRecordCount(n){return Number(n||0).toLocaleString();}
+function stateSelectionPerformanceText(codes){
+  const count=selectedStateRecordEstimate(codes);
+  if(count>=1500)return `Large selection: about ${formatRecordCount(count)} records. This can slow rendering, especially on phones or older computers.`;
+  if(count>=1000)return `Performance note: about ${formatRecordCount(count)} records selected. Narrow the state selection if the map feels sluggish.`;
+  return '';
+}
+function confirmLargeStateSelection(codes,options={}){
+  const count=selectedStateRecordEstimate(codes);
+  if(count<1500)return true;
+  const stateCount=(codes||[]).length;
+  const source=options.source==='select-all'?'Select All Map':'This state selection';
+  const msg=`${source} would load about ${formatRecordCount(count)} map records across ${stateCount} state${stateCount===1?'':'s'}.
+
+This may slow the app, especially on phones or older computers. Consider selecting fewer states for normal browsing.
+
+Continue loading this large selection?`;
+  return window.confirm(msg);
+}
+function notifyLargeStateSelection(codes){
+  const count=selectedStateRecordEstimate(codes);
+  if(count>=1000)notify(stateSelectionPerformanceText(codes),8000);
+}
 function selectedStateSummary(){const n=app.enabledStates.size; const mapped=mappedStateEntries().length; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); if(!app.localAreaCenter)return 'Nearby: locating…'; if(codes.length===0)return `Nearby: ${nearRadiusMiles()} mi`; if(codes.length===1)return `Nearby: ${stateLabel(codes[0])}`; return `Nearby: ${codes.length} states in range`;} if(n===0)return 'No states selected'; if(n===1)return `${stateLabel([...app.enabledStates][0])} selected`; if(n===mapped)return `All ${mapped} mapped states`; return `${n} states selected`;}
-function syncStateControls(){const activeUiStates=app.nearMeActive?new Set(nearMeVisibleStateCodes()):app.enabledStates; $$('[data-state-code]').forEach(cb=>{cb.checked=activeUiStates.has(cb.dataset.stateCode)}); const summary=$('stateSelectionSummary'); if(summary)summary.textContent=selectedStateSummary(); const note=$('stateSelectionNote'); if(note){const n=app.enabledStates.size; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); const names=codes.map(stateLabel).join(', '); note.textContent=app.localAreaCenter?(codes.length?`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. Visible result states: ${names}.`:`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. No visible results are currently inside the radius.`):'Nearby search is getting your location…';}else{note.textContent=n===0?'No states selected. Choose one or more states to load map data.':(n===1?`${stateLabel([...app.enabledStates][0])} selected.`:`${n} states selected. The map will zoom to the combined selected area.`);}}}
+function syncStateControls(){
+  const activeUiStates=app.nearMeActive?new Set(nearMeVisibleStateCodes()):app.enabledStates;
+  $$('[data-state-code]').forEach(cb=>{cb.checked=activeUiStates.has(cb.dataset.stateCode)});
+  const summary=$('stateSelectionSummary'); if(summary)summary.textContent=selectedStateSummary();
+  const note=$('stateSelectionNote');
+  if(note){
+    const n=app.enabledStates.size;
+    if(app.nearMeActive){
+      const codes=nearMeVisibleStateCodes(); const names=codes.map(stateLabel).join(', ');
+      note.textContent=app.localAreaCenter?(codes.length?`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. Visible result states: ${names}.`:`Nearby search is active: showing sites within ${nearRadiusMiles()} miles. No visible results are currently inside the radius.`):'Nearby search is getting your location…';
+    }else{
+      const codes=[...app.enabledStates];
+      const count=selectedStateRecordEstimate(codes);
+      const perf=stateSelectionPerformanceText(codes);
+      if(n===0)note.textContent='No states selected. Choose one or more states to load map data.';
+      else if(n===1)note.textContent=`${stateLabel(codes[0])} selected (${formatRecordCount(count)} listed records).`;
+      else note.textContent=`${n} states selected (${formatRecordCount(count)} listed records). ${perf||'The map will zoom to the combined selected area.'}`;
+    }
+  }
+}
 function stateLabel(code){const row=manifestEntries().find(s=>s.code===code); return row?(row.name||row.code):code}
 function clearNearMeMode(){app.nearMeActive=false;app.nearPickMode=false;app.liveLocationLoading=false;app.liveLocationLastLoadCenter=null;if(app.liveLocationWatchId!=null&&navigator.geolocation){navigator.geolocation.clearWatch(app.liveLocationWatchId);app.liveLocationWatchId=null;}app.liveLocationStarted=false;}
-async function setEnabledStates(codes,fit=true){
-  clearNearMeMode();
-  clearSearchMode(false);
+async function setEnabledStates(codes,fit=true,options={}){
   const valid=new Set(mappedStateEntries().map(s=>s.code));
   const picked=[...new Set((codes||[]).map(c=>String(c||'').toUpperCase()).filter(c=>valid.has(c)))];
+  if(!options.skipPerformanceConfirm&&!confirmLargeStateSelection(picked,options)){syncStateControls();return;}
+  clearNearMeMode();
+  clearSearchMode(false);
   app.enabledStates=new Set(picked);
   saveJson(STORE.states,[...app.enabledStates]);
   syncStateControls();
+  notifyLargeStateSelection(picked);
   const outlinesWanted=areaOutlineLayerEnabled();
   pauseAreaOutlinesForStateChange(picked.length);
   await loadEnabledStates(fit);
@@ -904,9 +953,9 @@ function bindEvents(){
   const stateMenuButton=$('stateMenuButton'); const stateMenuPanel=$('stateMenuPanel');
   if(stateMenuButton&&stateMenuPanel)stateMenuButton.onclick=()=>{const open=stateMenuPanel.hidden; stateMenuPanel.hidden=!open; stateMenuButton.setAttribute('aria-expanded',open?'true':'false')};
   document.addEventListener('click',e=>{if(stateMenuPanel&&stateMenuButton&&!stateMenuPanel.hidden&&$('stateSection')&&!$('stateSection').contains(e.target)){stateMenuPanel.hidden=true;stateMenuButton.setAttribute('aria-expanded','false')}});
-  const allStatesBtn=$('selectAllStates'); if(allStatesBtn)allStatesBtn.onclick=()=>setEnabledStates(mappedStateEntries().map(s=>s.code),true);
-  const clearStatesBtn=$('clearStates'); if(clearStatesBtn)clearStatesBtn.onclick=()=>setEnabledStates([],true);
-  const stateChecklist=$('stateChecklist'); if(stateChecklist)stateChecklist.addEventListener('change',e=>{if(!e.target.dataset.stateCode)return; const codes=$$('[data-state-code]',stateChecklist).filter(cb=>cb.checked).map(cb=>cb.dataset.stateCode); setEnabledStates(codes,true)});
+  const allStatesBtn=$('selectAllStates'); if(allStatesBtn)allStatesBtn.onclick=()=>setEnabledStates(mappedStateEntries().map(s=>s.code),true,{source:'select-all'});
+  const clearStatesBtn=$('clearStates'); if(clearStatesBtn)clearStatesBtn.onclick=()=>setEnabledStates([],true,{skipPerformanceConfirm:true});
+  const stateChecklist=$('stateChecklist'); if(stateChecklist)stateChecklist.addEventListener('change',e=>{if(!e.target.dataset.stateCode)return; const codes=$$('[data-state-code]',stateChecklist).filter(cb=>cb.checked).map(cb=>cb.dataset.stateCode); setEnabledStates(codes,true,{source:'manual'})});
   const selectAllLayers=$('selectAllLayers'); if(selectAllLayers)selectAllLayers.onclick=()=>{app.restOnlyMode=false;syncRestOnlyToggle();setAllLayers(true)};
   const clearAllLayers=$('clearAllLayers'); if(clearAllLayers)clearAllLayers.onclick=()=>{app.restOnlyMode=false;syncRestOnlyToggle();setAllLayers(false)};
   const selectAllLayersMobile=$('selectAllLayersMobile'); if(selectAllLayersMobile)selectAllLayersMobile.onclick=()=>{app.restOnlyMode=false;syncRestOnlyToggle();setAllLayers(true)};

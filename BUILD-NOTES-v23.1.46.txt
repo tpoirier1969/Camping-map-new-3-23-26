@@ -1,0 +1,57 @@
+BUILD NOTES — v23.1.46
+Tod's Boondocking & Camping Maps
+Released: 2026-06-28
+
+Purpose
+- Illinois cleanup/consolidation pilot after Minnesota v23.1.45.
+- Fold active Illinois v23.1.41 runtime supplement data into data/states/IL.js.
+- Remove Illinois supplement dependency from data/states-manifest.js.
+- Add site-count performance warning/confirmation for large multi-state selections.
+
+Baseline
+- Built from Tod-supplied clean repo/package ZIP plus v23.1.45 Minnesota consolidation overlay.
+- Baseline version before this package: v23.1.45.
+- PROJECT_RULES.md reviewed before build.
+
+Data changes
+- Consolidated data/supplements/il-final-cleanup-v23.1.41.js into data/states/IL.js.
+- Illinois final runtime count remains 103.
+- No Illinois records removed.
+- No Illinois records added beyond the already-active v23.1.41 supplement records.
+- No layer decisions were changed beyond applying the already-active v23.1.41 supplement into the owning state file.
+
+Manifest changes
+- Illinois now loads only data/states/IL.js.
+- Removed data/supplements/il-final-cleanup-v23.1.41.js from the active Illinois manifest files list.
+- Illinois dynamicSources now notes v23.1.46 consolidation.
+
+App behavior changes
+- Added selected-record performance warning logic to app.js.
+- The app estimates selected records from manifest counts.
+- 1,000+ selected records: warning note/notification.
+- 1,500+ selected records: confirmation prompt before loading the large selection.
+- Select All Map now routes through the same confirmation guard.
+- This is count-based, not state-count-based.
+
+Changed files
+- app.js
+- data/states/IL.js
+- data/states-manifest.js
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.46.txt
+- QA_v23.1.46.txt
+- DELETE-OBSOLETE-IL-SUPPLEMENT-v23.1.46.txt
+
+Intentionally not changed
+- config.js
+- index.html
+- data/states/MN.js
+- data/states/MI.js
+- data/states/MI2.js
+- any Wisconsin files
+- any source data outside Illinois consolidation and app performance-warning behavior
+
+Obsolete runtime file after install/verification
+- data/supplements/il-final-cleanup-v23.1.41.js is no longer referenced by the manifest after v23.1.46.
+- It can be deleted from the repo after verifying v23.1.46 loads correctly.
