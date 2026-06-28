@@ -1,7 +1,7 @@
 {
-  "version": "v23.1.46",
-  "build": "v23.1.46",
+  "version": "v23.1.47",
+  "build": "v23.1.47",
   "released": "2026-06-28",
-  "label": "Boondocking & Camping Maps v23.1.46",
-  "notes": "Illinois cleanup/consolidation plus site-count performance warning: folds the active Illinois v23.1.41 supplement into data/states/IL.js, removes Illinois supplement runtime dependency from the manifest while preserving the Illinois count at 103, and adds a selected-record performance warning/confirmation for large multi-state loads."
+  "label": "Boondocking & Camping Maps v23.1.47",
+  "notes": "Performance warning popup refinement: keeps the v23.1.46 Illinois consolidation and Minnesota consolidation baseline, and changes the selected-record performance check into an obvious confirmation popup at 1,000+ selected records with clear Continue/Cancel behavior."
 }

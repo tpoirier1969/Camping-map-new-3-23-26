@@ -1,0 +1,44 @@
+Tod's Boondocking & Camping Maps — v23.1.47
+Performance warning popup refinement
+
+Baseline:
+- Built from v23.1.46 Illinois consolidation/performance warning fixed-files overlay.
+- v23.1.46 already includes v23.1.45 Minnesota consolidation cleanup and Illinois consolidation into data/states/IL.js.
+
+Purpose:
+- Make the large-selection performance check obvious instead of relying mainly on sidebar note text.
+- Preserve the v23.1.46 Illinois consolidation and v23.1.45 Minnesota consolidation structure.
+
+Changes:
+- app.js:
+  - Adds named performance thresholds:
+    - PERFORMANCE_NOTE_RECORDS = 1000
+    - PERFORMANCE_CONFIRM_RECORDS = 1000
+    - PERFORMANCE_HEAVY_RECORDS = 2500
+  - Changes the selected-record performance check into an obvious browser confirmation popup at 1,000+ selected records.
+  - Popup tells the user they can keep going, but performance may be degraded, especially on phones, older computers, or when zoomed out.
+  - Keeps Continue/Cancel behavior through the browser confirmation dialog.
+  - Keeps a status-bar note after continuing with a large selection.
+- version.js / version.json:
+  - Updated visible build identity to v23.1.47.
+
+Cumulative included files:
+- app.js
+- data/states/IL.js
+- data/states-manifest.js
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.47.txt
+- QA_v23.1.47.txt
+- DELETE-OBSOLETE-IL-SUPPLEMENT-v23.1.46.txt
+
+Data impact:
+- No campsite records added, removed, or changed in v23.1.47.
+- Illinois remains consolidated in data/states/IL.js with count 103.
+- Minnesota remains consolidated in data/states/MN.js from v23.1.45 when that package has been installed.
+- Manifest continues to avoid active Illinois and Minnesota supplement runtime dependencies.
+
+Do not include:
+- config.js
+- new supplement files
+- index.html unless separately needed

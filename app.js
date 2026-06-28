@@ -142,27 +142,33 @@ function selectedStateRecordEstimate(codes){
   return manifestEntries().reduce((sum,row)=>picked.has(String(row.code||'').toUpperCase())?sum+Number(row.count||0):sum,0);
 }
 function formatRecordCount(n){return Number(n||0).toLocaleString();}
+const PERFORMANCE_NOTE_RECORDS=1000;
+const PERFORMANCE_CONFIRM_RECORDS=1000;
+const PERFORMANCE_HEAVY_RECORDS=2500;
 function stateSelectionPerformanceText(codes){
   const count=selectedStateRecordEstimate(codes);
-  if(count>=1500)return `Large selection: about ${formatRecordCount(count)} records. This can slow rendering, especially on phones or older computers.`;
-  if(count>=1000)return `Performance note: about ${formatRecordCount(count)} records selected. Narrow the state selection if the map feels sluggish.`;
+  if(count>=PERFORMANCE_HEAVY_RECORDS)return `Very large selection: about ${formatRecordCount(count)} records. Performance may be degraded; fewer states will be smoother.`;
+  if(count>=PERFORMANCE_NOTE_RECORDS)return `Large selection: about ${formatRecordCount(count)} records. Performance may be degraded; you can keep going or select fewer states.`;
   return '';
 }
 function confirmLargeStateSelection(codes,options={}){
   const count=selectedStateRecordEstimate(codes);
-  if(count<1500)return true;
+  if(count<PERFORMANCE_CONFIRM_RECORDS)return true;
   const stateCount=(codes||[]).length;
   const source=options.source==='select-all'?'Select All Map':'This state selection';
-  const msg=`${source} would load about ${formatRecordCount(count)} map records across ${stateCount} state${stateCount===1?'':'s'}.
+  const severity=count>=PERFORMANCE_HEAVY_RECORDS?'very large':'large';
+  const msg=`Large map selection
 
-This may slow the app, especially on phones or older computers. Consider selecting fewer states for normal browsing.
+${source} would load about ${formatRecordCount(count)} map records across ${stateCount} state${stateCount===1?'':'s'}.
 
-Continue loading this large selection?`;
+You can keep going, but performance may be degraded, especially on phones, older computers, or when zoomed out. For smoother browsing, select fewer states or zoom into a smaller area.
+
+Continue loading this ${severity} selection?`;
   return window.confirm(msg);
 }
 function notifyLargeStateSelection(codes){
   const count=selectedStateRecordEstimate(codes);
-  if(count>=1000)notify(stateSelectionPerformanceText(codes),8000);
+  if(count>=PERFORMANCE_NOTE_RECORDS)notify(stateSelectionPerformanceText(codes),9000);
 }
 function selectedStateSummary(){const n=app.enabledStates.size; const mapped=mappedStateEntries().length; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); if(!app.localAreaCenter)return 'Nearby: locating…'; if(codes.length===0)return `Nearby: ${nearRadiusMiles()} mi`; if(codes.length===1)return `Nearby: ${stateLabel(codes[0])}`; return `Nearby: ${codes.length} states in range`;} if(n===0)return 'No states selected'; if(n===1)return `${stateLabel([...app.enabledStates][0])} selected`; if(n===mapped)return `All ${mapped} mapped states`; return `${n} states selected`;}
 function syncStateControls(){

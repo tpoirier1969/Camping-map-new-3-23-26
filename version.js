@@ -1,4 +1,4 @@
-window.CAMPING_APP_VERSION = 'v23.1.46';
-window.CAMPING_APP_BUILD = 'v23.1.46';
+window.CAMPING_APP_VERSION = 'v23.1.47';
+window.CAMPING_APP_BUILD = 'v23.1.47';
 window.CAMPING_APP_RELEASED = '2026-06-28';
-window.CAMPING_BUILD = { version: 'v23.1.46', build: 'v23.1.46', released: '2026-06-28', label: 'Boondocking & Camping Maps v23.1.46' };
+window.CAMPING_BUILD = { version: 'v23.1.47', build: 'v23.1.47', released: '2026-06-28', label: 'Boondocking & Camping Maps v23.1.47' };

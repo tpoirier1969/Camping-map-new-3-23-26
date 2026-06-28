@@ -1,0 +1,30 @@
+Tod's Boondocking & Camping Maps — QA v23.1.47
+
+Scope:
+- Performance warning popup refinement.
+- No data research or campsite record decisions.
+- Preserve v23.1.46 Illinois consolidation files in the package so the overlay remains cumulative.
+
+Checks run:
+- Read PROJECT_RULES.md from the uploaded current project baseline before package work.
+- Confirmed app.js change is limited to selected-record performance warning/confirmation logic.
+- Confirmed threshold behavior in code:
+  - Under 1,000 selected records: no popup.
+  - 1,000+ selected records: confirmation popup warns that performance may be degraded and offers Continue/Cancel.
+  - 2,500+ selected records: message labels selection as very large.
+- node --check app.js: PASS.
+- node --check data/states/IL.js: PASS.
+- node --check data/states-manifest.js: PASS.
+- node --check version.js: PASS.
+- version.json parse: PASS.
+- Manifest spot checks:
+  - IL count remains 103 and loads data/states/IL.js only.
+  - MN count remains 148 and loads data/states/MN.js only in the v23.1.46 cumulative manifest.
+- No new supplement files included.
+- No config.js included.
+- No campsite counts changed by this revision.
+- ZIP integrity test: PASS.
+
+Expected behavior:
+- Selecting a large number of state records now triggers an obvious popup warning before loading.
+- User can continue anyway, or cancel and reduce state selection.
