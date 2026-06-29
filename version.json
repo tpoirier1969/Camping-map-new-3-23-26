@@ -1,9 +1,9 @@
 {
-  "version": "v23.1.53",
-  "build": "v23.1.53",
-  "dataVersion": "v23.1.53-rejectbackfill1",
-  "dataBuild": "v23.1.53-rejectbackfill1",
+  "version": "v23.1.54",
+  "build": "v23.1.54",
+  "dataVersion": "v23.1.54-historical-backfill1",
+  "dataBuild": "v23.1.54-historical-backfill1",
   "released": "2026-06-29",
-  "label": "Boondocking & Camping Maps v23.1.53",
-  "notes": "North Dakota final first-pass cleanup with rejected-memory backfill: adds two reopenable NWR no-import records to data/rejected.js and updates global dataBuild for cache-busting. App version remains v23.1.53."
+  "label": "Boondocking & Camping Maps v23.1.54",
+  "notes": "Historical leads/rejected backfill plus Montana active/area rescue: adds 9 Montana active records via supplement (3 official campgrounds and 6 approximate official Area/rule markers), expands data/leads.js and data/rejected.js from multi-state worker returns, and updates project rules for 1-based worker numbering and broader-but-honest Area/rule pins."
 }

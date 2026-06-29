@@ -1,0 +1,55 @@
+QA — v23.1.54 historical backfill + Montana active/area rescue
+Date: 2026-06-29
+
+Scope:
+- Historical leads/rejected backfill across all returned worker batches.
+- Montana active checkpoint adds from official/source-backed campground and area/rule proof.
+- Rules file update for PROJECT_RULES.md controlling filename, 1-based worker numbering, historical backfill worker split, and broader honest Area/rule pins.
+
+Changed files:
+- version.js
+- version.json
+- data/states-manifest.js
+- data/leads.js
+- data/rejected.js
+- data/supplements/mt-historical-backfill-active-areas-v23.1.54.js
+- Project Rules.md
+- PROJECT_RULES.md
+
+Active data impact:
+- Montana runtime count: 170 -> 179.
+- Added 3 active Montana campground records:
+  - James Kipp Campground — Rustic / Primitive — official BLM coordinate.
+  - Downstream Campground — Modern Campgrounds — official Recreation.gov campground proof; Tod map-derived campground coordinate.
+  - West End Tent and Trailer Campground — Modern Campgrounds — official Recreation.gov campground proof; Tod map-derived campground coordinate.
+- Added 6 active Montana approximate official Area/rule markers:
+  - Upper Missouri River Breaks / Upper Missouri Wild and Scenic River dispersed camping rule area.
+  - Charles M. Russell NWR backcountry / dispersed camping rule area.
+  - UL Bend Wilderness camping-permitted area.
+  - Chalk Buttes Land Unit dispersed camping.
+  - Long Pines Land Unit dispersed camping.
+  - Ekalaka Hills Land Unit dispersed camping.
+
+Durable memory impact:
+- data/leads.js: 34 -> 173 records.
+- data/rejected.js: 16 -> 138 records.
+- All new rows are historical seed/backfill memory rows from returned workers, with duplicate-ID checks and same-state/same-name dedupe.
+- Cross-state/state-pair rows were normalized to state-specific or CROSS-STATE where appropriate.
+
+Checks run:
+- node --check version.js — PASS
+- node --check data/states-manifest.js — PASS
+- node --check data/leads.js — PASS
+- node --check data/rejected.js — PASS
+- node --check data/supplements/mt-historical-backfill-active-areas-v23.1.54.js — PASS
+- data/leads.js duplicate ID check — PASS, 0 duplicate IDs
+- data/rejected.js duplicate ID check — PASS, 0 duplicate IDs
+- Montana runtime load check with all manifest MT files — PASS, 179 records
+- Montana runtime duplicate ID check — PASS, 0 duplicate IDs
+- Montana runtime duplicate coordinate check rounded to 6 decimals — PASS, 0 duplicate coordinates
+- Project Rules.md and PROJECT_RULES.md identity check — PASS
+
+Notes:
+- Kansas manifest gap was preserved as a leads/rejected QA memory issue; KS was not added to the manifest because current KS rows are suspect and should not be activated blindly.
+- Broad area/rule pins are active only where the popup text clearly says approximate marker, not exact campsite or legal boundary.
+- No config.js included.

@@ -6,7 +6,7 @@ Help build and maintain Tod’s Boondocking & Camping Maps using careful, source
 
 Core behavior:
 
-Current controlling rules filename: `Project Rules.md`. Future handoffs, instructions, supervisor assignments, worker assignments, and package notes should use this filename. If a legacy `PROJECT_RULES.md` compatibility copy exists in a package, it must contain the same current information or be renamed/removed during an authorized package update; do not leave stale rule content under the old filename.
+Current controlling rules filename: `PROJECT_RULES.md`. If a `Project Rules.md` compatibility copy exists in a package, it must contain the same current information. Do not leave stale rule content under either filename during an authorized package update.
 
 * Do the work directly.
 * Research-only means research only.
@@ -27,6 +27,8 @@ When the project is in active state-building mode and the next useful step is wo
 Geography-first workflow rule:
 
 For state-building work, divide the state by geography first and mission/site type second. Do not default to statewide site-type workers unless the task is final QA, statewide lead/rejected ledger cleanup, or a narrowly defined known-lead rescue pass.
+
+Historical leads/rejected backfill is a source-bundle/state mining task, not new campsite research. For historical backfill, split workers by state or source bundle unless an old state is so large that splitting reduces confusion. Do not over-split a state by geography merely to mine old chats. Workers should harvest named unresolved, rejected, blocked, conflicted, duplicate-watch, coordinate-rescue, and area-outline records into `data/leads.js` and `data/rejected.js`; they should not restart statewide scouting unless needed to classify a prior named lead.
 
 Good primary assignment units include regions, county clusters, grid/township groups, river/lake corridors, national forest/grassland units, state forest units, WMA clusters, reservation systems, and route corridors.
 
@@ -74,6 +76,20 @@ When multiple workers or supervisors are being assigned, write a separate standa
 * stop condition
 
 The final output should be one clean block per worker/supervisor, not one giant document the user has to hunt through. When handoff files are provided, provide individual `.txt` files by default. Do not create a ZIP for handoffs unless Tod specifically asks for a ZIP. Worker handoffs and supervisor handoffs are separate: provide worker handoffs when needed to keep work moving, but do not include a supervisor handoff unless Tod explicitly asks for a supervisor handoff or reconciliation assignment.
+
+Worker numbering rule:
+
+When worker assignments are numbered, start with Worker 1, not Worker 0. Inventory/source-index assignments are still worker assignments and should be numbered Worker 1 if they are part of a worker batch. Use clear filenames and labels that match the worker number Tod will hand out.
+
+Active approximate Area/rule marker rule:
+
+Broader approximate Area/rule pins are acceptable when they make the map more useful and the popup language is honest. An approximate Area/rule pin may be active when official sources or qualifying community proof support a real general camping opportunity but exact campsite points, full polygons, or legal boundary geometry are not yet available.
+
+These records must be clearly labeled as approximate Area/rule markers. The description must say the marker is not an exact campsite, not an exact access point, and not a legal boundary. It must tell users to verify current ownership, legal access, postings, closures, MVUM/route restrictions, stay limits, fire restrictions, water/road conditions, permits, and local rules before staying.
+
+Do not use a lake center, visitor center, office, boat ramp, trailhead, or other proxy as an exact campsite. If such a feature is used only as a broad area context marker, the record must make that approximate/context role unmistakable.
+
+Keep or add a related `data/leads.js` geometry-upgrade row when the active Area/rule pin should later be replaced or improved with official polygons, route corridors, MVUM geometry, refuge/forest/grassland boundaries, or georeferenced official maps.
 
 Area-outline follow-up rule:
 
