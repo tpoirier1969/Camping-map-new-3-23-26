@@ -16,6 +16,14 @@ Current controlling rules filename: `Project Rules.md`. Future handoffs, instruc
 * When a named revision is requested, return full fixed replacement files or a full fixed-files ZIP.
 * Be honest about blockers. If required files or sources are missing, stop and say exactly what is needed.
 
+Workflow evolution / rules freshness rule:
+
+When Tod and the assistant make a durable workflow, architecture, data-model, proof-standard, handoff-format, or QA decision during project work, that change should be folded into `Project Rules.md` in the next revision. The controlling rules file should stay current with the way the project is actually being run. Do not let stale handoffs, old proof habits, or older package assumptions override the latest project decisions.
+
+Worker-handoff delivery rule:
+
+When the project is in active state-building mode and the next useful step is worker research, provide worker handoffs to keep workers busy. Do not wait for Tod to separately ask for worker handoffs. Provide individual `.txt` files by default. Do not create a ZIP unless Tod asks for one. Do not include a supervisor handoff unless Tod explicitly asks for a supervisor handoff or reconciliation assignment.
+
 Mandatory rules review for handoffs:
 
 Any supervisor writing a handoff to another supervisor or worker must include this instruction near the top:
@@ -55,7 +63,7 @@ When multiple workers or supervisors are being assigned, write a separate standa
 * allowed final actions
 * stop condition
 
-The final output should be one clean block per worker/supervisor, not one giant document the user has to hunt through. If files are provided, prefer separate worker/supervisor handoff files plus an optional combined ZIP.
+The final output should be one clean block per worker/supervisor, not one giant document the user has to hunt through. When handoff files are provided, provide individual `.txt` files by default. Do not create a ZIP for handoffs unless Tod specifically asks for a ZIP. Worker handoffs and supervisor handoffs are separate: provide worker handoffs when needed to keep work moving, but do not include a supervisor handoff unless Tod explicitly asks for a supervisor handoff or reconciliation assignment.
 
 Area-outline follow-up rule:
 
@@ -64,6 +72,18 @@ When official source geometry supports a polygon, line, route corridor, backcoun
 Do not convert a real official outline/zone opportunity into a fake centroid point. If the current schema cannot honestly represent the opportunity as a point or area/rule marker, mark it for AREA OUTLINE FOLLOW-UP, GIS EXTRACTION, QGIS/GDAL, OFFICIAL MAP GEOREFERENCE, API / DEVTOOLS, or AGENCY CONTACT as appropriate.
 
 For each outline-ready lead, capture the area/outline name, agency/owner, geometry type, source URL or source description, GIS layer/dataset name if available, feature/object ID if available, coordinate system if shown, whether camping is allowed throughout or only in subareas, and the recommended next action.
+
+Approximate Area pin rule when official geometry is unavailable:
+
+If official geometry does not exist or cannot be extracted yet, but official rules or 3+ independent community/social reports support a known boondocking/dispersed/primitive camping area, use an approximate Area-layer pin roughly near the center of the known/reported area.
+
+The pin must be labeled as an approximate area marker, not an exact campsite or exact boundary. The popup/details must clearly say that exact borders are unknown and that the user must research legal access, ownership, postings, fire restrictions, road conditions, stay limits, and current rules before staying.
+
+Recommended wording:
+
+“Approximate boondocking area marker. This pin is placed near the center of a known/reported boondocking area, but exact borders are not available. This is not an exact campsite or boundary. Research current access, ownership, postings, fire restrictions, road conditions, stay limits, and local rules before staying.”
+
+When official geometry later becomes available, the approximate Area pin should be replaced or supplemented by the official outline/geometry.
 
 Source rules:
 
@@ -201,16 +221,17 @@ This applies especially where official agencies provide only broad dispersed-cam
 
 Use this standard:
 
-* **3+ independent community/social pins or reports in close proximity:** valid proof for a Boondocking / Dispersed candidate, unless contradicted by official/private/closure/no-camping evidence.
+* **3+ independent community/social pins, reviews, listings, or firsthand overnight-use reports in close proximity:** valid proof for a Community-supported Boondocking / Dispersed candidate unless clearly disproven. Three separate anecdotal reports that people stayed overnight at the same spot should be treated as truth until contradicted by stronger evidence.
 * **1–2 community/social pins or reports:** valid lead requiring more research. Do not reject solely because it is community-sourced.
 * **Same pin/listing recycled across multiple sites from one party or source chain:** count as one source, not multiple independent confirmations.
-* **Official no-camping, closure, private-land, day-use-only, unsafe/illegal access, or posted restriction conflict:** reject or hold, depending on severity.
+* **Land ownership uncertainty is not disproof.** Do not require land-ownership proof before accepting a 3+ report community-supported boondocking candidate. Private land can be open, tolerated, leased, permitted, or otherwise available to the public. Ownership uncertainty belongs in warning text unless clear evidence shows no public access or no camping.
+* **Clear disproof controls.** Official no-camping, closure, day-use-only, posted no-overnight/no-camping, unsafe/illegal access, or current verified restriction conflicts should cause reject or hold depending on severity.
 
 Community-supported boondocking records must be labeled honestly. Recommended wording:
 
-“Community-supported dispersed camping location. This is not an agency-designated campsite. Multiple independent community/social reports support overnight dispersed use in this area. Verify land ownership, current postings, road access, fire restrictions, stay limits, and local rules before staying.”
+“Community-supported dispersed camping location. This is not an agency-designated campsite. Multiple independent community/social reports support overnight dispersed use in this area. Verify current legality, ownership, access, postings, road conditions, fire restrictions, stay limits, and local rules before staying.”
 
-Do not use community proof to override official disproof. Do not import fake centroids, lake centers, forest centers, trailheads, boat ramps, parking lots, private driveways, or vague “somewhere around here” pins as boondocking records.
+Do not use community proof to override clear official or posted disproof. Do not import fake centroids, lake centers, forest centers, trailheads, boat ramps, parking lots, private driveways, or vague “somewhere around here” pins as exact boondocking sites.
 
 
 Private Campgrounds:
@@ -311,6 +332,35 @@ If a lead is blocked, identify the exact blocked source, what was needed from it
 
 If a source likely requires normal browser downloads, QGIS/GDAL/Postman, reservation metadata, agency contact, or a current live ZIP, say so clearly.
 
+
+Lead and rejection file rules:
+
+When `data/leads.js` exists, it is the durable backlog of unresolved, coordinate-blocked, GIS/area-outline, agency-contact, community-review, duplicate-watch, future-work, and closed-added leads. Workers must review it before starting research when it exists.
+
+When `data/rejected.js` exists, it is the durable memory of rejected, closed, conflicted, duplicate, wrong-scope, no-camping, and currently unsafe leads. Workers must review it before starting research when it exists.
+
+Reviewing `data/leads.js` and `data/rejected.js` does not replace duplicate checks against active map records. Workers must still check the active state file, active supplements, the manifest, and nearby duplicate/superseded records before recommending adds.
+
+Workers should use `data/leads.js` to avoid rediscovering known unfinished work and to resolve leads when their assignment covers them.
+
+Workers must not rework rejected items unless the assignment explicitly covers reopening them or the rejected record’s `canReopen` / `reopenIf` criteria are met.
+
+Recommended worker output field:
+
+`Lead / Rejected File Result`
+
+Allowed values:
+
+* NO PRIOR LEAD FOUND
+* MATCHED EXISTING LEAD — RESOLVED
+* MATCHED EXISTING LEAD — STILL BLOCKED
+* MATCHED EXISTING LEAD — UPDATE RECOMMENDED
+* MATCHED REJECTED RECORD — KEEP REJECTED
+* MATCHED REJECTED RECORD — REOPEN RECOMMENDED
+* MATCHED REJECTED RECORD — CONFLICT UNRESOLVED
+
+`data/leads.js` and `data/rejected.js` are project-memory files, not substitutes for honest source checking. They should preserve what was checked, what remains unresolved, why a record was rejected or held, and what would justify reopening or resolving it later.
+
 Duplicate and supplement rules:
 
 Before recommending any add or correction, check whether the site already exists.
@@ -357,6 +407,17 @@ No package may be delivered with missing-file caveats.
 Required wording when files are missing:
 
 “I need the current live repo/package ZIP before I can safely do this. The repo/available files do not provide the required current baseline.”
+
+
+App/data version architecture rule:
+
+Use one global app/software version and one global campsite-data version when the app architecture supports it.
+
+* APP_VERSION controls UI, behavior, features, and app code.
+* DATA_VERSION controls campsite data, state files, supplements, manifest data, lead/rejected data, and data cache-busting.
+* Do not create per-state data versions unless Tod explicitly requests that later.
+
+State files and data manifests should load using DATA_VERSION, not only the app version, so campsite data can be refreshed independently from app feature changes.
 
 Package/build rules:
 
@@ -409,6 +470,16 @@ Minimum package QA:
 * smoke-test representative changed records
 
 If the package cannot be built safely, stop and ask Tod for what is missing.
+
+
+State revision rhythm:
+
+For each active state, prefer two main revision points after the first worker batches begin returning results:
+
+1. **Fast expansion revision:** package the clean second-round worker findings that add a significant number of sites, community-supported boondocking points, approximate Area pins, `data/leads.js`, `data/rejected.js`, Project Rules updates, and necessary architecture improvements.
+2. **Final first-pass cleanup revision:** after the last focused state pass, package remaining coordinate-rescued records, final community boondocking finds, area/rule markers, lead/rejected file cleanup, and closure decisions before moving to the next state.
+
+This avoids waiting too long to get useful data into the map while still giving each state a cleanup pass before moving on.
 
 Supervisor rules:
 
