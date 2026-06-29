@@ -1,0 +1,32 @@
+Tod's Boondocking & Camping Maps — v23.1.57 Minnesota geography-finish cleanup
+
+Purpose
+- Integrate the six geography-locked Minnesota finish worker returns without creating fake coordinates.
+- Keep the hard state-splitting rule in PROJECT_RULES.md / Project Rules.md.
+
+Active/runtime changes
+- Added 12 clean active Minnesota records from Worker 6 Metro/Southeast where the worker supplied official map-derived coordinates and no active duplicate was found.
+- Corrected Blue Mounds main campground from Rustic / Primitive to Modern Campgrounds.
+- Corrected old Prairie Campground row to Lake Shetek — Prairie Campground and Rustic / Primitive.
+- Corrected Rice Creek Campgrounds from obsolete state layer to Modern Campgrounds.
+- Moved Riverway Campground and two Jay Cooke legacy rows out of obsolete state layer into Needs Verification pending official DNR cleanup.
+- No active rows were added from Worker 1/2/3 coordinate-rescue candidates because their returns did not provide import-safe coordinates.
+- No active rows were added from Worker 4/5 exact candidates because the current MN file already contains those exact Chippewa/Superior NF records.
+
+Lead / rejected memory
+- data/leads.js: 186 -> 291.
+- data/rejected.js: 146 -> 166.
+- Worker returns were converted to durable coordinate-rescue, GIS/GeoPDF extraction, area/rule, agency-contact, and wrong-feature trap memory where appropriate.
+
+Changed files
+- version.js
+- version.json
+- PROJECT_RULES.md
+- Project Rules.md
+- data/states-manifest.js
+- data/supplements/mn-finish-gap-cleanup-v23.1.57.js
+- data/leads.js
+- data/rejected.js
+- QA_v23.1.57_mn_finish.txt
+
+No config.js included.

@@ -1,0 +1,29 @@
+$ node --check version.js
+EXIT 0
+
+$ node --check data/states-manifest.js
+EXIT 0
+
+$ node --check data/leads.js
+EXIT 0
+
+$ node --check data/rejected.js
+EXIT 0
+
+$ node --check data/supplements/mn-finish-gap-cleanup-v23.1.57.js
+EXIT 0
+
+Rules files identical: True
+
+$ node _smoke_mn.js
+MN loaded count 160
+MN duplicate IDs 0 
+mn-w6-whitewater-main-campgrounds Whitewater State Park — Cedar Hill / Minneiska Campgrounds | modern | 44.062,-92.046
+mn-w6-frontenac-drive-in-campground Frontenac State Park — Drive-in Campground | rustic | 44.511,-92.349
+mn-v23144-blue-mounds-state-park-main-campground Blue Mounds State Park — main campground | modern | 43.7154,-96.1891
+s745 Lake Shetek — Prairie Campground | rustic | 44.1062888,-95.6972466
+s768 Rice Creek Campgrounds | modern | 45.168611,-93.0809345
+s781 Riverway Campground | needs | 45.2203968,-92.7564707
+Leads count 291 duplicates 0
+Rejected count 166 duplicates 0
+EXIT 0

@@ -2869,5 +2869,433 @@ window.CAMPING_REJECTED = [
     "lastCheckedVersion": "v23.1.55",
     "notes": "MVUM is access geometry, not campsite proof.",
     "sourceFile": "WI/UP corridor worker returns v23.1.54"
+  },
+  {
+    "id": "mi-reject-paint-river-forks-legacy-bad-coordinate-461887-887662",
+    "state": "MI",
+    "name": "Paint River Forks Campground legacy coordinate 46.188700, -88.766200",
+    "countyRegion": "Iron County / Ottawa NF / Paint River Forks context",
+    "rejectedAsLayer": "Rustic / Primitive coordinate only — campground remains valid at official coordinate",
+    "rejectionType": "bad_coordinate / displaced_legacy_point / possible_private-camp_proxy",
+    "rejectionStrength": "source_conflict_coordinate_trap",
+    "currentDecision": "REJECT COORDINATE ONLY — DO NOT REUSE FOR PAINT RIVER FORKS CAMPGROUND",
+    "canReopen": true,
+    "reopenIf": [
+      "A current official USFS/GIS source explicitly supports this exact coordinate as Paint River Forks Campground, which currently conflicts with the official USFS coordinate used in v23.1.55+"
+    ],
+    "badCoordinate": {
+      "lat": 46.1887,
+      "lng": -88.7662
+    },
+    "correctActiveCoordinate": {
+      "lat": 46.23240559,
+      "lng": -88.71756443
+    },
+    "sourceSummary": "Tod flagged the legacy coordinate as landing near a private camp; worker/official-source QA confirms the real Paint River Forks Campground exists but v23.1.55 uses the current official USFS coordinate 46.23240559, -88.71756443. The old coordinate is materially displaced and should not be reused.",
+    "relatedActiveOrPendingRecord": "MI active s1035 / Paint River Forks Campground corrected by v23.1.55 supplement",
+    "leadRejectedFileResult": "NEW REJECTED COORDINATE MEMORY / closeout integration",
+    "lastCheckedVersion": "v23.1.56",
+    "notes": "This rejects only the old coordinate, not the campground. Keep Paint River Forks active at the official USFS location.",
+    "sourceFile": "Tod Paint River Forks coordinate QA + Worker 1 closeout"
+  },
+  {
+    "id": "mn-reject-red-river-kidder-recreation-area-wrong-state-trap",
+    "state": "MN",
+    "name": "Kidder Recreation Area",
+    "countyRegion": "Red River corridor / Wahpeton ND trap",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "`wrong_state_trap`",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": false,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "DNR water trail map lists Kidder Recreation Area facilities; Wahpeton Parks identifies Kidder Recreation Area as a Wahpeton park. ([mobile-maps-files.dnr.state.mn.us][27])",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 1 MN Northwest / Red River / Detroit Lakes. Original final action: REJECT / DO NOT IMPORT. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_1_MN_NORTHWEST_RED_RIVER_DETROIT_LAKES return (pasted markdown)"
+  },
+  {
+    "id": "mn-reject-tamarac-nwr-no-camping",
+    "state": "MN",
+    "name": "Tamarac National Wildlife Refuge",
+    "countyRegion": "Becker County / Tamarac NWR",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "`official_no_camping`",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "USFWS refuge rules say camping and overnight parking are prohibited and public hours are 5 a.m. to 10 p.m. ([U.S. Fish and Wildlife Service][28])",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 1 MN Northwest / Red River / Detroit Lakes. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_1_MN_NORTHWEST_RED_RIVER_DETROIT_LAKES return (pasted markdown)"
+  },
+  {
+    "id": "mn-reject-agassiz-nwr-no-camping",
+    "state": "MN",
+    "name": "Agassiz National Wildlife Refuge",
+    "countyRegion": "Marshall County / Agassiz NWR",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "`official_no_camping`",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "USFWS says camping, open fires, and overnight parking are not allowed at Agassiz NWR. ([U.S. Fish and Wildlife Service][29])",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 1 MN Northwest / Red River / Detroit Lakes. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_1_MN_NORTHWEST_RED_RIVER_DETROIT_LAKES return (pasted markdown)"
+  },
+  {
+    "id": "mn-reject-northern-tallgrass-prairie-nwr-no-camping",
+    "state": "MN",
+    "name": "Northern Tallgrass Prairie National Wildlife Refuge Units",
+    "countyRegion": "Western / northwestern MN unit trap",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "`official_no_camping`",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "USFWS says camping, open fires, and overnight parking are prohibited. ([U.S. Fish and Wildlife Service][30])",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 1 MN Northwest / Red River / Detroit Lakes. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_1_MN_NORTHWEST_RED_RIVER_DETROIT_LAKES return (pasted markdown)"
+  },
+  {
+    "id": "mn-reject-clear-lake-park-meeker-day-use-no-campground-proof",
+    "state": "MN",
+    "name": "Clear Lake Park as campground",
+    "countyRegion": "Meeker / Watkins",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "Official Meeker County Clear Lake Park page lists boat landing, fishing, picnic areas, restrooms, trails and water; it does not list campground/camping: https://www.co.meeker.mn.us/Facilities/Facility/Details/Clear-Lake-Park-1",
+    "sourceUrl": "https://www.co.meeker.mn.us/Facilities/Facility/Details/Clear-Lake-Park-1",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 2 MN West-Central / Prairie Lakes / Upper MN River. Original final action: REJECT / DO NOT IMPORT. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_2_MN_WEST_CENTRAL_PRAIRIE_LAKES_UPPER_MN_RIVER_Return_v23.1.56.txt"
+  },
+  {
+    "id": "mn-reject-darwin-dassel-park-day-use-no-campground-proof",
+    "state": "MN",
+    "name": "Darwin-Dassel Park as campground",
+    "countyRegion": "Meeker / Darwin-Dassel",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "Official Meeker County Darwin-Dassel Park page shows park/picnic/trails context; campground feature not recovered in parsed official page: https://www.co.meeker.mn.us/Facilities/Facility/Details/DarwinDassel-Park-2",
+    "sourceUrl": "https://www.co.meeker.mn.us/Facilities/Facility/Details/DarwinDassel-Park-2",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 2 MN West-Central / Prairie Lakes / Upper MN River. Original final action: REJECT / DO NOT IMPORT. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_2_MN_WEST_CENTRAL_PRAIRIE_LAKES_UPPER_MN_RIVER_Return_v23.1.56.txt"
+  },
+  {
+    "id": "mn-reject-big-stone-nwr-as-camping-pin",
+    "state": "MN",
+    "name": "Big Stone National Wildlife Refuge as camping/boondocking pin",
+    "countyRegion": "Big Stone / Lac qui Parle",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "no_current_overnight_proof / wrong_feature_type",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "Official source path to verify: https://www.fws.gov/refuge/big-stone . Accessible summary shows refuge recreation like wildlife viewing/hunting/fishing/hiking/non-motorized boating, but no camping proof recovered.",
+    "sourceUrl": "https://www.fws.gov/refuge/big-stone",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 2 MN West-Central / Prairie Lakes / Upper MN River. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_2_MN_WEST_CENTRAL_PRAIRIE_LAKES_UPPER_MN_RIVER_Return_v23.1.56.txt"
+  },
+  {
+    "id": "mn-reject-lac-qui-parle-wma-water-access-dam-lake-center-camping-pins",
+    "state": "MN",
+    "name": "Lac qui Parle WMA / dam / water-access / lake-center camping proxy pins",
+    "countyRegion": "Lac qui Parle / Chippewa / Swift",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_type / no_honest_map_record",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "Lac qui Parle corridor contains WMA, reservoir, dam, mission, and state park contexts; camping records must be named campgrounds/sites only.",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 2 MN West-Central / Prairie Lakes / Upper MN River. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_2_MN_WEST_CENTRAL_PRAIRIE_LAKES_UPPER_MN_RIVER_Return_v23.1.56.txt"
+  },
+  {
+    "id": "mn-reject-west-central-wma-sna-office-courthouse-proxy-camping-pins",
+    "state": "MN",
+    "name": "West-central MN WMA/SNA/office/courthouse/city-hall proxy camping pins",
+    "countyRegion": "Assigned counties",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "Applies to county courthouses, city halls, park offices, DNR offices, WMAs/SNAs without camping permission, boat launches, fishing piers, dams, public-water accesses, lake centers, and parking lots.",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 2 MN West-Central / Prairie Lakes / Upper MN River. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_2_MN_WEST_CENTRAL_PRAIRIE_LAKES_UPPER_MN_RIVER_Return_v23.1.56.txt"
+  },
+  {
+    "id": "mn-reject-murray-forman-acres-boat-landing",
+    "state": "MN",
+    "name": "Forman Acres County Park",
+    "countyRegion": "Murray County",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "https://cms9files.revize.com/murraycounty/invasive%20species%20brochure.pdf — Forman Acres listed with boat landing, dock, restroom facilities, adjacent to Lake Shetek; no campsites shown.",
+    "sourceUrl": "https://cms9files.revize.com/murraycounty/invasive%20species%20brochure.pdf",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 3 MN Southwest / I-90 Prairie / Blue Earth River. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_3_MN_Southwest_I90_Prairie_Closeout_Return.md"
+  },
+  {
+    "id": "mn-reject-sakatah-townsend-woods-sna-camping-trap",
+    "state": "MN",
+    "name": "Townsend Woods SNA / Sakatah-area SNA camping trap",
+    "countyRegion": "Le Sueur / Rice edge",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "https://www.dnr.state.mn.us/state_parks/sakatah_lake/things_to_do.html — DNR promotes Townsend Woods SNA for natural quality; not as camping.",
+    "sourceUrl": "https://www.dnr.state.mn.us/state_parks/sakatah_lake/things_to_do.html",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 3 MN Southwest / I-90 Prairie / Blue Earth River. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_3_MN_Southwest_I90_Prairie_Closeout_Return.md"
+  },
+  {
+    "id": "mn-reject-waseca-water-accesses-boat-landing-trap",
+    "state": "MN",
+    "name": "Waseca / Freeborn / Steele Public Water Accesses",
+    "countyRegion": "Waseca County focus",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "https://files.dnr.state.mn.us/maps/water_access/counties/freeborn_steele_waseca.pdf — DNR public water access map lists boat/fishing access features; no camping authorization.",
+    "sourceUrl": "https://files.dnr.state.mn.us/maps/water_access/counties/freeborn_steele_waseca.pdf",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 3 MN Southwest / I-90 Prairie / Blue Earth River. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_3_MN_Southwest_I90_Prairie_Closeout_Return.md"
+  },
+  {
+    "id": "mn-reject-red-rock-county-park-camping-unproven",
+    "state": "MN",
+    "name": "Red Rock County Park / Red Rock Falls",
+    "countyRegion": "Cottonwood County",
+    "rejectedAsLayer": "Reject / Do Not Import / Lead only if future official camping proof appears",
+    "rejectionType": "no_honest_map_record",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "Cottonwood County planning PDFs identify Red Rock Falls/County Park as scenic/recreation feature; no accessible official campsite/overnight camping proof recovered in this pass.",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 3 MN Southwest / I-90 Prairie / Blue Earth River. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_3_MN_Southwest_I90_Prairie_Closeout_Return.md"
+  },
+  {
+    "id": "mn-reject-murray-corabelle-park-boat-access",
+    "state": "MN",
+    "name": "Corabelle Park",
+    "countyRegion": "Murray County",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "https://cms9files.revize.com/murraycounty/invasive%20species%20brochure.pdf — Corabelle Park listed with boat landing, dock, picnic shelter/shed, vault toilet; no campsites.",
+    "sourceUrl": "https://cms9files.revize.com/murraycounty/invasive%20species%20brochure.pdf",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 3 MN Southwest / I-90 Prairie / Blue Earth River. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_3_MN_Southwest_I90_Prairie_Closeout_Return.md"
+  },
+  {
+    "id": "mn-reject-state-forest-trailheads-parking-vehicle-sleeping",
+    "state": "MN",
+    "name": "Minnesota state forest trailheads / parking areas as overnight camping pins",
+    "countyRegion": "Assigned central/north-central MN state forests",
+    "rejectedAsLayer": "Boondocking / Dispersed / Overnight Parking",
+    "rejectionType": "wrong_feature_trap / official_disproof",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "DNR says dispersed camping does not mean camping/sleeping in vehicle at parking area or trailhead.",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 4 MN Central / North-Central / Chippewa Lakes. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_4_MN_CENTRAL_NORTHCENTRAL_CHIPPEWA_LAKES_RESULTS.md"
+  },
+  {
+    "id": "mn-reject-wma-sna-boat-launch-lake-center-proxy-camping-central-mn",
+    "state": "MN",
+    "name": "WMA/SNA/boat launch/lake-center proxy camping traps in central/north-central MN",
+    "countyRegion": "Assigned counties generally",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_type / no_honest_map_record",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "Land O'Lakes/Emily map says WMA camping only with DNR wildlife manager permit; project rules ban lake centers, launches, trailheads, offices, dams, parking lots as exact campsite pins unless official source identifies camping.",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 4 MN Central / North-Central / Chippewa Lakes. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_4_MN_CENTRAL_NORTHCENTRAL_CHIPPEWA_LAKES_RESULTS.md"
+  },
+  {
+    "id": "mn-reject-voyageurs-visitor-centers-boat-launches-as-campsites",
+    "state": "MN",
+    "name": "Voyageurs NP visitor centers / boat launches / lake centers as campsite pins",
+    "countyRegion": "Koochiching / St. Louis / Voyageurs NP",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_type / no_honest_map_record",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "NPS camping requires designated site/reservation map context; front/backcountry sites require boat access and primitive sites are hike-in. Do not substitute launches/visitor centers/lake centers.",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 5 MN Northeast / Arrowhead / Superior NF / North Shore. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_5_MN_NORTHEAST_ARROWHEAD_RESULTS.txt"
+  },
+  {
+    "id": "mn-reject-insula-lake-state-forest-dispersed-marker",
+    "state": "MN",
+    "name": "Insula Lake State Forest dispersed-camping marker",
+    "countyRegion": "Lake / BWCAW",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "official_no_camping_as_state_forest_dispersed / wrong_feature_type",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "MN DNR says dispersed camping is not allowed in Insula Lake State Forest because it is located entirely inside BWCAW.",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 5 MN Northeast / Arrowhead / Superior NF / North Shore. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_5_MN_NORTHEAST_ARROWHEAD_RESULTS.txt"
+  },
+  {
+    "id": "mn-reject-lake-isabella-state-forest-dispersed-marker",
+    "state": "MN",
+    "name": "Lake Isabella State Forest dispersed-camping marker",
+    "countyRegion": "Lake / BWCAW",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "official_no_camping_as_state_forest_dispersed / wrong_feature_type",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "MN DNR says dispersed camping is not allowed in Lake Isabella State Forest because it is located entirely inside BWCAW.",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 5 MN Northeast / Arrowhead / Superior NF / North Shore. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_5_MN_NORTHEAST_ARROWHEAD_RESULTS.txt"
+  },
+  {
+    "id": "mn-reject-bwcaw-portions-state-forests-dispersed-camping",
+    "state": "MN",
+    "name": "BWCAW portions of Bear Island / Burntside / Grand Portage / Kabetogama / Lake Jeanette / Pat Bayle as DNR dispersed camping",
+    "countyRegion": "Northeast MN / BWCAW-overlap state forests",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "official_no_camping_as_state_forest_dispersed / wrong_feature_type",
+    "rejectionStrength": "reopenable_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official source explicitly proves public overnight camping at this exact feature or named area."
+    ],
+    "sourceSummary": "MN DNR says dispersed camping is not allowed in portions of Bear Island, Burntside, Grand Portage, Kabetogama, Lake Jeanette, and Pat Bayle state forests located within BWCAW.",
+    "sourceUrl": "",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.57",
+    "notes": "Worker 5 MN Northeast / Arrowhead / Superior NF / North Shore. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
+    "sourceFile": "Worker_5_MN_NORTHEAST_ARROWHEAD_RESULTS.txt"
   }
 ];

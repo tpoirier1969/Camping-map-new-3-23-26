@@ -137,23 +137,27 @@ window.CAMPING_STATES_MANIFEST = {
       "data/states/MI2.js",
       "data/supplements/mi-exact-rustic-primitive-v23.0.84.js",
       "data/supplements/modern-audit-cleanup-v23.1.21.js",
-      "data/supplements/wi-mi-corridor-active-ui-v23.1.55.js"
+      "data/supplements/wi-mi-corridor-active-ui-v23.1.55.js",
+      "data/supplements/wi-mi-closeout-cleanup-v23.1.56.js"
     ],
     "dynamicSources": [
       "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification.",
-      "v23.1.55: WI/UP corridor worker reconciliation adds Camp 7 Lake Campground, Trap Hills Backpacking/Dispersed Area, Ottawa NF dispersed rule area marker, and Michigan DNR UP State Forest dispersed rule area marker; removes duplicate Bear Lake Dispersed row; corrects Bass Lake, Bear Lake, Sturgeon River, and Paint River Forks layer/coordinate details; net MI count +3."
+      "v23.1.55: WI/UP corridor worker reconciliation adds Camp 7 Lake Campground, Trap Hills Backpacking/Dispersed Area, Ottawa NF dispersed rule area marker, and Michigan DNR UP State Forest dispersed rule area marker; removes duplicate Bear Lake Dispersed row; corrects Bass Lake, Bear Lake, Sturgeon River, and Paint River Forks layer/coordinate details; net MI count +3.",
+      "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ]
   },
   "MN": {
     "code": "MN",
     "name": "Minnesota",
     "file": "data/states/MN.js",
-    "count": 148,
+    "count": 160,
     "files": [
-      "data/states/MN.js"
+      "data/states/MN.js",
+      "data/supplements/mn-finish-gap-cleanup-v23.1.57.js"
     ],
     "dynamicSources": [
-      "v23.1.45: Minnesota runtime data consolidated into data/states/MN.js. Active Minnesota supplement data from v23.1.15 and v23.1.43, plus the 59 accepted v23.1.44 Minnesota large-add records, are now integrated into the owning state file. No Minnesota supplement files are required for runtime loading after this cleanup. Final Minnesota count remains 148."
+      "v23.1.45: Minnesota runtime data consolidated into data/states/MN.js. Active Minnesota supplement data from v23.1.15 and v23.1.43, plus the 59 accepted v23.1.44 Minnesota large-add records, are now integrated into the owning state file. No Minnesota supplement files were required for runtime loading after that cleanup. Final Minnesota count was 148.",
+      "v23.1.57: Minnesota geography-finish cleanup applies Workers 1–6 returns. Adds 12 clean official map-derived Metro/Southeast active campground/camping-system records; corrects Blue Mounds main campground, Lake Shetek Prairie Campground, Rice Creek, Riverway, and Jay Cooke legacy layer/QA rows; converts most western/southwest candidates without honest coordinates into durable leads instead of fake active pins."
     ]
   },
   "MS": {
@@ -277,11 +281,13 @@ window.CAMPING_STATES_MANIFEST = {
     "count": 621,
     "files": [
       "data/states/WI.js",
-      "data/supplements/wi-mi-corridor-active-ui-v23.1.55.js"
+      "data/supplements/wi-mi-corridor-active-ui-v23.1.55.js",
+      "data/supplements/wi-mi-closeout-cleanup-v23.1.56.js"
     ],
     "dynamicSources": [
       "v23.1.48: Wisconsin consolidation cleanup folds all active Wisconsin runtime supplements through v23.1.24 into data/states/WI.js. Final loaded Wisconsin count remains 621; historical supplement files are retired from active manifest loading.",
-      "v23.1.55: WI/UP corridor worker reconciliation promotes/updates Florence County Forest camping rule marker to active Boondocking / Dispersed while retaining existing Oconto/Marinette/CNF area markers; no net WI count change. Adds supporting lead/rejected memory for Perch Lake, Marinette park coordinate rescue, CNF/MVUM geometry, and wrong-feature traps."
+      "v23.1.55: WI/UP corridor worker reconciliation promotes/updates Florence County Forest camping rule marker to active Boondocking / Dispersed while retaining existing Oconto/Marinette/CNF area markers; no net WI count change. Adds supporting lead/rejected memory for Perch Lake, Marinette park coordinate rescue, CNF/MVUM geometry, and wrong-feature traps.",
+      "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ]
   },
   "WY": {
