@@ -247,9 +247,47 @@ window.CAMPING_REJECTED = [
     "reopenIf": [
       "Official source proves Sandy Lake has a distinct overnight camping opportunity separate from Pelican Lake."
     ],
-    "sourceSummary": "Pending/accepted record is Pelican Lake Campground / Sandy Lake Recreation Area — Pelican camping portion only.",
+    "sourceSummary": "Pending/accepted record is Pelican Lake Campground / Sandy Lake Recreation Area \u2014 Pelican camping portion only.",
     "relatedActiveOrPendingRecord": "nd-v23153-pelican-lake-campground",
     "lastCheckedVersion": "v23.1.53",
     "notes": ""
+  },
+  {
+    "id": "nd-reject-upper-souris-nwr-canoe-trails-camping",
+    "state": "ND",
+    "name": "Upper Souris NWR canoe trails camping",
+    "countyRegion": "Ward / Renville area",
+    "rejectedAsLayer": "Boat / Backpack / Boondocking / Dispersed",
+    "rejectionType": "no_current_overnight_proof / wrong_feature_type",
+    "rejectionStrength": "soft_no_import",
+    "currentDecision": "KEEP REJECTED UNTIL PROVED",
+    "canReopen": true,
+    "reopenIf": [
+      "Official USFWS/refuge source identifies legal overnight camping sites or rules",
+      "A later community-proof pass finds 3+ independent same-spot overnight reports with no official conflict"
+    ],
+    "sourceSummary": "Worker return found official canoe-trail/recreation context but no accessible official overnight camping proof; do not import canoe routes, launches, nature trails, or refuge offices as camping.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.53-rejectbackfill1",
+    "notes": "Reopenable because lack of accessible proof is not the same as a permanent closure. Keep out of active map until overnight use is proven. Source: Round 2 NPS/NWR/water-backcountry closure pass."
+  },
+  {
+    "id": "nd-reject-des-lacs-nwr-camping",
+    "state": "ND",
+    "name": "Des Lacs NWR camping",
+    "countyRegion": "Burke / Ward near Kenmare",
+    "rejectedAsLayer": "Boondocking / Dispersed / Boat / Backpack",
+    "rejectionType": "no_current_overnight_proof / wrong_feature_type",
+    "rejectionStrength": "soft_no_import",
+    "currentDecision": "KEEP REJECTED UNTIL PROVED",
+    "canReopen": true,
+    "reopenIf": [
+      "Official USFWS/refuge source identifies legal overnight camping sites or rules",
+      "A later community-proof pass finds 3+ independent same-spot overnight reports with no official conflict"
+    ],
+    "sourceSummary": "Worker return found refuge recreation activities but did not recover camping permission; do not import refuge headquarters, scenic byway, trails, lake access, boating access, or picnic areas as camping.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.53-rejectbackfill1",
+    "notes": "Reopenable soft rejection. Keep out of active map until official or community-supported overnight proof appears. Source: Round 2 NPS/NWR/water-backcountry closure pass."
   }
 ];

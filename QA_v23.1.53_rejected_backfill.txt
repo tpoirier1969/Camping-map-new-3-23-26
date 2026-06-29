@@ -1,0 +1,33 @@
+QA v23.1.53 rejected-memory backfill
+
+Changed files included:
+- version.js
+- version.json
+- data/rejected.js
+- QA_v23.1.53_rejected_backfill.txt
+
+Package scope:
+- Builds on v23.1.53 ND final first-pass fixed-files package.
+- Adds 2 reopenable no-import records to data/rejected.js:
+  - Upper Souris NWR canoe trails camping
+  - Des Lacs NWR camping
+- App version remains v23.1.53.
+- Global dataBuild/dataVersion updated to v23.1.53-rejectbackfill1 for data cache-busting.
+- No active campsite records changed.
+- No ND supplement file created.
+- config.js not included.
+
+Validation run:
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/states-manifest.js: PASS
+- node --check data/states/ND.js: PASS
+- node --check data/leads.js: PASS
+- node --check data/rejected.js: PASS
+
+Data QA:
+- ND active records unchanged: 52
+- data/leads.js records unchanged: 34
+- data/rejected.js records: 16
+- data/rejected.js duplicate IDs: none
+- dataBuild: v23.1.53-rejectbackfill1
