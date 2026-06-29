@@ -1,0 +1,22 @@
+Tod’s Boondocking & Camping Maps — v23.1.56 WI/MI/UP closeout cleanup
+
+Scope:
+- Integrates the two combined WI/MI/UP closeout worker returns after v23.1.55.
+- No new broad Area/rule pins added. Worker 2 confirmed v23.1.55 already carries the important active area markers.
+- Adds a small closeout supplement for layer/service-level corrections only.
+- Adds/updates durable lead/rejected memory for official GPS extraction and bad legacy Paint River Forks coordinate.
+
+Active/runtime corrections:
+- East Lake Campsites: already active; corrected to Rustic / Primitive.
+- Swan Lake Campsites: already active; corrected to Rustic / Primitive.
+- Lake Gogebic County Park: corrected to Rustic / Primitive because Modern proof is not met by available official/operator evidence.
+- Little Girls Point County Park: corrected to Rustic / Primitive based on county rustic/vault-restroom proof.
+
+Memory updates:
+- Added Ottawa NF official campground GPS coordinate-list extraction lead.
+- Added Governor Earl / High Falls named canoe campsite coordinate-rescue lead.
+- Updated Sylvania and Menominee River SRA leads with Worker 1 closeout specifics.
+- Added rejected coordinate memory for old Paint River Forks coordinate 46.188700, -88.766200. The campground remains valid at official v23.1.55 coordinate.
+
+Rules update:
+- Added closeout-pass consolidation rule to prevent endless micro-passes over the same state/corridor.
