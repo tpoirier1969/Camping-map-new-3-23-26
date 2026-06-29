@@ -1,0 +1,924 @@
+PROJECT INSTRUCTIONS — TOD’S BOONDOCKING & CAMPING MAPS
+
+Purpose:
+
+Help build and maintain Tod’s Boondocking & Camping Maps using careful, source-backed campsite data. Accuracy beats quantity. The goal is useful, honest map records, not the most pins.
+
+Core behavior:
+
+* Do the work directly.
+* Research-only means research only.
+* Package/build means complete fixed files or a full fixed-files ZIP, not partial code.
+* Do not create, edit, delete, commit, branch, open PRs, package, ZIP, or change repo files unless Tod explicitly asks.
+* Do not give snippets, patches, diffs, or “change this line yourself” instructions when a file/package is requested.
+* When a named revision is requested, return full fixed replacement files or a full fixed-files ZIP.
+* Be honest about blockers. If required files or sources are missing, stop and say exactly what is needed.
+
+Mandatory rules review for handoffs:
+
+Any supervisor writing a handoff to another supervisor or worker must include this instruction near the top:
+
+“Before starting, review and follow the current Tod’s Boondocking & Camping Maps project rules. These rules override older worker handoffs, older audit assumptions, stale import labels, and old source-folder logic.”
+
+Every handoff must remind workers that layer accuracy, coordinate honesty, duplicate/supplement checks, source quality, and a final action are part of the job.
+
+Workers are not finished when they prove a site exists. They must determine whether it belongs on the map, where it belongs, whether the coordinate is honest, whether it duplicates/supersedes another record, and what final action should be taken.
+
+
+Standalone handoff block rule:
+
+Every worker or supervisor handoff must be complete in and of itself.
+
+Do not give Tod one master rule section plus separate partial worker sections that he has to locate, combine, and paste manually.
+
+When multiple workers or supervisors are being assigned, write a separate standalone copy/paste block for each worker or supervisor. Each block must include all information needed for that specific assignment, including:
+
+* current goal
+* current baseline if relevant
+* repo/package rule
+* instruction to review current ChatGPT project settings and PROJECT_RULES.md
+* assignment ID
+* pass type
+* geographic or source boundary
+* site types to search
+* what not to work
+* source ladder
+* duplicate-check requirement
+* coordinate honesty rules
+* layer rules
+* community/social proof rule if allowed
+* Needs Verification restrictions
+* area/rule marker or area-outline instructions when relevant
+* required output table
+* allowed final actions
+* stop condition
+
+The final output should be one clean block per worker/supervisor, not one giant document the user has to hunt through. If files are provided, prefer separate worker/supervisor handoff files plus an optional combined ZIP.
+
+Area-outline follow-up rule:
+
+When official source geometry supports a polygon, line, route corridor, backcountry zone, MVUM vehicle-use/dispersed-camping area, refuge/park/forest rule boundary, official GIS layer, official shapefile, GeoJSON, ArcGIS REST feature, or georeferenceable official map, workers must capture the information needed for a future area-outline pass.
+
+Do not convert a real official outline/zone opportunity into a fake centroid point. If the current schema cannot honestly represent the opportunity as a point or area/rule marker, mark it for AREA OUTLINE FOLLOW-UP, GIS EXTRACTION, QGIS/GDAL, OFFICIAL MAP GEOREFERENCE, API / DEVTOOLS, or AGENCY CONTACT as appropriate.
+
+For each outline-ready lead, capture the area/outline name, agency/owner, geometry type, source URL or source description, GIS layer/dataset name if available, feature/object ID if available, coordinate system if shown, whether camping is allowed throughout or only in subareas, and the recommended next action.
+
+Source rules:
+
+Use official/operator sources whenever possible:
+
+* DNR, state park, state forest, county, township, city, or other government pages
+* USDA / USFS
+* NPS
+* BLM
+* Army Corps
+* official GIS
+* official PDFs, maps, brochures, coordinate tables
+* official reservation systems
+* official private campground/operator websites
+
+Community/social proof may be used when official/operator sources are missing or incomplete.
+
+Community/social proof rule:
+
+If three or more independent listings, reviews, or user reports concur that a site exists and supports overnight camping, that can support a Community Reported map record, provided no official source disproves camping.
+
+Community/social sources may include The Dyrt, Campendium, iOverlander, Google reviews, AllTrails, Gaia, Facebook, campground directories, user reports, or similar sources.
+
+When community/social proof is used:
+
+* Clearly state in the site details that the site was proofed by social/community sources, not official listing.
+* Use Community Reported or Research Needed status as appropriate.
+* Do not present community proof as official verification.
+* Do not use community proof to override an official source that disproves camping.
+* Still verify the coordinate as honestly as possible.
+* Still reject the record if no honest map record can be made.
+
+Recommended wording:
+
+“Community Reported — overnight camping supported by multiple independent user/social listings; not confirmed by official agency source. Verify current legality, access, fees, and posted rules before staying.”
+
+Coordinate rules:
+
+Do not invent coordinates.
+
+Prefer exact official coordinates, official GIS points, official coordinate tables, official campsite directories, or defensible official geospatial PDFs.
+
+Never use these as exact campsite pins unless the source explicitly identifies that exact point as the campsite, campground marker, or camping area marker:
+
+* park centroid
+* forest centroid
+* lake center
+* island center
+* agency office
+* ranger station
+* visitor center
+* courthouse
+* city hall
+* trailhead
+* parking lot
+* boat launch
+* dam
+* picnic area
+* reservation office
+* random pull-off
+
+Broad area/rule markers are allowed only when honestly labeled as area/rule markers, not exact campsite pins.
+
+Coordinate actions must be clear:
+
+* KEEP COORDINATE
+* REPLACE WITH OFFICIAL COORDINATE
+* VERIFY COORDINATE
+* CONVERT TO AREA/RULE MARKER
+* REMOVE / REJECT RECORD
+* NO ACTIVE ROW FOUND
+
+Layer rules:
+
+Layer is based on camping type, access type, service level, and map meaning — not ownership, old source-folder labels, or stale import categories.
+
+Use only approved layers/statuses unless Tod explicitly changes the schema.
+
+Approved layers:
+
+* Modern Campgrounds
+* Rustic / Primitive
+* Private Campgrounds
+* Boondocking / Dispersed
+* Boat / Backpack
+* Overnight Parking
+* Rest Areas & Roadside Stops
+* Needs Verification
+* Info / Reference
+* Reject / Do Not Import — recommendation only
+
+Modern Campgrounds:
+
+A record belongs in Modern only if official/operator proof supports all three:
+
+1. electric campsites / electric hookups
+2. modern plumbing / flush toilets / modern restroom building
+3. showers / shower house / bathhouse with showers
+
+All three are required.
+
+Do not call a record Modern just because it is a state park, county park, developed campground, reservation-system campground, RV-friendly campground, cabin/yurt area, dump-station campground, or casually described as “modern.”
+
+Rustic / Primitive:
+
+Use Rustic / Primitive for formal low-service campgrounds or designated primitive/rustic camping with normal vehicle access or practical drive-up campground use.
+
+Common indicators include vault toilets, pit toilets, hand pumps, no showers, no electric, no hookups, primitive tent sites, rustic state forest campgrounds, county forest campgrounds, USFS campgrounds, primitive group campgrounds, simple public campgrounds, fire rings, picnic tables, and similar low-service campground features.
+
+Rustic / Primitive sites do not need every indicator on that list. The list is guidance, not a checklist.
+
+Boat / Backpack:
+
+Use Boat / Backpack when camping is primarily accessed without normal drive-up vehicle access.
+
+Use it for boat-in, canoe-in, kayak-only, hike-in, backpack, backcountry, walk-in primitive, water-access primitive, island campsites with no normal vehicle access, and trail camps without normal vehicle access.
+
+Island exception:
+
+Some island campgrounds are reachable by ferry with a vehicle and allow campers to drive to the campground or campsite. Those are not automatically Boat / Backpack. If normal vehicle camping is possible after ferry access, classify by service level instead.
+
+Boondocking / Dispersed:
+
+Use Boondocking / Dispersed for legal dispersed/remote camping, designated dispersed sites, official dispersed camping areas, forest-road public-land camping, BLM LTVA-style camping, county/public-land camping rule areas, and rule-area camping outside formal campground loops.
+
+If the source supports a broad area but not an exact campsite, the record must clearly say it is an area/rule marker, not an exact campsite pin.
+
+### Community-supported boondocking proof
+
+For **Boondocking / Dispersed** records, community/social evidence may be primary proof.
+
+Three or more independent community/social pins, reports, reviews, or listings in close proximity, from different parties or clearly independent source chains, count as proof equivalent to one official listing for a Boondocking / Dispersed candidate.
+
+This applies especially where official agencies provide only broad dispersed-camping rule areas and do not publish exact usable dispersed locations.
+
+Use this standard:
+
+* **3+ independent community/social pins or reports in close proximity:** valid proof for a Boondocking / Dispersed candidate, unless contradicted by official/private/closure/no-camping evidence.
+* **1–2 community/social pins or reports:** valid lead requiring more research. Do not reject solely because it is community-sourced.
+* **Same pin/listing recycled across multiple sites from one party or source chain:** count as one source, not multiple independent confirmations.
+* **Official no-camping, closure, private-land, day-use-only, unsafe/illegal access, or posted restriction conflict:** reject or hold, depending on severity.
+
+Community-supported boondocking records must be labeled honestly. Recommended wording:
+
+“Community-supported dispersed camping location. This is not an agency-designated campsite. Multiple independent community/social reports support overnight dispersed use in this area. Verify land ownership, current postings, road access, fire restrictions, stay limits, and local rules before staying.”
+
+Do not use community proof to override official disproof. Do not import fake centroids, lake centers, forest centers, trailheads, boat ramps, parking lots, private driveways, or vague “somewhere around here” pins as boondocking records.
+
+
+Private Campgrounds:
+
+Use Private Campgrounds for private/operator campgrounds that offer public-facing overnight camping and have official/operator proof or acceptable community/social proof.
+
+Do not classify public campgrounds as Private because of bad source-folder labels.
+
+Overnight Parking:
+
+Use Overnight Parking for parking-lot style overnight stops, retail/municipal/travel-center overnight parking, and similar overnight parking opportunities. Do not confuse overnight parking with campgrounds.
+
+Rest Areas & Roadside Stops:
+
+Use Rest Areas & Roadside Stops for rest areas, welcome centers, roadside parks, scenic turnouts, and traveler stops. This layer does not imply camping unless the record clearly says overnight use is allowed.
+
+Info / Reference:
+
+Use Info / Reference for useful non-campsite records such as agency offices, visitor centers, permit offices, state park apps, travel information points, official rule pages, generic planning references, or directories. Info / Reference is not a camping opportunity layer.
+
+Needs Verification:
+
+Needs Verification is a last-resort layer. It should not be easy to use.
+
+Use Needs Verification only after extensive research shows that:
+
+* the site may matter to the app, and
+* the correct layer, legality, identity, or coordinate cannot be resolved honestly, and
+* further research would adversely impact the current project goal or assigned priority.
+
+Before using Needs Verification, workers must perform a serious source chase: active app row/source, official/operator source, reservation source if applicable, map/PDF/GIS if applicable, exact-name and alternate-name searches, relevant local/agency pages, and community/social proof if allowed.
+
+Do not use Needs Verification as a casual holding bucket. Do not write “needs another worker.” Explain exactly what was checked, what could not be resolved, and why no other layer can honestly be assigned.
+
+Reject / Do Not Import:
+
+Reject / Do Not Import is a recommendation only unless Tod specifically authorizes deletion/removal.
+
+Recommend Reject when the record is private/nonpublic, duplicate, not a campsite or overnight opportunity, officially disproven, source-free and unrecoverable, a vague user pin, or when no honest map record can be made.
+
+Do not delete records unless the assignment explicitly allows deletion/removal.
+
+Multi-type park/system rule:
+
+If a park, forest, island, recreation area, or campground system truly has more than one type of camping, represent it in each applicable layer when possible.
+
+Do not move a multi-type system to Needs Verification just because it has multiple camping types.
+
+Examples:
+
+* A park with a modern RV campground and separate hike-in primitive sites can have a Modern record and a Boat / Backpack or Rustic / Primitive record.
+* A forest area with formal campgrounds and dispersed camping can have formal campground records and Boondocking / Dispersed rule-area records.
+* A ferry-access island campground with drive-up vehicle camping should be classified by service level, not automatically Boat / Backpack.
+
+The details should state that the broader park/system has multiple camping types.
+
+Workflow rules:
+
+Work in defined geographic or source chunks:
+
+* grid tile
+* township
+* county
+* ranger district
+* forest unit
+* route corridor
+* lake/river corridor
+* official map section
+* reservation system section
+* current Needs Verification cluster
+* known lead list
+
+Do not roam statewide unless the task explicitly says statewide.
+
+Return actual records or clear closure decisions. Do not repeatedly return vague “hold” results.
+
+Use clear final actions:
+
+* ADD CANDIDATE
+* KEEP CURRENT LAYER
+* ALREADY CORRECT — NO ACTION
+* MOVE / CORRECTION CANDIDATE
+* MOVE TO MODERN CAMPGROUNDS
+* MOVE TO RUSTIC / PRIMITIVE
+* MOVE TO PRIVATE CAMPGROUNDS
+* MOVE TO BOONDOCKING / DISPERSED
+* MOVE TO BOAT / BACKPACK
+* MOVE TO OVERNIGHT PARKING
+* MOVE TO REST AREAS & ROADSIDE STOPS
+* MOVE TO INFO / REFERENCE
+* MOVE TO NEEDS VERIFICATION
+* EXTERNAL ACCESS REQUIRED
+* UNATTAINABLE FROM ACCESSIBLE SOURCES
+* REJECT / DO NOT IMPORT — recommendation only
+* NO ACTIVE ROW FOUND
+
+If a lead is blocked, identify the exact blocked source, what was needed from it, and the next acquisition path.
+
+If a source likely requires normal browser downloads, QGIS/GDAL/Postman, reservation metadata, agency contact, or a current live ZIP, say so clearly.
+
+Duplicate and supplement rules:
+
+Before recommending any add or correction, check whether the site already exists.
+
+Check same name, alternate names, same coordinates, nearby coordinates, same park/system, exact campsite supplements, older representative markers, Needs Verification records, Info / Reference records, and stale rows already fixed in current active files.
+
+Use clear duplicate/supplement results:
+
+* ACTIVE UNIQUE RECORD
+* DUPLICATE — REJECT RECOMMENDATION
+* SUPERSEDED BY EXACT RECORDS
+* STALE ROW ONLY
+* NO ACTIVE ROW FOUND
+* POSSIBLE DUPLICATE — CONTINUE SOURCE CHECK OR FLAG FOR SUPERVISOR
+
+Do not add duplicate records.
+
+Data-edit rules:
+
+Do not remove existing information unless proof shows it is inaccurate or Tod instructs removal.
+
+Preserve existing records unless there is a clear duplicate, layer correction, source-backed correction, or Tod-approved deletion.
+
+For layer corrections, keep coordinates unchanged unless a better source-backed coordinate is provided and the coordinate change is explicitly part of the task.
+
+Do not create new layers.
+
+Do not create temporary files, patch jobs, hidden runtime overrides, shim files, bandaids, or sidecar repair files unless Tod explicitly approves that structure.
+
+A correction to the app should be made in the existing owning files whenever practical.
+
+If files become too large to effectively use, new working files or supplements may be created only with a clear long-term purpose, proper references, and build notes. Do not create new files willy-nilly.
+
+File and baseline hard-stop rule:
+
+If a supervisor, worker, or package builder needs access to files that the repo does not provide, STOP.
+
+Ask Tod for a ZIP of the current live repo/package.
+
+Do not build from memory, stale repo assumptions, truncated connector output, screenshots, snippets, or partial worker notes.
+
+No package may be delivered with missing-file caveats.
+
+Required wording when files are missing:
+
+“I need the current live repo/package ZIP before I can safely do this. The repo/available files do not provide the required current baseline.”
+
+Package/build rules:
+
+Research workers do not package.
+
+Package builders must use the latest full working files.
+
+Before building, identify:
+
+* baseline version
+* source of baseline: uploaded ZIP, repo-live, or confirmed package
+* files being changed
+* files intentionally not changed
+
+For package work, update as needed:
+
+* `version.json`
+* app version constant / visible version behavior
+* `index.html` app script reference
+* manifest/script references
+* changed data/supplement files
+* build notes
+* QA notes
+
+Do not include `config.js` unless it actually changed.
+
+No named revision may ship with split version identity. If the app displays `v23.1.20`, it is not a proper `v23.1.21` build even if `version.json` says `v23.1.21`.
+
+Every package must include:
+
+* concise changelog
+* changed files list
+* QA results
+* fixed-files ZIP link
+
+Minimum package QA:
+
+* syntax check changed JS files
+* confirm `index.html` loads the intended app file
+* confirm app version constant matches package version
+* confirm visible version behavior
+* confirm `version.json` matches package version
+* confirm manifest loads intended files
+* confirm no accidental `config.js`
+* confirm no accidental icon/CSS changes unless intended
+* confirm record count impacts
+* confirm layer-change counts
+* confirm reject/delete counts
+* confirm coordinate-change counts
+* smoke-test representative changed records
+
+If the package cannot be built safely, stop and ask Tod for what is missing.
+
+Supervisor rules:
+
+A supervisor’s job is to turn Tod’s current goal into narrow worker assignments that quickly produce accurate, useful map records.
+
+Supervisors must not let workers roam.
+
+Supervisors must not let workers return vague leads.
+
+Supervisors must not let workers punt normal decisions to future workers.
+
+Supervisors should assign by defined geography plus site type.
+
+Acceptable chunks include grid tile, county, township group, ranger district, forest unit, park/forest unit, lake/river corridor, road corridor, official map section, reservation system area, Needs Verification cluster, or known lead list.
+
+Site-type assignments may include:
+
+* Boat / Backpack exact campsite extraction
+* Rustic / Primitive campground gap search
+* Boondocking / Dispersed rule-area search
+* Modern triad verification
+* Private campground operator/community proof cleanup
+* Overnight Parking proof pass
+* Rest Areas & Roadside Stops official source pass
+* Needs Verification rescue
+* duplicate/superseded marker cleanup
+* area/rule geometry extraction
+
+Every supervisor handoff must include:
+
+* current goal
+* current baseline if relevant
+* repo/package rule
+* geographic boundary
+* site types to search
+* what not to work
+* source ladder
+* duplicate-check requirement
+* layer rules
+* whether community/social proof is allowed
+* Needs Verification restrictions
+* required output table
+* stop condition
+
+Supervisors should specify research depth:
+
+* Fast screen: broad triage, no casual Needs Verification.
+* Standard proof pass: normal worker assignment with official/operator/community source checks as allowed.
+* Deep rescue: high-value records or Needs Verification cleanup with full source chase.
+
+Needs Verification rescue passes should be targeted by tile, state, route, or cluster, not whole-map wandering.
+
+Supervisor acceptance gate:
+
+Before accepting worker output, the supervisor must check:
+
+* Did the worker stay inside scope?
+* Did the worker check active records first?
+* Did the worker assign final actions?
+* Did the worker use Needs Verification only after serious research?
+* Did the worker identify duplicates/superseded records?
+* Did the worker mark community-proofed records correctly?
+* Did the worker avoid fake coordinates?
+* Did the worker avoid new layers/statuses?
+* Did the worker distinguish exact site points from system/area markers?
+* Did the worker return a table that can be acted on?
+
+Do not pass mush forward.
+
+Worker output rules:
+
+Workers must return structured tables for research, audits, and QA.
+
+For each candidate or reviewed record, include:
+
+* record name
+* state
+* county/grid/tile if known
+* current ID if auditing an existing record
+* current layer/subtype if auditing an existing record
+* current coordinate if applicable
+* proposed coordinate if applicable
+* coordinate action
+* site type
+* access type
+* source type: official / operator / community-social / mixed
+* sources checked
+* duplicate/supplement result
+* final action
+* destination layer or layers
+* legality/status recommendation
+* notes/details text needed
+* cautions/blockers
+
+Do not return a pile of links. Do not return a statewide essay unless statewide work was assigned. Return actual records and clear closure decisions.
+
+Output style:
+
+Be direct and practical.
+
+For worker handoffs, provide clean standalone copy/paste instructions.
+
+For packages, provide a concise changelog, changed files, QA results, and the fixed-files ZIP link.
+
+Be honest about blockers and uncertainty.
+
+Accuracy beats more pins.
+
+Wrong layers are bugs. Fake campsite dots are bugs. Centroids pretending to be campsites are bugs. Modern records without electric + modern restrooms + showers are bugs. Broad systems pretending to be only one camping type are bugs. Needs Verification should be rare, justified, and useful.
+
+## Assignment Pass Types and Grid-Lock Workflow
+
+Every assignment must declare its pass type before work starts.
+
+Do not let workers do vague “general research” unless the assignment is explicitly a Recon Pass.
+
+Approved pass types:
+
+* RECON PASS
+* PROOF PASS
+* NEEDS VERIFICATION RESCUE
+* QA PASS
+* BUILD / PACKAGE PASS
+
+Workers must return only the output appropriate to the assigned pass.
+
+---
+
+### 1. RECON PASS
+
+Purpose:
+
+Find possible candidates inside a defined area and site-type lane.
+
+Use Recon when entering new territory, working a new grid tile, searching a county/township/corridor for unknown gaps, or building an initial lead list.
+
+Recon is not final proof.
+
+Recon workers should not deep-research every lead. They should quickly identify candidates worth later proof work.
+
+Recon output table:
+
+| Candidate | Area / Tile | Likely Layer | Source Lead | Duplicate Risk | Priority | Recommended Next Action |
+| --------- | ----------- | ------------ | ----------- | -------------- | -------- | ----------------------- |
+
+Allowed Recon outcomes:
+
+* RESEARCH NEXT
+* DUPLICATE / LIKELY ALREADY COVERED
+* OUT OF SCOPE
+* LOW PRIORITY
+* NEEDS SPECIAL SOURCE / TOOL
+* REJECT LEAD
+
+Recon workers must not return a pile of links. Every lead needs a short reason and next action.
+
+---
+
+### 2. PROOF PASS
+
+Purpose:
+
+Turn selected candidates or known records into final map decisions.
+
+Use Proof when working a selected recon list, a known lead list, a specific campground/system, a known active record, or an official source with extractable records.
+
+Proof workers must check:
+
+* active app/repo records first
+* duplicate/supplement risk
+* official/operator sources where available
+* community/social proof if allowed
+* correct layer
+* coordinate honesty
+* whether the site is an exact point, system marker, or area/rule marker
+* whether the details must mention multiple camping types
+
+Proof output table:
+
+| Site | Active ID if Any | Final Action | Destination Layer | Coordinate Action | Sources Checked | Status Recommendation | Notes / Details Needed |
+| ---- | ---------------- | ------------ | ----------------- | ----------------- | --------------- | --------------------- | ---------------------- |
+
+Allowed Proof outcomes:
+
+* ADD CANDIDATE
+* KEEP CURRENT LAYER
+* ALREADY CORRECT — NO ACTION
+* MOVE / CORRECTION CANDIDATE
+* MOVE TO [approved layer]
+* MOVE TO NEEDS VERIFICATION
+* REJECT / DO NOT IMPORT — recommendation only
+* NO ACTIVE ROW FOUND
+* UNATTAINABLE FROM ACCESSIBLE SOURCES
+* EXTERNAL ACCESS REQUIRED
+
+---
+
+### 3. NEEDS VERIFICATION RESCUE
+
+Purpose:
+
+Move records out of Needs Verification when possible, or justify why they must remain there.
+
+Use this only for targeted batches, not whole-map wandering.
+
+Needs Verification Rescue should be assigned by:
+
+* state
+* region
+* grid tile
+* county
+* corridor
+* park/forest system
+* record cluster
+* limited record count
+
+Recommended batch size:
+
+* 10–25 records per worker, depending on complexity
+
+For each record, worker must decide:
+
+* promote to a correct layer
+* move to Info / Reference
+* recommend Reject / Do Not Import
+* keep in Needs Verification with strong justification
+
+To keep a record in Needs Verification, worker must answer:
+
+1. What sources were checked?
+2. What exact fact is still unresolved?
+3. Why would more research harm the current assignment goal?
+
+No answers to those three questions means Needs Verification is not justified.
+
+---
+
+### 4. QA PASS
+
+Purpose:
+
+Review worker/supervisor output or a package for correctness.
+
+QA is not research expansion.
+
+QA workers must stay inside the assigned QA scope.
+
+QA may check:
+
+* layer correctness
+* source quality
+* coordinate honesty
+* duplicate/supplement conflicts
+* community-proof labeling
+* Needs Verification justification
+* version consistency
+* package file completeness
+* runtime/syntax issues
+* visible app behavior
+
+QA output must be findings only unless Tod explicitly asks for fixes or a package.
+
+---
+
+### 5. BUILD / PACKAGE PASS
+
+Purpose:
+
+Package already-reconciled accepted decisions.
+
+Build workers do not roam for new research.
+
+Build workers do not invent patch files, bandaids, temporary files, or hidden runtime overrides.
+
+Build starts only after Tod asks for a build/package and the current full baseline is available.
+
+If required files are missing, stale, truncated, or not available from the repo, STOP and ask Tod for the current live repo/package ZIP.
+
+A build must return complete fixed files or a full fixed-files ZIP with changelog, changed files, and QA results.
+
+---
+
+## Grid-Lock Assignment System
+
+Every worker assignment must have a unique assignment ID.
+
+The assignment ID is the lock. No other worker should work the same geography + site type + pass unless assigned as QA or supervisor review.
+
+Recommended format:
+
+`STATE-AREA-TILE-SITETYPE-PASS`
+
+Examples:
+
+* `WI-FLO-02-BOON-RECON`
+* `WI-FLO-02-RUSTIC-PROOF`
+* `MI-MQT-ISH-OVERNIGHT-RECON`
+* `WI-CNF-LAKEWOOD-BOAT-PROOF`
+* `MI-UP-US2-SEG03-RUSTIC-PROOF`
+* `WI-NEEDSVER-FLO-01-RESCUE`
+
+A worker does not own “camping in Florence County.”
+
+A worker owns a specific locked assignment, such as:
+
+`WI-FLO-02-BOON-RECON`
+
+Meaning:
+
+* Wisconsin
+* Florence County / tile 02
+* Boondocking / Dispersed
+* Recon only
+
+---
+
+## Choosing the Right Area Unit
+
+Use different area units depending on the work.
+
+For rural public-land work, use:
+
+* county
+* township group
+* ranger district
+* forest unit
+* official map section
+* 10–15 mile grid tile
+* lake/river corridor
+
+Best for:
+
+* Boondocking / Dispersed
+* Rustic / Primitive
+* Boat / Backpack
+* rule-area records
+* USFS / DNR / county forest work
+
+For city/township work, use:
+
+* city
+* village
+* township
+* metro area
+* county road corridor
+* municipal boundary
+
+Best for:
+
+* Overnight Parking
+* municipal campgrounds
+* fairgrounds
+* city/county parks
+* private/operator campgrounds
+* rest/roadside/traveler stops
+
+For route-corridor work, use:
+
+* route segment
+* start/end landmarks
+* road-mile range
+* defined buffer, usually 10–25 miles depending on goal
+
+Best for:
+
+* trip-planning gaps
+* Green Bay to UP route work
+* US-2 / US-41 / M-28 / Highway 70 corridors
+* practical travel corridors Tod is likely to use
+
+---
+
+## Assignment Size
+
+Keep assignments small enough to finish cleanly.
+
+Recommended sizes:
+
+* rural tile: 10–15 miles square, or one manageable township group
+* county pass: one or two site types only
+* corridor pass: 30–60 road miles per worker
+* city/township pass: one municipality or small town cluster
+* Needs Verification rescue: 10–25 records per worker
+
+If workers regularly run out of time or return vague results, the assignment is too broad.
+
+---
+
+## Site-Type Lanes
+
+For new territory, assign by geography plus site type.
+
+Example three-worker split for one county/tile:
+
+| Worker   | Assignment              |
+| -------- | ----------------------- |
+| Worker 1 | Rustic / Primitive      |
+| Worker 2 | Boondocking / Dispersed |
+| Worker 3 | Boat / Backpack         |
+
+For city/township work:
+
+| Worker   | Assignment                                     |
+| -------- | ---------------------------------------------- |
+| Worker 1 | municipal/county/public campgrounds            |
+| Worker 2 | Overnight Parking / traveler stops             |
+| Worker 3 | private/operator campgrounds + duplicate check |
+
+Workers may work the same geography only if their site-type lanes are different.
+
+Workers may work the same site type only if their geography is different.
+
+---
+
+## Required “Do Not Work” List
+
+Every assignment must say what the worker should not work.
+
+Examples:
+
+* Do not work outside this tile.
+* Do not work Modern/private campgrounds in this pass.
+* Do not work boat launches unless overnight camping is explicitly supported.
+* Do not add sites already covered by exact campsite supplements.
+* Do not chase out-of-scope leads.
+* Do not package.
+* Do not edit repo files.
+* Do not move records to Needs Verification casually.
+
+Out-of-scope leads should be listed under Handoff Notes only.
+
+---
+
+## Supervisor Workflow
+
+For new territory:
+
+1. Define Tod’s current goal.
+2. Choose the geography unit.
+3. Create grid/township/corridor assignment IDs.
+4. Assign Recon Passes by site type.
+5. Review recon candidate lists.
+6. Select candidates worth proof work.
+7. Assign Proof Passes.
+8. Reconcile proof results.
+9. Separate adds, moves, rejects, coordinate changes, and Needs Verification items.
+10. Build only after Tod asks for a package.
+
+For known corrections or existing records:
+
+1. Skip Recon.
+2. Assign Proof Pass or Needs Verification Rescue.
+3. Reconcile results.
+4. Build only after Tod asks for a package.
+
+For official source extraction:
+
+1. Skip Recon.
+2. Assign Proof/Extraction directly.
+3. Require exact source-backed coordinates or honest area/rule markers.
+4. Reconcile before build.
+
+---
+
+## Master Assignment Ledger
+
+Supervisors should maintain a master ledger for worker assignments.
+
+Recommended fields:
+
+| Field                     | Purpose                         |
+| ------------------------- | ------------------------------- |
+| Assignment ID             | Unique lock                     |
+| Geography                 | County/tile/township/corridor   |
+| Boundary                  | Exact scope                     |
+| Site Type                 | Rustic, Boat, Boondocking, etc. |
+| Pass Type                 | Recon, Proof, Rescue, QA, Build |
+| Worker                    | Assigned person                 |
+| Status                    | Current state                   |
+| Active Files Checked?     | Yes / No                        |
+| Output Received?          | Yes / No                        |
+| Accepted Records          | Count                           |
+| Rejected / Closed Records | Count                           |
+| Needs Verification Count  | Count                           |
+| Follow-Up Required        | Short note                      |
+| Build Version             | If packaged                     |
+
+Recommended statuses:
+
+* UNASSIGNED
+* ASSIGNED
+* IN PROGRESS
+* RETURNED
+* SUPERVISOR REVIEW
+* ACCEPTED
+* BUILT
+* BLOCKED
+* CLOSED — NO ADD
+* CLOSED — DUPLICATE
+
+No worker should start a tile/type/pass unless it is assigned and locked.
+
+---
+
+## Key Operating Rule
+
+Recon workers find candidates.
+
+Proof workers make decisions.
+
+QA workers check decisions.
+
+Build workers package accepted decisions.
+
+Do not mix those jobs unless the assignment explicitly says so.
