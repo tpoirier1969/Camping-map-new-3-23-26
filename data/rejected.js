@@ -2729,5 +2729,145 @@ window.CAMPING_REJECTED = [
     "lastCheckedVersion": "v23.1.54-historical-backfill",
     "notes": "",
     "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
+  },
+  {
+    "id": "wi-reject-cnf-himley-lake-boat-landing-trap",
+    "state": "WI",
+    "name": "Himley Lake Boat Landing",
+    "countyRegion": "Forest County / west of Wabeno / Lakewood-Laona Ranger District",
+    "rejectedAsLayer": "Rustic / Primitive / Boondocking / Dispersed",
+    "rejectionType": "wrong_feature_type / no_honest_map_record",
+    "rejectionStrength": "wrong_feature_trap",
+    "currentDecision": "KEEP REJECTED AS CAMPSITE PIN",
+    "canReopen": true,
+    "reopenIf": [
+      "Official source identifies a campsite/campground or 3+ independent overnight reports identify the same tight cluster with no official conflict."
+    ],
+    "sourceSummary": "Worker 1 found USFS/DNR sources identify Himley Lake as boat landing/lake access, not a campground or campsite.",
+    "relatedActiveOrPendingRecord": "wi-lead-cnf-himley-lake-coordinate-rescue",
+    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND / worker-return integration",
+    "lastCheckedVersion": "v23.1.55",
+    "notes": "Rejects boat-landing/lake proxy only, not all future valid nearby proof.",
+    "sourceFile": "WI/UP corridor worker returns v23.1.54"
+  },
+  {
+    "id": "wi-reject-perch-lake-drummond-wrong-corridor",
+    "state": "WI",
+    "name": "Perch Lake Recreation Area — Drummond/Washburn District",
+    "countyRegion": "Bayfield/Ashland side / Washburn District",
+    "rejectedAsLayer": "Rustic / Primitive / Boat / Backpack",
+    "rejectionType": "outside_assigned_corridor / duplicate_name_trap",
+    "rejectionStrength": "closed_for_corridor",
+    "currentDecision": "REJECT FOR WI NE CORRIDOR IMPORT",
+    "canReopen": true,
+    "reopenIf": [
+      "Handled under the correct western/northwest WI scope and not confused with Florence County Perch Lake Trail and Campsites."
+    ],
+    "sourceSummary": "Worker 1 found this is a different official Perch Lake site with official coordinate outside the assigned corridor.",
+    "relatedActiveOrPendingRecord": "wi-lead-cnf-perch-lake-trail-campsites-coordinate-rescue",
+    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND / worker-return integration",
+    "lastCheckedVersion": "v23.1.55",
+    "notes": "Same-name trap for Perch Lake in this corridor.",
+    "sourceFile": "WI/UP corridor worker returns v23.1.54"
+  },
+  {
+    "id": "mi-reject-bear-lake-dispersed-duplicate-v23155",
+    "state": "MI",
+    "name": "Bear Lake Dispersed Campsite as separate active row",
+    "countyRegion": "Schoolcraft / Hiawatha NF Bear Lake area",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "duplicate_or_child_record / no_honest_map_record",
+    "rejectionStrength": "duplicate_watch",
+    "currentDecision": "REMOVED FROM ACTIVE AS SEPARATE ROW",
+    "canReopen": true,
+    "reopenIf": [
+      "Future proof establishes a distinct legal dispersed campsite separate from official Bear Lake Campsites with its own source/coordinate."
+    ],
+    "sourceSummary": "Worker 2 found active s61 appears to duplicate nearby official Bear Lake Campsites while using the same USFS source. v23.1.55 removes it as a separate active row and preserves this rejected memory.",
+    "relatedActiveOrPendingRecord": "s61 removed; s1079 Bear Lake Campsites retained/corrected",
+    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND / worker-return integration",
+    "lastCheckedVersion": "v23.1.55",
+    "notes": "This rejects the separate duplicate record, not the official Bear Lake Campsites.",
+    "sourceFile": "WI/UP corridor worker returns v23.1.54"
+  },
+  {
+    "id": "mi-reject-ottawa-nf-office-centroid-and-visitor-center-proxy-pins",
+    "state": "MI",
+    "name": "Ottawa NF offices / ranger stations / visitor centers as camping proxies",
+    "countyRegion": "Ottawa NF western UP",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_type / no_honest_map_record",
+    "rejectionStrength": "wrong_feature_trap",
+    "currentDecision": "KEEP REJECTED AS CAMPING/AREA PIN",
+    "canReopen": true,
+    "reopenIf": [
+      "Official source explicitly designates that exact feature as an overnight campground/camping area marker."
+    ],
+    "sourceSummary": "Worker 3: Ottawa NF rule-area work should not use Ironwood/Watersmeet/Ontonagon/Kenton offices or visitor centers as camping coordinates.",
+    "relatedActiveOrPendingRecord": "mi-lead-ottawa-nf-dispersed-camping-rule-area",
+    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND / worker-return integration",
+    "lastCheckedVersion": "v23.1.55",
+    "notes": "Contact points are not camping opportunities.",
+    "sourceFile": "WI/UP corridor worker returns v23.1.54"
+  },
+  {
+    "id": "mi-reject-ottawa-nf-day-use-boat-launch-waterfall-feature-traps",
+    "state": "MI",
+    "name": "Ottawa NF day-use / boat launch / waterfall feature traps",
+    "countyRegion": "Ottawa NF western UP",
+    "rejectedAsLayer": "Rustic / Primitive / Boondocking / Boat / Backpack",
+    "rejectionType": "wrong_feature_type / no_honest_map_record",
+    "rejectionStrength": "wrong_feature_trap",
+    "currentDecision": "KEEP REJECTED AS CAMPSITE PIN",
+    "canReopen": true,
+    "reopenIf": [
+      "Official source identifies the exact feature as a campground/designated campsite, not merely day-use/scenic/access."
+    ],
+    "sourceSummary": "Worker 3 flagged Ottawa day-use, boat launch, waterfall, parking and trailhead features as wrong-feature campsite traps.",
+    "relatedActiveOrPendingRecord": "mi-lead-ottawa-nf-official-campground-coordinate-audit",
+    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND / worker-return integration",
+    "lastCheckedVersion": "v23.1.55",
+    "notes": "Some are near valid campgrounds; the feature itself is not a campsite pin.",
+    "sourceFile": "WI/UP corridor worker returns v23.1.54"
+  },
+  {
+    "id": "wi-mi-reject-forest-office-centroids-as-camping-area-pins",
+    "state": "WI/MI",
+    "name": "Forest offices / ranger stations / county courthouses as dispersed-camping pins",
+    "countyRegion": "WI / UP corridor systems",
+    "rejectedAsLayer": "Boondocking / Dispersed / Info / Reference",
+    "rejectionType": "wrong_feature_type / no_honest_map_record",
+    "rejectionStrength": "wrong_feature_trap",
+    "currentDecision": "KEEP REJECTED AS EXACT CAMPING PINS",
+    "canReopen": true,
+    "reopenIf": [
+      "Official source explicitly makes the exact feature the camping area marker; otherwise use official geometry or honest approximate area marker."
+    ],
+    "sourceSummary": "Worker 4 reinforced project coordinate rules: offices, ranger stations, courthouses and administrative centers are not campsite pins.",
+    "relatedActiveOrPendingRecord": "WI/MI area-rule leads",
+    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND / worker-return integration",
+    "lastCheckedVersion": "v23.1.55",
+    "notes": "Pattern row for corridor geometry work.",
+    "sourceFile": "WI/UP corridor worker returns v23.1.54"
+  },
+  {
+    "id": "wi-mi-reject-mvum-routes-as-campsite-points",
+    "state": "WI/MI",
+    "name": "MVUM road/trail lines treated as campsite points",
+    "countyRegion": "CNF / Hiawatha / Ottawa",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "wrong_feature_type / no_honest_map_record",
+    "rejectionStrength": "wrong_feature_trap",
+    "currentDecision": "KEEP REJECTED AS CAMPSITE POINTS",
+    "canReopen": true,
+    "reopenIf": [
+      "An official or community-supported overnight site is proven at a specific point with no official conflict."
+    ],
+    "sourceSummary": "Worker 4: MVUM defines motorized access, not every road segment as legal camping.",
+    "relatedActiveOrPendingRecord": "CNF/Hiawatha/Ottawa MVUM geometry leads",
+    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND / worker-return integration",
+    "lastCheckedVersion": "v23.1.55",
+    "notes": "MVUM is access geometry, not campsite proof.",
+    "sourceFile": "WI/UP corridor worker returns v23.1.54"
   }
 ];

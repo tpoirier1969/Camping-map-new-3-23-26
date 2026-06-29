@@ -1,0 +1,55 @@
+Tod's Boondocking & Camping Maps — QA v23.1.55
+Revision: v23.1.55 WI/UP corridor worker reconciliation + hidden-layer search fix
+Date: 2026-06-29
+
+Changed files included in fixed-files ZIP:
+- app.js
+- version.js
+- version.json
+- PROJECT_RULES.md
+- Project Rules.md
+- data/states-manifest.js
+- data/supplements/wi-mi-corridor-active-ui-v23.1.55.js
+- data/leads.js
+- data/rejected.js
+
+Data actions:
+- Added MI active/area records via supplement:
+  - Camp 7 Lake Campground — Rustic / Primitive
+  - Trap Hills Backpacking / Dispersed Area — Boat / Backpack approximate area marker
+  - Ottawa National Forest Dispersed Camping Rule Area — Boondocking / Dispersed approximate area marker
+  - Michigan DNR UP State Forest Dispersed Camping Rule Area — Boondocking / Dispersed approximate area marker
+- Corrected MI active records:
+  - Bass Lake Campsites — Rustic / Primitive
+  - Bear Lake Campsites — Rustic / Primitive
+  - Sturgeon River Campground — Rustic / Primitive and official coordinate update
+  - Paint River Forks Campground — official coordinate update
+- Removed active duplicate row:
+  - Bear Lake Dispersed Campsite (s61) removed as separate active row; preserved in rejected memory.
+- Promoted/updated WI area marker:
+  - Florence County Forest Camping Rule Area moved from Info/Needs Verification to active Boondocking / Dispersed approximate area marker.
+- Added worker-return leads/rejected memory for WI/UP corridor coordinate rescue, geometry extraction, and wrong-feature traps.
+
+UI actions:
+- Search now searches all loaded active records, not only currently visible layers.
+- Hidden-layer matches still appear in search results.
+- Selecting a hidden-layer result temporarily reveals that marker and opens its popup with a hidden-layer notice.
+- Normal layer visibility remains unchanged.
+
+QA checks run:
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/states-manifest.js: PASS
+- node --check data/leads.js: PASS
+- node --check data/rejected.js: PASS
+- node --check data/supplements/wi-mi-corridor-active-ui-v23.1.55.js: PASS
+- PROJECT_RULES.md and Project Rules.md identical: PASS
+- data/leads.js duplicate IDs: 0
+- data/rejected.js duplicate IDs: 0
+- MT loaded count unchanged from v23.1.54 manifest: 179
+- New MI supplement records present in runtime smoke load: Camp 7, Trap Hills, Ottawa NF dispersed marker, MI DNR UP state forest marker
+- Florence County Forest rule marker corrected to Boondocking / Dispersed in runtime smoke load
+
+Notes:
+- Current MI manifest count is preserved/project-style adjusted by the v23.1.55 supplement, but the raw manifest-only smoke loader does not include every MI dynamic loader path that the full app may load at runtime. This was not treated as a new blocker because v23.1.54 opened successfully and this revision does not change the MI dynamic loader architecture.
+- No config.js included.

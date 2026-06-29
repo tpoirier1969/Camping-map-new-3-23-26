@@ -182,6 +182,13 @@ Coordinate actions must be clear:
 * REMOVE / REJECT RECORD
 * NO ACTIVE ROW FOUND
 
+
+Search UI behavior rule:
+
+Search must search all currently loaded active records, not only records in currently visible layers. Layer visibility controls normal map display, not whether search knows a loaded record exists.
+
+When a search result belongs to a layer that is currently hidden, the result should still appear with a hidden-layer note. Selecting it should temporarily reveal/highlight that one marker and open or make available its popup, without permanently turning on the whole layer. The popup/result should make clear that the record belongs to a currently hidden layer and that turning on the layer will show all records in that layer.
+
 Layer rules:
 
 Layer is based on camping type, access type, service level, and map meaning — not ownership, old source-folder labels, or stale import categories.

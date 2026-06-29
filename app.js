@@ -58,7 +58,7 @@ function markerSizeForLayer(key){if(key==='boat-backpack')return 26;return SMALL
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
-const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},draftPoint:null,draftQueue:[],supabase:null,session:null,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
+const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
 window.__campingApp=app;
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function readJson(key,fb){try{return JSON.parse(localStorage.getItem(key)||'null')??fb}catch{return fb}}
@@ -2307,17 +2307,43 @@ function siteWithinTextSearch(site){
   if(!q)return true;
   return siteText(site).includes(q);
 }
+function clearSearchRevealMarker(){
+  if(app.searchRevealMarker){
+    try{app.searchRevealMarker.remove();}catch(_e){}
+    app.searchRevealMarker=null;
+  }
+}
 function clearSearchMode(showNotice=false){
   if(app.search){app.search.active=false;app.search.query='';}
+  clearSearchRevealMarker();
   const input=$('searchInput'); if(input)input.value='';
   const out=$('searchResults'); if(out)out.innerHTML='';
   if(showNotice){renderMarkers(true);notify('Search cleared.');}
 }
+function searchResultHiddenByLayer(site){
+  const key=layerKey(site);
+  return MAP_LAYER_KEYS.has(key)&&!enabledMapLayerKeys().includes(key);
+}
+function showSearchResult(site){
+  if(!site||!app.map)return;
+  const lat=Number(site.lat),lng=Number(site.lng);
+  if(!Number.isFinite(lat)||!Number.isFinite(lng))return;
+  const key=layerKey(site);
+  const hidden=searchResultHiddenByLayer(site);
+  clearSearchRevealMarker();
+  app.map.setView([lat,lng],13);
+  if(hidden){
+    const label=layerDef(key).label;
+    const notice=`<div class="popup-notice">Search result from hidden layer: ${esc(label)}. This one marker is temporarily shown from search; turn on that layer to see the full layer.</div>`;
+    app.searchRevealMarker=L.marker([lat,lng],{icon:markerIcon(site),zIndexOffset:4000}).addTo(app.map).bindPopup(notice+popup(site)).openPopup();
+  }
+}
 function renderSearchResults(hits,q){
   const out=$('searchResults');
   if(!out)return;
-  out.innerHTML=hits.length?hits.slice(0,20).map(s=>`<button class="search-result" type="button" data-lat="${s.lat}" data-lng="${s.lng}"><strong>${esc(s.name)}</strong><br><span class="muted">${esc(s.stateName||s.stateCode||'')} · ${esc(layerDef(layerKey(s)).label)}</span></button>`).join(''):`<div class="mini-note">No loaded sites matched “${esc(q)}”. Choose/load the right state first, or use Nearby search for a map spot.</div>`;
-  $$('.search-result',out).forEach(b=>b.onclick=()=>app.map.setView([Number(b.dataset.lat),Number(b.dataset.lng)],13));
+  const shown=hits.slice(0,20);
+  out.innerHTML=shown.length?shown.map((s,i)=>{const key=layerKey(s);const hidden=searchResultHiddenByLayer(s);return `<button class="search-result" type="button" data-result-index="${i}"><strong>${esc(s.name)}</strong><br><span class="muted">${esc(s.stateName||s.stateCode||'')} · ${esc(layerDef(key).label)}${hidden?' · Hidden layer currently off':''}</span>${hidden?'<br><span class="mini-note">Selecting this result temporarily reveals it.</span>':''}</button>`}).join(''):`<div class="mini-note">No loaded sites matched “${esc(q)}”. Choose/load the right state first, or use Nearby search for a map spot.</div>`;
+  $$('.search-result',out).forEach(b=>b.onclick=()=>showSearchResult(shown[Number(b.dataset.resultIndex)]));
 }
 async function runSearch(){
   const q=$('searchInput')?.value.trim()||'';
@@ -2334,7 +2360,7 @@ async function runSearch(){
   const hits=app.sites.filter(s=>Number.isFinite(Number(s.lat))&&Number.isFinite(Number(s.lng))&&siteWithinTextSearch(s));
   renderSearchResults(hits,q);
   await renderMarkers(true);
-  notify(hits.length?`Search active: showing ${hits.length} loaded matching site${hits.length===1?'':'s'}.`:'Search active: no loaded matches.');
+  notify(hits.length?`Search active: found ${hits.length} loaded matching site${hits.length===1?'':'s'} across all loaded layers.`:'Search active: no loaded matches.');
 }
 
 const DEFAULT_NEAR_RADIUS_MILES=180;

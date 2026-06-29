@@ -1,43 +1,300 @@
-// Camping Map states manifest - stable runtime filename.
-// Current app build identity lives only in version.js. Historical supplement filenames/notes are preserved below.
 window.CAMPING_STATES_MANIFEST = {
-  "AL": {"code":"AL","name":"Alabama","file":"data/states/AL.js","count":2},
-  "AZ": {"code":"AZ","name":"Arizona","file":"data/states/AZ.js","count":10,"files":["data/states/AZ.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
-  "AR": {"code":"AR","name":"Arkansas","file":"data/states/AR.js","count":28,"files":["data/states/AR.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
-  "CA": {"code":"CA","name":"California","file":"data/states/CA.js","count":9,"files":["data/states/CA.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
-  "CO": {"code":"CO","name":"Colorado","file":"data/states/CO.js","count":37,"files":["data/states/CO.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
-  "DE": {"code":"DE","name":"Delaware","file":"data/states/DE.js","count":1},
-  "FL": {"code":"FL","name":"Florida","file":"data/states/FL.js","count":1},
-  "IL": {"code":"IL","name":"Illinois","file":"data/states/IL.js","count":103,"files":["data/states/IL.js"],"dynamicSources":["v23.1.46: Illinois runtime data consolidated into data/states/IL.js. Active v23.1.41 Illinois cleanup supplement corrections/additions are now integrated into the owning state file. No Illinois supplement file is required for runtime loading after this cleanup. Final Illinois count remains 103."]},
-  "IN": {"code":"IN","name":"Indiana","file":"data/states/IN.js","count":5},
-  "IA": {"code":"IA","name":"Iowa","file":"data/states/IA.js","count":16},
-  "KY": {"code":"KY","name":"Kentucky","file":"data/states/KY.js","count":57,"files":["data/states/KY.js"],"dynamicSources":["v23.1.49: Kentucky runtime data consolidated into data/states/KY.js. Active v23.1.38 Kentucky State Parks coordinate-rescue supplement additions are now integrated into the owning state file. No Kentucky supplement file is required for runtime loading after this cleanup. Final Kentucky count remains 57.","v23.1.36: Kentucky quick official exact batch 1 adds 51 records from official/operator proof returns: 19 Modern, 20 Rustic / Primitive, 8 Boat / Backpack, 2 Boondocking / Dispersed, and 2 Private Campgrounds. LBL, USACE/Recreation.gov, rest-area GIS, and coordinate-lacking leads are intentionally held for follow-up extraction.","v23.1.38: Kentucky State Parks coordinate rescue added 6 official Modern Campgrounds from ReserveAmerica/Kentucky State Parks exact campground coordinates; these records are now folded into data/states/KY.js.","v23.1.39: Kentucky area-outline context rescue adds two official fetchable area outline records: Daniel Boone NF administrative boundary context and Clifty Wilderness backcountry/wilderness context. No campsite-count changes; LBL ZIP/GIS, NPS corridor geometry, USACE facility geometry, and KYTC rest-area point extraction remain held for external GIS/API extraction."]},
-  "LA": {"code":"LA","name":"Louisiana","file":"data/states/LA.js","count":3,"files":["data/states/LA.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
-  "ME": {"code":"ME","name":"Maine","file":"data/states/ME.js","count":6},
-  "MI": {"code":"MI","name":"Michigan","file":"data/states/MI.js","count":660,"files":["data/states/MI.js","data/states/MI2.js","data/supplements/mi-exact-rustic-primitive-v23.0.84.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
-  "MN": {"code":"MN","name":"Minnesota","file":"data/states/MN.js","count":148,"files":["data/states/MN.js"],"dynamicSources":["v23.1.45: Minnesota runtime data consolidated into data/states/MN.js. Active Minnesota supplement data from v23.1.15 and v23.1.43, plus the 59 accepted v23.1.44 Minnesota large-add records, are now integrated into the owning state file. No Minnesota supplement files are required for runtime loading after this cleanup. Final Minnesota count remains 148."]},
-  "MS": {"code":"MS","name":"Mississippi","file":"data/states/MS.js","count":4,"files":["data/states/MS.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
-  "MO": {"code":"MO","name":"Missouri","file":"data/states/MO.js","count":41},
-  "MT": {"code":"MT","name":"Montana","file":"data/states/MT.js","count":179,"files":["data/states/MT.js","data/supplements/modern-audit-cleanup-v23.1.21.js","data/supplements/mt-exact-build-batch1-v23.1.28.js","data/supplements/mt-delta-exact-batch2-v23.1.35.js","data/supplements/mt-historical-backfill-active-areas-v23.1.54.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification.","v23.1.28: Montana exact official-source build batch 1 adds 70 high-confidence campground/site records from the six-worker Montana proof pass; broad area/rule candidates and blocked extraction leads held for follow-up extraction passes.","v23.1.35: Montana delta exact official-source batch 2 adds 95 records from worker proof/QA returns: 41 Rustic / Primitive and 54 Boat / Backpack. Smith River boat camps use official Montana FWP field-GPS coordinates; blocked Fort Peck/USACE, broad area/rule, and coordinate-lacking leads remain held out.","v23.1.54: Historical leads/rejected backfill active checkpoint adds 9 Montana records via supplement: James Kipp Campground, Downstream Campground, West End Tent and Trailer Campground, and 6 approximate official Area/rule markers for Upper Missouri River Breaks, CMR NWR, UL Bend Wilderness, Chalk Buttes, Long Pines, and Ekalaka Hills. Area/rule markers are not exact campsites or legal boundaries."]},
-  "NE": {"code":"NE","name":"Nebraska","file":"data/states/NE.js","count":20,"files":["data/states/NE.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
-  "NH": {"code":"NH","name":"New Hampshire","file":"data/states/NH.js","count":1},
-  "ND": {"code":"ND","name":"North Dakota","file":"data/states/ND.js","count":52,"files":["data/states/ND.js"],"dynamicSources":["v23.1.53: North Dakota final first-pass cleanup adds 24 records directly into data/states/ND.js: 13 official/operator campground or recreation-area records, 3 community-supported boondocking records, and 8 approximate Area/rule pins for national grasslands, NDGF WMA regions, and the Sheyenne River Water Trail corridor. Adds data/leads.js and data/rejected.js as project-memory files; no ND supplement file is created.","v23.1.52: North Dakota first expansion cleanup folds 25 accepted supervisor-reconciled official/operator records directly into data/states/ND.js, updates Lindenwood to a source-backed Modern Campgrounds row, moves the broad Theodore Roosevelt NP legacy row to Info / Reference, and moves vague Campsite #2 to Needs Verification. No ND supplement file is created."]},
-  "OH": {"code":"OH","name":"Ohio","file":"data/states/OH.js","count":1},
-  "SD": {"code":"SD","name":"South Dakota","file":"data/states/SD.js","count":102,"files":["data/states/SD.js"],"dynamicSources":["v23.1.50: South Dakota expansion cleanup folds the active SD modern-audit effect into data/states/SD.js, removes the vague Dude Ranch stop-over row already removed at runtime by v23.1.21, updates three legacy rows with official proof, and adds 84 official-source / official-map-derived South Dakota records directly to the owning state file. No SD supplement file is required for runtime loading after this build.","v23.1.51: South Dakota final deeper-dig merge adds 11 more official/operator/MVUM-supported records directly to data/states/SD.js: 4 Boondocking / Dispersed area markers, 1 Rustic primitive shoreline cluster, and 6 municipal/public campground records. Count increases from 91 to 102. No new supplement file is created."]},
-  "TN": {"code":"TN","name":"Tennessee","file":"data/states/TN.js","count":19},
-  "TX": {"code":"TX","name":"Texas","file":"data/states/TX.js","count":1},
-  "UT": {"code":"UT","name":"Utah","file":"data/states/UT.js","count":5,"files":["data/states/UT.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]},
+  "AL": {
+    "code": "AL",
+    "name": "Alabama",
+    "file": "data/states/AL.js",
+    "count": 2
+  },
+  "AZ": {
+    "code": "AZ",
+    "name": "Arizona",
+    "file": "data/states/AZ.js",
+    "count": 10,
+    "files": [
+      "data/states/AZ.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ]
+  },
+  "AR": {
+    "code": "AR",
+    "name": "Arkansas",
+    "file": "data/states/AR.js",
+    "count": 28,
+    "files": [
+      "data/states/AR.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ]
+  },
+  "CA": {
+    "code": "CA",
+    "name": "California",
+    "file": "data/states/CA.js",
+    "count": 9,
+    "files": [
+      "data/states/CA.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ]
+  },
+  "CO": {
+    "code": "CO",
+    "name": "Colorado",
+    "file": "data/states/CO.js",
+    "count": 37,
+    "files": [
+      "data/states/CO.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ]
+  },
+  "DE": {
+    "code": "DE",
+    "name": "Delaware",
+    "file": "data/states/DE.js",
+    "count": 1
+  },
+  "FL": {
+    "code": "FL",
+    "name": "Florida",
+    "file": "data/states/FL.js",
+    "count": 1
+  },
+  "IL": {
+    "code": "IL",
+    "name": "Illinois",
+    "file": "data/states/IL.js",
+    "count": 103,
+    "files": [
+      "data/states/IL.js"
+    ],
+    "dynamicSources": [
+      "v23.1.46: Illinois runtime data consolidated into data/states/IL.js. Active v23.1.41 Illinois cleanup supplement corrections/additions are now integrated into the owning state file. No Illinois supplement file is required for runtime loading after this cleanup. Final Illinois count remains 103."
+    ]
+  },
+  "IN": {
+    "code": "IN",
+    "name": "Indiana",
+    "file": "data/states/IN.js",
+    "count": 5
+  },
+  "IA": {
+    "code": "IA",
+    "name": "Iowa",
+    "file": "data/states/IA.js",
+    "count": 16
+  },
+  "KY": {
+    "code": "KY",
+    "name": "Kentucky",
+    "file": "data/states/KY.js",
+    "count": 57,
+    "files": [
+      "data/states/KY.js"
+    ],
+    "dynamicSources": [
+      "v23.1.49: Kentucky runtime data consolidated into data/states/KY.js. Active v23.1.38 Kentucky State Parks coordinate-rescue supplement additions are now integrated into the owning state file. No Kentucky supplement file is required for runtime loading after this cleanup. Final Kentucky count remains 57.",
+      "v23.1.36: Kentucky quick official exact batch 1 adds 51 records from official/operator proof returns: 19 Modern, 20 Rustic / Primitive, 8 Boat / Backpack, 2 Boondocking / Dispersed, and 2 Private Campgrounds. LBL, USACE/Recreation.gov, rest-area GIS, and coordinate-lacking leads are intentionally held for follow-up extraction.",
+      "v23.1.38: Kentucky State Parks coordinate rescue added 6 official Modern Campgrounds from ReserveAmerica/Kentucky State Parks exact campground coordinates; these records are now folded into data/states/KY.js.",
+      "v23.1.39: Kentucky area-outline context rescue adds two official fetchable area outline records: Daniel Boone NF administrative boundary context and Clifty Wilderness backcountry/wilderness context. No campsite-count changes; LBL ZIP/GIS, NPS corridor geometry, USACE facility geometry, and KYTC rest-area point extraction remain held for external GIS/API extraction."
+    ]
+  },
+  "LA": {
+    "code": "LA",
+    "name": "Louisiana",
+    "file": "data/states/LA.js",
+    "count": 3,
+    "files": [
+      "data/states/LA.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ]
+  },
+  "ME": {
+    "code": "ME",
+    "name": "Maine",
+    "file": "data/states/ME.js",
+    "count": 6
+  },
+  "MI": {
+    "code": "MI",
+    "name": "Michigan",
+    "file": "data/states/MI.js",
+    "count": 663,
+    "files": [
+      "data/states/MI.js",
+      "data/states/MI2.js",
+      "data/supplements/mi-exact-rustic-primitive-v23.0.84.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js",
+      "data/supplements/wi-mi-corridor-active-ui-v23.1.55.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification.",
+      "v23.1.55: WI/UP corridor worker reconciliation adds Camp 7 Lake Campground, Trap Hills Backpacking/Dispersed Area, Ottawa NF dispersed rule area marker, and Michigan DNR UP State Forest dispersed rule area marker; removes duplicate Bear Lake Dispersed row; corrects Bass Lake, Bear Lake, Sturgeon River, and Paint River Forks layer/coordinate details; net MI count +3."
+    ]
+  },
+  "MN": {
+    "code": "MN",
+    "name": "Minnesota",
+    "file": "data/states/MN.js",
+    "count": 148,
+    "files": [
+      "data/states/MN.js"
+    ],
+    "dynamicSources": [
+      "v23.1.45: Minnesota runtime data consolidated into data/states/MN.js. Active Minnesota supplement data from v23.1.15 and v23.1.43, plus the 59 accepted v23.1.44 Minnesota large-add records, are now integrated into the owning state file. No Minnesota supplement files are required for runtime loading after this cleanup. Final Minnesota count remains 148."
+    ]
+  },
+  "MS": {
+    "code": "MS",
+    "name": "Mississippi",
+    "file": "data/states/MS.js",
+    "count": 4,
+    "files": [
+      "data/states/MS.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ]
+  },
+  "MO": {
+    "code": "MO",
+    "name": "Missouri",
+    "file": "data/states/MO.js",
+    "count": 41
+  },
+  "MT": {
+    "code": "MT",
+    "name": "Montana",
+    "file": "data/states/MT.js",
+    "count": 179,
+    "files": [
+      "data/states/MT.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js",
+      "data/supplements/mt-exact-build-batch1-v23.1.28.js",
+      "data/supplements/mt-delta-exact-batch2-v23.1.35.js",
+      "data/supplements/mt-historical-backfill-active-areas-v23.1.54.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification.",
+      "v23.1.28: Montana exact official-source build batch 1 adds 70 high-confidence campground/site records from the six-worker Montana proof pass; broad area/rule candidates and blocked extraction leads held for follow-up extraction passes.",
+      "v23.1.35: Montana delta exact official-source batch 2 adds 95 records from worker proof/QA returns: 41 Rustic / Primitive and 54 Boat / Backpack. Smith River boat camps use official Montana FWP field-GPS coordinates; blocked Fort Peck/USACE, broad area/rule, and coordinate-lacking leads remain held out.",
+      "v23.1.54: Historical leads/rejected backfill active checkpoint adds 9 Montana records via supplement: James Kipp Campground, Downstream Campground, West End Tent and Trailer Campground, and 6 approximate official Area/rule markers for Upper Missouri River Breaks, CMR NWR, UL Bend Wilderness, Chalk Buttes, Long Pines, and Ekalaka Hills. Area/rule markers are not exact campsites or legal boundaries."
+    ]
+  },
+  "NE": {
+    "code": "NE",
+    "name": "Nebraska",
+    "file": "data/states/NE.js",
+    "count": 20,
+    "files": [
+      "data/states/NE.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ]
+  },
+  "NH": {
+    "code": "NH",
+    "name": "New Hampshire",
+    "file": "data/states/NH.js",
+    "count": 1
+  },
+  "ND": {
+    "code": "ND",
+    "name": "North Dakota",
+    "file": "data/states/ND.js",
+    "count": 52,
+    "files": [
+      "data/states/ND.js"
+    ],
+    "dynamicSources": [
+      "v23.1.53: North Dakota final first-pass cleanup adds 24 records directly into data/states/ND.js: 13 official/operator campground or recreation-area records, 3 community-supported boondocking records, and 8 approximate Area/rule pins for national grasslands, NDGF WMA regions, and the Sheyenne River Water Trail corridor. Adds data/leads.js and data/rejected.js as project-memory files; no ND supplement file is created.",
+      "v23.1.52: North Dakota first expansion cleanup folds 25 accepted supervisor-reconciled official/operator records directly into data/states/ND.js, updates Lindenwood to a source-backed Modern Campgrounds row, moves the broad Theodore Roosevelt NP legacy row to Info / Reference, and moves vague Campsite #2 to Needs Verification. No ND supplement file is created."
+    ]
+  },
+  "OH": {
+    "code": "OH",
+    "name": "Ohio",
+    "file": "data/states/OH.js",
+    "count": 1
+  },
+  "SD": {
+    "code": "SD",
+    "name": "South Dakota",
+    "file": "data/states/SD.js",
+    "count": 102,
+    "files": [
+      "data/states/SD.js"
+    ],
+    "dynamicSources": [
+      "v23.1.50: South Dakota expansion cleanup folds the active SD modern-audit effect into data/states/SD.js, removes the vague Dude Ranch stop-over row already removed at runtime by v23.1.21, updates three legacy rows with official proof, and adds 84 official-source / official-map-derived South Dakota records directly to the owning state file. No SD supplement file is required for runtime loading after this build.",
+      "v23.1.51: South Dakota final deeper-dig merge adds 11 more official/operator/MVUM-supported records directly to data/states/SD.js: 4 Boondocking / Dispersed area markers, 1 Rustic primitive shoreline cluster, and 6 municipal/public campground records. Count increases from 91 to 102. No new supplement file is created."
+    ]
+  },
+  "TN": {
+    "code": "TN",
+    "name": "Tennessee",
+    "file": "data/states/TN.js",
+    "count": 19
+  },
+  "TX": {
+    "code": "TX",
+    "name": "Texas",
+    "file": "data/states/TX.js",
+    "count": 1
+  },
+  "UT": {
+    "code": "UT",
+    "name": "Utah",
+    "file": "data/states/UT.js",
+    "count": 5,
+    "files": [
+      "data/states/UT.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ]
+  },
   "WI": {
     "code": "WI",
     "name": "Wisconsin",
     "file": "data/states/WI.js",
     "count": 621,
     "files": [
-      "data/states/WI.js"
+      "data/states/WI.js",
+      "data/supplements/wi-mi-corridor-active-ui-v23.1.55.js"
     ],
     "dynamicSources": [
-      "v23.1.48: Wisconsin consolidation cleanup folds all active Wisconsin runtime supplements through v23.1.24 into data/states/WI.js. Final loaded Wisconsin count remains 621; historical supplement files are retired from active manifest loading."
+      "v23.1.48: Wisconsin consolidation cleanup folds all active Wisconsin runtime supplements through v23.1.24 into data/states/WI.js. Final loaded Wisconsin count remains 621; historical supplement files are retired from active manifest loading.",
+      "v23.1.55: WI/UP corridor worker reconciliation promotes/updates Florence County Forest camping rule marker to active Boondocking / Dispersed while retaining existing Oconto/Marinette/CNF area markers; no net WI count change. Adds supporting lead/rejected memory for Perch Lake, Marinette park coordinate rescue, CNF/MVUM geometry, and wrong-feature traps."
     ]
   },
-  "WY": {"code":"WY","name":"Wyoming","file":"data/states/WY.js","count":17,"files":["data/states/WY.js","data/supplements/modern-audit-cleanup-v23.1.21.js"],"dynamicSources":["v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."]}
+  "WY": {
+    "code": "WY",
+    "name": "Wyoming",
+    "file": "data/states/WY.js",
+    "count": 17,
+    "files": [
+      "data/states/WY.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ]
+  }
 };

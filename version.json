@@ -1,9 +1,9 @@
 {
-  "version": "v23.1.54",
-  "build": "v23.1.54",
-  "dataVersion": "v23.1.54-historical-backfill1",
-  "dataBuild": "v23.1.54-historical-backfill1",
+  "version": "v23.1.55",
+  "build": "v23.1.55",
+  "dataVersion": "v23.1.55-wiup-corridor-ui1",
+  "dataBuild": "v23.1.55-wiup-corridor-ui1",
   "released": "2026-06-29",
-  "label": "Boondocking & Camping Maps v23.1.54",
-  "notes": "Historical leads/rejected backfill plus Montana active/area rescue: adds 9 Montana active records via supplement (3 official campgrounds and 6 approximate official Area/rule markers), expands data/leads.js and data/rejected.js from multi-state worker returns, and updates project rules for 1-based worker numbering and broader-but-honest Area/rule pins."
+  "label": "Boondocking & Camping Maps v23.1.55",
+  "notes": "WI/UP corridor worker reconciliation plus search UI fix. Adds selected MI active/area records, corrects MI duplicate/layer issues, promotes Florence County Forest camping rule marker, updates leads/rejected memory, and makes search results include hidden-layer records with temporary reveal."
 }
