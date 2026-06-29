@@ -1,0 +1,51 @@
+QA v23.1.53 — ND final first-pass cleanup
+
+Changed files included:
+- index.html
+- app.js
+- version.js
+- version.json
+- data/states/ND.js
+- data/states-manifest.js
+- data/leads.js
+- data/rejected.js
+- Project Rules.md
+- PROJECT_RULES.md
+- QA_v23.1.53.txt
+
+Package scope:
+- North Dakota final first-pass cleanup.
+- Adds 24 accepted ND records directly to data/states/ND.js.
+- Creates data/leads.js and data/rejected.js as project-memory files.
+- Adds global DATA_VERSION / dataBuild architecture for data cache-busting.
+- Updates Project Rules.md and identical PROJECT_RULES.md compatibility copy with current workflow rules.
+- No ND supplement file created.
+- config.js not included.
+
+Validation run:
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/states-manifest.js: PASS
+- node --check data/states/ND.js: PASS
+- node --check data/leads.js: PASS
+- node --check data/rejected.js: PASS
+
+Data QA:
+- ND records: 52
+- ND manifest count: 52
+- ND duplicate IDs: none
+- ND duplicate names: none
+- ND duplicate coordinates rounded to 6 decimals: none
+- data/leads.js records: 34
+- data/leads.js duplicate IDs: none
+- data/rejected.js records: 14
+- data/rejected.js duplicate IDs: none
+- Project Rules.md and PROJECT_RULES.md contents identical: PASS
+
+ND layer count after v23.1.53:
+- Modern Campgrounds: 9
+- Rustic / Primitive: 28
+- Boondocking / Dispersed: 10
+- Boat / Backpack: 2
+- Info / Reference: 2
+- Needs Verification: 1

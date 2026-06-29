@@ -2,7 +2,9 @@
 'use strict';
 const BUILD=window.CAMPING_BUILD||{};
 const VERSION=BUILD.version||window.CAMPING_APP_VERSION||'dev';
+const DATA_VERSION=BUILD.dataVersion||BUILD.dataBuild||window.CAMPING_DATA_VERSION||window.CAMPING_DATA_BUILD||VERSION;
 window.CAMPING_RUNTIME_VERSION = VERSION;
+window.CAMPING_RUNTIME_DATA_VERSION = DATA_VERSION;
 function paintRuntimeVersion(){try{const vt=document.getElementById('appVersionText'); if(vt) vt.textContent=VERSION; const vb=document.getElementById('appVersionBadge'); if(vb) vb.textContent=VERSION; if(document) document.title='Boondocking & Camping Maps';}catch(_e){}}
 const DEFAULT_STATE='MI';
 
@@ -1184,7 +1186,7 @@ async function loadEnabledStates(fit){
   await renderMarkers(fit);
   if(loadId===app.loadSeq)setLoading(false);
 }
-function loadScriptOnce(src,attr,val){return new Promise(res=>{let done=false;const finish=()=>{if(done)return;done=true;res();};const existing=document.querySelector(`script[${attr}="${val}"]`);if(existing){if(existing.dataset.loaded==='1'||existing.dataset.failed==='1')return finish();existing.addEventListener('load',finish,{once:true});existing.addEventListener('error',finish,{once:true});setTimeout(finish,15000);return;}const s=document.createElement('script');const sep=String(src).includes('?')?'&':'?';s.src=src+sep+'build='+encodeURIComponent(VERSION||Date.now());s.setAttribute(attr,val);const timer=setTimeout(()=>{s.dataset.failed='1';console.warn('Timed out loading data file',src);finish();},15000);s.onload=()=>{clearTimeout(timer);s.dataset.loaded='1';finish();};s.onerror=()=>{clearTimeout(timer);s.dataset.failed='1';console.warn('Failed to load data file',src);finish();};document.head.appendChild(s)})}
+function loadScriptOnce(src,attr,val){return new Promise(res=>{let done=false;const finish=()=>{if(done)return;done=true;res();};const existing=document.querySelector(`script[${attr}="${val}"]`);if(existing){if(existing.dataset.loaded==='1'||existing.dataset.failed==='1')return finish();existing.addEventListener('load',finish,{once:true});existing.addEventListener('error',finish,{once:true});setTimeout(finish,15000);return;}const s=document.createElement('script');const sep=String(src).includes('?')?'&':'?';s.src=src+sep+'data='+encodeURIComponent(DATA_VERSION||VERSION||Date.now());s.setAttribute(attr,val);const timer=setTimeout(()=>{s.dataset.failed='1';console.warn('Timed out loading data file',src);finish();},15000);s.onload=()=>{clearTimeout(timer);s.dataset.loaded='1';finish();};s.onerror=()=>{clearTimeout(timer);s.dataset.failed='1';console.warn('Failed to load data file',src);finish();};document.head.appendChild(s)})}
 
 const MDOT_LIVE_REST_ROADSIDE={
   enabled:true,

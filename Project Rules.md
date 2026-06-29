@@ -24,6 +24,16 @@ Worker-handoff delivery rule:
 
 When the project is in active state-building mode and the next useful step is worker research, provide worker handoffs to keep workers busy. Do not wait for Tod to separately ask for worker handoffs. Provide individual `.txt` files by default. Do not create a ZIP unless Tod asks for one. Do not include a supervisor handoff unless Tod explicitly asks for a supervisor handoff or reconciliation assignment.
 
+Geography-first workflow rule:
+
+For state-building work, divide the state by geography first and mission/site type second. Do not default to statewide site-type workers unless the task is final QA, statewide lead/rejected ledger cleanup, or a narrowly defined known-lead rescue pass.
+
+Good primary assignment units include regions, county clusters, grid/township groups, river/lake corridors, national forest/grassland units, state forest units, WMA clusters, reservation systems, and route corridors.
+
+Within each assigned geography, workers should capture all relevant opportunities they encounter: official campgrounds, community-supported boondocking, approximate Area/rule pins, coordinate-rescue leads, rejected/conflicted records, and future `data/leads.js` / `data/rejected.js` items. Specialized site-type missions are allowed, but they should remain geography-locked unless Tod explicitly assigns a statewide pass.
+
+Area/rule work should happen early in a state, not only at the end. If a region has promising forests, grasslands, WMAs, county forests, water trails, public-land corridors, or other rule-area camping systems, at least one early worker should be assigned to that geography with explicit Area/rule-pin and geometry-lead responsibility. This prevents point workers from hunting one dot at a time without understanding the broader camping area.
+
 Mandatory rules review for handoffs:
 
 Any supervisor writing a handoff to another supervisor or worker must include this instruction near the top:
@@ -491,7 +501,7 @@ Supervisors must not let workers return vague leads.
 
 Supervisors must not let workers punt normal decisions to future workers.
 
-Supervisors should assign by defined geography plus site type.
+Supervisors should assign by defined geography first and site type/mission second.
 
 Acceptable chunks include grid tile, county, township group, ranger district, forest unit, park/forest unit, lake/river corridor, road corridor, official map section, reservation system area, Needs Verification cluster, or known lead list.
 
@@ -868,9 +878,9 @@ If workers regularly run out of time or return vague results, the assignment is 
 
 ---
 
-## Site-Type Lanes
+## Geography-First Site-Type Lanes
 
-For new territory, assign by geography plus site type.
+For new territory, assign by geography first, then by site type or mission. Site-type lanes should usually be locked inside a specific geographic section rather than roaming statewide.
 
 Example three-worker split for one county/tile:
 

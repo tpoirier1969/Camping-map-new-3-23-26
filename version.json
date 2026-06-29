@@ -1,7 +1,9 @@
 {
-  "version": "v23.1.52",
-  "build": "v23.1.52",
+  "version": "v23.1.53",
+  "build": "v23.1.53",
+  "dataVersion": "v23.1.53",
+  "dataBuild": "v23.1.53",
   "released": "2026-06-29",
-  "label": "Boondocking & Camping Maps v23.1.52",
-  "notes": "North Dakota expansion cleanup: adds 25 accepted supervisor-reconciled official/operator records directly into data/states/ND.js, updates Lindenwood, moves the broad Theodore Roosevelt NP legacy row to Info / Reference, moves vague Campsite #2 to Needs Verification, refreshes Project Rules.md/PROJECT_RULES.md content, and adds stale restored-selection performance confirmation. No ND supplement file created."
+  "label": "Boondocking & Camping Maps v23.1.53",
+  "notes": "North Dakota final first-pass cleanup: adds 24 ND records directly into data/states/ND.js, creates data/leads.js and data/rejected.js, updates Project Rules.md/PROJECT_RULES.md, and separates app version from global data version for data cache-busting. No ND supplement file created."
 }

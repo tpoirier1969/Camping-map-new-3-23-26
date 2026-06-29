@@ -151,17 +151,22 @@
 <script>
 (function(){
   var build = (window.CAMPING_BUILD && window.CAMPING_BUILD.version) || window.CAMPING_APP_VERSION || String(Date.now());
+  var dataBuild = (window.CAMPING_BUILD && (window.CAMPING_BUILD.dataVersion || window.CAMPING_BUILD.dataBuild)) || window.CAMPING_DATA_VERSION || window.CAMPING_DATA_BUILD || build;
   window.CAMPING_APP_ENTRY = new URL('index.html', document.baseURI).href;
-  function loadCampingScript(src, optional){
-    var url = src + '?build=' + encodeURIComponent(build);
+  function loadCampingScript(src, optional, dataFile){
+    var versionKey = dataFile ? dataBuild : build;
+    var param = dataFile ? 'data' : 'build';
+    var url = src + '?' + param + '=' + encodeURIComponent(versionKey);
     var err = optional ? '' : ' onerror="window.CAMPING_STARTUP_FAIL&&window.CAMPING_STARTUP_FAIL(\'Failed to load ' + src + '\')"';
     document.write('<script src="' + url + '"' + err + '><\/script>');
   }
-  loadCampingScript('data/states-manifest.js');
-  loadCampingScript('data/pending-sites-v22.3.3.js');
-  loadCampingScript('data/area-outlines-v23.1.39.js', true);
-  loadCampingScript('config.js', true);
-  loadCampingScript('app.js');
+  loadCampingScript('data/states-manifest.js', false, true);
+  loadCampingScript('data/pending-sites-v22.3.3.js', false, true);
+  loadCampingScript('data/area-outlines-v23.1.39.js', true, true);
+  loadCampingScript('data/leads.js', true, true);
+  loadCampingScript('data/rejected.js', true, true);
+  loadCampingScript('config.js', true, false);
+  loadCampingScript('app.js', false, false);
 })();
 </script>
 </body>
