@@ -34,7 +34,7 @@ const STATE_BOUNDS={
   SD:[[42.48,-104.06],[45.95,-96.44]], TN:[[34.98,-90.31],[36.68,-81.65]], TX:[[25.84,-106.65],[36.50,-93.51]], UT:[[36.99,-114.05],[42.00,-109.04]], VT:[[42.73,-73.44],[45.02,-71.50]],
   VA:[[36.54,-83.68],[39.47,-75.24]], WA:[[45.54,-124.85],[49.00,-116.91]], WV:[[37.20,-82.64],[40.64,-77.72]], WI:[[42.49,-92.89],[47.31,-86.25]], WY:[[40.99,-111.06],[45.01,-104.05]]
 };
-const STORE={states:'campingMap.enabledStates.v22328',layers:'campingMap.layers.v22328',basemap:'campingMap.basemap.v22328',queue:'campingMap.draftQueue.v22328',filters:'campingMap.filters.v22328',pending:'campingMap.showPending.v22328',desktopMode:'campingMap.desktopMode.v23087',controlHome:'campingMap.controlHome.v23126',areaOutlines:'campingMap.areaOutlines.v23126'};
+const STORE={states:'campingMap.enabledStates.v22328',layers:'campingMap.layers.v22328',basemap:'campingMap.basemap.v22328',queue:'campingMap.draftQueue.v22328',filters:'campingMap.filters.v22328',pending:'campingMap.showPending.v22328',desktopMode:'campingMap.desktopMode.v23087',controlHome:'campingMap.controlHome.v23126',areaOutlines:'campingMap.areaOutlines.v23126',lastActive:'campingMap.lastActive.v23152'};
 const SAVED_ROUTES_TABLE='boondocking_saved_routes';
 const ICONS={tent:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M3 18.5 10.8 5h2.4L21 18.5h-3.1l-5.1-9.1-2.9 4.9 1.9 4.2H9.2l-1.5-3.2-1.7 3.2H3Zm6.8 0h4.5l-2.2-5-2.3 5Z\"/></svg>',tree:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"m12 2 4 5h-2.1l3.6 4.5H15l3 3.8h-4.2V22h-3.6v-6.7H6l3-3.8H6.5L10.1 7H8L12 2Z\"/></svg>',camper:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M4 8.5h10.6c.8 0 1.6.4 2.1 1l2.3 2.6H21a1 1 0 0 1 1 1v4.9h-1.7a2.6 2.6 0 0 1-5.1 0H9.8a2.6 2.6 0 0 1-5.1 0H3v-8.5a1 1 0 0 1 1-1Zm1.2 1.8v2.8H14v-2.8H5.2Zm11 3.1h3.2l-1.6-1.8a1.1 1.1 0 0 0-.8-.4h-.8v2.2ZM7.2 19a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Zm10.6 0a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Z\"/></svg>',stopTent:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M9 2.5h6l6.5 6.5v6L15 21.5H9L2.5 15V9L9 2.5Zm2 5.2-4 8h2.4l1-2h3.2l1 2H17l-4-8h-2Zm.9 4.2h.2l1 2h-2.2l1-2Z\"/></svg>',parking:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M6 3h7.4c3 0 5.1 2.1 5.1 5s-2.1 5.1-5.1 5.1H9.6V21H6V3Zm3.6 3.2v3.7h3.4c1.1 0 1.9-.7 1.9-1.9s-.8-1.8-1.9-1.8H9.6Z\"/></svg>',restR:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M6 3h7.2c3 0 5.1 1.9 5.1 4.8 0 2-1 3.5-2.8 4.3l3.3 5h-4.1L12 12.8H9.6V21H6V3Zm3.6 3v3.8h3c1.3 0 2.1-.7 2.1-1.9 0-1.2-.8-1.9-2.1-1.9h-3Z\"/></svg>',backpackerWater:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M10.2 3.3a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4Zm1.7 4.2 2 1.1c.6.3 1 .9 1 1.5V12h-1.8v-1.3l-1.1-.6-.8 2.5 1.9 1.9v3.6h-1.8V15.3l-1.8-1.8-.8 2.4-1.6-.5 1.2-3.8.8-2.4c.3-1 1.2-1.7 2.3-1.7h.5Zm-4.7 3.7 1.5.7-1.4 2.9 1.6 1.6-1.3 1.2-2.4-2.4 2-4Zm9.4 3.3c1.1 0 2 .3 2.9.8l-.8 1.4c-.7-.3-1.3-.5-2.1-.5-1.2 0-1.8.5-2.6 1.1-.8.6-1.7 1.3-3.2 1.3-1.4 0-2.4-.6-3.2-1.3-.7-.5-1.4-1.1-2.6-1.1-.7 0-1.4.2-2 .5L2 16c.9-.5 1.8-.8 2.9-.8 1.7 0 2.7.7 3.5 1.4.7.5 1.2 1 2.3 1 .9 0 1.5-.4 2.2-1 .9-.8 2-1.6 3.7-1.6Zm.9 4c.7 0 1.4.2 2.1.5l-.8 1.4c-.4-.2-.8-.3-1.3-.3-.8 0-1.2.3-1.9.8-.7.5-1.6 1.1-3 1.1-1.3 0-2.2-.6-2.9-1-.6-.4-1-.7-1.8-.7-.5 0-.9.1-1.3.3l-.8-1.4c.7-.3 1.3-.5 2.1-.5 1.3 0 2.2.6 2.9 1 .6.4 1 .7 1.8.7.9 0 1.4-.3 2-.8.8-.5 1.7-1.1 2.9-1.1Z\"/></svg>',info:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 2.8A9.2 9.2 0 1 1 2.8 12 9.2 9.2 0 0 1 12 2.8Zm0 4a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm-1.7 5v1.8h1.1v3.6h-1.1V19h4.5v-1.8h-1.1v-5.4h-3.4Z\"/></svg>',draft:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M4 17.5V20h2.5l8.6-8.6-2.5-2.5L4 17.5Zm12.4-9.9 1.5-1.5a1.2 1.2 0 0 1 1.7 0l.8.8a1.2 1.2 0 0 1 0 1.7l-1.5 1.5-2.5-2.5Z\"/></svg>',navArrow:'<svg viewBox=\"0 0 28 28\"><circle cx=\"14\" cy=\"14\" r=\"11.5\" fill=\"#ffffff\"/><path fill=\"#1e78ff\" d=\"M14 3.8 20.8 21l-6.8-3.2L7.2 21 14 3.8Z\"/><circle cx=\"14\" cy=\"14\" r=\"11.5\" fill=\"none\" stroke=\"rgba(18,69,140,.22)\" stroke-width=\"1\"/></svg>',dot:'<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"6\" fill=\"currentColor\"/></svg>'};
 const LAYERS=[
@@ -145,6 +145,7 @@ function formatRecordCount(n){return Number(n||0).toLocaleString();}
 const PERFORMANCE_NOTE_RECORDS=1000;
 const PERFORMANCE_CONFIRM_RECORDS=1000;
 const PERFORMANCE_HEAVY_RECORDS=2500;
+const STALE_RESTORED_SELECTION_MS=30*60*1000;
 function stateSelectionPerformanceText(codes){
   const count=selectedStateRecordEstimate(codes);
   if(count>=PERFORMANCE_HEAVY_RECORDS)return `Very large selection: about ${formatRecordCount(count)} records. Performance may be degraded; fewer states will be smoother.`;
@@ -155,7 +156,7 @@ function confirmLargeStateSelection(codes,options={}){
   const count=selectedStateRecordEstimate(codes);
   if(count<PERFORMANCE_CONFIRM_RECORDS)return true;
   const stateCount=(codes||[]).length;
-  const source=options.source==='select-all'?'Select All Map':'This state selection';
+  const source=options.source==='select-all'?'Select All Map':(options.source==='restored'?'Your saved map settings':'This state selection');
   const severity=count>=PERFORMANCE_HEAVY_RECORDS?'very large':'large';
   const msg=`Large map selection
 
@@ -169,6 +170,32 @@ Continue loading this ${severity} selection?`;
 function notifyLargeStateSelection(codes){
   const count=selectedStateRecordEstimate(codes);
   if(count>=PERFORMANCE_NOTE_RECORDS)notify(stateSelectionPerformanceText(codes),9000);
+}
+
+function storedLastActiveTime(){try{const n=Number(localStorage.getItem(STORE.lastActive)||0);return Number.isFinite(n)?n:0;}catch(_e){return 0;}}
+function markAppActivity(){
+  const now=Date.now();
+  if(markAppActivity.lastWrite&&now-markAppActivity.lastWrite<5000)return;
+  markAppActivity.lastWrite=now;
+  try{localStorage.setItem(STORE.lastActive,String(now));}catch(_e){}
+}
+function bindAppActivityTracking(){
+  ['click','keydown','pointerdown','touchstart','wheel'].forEach(evt=>document.addEventListener(evt,markAppActivity,{passive:true}));
+  window.addEventListener('beforeunload',markAppActivity);
+  markAppActivity();
+}
+function confirmRestoredLargeStateSelection(){
+  const codes=[...app.enabledStates];
+  const count=selectedStateRecordEstimate(codes);
+  if(count<PERFORMANCE_CONFIRM_RECORDS)return true;
+  const last=storedLastActiveTime();
+  const stale=!last || (Date.now()-last)>STALE_RESTORED_SELECTION_MS;
+  if(!stale)return true;
+  if(confirmLargeStateSelection(codes,{source:'restored'}))return true;
+  const fallback=mappedStateEntries().some(s=>s.code===DEFAULT_STATE)?[DEFAULT_STATE]:[];
+  app.enabledStates=new Set(fallback);
+  saveJson(STORE.states,[...app.enabledStates]);
+  return false;
 }
 function selectedStateSummary(){const n=app.enabledStates.size; const mapped=mappedStateEntries().length; if(app.nearMeActive){const codes=nearMeVisibleStateCodes(); if(!app.localAreaCenter)return 'Nearby: locating…'; if(codes.length===0)return `Nearby: ${nearRadiusMiles()} mi`; if(codes.length===1)return `Nearby: ${stateLabel(codes[0])}`; return `Nearby: ${codes.length} states in range`;} if(n===0)return 'No states selected'; if(n===1)return `${stateLabel([...app.enabledStates][0])} selected`; if(n===mapped)return `All ${mapped} mapped states`; return `${n} states selected`;}
 function syncStateControls(){
@@ -2601,8 +2628,9 @@ function boot(){
     stage='checking page elements'; startupStatus('Checking app shell…'); requireDom('map'); requireDom('mapLoading');
     stage='checking map library'; startupStatus('Checking map library…'); requireLeaflet();
     stage='restoring settings'; startupStatus('Restoring settings…'); initState();
+    stage='checking restored selection'; startupStatus('Checking restored map selection…'); confirmRestoredLargeStateSelection();
     stage='starting map'; startupStatus('Starting map…'); initMap();
-    stage='building controls'; startupStatus('Building controls…'); buildControls();
+    stage='building controls'; startupStatus('Building controls…'); buildControls(); bindAppActivityTracking();
     try{Promise.resolve(initSupabase()).catch(()=>{});}catch(_supabaseError){}
     stage='loading states'; startupStatus('Loading states…');
     Promise.resolve(loadEnabledStates(true)).then(()=>{window.CAMPING_BOOT_OK=true;}).catch(e=>startupFail(e,'loading states'));

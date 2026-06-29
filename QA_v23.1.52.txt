@@ -1,0 +1,58 @@
+QA v23.1.52 — North Dakota expansion cleanup + stale restored-selection performance warning
+Date: 2026-06-29
+Baseline: v23.1.51 uploaded package
+
+Syntax / parse checks:
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/states-manifest.js: PASS
+- node --check data/states/ND.js: PASS
+- data/states/ND.js JSON parse from assignment wrapper: PASS
+
+Version identity:
+- version.json version/build: v23.1.52 PASS
+- version.js CAMPING_APP_VERSION/CAMPING_APP_BUILD/CAMPING_VERSION/CAMPING_BUILD: v23.1.52 PASS
+- index.html continues loading version.js and app.js with cache-busted build query. No index.html change required.
+
+North Dakota data QA:
+- ND active record count: 28 PASS
+- ND manifest count: 28 PASS
+- ND unique IDs: PASS
+- ND duplicate names: none PASS
+- ND duplicate coordinates rounded to 6 decimals: none PASS
+- ND layer counts:
+  - Modern Campgrounds: 8
+  - Rustic / Primitive: 16
+  - Boat / Backpack: 1
+  - Needs Verification: 1
+  - Info / Reference: 2
+- ND supplement files created: none PASS
+
+Accepted/held data QA:
+- Accepted exact official/operator-supported coordinate additions are present directly in data/states/ND.js.
+- Accepted official map-derived approximate campground markers include warning text stating that marker location is approximate and not an exact campsite coordinate.
+- Broad Theodore Roosevelt NP legacy row no longer acts as a campground layer row; moved to Info / Reference with NPS backcountry/camping context.
+- Campsite #2 no longer acts as a Boondocking / Dispersed pin; moved to Needs Verification with NPS backcountry-rule warning text.
+- Coordinate-blocked official leads were not imported as fake centroids.
+
+Rules-file QA:
+- Project Rules.md added/updated as the current controlling filename.
+- PROJECT_RULES.md retained only as an updated compatibility copy with the same current content.
+- Internal handoff filename reference updated from PROJECT_RULES.md to Project Rules.md.
+- Modern Campgrounds rule updated with the practical electric + shower/bathhouse/restroom infrastructure nuance.
+
+Performance warning QA:
+- Existing manual large-selection confirmation code preserved.
+- New last-active key added: campingMap.lastActive.v23152.
+- New startup check runs after restoring saved states and before map data loading.
+- Stale threshold: 30 minutes.
+- Recent activity / same-session refresh should not show the restored-selection confirmation.
+- Stale saved large selection should show the large-selection confirmation before loading.
+- Canceling the stale restored large selection resets to default MI selection before loading.
+
+Regression / package checks:
+- config.js not included or changed.
+- index.html not changed.
+- No accidental supplement file created.
+- No icon/CSS changes made.
+- App entry remains app.js.

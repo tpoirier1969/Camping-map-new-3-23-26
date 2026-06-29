@@ -1,0 +1,54 @@
+Boondocking & Camping Maps v23.1.52 — North Dakota expansion cleanup + startup performance warning
+Released: 2026-06-29
+Baseline: v23.1.51 uploaded package (Camping-map-new-3-23-26-main (1).zip)
+
+Scope:
+- Fold accepted North Dakota supervisor-reconciled worker returns directly into data/states/ND.js.
+- Do not create an ND supplement file.
+- Update the controlling project rules filename/content so Project Rules.md is the current name and PROJECT_RULES.md is only an updated compatibility copy.
+- Add stale restored-selection performance confirmation so a large saved state selection does not silently reload after the app has been idle for a while.
+
+North Dakota data changes:
+- ND count increases from 3 to 28.
+- Added 25 new accepted official/operator records:
+  - 8 Modern Campgrounds additions.
+  - 16 Rustic / Primitive additions.
+  - 1 Boat / Backpack walk-in primitive addition.
+  - 1 Info / Reference USACE Lake Sakakawea/Garrison directory marker is included in the 25 additions and hidden from normal map layers by the app's existing Info/Reference handling.
+- Updated existing Lindenwood Campground to a source-backed Modern Campgrounds row with Fargo Parks official source and official map-derived facility marker.
+- Moved existing broad Theodore Roosevelt NP legacy row to Info / Reference so it no longer behaves like a campground pin.
+- Moved vague Campsite #2 user-KML point to Needs Verification with NPS backcountry-rule warning text.
+- Held out coordinate-blocked NDPRD/NDFS/WMA/Morton County/TRNP/USFS area-outline leads for future GIS/georeference/API extraction.
+
+Accepted ND additions by source lane:
+- Worker 1 / western ND / Little Missouri National Grassland exact USFS campgrounds: Bennett, Buffalo Gap, Burning Coal Vein, CCC, Coal Creek, Elkhorn, Magpie, Sather Lake, Summit, Wannagan, Whitetail.
+- Worker 2 / Lake Sakakawea-Garrison-Missouri corridor approximate official map markers: Downstream, East Totten Trail, Wolf Creek, Lake Sakakawea SP modern and primitive markers, Fort Stevenson SP modern and walk-in primitive markers, Lewis & Clark SP modern marker, Cross Ranch SP modern and primitive markers, Garrison Dam / Lake Sakakawea Recreation Areas Info marker.
+- Worker 3 / north-central exact/operator-supported coordinates: Carbury Dam Recreation Area, Tommy Turtle Park RV Campground.
+- Worker 5 / municipal public campground: General Sibley Park & Campground.
+
+Modern-layer judgment note:
+- General Sibley remains Modern. Official/operator proof supports electric sites, showers, water, dump station, campsite map, reservations, and modern campground infrastructure. The rules now explicitly allow practical modern-restroom inference when electric + showers/bathhouse/restroom infrastructure are supported and no source indicates vault/portable/no modern restroom.
+
+App behavior change:
+- Manual Select All / large state selection behavior remains unchanged.
+- On startup, if saved/restored state settings would load a large/very large record set and the app has not been used for more than 30 minutes, the same large-selection confirmation appears before loading.
+- A fresh same-session refresh stays quiet because recent activity is recorded in localStorage and beforeunload.
+- If the user cancels the stale restored heavy-selection confirmation, the app falls back to the default MI selection instead of loading every saved state.
+
+Changed files:
+- app.js
+- version.js
+- version.json
+- data/states/ND.js
+- data/states-manifest.js
+- Project Rules.md
+- PROJECT_RULES.md
+- BUILD-NOTES-v23.1.52.txt
+- QA_v23.1.52.txt
+
+Files intentionally not changed:
+- config.js
+- index.html
+- CSS/icon files
+- other state data files
+- supplement files
