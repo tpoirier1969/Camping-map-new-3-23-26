@@ -28,7 +28,29 @@ Geography-first workflow rule:
 
 For state-building work, divide the state by geography first and mission/site type second. Do not default to statewide site-type workers unless the task is final QA, statewide lead/rejected ledger cleanup, or a narrowly defined known-lead rescue pass.
 
+Hard state-splitting rule — do this first:
+
+Before assigning workers for any new state, major state revisit, or new-state expansion round, the supervisor must first split the state into named geographic sections. This state split is the first deliverable. Do not write worker handoffs, assign source-type workers, or start statewide site-type passes until the geographic sections have been named.
+
+The state split must be visible in the plan and in the handoffs. Each worker must receive a clear geographic lock such as a region, quadrant, county cluster, ranger district, BLM field office, national forest unit, state forest unit, watershed, river/lake corridor, route corridor, grassland/refuge unit, or other defensible geography.
+
+Do not assign workers like “all BLM statewide,” “all USFS statewide,” “all state parks statewide,” or “all county parks statewide” as the first pass for a large state. If a source-system pass is needed, bind it to one or more named geographic sections. Site type is secondary to geography.
+
+The supervisor may use statewide inventory only as a brief planning step to design the geographic sections. Inventory is not a substitute for splitting the state before worker assignment. If the state is small enough for one worker, still state that explicitly and define the whole-state assignment as a single geographic section.
+
+Every new-state worker handoff must include a line labeled “Geographic lock” and must list counties, ranger districts, field offices, corridors, or other boundaries. A handoff that lacks a geographic lock is incomplete and should be rewritten before use.
+
 Historical leads/rejected backfill is a source-bundle/state mining task, not new campsite research. For historical backfill, split workers by state or source bundle unless an old state is so large that splitting reduces confusion. Do not over-split a state by geography merely to mine old chats. Workers should harvest named unresolved, rejected, blocked, conflicted, duplicate-watch, coordinate-rescue, and area-outline records into `data/leads.js` and `data/rejected.js`; they should not restart statewide scouting unless needed to classify a prior named lead.
+
+Closeout-pass consolidation rule:
+
+When a worked state or corridor has already had several proof, geometry, and lead/rejected passes, do not keep splitting tiny follow-up assignments indefinitely. Combine remaining work into one or two closeout workers when practical:
+
+* one active-site / exact-coordinate rescue worker for clean campground, remote-site, boat-in, backpack, layer-correction, and duplicate-cleanup targets;
+* one Area/rule / community / geometry closeout worker for broad rule areas, MVUM/GIS extraction, county-forest rules, community-supported boondocking clusters, and rejected-pattern guardrails.
+
+After those closeout returns, integrate only clean active/correction/rejected/lead-memory results, then move to a new state or state group unless Tod explicitly asks to keep digging. This prevents repeated micro-passes over the same state from turning into project drag.
+
 
 Good primary assignment units include regions, county clusters, grid/township groups, river/lake corridors, national forest/grassland units, state forest units, WMA clusters, reservation systems, and route corridors.
 

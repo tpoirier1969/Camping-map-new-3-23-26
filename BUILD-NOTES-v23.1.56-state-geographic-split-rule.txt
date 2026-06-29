@@ -1,0 +1,16 @@
+Tod’s Boondocking & Camping Maps — rules-only patch
+
+Source base: v23.1.56 WI/UP closeout cleanup fixed files.
+
+Changed files:
+- PROJECT_RULES.md
+- Project Rules.md
+
+Change:
+- Strengthened the geography-first workflow into a hard state-splitting rule.
+- Before any new state, major state revisit, or new-state expansion round, the supervisor must first split the state into named geographic sections.
+- Worker handoffs must include a “Geographic lock” line with explicit boundaries.
+- Statewide source-type workers such as all-BLM/all-USFS/all-state-parks statewide are not allowed as the first pass for a large state unless Tod explicitly asks or the state is small and defined as one geographic section.
+
+No app/runtime/data changes.
+No config.js included.
