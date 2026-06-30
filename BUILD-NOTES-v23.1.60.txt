@@ -37,3 +37,17 @@ QA completed:
 
 Known held item:
 - River Bend Resort RV Park: official/operator proof exists, but the coordinate supplied during reconciliation (45.86324651573591, -88.08146573748317) is not in Minnesota / Lake of the Woods County. It was not imported.
+
+
+Ledger pass addendum — v23.1.60-mn-bulldog-ledger1:
+- Added data/leads.js and data/rejected.js to this fixed-files package.
+- Started from the uploaded baseline ledger: 291 lead rows and 166 rejected rows.
+- Appended 120 unresolved MN Bulldog lead rows that were not already active in v23.1.60 and not already present as exact lead names/IDs.
+- Appended 16 MN Bulldog rejected-memory rows / wrong-feature traps not already present.
+- Final data/leads.js row count: 411.
+- Final data/rejected.js row count: 182.
+- Skipped 20 Bulldog rows because they were promoted to active in v23.1.60.
+- Skipped 42 lead rows because exact lead names/IDs already existed in the baseline ledger.
+- Skipped 1 rejected rows because exact rejected names/IDs already existed in the baseline rejected ledger.
+- Skipped 0 duplicate ledger rows within the Bulldog batch.
+- This addendum does not change the active MN count; manifest remains 306.

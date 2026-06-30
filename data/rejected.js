@@ -3297,5 +3297,293 @@ window.CAMPING_REJECTED = [
     "lastCheckedVersion": "v23.1.57",
     "notes": "Worker 5 MN Northeast / Arrowhead / Superior NF / North Shore. Original final action: ADD TO data/rejected.js. This row prevents use of offices, lake centers, boat launches, trailheads, dams, WMAs/SNAs, or day-use features as campsite pins unless future official proof says otherwise.",
     "sourceFile": "Worker_5_MN_NORTHEAST_ARROWHEAD_RESULTS.txt"
+  },
+  {
+    "id": "mn-reject-lb-hartz-park-no-separate-camping-proof",
+    "state": "MN",
+    "name": "LB Hartz Park",
+    "countyRegion": "Pennington / Thief River Falls",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": false,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "Tourist Park references/overlooks Hartz Park, while Hartz Park listings show park/day-use amenities, not a separate campground. ([The Ralph TRF][4])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Classic “near a campground, therefore campground” trap. Nope. Add rejected-memory row."
+  },
+  {
+    "id": "mn-reject-voyageur-s-view-campground",
+    "state": "MN",
+    "name": "Voyageur’s View Campground",
+    "countyRegion": "Red Lake County / Red Lake Falls — outside Bulldog geography",
+    "rejectedAsLayer": "Private Campgrounds if worked by correct worker",
+    "rejectionType": "Out of assigned geography for this worker",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": false,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "https://voyageursview.com/ ; operator page lists Red Lake Falls address and primitive/water-electric/full-service seasonal sites",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Do not import under this worker; hand off to Red Lake/Red River geography if desired Create separate worker lead only if Red Lake County is in scope elsewhere"
+  },
+  {
+    "id": "mn-reject-cyrus-resort-cabin-fishing-only-trap",
+    "state": "MN",
+    "name": "Cyrus Resort cabin/fishing-only trap",
+    "countyRegion": "Lake of the Woods County / Baudette",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Operator page reviewed; no campground/RV proof",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": false,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "https://www.cyrusresort.com/ ; operator page presents cabins/fishing/lodge context and address, not RV/tent campground proof in accessible pass",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Add rejected memory so resort/lodge pins are not imported as campgrounds Reopen only if operator adds public RV/tent/camping page"
+  },
+  {
+    "id": "mn-reject-international-falls-parks-public-accesses-and-boat-launches-without-camping-proof",
+    "state": "MN",
+    "name": "International Falls parks, public accesses and boat launches without camping proof",
+    "countyRegion": "Koochiching County / International Falls / Rainy River",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Wrong-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "https://www.ci.international-falls.mn.us/services/parks-facilities/ ; city page lists parks/facilities/public accesses but no campground proof in accessible page",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Trap row to prevent fake pins around International Falls/Rainy River Add rejected memory for non-camping city-park/access features"
+  },
+  {
+    "id": "mn-reject-lake-of-the-woods-rainy-river-rainy-lake-boat-ramps-marinas-lake-centers-and-beaches",
+    "state": "MN",
+    "name": "Lake of the Woods / Rainy River / Rainy Lake boat ramps, marinas, lake centers and beaches",
+    "countyRegion": "Lake of the Woods / Koochiching / Beltrami / Itasca corridors",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Wrong-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "General rejected pattern from Bulldog pass; no single official campground proof",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Needed due resort/lake-heavy geography Add durable rejected pattern row"
+  },
+  {
+    "id": "mn-reject-rydell-nwr-as-campground-pin",
+    "state": "MN",
+    "name": "Rydell National Wildlife Refuge as a campground/camping pin",
+    "countyRegion": "Polk County / Erskine",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "soft_no_import_wrong_feature_until_overnight_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "USFWS official page identifies refuge and visitor/recreation context; Erskine page lists Rydell under area parks, not lodging/camping. No official campground/overnight proof recovered.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Wrong-feature trap. Do not use visitor center, refuge centroid, trailhead, or parking area as camping pin. Reopen only if official USFWS/refuge source later identifies legal overnight camping/campsites."
+  },
+  {
+    "id": "mn-reject-erskine-directory-lodging-only-noncamping-items",
+    "state": "MN",
+    "name": "Erskine directory lodging-only entries: Crookston Inn, LePier Lodge, The Lakehouse Retreat",
+    "countyRegion": "Polk County / Erskine-Fosston-Crookston context",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_type_search_conclusion",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "Erskine city directory includes lodging items that are hotel/lodge/vacation-home style, not campground/RV/campsite proof",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Do not import as campgrounds unless a future source proves public campsite/RV/campground use. No action unless they become recurring traps."
+  },
+  {
+    "id": "mn-reject-ridgewood-seasonal-members-only-no-public-overnight",
+    "state": "MN",
+    "name": "Ridgewood Campground / Ridgewood on the River",
+    "countyRegion": "Becker / Detroit Lakes area",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Closed",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "Operator states strictly seasonal, no overnight camping, no public day passes, private to members only. ([ridgewoodontheriver][49])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Do not import as public campground. Add reject-memory row."
+  },
+  {
+    "id": "mn-reject-stigmans-mound-park-no-overnight",
+    "state": "MN",
+    "name": "Stigman’s Mound Park",
+    "countyRegion": "Wadena County",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Official no overnight camping",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": false,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "Wadena County explicitly says Stigman’s Mound does not offer overnight camping. ([Wadena][46])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Official no-camping proof. Add rejected row or keep do-not-import memory."
+  },
+  {
+    "id": "mn-reject-belle-prairie-county-park-no-camping-proof",
+    "state": "MN",
+    "name": "Belle Prairie County Park",
+    "countyRegion": "Morrison County / Little Falls",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "No overnight camping proof recovered",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": false,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "Morrison County page describes park/boat ramp/picnic context and 2026 construction/vehicle closure, but no campground/overnight proof. ([Morrison County][47])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Do not import as campground. Add rejected/no-action memory if this keeps recurring."
+  },
+  {
+    "id": "mn-reject-mcleod-county-fairgrounds-general-public-camping-unproven",
+    "state": "MN",
+    "name": "McLeod County Fairgrounds as General Public Campground",
+    "countyRegion": "McLeod / Hutchinson",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Event-only / not general camping",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "McLeod fairgrounds pages point to event/fair camping context and direct general campers to area parks; no general non-event public campground proof recovered. ([McLeod County][34])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Add guardrail so it doesn’t get imported as a campground Add rejected guardrail"
+  },
+  {
+    "id": "mn-reject-jackson-belmont-park-camping-trap",
+    "state": "MN",
+    "name": "Belmont Park as campground pin",
+    "countyRegion": "Jackson County",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Wrong-feature/day-use trap unless future official camping proof appears",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "https://www.co.jackson.mn.us/parks — county lists parks; camping page says only Anderson, Brown, Brown South, Robertson and Sandy Point have overnight camping. Belmont page gives location only.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Common trap in Jackson County parks list Add rejected memory; reopen only if county explicitly allows camping"
+  },
+  {
+    "id": "mn-reject-martin-klessig-timberlane-wolter-noncamping-traps",
+    "state": "MN",
+    "name": "Martin County non-camping park traps — Klessig / Timberlane / Wolter",
+    "countyRegion": "Martin County",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Wrong-feature traps",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "https://www.co.martin.mn.us/community/parks/facilities.php — camping appears for Bright Lake, Cedar Hanson, Perch Lake; Klessig/Timberlane/Wolter list boat/fishing/restroom/trail facilities without camping.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Prevent lake/boat-launch/park false positives Add rejected memory"
+  },
+  {
+    "id": "mn-reject-murray-forman-acres-boat-landing-keep",
+    "state": "MN",
+    "name": "Forman Acres / Lake Shetek boat landing as campground pin",
+    "countyRegion": "Murray County",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Wrong-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "Existing data/rejected.js source summary: Forman Acres listed as boat landing/dock/restroom adjacent to Lake Shetek; no campsites shown.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Do not revive as campground from lake/landing map Keep rejected"
+  },
+  {
+    "id": "mn-reject-i90-rest-areas-as-campgrounds-southwest-prairie",
+    "state": "MN",
+    "name": "I-90 / I-35 rest areas as campground substitutes",
+    "countyRegion": "I-90 / I-35 corridor",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Wrong-layer trap / no camping proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "MN.js includes Albert Lea I-35 NB rest area as Rest Areas & Roadside Stops, not campground; worker scope says include rest-area duplicates only for QA/rejected-memory.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. Avoid turning rest areas into campground misses Add/reinforce rejected-memory trap"
+  },
+  {
+    "id": "mn-reject-dodge-county-obvious-miss-sweep-no-public-campground-found",
+    "state": "MN",
+    "name": "Dodge County public campground false-positive sweep",
+    "countyRegion": "Dodge County",
+    "rejectedAsLayer": "Reject / Do Not Import / Search Conclusion",
+    "rejectionType": "No obvious public-facing campground found in sweep",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT unless stronger source appears",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping at this exact feature and a defensible camping-area coordinate is available."
+    ],
+    "sourceSummary": "Dodge County/city campground/RV park searches produced no import-safe campground name in accessible sources during this pass.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.60-ledger",
+    "notes": "Rejected-memory trap from MN Bulldog ledger pass. This is a search conclusion, not a permanent county-wide no-camping claim Future worker can reopen with named official/operator campground"
   }
 ];
