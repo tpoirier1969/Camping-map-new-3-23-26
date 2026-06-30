@@ -3921,12 +3921,12 @@ window.CAMPING_REJECTED = [
     "currentDecision": "KEEP REJECTED",
     "canReopen": true,
     "reopenIf": [
-      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
     ],
-    "sourceSummary": "Council Bluffs visitor guide describes Tom Hanafan River’s Edge as public green space, playground/trails/riverfront access, not overnight camping. ([Unleash Council Bluffs][53])",
+    "sourceSummary": "Prior west-Iowa sweep found this as a Missouri River false positive; available city/tourism description is riverfront park/day-use, not camping.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.63",
-    "notes": "Missouri River false-positive trap."
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Good rejected-memory trap."
   },
   {
     "id": "ia-reject-ashton-pits-wma-no-camping-proof",
@@ -3939,12 +3939,12 @@ window.CAMPING_REJECTED = [
     "currentDecision": "KEEP REJECTED",
     "canReopen": true,
     "reopenIf": [
-      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
     ],
-    "sourceSummary": "Ashton Pits page lists waterfowl/upland hunting and fishing, open year-round, but no camping. ([My County Parks][54])",
+    "sourceSummary": "Prior pass found Ashton Pits as public-land/water false positive with no camping proof.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.63",
-    "notes": "Common “public land near water” trap."
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Keep workers from rediscovering it as “public land camping.”"
   },
   {
     "id": "ia-reject-iowa-great-lakes-marina-boat-launch-beach-pins",
@@ -4107,5 +4107,293 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.63",
     "notes": "Keeps workers from manufacturing boat/backpack pins."
+  },
+  {
+    "id": "ia-reject-dnr-cabin-only-lodging-as-campground",
+    "state": "IA",
+    "name": "Iowa DNR cabin-only lodging as campground rows",
+    "countyRegion": "Statewide IA DNR component backlog",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "schema_guardrail",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "Handoff says do not import cabin-only lodging unless schema decision explicit",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Prevent cabin-only rows from being imported as campgrounds during DNR component work"
+  },
+  {
+    "id": "ia-reject-dnr-park-office-lake-dam-trailhead-proxy-pins",
+    "state": "IA",
+    "name": "Iowa DNR park offices, lake centers, dams, beaches, overlooks, trailheads, cave entrances as campground pins",
+    "countyRegion": "Statewide IA DNR component backlog",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "coordinate_guardrail",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "Handoff explicitly forbids office/lake/park centroid/overlook/cave/dam/trailhead proxy pins",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Prevent future fake DNR campground proxy dots"
+  },
+  {
+    "id": "ia-reject-coralville-day-use-shelters-not-campgrounds",
+    "state": "IA",
+    "name": "Coralville Lake day-use shelters / beaches / boat ramps as campground pins",
+    "countyRegion": "Johnson / Coralville Lake",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "Coralville Recreation.gov gateway",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Use this trap to stop fake coordinates from East Overlook Day Use, Sugar Bottom Day Use, Tailwater West Day Use, Turkey Creek Day Use, beaches, dams, boat ramps, and shelters."
+  },
+  {
+    "id": "ia-reject-saylorville-picnic-dayuse-components-not-campgrounds",
+    "state": "IA",
+    "name": "Saylorville Lake picnic/day-use/recreation components as campground pins",
+    "countyRegion": "Polk / Saylorville Lake",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "Saylorville Recreation.gov gateway",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Some may be reservable shelters or day-use areas, not campgrounds. Needs exact facility review if reopened."
+  },
+  {
+    "id": "ia-reject-red-rock-picnic-shelter-dayuse-not-campgrounds",
+    "state": "IA",
+    "name": "Lake Red Rock picnic shelters / beaches / boat ramps / trailheads as campground pins",
+    "countyRegion": "Marion / Lake Red Rock",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "North Overlook Picnic Shelter page; Corps Lakes Red Rock table",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "North Overlook Picnic Shelter explicitly says no overnight camping."
+  },
+  {
+    "id": "ia-reject-usace-dams-visitor-centers-marinas-boat-ramps-as-campground-pins",
+    "state": "IA",
+    "name": "USACE Iowa reservoir dams, visitor centers, marinas, beaches, boat ramps, trailheads, and lake centers as campground pins",
+    "countyRegion": "Coralville / Saylorville / Red Rock / Rathbun",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "Coralville, Saylorville, Red Rock, Rathbun official pages",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "High-value reject-memory trap for Iowa reservoir work."
+  },
+  {
+    "id": "pa-reject-state-forest-undesignated-roadside-camping-no-permit",
+    "state": "PA",
+    "name": "Pennsylvania State Forest Undesignated Roadside Camping / No-Permit Trap",
+    "countyRegion": "State forest system",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Closed",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "DCNR states roadside camping must be at designated campsites identified by name/number and requires a permit/reservation; designated sites lack modern conveniences. ([Pennsylvania Government][12])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Prevents future fake boondocking pins from map-search pull-offs."
+  },
+  {
+    "id": "pa-reject-dcnr-state-forest-office-coordinates-as-campsites",
+    "state": "PA",
+    "name": "PA DCNR State Forest District Office / Resource Center Coordinates as Campsite Proxies",
+    "countyRegion": "State forest system",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Closed",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "DCNR/ReserveAmerica-style pages may expose district-office/resource-center coordinates; those are not campsite coordinates. Sproul reservation context, for example, exposes office/resource center GPS while the actual campsites are remote designated sites. ([Pennsylvania Government][7])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "This is exactly the kind of proxy pin that poisons the map."
+  },
+  {
+    "id": "pa-reject-forbes-blue-hole-cole-run-sensitive-no-camping-traps",
+    "state": "PA",
+    "name": "Forbes State Forest sensitive no-camping / wrong-feature traps",
+    "countyRegion": "Forbes SF / Somerset-Fayette-Westmoreland",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Official closures / wrong feature types",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "Forbes DCNR page lists areas closed to backpack camping including Roaring Run and Mt. Davis Natural Areas, area east of Laurel Summit Road and north of Coxes Creek Road, Blue Hole, Falls Run, Cole Run Falls, Pine Knob overlook, leased campsite buffers, picnic-area buffers, and posted closures. ([Pennsylvania Government][7])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "These are exactly the sort of pretty map dots that become garbage imports if nobody tags them."
+  },
+  {
+    "id": "pa-reject-laurel-mountain-warming-hut-no-overnight",
+    "state": "PA",
+    "name": "Laurel Mountain Warming Hut / nearby area",
+    "countyRegion": "Forbes / Laurel Mountain",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Official no-overnight trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "DCNR Forbes fall foliage PDF says the Laurel Mountain Warming Hut is open 24/7 but “no overnight camping is permitted inside or nearby the hut.” ([DCNR eLibrary][9])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Good reject-memory trap because it looks tempting on a map."
+  },
+  {
+    "id": "pa-reject-rivers-bend-group-campground-nj-side-not-pa",
+    "state": "PA",
+    "name": "Rivers Bend Group Campground as PA Record",
+    "countyRegion": "Delaware Water Gap NRA / Delaware River",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Wrong-state trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "Recreation.gov places Rivers Bend on Old Mine Road on the New Jersey side of the park. ([Recreation.gov][12])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "This is a PA reject-memory trap"
+  },
+  {
+    "id": "pa-reject-delaware-water-gap-trailheads-visitor-centers-launches-as-campsites",
+    "state": "PA",
+    "name": "Delaware Water Gap Trailheads / Visitor Centers / Launches as Camping Pins",
+    "countyRegion": "Pike / Monroe / Delaware Water Gap NRA",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "False-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "NPS restricts backcountry camping to AT through-hikers and Recreation.gov separates river campsite reservations from access features. ([National Park Service][13])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Prevents fake dots at waterfalls, visitor centers, river accesses, and trailheads"
+  },
+  {
+    "id": "pa-reject-allegheny-reservoir-shoreline-dispersed-camping-proxy",
+    "state": "PA",
+    "name": "Allegheny Reservoir Shoreline / Boat Launches as Dispersed Camping Pins",
+    "countyRegion": "Warren / ANF / Allegheny Reservoir",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "False-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "USFS provides exact official boat-access campground records; numbered/managed camping sources should be used instead of launches or arbitrary shoreline points. ([US Forest Service][1])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Use Morrison/Pine Grove/Handsome Lake/Hooks Brook/Hopewell exact campground records instead"
+  },
+  {
+    "id": "pa-reject-tuscarora-state-park-rv-tent-campground-unproven",
+    "state": "PA",
+    "name": "Tuscarora State Park as RV/Tent Campground",
+    "countyRegion": "Schuylkill / Tuscarora SP",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "keep_rejected_unless_current_dcnr_adds_campground",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/tuscarora-state-park/stay ; DCNR Stay page lists camping cottages and yurts, not a bring-your-own RV/tent campground.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Likely reject/guardrail for campground layer; possible lodging schema only if app later supports lodging/cabins/yurts."
+  },
+  {
+    "id": "pa-reject-gifford-pinchot-closure-as-permanent-reject",
+    "state": "PA",
+    "name": "Gifford Pinchot Campground Closure Misread as Permanent Rejection",
+    "countyRegion": "York / Gifford Pinchot SP",
+    "rejectedAsLayer": "Reject / Do Not Import — trap only",
+    "rejectionType": "reject_trap_guardrail",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "Current DCNR Stay/ReserveAmerica sources say phased campground rehabilitation with portions temporarily closed while others remain open; older DCNR news said full closure Sept. 8, 2026 through early 2028.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Do not reject the campground outright. Active record should carry closure/availability note and be checked against reservation availability."
+  },
+  {
+    "id": "pa-reject-pa-state-park-offices-visitor-centers-lakes-dams-as-campground-pins",
+    "state": "PA",
+    "name": "PA DCNR State Park Offices / Lakes / Dams / Visitor Centers as Campground Coordinates",
+    "countyRegion": "Statewide PA state-park backlog guardrail",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible coordinate."
+    ],
+    "sourceSummary": "Applies across this state-park component rescue: do not use park offices, lakes, dams, beaches, marinas, visitor centers, trailheads, or broad park coordinates as exact campground pins.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.64",
+    "notes": "Needed because several target parks expose park GPS on the main page that is not always the campground."
   }
 ];

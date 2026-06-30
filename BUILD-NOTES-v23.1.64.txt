@@ -1,0 +1,28 @@
+Tod's Boondocking & Camping Maps — v23.1.64 IA/PA area closeout
+
+Built cumulatively on v23.1.63 IA Bulldog first-pass package. This package is safe to install as the next fixed-files overlay and includes the prior PA/IA files needed from v23.1.62/v23.1.63.
+
+Iowa:
+- Existing IA active count before this build: 73
+- New IA active records in this build: 35
+- Final IA manifest count: 108
+- IA active layer split: {'Modern Campgrounds': 34, 'Rustic / Primitive': 1}
+
+Pennsylvania:
+- Existing PA active count before this build: 108
+- New PA active records in this build: 31
+- Final PA manifest count: 139
+- PA active layer split: {'Boat / Backpack': 4, 'Modern Campgrounds': 11, 'Rustic / Primitive': 4, 'Private Campgrounds': 12}
+
+Ledgers:
+- Leads added: 66
+- Leads updated: 28
+- Rejected rows added: 16
+- Rejected rows updated: 2
+- Final leads.js rows: 717
+- Final rejected.js rows: 227
+
+Important closeout notes:
+- Iowa is still modern-heavy by nature and by current source extraction. Non-modern Iowa state-forest, hike-in, and USACE/water components remain lead-heavy where exact component coordinates were not safely extracted.
+- Pennsylvania state-forest exact designated campsite work is intentionally held in leads/external extraction. Workers confirmed the official PA DCNR BOF/Camping ArcGIS point layer, but exact feature export was blocked in the worker environment. This build does not fake forest centroids.
+- No config.js is included.
