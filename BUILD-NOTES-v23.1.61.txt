@@ -1,0 +1,54 @@
+Tod's Boondocking & Camping Maps — BUILD NOTES v23.1.61
+
+Package: Minnesota Worker 2/3 supervisor audit follow-up
+Data build: v23.1.61-mn-w23-super-audit1
+Date: 2026-06-30
+
+Purpose:
+- Personally re-audit Worker 2 and Worker 3 Bulldog returns after prior returns were too conservative.
+- Promote additional source-proven MN campground rows where the supervisor recovered defensible coordinates or resolved name/address ambiguity.
+- Keep the v23.1.60 Bulldog active rescue and ledger pass intact.
+
+Active additions in this revision: 15
+Final Minnesota active count expected: 321
+
+Added active records:
+- Central Park Campground — 47.77364697449764, -96.60226038790205 — Modern Campgrounds
+- Lake of the Woods Campground & Marina — 48.8157, -94.7058 — Private Campgrounds
+- Williams City Park & RV Campground — 48.771772, -94.957999 — Modern Campgrounds
+- Bergamo Campground — 47.52088, -95.10304 — Private Campgrounds
+- River Bend Resort RV Park — 48.8357, -94.7021 — Private Campgrounds
+- Zippel Bay State Park Campgrounds — 48.86022096, -94.83588884 — Modern Campgrounds
+- Big Bog State Recreation Area Campground — 48.17325102, -94.51160461 — Modern Campgrounds
+- Lake Bemidji State Park Campground — 47.5362388, -94.8249651 — Modern Campgrounds
+- Itasca State Park Bear Paw Campground — 47.222383, -95.184714 — Modern Campgrounds
+- Itasca State Park Pine Ridge Campground — 47.23331381, -95.19058522 — Modern Campgrounds
+- Scenic State Park Campgrounds — 47.71368, -93.56928 — Modern Campgrounds
+- McCarthy Beach State Park Campground — 47.6700079, -93.03272 — Modern Campgrounds
+- La Salle Lake State Recreation Area Campground — 47.34432758, -95.15894255 — Modern Campgrounds
+- Hill City Park & Campground — 46.994114, -93.591319 — Modern Campgrounds
+- Fox Lake Campground of Bemidji — 47.61315983, -94.83826939 — Private Campgrounds
+
+Still not promoted / intentionally held:
+- Sportsman’s Lodge camping/RV sites — proof exists, but campground/RV-site point is across from the lodge and needs exact map confirmation.
+- Ballard’s Resort / Long Point Resort — lodge/resort proof without clean RV/tent campground proof.
+- Oak Cove Resort / Ulland’s / Camp Shalom / Lakeview Resort — unresolved current public campground status or no safe coordinate.
+- Zippel Bay group camp and Itasca/Scenic/other state-park remote/group/backpack components — kept for future official DNR component/GIS extraction.
+
+Files changed:
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.61.txt
+- data/states-manifest.js
+- data/states-manifest-v23.1.61.js
+- data/supplements/mn-worker23-super-audit-v23.1.61.js
+- data/leads.js
+
+Files carried forward from v23.1.60 ledger package:
+- PROJECT_RULES.md
+- Project Rules.md
+- data/supplements/mn-western-closeout-v23.1.58.js
+- data/supplements/mn-bulldog-missed-campgrounds-v23.1.60.js
+- data/rejected.js
+
+No config.js included.
