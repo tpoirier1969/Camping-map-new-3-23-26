@@ -4395,5 +4395,815 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.64",
     "notes": "Needed because several target parks expose park GPS on the main page that is not always the campground."
+  },
+  {
+    "id": "oh-reject-maumee-state-forest-no-camping",
+    "state": "OH",
+    "name": "Maumee State Forest",
+    "countyRegion": "Fulton / Henry / Lucas",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR Maumee State Forest rules say “Camping and building of open fires are prohibited.” ([Ohio Department of Natural Resources][30])",
+    "relatedActiveOrPendingRecord": "No active OH match.",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W1 first-pass reject/guardrail. Add rejected-memory row."
+  },
+  {
+    "id": "oh-reject-catawba-island-state-park-day-use",
+    "state": "OH",
+    "name": "Catawba Island State Park",
+    "countyRegion": "Ottawa / Catawba Island",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR says Catawba Island State Park is a small 10-acre day-use park providing boating access to Lake Erie. ([Ohio Department of Natural Resources][31])",
+    "relatedActiveOrPendingRecord": "No active OH match.",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W1 first-pass reject/guardrail. Add rejected-memory row."
+  },
+  {
+    "id": "oh-reject-ottawa-nwr-no-camping-overnight-parking",
+    "state": "OH",
+    "name": "Ottawa National Wildlife Refuge",
+    "countyRegion": "Lucas/Ottawa Lake Erie marsh corridor",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "USFWS/Ottawa NWR brochure says camping and overnight parking are prohibited, with parking only in designated areas. ([U.S. Fish and Wildlife Service][32])",
+    "relatedActiveOrPendingRecord": "No active OH match.",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W1 first-pass reject/guardrail. Add rejected row."
+  },
+  {
+    "id": "oh-reject-magee-marsh-no-overnight-parking",
+    "state": "OH",
+    "name": "Magee Marsh Wildlife Area",
+    "countyRegion": "Ottawa / Lake Erie marsh corridor",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR says there is no overnight parking at Magee Marsh; the area closes nightly at sundown and reopens at sunrise. ([Ohio Department of Natural Resources][33])",
+    "relatedActiveOrPendingRecord": "No active OH match.",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W1 first-pass reject/guardrail. Add rejected-memory row."
+  },
+  {
+    "id": "oh-reject-oak-point-state-park-boater-day-use-no-camping-proof",
+    "state": "OH",
+    "name": "Oak Point State Park",
+    "countyRegion": "Ottawa / South Bass Island",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR says Oak Point is a 1.5-acre park on South Bass Island offering amenities for boaters, anglers and lake watchers; no campground proof found. ([Ohio Department of Natural Resources][34])",
+    "relatedActiveOrPendingRecord": "No active OH match.",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W1 first-pass reject/guardrail. Add rejected-memory row."
+  },
+  {
+    "id": "oh-reject-cuyahoga-valley-np-trailheads-no-camping",
+    "state": "OH",
+    "name": "Cuyahoga Valley National Park Trailheads / Towpath Parking",
+    "countyRegion": "Cuyahoga / Summit",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "NPS Cuyahoga Valley National Park camping/overnight policy; no camping/overnight parking in park",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-cleveland-metroparks-day-use-reservations-no-public-camping",
+    "state": "OH",
+    "name": "Cleveland Metroparks Reservations / Beaches / Marinas",
+    "countyRegion": "Cuyahoga / Lake / Lorain edge",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Cleveland Metroparks reservations/facilities/source family",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Do not import unless official camping program appears later."
+  },
+  {
+    "id": "oh-reject-lake-erie-beaches-marinas-launches-as-camping",
+    "state": "OH",
+    "name": "Lake Erie Beaches / Marinas / Boat Launches as Campgrounds",
+    "countyRegion": "Lake / Ashtabula / Cuyahoga / Lorain",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Headlands Beach, Geneva Marina, Lake Erie Bluffs, municipal marina/boat-launch source family",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-portage-lakes-state-park-no-campground",
+    "state": "OH",
+    "name": "Portage Lakes State Park — No Campground / Day-use Trap",
+    "countyRegion": "Summit / Akron",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR Portage Lakes State Park page/map",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-wingfoot-lake-state-park-no-camping",
+    "state": "OH",
+    "name": "Wingfoot Lake State Park — No Campground Trap",
+    "countyRegion": "Portage / Suffield-Mogadore",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR Wingfoot Lake State Park page/map",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-quail-hollow-state-park-no-camping",
+    "state": "OH",
+    "name": "Quail Hollow State Park — No Campground Trap",
+    "countyRegion": "Stark / Hartville",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR Quail Hollow State Park page/map",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-nelson-kennedy-ledges-state-park-no-camping",
+    "state": "OH",
+    "name": "Nelson-Kennedy Ledges State Park — No Campground Trap",
+    "countyRegion": "Portage / Garrettsville",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR Nelson-Kennedy Ledges State Park page/map",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-headlands-beach-state-park-no-camping",
+    "state": "OH",
+    "name": "Headlands Beach State Park — Beach/Day-use Trap",
+    "countyRegion": "Lake / Mentor",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR Headlands Beach State Park page/map",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-mill-creek-metroparks-day-use-no-campground",
+    "state": "OH",
+    "name": "Mill Creek MetroParks Day-use / Group-facility Trap",
+    "countyRegion": "Mahoning / Youngstown",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Mill Creek MetroParks official reservations/facilities/source family",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-stark-parks-day-use-no-campground",
+    "state": "OH",
+    "name": "Stark Parks Day-use / Trailhead Trap",
+    "countyRegion": "Stark County",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Stark Parks official facilities/source family",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-lake-metroparks-day-use-no-campground",
+    "state": "OH",
+    "name": "Lake Metroparks Day-use / Lake Erie Bluffs Trap",
+    "countyRegion": "Lake County",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Lake Metroparks official reservations/facilities/source family",
+    "relatedActiveOrPendingRecord": "No OH active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W2 first-pass reject/guardrail. Add rejected-memory trap."
+  },
+  {
+    "id": "oh-reject-buckeye-lake-state-park-camping-pin",
+    "state": "OH",
+    "name": "Buckeye Lake State Park as campground pin",
+    "countyRegion": "Licking / Fairfield / Perry edge",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/buckeye-lake-state-park",
+    "relatedActiveOrPendingRecord": "NO ACTIVE OH MATCH FOUND except avoid future fake rows",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W3 first-pass reject/guardrail. Add to rejected memory to stop future centroid/boat-ramp/fair-event false positives."
+  },
+  {
+    "id": "oh-reject-madison-lake-state-park-camping-pin",
+    "state": "OH",
+    "name": "Madison Lake State Park as campground pin",
+    "countyRegion": "Madison County",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/madison-lake-state-park",
+    "relatedActiveOrPendingRecord": "NO ACTIVE OH MATCH FOUND except avoid future fake rows",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W3 first-pass reject/guardrail. Add to rejected memory to stop future centroid/boat-ramp/fair-event false positives."
+  },
+  {
+    "id": "oh-reject-urban-metroparks-general-camping",
+    "state": "OH",
+    "name": "Columbus/Dayton/Cincinnati urban parks general camping",
+    "countyRegion": "Franklin / Montgomery / Hamilton metro areas",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Metroparks/city parks source family",
+    "relatedActiveOrPendingRecord": "NO ACTIVE OH MATCH FOUND except avoid future fake rows",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W3 first-pass reject/guardrail. Add to rejected memory to stop future centroid/boat-ramp/fair-event false positives."
+  },
+  {
+    "id": "oh-reject-ohio-boat-ramps-lake-centers-dams",
+    "state": "OH",
+    "name": "Ohio lake centers, dams, marinas, and boat ramps as campground pins",
+    "countyRegion": "Central/west/southwest Ohio reservoirs",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Assignment/project rules; reservoir parks named in this pass",
+    "relatedActiveOrPendingRecord": "NO ACTIVE OH MATCH FOUND except avoid future fake rows",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W3 first-pass reject/guardrail. Add to rejected memory to stop future centroid/boat-ramp/fair-event false positives."
+  },
+  {
+    "id": "oh-reject-wildlife-area-boondocking-without-proof",
+    "state": "OH",
+    "name": "Ohio wildlife areas as boondocking pins without overnight proof",
+    "countyRegion": "Mercer, Logan, Highland, Adams and other wildlife-area contexts",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "ODNR wildlife-area/source family; site-specific rules needed",
+    "relatedActiveOrPendingRecord": "NO ACTIVE OH MATCH FOUND except avoid future fake rows",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W3 first-pass reject/guardrail. Add to rejected memory to stop future centroid/boat-ramp/fair-event false positives."
+  },
+  {
+    "id": "oh-reject-event-only-festival-camping",
+    "state": "OH",
+    "name": "Event-only festival/fairground camping as ordinary campground",
+    "countyRegion": "Warren/Greene/Montgomery/Hamilton fair/festival corridors",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Fairground/festival source family",
+    "relatedActiveOrPendingRecord": "NO ACTIVE OH MATCH FOUND except avoid future fake rows",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W3 first-pass reject/guardrail. Add to rejected memory to stop future centroid/boat-ramp/fair-event false positives."
+  },
+  {
+    "id": "oh-reject-wayne-nf-offices-as-campsite-coordinates",
+    "state": "OH",
+    "name": "Wayne National Forest Offices / Ranger Stations as Campsite Coordinates",
+    "countyRegion": "Wayne NF",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Wayne NF has official campground pages with actual recreation coordinates; offices/ranger stations are not campground coordinates. USFS campground pages provide real site coordinates for many facilities. ([US Forest Service][1])",
+    "relatedActiveOrPendingRecord": "NO ACTIVE IN-LOCK OH ROW FOUND",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W4 first-pass reject/guardrail. Add reject-memory trap."
+  },
+  {
+    "id": "oh-reject-wayne-nf-trailheads-ohv-parking-as-camping-pins",
+    "state": "OH",
+    "name": "Wayne NF Trailheads / OHV Parking / Pull-offs as Camping Pins",
+    "countyRegion": "Wayne NF",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Wayne NF has distinct campground pages and trailhead pages; trailhead coordinates should not be used unless the agency explicitly identifies camping at that exact spot. ([US Forest Service][12])",
+    "relatedActiveOrPendingRecord": "NO ACTIVE IN-LOCK OH ROW FOUND",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W4 first-pass reject/guardrail. Add to rejected ledger."
+  },
+  {
+    "id": "oh-reject-lake-river-dam-marina-centers-as-campground-proxies",
+    "state": "OH",
+    "name": "Ohio Lake / River / Dam / Marina Center Proxy Pins",
+    "countyRegion": "Southeast Ohio / Ohio River / Muskingum River",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Several valid systems are near rivers, lakes, dams, marinas, and launches, but the campground/campsite must be mapped separately from those features. Leith Run, Ring Mill, Shawnee Ohio River Campground, Muskingum River Parkway, and Riversedge all need campground-specific handling. ([US Forest Service][1])",
+    "relatedActiveOrPendingRecord": "NO ACTIVE IN-LOCK OH ROW FOUND",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "OH_W4 first-pass reject/guardrail. Add reject-memory trap."
+  },
+  {
+    "id": "il-reject-snakeden-hollow-no-camping",
+    "state": "IL",
+    "name": "Snakeden Hollow State Fish and Wildlife Area",
+    "countyRegion": "Knox",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "IDNR says camping is prohibited at Snakeden Hollow; brochure repeats camping and fires are not allowed. ([Illinois Department of Natural Resources][27])",
+    "relatedActiveOrPendingRecord": "No active name match",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W5 first-pass reject/guardrail. Add rejected-memory row."
+  },
+  {
+    "id": "il-reject-lowden-miller-state-forest-no-camping",
+    "state": "IL",
+    "name": "Lowden-Miller State Forest",
+    "countyRegion": "Ogle",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "IDNR brochure says camping facilities are not available at Lowden-Miller and points users to nearby Castle Rock, Lowden, and White Pines. ([Illinois Department of Natural Resources][28])",
+    "relatedActiveOrPendingRecord": "No active name match",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W5 first-pass reject/guardrail. Add rejected-memory row."
+  },
+  {
+    "id": "il-reject-usace-mississippi-river-dayuse-boat-ramp-traps-nw-il",
+    "state": "IL",
+    "name": "USACE Mississippi River Project day-use / boat-ramp traps",
+    "countyRegion": "Mississippi River corridor",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "USACE area-status list distinguishes campgrounds from day-use areas, boat ramps, beaches, overlooks, and other facilities. ([MVR][29])",
+    "relatedActiveOrPendingRecord": "No active name match",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W5 first-pass reject/guardrail. Add rejected-memory trap row."
+  },
+  {
+    "id": "il-reject-hickory-hideaway-cabins-no-campground-proof",
+    "state": "IL",
+    "name": "Hickory Hideaway",
+    "countyRegion": "Ogle / Oregon area",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Search found lodging/cabin-style proof, not public RV/tent campground proof. ([Hickory Hideaway][30])",
+    "relatedActiveOrPendingRecord": "No active name match",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W5 first-pass reject/guardrail. Add rejected-memory row unless later operator proof shows RV/tent camping."
+  },
+  {
+    "id": "il-reject-des-plaines-sfwa-closed-campground",
+    "state": "IL",
+    "name": "Des Plaines State Fish & Wildlife Area Campground",
+    "countyRegion": "Will / Wilmington",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "IDNR’s camping page says the Des Plaines SFWA campground is currently closed. ([Illinois Department of Natural Resources][7])",
+    "relatedActiveOrPendingRecord": "No active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W6 first-pass reject/guardrail. Add rejected guardrail"
+  },
+  {
+    "id": "il-reject-cook-county-forest-preserve-day-use-proxies",
+    "state": "IL",
+    "name": "Cook County Forest Preserve day-use areas as campsite pins",
+    "countyRegion": "Cook / Chicago metro edge",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "FPCC camping page identifies the five campground locations; other preserves, nature centers, picnic groves, trailheads, and boat launches are not campsite proof. ([Forest Preserves of Cook County][30])",
+    "relatedActiveOrPendingRecord": "No specific active wrong-feature found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W6 first-pass reject/guardrail. Add rejected guardrail"
+  },
+  {
+    "id": "il-reject-chain-o-lakes-marinas-boat-ramps-as-campsites",
+    "state": "IL",
+    "name": "Fox Chain marinas / launches / lake centers as campground pins",
+    "countyRegion": "Lake / McHenry / Fox Chain",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Chain O’Lakes State Park and private operators can be campsite proof; random marinas, boat ramps, beaches, and lake centers are not. IDNR’s Chain O’Lakes camping page proves the state park campground separately. ([Illinois Department of Natural Resources][31])",
+    "relatedActiveOrPendingRecord": "No specific active wrong-feature found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W6 first-pass reject/guardrail. Add rejected guardrail"
+  },
+  {
+    "id": "il-reject-event-only-fairgrounds-lots-northeast-il",
+    "state": "IL",
+    "name": "Northeast Illinois event-only fairground / festival lots as campgrounds",
+    "countyRegion": "Lake / McHenry / Kane / Cook / DuPage / Kendall / Will / Grundy / LaSalle / Kankakee",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Fair/event camping was searched as required; no official ordinary public campground proof was recovered for a clean fairgrounds add in this geography.",
+    "relatedActiveOrPendingRecord": "No active match found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W6 first-pass reject/guardrail. Add rejected guardrail"
+  },
+  {
+    "id": "il-reject-lake-shelbyville-whitley-creek-camping-claim",
+    "state": "IL",
+    "name": "Whitley Creek Recreation Area as campground",
+    "countyRegion": "Moultrie / Lake Shelbyville",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "USACE Lake Shelbyville campground maps page lists Whitley Creek Recreation Area as boat launch/day-use area; not an active campground in current USACE campground list",
+    "relatedActiveOrPendingRecord": "No active Whitley Creek match in inspected `IL.js`",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W7 first-pass reject/guardrail. Add rejected memory; reopen only with current USACE campground proof"
+  },
+  {
+    "id": "il-reject-lake-shelbyville-dam-west-east-picnic-shelter-as-camping",
+    "state": "IL",
+    "name": "Lake Shelbyville Dam East / Dam West picnic shelters as campground pins",
+    "countyRegion": "Shelby / Lake Shelbyville",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Recreation.gov Lake Shelbyville search lists Dam East/West picnic shelters as day-use/picnic inventory; not overnight campground records",
+    "relatedActiveOrPendingRecord": "No active match",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W7 first-pass reject/guardrail. Add rejected memory"
+  },
+  {
+    "id": "il-reject-illinois-river-boat-ramps-as-boondocking",
+    "state": "IL",
+    "name": "Illinois River boat ramps / marinas as overnight camping pins",
+    "countyRegion": "Illinois River central counties",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Bulldog searches repeatedly surfaced marinas, boat ramps and river accesses without overnight proof; project rules reject boat ramps/proxies",
+    "relatedActiveOrPendingRecord": "No active specific row recommended",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W7 first-pass reject/guardrail. Add/update rejected memory"
+  },
+  {
+    "id": "il-reject-state-wildlife-area-office-coordinate-pins-central",
+    "state": "IL",
+    "name": "Central Illinois IDNR offices / site coordinates as exact campground pins",
+    "countyRegion": "Central IL state sites",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "IDNR/HuntIllinois site coordinates often identify site/office/park context, not exact campground loop; acceptable only as medium context with label or after map-check",
+    "relatedActiveOrPendingRecord": "Existing active IL has many old broad state campground coordinates",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W7 first-pass reject/guardrail. Update rejected memory"
+  },
+  {
+    "id": "il-reject-camp-wokanda-group-rental-as-public-campground-without-proof",
+    "state": "IL",
+    "name": "Camp Wokanda as ordinary public campground",
+    "countyRegion": "Peoria",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Peoria tourism mentions Camp Wokanda cabins/tent camping and entire-camp rental; no ordinary drive-up public campground proof recovered in accessible pass",
+    "relatedActiveOrPendingRecord": "No active match",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W7 first-pass reject/guardrail. Add rejected/needs-verification memory, not active"
+  },
+  {
+    "id": "il-reject-mason-county-public-river-accesses",
+    "state": "IL",
+    "name": "Mason County Illinois River accesses as campground/boondocking pins",
+    "countyRegion": "Mason / Illinois River",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Obvious sweep found actual campgrounds at Evening Star/Sand Ridge/Spring Lake; generic accesses should not become pins",
+    "relatedActiveOrPendingRecord": "No active specific match",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W7 first-pass reject/guardrail. Add rejected memory"
+  },
+  {
+    "id": "il-reject-state-park-lake-centers-beaches-dams-central",
+    "state": "IL",
+    "name": "Central Illinois lake centers, beaches, dams and swim areas as campground coordinates",
+    "countyRegion": "Clinton / Shelbyville / Sangchris / Pittsfield / COMLARA / Hennepin corridor",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Multiple reservoir and lake systems have campground-adjacent beaches/dams/marinas; those are not valid exact campground pins",
+    "relatedActiveOrPendingRecord": "No specific active row recommended",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W7 first-pass reject/guardrail. Add/update rejected memory"
+  },
+  {
+    "id": "il-reject-fairground-event-only-central-il",
+    "state": "IL",
+    "name": "Central Illinois fairgrounds / expo grounds with event-only camping only",
+    "countyRegion": "Central IL counties",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Handoff requires fairground camping screening; no ordinary public non-event camping proof recovered for most fairgrounds in lock",
+    "relatedActiveOrPendingRecord": "No active specific matches",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W7 first-pass reject/guardrail. Add rejected memory"
+  },
+  {
+    "id": "il-reject-wma-sna-no-camping-central-il",
+    "state": "IL",
+    "name": "Central Illinois WMA/SNA/Nature Preserve no-overnight trap",
+    "countyRegion": "Central IL counties",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Bulldog sweep found actual campgrounds; generic WMAs/SNAs/access lands should not be converted to camping pins unless IDNR page explicitly lists camping",
+    "relatedActiveOrPendingRecord": "Existing active SFWA campgrounds retained where official",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W7 first-pass reject/guardrail. Add/update rejected memory"
+  },
+  {
+    "id": "il-reject-lawrenceville-river-park-campground-trap",
+    "state": "IL",
+    "name": "Lawrenceville River Park / Lawrenceville park camping trap",
+    "countyRegion": "Lawrence / Lawrenceville",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "City official page lists city park facilities/parks department but no standing public campground proof; campground claims found were directory/community only. ([lawrencevilleil.org][25])",
+    "relatedActiveOrPendingRecord": "No active Lawrenceville River Park row found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W8 first-pass reject/guardrail. Add reject-memory"
+  },
+  {
+    "id": "il-reject-carlyle-keyesport-rec-area-day-use",
+    "state": "IL",
+    "name": "Keyesport Recreation Area / Carlyle Lake",
+    "countyRegion": "Clinton / Carlyle Lake",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Recreation.gov Keyesport Rec Area result lists swimming, fishing, boating, day use, and picnicking, but not overnight camping. ([Recreation.gov][26])",
+    "relatedActiveOrPendingRecord": "No active Keyesport campground row found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W8 first-pass reject/guardrail. Add reject-memory"
+  },
+  {
+    "id": "il-reject-carlyle-boulder-day-use-trap",
+    "state": "IL",
+    "name": "Boulder Day Use / Carlyle Lake",
+    "countyRegion": "Clinton / Carlyle Lake",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / no_active_import",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator proof supports ordinary public overnight camping and an honest coordinate can be made."
+    ],
+    "sourceSummary": "Recreation.gov lists Boulder Day Use as a day-use area; this is distinct from Boulder Campground. ([Recreation.gov][27])",
+    "relatedActiveOrPendingRecord": "No active Boulder Day Use row found",
+    "lastCheckedVersion": "v23.1.65",
+    "notes": "IL_W8 first-pass reject/guardrail. Add reject-memory"
   }
 ];

@@ -1,0 +1,38 @@
+TOD'S BOONDOCKING & CAMPING MAPS — v23.1.65 OH/IL BULLDOG FIRST PASS
+
+Built on: 2026-06-30
+Baseline overlay: v23.1.64 IA/PA area closeout cumulative fixed files.
+
+Scope:
+- Ohio Workers 1–4 first-pass Bulldog returns.
+- Illinois Workers 5–8 first-pass Bulldog returns.
+- Duplicate IL Worker 6 upload ignored.
+
+Active additions before runtime duplicate skipping:
+- Ohio: 49 active records.
+- Illinois: 73 net active records after runtime duplicate QA (74 accepted rows minus 1 duplicate Sand Ridge area marker).
+
+Ledger changes:
+- data/leads.js added 175, updated 1.
+- data/rejected.js added 45, updated 0.
+
+Important handling notes:
+- Ohio Worker 3 was lead-heavy. Most central/west/southwest ODNR rows remain in leads for coordinate rescue instead of fake park/lake/office pins.
+- Illinois build adds strong official/operator rows and avoids duplicate Worker 6 return.
+- Existing IL correction candidates and Shawnee/IDNR component fixes are preserved mostly as leads unless a clean new active row was available.
+- Area/rule rows are marked as approximate context markers, not exact campsites or legal boundaries.
+
+Changed files:
+- version.js
+- version.json
+- BUILD-NOTES-v23.1.65.txt
+- PROJECT_RULES.md
+- Project Rules.md
+- data/states-manifest.js
+- data/states-manifest-v23.1.65.js
+- data/leads.js
+- data/rejected.js
+- data/supplements/oh-bulldog-first-pass-v23.1.65.js
+- data/supplements/il-bulldog-first-pass-v23.1.65.js
+
+No config.js included.
