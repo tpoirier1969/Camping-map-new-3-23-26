@@ -1,0 +1,42 @@
+Tod’s Boondocking & Camping Maps — v23.1.58 Minnesota western closeout active batch
+
+Scope:
+- Uses the uploaded live package as baseline (Camping-map-new-3-23-26-main).
+- Keeps v23.1.57 Minnesota finish supplement intact.
+- Adds a new Minnesota closeout supplement: data/supplements/mn-western-closeout-v23.1.58.js.
+- Adds 30 active Minnesota records from Workers 3, 5, and 6 after supervisor tightening.
+- Does not add fake active pins from blank coordinates, park centroids, lake centers, offices, boat launches, trailheads, or broad forest centroids.
+
+Active additions:
+- 14 Modern Campgrounds.
+- 15 Rustic / Primitive records.
+- 1 Boat / Backpack walk-in campground.
+- Timm Park Campground uses Tod-supplied corrected coordinate: 44.6954283441916, -95.52287655303293.
+
+Layer tightening:
+- Swift Falls, Birch Coulee, Lake Allie, Oraas, Timm, and Anderson are not forced into Modern because the returned proof did not clearly satisfy the full Modern triad.
+- Blueberry Hill is Boat / Backpack because the official DNR description is walk-in sites.
+- Beltrami Island records from Worker 6 are imported as official DNR GeoPDF/PDF map-derived campground/camping-area markers, not individual campsite pins.
+
+Files changed/added:
+- version.js
+- version.json
+- data/states-manifest.js
+- data/states-manifest-v23.1.58.js
+- data/supplements/mn-western-closeout-v23.1.58.js
+- BUILD-NOTES-v23.1.58.txt
+
+Files intentionally not changed:
+- config.js
+- index.html
+- app.js
+- PROJECT_RULES.md / Project Rules.md
+- data/states/MN.js
+- data/leads.js
+- data/rejected.js
+
+QA:
+- JS syntax check passed for new supplement and manifest via Node VM load.
+- Runtime MN load count after MN.js + v23.1.57 supplement + v23.1.58 supplement: 190.
+- Added-record layer count: 14 Modern, 15 Rustic / Primitive, 1 Boat / Backpack.
+- Duplicate guard in supplement prevents duplicate add by id, exact name, or near-identical coordinate.
