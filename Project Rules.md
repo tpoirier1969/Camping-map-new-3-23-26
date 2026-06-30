@@ -69,6 +69,21 @@ Every handoff must remind workers that layer accuracy, coordinate honesty, dupli
 Workers are not finished when they prove a site exists. They must determine whether it belongs on the map, where it belongs, whether the coordinate is honest, whether it duplicates/supersedes another record, and what final action should be taken.
 
 
+Bulldog Standard — obvious-miss and address-coordinate rule:
+
+Workers must act like a bulldog, not a mouse. Resolving the seed list is not enough. Within the assigned geographic lock, workers must aggressively hunt obvious missed campgrounds and return a final action for every obvious public-facing overnight camping opportunity they encounter.
+
+An assignment return fails supervisor acceptance if Tod can spend about 90 seconds on Google Maps or a basic web search and find obvious campgrounds inside the assigned geography that the worker did not mention.
+
+Every geography-locked worker must complete an obvious-miss sweep before closing. The closeout must say what geography was swept, what search terms or source families were checked, what additional campground names were found beyond the seed list, and how each was handled.
+
+Campground addresses are coordinate evidence. A campground street address, official city/county park campground address, reservation-system address, or operator campground/RV-park address may support a medium-confidence active coordinate when map/imagery/parcel/reservation spot-checking shows that the point lands on the campground, campground loop, RV area, camping area, or relevant campground entrance. Exact official GIS or official campsite coordinates are still better, but an honest campground address is not the same as no coordinate.
+
+Do not use address evidence blindly. Do not use a mailing office, city hall, county office, resort/hotel front desk separate from the campground, PO Box, park centroid, lake center, boat ramp, marina, visitor center, beach, trailhead, random parking lot, or other proxy as an exact campground pin. If the address point does not land on the camping area, keep it as a coordinate-rescue lead and say exactly why.
+
+If a worker has official/operator proof plus an address, map, reservation page, parcel clue, campground directory coordinate, or obvious map marker, they must attempt coordinate rescue before downgrading to lead-only. The return must report what was checked and why the coordinate was or was not safe. Missing coordinates are not an excuse to omit a real campground; if it cannot be active, it must become a durable lead.
+
+
 Standalone handoff block rule:
 
 Every worker or supervisor handoff must be complete in and of itself.

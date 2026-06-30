@@ -1,0 +1,39 @@
+Tod's Boondocking & Camping Maps — v23.1.60 Minnesota Bulldog missed-campground rescue
+
+Baseline used:
+- Uploaded live package: Camping-map-new-3-23-26-main (1).zip, reporting v23.1.57.
+- v23.1.58 fixed-files overlay from prior Minnesota western closeout was included in this package so v23.1.60 can be applied over the uploaded v23.1.57 baseline.
+
+Changed files:
+- version.js
+- version.json
+- PROJECT_RULES.md
+- Project Rules.md
+- data/states-manifest.js
+- data/states-manifest-v23.1.60.js
+- data/supplements/mn-western-closeout-v23.1.58.js
+- data/supplements/mn-bulldog-missed-campgrounds-v23.1.60.js
+
+Changelog:
+- Added the Bulldog Standard to PROJECT_RULES.md and Project Rules.md.
+- Added 116 Minnesota active campground records from the v23.1.60 Bulldog missed-campground sweep.
+- Included the previous v23.1.58 Minnesota western closeout supplement because the available baseline package was v23.1.57.
+- Updated Minnesota manifest count from 160 baseline / 190 with v23.1.58 overlay to 306 after v23.1.60.
+- Used Tod-supplied map-checked coordinates for Flying Goose, Grand Marais Recreation Area, Big Falls, Lofgren Memorial Park, Wigwam Resort, Rainy Lake RV, Long Lake Park, Bemidji KOA, Royal Oaks, Union Lake Sarah, Farmers Union, 2Annes, Maple Lake Eastside, Golden Pond, and Summer Sands.
+- Did not use the supplied River Bend Resort coordinate because it lands outside Minnesota; River Bend remains unresolved rather than importing a wrong-state pin.
+
+Layer summary for v23.1.60 additions:
+- Modern Campgrounds: 55
+- Private Campgrounds: 46
+- Rustic / Primitive: 15
+
+QA completed:
+- Changed JS files syntax/load checked with Node VM.
+- Manifest loads MN base + v23.1.57 + v23.1.58 + v23.1.60 supplements.
+- Version files updated to v23.1.60 / data v23.1.60-mn-bulldog1.
+- No config.js included.
+- No icon/CSS/app.js/index.html changes included; index.html already cache-busts version.js and loads states-manifest.js.
+- data/leads.js and data/rejected.js were not changed in this active-add package; unresolved worker-return rows remain available for a separate ledger-only pass if desired.
+
+Known held item:
+- River Bend Resort RV Park: official/operator proof exists, but the coordinate supplied during reconciliation (45.86324651573591, -88.08146573748317) is not in Minnesota / Lake of the Woods County. It was not imported.
