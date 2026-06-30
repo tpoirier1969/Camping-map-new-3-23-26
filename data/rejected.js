@@ -3585,5 +3585,329 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.60-ledger",
     "notes": "Rejected-memory trap from MN Bulldog ledger pass. This is a search conclusion, not a permanent county-wide no-camping claim Future worker can reopen with named official/operator campground"
+  },
+  {
+    "id": "pa-reject-moraine-state-park-general-camping-prohibited",
+    "state": "PA",
+    "name": "Moraine State Park General Camping",
+    "countyRegion": "Butler",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Closed",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "DCNR explicitly says “No Camping” and “Camping is prohibited in the park,” except the Link Road Overnight Shelter. ([Pennsylvania Government][27])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Prevent future fake Moraine campground rows."
+  },
+  {
+    "id": "pa-reject-allegheny-reservoir-shoreline-dispersed-camping-prohibited",
+    "state": "PA",
+    "name": "Allegheny Reservoir Shoreline Dispersed Camping Trap",
+    "countyRegion": "Warren / McKean / Allegheny Reservoir",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Closed except designated sites",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "USFS forest order prohibits camping on the Allegheny Reservoir shoreline and within 1,500 feet inland from the shoreline, plus 1,500 feet around Allegheny Reservoir Scenic Drive/Longhouse corridor, except designated sites. ([US Forest Service][28])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "This is a critical trap."
+  },
+  {
+    "id": "pa-reject-cherry-springs-night-sky-public-viewing-area-no-overnight",
+    "state": "PA",
+    "name": "Cherry Springs Night Sky Public Viewing Area",
+    "countyRegion": "Potter",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Official no-overnight trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "DCNR explicitly says the Night Sky Public Viewing Area is intended for short visits and is not permitted for overnight stays. ([Pennsylvania Government][2])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Keep this trap so nobody imports the viewing field as camping."
+  },
+  {
+    "id": "pa-reject-lawrence-recreation-area-cowanesque-day-use",
+    "state": "PA",
+    "name": "Lawrence Recreation Area — Cowanesque Lake",
+    "countyRegion": "Tioga",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Day-use facility, not campground",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Recreation.gov identifies Lawrence Recreation Area as a day-use facility with picnic/shoreline fishing context. ([Recreation.gov][37])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Do not confuse with Tompkins Campground."
+  },
+  {
+    "id": "pa-reject-bradford-mt-pisgah-state-park-as-tent-rv-campground",
+    "state": "PA",
+    "name": "Mt. Pisgah State Park as Tent/RV Campground",
+    "countyRegion": "Bradford",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Reject trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Reservation rules say tents, camping trailers, and recreation vehicles are not permitted in the overnight facility area. ([Pennsylvania State Parks][11])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Prevent fake state-park campground pin"
+  },
+  {
+    "id": "pa-reject-poconos-trailheads-waterfalls-visitor-centers-as-camping-pins",
+    "state": "PA",
+    "name": "Poconos / Delaware Water Gap Trailheads, Waterfalls, Visitor Centers as Campground Pins",
+    "countyRegion": "Pike / Monroe / Carbon",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "General reject guardrail",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "NPS identifies visitor centers/headquarters separately from camping; river/backcountry camping has separate rules/reservation systems. ([National Park Service][55])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Prevents fake dots at Dingmans Falls, HQ, overlooks, launches"
+  },
+  {
+    "id": "pa-reject-gettysburg-national-military-park-random-parking",
+    "state": "PA",
+    "name": "Gettysburg National Military Park / battlefield parking lots and visitor center",
+    "countyRegion": "Adams / Gettysburg NMP",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap / official_no_camping",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.nps.gov/gett/",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Common trap: battlefield parking is not overnight camping."
+  },
+  {
+    "id": "pa-reject-raystown-picnic-shelters-boat-ramps-as-camping",
+    "state": "PA",
+    "name": "Raystown picnic shelters, boat launches, dam, lake-center proxy pins",
+    "countyRegion": "Huntingdon / Raystown Lake",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.recreation.gov/gateways/187 ; https://www.recreation.gov/camping/poi/255282 ; https://www.recreation.gov/camping/campgrounds/255284",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Do not use dam, launch, marina, lake center, or picnic shelter as camping pin."
+  },
+  {
+    "id": "pa-reject-carlisle-fairgrounds-event-only-dry-camping",
+    "state": "PA",
+    "name": "Carlisle Fairgrounds event-only dry camping",
+    "countyRegion": "Cumberland / Carlisle",
+    "rejectedAsLayer": "Overnight Parking / Rest Areas",
+    "rejectionType": "event_only / no_general_public_camping",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://carlisleevents.com/events/camping ; https://www.carlisleevents.com/docs/default-source/resources-documents/advance-arrival-planner-carlisle-events.pdf",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Could be an Info/Reference special-event note someday, but not active campground."
+  },
+  {
+    "id": "pa-reject-york-expo-center-rv-show-camping-trap",
+    "state": "PA",
+    "name": "York Expo Center / York State Fairgrounds RV-show camping trap",
+    "countyRegion": "York / York Expo Center",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "event_show_trap / no_public_camping_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.yorkstatefair.com/events/2026/york-rv-show ; https://www.yorkrvshow.net/",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Do not turn expo center into campground from RV show search result."
+  },
+  {
+    "id": "pa-reject-samuel-s-lewis-state-park-no-camping",
+    "state": "PA",
+    "name": "Samuel S. Lewis State Park",
+    "countyRegion": "York / Susquehanna view",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "no_overnight_camping_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Common wrong-feature trap near Gifford Pinchot."
+  },
+  {
+    "id": "pa-reject-memorial-lake-state-park-no-camping",
+    "state": "PA",
+    "name": "Memorial Lake State Park",
+    "countyRegion": "Lebanon/Dauphin edge",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "no_overnight_camping_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.pa.gov/agencies/dcnr/recreation/what-to-do/stay-overnight/rv-and-tent-campsites/camping-locations-map",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Do not use lake/boat launch/park office as campsite."
+  },
+  {
+    "id": "pa-reject-kings-gap-environmental-education-center-no-general-camping",
+    "state": "PA",
+    "name": "Kings Gap Environmental Education Center general-camping trap",
+    "countyRegion": "Cumberland / South Mountain",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "no_general_public_camping_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Could reopen only if official organized/group camping source emerges."
+  },
+  {
+    "id": "pa-reject-at-trailheads-parking-and-sgls-as-campsites",
+    "state": "PA",
+    "name": "AT trailheads, parking lots, and State Game Lands as campsite pins",
+    "countyRegion": "South-central PA AT / SGL corridor",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong_feature_type / official_rule_trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://appalachiantrail.org/experience/hike-the-trail/explore-by-state/pennsylvania/ ; https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-forests/find-a-forest/michaux/camping",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Use only official shelter/campsite coordinates or rule-area markers with warnings."
+  },
+  {
+    "id": "pa-reject-washington-mingo-creek-county-park-general-camping",
+    "state": "PA",
+    "name": "Mingo Creek County Park general camping",
+    "countyRegion": "Washington",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "reject_trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "County park sources show shelters/day-use and a one-off campout-style event, not a standing public campground. ([washingtoncopa.gov][36])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Reject trap to avoid fake county-park centroid"
+  },
+  {
+    "id": "pa-reject-allegheny-boyce-park-general-camping",
+    "state": "PA",
+    "name": "Boyce Park general camping",
+    "countyRegion": "Allegheny",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "reject_trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Allegheny County sources list Boyce Park facilities/shelters/activities, with no public overnight campground proof. ([Allegheny County][37])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Reject to prevent urban park false-positive"
+  },
+  {
+    "id": "pa-reject-lancaster-hickory-run-family-campground-out-of-lock",
+    "state": "PA",
+    "name": "Hickory Run Family Campground, Denver",
+    "countyRegion": "Lancaster",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "out_of_scope",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Source identifies Hickory Run Family Campground in northern Lancaster County / Denver, PA, which is outside the assigned counties. ([hickoryruncampground.com][38])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Out-of-lock trap"
+  },
+  {
+    "id": "pa-reject-carbon-hickory-run-state-park-out-of-lock",
+    "state": "PA",
+    "name": "Hickory Run State Park Campground",
+    "countyRegion": "Carbon",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "out_of_scope",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Hickory Run State Park is in Carbon County, outside the assignment boundary. ([Pennsylvania Government][39])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.62",
+    "notes": "Out-of-lock trap"
   }
 ];

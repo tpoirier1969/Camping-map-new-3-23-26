@@ -1,0 +1,15 @@
+Tod's Boondocking & Camping Maps — v23.1.62 Pennsylvania Bulldog first pass
+
+Built from current v23.1.61 baseline.
+
+Active PA records added: 108
+PA leads appended: 132
+PA rejected-memory rows appended: 18
+
+Notes:
+- Creates data/states/PA.js because no active PA state file was present in the inspected baseline.
+- Uses Worker 4–8 Bulldog returns.
+- Coordinates are official/operator/reservation/directory/address-map checked to the level returned by workers and reconciled by supervisor.
+- Does not include config.js.
+
+Install order if using both state packages: install this PA package first, then the v23.1.63 Iowa package.
