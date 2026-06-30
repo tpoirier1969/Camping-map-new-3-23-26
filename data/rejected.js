@@ -3909,5 +3909,203 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.62",
     "notes": "Out-of-lock trap"
+  },
+  {
+    "id": "ia-reject-tom-hanafan-rivers-edge-park-no-camping-proof",
+    "state": "IA",
+    "name": "Tom Hanafan River’s Edge Park",
+    "countyRegion": "Pottawattamie / Council Bluffs riverfront",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "`wrong_feature_trap`",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Council Bluffs visitor guide describes Tom Hanafan River’s Edge as public green space, playground/trails/riverfront access, not overnight camping. ([Unleash Council Bluffs][53])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Missouri River false-positive trap."
+  },
+  {
+    "id": "ia-reject-ashton-pits-wma-no-camping-proof",
+    "state": "IA",
+    "name": "Ashton Pits Wildlife Management Area",
+    "countyRegion": "Osceola / Ashton",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "`wrong_feature_trap`",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Ashton Pits page lists waterfowl/upland hunting and fishing, open year-round, but no camping. ([My County Parks][54])",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Common “public land near water” trap."
+  },
+  {
+    "id": "ia-reject-iowa-great-lakes-marina-boat-launch-beach-pins",
+    "state": "IA",
+    "name": "Iowa Great Lakes marinas, boat launches, beaches and lake centers as campground pins",
+    "countyRegion": "Dickinson / Iowa Great Lakes",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "wrong-feature trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Applies to Spirit Lake/Okoboji/Lower Gar marinas, beaches, boat ramps, lake centers",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Add reject-memory guardrail to prevent fake dots in a high-density resort/lake region."
+  },
+  {
+    "id": "ia-reject-fairgrounds-event-only-camping-north-central-iowa",
+    "state": "IA",
+    "name": "North/Central Iowa fairgrounds event-only camping without public non-event overnight proof",
+    "countyRegion": "Assigned IA counties",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "event-only/nonpublic trap",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Search family: [county] fairgrounds camping, fairground RV parking",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Several county fairgrounds may show hookups; hold out unless public transient camping is official."
+  },
+  {
+    "id": "ia-ambrose-a-call-state-park-campground-trap",
+    "state": "IA",
+    "name": "Ambrose A. Call State Park as campground",
+    "countyRegion": "Kossuth",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "state park/day-use/historic trap unless camping proof recovered",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.iowadnr.gov/places-go/state-parks/all-parks/ambrose-a-call-state-park",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Kossuth County has real county/private campground opportunities; do not fill gap with park centroid."
+  },
+  {
+    "id": "ia-lower-gar-mini-wakan-okamanpedan-water-access-trap",
+    "state": "IA",
+    "name": "Lower Gar / Mini-Wakan / Okamanpedan water-access-only state recreation units as campgrounds",
+    "countyRegion": "Dickinson / Emmet",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "water access / day-use unless camping proof recovered",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.iowadnr.gov/places-go/state-parks/all-parks",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Protects against obvious Iowa Great Lakes wrong-feature imports."
+  },
+  {
+    "id": "ia-reject-usace-dams-visitor-centers-as-campground-pins",
+    "state": "IA",
+    "name": "USACE dams / visitor centers / admin offices as campground pins",
+    "countyRegion": "Coralville / Saylorville / Red Rock / Rathbun",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "USACE official pages for project context only.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Add rejected-memory guardrail."
+  },
+  {
+    "id": "ia-reject-mississippi-river-marinas-boat-ramps-beaches-as-campgrounds",
+    "state": "IA",
+    "name": "Mississippi River marinas, boat ramps, beaches, and access points as campground pins",
+    "countyRegion": "Mississippi River corridor",
+    "rejectedAsLayer": "Any camping layer",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Applies to Rock Creek/Massey/Mud Lake/Fairport/Saulsbury and river corridor sweeps.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Prevents fake campground pins from river recreation features."
+  },
+  {
+    "id": "ia-reject-wildcat-den-state-park-campground-assumption",
+    "state": "IA",
+    "name": "Wildcat Den State Park campground assumption",
+    "countyRegion": "Muscatine",
+    "rejectedAsLayer": "Any campground layer",
+    "rejectionType": "no_current_overnight_proof / wrong_feature_type",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.iowadnr.gov/places-go/state-parks/all-parks/wildcat-den-state-park",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Reopen if DNR adds official campground/camping proof."
+  },
+  {
+    "id": "ia-reject-mines-of-spain-campground-assumption",
+    "state": "IA",
+    "name": "Mines of Spain State Recreation Area campground assumption",
+    "countyRegion": "Dubuque",
+    "rejectedAsLayer": "Any campground layer",
+    "rejectionType": "no_current_overnight_proof / wrong_feature_type",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "https://www.iowadnr.gov/places-go/state-parks/all-parks/mines-spain-state-recreation-area",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Reopen only with official overnight camping proof."
+  },
+  {
+    "id": "ia-reject-water-trail-sandbar-generic-pins",
+    "state": "IA",
+    "name": "Generic river sandbars / water trail stops as exact campsite pins",
+    "countyRegion": "Cedar / Iowa / Des Moines / Mississippi river corridors",
+    "rejectedAsLayer": "Boat / Backpack / Boondocking",
+    "rejectionType": "no_honest_map_record",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof shows public overnight camping and a defensible campground coordinate."
+    ],
+    "sourceSummary": "Applies to broad water-trail/corridor searches.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.63",
+    "notes": "Keeps workers from manufacturing boat/backpack pins."
   }
 ];

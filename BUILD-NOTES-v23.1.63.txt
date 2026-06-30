@@ -1,0 +1,15 @@
+Tod's Boondocking & Camping Maps — v23.1.63 Iowa Bulldog first pass
+
+Built cumulatively on v23.1.62 Pennsylvania first-pass package so Tod can install PA first and then this Iowa package.
+
+Iowa active additions: 57
+Iowa existing-record corrections in supplement: 3
+Iowa leads appended: 119
+Iowa rejected-memory rows appended: 11
+Final Iowa manifest count: 73
+Pennsylvania preserved from v23.1.62 active count: 108
+
+Notes:
+- IA Worker 2 produced the strongest active batch. IA Worker 1 and Worker 3 were lead-heavy, so unresolved western/eastern/USACE/DNR campground rows were appended to data/leads.js instead of forced into fake pins.
+- Applies Loess Hills/Pisgah Unit existing-record layer correction to Boat / Backpack in the IA supplement without increasing IA count.
+- Does not include config.js.
