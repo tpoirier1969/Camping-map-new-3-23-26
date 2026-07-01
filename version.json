@@ -1,9 +1,9 @@
 {
-  "version": "v23.1.70",
-  "build": "v23.1.70",
-  "dataVersion": "v23.1.70-sd-nd-mo-weakstate-rescue",
-  "dataBuild": "v23.1.70-sd-nd-mo-weakstate-rescue",
+  "version": "v23.1.71",
+  "build": "v23.1.71",
+  "dataVersion": "v23.1.71-mt-oh-ky-weakstate-rescue",
+  "dataBuild": "v23.1.71-mt-oh-ky-weakstate-rescue",
   "released": "2026-07-01",
-  "label": "Boondocking & Camping Maps v23.1.70",
-  "notes": "SD/ND/MO weak-state rescue first wave. Adds supervisor-accepted South Dakota GFP/USFS/NPS rows, North Dakota city/state/private rows, and Missouri USFS/NPS official campground/float-camp rows; parks coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads and adds rejected-memory guardrails."
+  "label": "Boondocking & Camping Maps v23.1.71",
+  "notes": "MT/OH/KY weak-state rescue first wave. Adds supervisor-accepted Montana USFS/FWP/KOA/Fort Peck-area rows and Ohio official/private campground rows where coordinates are honest; parks coordinate-blocked Ohio/Kentucky USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads and adds no-camping/day-use/proxy reject memory."
 }

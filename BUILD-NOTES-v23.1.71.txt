@@ -1,0 +1,39 @@
+Tod's Boondocking & Camping Maps — v23.1.71 BUILD NOTES
+
+Scope:
+- MT/OH/KY weak-state rescue first wave from MT Workers 1-3, OH Workers 4-6, and KY Workers 7-8.
+- Fixed-files package only; no config.js included.
+
+Accepted active additions:
+- Montana: 39 new active rows.
+- Ohio: 12 new active rows.
+- Kentucky: 0 new active rows.
+
+Runtime counts after supplement:
+- MT: 218 (previous 179)
+- OH: 103 (previous 91)
+- KY: 57 (previous 57)
+
+Ledger changes:
+- data/leads.js total: 1515
+- data/rejected.js total: 399
+- New leads added in this build: 124
+- New rejected-memory rows added in this build: 35
+
+Supervisor decisions:
+- Promoted only rows with numeric source-backed campground/recreation-area coordinates accepted as honest markers.
+- Promoted the Sluice Boxes backcountry item as an approximate area/rule marker because Worker 2 supplied an official park/backcountry-rule coordinate and explicit approximate-marker wording.
+- Held coordinate-blocked LBL, USACE, ODNR, Kentucky Fish & Wildlife, Daniel Boone NF, Ohio/Kentucky private/operator, WMA/FAS/MVUM, state-forest, backcountry, and component-split systems as leads.
+- Skipped active duplicate state-park rows already present in the v23.1.70 baseline, including Red Cliff, Pennyrile Forest, and Lake Malone.
+- No lake-center, dam, visitor-center, boat-ramp, trailhead, fairground/event-only, park-office, forest-office, or broad property centroid pins were added.
+
+Changed files:
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/mt-oh-ky-weakstate-rescue-v23.1.71.js
+- data/leads.js
+- data/rejected.js
+- BUILD-NOTES-v23.1.71.txt
+- QA-v23.1.71.txt
+- QA-v23.1.71-runtime-counts.json

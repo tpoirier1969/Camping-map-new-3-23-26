@@ -6861,5 +6861,635 @@ window.CAMPING_REJECTED = [
   "relatedActiveOrPendingRecord": null,
   "lastCheckedVersion": "v23.1.70",
   "notes": "From MO_W8 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mt-reject-flathead-access-only-boating-river-sites-as-campgrounds",
+  "state": "MT",
+  "name": "Flathead NF access-only boat/river sites used as campground proxies",
+  "countyRegion": "Flathead NF",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Example: Holland Lake Boating Site is a boat ramp/parking/restroom feature near a campground, not the campground itself; USFS gives separate coordinates for the boating site. ([US Forest Service][27])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W1 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "1",
+  "state": "",
+  "name": "",
+  "countyRegion": "",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W1 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-kiwanis-park-fort-peck-day-use-shelter-as-campground",
+  "state": "MT",
+  "name": "Kiwanis Park / Fort Peck Project shelters",
+  "countyRegion": "Valley / Fort Peck Project",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://www.recreation.gov/camping/campgrounds/10253034",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W2 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-perch-point-shelters-as-campground-without-overnight-proof",
+  "state": "MT",
+  "name": "Perch Point 1 & 2 Shelters",
+  "countyRegion": "Valley / Fort Peck Project",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://www.recreation.gov/camping/campgrounds/10253029",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W2 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-1st-dredge-shelters-as-campground",
+  "state": "MT",
+  "name": "1st Dredge Shelters",
+  "countyRegion": "Valley / Fort Peck Project",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://www.recreation.gov/camping/campgrounds/10346397",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W2 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-administration-lawn-fort-peck-as-campground",
+  "state": "MT",
+  "name": "Administration Lawn",
+  "countyRegion": "Valley / Fort Peck Project",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://www.recreation.gov/camping/campgrounds/10346400",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W2 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-boomtown-shelter-fort-peck-as-campground",
+  "state": "MT",
+  "name": "Boomtown Shelter",
+  "countyRegion": "Valley / Fort Peck Project",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://www.recreation.gov/camping/gateways/288",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W2 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-interpretive-center-shelter-fort-peck-as-campground",
+  "state": "MT",
+  "name": "Interpretive Center Shelter",
+  "countyRegion": "Valley / Fort Peck Project",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://www.recreation.gov/camping/gateways/288",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W2 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-fort-peck-dam-lake-office-marina-centroid-proxies",
+  "state": "MT",
+  "name": "Fort Peck Dam / lake / Corps office / marina proxy pins",
+  "countyRegion": "Fort Peck Project / Fort Peck Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://www.recreation.gov/camping/gateways/288 ; https://www.recreation.gov/camping/campgrounds/233489",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W2 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-red-rock-lakes-dispersed-wilderness-roadside-camping",
+  "state": "MT",
+  "name": "Red Rock Lakes NWR dispersed/backcountry/wilderness/roadside camping trap",
+  "countyRegion": "Beaverhead County / Red Rock Lakes NWR",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://www.fws.gov/refuge/red-rock-lakes/visit-us/activities/camping — FWS says camping is allowed only in River Marsh and Upper Lake campgrounds and explicitly says no dispersed, backcountry, refuge wilderness, or roadside camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W3 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-clarks-lookout-state-park-no-camping",
+  "state": "MT",
+  "name": "Clark's Lookout State Park no-camping trap",
+  "countyRegion": "Beaverhead County / Dillon",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://fwp.mt.gov/stateparks/clarks-lookout — FWP lists heritage, hiking, picnic, photography, wildlife viewing and day-use amenities, not camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W3 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-madison-buffalo-jump-state-park-no-camping",
+  "state": "MT",
+  "name": "Madison Buffalo Jump State Park no-camping trap",
+  "countyRegion": "Gallatin County / Madison River corridor",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://fwp.mt.gov/stateparks/madison-buffalo-jump — FWP lists heritage, hiking, photography, picnic, wildlife viewing and amenities, not camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W3 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-yellowstone-edge-entrance-ranger-station-trailhead-proxy-camping",
+  "state": "MT",
+  "name": "Yellowstone-edge entrance / ranger-station / trailhead proxy camping trap",
+  "countyRegion": "Park / Gallatin / Yellowstone edge outside park",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Assignment warns not to use Yellowstone NP entrances, ranger stations, trailheads, fishing access ramps, or river pullouts as campsite pins unless official overnight proof identifies that exact feature as a campground/campsite.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W3 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mt-reject-southwest-mt-boat-ramp-fas-pullout-proxy-camping",
+  "state": "MT",
+  "name": "Southwest Montana boat-ramp / FAS / river-pullout proxy camping trap",
+  "countyRegion": "Madison / Gallatin / Jefferson / Beaverhead / Big Hole corridors",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Use FWP/BLM/USFS site-specific camping permission before importing fishing access sites, river pullouts, boat ramps, or bridge accesses as overnight camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From MT_W3 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "oh-reject-defiance-county-fairgrounds-fair-week-only",
+  "state": "OH",
+  "name": "Defiance County Fairgrounds Camping Trap",
+  "countyRegion": "Defiance / Hicksville",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Official fair camping page is tied to fair dates/passes; no ordinary public campground proof found. ([Defiance County Fair][22])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From OH_W4 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "oh-reject-allen-county-fairgrounds-fair-camping-only",
+  "state": "OH",
+  "name": "Allen County Fairgrounds Camping Trap",
+  "countyRegion": "Allen west/north edge / Lima",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Official fair camping page is tied to fair registration/passes; no ordinary public campground proof found. ([Allen County Fairgrounds][23])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From OH_W4 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "oh-reject-turnpike-service-plazas-as-campgrounds",
+  "state": "OH",
+  "name": "Ohio Turnpike Service Plazas / Rest Areas as Camping Pins",
+  "countyRegion": "Lucas/Wood/Sandusky corridor",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Lake Erie corridor searches surfaced service plaza/rest-area results, but these are not campground records. ([Camping][24])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From OH_W4 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "3",
+  "state": "",
+  "name": "",
+  "countyRegion": "",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From OH_W4 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "oh-reject-franklin-county-fairgrounds-event-camping",
+  "state": "OH",
+  "name": "Franklin County Fairgrounds Camping as ordinary campground",
+  "countyRegion": "Franklin / Hilliard",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Franklin County Fairgrounds camping is tied to fair participants / Ohio State Fair temporary camping; page says no bathhouses or bathrooms for State Fair camping. ([Franklin County Fairgrounds][30])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From OH_W5 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "oh-reject-columbus-dayton-cincinnati-metroparks-general-camping",
+  "state": "OH",
+  "name": "Urban Metroparks general camping claims",
+  "countyRegion": "Columbus / Dayton / Cincinnati metro edges",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Great Parks and Five Rivers have specific named campgrounds/campsites; general metropark names or visitor centers should not become camping pins. ([GREAT PARKS OF HAMILTON COUNTY][32])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From OH_W5 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "2",
+  "state": "",
+  "name": "",
+  "countyRegion": "",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From OH_W6 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "oh-reject-state-forest-random-dispersed-camping-pulloff-pins",
+  "state": "OH",
+  "name": "Ohio state forest random dispersed camping / pull-off pins",
+  "countyRegion": "Southeast Ohio state forests",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "ODNR states camping in state forests is in designated areas; Harrison rules likewise state camping is permitted only in designated areas. ([Ohio Department of Natural Resources][14])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From OH_W6 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "oh-reject-kinderhook-trailhead-as-campsite-pin",
+  "state": "OH",
+  "name": "Kinderhook Trailhead as exact campsite pin",
+  "countyRegion": "Washington / Wayne NF",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USFS lists Kinderhook in a horse riding/camping context, but the trailhead itself is not isolated as an exact campsite/campground point in the accessible source. ([US Forest Service][6])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From OH_W6 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-reject-lake-barkley-old-kuttawa-shelter-trap",
+  "state": "KY",
+  "name": "Old Kuttawa Recreation Area",
+  "countyRegion": "Lyon / Lake Barkley",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Recreation.gov search context showed Old Kuttawa available inventory as group shelters rather than overnight campsites. ([Recreation.gov][12])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W7 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-reject-lake-barkley-linton-shelter-trap",
+  "state": "KY",
+  "name": "Linton Recreation Area",
+  "countyRegion": "Trigg / Lake Barkley",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Recreation.gov search context for Linton showed group shelter inventory with day-use checkout timing, not overnight camping proof. ([Recreation.gov][13])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W7 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-reject-ballard-wma-no-camping-access-points-trap",
+  "state": "KY",
+  "name": "Ballard WMA no-camping access-point trap",
+  "countyRegion": "Ballard",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "KDFWR access results include Ballard WMA Pond and other access points with camping listed as none; do not infer camping across all WMA access points. ([Kentucky Fish and Wildlife][19])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W7 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-reject-peabody-wma-no-camping-access-points-trap",
+  "state": "KY",
+  "name": "Peabody WMA no-camping access-point trap",
+  "countyRegion": "Muhlenberg / Ohio / Hopkins west",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "KDFWR access results include individual Peabody access points with camping listed as none, so each access point must be checked rather than blanket-imported. ([Kentucky Fish and Wildlife][20])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W7 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "4",
+  "state": "",
+  "name": "",
+  "countyRegion": "",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W7 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-w8-nolin-day-use-as-campground-trap",
+  "state": "KY",
+  "name": "Nolin River Lake day-use shelters as campground pins",
+  "countyRegion": "Nolin River Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Nolin gateway separates Dog Creek and Moutardier campgrounds from Dog Creek Day Use, Moutardier Day Use, and Tailwater Day Use. ([Recreation.gov][12])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W8 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-w8-green-river-lake-picnic-shelter-trap",
+  "state": "KY",
+  "name": "Green River Lake picnic shelters as campground pins",
+  "countyRegion": "Green River Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Green River Lake gateway lists actual campgrounds separately from Big Oak, Tailwater, and Satterly picnic shelters. ([Recreation.gov][16])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W8 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-w8-tygarts-state-forest-no-camping",
+  "state": "KY",
+  "name": "Tygarts State Forest camping trap",
+  "countyRegion": "Carter / Carter Caves edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Kentucky EEC says camping is prohibited in Tygarts State Forest; public campsites are available at nearby Carter Caves State Resort Park. ([Kentucky Energy and Environment Cabinet][28])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W8 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-w8-knobs-state-forest-day-use-no-camping",
+  "state": "KY",
+  "name": "Knobs State Forest & WMA camping trap",
+  "countyRegion": "Bullitt / Louisville south edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Kentucky EEC says Knobs State Forest & WMA is open for day use only unless hunting regulations specify extended hours. ([Kentucky Energy and Environment Cabinet][29])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W8 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-w8-marrowbone-state-forest-day-use-no-camping",
+  "state": "KY",
+  "name": "Marrowbone State Forest & WMA camping trap",
+  "countyRegion": "Metcalfe / Cumberland",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_day_use_or_proxy",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Kentucky EEC says Marrowbone State Forest is open for day use only unless hunting regulations specify extended hours. ([Kentucky Energy and Environment Cabinet][30])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W8 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "ky-w8-generic-wma-camping-layer-trap",
+  "state": "KY",
+  "name": "Generic Kentucky WMA camping area/rule pin",
+  "countyRegion": "Statewide / in-scope WMAs",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "KDFWR says WMA camping is permitted only in designated areas and only on certain WMAs; users must check WMA maps or call the WMA office. ([Kentucky Department of Fish & Wildlife][48])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W8 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "6",
+  "state": "",
+  "name": "",
+  "countyRegion": "",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.71",
+  "notes": "From KY_W8 v23.1.71 weak-state rescue return."
 }
 ];

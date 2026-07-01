@@ -1,0 +1,73 @@
+{
+  "counts": {
+    "MT": 218,
+    "OH": 103,
+    "KY": 57
+  },
+  "duplicates": {
+    "MT": {
+      "duplicateIds": [],
+      "duplicateNames": []
+    },
+    "OH": {
+      "duplicateIds": [],
+      "duplicateNames": []
+    },
+    "KY": {
+      "duplicateIds": [],
+      "duplicateNames": []
+    }
+  },
+  "badCoords": [],
+  "leadsRejected": {
+    "leads": 1515,
+    "rejected": 399
+  },
+  "activeAdditionsByState": {
+    "MT": 39,
+    "OH": 12,
+    "KY": 0
+  },
+  "skippedDuplicates": [
+    [
+      "mt-v23170-red-cliff-campground",
+      "Red Cliff Campground",
+      "manual skip"
+    ],
+    [
+      "mt-v23170-greek-creek-campground",
+      "Greek Creek Campground",
+      "name/nearby duplicate"
+    ],
+    [
+      "mt-v23170-moose-creek-flat-campground",
+      "Moose Creek Flat Campground",
+      "name/nearby duplicate"
+    ],
+    [
+      "mt-v23170-swan-creek-campground",
+      "Swan Creek Campground",
+      "name/nearby duplicate"
+    ],
+    [
+      "mt-v23170-lost-creek-state-park-campground",
+      "Lost Creek State Park Campground",
+      "name/nearby duplicate"
+    ],
+    [
+      "mt-v23170-missouri-headwaters-state-park-campground",
+      "Missouri Headwaters State Park Campground",
+      "name/nearby duplicate"
+    ],
+    [
+      "ky-pennyrile-forest-state-resort-park-campground-v23170",
+      "Pennyrile Forest State Resort Park Campground",
+      "manual skip"
+    ],
+    [
+      "ky-lake-malone-state-park-campground-v23170",
+      "Lake Malone State Park Campground",
+      "manual skip"
+    ]
+  ]
+}

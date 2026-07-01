@@ -1,0 +1,29 @@
+Tod's Boondocking & Camping Maps — v23.1.71 QA
+
+Runtime counts:
+- MT manifest/runtime: 218 / 218
+- OH manifest/runtime: 103 / 103
+- KY manifest/runtime: 57 / 57
+
+Duplicate checks after loading data/supplements/mt-oh-ky-weakstate-rescue-v23.1.71.js:
+- MT duplicate active IDs: 0
+- MT duplicate active names: 0
+- OH duplicate active IDs: 0
+- OH duplicate active names: 0
+- KY duplicate active IDs: 0
+- KY duplicate active names: 0
+
+Bad active coordinate check:
+- Bad MT/OH/KY active coordinate rows: 0
+
+JS syntax checks:
+- version.js: passed
+- data/states-manifest.js: passed
+- data/supplements/mt-oh-ky-weakstate-rescue-v23.1.71.js: passed
+- data/leads.js: passed
+- data/rejected.js: passed
+
+Coordinate policy:
+- No active row was created from COORD RESCUE REQUIRED / AREA GEOMETRY REQUIRED placeholders.
+- Coordinate-blocked rows were preserved in data/leads.js.
+- No config.js changes included.
