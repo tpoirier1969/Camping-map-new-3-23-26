@@ -5205,5 +5205,113 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "No active Boulder Day Use row found",
     "lastCheckedVersion": "v23.1.65",
     "notes": "IL_W8 first-pass reject/guardrail. Add reject-memory"
+  },
+  {
+    "id": "oh-reject-farnsworth-metropark-day-use-water-trail-trap",
+    "state": "OH",
+    "name": "Farnsworth Metropark / Maumee River Day-Use and Water-Trail Trap",
+    "countyRegion": "Lucas / Maumee River",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "No public overnight campground proof recovered here",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping and an honest campsite/campground coordinate can be made."
+    ],
+    "sourceSummary": "Metroparks Toledo park list includes Farnsworth; no camping proof recovered in accessible page family",
+    "relatedActiveOrPendingRecord": "No Farnsworth active match found",
+    "lastCheckedVersion": "v23.1.66",
+    "notes": "From OH_W2 next-round closeout. Rejected-memory trap, not a final campground proof"
+  },
+  {
+    "id": "oh-reject-blue-creek-metropark-day-use-trap",
+    "state": "OH",
+    "name": "Blue Creek Metropark Day-Use / Event-Site Trap",
+    "countyRegion": "Lucas / Metroparks Toledo",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "No public overnight campground proof recovered here",
+    "rejectionStrength": "guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping and an honest campsite/campground coordinate can be made."
+    ],
+    "sourceSummary": "Metroparks Toledo park list includes Blue Creek; no camping proof recovered in accessible source family",
+    "relatedActiveOrPendingRecord": "No Blue Creek active match found",
+    "lastCheckedVersion": "v23.1.66",
+    "notes": "From OH_W2 next-round closeout. Seed target but not enough proof for map record"
+  },
+  {
+    "id": "oh-reject-lake-erie-beach-marina-launch-traps-west",
+    "state": "OH",
+    "name": "Lake Erie West Beaches / Marinas / Boat Launches Trap Bundle",
+    "countyRegion": "Lucas / Ottawa / Erie / Sandusky County shore",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Not campground unless overnight camping explicitly proven",
+    "rejectionStrength": "guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping and an honest campsite/campground coordinate can be made."
+    ],
+    "sourceSummary": "Applies to Maumee Bay marina/beach, East Harbor marina/beach, Port Clinton/Sandusky marinas, ferry docks, boat launches",
+    "relatedActiveOrPendingRecord": "Active duplicate checks are per actual named campground only",
+    "lastCheckedVersion": "v23.1.66",
+    "notes": "From OH_W2 next-round closeout. Prevents fake coordinates in Lake Erie island/shore corridor"
+  },
+  {
+    "id": "oh-reject-metroparks-toledo-day-use-parks-without-camping",
+    "state": "OH",
+    "name": "Metroparks Toledo Day-Use Parks Without Overnight Camping Proof",
+    "countyRegion": "Lucas / Wood edge",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Not campground unless official camping/reservation source proves overnight use",
+    "rejectionStrength": "guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping and an honest campsite/campground coordinate can be made."
+    ],
+    "sourceSummary": "Applies to Farnsworth, Blue Creek, Cannonball Prairie and other Metroparks where camping is not explicitly proven",
+    "relatedActiveOrPendingRecord": "Check exact name before reject; Oak Openings and Wiregrass are exceptions with camping proof",
+    "lastCheckedVersion": "v23.1.66",
+    "notes": "From OH_W2 next-round closeout. Add rejected-memory trap bundle"
+  },
+  {
+    "id": "oh-reject-lake-erie-island-centroids-ferry-docks",
+    "state": "OH",
+    "name": "Lake Erie Island Center / Ferry Dock / Marina Trap Bundle",
+    "countyRegion": "Erie / Ottawa islands",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "Not campground coordinate",
+    "rejectionStrength": "guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping and an honest campsite/campground coordinate can be made."
+    ],
+    "sourceSummary": "Applies to Kelleys Island village/ferry, Put-in-Bay downtown, Middle Bass marina/Lonz Mansion, North Bass airport/docks",
+    "relatedActiveOrPendingRecord": "Only campground/reservation/map points should become active",
+    "lastCheckedVersion": "v23.1.66",
+    "notes": "From OH_W2 next-round closeout. Add rejected-memory trap bundle"
+  },
+  {
+    "id": "oh-reject-perry-state-forest-general-camping",
+    "state": "OH",
+    "name": "Perry State Forest general camping",
+    "countyRegion": "Perry County",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionType": "official/no-camping trap unless future official change",
+    "rejectionStrength": "guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Official/operator source later proves public overnight camping and an honest campsite/campground coordinate can be made."
+    ],
+    "sourceSummary": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/perry-state-forest",
+    "relatedActiveOrPendingRecord": "No active duplicate confirmed.",
+    "lastCheckedVersion": "v23.1.66",
+    "notes": "From OH_W3 next-round closeout. Adjacent trap because Perry State Forest appears in Wayne/ODNR search universe; if official page says no camping, keep rejected."
   }
 ];

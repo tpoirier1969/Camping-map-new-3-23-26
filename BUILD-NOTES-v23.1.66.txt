@@ -1,0 +1,35 @@
+TOD'S BOONDOCKING & CAMPING MAPS — BUILD NOTES v23.1.66
+
+Build: v23.1.66-oh-il-next-closeout1
+Date: 2026-07-01
+Base: v23.1.65 OH/IL Bulldog first pass cumulative fixed-files package
+
+Scope:
+- Reconciles next-round Ohio and Illinois worker returns.
+- Adds source-backed active rows/camping-area markers where coordinates were usable.
+- Preserves coordinate-blocked ODNR/IDNR/USACE/state-forest/backpack/primitive component systems as leads instead of fake points.
+- Applies source-backed Illinois layer/source/status corrections for stale Shawnee/IDNR/Crab Orchard rows.
+- Adds the Non-modern priority rule to PROJECT_RULES.md and Project Rules.md for future worker handoffs.
+
+Active changes:
+- Ohio net new active rows: 41
+- Illinois net new active rows: 16
+- Illinois existing-record corrections/source/layer/status updates: 20
+- Final Ohio manifest count: 91
+- Final Illinois manifest count: 192
+
+New active layer split, excluding existing-record corrections:
+- Modern Campgrounds: 18
+- Rustic / Primitive: 24
+- Private Campgrounds: 15
+
+Ledger changes:
+- Leads appended: 13
+- Rejected rows appended: 6
+- Final data/leads.js rows: 905
+- Final data/rejected.js rows: 278
+
+QA notes:
+- config.js not included.
+- JS syntax checks performed during package QA.
+- Runtime manifest counts checked against loaded state arrays after applying v23.1.66 supplement.

@@ -84,6 +84,15 @@ Do not use address evidence blindly. Do not use a mailing office, city hall, cou
 If a worker has official/operator proof plus an address, map, reservation page, parcel clue, campground directory coordinate, or obvious map marker, they must attempt coordinate rescue before downgrading to lead-only. The return must report what was checked and why the coordinate was or was not safe. Missing coordinates are not an excuse to omit a real campground; if it cannot be active, it must become a durable lead.
 
 
+Non-modern priority rule for worker handoffs:
+
+Tod personally values Rustic / Primitive, Boat / Backpack, Boondocking / Dispersed, legal dispersed/remote camping, hike-in/backpack, boat-in/water-trail, equestrian, state forest, national forest, county primitive, and area/rule opportunities more than easy Modern and Private campground inventory. Future workers must not ignore Modern or Private campgrounds when they are obvious and source-backed, but they must start by deliberately hunting non-modern and area/rule systems inside their geographic lock.
+
+Every geography-locked worker must explicitly report what they checked for non-modern opportunities before closing. This includes, where relevant: state forest campgrounds, national forest campgrounds, legal dispersed or boondocking rule areas, designated dispersed sites, hike-in/backpack/backcountry camps, canoe/kayak/boat-in sites, water-trail camps, equestrian or horse camps, county forest/forest-preserve primitive camps, youth/group primitive camps where public reservation rules allow them, and official area/rule markers.
+
+Do not force fake Rustic, Boat/Backpack, or Boondocking pins to make the layer counts look better. If exact non-modern coordinates are blocked, return a durable lead with the exact acquisition path: GIS layer, GeoPDF, reservation metadata, official map, agency contact, or operator source. The target is better non-modern coverage, not fake equality between layers.
+
+
 Standalone handoff block rule:
 
 Every worker or supervisor handoff must be complete in and of itself.

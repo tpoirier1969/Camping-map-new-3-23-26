@@ -1,9 +1,6 @@
 {
-  "appVersion": "v23.1.65",
-  "build": "v23.1.65",
-  "dataVersion": "v23.1.65-oh-il-bulldog-firstpass1",
-  "dataBuild": "v23.1.65-oh-il-bulldog-firstpass1",
-  "label": "Boondocking & Camping Maps v23.1.65 + OH/IL Bulldog first pass",
-  "released": "2026-06-30",
-  "notes": "Ohio/Illinois Bulldog first-pass active additions, leads, rejects, and handoff-ready cleanup baseline."
+  "version": "v23.1.66",
+  "dataBuild": "v23.1.66-oh-il-next-closeout1",
+  "date": "2026-07-01",
+  "notes": "OH/IL next-round closeout build; non-modern priority rule added to project rules."
 }
