@@ -1,0 +1,58 @@
+Tod's Boondocking & Camping Maps — BUILD NOTES v23.1.69
+IN/NE coordinate-rescue closeout
+Date: 2026-07-01
+
+Purpose:
+Integrate the completed Indiana and Nebraska next-round worker returns after v23.1.68, while holding coordinate-blocked rows as leads rather than forcing bad pins.
+
+Changed files:
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/in-ne-coordinate-rescue-closeout-v23.1.69.js
+- data/leads.js
+- data/rejected.js
+- PROJECT_RULES.md
+- Project Rules.md
+- BUILD-NOTES-v23.1.69.txt
+- QA-v23.1.69.txt
+
+Not changed / not included:
+- config.js was not changed and is not included in the fixed-files ZIP.
+- index.html was not changed; existing version.js and manifest loading contract remains intact.
+
+Active data result:
+- Indiana active runtime count increases from 43 to 60.
+- Nebraska active runtime count increases from 45 to 84.
+- New supplement contains 71 entries: 56 net active additions and 15 existing-row corrections/updates.
+
+Accepted Indiana work:
+- Integrated safe Indiana DNR/ReserveAmerica campground-system rows from Worker 1.
+- Integrated selected coordinate-ready private/operator rows from Worker 2.
+- Worker 3 Hoosier NF rows were already present in the v23.1.68 cumulative package, so they were not duplicated.
+- Central/southern DNR component rows with no separate coordinates remain leads.
+
+Accepted Nebraska work:
+- Integrated high-confidence NGPC/NRD/USACE/ReserveAmerica campground rows with numeric worker coordinates or defensible broad campground coordinates.
+- Integrated selected city/private/operator rows with medium or better coordinate support.
+- Applied WMA layer/source corrections to existing rows as Boondocking / Dispersed area/rule records.
+- Corrected/rewrote Lake McConaughy Point 21 into official designated beach-camping zone context.
+- Corrected/rewrote broad Niobrara River camping into Info/Reference caution because NPS says most riverbank/island land is private.
+- Corrected Sunshine Bottom to downstream primitive camping context while preserving the boat-ramp-as-campsite reject trap.
+- Corrected Bessey Recreation Complex as formal campground only, separate from MVUM dispersed-camping corridors.
+
+Held as leads:
+- Rows with no honest coordinate.
+- Component systems requiring QGIS/GDAL, GeoPDF, reservation metadata, official GIS, or agency contact.
+- MVUM dispersed corridor geometry.
+- WMA boundary/geometry extraction.
+- Lake McConaughy beach-zone geometry.
+- City/private rows with coordinate conflicts or insufficient coordinate proof.
+- Soldier Creek Campground closure watch.
+- Pawnderosa/Pawnee City Pond coordinate conflict.
+
+Rules update:
+Added a scope-control rule to both rules files. Narrow coordinate-rescue/component/source-system/ledger/reject/geometry passes must not become broad Bulldog/public-discovery sweeps unless the handoff explicitly says so. Out-of-scope discoveries should be parked as future leads and worker self-QA must report whether the worker stayed inside the assigned pass type.
+
+QA:
+See QA-v23.1.69.txt and qa_v23169_raw.json for runtime counts and checks.

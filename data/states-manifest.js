@@ -89,13 +89,15 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "IN",
     "name": "Indiana",
     "file": "data/states/IN.js",
-    "count": 43,
+    "count": 60,
     "files": [
       "data/states/IN.js",
-      "data/supplements/in-ne-public-discovery-first-pass-v23.1.68.js"
+      "data/supplements/in-ne-public-discovery-first-pass-v23.1.68.js",
+      "data/supplements/in-ne-coordinate-rescue-closeout-v23.1.69.js"
     ],
     "dynamicSources": [
-      "v23.1.68: IN/NE revised public-discovery first pass adds 38 active records/corrections for Indiana; coordinate-blocked discovered opportunities are preserved in data/leads.js for address/map/GIS/reservation rescue. Workers used public-discovery coverage controls and non-modern priority."
+      "v23.1.68: IN/NE revised public-discovery first pass adds 38 active records/corrections for Indiana; coordinate-blocked discovered opportunities are preserved in data/leads.js for address/map/GIS/reservation rescue. Workers used public-discovery coverage controls and non-modern priority.",
+      "v23.1.69: IN/NE coordinate-rescue closeout integrates accepted Indiana DNR/private/operator rows, adds Nebraska NGPC/NRD/USACE/city/private coordinate-rescue rows, and applies WMA/Niobrara/Lake McConaughy source/layer corrections. Coordinate-blocked components remain in data/leads.js."
     ]
   },
   "IA": {
@@ -228,15 +230,17 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "NE",
     "name": "Nebraska",
     "file": "data/states/NE.js",
-    "count": 45,
+    "count": 84,
     "files": [
       "data/states/NE.js",
       "data/supplements/modern-audit-cleanup-v23.1.21.js",
-      "data/supplements/in-ne-public-discovery-first-pass-v23.1.68.js"
+      "data/supplements/in-ne-public-discovery-first-pass-v23.1.68.js",
+      "data/supplements/in-ne-coordinate-rescue-closeout-v23.1.69.js"
     ],
     "dynamicSources": [
       "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification.",
-      "v23.1.68: IN/NE revised public-discovery first pass adds 25 active records/corrections for Nebraska; coordinate-blocked discovered opportunities are preserved in data/leads.js for address/map/GIS/reservation rescue. Workers used public-discovery coverage controls and non-modern priority."
+      "v23.1.68: IN/NE revised public-discovery first pass adds 25 active records/corrections for Nebraska; coordinate-blocked discovered opportunities are preserved in data/leads.js for address/map/GIS/reservation rescue. Workers used public-discovery coverage controls and non-modern priority.",
+      "v23.1.69: IN/NE coordinate-rescue closeout integrates accepted Nebraska NGPC/NRD/USACE/city/private rows and source/layer corrections; coordinate-blocked components, MVUM/WMA geometry, and unstable coordinates remain in data/leads.js."
     ]
   },
   "NH": {

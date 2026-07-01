@@ -1,0 +1,61 @@
+Tod's Boondocking & Camping Maps — QA v23.1.69
+IN/NE coordinate-rescue closeout
+Date: 2026-07-01
+
+Version identity:
+- CAMPING_APP_VERSION: v23.1.69
+- CAMPING_APP_BUILD: v23.1.69
+- CAMPING_DATA_VERSION: v23.1.69-in-ne-coordinate-rescue-closeout
+- CAMPING_DATA_BUILD: v23.1.69-in-ne-coordinate-rescue-closeout
+- version.json updated: yes
+
+Runtime counts:
+- Indiana manifest/runtime: 60 / 60
+- Nebraska manifest/runtime: 84 / 84
+
+Delta from v23.1.68:
+- Indiana active: 43 -> 60 (+17)
+- Nebraska active: 45 -> 84 (+39)
+- data/leads.js: 1120 -> 1259 (+139)
+- data/rejected.js: 316 -> 329 (+13)
+
+Supplement entries:
+- data/supplements/in-ne-coordinate-rescue-closeout-v23.1.69.js contains 71 total entries.
+- Net active additions: 56.
+- Existing-record corrections/updates: 15.
+
+Layer distribution after runtime merge:
+Indiana:
+- Private Campgrounds/private: 25
+- Rustic / Primitive/rustic: 12
+- Boondocking / Dispersed/boondocking: 3
+- Info / Reference/info: 1
+- Modern Campgrounds/modern: 18
+- Pre-existing legacy state layer: 1
+
+Nebraska:
+- Boondocking / Dispersed/boondocking: 12
+- Rustic / Primitive/rustic: 27
+- Boat / Backpack/boat-backpack: 1
+- Private Campgrounds/private: 15
+- Modern Campgrounds/modern: 23
+- Info / Reference/info: 1
+- Pre-existing legacy layers pending/federal/state: 5 total
+
+Checks:
+- JS syntax: passed for version.js, states-manifest.js, new supplement, data/leads.js, data/rejected.js.
+- IN bad active coordinates: 0
+- NE bad active coordinates: 0
+- IN duplicate active IDs: 0
+- NE duplicate active IDs: 0
+- IN duplicate active names: 0
+- NE duplicate active names: 0
+- PROJECT_RULES.md and Project Rules.md match exactly: yes
+- config.js included in fixed-files ZIP: no
+
+Supervisor notes:
+- Worker stale-baseline duplicate warnings were handled by rechecking against the actual uploaded v23.1.68 cumulative package.
+- Worker rows with no honest coordinate, broad-only map proof, current closure, conflicting coordinates, or geometry-only proof were held in data/leads.js instead of forced active.
+- Soldier Creek Campground was kept lead-only because the Worker 8 return reported a current USFS emergency closure through July 18, 2026.
+- Pawnderosa / Pawnee City Pond was held out of active because supervisor QA found the returned tourism coordinate points to the wrong Pawnee-area geography; a reject-memory coordinate trap was added.
+- The new scope-control rule was added to both rules files to stop narrow coordinate-rescue passes from turning into full Bulldog sweeps.

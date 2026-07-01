@@ -5997,5 +5997,239 @@ window.CAMPING_REJECTED = [
   "relatedActiveOrPendingRecord": null,
   "lastCheckedVersion": "v23.1.68",
   "notes": "Added from Worker 1 IN public-discovery return."
+},
+{
+  "id": "in-reject-indianapolis-city-parks-as-overnight-camping-without-explicit-camping-page",
+  "state": "IN",
+  "name": "Indianapolis city parks / trailheads as campground proxies",
+  "countyRegion": "Marion / Indianapolis",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "City park/trailhead/beach/picnic results only",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From IN_W2 v23.1.69 closeout."
+},
+{
+  "id": "in-reject-lake-shafer-marinas-boat-ramps-as-campgrounds",
+  "state": "IN",
+  "name": "Lake Shafer marinas / boat ramps / resort front desks",
+  "countyRegion": "White / Monticello / Lake Shafer",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Marina/boat ramp/resort front desk results in Indiana Beach/Monticello corridor",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From IN_W2 v23.1.69 closeout."
+},
+{
+  "id": "in-reject-michigan-city-beaches-marinas-and-dunes-visitor-center-as-campgrounds",
+  "state": "IN",
+  "name": "Michigan City beaches / marinas / Dunes visitor centers",
+  "countyRegion": "LaPorte / Michigan City / Indiana Dunes edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Michigan City public discovery returns beaches, marina, Indiana Dunes visitor features",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From IN_W2 v23.1.69 closeout."
+},
+{
+  "id": "in-reject-fairgrounds-event-only-camping-without-public-non-event-proof",
+  "state": "IN",
+  "name": "Fairgrounds event-only camping without public non-event proof",
+  "countyRegion": "Statewide private/city/county operator pass",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Fairgrounds can be active only when public/non-event camping is explicitly proven",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From IN_W2 v23.1.69 closeout."
+},
+{
+  "id": "in-reject-obannon-stagestop-campground-canoe-access-closed",
+  "state": "IN",
+  "name": "O’Bannon Woods Stagestop Campground / Canoe Access Closure Trap",
+  "countyRegion": "Harrison / O’Bannon Woods",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "DNR alert: STAGESTOP CAMPGROUND AND CANOE ACCESS RAMP CLOSED; Stagestop closed until further notice.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From IN_W3 v23.1.69 closeout."
+},
+{
+  "id": "in-reject-hemlock-cliffs-trailhead-recreation-area-as-campsite",
+  "state": "IN",
+  "name": "Hemlock Cliffs Trailhead / Recreation Area Camping Trap",
+  "countyRegion": "Crawford / Hoosier NF",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USFS dispersed camping rules list Hemlock Cliffs among areas where dispersed camping is not permitted, while separate roadside designated map area needs exact split.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From IN_W3 v23.1.69 closeout."
+},
+{
+  "id": "in-reject-yellowwood-bear-lake-crooked-creek-lake-camping",
+  "state": "IN",
+  "name": "Yellowwood Bear Lake / Crooked Creek Lake Camping Trap",
+  "countyRegion": "Brown / Yellowwood State Forest",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "DNR Yellowwood page says camping is not permitted at Bear Lake or Crooked Creek Lake.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From IN_W3 v23.1.69 closeout."
+},
+{
+  "id": "ne-reject-pibel-bible-camp-private-church-camp",
+  "state": "NE",
+  "name": "Pibel Bible Camp",
+  "countyRegion": "Wheeler / Pibel Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Public NRD Pibel Lake is separate; Pibel Bible Camp is private/church camp context. ([nrdnet.org][21])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From NE_W4 v23.1.69 closeout."
+},
+{
+  "id": "ne-reject-harlan-cedar-point-day-use-only",
+  "state": "NE",
+  "name": "Cedar Point Park",
+  "countyRegion": "Harlan / Harlan County Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USACE season table marks Cedar Point as **Day Use Only** while the camping parks have camping seasons. ([Newark District][3])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From NE_W5 v23.1.69 closeout."
+},
+{
+  "id": "ne-reject-schramm-park-as-campground",
+  "state": "NE",
+  "name": "Schramm Park SRA as Campground",
+  "countyRegion": "Cass / Platte River corridor",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "NGPC says camping facilities are available at nearby Louisville SRA, Mahoney SP or Platte River SP, not Schramm Park itself. ([Nebraska Game & Parks Commission][26])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From NE_W6 v23.1.69 closeout."
+},
+{
+  "id": "ne-reject-east-ne-boat-ramps-marinas-dams-lake-centers-as-campsites",
+  "state": "NE",
+  "name": "Eastern NE boat ramps / marinas / dams / lake centers as campsite pins",
+  "countyRegion": "Salt Valley / Lower Platte / Missouri River / NRD lakes",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Official campground sources identify named campground systems; boat ramps, marinas, beaches, dams, lake centers, park offices and visitor centers are not campsite proof by themselves.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From NE_W6 v23.1.69 closeout."
+},
+{
+  "id": "ne-w8-niobrara-random-bank-island-camping-trap",
+  "state": "NE",
+  "name": "Niobrara random banks/islands camping",
+  "countyRegion": "Niobrara corridor",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "NPS says most land along the Niobrara, including streambed, banks, and islands, is privately owned. ([National Park Service][15])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "From NE_W8 v23.1.69 closeout."
+},
+{
+  "id": "ne-reject-pawnderosa-visitnebraska-coordinate-as-pawnee-city-pin",
+  "state": "NE",
+  "name": "Pawnderosa Campground wrong tourism coordinate",
+  "countyRegion": "Pawnee / Pawnee City",
+  "rejectedAsLayer": "Coordinate source only",
+  "rejectionType": "bad_coordinate / wrong_geography",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "VisitNebraska/Pawnderosa listing coordinate 40.847904,-96.868510 points to Pawnee SRA near Lincoln, not Pawnee City. Do not use that coordinate for Pawnee City Pond/Pawnderosa.",
+  "relatedActiveOrPendingRecord": "ne-lead-pawnderosa-campground-coordinate-conflict",
+  "lastCheckedVersion": "v23.1.69",
+  "notes": "Coordinate trap found during supervisor spot-check."
 }
 ];

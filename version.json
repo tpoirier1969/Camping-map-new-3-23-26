@@ -1,9 +1,9 @@
 {
-  "version": "v23.1.68",
-  "build": "v23.1.68",
-  "dataVersion": "v23.1.68-in-ne-public-discovery-firstpass1",
-  "dataBuild": "v23.1.68-in-ne-public-discovery-firstpass1",
+  "version": "v23.1.69",
+  "build": "v23.1.69",
+  "dataVersion": "v23.1.69-in-ne-coordinate-rescue-closeout",
+  "dataBuild": "v23.1.69-in-ne-coordinate-rescue-closeout",
   "released": "2026-07-01",
-  "label": "Boondocking & Camping Maps v23.1.68",
-  "notes": "Indiana/Nebraska public-discovery first-pass build. Adds safe active rows from revised worker returns and preserves coordinate-blocked opportunities as leads."
+  "label": "Boondocking & Camping Maps v23.1.69",
+  "notes": "IN/NE coordinate-rescue closeout. Adds accepted Indiana DNR/private/operator rows and Nebraska NGPC/NRD/USACE/city/private rows; applies WMA, Niobrara, Lake McConaughy and Bessey source/layer corrections; preserves coordinate-blocked components and geometry work as leads."
 }

@@ -56,6 +56,28 @@ Every new-state worker handoff must include a line labeled “Geographic lock”
 
 Historical leads/rejected backfill is a source-bundle/state mining task, not new campsite research. For historical backfill, split workers by state or source bundle unless an old state is so large that splitting reduces confusion. Do not over-split a state by geography merely to mine old chats. Workers should harvest named unresolved, rejected, blocked, conflicted, duplicate-watch, coordinate-rescue, and area-outline records into `data/leads.js` and `data/rejected.js`; they should not restart statewide scouting unless needed to classify a prior named lead.
 
+
+
+Scope-control rule — Discovery passes vs rescue passes:
+
+Workers must obey the assignment type.
+
+A Bulldog / public-discovery pass is broad. It must search for every discovered or discoverable overnight camping opportunity inside the assigned geography, including obvious campgrounds, non-obvious local campgrounds, private/operator campgrounds, county/city/fairground camping, primitive sites, water-trail camping, equestrian camping, hike-in/boat-in/backpack sites, and area/rule camping.
+
+A coordinate-rescue, component-extraction, ledger-cleanup, reject-trap, source-system, or geometry-extraction pass is narrow unless the handoff explicitly says otherwise. In narrow passes, workers must resolve the named target list and any directly adjacent same-system components they encounter. They must not launch a new statewide or broad public-discovery sweep just because they found extra names.
+
+For narrow rescue passes, workers may run limited coverage-control searches to avoid missing obvious same-target duplicates or same-system components. If those searches reveal unrelated opportunities outside the assignment scope, the worker must park them as brief `data/leads.js` candidates with the exact reason they were not worked, then return to the assigned task.
+
+Do not convert a coordinate-rescue pass into a Bulldog pass. Do not convert a state-forest geometry pass into a private campground sweep. Do not convert a private/operator address pass into a water-trail or DNR component pass. When in doubt, classify the extra item as `OUT OF SCOPE — FUTURE LEAD` and move on.
+
+Required worker self-QA must include one line answering: “Did I stay within the assigned pass type?” Valid answers are:
+
+* YES — stayed in assigned scope.
+* MOSTLY — parked out-of-scope discoveries as leads only.
+* NO — scope expanded; supervisor should review/rework.
+
+A return that expands scope without clearly labeling out-of-scope items may be accepted only for its clean in-scope rows. The supervisor may ignore or reassign the rest.
+
 Closeout-pass consolidation rule:
 
 When a worked state or corridor has already had several proof, geometry, and lead/rejected passes, do not keep splitting tiny follow-up assignments indefinitely. Combine remaining work into one or two closeout workers when practical:

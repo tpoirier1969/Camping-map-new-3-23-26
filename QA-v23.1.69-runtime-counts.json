@@ -1,0 +1,69 @@
+{
+  "version": "v23.1.69",
+  "dataBuild": "v23.1.69-in-ne-coordinate-rescue-closeout",
+  "states": {
+    "IN": {
+      "runtime": 60,
+      "manifest": 60,
+      "layers": {
+        "private": 25,
+        "rustic": 12,
+        "boondocking": 3,
+        "info": 1,
+        "state": 1,
+        "modern": 18
+      },
+      "badCoords": [],
+      "duplicateIds": [],
+      "duplicateNames": []
+    },
+    "NE": {
+      "runtime": 84,
+      "manifest": 84,
+      "layers": {
+        "boondocking": 12,
+        "pending": 2,
+        "rustic": 27,
+        "federal": 2,
+        "state": 1,
+        "info": 1,
+        "boat-backpack": 1,
+        "modern": 23,
+        "private": 15
+      },
+      "badCoords": [],
+      "duplicateIds": [],
+      "duplicateNames": []
+    }
+  },
+  "leads": 1259,
+  "rejected": 329,
+  "checks": {
+    "manifestMatches": {
+      "IN": true,
+      "NE": true
+    },
+    "noBadCoords": {
+      "IN": true,
+      "NE": true
+    },
+    "noDuplicateIds": {
+      "IN": true,
+      "NE": true
+    },
+    "noDuplicateNames": {
+      "IN": true,
+      "NE": true
+    },
+    "versionContract": {
+      "CAMPING_APP_VERSION": true,
+      "CAMPING_APP_BUILD": true,
+      "CAMPING_DATA_VERSION": true,
+      "CAMPING_DATA_BUILD": true,
+      "CAMPING_VERSION": true,
+      "APP_VERSION": true,
+      "DATA_BUILD": true,
+      "CAMPING_BUILD": true
+    }
+  }
+}
