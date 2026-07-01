@@ -1,0 +1,59 @@
+{
+  "version": "v23.1.75",
+  "dataBuild": "v23.1.75-ar-tn-cleanup-coordinate-rescue",
+  "previousCounts": {
+    "AR": 64,
+    "TN": 44
+  },
+  "netNewActiveAccepted": {
+    "AR": 29,
+    "TN": 21
+  },
+  "finalCounts": {
+    "AR": 93,
+    "TN": 65
+  },
+  "supplementRowsTotal": 54,
+  "countNeutralCorrections": [
+    "ar-erbie-campground",
+    "s561",
+    "s736",
+    "s827"
+  ],
+  "leadRowsAdded": 110,
+  "leadRowsUpdated": 0,
+  "rejectedRowsAdded": 40,
+  "rejectedRowsUpdated": 0,
+  "syntaxChecks": [
+    {
+      "file": "app.js",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "version.js",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "data/states-manifest.js",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "data/supplements/ar-tn-cleanup-coordinate-rescue-v23.1.75.js",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "data/leads.js",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "data/rejected.js",
+      "returncode": 0,
+      "stderr": ""
+    }
+  ]
+}

@@ -22,13 +22,17 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "AR",
     "name": "Arkansas",
     "file": "data/states/AR.js",
-    "count": 28,
+    "count": 93,
     "files": [
       "data/states/AR.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+      "data/supplements/modern-audit-cleanup-v23.1.21.js",
+      "data/supplements/ar-tn-weakstate-rescue-v23.1.74.js",
+      "data/supplements/ar-tn-cleanup-coordinate-rescue-v23.1.75.js"
     ],
     "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification.",
+      "v23.1.74: Arkansas/Tennessee weak-state rescue adds source-backed Buffalo/Ozark/Ouachita/USACE/USFS/NPS/TWRA campground and camping-area records; coordinate-blocked LBL/TVA/USACE/state-park/WMA/refuge systems remain in data/leads.js/data/rejected.js; UI cleanup removes public layer counts and fixes one-line state checkbox rows.",
+      "v23.1.75: AR/TN cleanup coordinate-rescue adds exact-coordinate USACE/USFS/NPS/TRGT campground and primitive-site records; applies Erbie and Tennessee layer/model corrections; blocked GIS/RIDB/MVUM/state-park/refuge/private targets remain in data/leads.js/data/rejected.js instead of fake dots."
     ]
   },
   "CA": {
@@ -319,7 +323,16 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "TN",
     "name": "Tennessee",
     "file": "data/states/TN.js",
-    "count": 19
+    "count": 65,
+    "files": [
+      "data/states/TN.js",
+      "data/supplements/ar-tn-weakstate-rescue-v23.1.74.js",
+      "data/supplements/ar-tn-cleanup-coordinate-rescue-v23.1.75.js"
+    ],
+    "dynamicSources": [
+      "v23.1.74: Arkansas/Tennessee weak-state rescue adds source-backed Buffalo/Ozark/Ouachita/USACE/USFS/NPS/TWRA campground and camping-area records; coordinate-blocked LBL/TVA/USACE/state-park/WMA/refuge systems remain in data/leads.js/data/rejected.js; UI cleanup removes public layer counts and fixes one-line state checkbox rows.",
+      "v23.1.75: AR/TN cleanup coordinate-rescue adds exact-coordinate USACE/USFS/NPS/TRGT campground and primitive-site records; applies Erbie and Tennessee layer/model corrections; blocked GIS/RIDB/MVUM/state-park/refuge/private targets remain in data/leads.js/data/rejected.js instead of fake dots."
+    ]
   },
   "TX": {
     "code": "TX",

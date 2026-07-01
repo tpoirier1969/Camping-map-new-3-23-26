@@ -1,0 +1,29 @@
+QA v23.1.75 — AR/TN cleanup coordinate rescue
+
+Build: v23.1.75
+Data build: v23.1.75-ar-tn-cleanup-coordinate-rescue
+Released: 2026-07-01
+
+Runtime counts expected after manifest/supplement load:
+- AR: 64 -> 93 (+29)
+- TN: 44 -> 65 (+21)
+
+Supplement rows total: 54
+Net active additions: 50
+Count-neutral corrections/updates: ar-erbie-campground, s561, s736, s827
+
+Ledger merge:
+- data/leads.js added 110, updated 0; final total 1717
+- data/rejected.js added 40, updated 0; final total 484
+
+QA checks:
+- JS syntax: passed for app.js, version.js, states-manifest.js, v75 supplement, leads.js, rejected.js.
+- Duplicate active IDs in v75 supplement: 0.
+- Bad active coordinates: 0.
+- v23.1.74 UI cleanup preserved: app.js/index.html carried forward unchanged except version identity and data integration.
+- config.js included: no.
+
+Integration policy:
+- Promoted only rows with official/source-backed coordinates or exact operator/NPS/USACE coordinates.
+- Did not promote Tennessee LBL, TVA parcel, Arkansas WMA/refuge GeoPDF, or blocked state-park/Reserve TN/RIDB systems as fake dots.
+- Existing Big South Fork, Obed, and North Cumberland approximate area-rule markers from v23.1.74 were left active/count-neutral; v23.1.75 keeps their geometry work in leads.

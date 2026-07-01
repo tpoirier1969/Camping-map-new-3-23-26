@@ -1,0 +1,31 @@
+BUILD NOTES — v23.1.75 AR/TN cleanup coordinate rescue
+
+Built on v23.1.74 fixed-files package.
+Preserves v23.1.74 UI cleanup: no public layer-count numbers and one-line state checkbox rows.
+
+Changed files:
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/ar-tn-cleanup-coordinate-rescue-v23.1.75.js
+- data/leads.js
+- data/rejected.js
+- BUILD-NOTES-v23.1.75.txt
+- QA-v23.1.75.txt
+- QA-v23.1.75-runtime-counts.json
+- app.js and index.html included unchanged from v23.1.74 to preserve UI cleanup in this fixed-files package.
+
+Active outcome:
+- Arkansas: +29 net active records, 64 -> 93.
+- Tennessee: +21 net active records, 44 -> 65.
+- Total AR/TN net active additions: +50.
+
+Count-neutral corrections:
+- Erbie Campground coordinate corrected; Erbie Horse Camp added separately.
+- Poole Knobs and Seven Points corrected to Modern layer using source-backed amenities.
+- Long Hunter State Park corrected to Boat / Backpack/backcountry context with exact campsite coordinate still in leads.
+
+Rejected/lead policy:
+- Coordinate-blocked or geometry-blocked systems were pushed to data/leads.js.
+- Day-use, dam, ramp, marina, office, refuge no-camping, closure, and wrong-feature traps were pushed to data/rejected.js.
+- No config.js included.

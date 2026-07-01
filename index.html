@@ -20,6 +20,13 @@
 .control-home-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:12px 0 10px}.control-home-btn{border-radius:12px;border:1px solid #b8c8ba;padding:10px 6px;background:#fff;font-weight:800;color:#274634;font-size:.82rem}.control-home-btn.active{background:linear-gradient(180deg,#356a52,#294f3f);border-color:#294f3f;color:#fff}.control-home-panel[hidden]{display:none!important}.control-home-title{border-top:0;padding-top:4px}.control-home-title h2{font-size:1.18rem;margin-bottom:4px}.sidebar-tabs,.desktop-action-bar{display:none!important}.mobile-back-to-map{display:none}.area-outline-layer-on .area-outline-status{border-color:#aac6af;background:#f7fbf8}@media(max-width:700px){.control-home-nav{position:sticky;top:-14px;z-index:5;margin:0 -2px 10px;padding:8px 0;background:var(--panel);grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.control-home-btn{font-size:.72rem;padding:9px 2px}.mobile-action-bar{grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}.mobile-action-bar button{font-size:.66rem;padding:8px 1px}.mobile-back-to-map{display:block;width:100%;margin-top:10px;border:1px solid #b8c8ba;border-radius:14px;background:#fff;padding:10px 12px;font-weight:800;color:#274634}.section{padding-top:12px}.layer-site-count{width:100%;margin-left:0}}
 
   
+
+/* v23.1.74 UI cleanup: no public count badges in the layer legend/state list; state rows stay one-line. */
+.layer-site-count,.state-count-pill{display:none!important;}
+.state-checklist{display:grid;grid-template-columns:1fr;gap:6px;max-height:360px;overflow:auto;}
+.state-check{display:flex;align-items:center;gap:8px;min-width:0;padding:7px 9px;border:1px solid #d6ddd2;border-radius:10px;background:#fff;white-space:nowrap;}
+.state-check input{flex:0 0 auto;margin:0;}
+.state-check span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 /* v23.1.30 hotfix: layer controls live in the map legend, not stale left-menu layer panels. v23.1.72 keeps a phone Layers shortcut that opens the mobile legend. */
 .control-home-btn[data-control-home="layers"], [data-control-panel="layers"]{display:none!important;}
 .control-home-nav{grid-template-columns:repeat(4,minmax(0,1fr));}
