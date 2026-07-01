@@ -129,10 +129,10 @@ function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
 function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=localStorage.getItem(STORE.basemap)||'topo'; (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();});}
 function retireLegacyLayerControls(){
-  // v23.1.30: layer controls now live only in the floating Map layers legend.
-  // Remove stale cached layer panels so their duplicate IDs do not steal button/change handlers.
+  // v23.1.30+: layer controls live in the map legend. Remove stale cached layer home panels
+  // so duplicate IDs do not steal handlers, but keep the v23.1.72 phone Layers shortcut.
   $$('[data-control-panel="layers"]').forEach(el=>el.remove());
-  $$('[data-control-home="layers"],[data-mobile-action="layers"]').forEach(el=>el.remove());
+  $$('[data-control-home="layers"]').forEach(el=>el.remove());
 }
 function buildControls(){retireLegacyLayerControls(); buildStateSelect(); buildLegend(); syncFilters(); bindEvents(); updatePendingMeta(); setNearMilesUI(app.nearRadiusMiles||DEFAULT_NEAR_RADIUS_MILES,false); syncRouteControls(); registerStandaloneAreaOutlines(); refreshAreaOutlineLayerForStateSelection(false); renderReferences(); updateAreaOutlinePanel();}
 function buildStateSelect(){buildStateChecklist(); syncStateControls();}
@@ -148,6 +148,11 @@ const PERFORMANCE_NOTE_RECORDS=1000;
 const PERFORMANCE_CONFIRM_RECORDS=1000;
 const PERFORMANCE_HEAVY_RECORDS=2500;
 const STALE_RESTORED_SELECTION_MS=30*60*1000;
+const LARGE_SELECTION_WARNING_COOLDOWN_MS=30*60*1000;
+const LARGE_SELECTION_WARNING_SESSION_KEY='campingMap.largeSelectionWarning.lastShown.v23172';
+function largeSelectionWarningLastShown(){try{const n=Number(sessionStorage.getItem(LARGE_SELECTION_WARNING_SESSION_KEY)||0);return Number.isFinite(n)?n:0;}catch(_e){return 0;}}
+function largeSelectionWarningRecentlyShown(){const last=largeSelectionWarningLastShown();return !!last&&(Date.now()-last)<LARGE_SELECTION_WARNING_COOLDOWN_MS;}
+function markLargeSelectionWarningShown(){try{sessionStorage.setItem(LARGE_SELECTION_WARNING_SESSION_KEY,String(Date.now()));}catch(_e){}}
 function stateSelectionPerformanceText(codes){
   const count=selectedStateRecordEstimate(codes);
   if(count>=PERFORMANCE_HEAVY_RECORDS)return `Very large selection: about ${formatRecordCount(count)} records. Performance may be degraded; fewer states will be smoother.`;
@@ -157,6 +162,7 @@ function stateSelectionPerformanceText(codes){
 function confirmLargeStateSelection(codes,options={}){
   const count=selectedStateRecordEstimate(codes);
   if(count<PERFORMANCE_CONFIRM_RECORDS)return true;
+  if(!options.forceLargeSelectionWarning&&largeSelectionWarningRecentlyShown())return true;
   const stateCount=(codes||[]).length;
   const source=options.source==='select-all'?'Select All Map':(options.source==='restored'?'Your saved map settings':'This state selection');
   const severity=count>=PERFORMANCE_HEAVY_RECORDS?'very large':'large';
@@ -167,11 +173,13 @@ ${source} would load about ${formatRecordCount(count)} map records across ${stat
 You can keep going, but performance may be degraded, especially on phones, older computers, or when zoomed out. For smoother browsing, select fewer states or zoom into a smaller area.
 
 Continue loading this ${severity} selection?`;
-  return window.confirm(msg);
+  const ok=window.confirm(msg);
+  if(ok)markLargeSelectionWarningShown();
+  return ok;
 }
 function notifyLargeStateSelection(codes){
   const count=selectedStateRecordEstimate(codes);
-  if(count>=PERFORMANCE_NOTE_RECORDS)notify(stateSelectionPerformanceText(codes),9000);
+  if(count>=PERFORMANCE_NOTE_RECORDS&&!largeSelectionWarningRecentlyShown()){markLargeSelectionWarningShown();notify(stateSelectionPerformanceText(codes),9000);}
 }
 
 function storedLastActiveTime(){try{const n=Number(localStorage.getItem(STORE.lastActive)||0);return Number.isFinite(n)?n:0;}catch(_e){return 0;}}
@@ -224,14 +232,16 @@ function stateLabel(code){const row=manifestEntries().find(s=>s.code===code); re
 function clearNearMeMode(){app.nearMeActive=false;app.nearPickMode=false;app.liveLocationLoading=false;app.liveLocationLastLoadCenter=null;if(app.liveLocationWatchId!=null&&navigator.geolocation){navigator.geolocation.clearWatch(app.liveLocationWatchId);app.liveLocationWatchId=null;}app.liveLocationStarted=false;}
 async function setEnabledStates(codes,fit=true,options={}){
   const valid=new Set(mappedStateEntries().map(s=>s.code));
+  const previous=new Set(app.enabledStates||[]);
   const picked=[...new Set((codes||[]).map(c=>String(c||'').toUpperCase()).filter(c=>valid.has(c)))];
-  if(!options.skipPerformanceConfirm&&!confirmLargeStateSelection(picked,options)){syncStateControls();return;}
+  const addingStates=picked.some(c=>!previous.has(c));
+  if(addingStates&&!options.skipPerformanceConfirm&&!confirmLargeStateSelection(picked,options)){syncStateControls();return;}
   clearNearMeMode();
   clearSearchMode(false);
   app.enabledStates=new Set(picked);
   saveJson(STORE.states,[...app.enabledStates]);
   syncStateControls();
-  notifyLargeStateSelection(picked);
+  if(addingStates)notifyLargeStateSelection(picked);
   const outlinesWanted=areaOutlineLayerEnabled();
   pauseAreaOutlinesForStateChange(picked.length);
   await loadEnabledStates(fit);
@@ -1129,6 +1139,19 @@ function mobileAction(a){
     setMobileMode('map');
     $('sidebar').classList.add('closed');
     setTimeout(()=>app.map.invalidateSize(),220);
+    return;
+  }
+  if(a==='layers'){
+    showSidebarTab('main');
+    setMobileMode('options');
+    $('sidebar').classList.remove('closed');
+    const panel=$('legendPanelMobile');
+    if(panel)panel.open=true;
+    setTimeout(()=>{
+      $$('[data-mobile-action]').forEach(b=>b.classList.toggle('active',b.dataset.mobileAction==='layers'));
+      $('mobileLegendSection')?.scrollIntoView({block:'start',behavior:'smooth'});
+      app.map.invalidateSize();
+    },120);
     return;
   }
   const home=CONTROL_HOMES.includes(a)?a:'where';

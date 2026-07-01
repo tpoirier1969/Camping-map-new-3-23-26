@@ -119,17 +119,19 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "KY",
     "name": "Kentucky",
     "file": "data/states/KY.js",
-    "count": 57,
+    "count": 81,
     "files": [
       "data/states/KY.js",
-      "data/supplements/mt-oh-ky-weakstate-rescue-v23.1.71.js"
+      "data/supplements/mt-oh-ky-weakstate-rescue-v23.1.71.js",
+      "data/supplements/mo-ky-oh-mt-coordinate-component-rescue-v23.1.73.js"
     ],
     "dynamicSources": [
       "v23.1.49: Kentucky runtime data consolidated into data/states/KY.js. Active v23.1.38 Kentucky State Parks coordinate-rescue supplement additions are now integrated into the owning state file. No Kentucky supplement file is required for runtime loading after this cleanup. Final Kentucky count remains 57.",
       "v23.1.36: Kentucky quick official exact batch 1 adds 51 records from official/operator proof returns: 19 Modern, 20 Rustic / Primitive, 8 Boat / Backpack, 2 Boondocking / Dispersed, and 2 Private Campgrounds. LBL, USACE/Recreation.gov, rest-area GIS, and coordinate-lacking leads are intentionally held for follow-up extraction.",
       "v23.1.38: Kentucky State Parks coordinate rescue added 6 official Modern Campgrounds from ReserveAmerica/Kentucky State Parks exact campground coordinates; these records are now folded into data/states/KY.js.",
       "v23.1.39: Kentucky area-outline context rescue adds two official fetchable area outline records: Daniel Boone NF administrative boundary context and Clifty Wilderness backcountry/wilderness context. No campsite-count changes; LBL ZIP/GIS, NPS corridor geometry, USACE facility geometry, and KYTC rest-area point extraction remain held for external GIS/API extraction.",
-      "v23.1.71: MT/OH/KY weak-state rescue first wave adds accepted source-backed campground/camping-area rows and preserves coordinate-blocked USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads, not fake dots."
+      "v23.1.71: MT/OH/KY weak-state rescue first wave adds accepted source-backed campground/camping-area rows and preserves coordinate-blocked USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads, not fake dots.",
+      "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
     ]
   },
   "LA": {
@@ -207,34 +209,38 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MO",
     "name": "Missouri",
     "file": "data/states/MO.js",
-    "count": 58,
+    "count": 62,
     "files": [
       "data/states/MO.js",
-      "data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js"
+      "data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js",
+      "data/supplements/mo-ky-oh-mt-coordinate-component-rescue-v23.1.73.js"
     ],
     "dynamicSources": [
-      "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted official/operator campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps."
+      "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted official/operator campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps.",
+      "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
     ]
   },
   "MT": {
     "code": "MT",
     "name": "Montana",
     "file": "data/states/MT.js",
-    "count": 218,
+    "count": 219,
     "files": [
       "data/states/MT.js",
       "data/supplements/modern-audit-cleanup-v23.1.21.js",
       "data/supplements/mt-exact-build-batch1-v23.1.28.js",
       "data/supplements/mt-delta-exact-batch2-v23.1.35.js",
       "data/supplements/mt-historical-backfill-active-areas-v23.1.54.js",
-      "data/supplements/mt-oh-ky-weakstate-rescue-v23.1.71.js"
+      "data/supplements/mt-oh-ky-weakstate-rescue-v23.1.71.js",
+      "data/supplements/mo-ky-oh-mt-coordinate-component-rescue-v23.1.73.js"
     ],
     "dynamicSources": [
       "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification.",
       "v23.1.28: Montana exact official-source build batch 1 adds 70 high-confidence campground/site records from the six-worker Montana proof pass; broad area/rule candidates and blocked extraction leads held for follow-up extraction passes.",
       "v23.1.35: Montana delta exact official-source batch 2 adds 95 records from worker proof/QA returns: 41 Rustic / Primitive and 54 Boat / Backpack. Smith River boat camps use official Montana FWP field-GPS coordinates; blocked Fort Peck/USACE, broad area/rule, and coordinate-lacking leads remain held out.",
       "v23.1.54: Historical leads/rejected backfill active checkpoint adds 9 Montana records via supplement: James Kipp Campground, Downstream Campground, West End Tent and Trailer Campground, and 6 approximate official Area/rule markers for Upper Missouri River Breaks, CMR NWR, UL Bend Wilderness, Chalk Buttes, Long Pines, and Ekalaka Hills. Area/rule markers are not exact campsites or legal boundaries.",
-      "v23.1.71: MT/OH/KY weak-state rescue first wave adds accepted source-backed campground/camping-area rows and preserves coordinate-blocked USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads, not fake dots."
+      "v23.1.71: MT/OH/KY weak-state rescue first wave adds accepted source-backed campground/camping-area rows and preserves coordinate-blocked USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads, not fake dots.",
+      "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
     ]
   },
   "NE": {
@@ -279,17 +285,19 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "OH",
     "name": "Ohio",
     "file": "data/states/OH.js",
-    "count": 103,
+    "count": 108,
     "files": [
       "data/states/OH.js",
       "data/supplements/oh-bulldog-first-pass-v23.1.65.js",
       "data/supplements/oh-il-next-closeout-v23.1.66.js",
-      "data/supplements/mt-oh-ky-weakstate-rescue-v23.1.71.js"
+      "data/supplements/mt-oh-ky-weakstate-rescue-v23.1.71.js",
+      "data/supplements/mo-ky-oh-mt-coordinate-component-rescue-v23.1.73.js"
     ],
     "dynamicSources": [
       "v23.1.65: Ohio Bulldog first-pass build adds 49 active records from Workers 1–4 and appends durable Ohio leads/rejects. Lead-heavy ODNR/state-park/component rows remain held for official map/GIS/reservation coordinate rescue instead of fake pins.",
       "v23.1.66: OH/IL next-round closeout adds 41 net active records/camping-area markers and applies source-backed corrections where needed. Non-modern/component rows without honest coordinates remain in data/leads.js for GIS/official map extraction.",
-      "v23.1.71: MT/OH/KY weak-state rescue first wave adds accepted source-backed campground/camping-area rows and preserves coordinate-blocked USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads, not fake dots."
+      "v23.1.71: MT/OH/KY weak-state rescue first wave adds accepted source-backed campground/camping-area rows and preserves coordinate-blocked USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads, not fake dots.",
+      "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
     ]
   },
   "SD": {

@@ -7491,5 +7491,473 @@ window.CAMPING_REJECTED = [
   "relatedActiveOrPendingRecord": null,
   "lastCheckedVersion": "v23.1.71",
   "notes": "From KY_W8 v23.1.71 weak-state rescue return."
+},
+{
+  "id": "mo-v73-reject-stockton-park-group-use-area",
+  "state": "MO",
+  "name": "Stockton Park as overnight campground pin",
+  "countyRegion": "Stockton Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Recreation.gov page supports a group picnic/day-use area with day-use checkout, not overnight camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-masters-day-use-shelter",
+  "state": "MO",
+  "name": "Masters / Masters Day Use as campground",
+  "countyRegion": "Stockton Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Official page/day-use pass says day-use only and camping is not permitted.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-bledsoe-ferry-day-use",
+  "state": "MO",
+  "name": "Bledsoe Ferry as campground",
+  "countyRegion": "Harry S. Truman Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Official source family identifies Bledsoe Ferry as day-use/shelter/ramp, not campground.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-shawnee-bend-day-use",
+  "state": "MO",
+  "name": "Shawnee Bend as campground",
+  "countyRegion": "Harry S. Truman Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Official source family describes Shawnee Bend as day-use with shelters, beach, ramp and water, not campground.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-windsor-crossing-boat-ramp",
+  "state": "MO",
+  "name": "Windsor Crossing Boat Ramp / permit as campsite",
+  "countyRegion": "Harry S. Truman Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Coordinate exists for boat-ramp/permit facility, not overnight camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-pomme-admin-shelter-office",
+  "state": "MO",
+  "name": "Administration / Pomme de Terre Project Office shelter as campground",
+  "countyRegion": "Pomme de Terre Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Shelter/project-office/visitor-center context; group shelter is not overnight camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-pittsburg-park-usace-camping-closed",
+  "state": "MO",
+  "name": "Pittsburg Park USACE camping",
+  "countyRegion": "Pomme de Terre Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USACE says Pittsburg Park camping permanently closed Dec. 1, 2024; remaining features are day-use.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-cooper-creek-atv-camping",
+  "state": "MO",
+  "name": "Cooper Creek ATV Area camping",
+  "countyRegion": "Harry S. Truman Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USACE says camping/overnight parking is not permitted at Cooper Creek ATV/Dirt Bike Area.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-usace-gateway-proxy-coordinates",
+  "state": "MO",
+  "name": "USACE/Recreation.gov gateway, dam, lake-center, office, marina, ramp coordinates as campsite pins",
+  "countyRegion": "MO USACE lake systems",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Gateway/project GPS, dams, offices, ramps, beaches, marinas and shelters are not campground pins unless the source explicitly identifies them as overnight camping coordinates.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-mdc-huckleberry-little-lost-conflict",
+  "state": "MO",
+  "name": "Huckleberry Ridge / Little Lost Creek CA no-camping conflict guardrail",
+  "countyRegion": "Missouri MDC conservation areas",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Explicit MDC no-camping/prohibited language controls over contradictory camping-category snippets unless MDC later clarifies.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mo-v73-reject-table-rock-mark-twain-day-use-proxies",
+  "state": "MO",
+  "name": "Table Rock / Mark Twain lake centers, dams, ramps, shelters, beaches as campground proxies",
+  "countyRegion": "Table Rock Lake / Mark Twain Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Wrong-feature guardrail for USACE day-use/proxy features including Bluffview and John Spalding unless official overnight proof is found.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "ky-v73-reject-barkley-cadiz-day-use-shelter",
+  "state": "KY",
+  "name": "Cadiz Park / Cadiz Day Use",
+  "countyRegion": "Lake Barkley",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Recreation.gov identifies Cadiz as day-use/shelter/boat ramp/picnic area, not campground.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "ky-v73-reject-barkley-old-kuttawa-day-use",
+  "state": "KY",
+  "name": "Old Kuttawa Day Use / Shelter Area",
+  "countyRegion": "Lake Barkley",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Recreation.gov describes Old Kuttawa as day-use picnicking/swimming/shelters with dusk closing.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "ky-v73-reject-barkley-linton-day-use",
+  "state": "KY",
+  "name": "Linton Day Use / Shelter Area",
+  "countyRegion": "Lake Barkley",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Recreation.gov describes Linton as day-use shelter/swim beach/restroom facility, not campground.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "ky-v73-reject-nolin-day-use-shelter-components",
+  "state": "KY",
+  "name": "Nolin River Lake day-use/shelter components",
+  "countyRegion": "Nolin River Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Dog Creek Day Use, Moutardier Day Use, Tailwater Day Use and similar day-use/shelter/boat-ramp facilities are not campground pins.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "ky-v73-reject-green-river-lake-picnic-shelters",
+  "state": "KY",
+  "name": "Green River Lake picnic shelter components",
+  "countyRegion": "Green River Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Big Oak, Satterly, Tailwater and similar picnic shelter/day-use components are not campground records.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "ky-v73-reject-usace-reservoir-proxy-features",
+  "state": "KY",
+  "name": "USACE reservoir proxy features \u2014 Cumberland / Green / Nolin / Barkley",
+  "countyRegion": "KY USACE reservoir systems",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Lake/project pages expose addresses, GPS, marinas, day-use areas, beaches, ramps, dams and shelters that are not campsite pins unless explicitly identified as campground/camping-area coordinates.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "ky-v73-reject-peabody-camping-none-access-points",
+  "state": "KY",
+  "name": "Peabody WMA access points with Camping: None",
+  "countyRegion": "Peabody WMA",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "KDFWR access pages disprove camping at specific access points; do not assume every Peabody lake/ramp allows camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "ky-v73-reject-ballard-big-turner-3-no-camping",
+  "state": "KY",
+  "name": "Ballard WMA \u2013 Big Turner Lake 3 no-camping trap",
+  "countyRegion": "Ballard WMA",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "KDFWR lists Big Turner Lake 3 with Camping: None; keep separate from Big Turner 1/2 seasonal camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "ky-v73-reject-higginson-mauzy-pier-ramp-proxy",
+  "state": "KY",
+  "name": "Higginson-Henry Mauzy Lake pier/boat-ramp proxy camping pins",
+  "countyRegion": "Higginson-Henry WMA",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Mauzy Lake pier/ramp access pages do not confirm camping at those exact features while WMA camping is designated-sites-only.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "oh-v73-reject-buck-creek-closed-renovation-status",
+  "state": "OH",
+  "name": "Buck Creek State Park Campground \u2014 renovation closure trap",
+  "countyRegion": "Clark / Springfield",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "temporary_closure / status_guardrail",
+  "rejectionStrength": "reopenable_status_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "ODNR campground closure through early summer 2026 was not confirmed reopened in this pass; recheck before active import.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "oh-v73-reject-state-forest-random-pulloff-pins",
+  "state": "OH",
+  "name": "Ohio state forest random pull-off / forest-center camping pins",
+  "countyRegion": "Ohio state forests",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "ODNR state forest sources identify designated campground systems rather than open random pull-off camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "oh-v73-reject-odnr-proxy-features",
+  "state": "OH",
+  "name": "ODNR offices, dams, lake centers, boat ramps, camp offices as campsite proxies",
+  "countyRegion": "Ohio ODNR systems",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Offices, trailheads, dams/lake centers, boat launches, park offices and similar proxy features are not campsite pins.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "oh-v73-reject-greene-county-fairgrounds-event-rv",
+  "state": "OH",
+  "name": "Greene County Fairgrounds Camping / RV Sites",
+  "countyRegion": "Greene County / Xenia",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Fairground/event/RV context is not part of the primitive/trail-camping coordinate rescue unless ordinary public campground proof and exact campground coordinates are recovered.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mt-v73-reject-duck-creek-fas-as-campsite",
+  "state": "MT",
+  "name": "Duck Creek FAS as exact campsite pin",
+  "countyRegion": "Fort Peck Lake / Duck Creek Bay",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "FWP/VisitMT coordinate is the FAS/day-use feature; camping is on adjacent COE land and needs separate USACE geometry.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+},
+{
+  "id": "mt-v73-reject-fws-aircraft-landing-zone-coordinates",
+  "state": "MT",
+  "name": "FWS aircraft landing-zone coordinates used as campground coordinates",
+  "countyRegion": "CMR / Fort Peck remote recreation areas",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type / no_honest_map_record",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "FWS aircraft/landing-zone coordinates are aviation/emergency points, not campground/campsite coordinates.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.73",
+  "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
 }
 ];

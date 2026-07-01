@@ -1,0 +1,38 @@
+Tod's Boondocking & Camping Maps — v23.1.73 fixed-files build
+Build date: 2026-07-01
+
+Purpose
+- Site-data package for the MO/KY/OH/MT coordinate/component-rescue worker returns issued from the v23.1.72 handoffs.
+- Preserves the v23.1.72 UI hotfix files while advancing app/data version identity to v23.1.73.
+
+Active data integration
+- New supplement: data/supplements/mo-ky-oh-mt-coordinate-component-rescue-v23.1.73.js
+- Supplement entries: 35
+- Net active count increase: +34
+- Count-neutral update: Cowan Lake State Park Campground was already active by name in the current Ohio baseline, so the v23.1.73 supplement updates that existing row instead of adding a duplicate.
+
+State count changes
+- MO: 58 -> 62 (+4)
+- KY: 57 -> 81 (+24)
+- OH: 103 -> 108 (+5 net; Cowan Lake update is count-neutral)
+- MT: 218 -> 219 (+1)
+
+Promoted active records by source family
+- MO: four USACE/Recreation.gov coordinate rescues from Truman/Pomme systems: Bucksaw, Osage Bluff, Thibaut Point, Wheatland Park.
+- KY: fourteen USACE/Recreation.gov coordinate rescues for Lake Cumberland, Green River Lake, Nolin River Lake, and Lake Barkley; nine KDFWR WMA/Peabody/Ballard camping-access records; one LBL Kentucky-side backcountry/dispersed approximate area-rule marker.
+- OH: five net ODNR/Great Parks/trailside camping records plus one count-neutral Cowan Lake update.
+- MT: one Fort Peck / FWP Rock Creek FAS camping-access record.
+
+Held as leads instead of active pins
+- MO Table Rock / Mark Twain USACE components remain RIDB/Recreation.gov/USACE-map extraction leads.
+- MO MDC primitive/designated/open camping areas remain MDC map/GIS geometry leads unless an honest marker coordinate exists.
+- KY LBL named/self-service/basic/backcountry components remain Recreation Sites ZIP / QGIS / georeference leads, except for one approximate KY-side backcountry area-rule marker.
+- OH ODNR/Metroparks/Greene County component systems remain map/reservation/GIS coordinate-rescue leads where exact points are blocked.
+- MT Fort Peck / CMR / Upper Missouri component systems remain USACE/FWS/BLM geometry leads unless exact coordinate proof was recovered.
+
+Rejected-memory additions
+- Added guardrails for USACE day-use/shelter/lake-center/project-office/ramp proxies, KDFWR no-camping access points, ODNR/state-forest proxy features, and FWS aircraft landing-zone coordinate traps.
+
+Files included
+- app.js and index.html are carried forward from v23.1.72 to preserve the UI hotfix.
+- config.js is not included.

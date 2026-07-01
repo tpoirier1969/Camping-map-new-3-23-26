@@ -1,9 +1,9 @@
 {
-  "version": "v23.1.71",
-  "build": "v23.1.71",
-  "dataVersion": "v23.1.71-mt-oh-ky-weakstate-rescue",
-  "dataBuild": "v23.1.71-mt-oh-ky-weakstate-rescue",
+  "version": "v23.1.73",
+  "build": "v23.1.73",
+  "dataVersion": "v23.1.73-mo-ky-oh-mt-coordinate-component-rescue",
+  "dataBuild": "v23.1.73-mo-ky-oh-mt-coordinate-component-rescue",
   "released": "2026-07-01",
-  "label": "Boondocking & Camping Maps v23.1.71",
-  "notes": "MT/OH/KY weak-state rescue first wave. Adds supervisor-accepted Montana USFS/FWP/KOA/Fort Peck-area rows and Ohio official/private campground rows where coordinates are honest; parks coordinate-blocked Ohio/Kentucky USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads and adds no-camping/day-use/proxy reject memory."
+  "label": "Boondocking & Camping Maps v23.1.73",
+  "notes": "Site-data package: integrates safe MO/KY/OH/MT coordinate/component-rescue active additions while preserving v23.1.72 UI hotfix files. Coordinate-blocked Table Rock, Mark Twain, LBL, MDC, ODNR, CMR/Fort Peck, and related geometry work remains in leads/rejected guardrails instead of fake pins."
 }

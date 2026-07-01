@@ -1,0 +1,47 @@
+Tod's Boondocking & Camping Maps — v23.1.73 QA
+Build date: 2026-07-01
+
+Syntax / structure checks
+- node --check app.js: PASSED
+- node --check version.js: PASSED
+- node --check data/states-manifest.js: PASSED
+- node --check data/supplements/mo-ky-oh-mt-coordinate-component-rescue-v23.1.73.js: PASSED
+- node --check data/leads.js: PASSED
+- node --check data/rejected.js: PASSED
+- version.json JSON parse: PASSED
+
+Version identity contract
+- window.CAMPING_APP_VERSION: v23.1.73
+- window.CAMPING_APP_BUILD: v23.1.73
+- window.CAMPING_DATA_VERSION: v23.1.73-mo-ky-oh-mt-coordinate-component-rescue
+- window.CAMPING_DATA_BUILD: v23.1.73-mo-ky-oh-mt-coordinate-component-rescue
+- window.CAMPING_VERSION: v23.1.73
+- window.APP_VERSION: v23.1.73
+- window.DATA_BUILD: v23.1.73-mo-ky-oh-mt-coordinate-component-rescue
+- window.CAMPING_BUILD present with version/build/dataVersion/dataBuild/released/label.
+
+Runtime counts for touched states
+- MO manifest/runtime: 62 / 62
+- KY manifest/runtime: 81 / 81
+- OH manifest/runtime: 108 / 108
+- MT manifest/runtime: 219 / 219
+
+Ledger counts
+- data/leads.js total: 1559
+- data/rejected.js total: 425
+
+Coordinate and duplicate QA for touched states
+- Bad active coordinates in MO/KY/OH/MT: 0
+- Duplicate active IDs in MO/KY/OH/MT: 0
+- Duplicate active names in MO/KY/OH/MT: 0
+
+Important reconciliation decisions
+- Missouri Atlanta CA was not promoted as active because the worker return did not supply a safe marker coordinate. It remains in the MDC geometry lead batch.
+- Kentucky LBL Kentucky-side backcountry/dispersed marker was promoted as an approximate area-rule marker because Worker 3 supplied a coordinate and required warning wording.
+- Cowan Lake State Park Campground was already active by name in Ohio, so the supplement updates it by name rather than increasing the count.
+
+Known non-blocking observation
+- The existing manifest references data/supplements/wi-mi-closeout-cleanup-v23.1.56.js for MI/WI, and that file is not present in this working package. This was not introduced by v23.1.73 and does not affect the touched-state runtime QA above.
+
+config.js
+- Not included.

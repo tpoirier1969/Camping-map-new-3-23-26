@@ -1,0 +1,59 @@
+{
+  "MO": {
+    "manifest": 62,
+    "runtime": 62,
+    "layers": {
+      "state": 37,
+      "modern": 8,
+      "private": 3,
+      "rustic": 10,
+      "boat-backpack": 3,
+      "boondocking": 1
+    }
+  },
+  "KY": {
+    "manifest": 81,
+    "runtime": 81,
+    "layers": {
+      "rustic": 30,
+      "boat-backpack": 8,
+      "modern": 37,
+      "boondocking": 3,
+      "private": 3
+    }
+  },
+  "OH": {
+    "manifest": 108,
+    "runtime": 108,
+    "layers": {
+      "state": 1,
+      "modern": 27,
+      "rustic": 33,
+      "private": 44,
+      "boat": 1,
+      "boondocking": 1,
+      "boat-backpack": 1
+    }
+  },
+  "MT": {
+    "manifest": 219,
+    "runtime": 219,
+    "layers": {
+      "federal": 4,
+      "boondocking": 7,
+      "rustic": 135,
+      "modern": 7,
+      "boat-backpack": 63,
+      "private": 3
+    }
+  },
+  "leads": 1559,
+  "rejected": 425,
+  "missingFiles": [
+    "data/supplements/wi-mi-closeout-cleanup-v23.1.56.js",
+    "data/supplements/wi-mi-closeout-cleanup-v23.1.56.js"
+  ],
+  "badCoords": [],
+  "dupIds": [],
+  "dupNames": []
+}
