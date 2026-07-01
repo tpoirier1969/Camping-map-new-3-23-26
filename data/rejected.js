@@ -5313,5 +5313,689 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "No active duplicate confirmed.",
     "lastCheckedVersion": "v23.1.66",
     "notes": "From OH_W3 next-round closeout. Adjacent trap because Perry State Forest appears in Wayne/ODNR search universe; if official page says no camping, keep rejected."
-  }
+  },
+{
+  "id": "in-reject-trine-sra-cabins-as-campground",
+  "state": "IN",
+  "name": "Trine State Recreation Area Cabins / Swenson Lodge",
+  "countyRegion": "Steuben / Trine SRA",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Cabin/lodge lodging, not campground",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "DNR Pokagon/Trine page describes Trine SRA cabins and lodge history; no tent/RV campground proof.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Cabins are not campground records under current rules."
+},
+{
+  "id": "in-reject-tri-county-fwa-no-camping-proof",
+  "state": "IN",
+  "name": "Tri-County Fish & Wildlife Area",
+  "countyRegion": "Kosciusko / Noble",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "No overnight camping proof",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Public source summary lists wildlife viewing, ice fishing, hunting, trapping, shooting range, archery, dog training, boat ramp; no camping facility captured.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Do not import boat ramp/FWA center as campground."
+},
+{
+  "id": "in-reject-pisgah-marsh-durham-lake-fwa-no-camping-proof",
+  "state": "IN",
+  "name": "Pisgah Marsh / Durham Lake FWA",
+  "countyRegion": "Kosciusko / Whitley edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "No overnight camping proof",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Discovery source identifies FWA, but no explicit overnight camping source recovered in this pass.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Prevent fake marsh/boat-ramp pins."
+},
+{
+  "id": "in-reject-fox-island-general-campground-current-status",
+  "state": "IN",
+  "name": "Fox Island County Park Camping / Trailhead Trap",
+  "countyRegion": "Allen / Fort Wayne",
+  "rejectedAsLayer": "Reject / Needs future check",
+  "rejectionType": "No current general public campground proof captured",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Fox Island discovered; use only as future lead if official page proves current public overnight camping after closures/restoration.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Do not map nature center/trailhead/parking as campground."
+},
+{
+  "id": "in-reject-public-access-boat-ramp-traps-upper-wabash",
+  "state": "IN",
+  "name": "Upper Wabash Reservoir Boat Launch / Marina Traps",
+  "countyRegion": "Salamonie / Mississinewa / Roush",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Boat launches/marinas are not campgrounds",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Salamonie and Mississinewa DNR pages list boating/launch/marina activities separately from camping; do not map those as campsites.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Guardrail against fake pins."
+},
+{
+  "id": "in-reject-lake-country-boat-ramp-beach-traps",
+  "state": "IN",
+  "name": "Northeast Indiana Lake Boat Ramp / Beach / Marina Traps",
+  "countyRegion": "Steuben / LaGrange / Noble / Kosciusko",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "No overnight camping proof",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Chain O'Lakes/Pokagon/lake-area pages list boat launches and beaches separately; private lake marinas/beaches discovered but no overnight camping proof.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Prevent lake-center/boat-ramp fake campground pins."
+},
+{
+  "id": "in-reject-acres-land-trust-preserves-no-camping",
+  "state": "IN",
+  "name": "ACRES Land Trust / Nature Preserve Overnight Trap",
+  "countyRegion": "Steuben / LaGrange / Noble / Allen edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "No public overnight camping proof",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "ACRES/land-trust preserves found as nature destinations but no public overnight camping proof captured.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Do not import preserves as boondocking."
+},
+{
+  "id": "in-reject-prophetstown-outside-lock-existing",
+  "state": "IN",
+  "name": "Prophetstown State Park",
+  "countyRegion": "Tippecanoe / outside lock",
+  "rejectedAsLayer": "No Action / out of lock duplicate",
+  "rejectionType": "Outside geography and already active",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "data/states/IN.js has Prophetstown State Park; outside assigned geography.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Do not spend Worker 2 time outside lock."
+},
+{
+  "id": "in-reject-fort-harrison-state-park-no-public-campground",
+  "state": "IN",
+  "name": "Fort Harrison State Park campground trap",
+  "countyRegion": "Marion / Indianapolis",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "reject_memory_trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Official DNR page lists inn, recreation buildings, shelters, trails, saddle barn and activities, but no public campground inventory on parsed page.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Fort Harrison has many lodging/recreation features, but no public campground proof in parsed official source. Do not import park center/inn/stables as campground."
+},
+{
+  "id": "in-reject-indiana-dnr-park-offices-as-campground-pins",
+  "state": "IN",
+  "name": "Indiana DNR park office/contact-station proxy trap",
+  "countyRegion": "Statewide / current worker geography",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "reject_memory_trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Park office/contact addresses are not campsite/campground coordinates unless the source identifies the camping area.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Guardrail for DNR pages with office/mapping addresses."
+},
+{
+  "id": "in-reject-brookville-lake-dam-marina-beach-launch-proxies",
+  "state": "IN",
+  "name": "Brookville Lake dam/marina/beach/launch proxy trap",
+  "countyRegion": "Franklin / Union / Brookville Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "reject_memory_trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Brookville Lake has real campgrounds at Mounds/Quakertown; do not use dam, marina, beach, boat launch, or lake center as camping pin.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Reservoir system wrong-feature trap."
+},
+{
+  "id": "in-reject-covered-bridge-tourism-stops-as-campsites",
+  "state": "IN",
+  "name": "Parke County covered-bridge tourism stops as campsite pins",
+  "countyRegion": "Parke / covered bridge corridor",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "reject_memory_trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Covered bridges, scenic pull-offs, trailheads, and tourism stops are not overnight camping proof.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Common Parke County tourism trap."
+},
+{
+  "id": "in-reject-indiana-canoe-liveries-without-campsites",
+  "state": "IN",
+  "name": "Canoe liveries without campground proof",
+  "countyRegion": "Sugar Creek / Whitewater / Wabash river corridors",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "reject_memory_trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Canoe/kayak liveries are not campsites unless operator/official source proves overnight camping at that location.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Water corridor trap."
+},
+{
+  "id": "in-reject-state-forest-disperse-county-centroids",
+  "state": "IN",
+  "name": "State forest / county forest / public-land centroid fake boondocking pins",
+  "countyRegion": "Central Indiana",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "reject_memory_trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Do not use county, forest, preserve, or recreation-area centroids for boondocking/dispersed/primitive camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Area/rule marker guardrail."
+},
+{
+  "id": "in-reject-fort-harrison-inn-lodging-as-campground",
+  "state": "IN",
+  "name": "Fort Harrison Inn / lodging / saddle barn as campground",
+  "countyRegion": "Marion / Indianapolis",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "wrong_feature_type",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "https://www.in.gov/dnr/state-parks/parks-lakes/fort-harrison-state-park/ — official page lists lodging/recreation features, not public campground inventory in parsed page.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Reject only the lodging/saddle-barn/proxy idea, not the whole park as a recreation destination."
+},
+{
+  "id": "in-reject-hoosier-nf-offices-as-campsite-coordinates",
+  "state": "IN",
+  "name": "Hoosier NF Offices / Ranger Stations as Campsite Coordinates",
+  "countyRegion": "Hoosier NF",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Closed trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "USFS facility pages provide actual recreation coordinates and separately list Bedford/Tell City office contact addresses; those office addresses are not campground pins. ([US Forest Service][1])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Critical proxy-coordinate trap."
+},
+{
+  "id": "in-reject-water-trail-islands-riverbanks-without-listed-camping",
+  "state": "IN",
+  "name": "Indiana Riverbank / Island Camping Without Listed Permission",
+  "countyRegion": "Ohio River / Blue River / Patoka / White River corridors",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Closed trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "DNR warns camping without permission at non-dedicated sites may be trespassing and that islands/lands along streams are not necessarily public or open to camping unless listed. ([Indiana Government][39])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Important Ohio River/Blue River trap."
+},
+{
+  "id": "in-reject-state-forest-offices-trailheads-as-campsite-proxies",
+  "state": "IN",
+  "name": "Indiana State Forest Offices / Trailheads as Campsite Proxies",
+  "countyRegion": "State forest systems",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Closed trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "DNR pages often say campers register at offices or trailheads, but the offices/trailheads are not the camping locations; Morgan-Monroe explicitly requires registration at the office before backcountry camping. ([Indiana Government][13])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Keeps state-forest rows honest."
+},
+{
+  "id": "in-reject-private-property-segments-on-tecumseh-knobstone-adventure-trails",
+  "state": "IN",
+  "name": "Private / No-Camping Trail Segments on Indiana Dispersed Trail Systems",
+  "countyRegion": "Knobstone / Tecumseh / Adventure Trail corridors",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Closed trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "DNR says some Tecumseh Trail segments cross private property where camping is not allowed and lists no-camping restrictions for parts of the Knobstone Trail and nature preserves. ([Indiana Government][10])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Required guardrail for future area outlines."
+},
+{
+  "id": "ne-reject-cheyenne-sra-out-of-geography",
+  "state": "NE",
+  "name": "Cheyenne State Recreation Area",
+  "countyRegion": "Central/eastern Nebraska / out of lock",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Outside Worker 5 geography",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Cheyenne SRA appeared in state-park camping discovery, but it is outside the Panhandle/Pine Ridge/western Sandhills lock. ([Nebraska Game & Parks Commission][26])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Out-of-geography trap"
+},
+{
+  "id": "ne-reject-rock-creek-station-sra-out-of-geography",
+  "state": "NE",
+  "name": "Rock Creek Station State Historical Park / SRA",
+  "countyRegion": "Fairbury / southeast Nebraska",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Outside Worker 5 geography",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Rock Creek Station appeared in “Rock Creek” searches but is Fairbury/southeast Nebraska, not the western Rock Creek Lake SRA. ([Nebraska Game & Parks Commission][27])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Name-collision trap with Rock Creek Lake SRA"
+},
+{
+  "id": "ne-reject-s897",
+  "state": "NE",
+  "name": "Sunshine Bottom Boat Ramp",
+  "countyRegion": "Boyd / Niobrara River / Lynch",
+  "rejectedAsLayer": "Reject / Do Not Import as exact campsite",
+  "rejectionType": "Existing active conflicts with reject memory",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Existing data/rejected.js already flags Sunshine Bottom Boat Ramp as not an exact campsite; project rules ban boat ramps as campsite pins unless camping is officially proven.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Active row should not remain as exact camping"
+},
+{
+  "id": "ne-reject-fort-niobrara-nwr-camping",
+  "state": "NE",
+  "name": "Fort Niobrara NWR Camping / Overnight Pin",
+  "countyRegion": "Cherry / Valentine / Niobrara River",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Official no-camping trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Fort Niobrara NWR is daylight-use only, and Recreation.gov states camping is prohibited. ([U.S. Fish and Wildlife Service][30])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Important Niobrara corridor trap"
+},
+{
+  "id": "ne-reject-valentine-nwr-camping",
+  "state": "NE",
+  "name": "Valentine NWR Camping / Overnight Pin",
+  "countyRegion": "Cherry / Valentine NWR",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Official no-camping trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Valentine NWR rules say camping and fires are prohibited and the refuge is daylight-use only. ([U.S. Fish and Wildlife Service][31])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Do not import refuge lake/boat-ramp pins"
+},
+{
+  "id": "ne-reject-cottonwood-steverson-lake-wma-camping",
+  "state": "NE",
+  "name": "Cottonwood-Stevenson Lake WMA Camping Pin",
+  "countyRegion": "Cherry / Valentine NWR edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Official no-camping trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "NGPC fishing guide says Cottonwood-Stevenson Lake WMA has no camping and refuge sunrise-to-sunset rules. ([Nebraska Game & Parks Commission][32])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Prevent confusion with Cottonwood Lake SRA, which does allow primitive camping"
+},
+{
+  "id": "ne-reject-northern-ne-dams-marinas-launches-lake-centers-as-campsites",
+  "state": "NE",
+  "name": "Northern NE dams / marinas / launches / lake centers as campsite pins",
+  "countyRegion": "Niobrara / Missouri / Merritt / Calamus / refuge lakes",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Wrong-feature guardrail",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Official campground proof exists at named parks/campgrounds; river accesses, launches, dams, marinas and lake centers are not campsite proof by themselves.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Needed because river/reservoir geography is fake-dot bait"
+},
+{
+  "id": "ne-reject-fonner-park-rv-event-only",
+  "state": "NE",
+  "name": "Fonner Park RV Park / Campground",
+  "countyRegion": "Hall / Grand Island",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "reject_memory",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Fonner Park says the RV Park is open to vendors/carnival staff during the State Fair and from October through July is available only if the RV owner is participating in an event held at Fonner Park. ([fonnerpark.com][33])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Good trap. Don’t import fairground/event-only camping as public campground."
+},
+{
+  "id": "ne-reject-nebraska-water-trail-general-camping-without-designated-site",
+  "state": "NE",
+  "name": "Nebraska water trail / river-corridor camping without designated site proof",
+  "countyRegion": "Platte / Loup / Republican river corridors",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "reject_memory",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "NGPC water-trails guidance says to camp only in designated areas, respect private property, and obtain permission before camping or entering from private land. ([Nebraska Game & Parks Commission][34])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "This kills fake canoe-camping dots unless exact designated camping is proven."
+},
+{
+  "id": "ne-reject-ne-w8-dead-timber-primitive-closed",
+  "state": "NE",
+  "name": "Dead Timber primitive campsites",
+  "countyRegion": "Dodge / Scribner",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Officially unavailable",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "NGPC says the four Primitive sites are not available due to flood damage. ([Nebraska Game & Parks Commission][19])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Reject only the closed component, not the whole SRA"
+},
+{
+  "id": "ne-reject-ne-w8-schramm-park",
+  "state": "NE",
+  "name": "Schramm Park SRA",
+  "countyRegion": "Sarpy / Louisville-Gretna",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Official no campground at this park",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "NGPC says camping facilities are available nearby at Louisville, Mahoney, and Platte River, not Schramm itself. ([Nebraska Game & Parks Commission][51])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Trap: do not import as campground"
+},
+{
+  "id": "ne-reject-ne-w8-bruning-dam-no-camping",
+  "state": "NE",
+  "name": "Bruning Dam Recreation Area",
+  "countyRegion": "Thayer edge / Bruning",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Official Little Blue NRD page does not list camping for Bruning Dam",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Little Blue NRD lists Bruning Dam recreation as fishing/hunting/boating/restroom; camping language belongs to other NRD sites, not Bruning Dam. ([Little Blue NRD][47])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Public directories imply camping; official source does not support import"
+},
+{
+  "id": "ne-reject-ne-w8-hamburg-bend-public-access",
+  "state": "NE",
+  "name": "Hamburg Bend / Missouri River access-style leads",
+  "countyRegion": "Otoe/Richardson corridor",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "Overnight camping prohibited / access-only trap",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Public Access Atlas text shows overnight camping prohibited or camping/fires restricted to designated areas for some river access units; do not convert access points/ramps into campground pins. ([digital.outdoornebraska.gov][52])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Trap category for Missouri River access points"
+},
+{
+  "id": "in-reject-norway-campground-no-overnight-camping",
+  "state": "IN",
+  "name": "Norway Campground",
+  "countyRegion": "White / Monticello",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Operator explicitly says no overnight camping; seasonal/monthly only.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Added from Worker 1 IN public-discovery return."
+},
+{
+  "id": "in-reject-kankakee-fwa-no-camping-proof",
+  "state": "IN",
+  "name": "Kankakee Fish & Wildlife Area",
+  "countyRegion": "Starke / LaPorte / Kankakee corridor",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Official FWA page does not prove camping; statewide FWA camping index excludes it.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Added from Worker 1 IN public-discovery return."
+},
+{
+  "id": "in-reject-jasper-pulaski-fwa-no-camping",
+  "state": "IN",
+  "name": "Jasper-Pulaski FWA / Aukiki WCA / Howat 80 WMA",
+  "countyRegion": "Jasper / Pulaski / Medaryville",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_no_public_overnight_proof",
+  "rejectionStrength": "hard_closure",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Official DNR says no camping/fires for named areas.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Added from Worker 1 IN public-discovery return."
+},
+{
+  "id": "in-reject-kingsbury-fwa-no-camping-proof",
+  "state": "IN",
+  "name": "Kingsbury FWA",
+  "countyRegion": "LaPorte / Kingsbury",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Official FWA page does not prove camping; statewide FWA camping index excludes it.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Added from Worker 1 IN public-discovery return."
+},
+{
+  "id": "in-reject-lasalle-fwa-no-camping-proof",
+  "state": "IN",
+  "name": "LaSalle FWA",
+  "countyRegion": "Newton / Kankakee-Iroquois confluence",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Official FWA page does not prove camping; statewide FWA camping index excludes it.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Added from Worker 1 IN public-discovery return."
+},
+{
+  "id": "in-reject-winamac-fwa-no-camping-proof",
+  "state": "IN",
+  "name": "Winamac FWA",
+  "countyRegion": "Pulaski / Winamac",
+  "rejectedAsLayer": "Any camping layer",
+  "rejectionType": "official_no_camping_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator source clearly proves public overnight camping and an honest map coordinate can be made."
+  ],
+  "sourceSummary": "Official FWA page does not prove camping; statewide FWA camping index excludes it.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.68",
+  "notes": "Added from Worker 1 IN public-discovery return."
+}
 ];

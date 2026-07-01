@@ -1,0 +1,27 @@
+Tod's Boondocking & Camping Maps — BUILD NOTES v23.1.68
+
+Build: v23.1.68-in-ne-public-discovery-firstpass1
+Date: 2026-07-01
+
+Baseline: v23.1.67 version-flag fix cumulative fixed-files package.
+
+Scope:
+- Indiana and Nebraska revised public-discovery first-pass integration.
+- Built only rows with worker-provided import-safe numeric coordinates or existing active-row correction IDs.
+- Coordinate-blocked discovered opportunities were preserved as leads rather than fake pins.
+- Public-discovery/self-QA process revision added to PROJECT_RULES.md and Project Rules.md.
+
+Active additions/corrections in new supplement:
+- Total supplement records including corrections: 65
+- New Indiana active rows: 38
+- New Nebraska active rows: 25
+- Layer split for new rows: {'Rustic / Primitive': 21, 'Modern Campgrounds': 19, 'Private Campgrounds': 20, 'Boondocking / Dispersed': 3}
+
+Ledgers:
+- Leads added/updated from returns: 215
+- Rejected rows added/updated from returns: 38
+
+Important caveats:
+- Many Nebraska and Indiana state/NRD/municipal/private rows were source-proven but lacked import-safe coordinates in worker returns. They remain in data/leads.js and in the follow-up worker handoffs.
+- Several workers inspected stale baseline zips. This build rechecks against the v23.1.67 manifest state counts and uses supplements rather than rewriting base state files.
+- No config.js included.

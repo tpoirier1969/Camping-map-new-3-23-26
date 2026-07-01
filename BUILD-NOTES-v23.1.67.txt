@@ -1,0 +1,29 @@
+BUILD NOTES — v23.1.67 VERSION FLAG FIX
+
+Purpose:
+Fix visible app version fallback where the app could show `dev` instead of the numbered release.
+
+Root cause:
+v23.1.66 `version.js` only set `window.APP_VERSION` and `window.DATA_BUILD`. The current app startup code reads the version from `window.CAMPING_BUILD.version` or `window.CAMPING_APP_VERSION`. With those missing, `app.js` falls back to `dev`.
+
+Fix:
+* Updated `version.js` to restore the full version contract used by `app.js` and `index.html`:
+  - `window.CAMPING_APP_VERSION`
+  - `window.CAMPING_APP_BUILD`
+  - `window.CAMPING_DATA_VERSION`
+  - `window.CAMPING_DATA_BUILD`
+  - `window.CAMPING_VERSION`
+  - `window.CAMPING_BUILD.version/build/dataVersion/dataBuild/released/label`
+  - keeps `window.APP_VERSION` and `window.DATA_BUILD` as backward-compatible aliases.
+* Updated `version.json` to the same schema.
+* Added a package rule requiring future builds to preserve the version flag contract.
+
+Data changes:
+None. v23.1.67 preserves the v23.1.66 OH/IL data state.
+
+QA:
+* version.js exposes `window.CAMPING_BUILD.version = v23.1.67`.
+* version.js exposes `window.CAMPING_APP_VERSION = v23.1.67`.
+* Legacy aliases also present.
+* App fallback to `dev` should no longer occur when this `version.js` is installed.
+* No `config.js` included.

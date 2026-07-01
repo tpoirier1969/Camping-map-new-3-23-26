@@ -20,6 +20,20 @@ Workflow evolution / rules freshness rule:
 
 When Tod and the assistant make a durable workflow, architecture, data-model, proof-standard, handoff-format, or QA decision during project work, that change should be folded into `Project Rules.md` in the next revision. The controlling rules file should stay current with the way the project is actually being run. Do not let stale handoffs, old proof habits, or older package assumptions override the latest project decisions.
 
+
+Version flag / build identity contract:
+
+Every package that changes version files must preserve the app's current version flag contract. `version.js` must define all of the fields used by `app.js` and `index.html`:
+
+* `window.CAMPING_APP_VERSION`
+* `window.CAMPING_APP_BUILD`
+* `window.CAMPING_DATA_VERSION`
+* `window.CAMPING_DATA_BUILD`
+* `window.CAMPING_VERSION`
+* `window.CAMPING_BUILD = { version, build, dataVersion, dataBuild, released, label }`
+
+Keep `window.APP_VERSION` and `window.DATA_BUILD` only as backward-compatible aliases, not as the only version fields. If `window.CAMPING_BUILD.version` or `window.CAMPING_APP_VERSION` is missing, the visible app version can fall back to `dev`, which is a packaging failure.
+
 Worker-handoff delivery rule:
 
 When the project is in active state-building mode and the next useful step is worker research, provide worker handoffs to keep workers busy. Do not wait for Tod to separately ask for worker handoffs. Provide individual `.txt` files by default. Do not create a ZIP unless Tod asks for one. Do not include a supervisor handoff unless Tod explicitly asks for a supervisor handoff or reconciliation assignment.
@@ -1074,3 +1088,16 @@ QA workers check decisions.
 Build workers package accepted decisions.
 
 Do not mix those jobs unless the assignment explicitly says so.
+
+
+Discovery / self-QA workflow revision — v23.1.68:
+
+The phrase “obvious campground” is only a minimum QA tripwire, not the full worker mission. Geography-locked workers must search for every discovered or discoverable overnight camping opportunity inside the geographic lock, including less-obvious local, primitive, water-trail, equestrian, backpack, hike-in, boat-in, area/rule, community-supported, small-operator, city/county/fairground, and private/operator opportunities.
+
+A worker return fails if obvious basic-search campgrounds are missing, but workers must also go beyond obvious hits. Public discovery must be followed by deeper source-system discovery: official PDFs, GIS layers, reservation systems, official maps, water-trail lists, state forest/national forest systems, WMA rules, county/city park lists, and operator/source directories where relevant.
+
+All geography-locked workers must complete four required phases before returning: discovery/coverage, proof/classification, coordinate rescue, and component/area-rule extraction. A pass type may identify where the worker should spend extra depth, but it does not allow the worker to skip the other phases.
+
+A real overnight camping opportunity may not disappear because coordinates are difficult. If official/operator/community proof supports overnight camping, the worker must either return an active candidate using an honest exact or medium-confidence address/map-supported coordinate, or create a durable lead with the exact acquisition path. Address-based coordinate rescue is mandatory for ordinary public/operator campgrounds before downgrading to lead-only.
+
+Workers must self-QA before returning. The self-QA must cover public discovery, deep discovery, non-modern/area-rule checks, address-coordinate rescue attempts, final action for every discovered site, reject traps, and 3–5 control searches for missed campground names. If the worker’s own self-QA fails, they must keep working or clearly identify the external blocker. Supervisor acceptance QA still applies.
