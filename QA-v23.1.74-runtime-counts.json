@@ -1,0 +1,16 @@
+{
+  "AR": {
+    "manifestCount": 64,
+    "runtimeCount": 64,
+    "duplicateIds": [],
+    "duplicateNames": [],
+    "badCoords": []
+  },
+  "TN": {
+    "manifestCount": 44,
+    "runtimeCount": 44,
+    "duplicateIds": [],
+    "duplicateNames": [],
+    "badCoords": []
+  }
+}
