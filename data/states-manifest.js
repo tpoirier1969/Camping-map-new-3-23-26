@@ -205,7 +205,14 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MO",
     "name": "Missouri",
     "file": "data/states/MO.js",
-    "count": 41
+    "count": 58,
+    "files": [
+      "data/states/MO.js",
+      "data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js"
+    ],
+    "dynamicSources": [
+      "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted official/operator campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps."
+    ]
   },
   "MT": {
     "code": "MT",
@@ -253,13 +260,15 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "ND",
     "name": "North Dakota",
     "file": "data/states/ND.js",
-    "count": 52,
+    "count": 64,
     "files": [
-      "data/states/ND.js"
+      "data/states/ND.js",
+      "data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js"
     ],
     "dynamicSources": [
       "v23.1.53: North Dakota final first-pass cleanup adds 24 records directly into data/states/ND.js: 13 official/operator campground or recreation-area records, 3 community-supported boondocking records, and 8 approximate Area/rule pins for national grasslands, NDGF WMA regions, and the Sheyenne River Water Trail corridor. Adds data/leads.js and data/rejected.js as project-memory files; no ND supplement file is created.",
-      "v23.1.52: North Dakota first expansion cleanup folds 25 accepted supervisor-reconciled official/operator records directly into data/states/ND.js, updates Lindenwood to a source-backed Modern Campgrounds row, moves the broad Theodore Roosevelt NP legacy row to Info / Reference, and moves vague Campsite #2 to Needs Verification. No ND supplement file is created."
+      "v23.1.52: North Dakota first expansion cleanup folds 25 accepted supervisor-reconciled official/operator records directly into data/states/ND.js, updates Lindenwood to a source-backed Modern Campgrounds row, moves the broad Theodore Roosevelt NP legacy row to Info / Reference, and moves vague Campsite #2 to Needs Verification. No ND supplement file is created.",
+      "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted official/operator campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps."
     ]
   },
   "OH": {
@@ -281,13 +290,15 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "SD",
     "name": "South Dakota",
     "file": "data/states/SD.js",
-    "count": 102,
+    "count": 114,
     "files": [
-      "data/states/SD.js"
+      "data/states/SD.js",
+      "data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js"
     ],
     "dynamicSources": [
       "v23.1.50: South Dakota expansion cleanup folds the active SD modern-audit effect into data/states/SD.js, removes the vague Dude Ranch stop-over row already removed at runtime by v23.1.21, updates three legacy rows with official proof, and adds 84 official-source / official-map-derived South Dakota records directly to the owning state file. No SD supplement file is required for runtime loading after this build.",
-      "v23.1.51: South Dakota final deeper-dig merge adds 11 more official/operator/MVUM-supported records directly to data/states/SD.js: 4 Boondocking / Dispersed area markers, 1 Rustic primitive shoreline cluster, and 6 municipal/public campground records. Count increases from 91 to 102. No new supplement file is created."
+      "v23.1.51: South Dakota final deeper-dig merge adds 11 more official/operator/MVUM-supported records directly to data/states/SD.js: 4 Boondocking / Dispersed area markers, 1 Rustic primitive shoreline cluster, and 6 municipal/public campground records. Count increases from 91 to 102. No new supplement file is created.",
+      "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted official/operator campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps."
     ]
   },
   "TN": {

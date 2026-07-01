@@ -1,0 +1,40 @@
+Tod's Boondocking & Camping Maps — v23.1.70 BUILD NOTES
+
+Scope:
+- SD/ND/MO weak-state rescue first wave from Workers 1-8.
+- Fixed-files package only; no config.js included.
+
+Accepted active additions:
+- South Dakota: 12 new active rows.
+- North Dakota: 12 new active rows.
+- Missouri: 17 new active rows.
+- Count-neutral corrections/updates: s639, s560.
+
+Runtime counts after supplement:
+- SD: 114
+- ND: 64
+- MO: 58
+
+Ledger changes:
+- data/leads.js total: 1391
+- data/rejected.js total: 364
+- New leads added in this build: 132
+- New rejected-memory rows added in this build: 35
+
+Supervisor decisions:
+- Promoted only rows with numeric worker coordinates accepted as honest campground/recreation-area markers, plus one official NPS Ozark NSR gravel-bar approximate rule marker.
+- Held coordinate-blocked USACE, MDC, Missouri State Parks, NDPRD component, city/private/operator, WMA/GPA, MVUM, water-trail, and backcountry systems as leads.
+- Added no fake lake-center, dam, visitor-center, boat-ramp, trailhead, fairground/event-only, or park-office pins.
+- Long Branch State Park retained but updated with a 2026 closure warning from Worker 8.
+- Nemo Campground updated to Nemo Landing Campground / USACE Modern based on Worker 7 source proof.
+
+Changed files:
+- version.js
+- version.json
+- data/states-manifest.js
+- data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js
+- data/leads.js
+- data/rejected.js
+- BUILD-NOTES-v23.1.70.txt
+- QA-v23.1.70.txt
+- QA-v23.1.70-runtime-counts.json

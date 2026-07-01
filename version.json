@@ -1,9 +1,9 @@
 {
-  "version": "v23.1.69",
-  "build": "v23.1.69",
-  "dataVersion": "v23.1.69-in-ne-coordinate-rescue-closeout",
-  "dataBuild": "v23.1.69-in-ne-coordinate-rescue-closeout",
+  "version": "v23.1.70",
+  "build": "v23.1.70",
+  "dataVersion": "v23.1.70-sd-nd-mo-weakstate-rescue",
+  "dataBuild": "v23.1.70-sd-nd-mo-weakstate-rescue",
   "released": "2026-07-01",
-  "label": "Boondocking & Camping Maps v23.1.69",
-  "notes": "IN/NE coordinate-rescue closeout. Adds accepted Indiana DNR/private/operator rows and Nebraska NGPC/NRD/USACE/city/private rows; applies WMA, Niobrara, Lake McConaughy and Bessey source/layer corrections; preserves coordinate-blocked components and geometry work as leads."
+  "label": "Boondocking & Camping Maps v23.1.70",
+  "notes": "SD/ND/MO weak-state rescue first wave. Adds supervisor-accepted South Dakota GFP/USFS/NPS rows, North Dakota city/state/private rows, and Missouri USFS/NPS official campground/float-camp rows; parks coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads and adds rejected-memory guardrails."
 }

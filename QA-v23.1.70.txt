@@ -1,0 +1,26 @@
+Tod's Boondocking & Camping Maps — v23.1.70 QA
+
+Runtime counts:
+- SD manifest/runtime: 114 / 114
+- ND manifest/runtime: 64 / 64
+- MO manifest/runtime: 58 / 58
+
+Duplicate checks after loading data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js:
+- SD duplicate active IDs: 0
+- SD duplicate active names: 0
+- ND duplicate active IDs: 0
+- ND duplicate active names: 0
+- MO duplicate active IDs: 0
+- MO duplicate active names: 0
+
+JS syntax checks:
+- version.js: passed
+- data/states-manifest.js: passed
+- data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js: passed
+- data/leads.js: passed
+- data/rejected.js: passed
+
+Bad active coordinate policy:
+- No active row was created from COORD RESCUE REQUIRED / AREA GEOMETRY REQUIRED placeholders.
+- Coordinate-blocked rows were preserved in data/leads.js.
+- No config.js changes included.

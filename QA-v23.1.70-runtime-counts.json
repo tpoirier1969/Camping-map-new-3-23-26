@@ -1,0 +1,34 @@
+{
+  "counts": {
+    "SD": 114,
+    "ND": 64,
+    "MO": 58
+  },
+  "duplicates": {
+    "SD": {
+      "duplicateIds": [],
+      "duplicateNames": []
+    },
+    "ND": {
+      "duplicateIds": [],
+      "duplicateNames": []
+    },
+    "MO": {
+      "duplicateIds": [],
+      "duplicateNames": []
+    }
+  },
+  "leadsRejected": {
+    "leads": 1391,
+    "rejected": 364
+  },
+  "activeAdditionsByState": {
+    "SD": 12,
+    "ND": 12,
+    "MO": 17
+  },
+  "countNeutralUpdates": [
+    "s639",
+    "s560"
+  ]
+}

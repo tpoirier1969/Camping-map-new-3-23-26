@@ -6231,5 +6231,635 @@ window.CAMPING_REJECTED = [
   "relatedActiveOrPendingRecord": "ne-lead-pawnderosa-campground-coordinate-conflict",
   "lastCheckedVersion": "v23.1.69",
   "notes": "Coordinate trap found during supervisor spot-check."
+},
+{
+  "id": "sd-reject-wrinkled-rock-climbing-area-camping",
+  "state": "SD",
+  "name": "Wrinkled Rock Climbing Area camping",
+  "countyRegion": "Pennington / Mount Rushmore edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USFS says camping is no longer available, tent pads were removed, and the area is day-use only with no overnight parking/camping. ([US Forest Service][11])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W1 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-revheim-bay-day-use-no-camping",
+  "state": "SD",
+  "name": "Revheim Bay Recreation Area",
+  "countyRegion": "Walworth / Lake Oahe",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://gfp.sd.gov/parks/detail/revheim-bay-recreation-area/ — GFP identifies Revheim Bay as day-use park and does not list campground/campsites.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W2 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-laframboise-island-nature-area-no-camping",
+  "state": "SD",
+  "name": "LaFramboise Island Nature Area",
+  "countyRegion": "Hughes / Pierre / Lake Sharpe",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://gfp.sd.gov/parks/detail/laframboise-island-nature-area/ — GFP lists Park Size as day-use park; no campground/campsites.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W2 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-spring-creek-recreation-area-modern-lodging-not-campground",
+  "state": "SD",
+  "name": "Spring Creek Recreation Area",
+  "countyRegion": "Hughes / Lake Oahe/Pierre area",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://gfp.sd.gov/parks/detail/spring-creek-recreation-area/ — GFP lists 10 modern cabins and 12 suites plus marina/restaurant/store context; no campsite/campground inventory captured.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W2 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-oahe-dam-lake-center-corps-office-proxy",
+  "state": "SD",
+  "name": "Oahe Dam / Lake Oahe / Corps office proxy points",
+  "countyRegion": "Stanley / Hughes / Lake Oahe",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Oahe Downstream and multiple GFP recreation areas already cover real campgrounds; dam/lake/project/Corps-office points are not campsites.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W2 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-big-bend-dam-lake-sharpe-project-proxy",
+  "state": "SD",
+  "name": "Big Bend Dam / Lake Sharpe project proxy points",
+  "countyRegion": "Buffalo / Lyman / Hughes / Stanley",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Real campgrounds along Sharpe are handled through GFP recreation-area records; dam/project/lake-center points are not campsites.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W2 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-fort-randall-dam-lake-francis-case-project-proxy",
+  "state": "SD",
+  "name": "Fort Randall Dam / Lake Francis Case project proxy points",
+  "countyRegion": "Charles Mix / Gregory / Lyman",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Real campgrounds are GFP recreation-area records: Snake Creek, Buryanek, Platte Creek, North Point, Randall Creek, North Wheeler, Pease Creek.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W2 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-good-earth-state-park-official-no-camping",
+  "state": "SD",
+  "name": "Good Earth State Park",
+  "countyRegion": "Lincoln / Sioux Falls edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://gfp.sd.gov/parks/detail/good-earth-state-park/ — GFP lists Park Size: Day use park; no camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W3 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-lake-alvin-recreation-area-official-no-camping",
+  "state": "SD",
+  "name": "Lake Alvin Recreation Area",
+  "countyRegion": "Lincoln / Harrisburg-Sioux Falls edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://gfp.sd.gov/parks/detail/lake-alvin-recreation-area/ — GFP lists Park Size: Day use park; no camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W3 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-beaver-creek-nature-area-official-no-camping",
+  "state": "SD",
+  "name": "Beaver Creek Nature Area",
+  "countyRegion": "Minnehaha / Brandon-Valley Springs edge",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://gfp.sd.gov/parks/detail/beaver-creek-nature-area/ — GFP lists Park Size: Day use; no camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W3 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-spirit-mound-historic-prairie-official-no-camping",
+  "state": "SD",
+  "name": "Spirit Mound Historic Prairie",
+  "countyRegion": "Clay / Vermillion",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://gfp.sd.gov/parks/detail/spirit-mound-historic-prairie/ — GFP lists Park Size: Day use; no camping.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W3 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-big-stone-island-nature-area-no-overnight-proof",
+  "state": "SD",
+  "name": "Big Stone Island Nature Area",
+  "countyRegion": "Roberts / Big Stone Lake / boat-access island",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://gfp.sd.gov/parks/detail/big-stone-island-nature-area/ — GFP describes a boat/canoe-access nature area with hiking/wildlife activities and no maintained trails/facilities; no overnight/camping proof recovered.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W3 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-adams-homestead-nature-preserve-no-overnight-proof",
+  "state": "SD",
+  "name": "Adams Homestead and Nature Preserve",
+  "countyRegion": "Union / North Sioux City",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "https://gfp.sd.gov/parks/detail/adams-homestead-and-nature-preserve/ — GFP lists nature-preserve activities/amenities but no camping or campground proof recovered.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W3 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "sd-reject-east-river-lake-centers-boat-ramps-beaches-as-campsites",
+  "state": "SD",
+  "name": "East River lake centers, boat ramps, beaches, dams, and park centroids as campsite pins",
+  "countyRegion": "East River / Glacial Lakes / prairie corridor",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Derived from repeated East River discovery traps and current PROJECT_RULES.md coordinate rules.",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From SD_W3 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "nd-reject-van-hook-wma-antelope-creek-wma-no-overnight-camping",
+  "state": "ND",
+  "name": "Van Hook WMA and Antelope Creek WMA overnight camping trap",
+  "countyRegion": "Mountrail / Lake Sakakawea north shore",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "NDGF listing shows WMA-specific camping restrictions/prohibitions for Van Hook and Antelope Creek context. ([North Dakota Game and Fish Department][24])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From ND_W4 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "nd-reject-williston-spring-lake-park-day-use-no-camping-proof",
+  "state": "ND",
+  "name": "Spring Lake Park, Williston",
+  "countyRegion": "Williams / Williston",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "City/park listing shows day-use recreation amenities for Spring Lake Park but no campground/overnight camping proof. ([Williston Parks & Recreation District][25])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From ND_W4 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "nd-reject-little-metigoshe-sra-no-camping",
+  "state": "ND",
+  "name": "Little Metigoshe State Recreation Area",
+  "countyRegion": "Bottineau / Turtle Mountains",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "NDPRD states Little Metigoshe SRA has no camping or overnight parking. ([North Dakota Parks and Recreation][22])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From ND_W5 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "nd-reject-grand-forks-afb-famcamp-nonpublic",
+  "state": "ND",
+  "name": "Grand Forks AFB FamCamp as public campground",
+  "countyRegion": "Grand Forks AFB",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Grand Forks AFB says FamCamp is for DoD ID Card holders, including active duty, retired military, DoD civilians/contractors and families. ([Grand Forks AFB FSS][21])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From ND_W5 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-dee-murray-backcountry-closed",
+  "state": "MO",
+  "name": "Dee Murray Backcountry Campground",
+  "countyRegion": "Ozark NSR",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_closure",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "NPS 2025 flood-repair update says Dee Murray Backcountry Campground remains closed due to heavy flood damage. ([National Park Service][27])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W6 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-pinewoods-lake-day-use-not-campground",
+  "state": "MO",
+  "name": "Pinewoods Lake Recreation Area day-use/picnic area",
+  "countyRegion": "Butler / Poplar Bluff District",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USFS page is explicitly “Day Use and Picnic Area,” with boat ramp, fishing pier, trail, and picnicking; no camping proof. ([US Forest Service][28])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W6 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-turner-mill-south-access-not-campsite",
+  "state": "MO",
+  "name": "Turner Mill South River Access",
+  "countyRegion": "Oregon / Eleven Point River",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USFS result identifies Turner Mill South as river access; no campground proof in accessible source. ([US Forest Service][29])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W6 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-highway-142-river-access-not-campsite",
+  "state": "MO",
+  "name": "Highway 142 / The Narrows River Access",
+  "countyRegion": "Oregon / Eleven Point River",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USFS result describes Highway 142 access with developed boat ramp/vault toilet but no camping proof. ([US Forest Service][30])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W6 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-bay-nothing-boat-launch-not-campsite",
+  "state": "MO",
+  "name": "Bay Nothing Gravel Boat Launch",
+  "countyRegion": "Carter/Ripley / Current River",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "USFS Bay Nothing page is a gravel boat launch and points users to nearby Watercress/other campgrounds separately. ([US Forest Service][31])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W6 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-truman-bledsoe-ferry-dayuse-shelter-trap",
+  "state": "MO",
+  "name": "Bledsoe Ferry",
+  "countyRegion": "Benton / Truman Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Opened source described Bledsoe Ferry as year-round day-use area with picnic shelters, toilets, water, ramp/fishing docks; no campsite proof in opened result. ([Recreation.gov][8])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W7 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-truman-windsor-crossing-boatramp-trap",
+  "state": "MO",
+  "name": "Windsor Crossing Boat Ramp",
+  "countyRegion": "Truman Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Truman Lake gateway showed Windsor Crossing as boat ramp/permit context, not overnight campground proof. ([Recreation.gov][7])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W7 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-stockton-masters-shelter-trap",
+  "state": "MO",
+  "name": "Masters / Masters Shelter Area",
+  "countyRegion": "Stockton Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Search result context identified Masters as shelter/boat ramp/beach/fishing dock style component, not campground proof. ([Recreation.gov][18])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W7 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-mdc-truman-leesville-camping-prohibited",
+  "state": "MO",
+  "name": "Truman Reservoir Management Lands — Leesville",
+  "countyRegion": "Truman Reservoir",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "MDC page says camping is allowed only where designated, then explicitly says camping is prohibited for Leesville. ([Missouri Department of Conservation][29])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W7 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-mdc-pomme-de-terre-management-lands-camping-prohibited",
+  "state": "MO",
+  "name": "Pomme de Terre Lake Management Lands",
+  "countyRegion": "Pomme de Terre Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "MDC page includes the camping rule and then says camping is prohibited for this area. ([Missouri Department of Conservation][30])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W7 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-mdc-stockton-lake-management-lands-camping-prohibited",
+  "state": "MO",
+  "name": "Stockton Lake Management Lands",
+  "countyRegion": "Stockton Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "MDC page includes camping rule and then says camping is prohibited for Stockton Lake Management Lands. ([Missouri Department of Conservation][31])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W7 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-reject-katy-trail-general-camping-trap",
+  "state": "MO",
+  "name": "Katy Trail State Park — General Trail Camping",
+  "countyRegion": "Central Missouri corridor",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Missouri State Parks says it does not provide camping along Katy Trail; adjacent public/private camping is separate. ([Missouri State Parks][32])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W7 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-w8-bluffview-day-use-trap",
+  "state": "MO",
+  "name": "Bluffview Recreation Area, Mark Twain Lake",
+  "countyRegion": "Mark Twain Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Recreation.gov identifies Bluffview as day-use with boat ramp, playground, and picnic shelters, not overnight camping. ([Recreation.gov][6])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W8 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-w8-john-spalding-day-use-trap",
+  "state": "MO",
+  "name": "John Spalding Recreation Area",
+  "countyRegion": "Mark Twain Lake",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Recreation.gov describes John Spalding as a day-use area with beach, showers, picnic shelters, and playground. ([Recreation.gov][7])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W8 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-w8-huckleberry-ridge-ca-no-camping",
+  "state": "MO",
+  "name": "Huckleberry Ridge Conservation Area",
+  "countyRegion": "Northeast / county verify",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "MDC regulations state camping is forbidden/prohibited at Huckleberry Ridge CA. ([Missouri Department of Conservation][21])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W8 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-w8-little-lost-creek-ca-no-camping",
+  "state": "MO",
+  "name": "Little Lost Creek Conservation Area",
+  "countyRegion": "Warren",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "MDC regulations state camping is prohibited at Little Lost Creek CA. ([Missouri Department of Conservation][22])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W8 v23.1.70 weak-state rescue return."
+},
+{
+  "id": "mo-w8-troy-lakeview-rv-estates-long-term",
+  "state": "MO",
+  "name": "Lakeview RV Estates / Troy RV Park style long-term RV estate",
+  "countyRegion": "Lincoln / Troy",
+  "rejectedAsLayer": "Reject / Do Not Import",
+  "rejectionType": "official_no_camping_or_wrong_feature_trap",
+  "rejectionStrength": "hard_reject_or_guardrail",
+  "currentDecision": "KEEP REJECTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+  ],
+  "sourceSummary": "Operator listing indicates 30-day minimum and application/income-style requirements. ([Lakeview RV Estates][44])",
+  "relatedActiveOrPendingRecord": null,
+  "lastCheckedVersion": "v23.1.70",
+  "notes": "From MO_W8 v23.1.70 weak-state rescue return."
 }
 ];
