@@ -1,0 +1,59 @@
+Tod's Boondocking & Camping Maps — BUILD NOTES v23.1.76
+
+Build: v23.1.76
+Data build: v23.1.76-tn-worker4-ledger-ui-icon-scaling
+Date: 2026-07-01
+
+Purpose
+- Small conservative revision while waiting for the rest of the Tennessee/Kansas worker returns.
+- Adds zoom-sensitive campsite icon scaling so low-zoom state/regional views do not become blobs of color.
+- Rolls Worker 4 Tennessee fill-in / Catoosa-Prentice-North Cumberland-Cherokee MVUM findings into ledgers conservatively.
+
+UI changes
+- Added zoom-based marker scaling in app.js:
+  - Zoom 8.5 and above: 100% current icon size.
+  - Zoom 7: about 50% size.
+  - Zoom 6: about one-third size.
+  - Zoom 5 and below: about one-quarter size.
+- Interpolates smoothly between target zoom levels.
+- Marker cache key now includes marker scale so markers redraw after zoom changes.
+- Inline marker dimensions now override the fixed marker CSS dimensions so the scale is actually visible.
+- Existing icon shapes, colors, and layer meanings are preserved.
+
+Data/ledger changes
+- No active campsite/site pins were added from Worker 4.
+- Worker 4 directory/community coordinates were treated as coordinate-rescue leads unless official map/aerial QA verifies the point lands on the campground/camping area.
+- Added 7 Tennessee lead/update rows from Worker 4:
+  - Cherokee NF MVUM dispersed-camping route geometry.
+  - Starr Mountain / Spring Creek area-rule geometry.
+  - Lost Corral Horse Camp coordinate-rescue lead.
+  - Lost Creek Campground coordinate-rescue lead.
+  - Catoosa WMA restricted hunter-only camping geometry lead.
+  - Prentice Cooper formal campground/component coordinate-rescue leads.
+  - Cumberland Trail / Big South Fork / Obed / South Cumberland geometry-upgrade leads.
+- Added 1 Tennessee rejected trap from Worker 4:
+  - Prentice Cooper broad dispersed / road-pullout / informal climber camping claims.
+- Existing Catoosa unrestricted public boondocking trap was already present from v23.1.75 and remains rejected.
+
+Counts
+- Active state counts unchanged:
+  - Arkansas: 93
+  - Tennessee: 65
+- data/leads.js: 1717 -> 1724 (+7)
+- data/rejected.js: 484 -> 485 (+1)
+
+Files changed/included
+- app.js
+- index.html
+- version.js
+- version.json
+- data/states-manifest.js
+- data/leads.js
+- data/rejected.js
+- PROJECT_RULES.md
+- BUILD-NOTES-v23.1.76.txt
+- QA-v23.1.76.txt
+- QA-v23.1.76-runtime-counts.json
+
+config.js
+- Not included. No config change.

@@ -1,0 +1,22 @@
+Tod's Boondocking & Camping Maps — QA v23.1.76
+
+QA summary
+- PASS: app.js syntax checked with node --check.
+- PASS: data/leads.js syntax checked with node --check.
+- PASS: data/rejected.js syntax checked with node --check.
+- PASS: data/states-manifest.js syntax checked with node --check.
+- PASS: version.js syntax checked with node --check.
+- PASS: version.json reports v23.1.76 / v23.1.76-tn-worker4-ledger-ui-icon-scaling.
+- PASS: Version flag contract preserved in version.js: CAMPING_APP_VERSION, CAMPING_APP_BUILD, CAMPING_DATA_VERSION, CAMPING_DATA_BUILD, CAMPING_VERSION, APP_VERSION, DATA_BUILD, and CAMPING_BUILD object.
+- PASS: Icon scaling targets present in app.js: 100% at zoom 8.5+, 50% at zoom 7, one-third at zoom 6, one-quarter at zoom 5 and below.
+- PASS: Marker icon HTML now includes inline width/height/flex values so scaling overrides fixed marker CSS dimensions.
+- PASS: Marker cache key includes marker scale and zoomend handler redraws markers when scale changes.
+- PASS: Active state counts unchanged from v23.1.75: AR 93, TN 65.
+- PASS: Worker 4 active candidates were not promoted directly from directory/community coordinates.
+- PASS: Worker 4 useful findings were preserved as leads/rejected guardrails.
+- PASS: PROJECT_RULES.md updated with marker-density / zoom-scaling UI rule.
+- PASS: config.js not included.
+
+Known limitations
+- This is not the Tennessee/Kansas data build. It is a small UI + conservative ledger revision while waiting on the other seven worker returns.
+- Worker 4 candidate coordinates still require official map/GIS/aerial QA before active import.

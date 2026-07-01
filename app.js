@@ -55,6 +55,18 @@ const LAYER_CONTROL_KEYS=new Set(['modern','rustic','private','boondocking','boa
 const MAP_LAYERS=LAYERS.filter(l=>LAYER_CONTROL_KEYS.has(l.key));
 const SMALL_EMPHASIS_LAYERS=new Set(['overnight-parking','rest-truck']);
 function markerSizeForLayer(key){if(key==='boat-backpack')return 26;return SMALL_EMPHASIS_LAYERS.has(key)?22:24;}
+function markerIconScaleForZoom(zoom){
+  const z=Number(zoom);
+  if(!Number.isFinite(z))return 1;
+  if(z>=8.5)return 1;
+  if(z>=7)return .5+((z-7)/1.5)*.5;
+  if(z>=6)return (1/3)+((z-6))*(.5-(1/3));
+  if(z>=5)return .25+((z-5))*((1/3)-.25);
+  return .25;
+}
+function currentMarkerIconScale(){return markerIconScaleForZoom(app&&app.map&&app.map.getZoom?app.map.getZoom():8.5);}
+function scaledMarkerSizeForLayer(key){return Math.max(6,Math.round(markerSizeForLayer(key)*currentMarkerIconScale()));}
+function markerScaleCacheKey(){return currentMarkerIconScale().toFixed(3);} 
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
@@ -127,7 +139,7 @@ function migrateLayerKeys(rawLayers){
 function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
-function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=localStorage.getItem(STORE.basemap)||'topo'; (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();});}
+function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=localStorage.getItem(STORE.basemap)||'topo'; (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();if(app.markerLayerCacheKey&&app.markerLayerCacheKey!==markerCacheKey())renderMarkers(false);});}
 function retireLegacyLayerControls(){
   // v23.1.30+: layer controls live in the map legend. Remove stale cached layer home panels
   // so duplicate IDs do not steal handlers, but keep the v23.1.72 phone Layers shortcut.
@@ -1482,7 +1494,7 @@ async function loadState(code){
 }
 
 function getPendingSites(){const raw=window.CAMPING_PENDING_SITES||window.CAMPING_PENDING||[];return Array.isArray(raw)?raw.map(s=>Object.assign({pending:true},s)):[]}
-function markerIcon(site){const key=layerKey(site);const d=layerDef(key);const size=markerSizeForLayer(key);const anchor=Math.round(size/2);return L.divIcon({className:'',html:`<span class="map-pin ${d.css}">${d.icon}</span>`,iconSize:[size,size],iconAnchor:[anchor,anchor],popupAnchor:[0,-anchor]})}
+function markerIcon(site){const key=layerKey(site);const d=layerDef(key);const size=scaledMarkerSizeForLayer(key);const anchor=Math.round(size/2);const pinStyle=`width:${size}px;height:${size}px;flex:0 0 ${size}px;`;return L.divIcon({className:'',html:`<span class="map-pin ${d.css}" style="${pinStyle}">${d.icon}</span>`,iconSize:[size,size],iconAnchor:[anchor,anchor],popupAnchor:[0,-anchor]})}
 function isTravelerStop(site){return layerKey(site)==='rest-truck'}
 function restRoadsideDiagnosticText(){
   const st=app.restRoadsideStats;
@@ -2145,7 +2157,7 @@ function siteMatches(site){
 }
 function markerCacheKey(){
   const siteKey=(app.sites||[]).map(s=>s.id||s.name||'').join('|');
-  return JSON.stringify({siteKey,filters:app.filters,near:app.nearMeActive?[app.localAreaCenter,nearRadiusMiles()]:null,route:app.routeSearch&&app.routeSearch.active?[app.routeSearch.coords&&app.routeSearch.coords.length,app.routeSearch.bufferMiles,app.routeSearch.distanceMiles]:null,search:app.search,restOnly:app.restOnlyMode});
+  return JSON.stringify({siteKey,filters:app.filters,near:app.nearMeActive?[app.localAreaCenter,nearRadiusMiles()]:null,route:app.routeSearch&&app.routeSearch.active?[app.routeSearch.coords&&app.routeSearch.coords.length,app.routeSearch.bufferMiles,app.routeSearch.distanceMiles]:null,search:app.search,restOnly:app.restOnlyMode,markerScale:markerScaleCacheKey()});
 }
 function resetMarkerLayerGroups(){
   if(app.markerLayer)app.markerLayer.clearLayers();

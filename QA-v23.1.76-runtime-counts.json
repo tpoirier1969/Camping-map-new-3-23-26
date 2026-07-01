@@ -1,0 +1,31 @@
+{
+  "version": "v23.1.76",
+  "dataBuild": "v23.1.76-tn-worker4-ledger-ui-icon-scaling",
+  "activeCounts": {
+    "AR": 93,
+    "TN": 65
+  },
+  "ledgers": {
+    "leads": {
+      "previous": 1717,
+      "current": 1724,
+      "delta": 7
+    },
+    "rejected": {
+      "previous": 484,
+      "current": 485,
+      "delta": 1
+    }
+  },
+  "ui": {
+    "iconScaling": {
+      "zoom8_5Plus": 1.0,
+      "zoom7": 0.5,
+      "zoom6": 0.3333333333,
+      "zoom5AndBelow": 0.25,
+      "interpolated": true,
+      "cssOverrideInlineSize": true
+    }
+  },
+  "configIncluded": false
+}

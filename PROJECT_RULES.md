@@ -21,6 +21,11 @@ Workflow evolution / rules freshness rule:
 When Tod and the assistant make a durable workflow, architecture, data-model, proof-standard, handoff-format, or QA decision during project work, that change should be folded into `Project Rules.md` in the next revision. The controlling rules file should stay current with the way the project is actually being run. Do not let stale handoffs, old proof habits, or older package assumptions override the latest project decisions.
 
 
+
+UI marker-density / zoom-scaling rule:
+
+As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. The approved target curve is: full/current icon size at zoom 8.5 and above; about 50% size at zoom 7; about one-third size at zoom 6; about one-quarter size at zoom 5 and below. Interpolate smoothly between these zoom levels and clamp around 25% below zoom 5 unless Tod later approves a switch to simple dots or clustering. Preserve the existing icon shapes, colors, and layer meanings unless Tod explicitly asks to change them.
+
 Version flag / build identity contract:
 
 Every package that changes version files must preserve the app's current version flag contract. `version.js` must define all of the fields used by `app.js` and `index.html`:
@@ -270,6 +275,18 @@ Search UI behavior rule:
 Search must search all currently loaded active records, not only records in currently visible layers. Layer visibility controls normal map display, not whether search knows a loaded record exists.
 
 When a search result belongs to a layer that is currently hidden, the result should still appear with a hidden-layer note. Selecting it should temporarily reveal/highlight that one marker and open or make available its popup, without permanently turning on the whole layer. The popup/result should make clear that the record belongs to a currently hidden layer and that turning on the layer will show all records in that layer.
+
+
+Zoom-sensitive campsite icon scaling rule:
+
+When campsite density makes low-zoom map views look like blobs of color, use zoom-sensitive icon scaling instead of globally shrinking all icons. The approved targets are:
+
+* zoom 8.5 and above: 100% of normal icon size
+* zoom 7: about 50% of normal icon size
+* zoom 6: about one-third of normal icon size
+* zoom 5 and below: about one-quarter of normal icon size
+
+Interpolate smoothly between those levels and clamp around 25% below zoom 5 unless Tod later approves switching low zoom to plain dots or clustering. Keep layer icon meanings, colors, and shapes unchanged unless Tod explicitly requests a new icon revision.
 
 Layer rules:
 

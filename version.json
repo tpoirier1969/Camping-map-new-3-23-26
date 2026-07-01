@@ -1,9 +1,9 @@
 {
-  "version": "v23.1.75",
-  "build": "v23.1.75",
-  "dataVersion": "v23.1.75-ar-tn-cleanup-coordinate-rescue",
-  "dataBuild": "v23.1.75-ar-tn-cleanup-coordinate-rescue",
+  "version": "v23.1.76",
+  "build": "v23.1.76",
+  "dataVersion": "v23.1.76-tn-worker4-ledger-ui-icon-scaling",
+  "dataBuild": "v23.1.76-tn-worker4-ledger-ui-icon-scaling",
   "released": "2026-07-01",
-  "label": "Boondocking & Camping Maps v23.1.75",
-  "notes": "Site-data package: integrates AR/TN cleanup coordinate-rescue additions after v23.1.74, preserves v23.1.74 UI cleanup, and rolls remaining blocked targets into leads/rejected guardrails."
+  "label": "Boondocking & Camping Maps v23.1.76",
+  "notes": "UI package: adds zoom-sensitive campsite icon scaling and rolls Worker 4 Tennessee fill-in findings conservatively into leads/rejected guardrails. No new active campsite pins from Worker 4 directory/community coordinates."
 }

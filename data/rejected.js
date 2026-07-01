@@ -8576,19 +8576,19 @@ window.CAMPING_REJECTED = [
     "id": "tn-reject-catoosa-wma-unrestricted-public-boondocking",
     "state": "TN",
     "name": "Catoosa WMA as unrestricted public boondocking",
-    "countyRegion": "Catoosa WMA",
+    "countyRegion": "Catoosa WMA / Peavine area",
     "rejectedAsLayer": "Reject / Do Not Import",
-    "rejectionType": "wrong_feature_type / no_honest_map_record",
+    "rejectionType": "official_or_posted_conflict / community_claim_trap",
     "rejectionStrength": "hard_reject_or_guardrail",
     "currentDecision": "KEEP REJECTED",
     "canReopen": true,
     "reopenIf": [
-      "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+      "Only if current official/operator rules clearly prove public overnight camping at a specific mappable campsite/camping area and an honest coordinate can be made."
     ],
-    "sourceSummary": "Official restriction trap; TWRA restricts camping during big-game hunts to big-game hunters only. ([Tennessee State Government][7]); This rejects only the unrestricted framing, not every possible permitted hunter camp",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.75",
-    "notes": "Added/updated from AR/TN cleanup coordinate-rescue v23.1.75."
+    "sourceSummary": "Official TWRA rules restrict Catoosa WMA camping during big-game hunts to big-game hunters only. Worker 4 found only weak/broad app-directory general-camping claims, not 3+ independent same-spot overnight reports, and official restrictions contradict unrestricted public boondocking framing.",
+    "relatedActiveOrPendingRecord": "tn-catoosa-wma-restricted-hunter-camping-geometry",
+    "lastCheckedVersion": "v23.1.76",
+    "notes": "Added/updated from Worker 4 TN fill-in community-control return in v23.1.76."
   },
   {
     "id": "tn-reject-tennessee-wall-parking-lot-informal-camping",
@@ -9021,5 +9021,23 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.75",
     "notes": "Added/updated from AR/TN cleanup coordinate-rescue v23.1.75."
+  },
+  {
+    "state": "TN",
+    "rejectedAsLayer": "Reject / Do Not Import",
+    "rejectionStrength": "hard_reject_or_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official/operator rules clearly prove public overnight camping at a specific mappable campsite/camping area and an honest coordinate can be made."
+    ],
+    "lastCheckedVersion": "v23.1.76",
+    "notes": "Added/updated from Worker 4 TN fill-in community-control return in v23.1.76.",
+    "id": "tn-reject-prentice-cooper-broad-dispersed-claims",
+    "name": "Prentice Cooper broad dispersed / road-pullout / informal climber camping claims",
+    "countyRegion": "Prentice Cooper State Forest / WMA",
+    "rejectionType": "wrong_feature_type / community_claim_trap / no_honest_map_record",
+    "sourceSummary": "Official Tennessee Forestry/TWRA sources identify specific camping areas. Broad app/social dispersed, road-pullout, or informal climber-camping claims are too broad and risk turning trailheads, parking lots, road shoulders, or informal use into fake legal camping dots.",
+    "relatedActiveOrPendingRecord": "tn-prentice-cooper-designated-camping-components"
   }
 ];
