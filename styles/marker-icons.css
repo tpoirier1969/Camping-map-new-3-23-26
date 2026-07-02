@@ -148,3 +148,30 @@
   height: 100%;
   display: block;
 }
+
+
+/* Low-zoom marker clustering: used below zoom 4.5 so the map does not redraw hundreds of tiny individual icons. */
+.map-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 2px solid var(--stroke);
+  background: var(--fill);
+  color: var(--icon);
+  box-shadow: 0 2px 10px rgba(0,0,0,.18);
+  font-size: .78rem;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+}
+
+.map-cluster span {
+  display: block;
+  transform: translateY(.5px);
+}
+
+.cluster-site-list {
+  margin: .45rem 0 0;
+  padding-left: 1.1rem;
+}

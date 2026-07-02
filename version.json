@@ -1,9 +1,9 @@
 {
-  "version": "v23.1.76",
-  "build": "v23.1.76",
-  "dataVersion": "v23.1.76-tn-worker4-ledger-ui-icon-scaling",
-  "dataBuild": "v23.1.76-tn-worker4-ledger-ui-icon-scaling",
+  "version": "v23.1.77",
+  "build": "v23.1.77",
+  "dataVersion": "v23.1.77-restored-supplements-ks-worker-integration-icon-clusters",
+  "dataBuild": "v23.1.77-restored-supplements-ks-worker-integration-icon-clusters",
   "released": "2026-07-01",
-  "label": "Boondocking & Camping Maps v23.1.76",
-  "notes": "UI package: adds zoom-sensitive campsite icon scaling and rolls Worker 4 Tennessee fill-in findings conservatively into leads/rejected guardrails. No new active campsite pins from Worker 4 directory/community coordinates."
+  "label": "Boondocking & Camping Maps v23.1.77",
+  "notes": "Restores recovered AR/TN v23.1.74 supplement and reconstructed WI/MI v23.1.56 compatibility correction; replaces dirty Kansas active file with 38 source-backed worker-return active records; adds Kansas manifest and conservative lead/reject memory; updates low-zoom icon scaling/clustering and project rules for missing-file wording and future supplement discipline."
 }

@@ -1,0 +1,57 @@
+Tod’s Boondocking & Camping Maps — v23.1.77 restored supplements / Kansas worker integration / icon clustering
+
+Baseline:
+- Built from uploaded current live-site ZIP: Camping-map-new-3-23-26-main (2).zip.
+- Used recovered v23.1.74 AR/TN fixed-files ZIP to restore a manifest-referenced supplement that was not present in the uploaded live-site ZIP.
+- Did not assume package-absent files were missing from the live repo without Tod’s confirmation; the rule wording has been added to PROJECT_RULES.md and Project Rules.md.
+
+Restored manifest-referenced files:
+- Restored data/supplements/ar-tn-weakstate-rescue-v23.1.74.js from v23.1.74_ar_tn_weakstate_rescue_ui_cleanup_FIXED_FILES.zip.
+  - 61 active AR/TN records: AR 36, TN 25.
+- Reconstructed data/supplements/wi-mi-closeout-cleanup-v23.1.56.js from current package v23.1.56 build notes and manifest notes.
+  - No new active records.
+  - Applies four MI layer corrections to Rustic / Primitive: East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, Little Girls Point County Park.
+
+Kansas active data:
+- Replaced dirty legacy data/states/KS.js rows with 38 source-backed Kansas worker-return active records.
+- Added Kansas to data/states-manifest.js with count 38.
+- Existing rejected guardrails for the bad legacy Kansas rows remain in data/rejected.js.
+- Imported only active rows with official/high-confidence coordinates or clearly disclosed medium-confidence operator/community coordinate support.
+- Did not import coordinate-blocked reservoir/state-park/city/county/private targets as fake dots.
+
+Kansas ledgers:
+- Added conservative consolidated coordinate-rescue lead bundles for Workers 5, 6, 7, and 8.
+- Added specific leads for Miami SFL Pier 14 and Neosho SFL primitive sites.
+- Added Kansas reject traps for official no-camping/day-use/wrong-feature/no-proof targets from worker returns.
+
+Tennessee/worker returns:
+- Worker 1–4 TN returns were handled conservatively per Tod’s repo-backed corrections.
+- No new TN active pins were promoted from directory/community coordinates.
+- Existing TN lead/reject pile remains the working home for LBL/Reelfoot/TVA/state-park/WMA coordinate-rescue targets until official/operator geometry is recovered.
+
+UI / marker performance:
+- Revised low-zoom icon scale targets: 100% at zoom 8.5+, 50% at zoom 7, about 1/6 at zoom 6, about 1/8 at zoom 4.5.
+- Below zoom 4.5, markers cluster into numbered layer-colored groups instead of drawing every individual pin.
+- Existing marker shapes, layer colors, and layer meanings are preserved.
+
+Rules updates:
+- PROJECT_RULES.md and Project Rules.md are synced.
+- Added missing-file wording rule: do not call package-absent files live-repo-missing without asking Tod.
+- Added supplement discipline rule: stop routine small supplemental/patch files; edit owning files until too large/unwieldy, then only create incremental supplements with clear purpose and proper references.
+- Updated marker-density rules for the smaller zoom 4.5–6 icons and clustering below zoom 4.5.
+
+QA run:
+- node --check app.js
+- node --check data/states/KS.js
+- node --check data/supplements/ar-tn-weakstate-rescue-v23.1.74.js
+- node --check data/supplements/wi-mi-closeout-cleanup-v23.1.56.js
+- node --check data/leads.js
+- node --check data/rejected.js
+- node --check data/states-manifest.js
+- Targeted manifest/runtime smoke test: AR 93/93, TN 65/65, KS 38/38.
+- Targeted MI correction smoke test: East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park load as Rustic / Primitive through the reconstructed v23.1.56 correction.
+- Full static manifest file-availability smoke test: no referenced files absent from this package after restore. MI static count was not treated as a blocker because current app uses Michigan dynamic supplements/conditional loading outside the static state-file count path.
+
+Known limitations:
+- The reconstructed WI/MI v23.1.56 supplement is built from package build notes rather than the original file contents. It only implements the four documented runtime corrections.
+- Kansas city/county/reservoir/state-park coordinate-blocked components remain leads until official maps/GIS/RIDB/CampItKS/operator geometry is recovered.

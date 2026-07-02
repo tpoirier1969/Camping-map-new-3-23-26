@@ -22,9 +22,9 @@ When Tod and the assistant make a durable workflow, architecture, data-model, pr
 
 
 
-UI marker-density / zoom-scaling rule:
+UI marker-density / zoom-scaling / clustering rule:
 
-As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. The approved target curve is: full/current icon size at zoom 8.5 and above; about 50% size at zoom 7; about one-third size at zoom 6; about one-quarter size at zoom 5 and below. Interpolate smoothly between these zoom levels and clamp around 25% below zoom 5 unless Tod later approves a switch to simple dots or clustering. Preserve the existing icon shapes, colors, and layer meanings unless Tod explicitly asks to change them.
+As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. The approved target curve is: full/current icon size at zoom 8.5 and above; about 50% size at zoom 7; about one-sixth size at zoom 6; about one-eighth size at zoom 4.5. Interpolate smoothly between those levels. Below zoom 4.5, switch to numbered marker clustering so broad regional views draw grouped counts instead of every individual campsite pin. Preserve existing layer icon meanings, colors, and shapes unless Tod explicitly asks to change them.
 
 Version flag / build identity contract:
 
@@ -277,16 +277,17 @@ Search must search all currently loaded active records, not only records in curr
 When a search result belongs to a layer that is currently hidden, the result should still appear with a hidden-layer note. Selecting it should temporarily reveal/highlight that one marker and open or make available its popup, without permanently turning on the whole layer. The popup/result should make clear that the record belongs to a currently hidden layer and that turning on the layer will show all records in that layer.
 
 
-Zoom-sensitive campsite icon scaling rule:
+Zoom-sensitive campsite icon scaling and clustering rule:
 
-When campsite density makes low-zoom map views look like blobs of color, use zoom-sensitive icon scaling instead of globally shrinking all icons. The approved targets are:
+When campsite density makes low-zoom map views look like blobs of color, use zoom-sensitive icon scaling and low-zoom clustering instead of globally shrinking all icons. The approved targets are:
 
 * zoom 8.5 and above: 100% of normal icon size
 * zoom 7: about 50% of normal icon size
-* zoom 6: about one-third of normal icon size
-* zoom 5 and below: about one-quarter of normal icon size
+* zoom 6: about one-sixth of normal icon size
+* zoom 4.5: about one-eighth of normal icon size
+* below zoom 4.5: numbered marker clusters by layer/area instead of drawing every individual campsite pin
 
-Interpolate smoothly between those levels and clamp around 25% below zoom 5 unless Tod later approves switching low zoom to plain dots or clustering. Keep layer icon meanings, colors, and shapes unchanged unless Tod explicitly requests a new icon revision.
+Interpolate smoothly between the icon-size levels. Keep layer icon meanings, colors, and shapes unchanged unless Tod explicitly requests a new icon revision. Low-zoom clusters are a performance/readability display mode only; they do not change active data, layers, or campsite proof status.
 
 Layer rules:
 
@@ -522,21 +523,21 @@ Do not create new layers.
 
 Do not create temporary files, patch jobs, hidden runtime overrides, shim files, bandaids, or sidecar repair files unless Tod explicitly approves that structure.
 
-A correction to the app should be made in the existing owning files whenever practical.
+A correction to the app should be made in the existing owning files whenever practical. Append accepted records to the existing state data file, `data/leads.js`, `data/rejected.js`, manifest, rules, CSS, or app file that owns the change. Do not create a new supplement or patch file merely because it is convenient.
 
-If files become too large to effectively use, new working files or supplements may be created only with a clear long-term purpose, proper references, and build notes. Do not create new files willy-nilly.
+Existing supplemental files may stand until a deliberate consolidation pass is assigned. Going forward, new supplemental data files are allowed only when the owning file has become too large or unwieldy to safely edit through the current repo/package workflow, or when Tod explicitly approves an incremental supplement. If a new data supplement is genuinely required, make it incremental, give it a clear long-term purpose, reference it properly in the manifest/build notes, and place it in the same data location as the rest of the relevant data unless Tod approves a separate folder. Do not create a separate supplement folder or patch-pile structure for routine worker returns.
 
-File and baseline hard-stop rule:
+File and baseline hard-stop / missing-file wording rule:
 
-If a supervisor, worker, or package builder needs access to files that the repo does not provide, STOP.
-
-Ask Tod for a ZIP of the current live repo/package.
+If a supervisor, worker, or package builder needs access to files that the repo does not provide, STOP. Ask Tod for a ZIP of the current live repo/package.
 
 Do not build from memory, stale repo assumptions, truncated connector output, screenshots, snippets, or partial worker notes.
 
-No package may be delivered with missing-file caveats.
+Do not assume a file is truly missing from the live repo merely because it is absent from an uploaded package ZIP, extracted sandbox, or worker-accessible file set. State the scope honestly: “referenced by the manifest but not present in the uploaded ZIP I inspected,” or “not available in this session,” not “missing from the live repo.” Before deleting a manifest reference, repairing a supposed missing-file dependency, or treating absence as a live-repo defect, ask Tod whether the file exists in the current live repo/deployment or should be restored/removed.
 
-Required wording when files are missing:
+No package may be delivered with unexplained missing-file caveats. If a required file is not available, either obtain it from Tod/history, restore it from a verified package, or explicitly document the user-approved resolution in the build notes.
+
+Required wording when the baseline itself is not sufficient:
 
 “I need the current live repo/package ZIP before I can safely do this. The repo/available files do not provide the required current baseline.”
 

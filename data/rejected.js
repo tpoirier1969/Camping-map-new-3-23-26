@@ -9039,5 +9039,290 @@ window.CAMPING_REJECTED = [
     "rejectionType": "wrong_feature_type / community_claim_trap / no_honest_map_record",
     "sourceSummary": "Official Tennessee Forestry/TWRA sources identify specific camping areas. Broad app/social dispersed, road-pullout, or informal climber-camping claims are too broad and risk turning trailheads, parking lots, road shoulders, or informal use into fake legal camping dots.",
     "relatedActiveOrPendingRecord": "tn-prentice-cooper-designated-camping-components"
+  },
+  {
+    "id": "ks-reject-cng-broad-dispersed-current-order-v23177",
+    "state": "KS",
+    "name": "Cimarron National Grassland broad dispersed/boondocking claim",
+    "countyRegion": "Cimarron National Grassland / western KS",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "official_or_current_order_conflict",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Current USFS order/control notes block broad dispersed-area import without exact developed/designated site proof.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-finney-sfl-camping-candidate-v23177",
+    "state": "KS",
+    "name": "Finney State Fishing Lake camping candidate",
+    "countyRegion": "Finney / western KS",
+    "rejectedAsLayer": "Rustic / Primitive",
+    "rejectionType": "no_official_camping_proof",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Official KDWP page did not confirm camping, and worker noted lake condition/feature list did not support overnight import.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-cng-noncampground-rec-pins-v23177",
+    "state": "KS",
+    "name": "Cimarron National Grassland non-campground recreation pins",
+    "countyRegion": "Cimarron National Grassland / western KS",
+    "rejectedAsLayer": "Rustic / Primitive",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "no_import_proof",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Official USFS source separates picnic/pond/overlook/trailhead recreation features from Cimarron Campground; they are not campsite pins.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-meade-sp-day-use-pins-v23177",
+    "state": "KS",
+    "name": "Meade State Park day-use GPS pins",
+    "countyRegion": "Meade / western KS",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "no_import_proof",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Day-use coordinates are not campground coordinates; official page/source handling did not support importing them as camp pins.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-jewell-sfl-dayuse-no-camping-traps-v23177",
+    "state": "KS",
+    "name": "Jewell State Fishing Lake day-use/no-camping named areas",
+    "countyRegion": "Jewell / Lovewell area",
+    "rejectedAsLayer": "Rustic / Primitive",
+    "rejectionType": "official_no_camping_for_named_features",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "KDWP says Trappers Hollow, Turtlehead Bend, and Limestone Point are day-use only, and camping is not allowed at the group shelter except by special permit.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-saline-sfl-camping-trap-v23177",
+    "state": "KS",
+    "name": "Saline State Fishing Lake claimed primitive camping",
+    "countyRegion": "Saline / Smoky Hills edge",
+    "rejectedAsLayer": "Rustic / Primitive",
+    "rejectionType": "official_access_rules_conflict",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Community/blog sources claim primitive camping, but KDWP lists no camping facility and gives sunrise-to-sunset/seasonal closure rules conflicting with normal overnight public camping.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-shawnee-sfl-west-side-no-camping-v23177",
+    "state": "KS",
+    "name": "Shawnee State Fishing Lake west side camping claim",
+    "countyRegion": "Shawnee / Topeka",
+    "rejectedAsLayer": "Rustic / Primitive",
+    "rejectionType": "official_no_camping",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Worker 7 found official no-camping contradiction for west-side/Shawnee SFL promotion.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-perry-park-day-use-v23177",
+    "state": "KS",
+    "name": "Perry Park day-use confusion trap",
+    "countyRegion": "Perry Lake / eastern KS",
+    "rejectedAsLayer": "Modern",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Official source marked Perry Park/day-use feature as day-use only; do not confuse with valid Perry Lake campgrounds.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-council-grove-city-lake-public-camping-unproven-v23177",
+    "state": "KS",
+    "name": "Council Grove City Lake public camping unproven",
+    "countyRegion": "Council Grove / Morris County",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "no_public_camping_proof",
+    "rejectionStrength": "no_import_proof",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Worker 7 did not recover official public campground proof; do not import from name/community assumptions.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-flint-hills-trail-rest-areas-no-camping-v23177",
+    "state": "KS",
+    "name": "Flint Hills Trail rest areas/general corridor",
+    "countyRegion": "Flint Hills Trail / eastern KS",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "official_no_camping",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Official trail/rest-area evidence did not support overnight camping; do not promote rest areas/general corridor as campsites.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-wifa-generic-fishing-access-no-overnight-proof-v23177",
+    "state": "KS",
+    "name": "Generic WIFA fishing access sites",
+    "countyRegion": "Statewide KS fishing access",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "no_import_proof",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "WIFA sites are fishing access, not overnight camping proof; do not import generic WIFA points as campsite pins.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-big-hill-downstream-point-day-use-v23177",
+    "state": "KS",
+    "name": "Big Hill Lake — Downstream Point",
+    "countyRegion": "Big Hill Lake / Labette-Montgomery edge",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Recreation.gov Important Notices say Downstream Point is day-use only, open 6 a.m. to 11 p.m.; group picnic area is not overnight camping.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-big-hill-overlook-day-use-v23177",
+    "state": "KS",
+    "name": "Big Hill Lake — Overlook",
+    "countyRegion": "Big Hill Lake / Labette-Montgomery edge",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Recreation.gov Important Notices say Overlook is day-use only; available facility is a group picnic area.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-kiowa-sfl-no-official-camping-proof-v23177",
+    "state": "KS",
+    "name": "Kiowa State Fishing Lake",
+    "countyRegion": "Kiowa / Greensburg-Pratt edge",
+    "rejectedAsLayer": "Rustic / Primitive",
+    "rejectionType": "no_official_camping_proof",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "KDWP Kiowa SFL page did not identify camping permission; KDWP general rule warns not all SFL/WA sites allow camping.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-wilson-sfl-no-official-camping-proof-v23177",
+    "state": "KS",
+    "name": "Wilson State Fishing Lake",
+    "countyRegion": "Wilson / Fredonia-Neodesha area",
+    "rejectedAsLayer": "Rustic / Primitive",
+    "rejectionType": "no_official_camping_proof",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "KDWP Wilson SFL page did not identify camping facilities or designated camping; KDWP general rule says not all SFL/WA sites allow camping.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.77",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
   }
 ];

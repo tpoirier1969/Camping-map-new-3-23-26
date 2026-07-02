@@ -60,13 +60,14 @@ function markerIconScaleForZoom(zoom){
   if(!Number.isFinite(z))return 1;
   if(z>=8.5)return 1;
   if(z>=7)return .5+((z-7)/1.5)*.5;
-  if(z>=6)return (1/3)+((z-6))*(.5-(1/3));
-  if(z>=5)return .25+((z-5))*((1/3)-.25);
-  return .25;
+  if(z>=6)return (1/6)+((z-6))*(.5-(1/6));
+  if(z>=4.5)return .125+((z-4.5)/1.5)*((1/6)-.125);
+  return .125;
 }
 function currentMarkerIconScale(){return markerIconScaleForZoom(app&&app.map&&app.map.getZoom?app.map.getZoom():8.5);}
-function scaledMarkerSizeForLayer(key){return Math.max(6,Math.round(markerSizeForLayer(key)*currentMarkerIconScale()));}
-function markerScaleCacheKey(){return currentMarkerIconScale().toFixed(3);} 
+function currentMarkerClusterMode(){const z=app&&app.map&&app.map.getZoom?Number(app.map.getZoom()):8.5;return Number.isFinite(z)&&z<4.5;}
+function scaledMarkerSizeForLayer(key){return Math.max(5,Math.round(markerSizeForLayer(key)*currentMarkerIconScale()));}
+function markerScaleCacheKey(){return (currentMarkerClusterMode()?'cluster:':'icons:')+currentMarkerIconScale().toFixed(3);} 
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
@@ -1495,6 +1496,47 @@ async function loadState(code){
 
 function getPendingSites(){const raw=window.CAMPING_PENDING_SITES||window.CAMPING_PENDING||[];return Array.isArray(raw)?raw.map(s=>Object.assign({pending:true},s)):[]}
 function markerIcon(site){const key=layerKey(site);const d=layerDef(key);const size=scaledMarkerSizeForLayer(key);const anchor=Math.round(size/2);const pinStyle=`width:${size}px;height:${size}px;flex:0 0 ${size}px;`;return L.divIcon({className:'',html:`<span class="map-pin ${d.css}" style="${pinStyle}">${d.icon}</span>`,iconSize:[size,size],iconAnchor:[anchor,anchor],popupAnchor:[0,-anchor]})}
+
+function markerClusterIcon(key,count){
+  const d=layerDef(key);
+  const n=Number(count)||0;
+  const size=Math.max(20,Math.min(38,20+Math.round(Math.log(Math.max(2,n))*6)));
+  const anchor=Math.round(size/2);
+  return L.divIcon({className:'',html:`<span class="map-cluster ${d.css}" style="width:${size}px;height:${size}px;flex:0 0 ${size}px;"><span>${n>999?'999+':n}</span></span>`,iconSize:[size,size],iconAnchor:[anchor,anchor],popupAnchor:[0,-anchor]});
+}
+function buildMarkerClusters(candidates){
+  const zoom=app.map&&app.map.getZoom?app.map.getZoom():4;
+  const cell=72;
+  const clusters=new Map();
+  const markerErrors=[];
+  (candidates||[]).forEach(site=>{
+    try{
+      const key=layerKey(site);
+      if(!MAP_LAYER_KEYS.has(key))return;
+      const lat=Number(site.lat),lng=Number(site.lng);
+      if(!Number.isFinite(lat)||!Number.isFinite(lng)){markerErrors.push(`${site&&site.name||site&&site.id||'Unnamed site'}: invalid coordinates`);return;}
+      const projected=app.map.project(L.latLng(lat,lng),zoom);
+      const cx=Math.floor(projected.x/cell),cy=Math.floor(projected.y/cell);
+      const clusterKey=`${key}|${cx}|${cy}`;
+      if(!clusters.has(clusterKey))clusters.set(clusterKey,{key,sites:[],latSum:0,lngSum:0,bounds:[]});
+      const cluster=clusters.get(clusterKey);
+      cluster.sites.push(site);
+      cluster.latSum+=lat;
+      cluster.lngSum+=lng;
+      cluster.bounds.push([lat,lng]);
+    }catch(err){markerErrors.push(`${site&&site.name||site&&site.id||'Unnamed site'}: ${err&&err.message?err.message:String(err)}`);}
+  });
+  const rows=Array.from(clusters.values()).map(cluster=>Object.assign(cluster,{lat:cluster.latSum/cluster.sites.length,lng:cluster.lngSum/cluster.sites.length}));
+  return {clusters:rows,markerErrors};
+}
+function markerClusterPopup(cluster){
+  const key=cluster&&cluster.key;
+  const def=layerDef(key);
+  const sites=(cluster&&cluster.sites)||[];
+  const shown=sites.slice(0,10).map(site=>`<li>${esc(site.name||'Unnamed site')} <span class="muted">${esc(site.stateName||site.stateCode||'')}</span></li>`).join('');
+  const more=sites.length>10?`<div class="mini-note">+ ${sites.length-10} more in this low-zoom cluster.</div>`:'';
+  return `<div><div class="popup-title">${sites.length} ${esc(def.label)} markers</div><div class="popup-notice">Markers are clustered below zoom 4.5 for speed and readability. Zoom in to see individual campsite pins.</div><ul class="cluster-site-list">${shown}</ul>${more}</div>`;
+}
 function isTravelerStop(site){return layerKey(site)==='rest-truck'}
 function restRoadsideDiagnosticText(){
   const st=app.restRoadsideStats;
@@ -2240,7 +2282,8 @@ function updateMarkerReadouts(total,prefix='Showing'){
     const outlineSuffix=boOutlineCount?` + ${boOutlineCount} official boondocking rule-area outline${boOutlineCount===1?'':'s'} available`:'';
     const layerBits=app.renderDiagnostics&&app.renderDiagnostics.last&&app.renderDiagnostics.last.visibleExpectedByLayer?layerCountText(app.renderDiagnostics.last.visibleExpectedByLayer,enabledMapLayerKeys()):'';
     const layerSuffix=layerBits?` — ${layerBits}`:'';
-    countEl.textContent=app.restOnlyMode?`Rest stops only: ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}${layerSuffix}`:`${prefix} ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}${layerSuffix}${outlineSuffix}`;
+    const clusterInfo=app.renderDiagnostics&&app.renderDiagnostics.last&&app.renderDiagnostics.last.clusterMode&&app.renderDiagnostics.last.clusterCount?` · clustered into ${app.renderDiagnostics.last.clusterCount} markers below zoom 4.5`:'';
+    countEl.textContent=app.restOnlyMode?`Rest stops only: ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}${layerSuffix}${clusterInfo}`:`${prefix} ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}${layerSuffix}${outlineSuffix}${clusterInfo}`;
   }
   updateRouteStatus();
   updateRestRoadsideDiagnostics();
@@ -2269,12 +2312,56 @@ async function renderMarkers(fit,attempt=0){
     }
   });
   app.markerBaseCandidates=candidates;
-  app.renderDiagnostics.last={loadedLayerCounts:layerDiagnostics.raw,drawableByLayer:layerDiagnostics.drawable,filteredOutByLayer:layerDiagnostics.filteredOut,invalidCoordsByLayer:layerDiagnostics.invalidCoords,expectedByLayer,visibleExpectedByLayer:visibleRenderExpectedCounts(expectedByLayer),drawnByLayer:{},mismatches:[],markerErrors:[],attempt};
+  const clusterMode=currentMarkerClusterMode();
+  app.renderDiagnostics.last={loadedLayerCounts:layerDiagnostics.raw,drawableByLayer:layerDiagnostics.drawable,filteredOutByLayer:layerDiagnostics.filteredOut,invalidCoordsByLayer:layerDiagnostics.invalidCoords,expectedByLayer,visibleExpectedByLayer:visibleRenderExpectedCounts(expectedByLayer),drawnByLayer:{},mismatches:[],markerErrors:[],attempt,clusterMode,clusterCount:0};
   const total=candidates.length;
   syncShownSitesFromMarkerBase();
   updateMarkerReadouts(total,candidates.length>450?'Drawing':'Showing');
   const bounds=[];
-  const markerErrors=[];
+  let markerErrors=[];
+  if(clusterMode){
+    const clustered=buildMarkerClusters(candidates);
+    markerErrors=clustered.markerErrors||[];
+    const drawnByLayer={};
+    clustered.clusters.forEach(cluster=>{
+      try{
+        const key=cluster.key;
+        if(!MAP_LAYER_KEYS.has(key))return;
+        const lat=Number(cluster.lat),lng=Number(cluster.lng);
+        if(!Number.isFinite(lat)||!Number.isFinite(lng))return;
+        const marker=cluster.sites.length>1
+          ? L.marker([lat,lng],{icon:markerClusterIcon(key,cluster.sites.length)}).bindPopup(markerClusterPopup(cluster))
+          : L.marker([lat,lng],{icon:markerIcon(cluster.sites[0])}).bindPopup(popup(cluster.sites[0]));
+        if(cluster.sites.length>1){
+          marker.on('click',()=>{
+            try{
+              const b=L.latLngBounds(cluster.bounds);
+              if(b.isValid())app.map.fitBounds(b,{padding:[28,28],maxZoom:7});
+            }catch(_e){}
+          });
+        }
+        if(!app.markerGroups[key])app.markerGroups[key]=L.layerGroup();
+        app.markerGroups[key].addLayer(marker);
+        drawnByLayer[key]=(drawnByLayer[key]||0)+cluster.sites.length;
+        bounds.push([lat,lng]);
+      }catch(err){markerErrors.push(`${cluster&&cluster.key||'Cluster'}: ${err&&err.message?err.message:String(err)}`);}
+    });
+    syncEnabledMarkerGroups();
+    app.renderDiagnostics.last=Object.assign(app.renderDiagnostics.last||{},{drawnByLayer,mismatches:[],markerErrors,clusterMode:true,clusterCount:clustered.clusters.length,visibleExpectedByLayer:visibleRenderExpectedCounts(expectedByLayer),attempt});
+    if(markerErrors.length){
+      const msg=`Clustered map render warning: ${markerErrors.slice(0,4).join(' · ')}`;
+      setRenderIntegrityStatus(msg,true);
+      notify(msg,12000);
+    }else{
+      const visible=visibleRenderExpectedCounts(expectedByLayer);
+      const visibleText=layerCountText(visible,enabledMapLayerKeys());
+      setRenderIntegrityStatus(visibleText?`Render check OK: ${visibleText} · clustered into ${clustered.clusters.length} markers below zoom 4.5`:`Render check OK: clustered into ${clustered.clusters.length} markers below zoom 4.5.`,false);
+    }
+    app.markerLayerCacheKey=markerCacheKey();
+    updateMarkerReadouts(total,'Showing');
+    if(fit){fitCurrentPreferredView()}
+    return;
+  }
   const chunkSize=candidates.length>900?120:(candidates.length>450?180:candidates.length||1);
   for(let start=0;start<candidates.length;start+=chunkSize){
     if(renderId!==app.renderSeq){
@@ -2310,7 +2397,7 @@ async function renderMarkers(fit,attempt=0){
     return;
   }
   const validation=validateMarkerRender(expectedByLayer,markerErrors);
-  app.renderDiagnostics.last=Object.assign(app.renderDiagnostics.last||{},{drawnByLayer:validation.drawnByLayer,mismatches:validation.mismatches,markerErrors:validation.markerErrors,visibleExpectedByLayer:visibleRenderExpectedCounts(expectedByLayer),attempt});
+  app.renderDiagnostics.last=Object.assign(app.renderDiagnostics.last||{},{drawnByLayer:validation.drawnByLayer,mismatches:validation.mismatches,markerErrors:validation.markerErrors,visibleExpectedByLayer:visibleRenderExpectedCounts(expectedByLayer),attempt,clusterMode:false,clusterCount:0});
   if(!validation.ok){
     const detail=validation.mismatches.concat(validation.markerErrors.slice(0,4)).join(' · ');
     console.error('Marker render integrity failure',app.renderDiagnostics.last);

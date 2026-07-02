@@ -5,19 +5,6 @@ window.CAMPING_STATES_MANIFEST = {
     "file": "data/states/AL.js",
     "count": 2
   },
-  "AZ": {
-    "code": "AZ",
-    "name": "Arizona",
-    "file": "data/states/AZ.js",
-    "count": 10,
-    "files": [
-      "data/states/AZ.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
   "AR": {
     "code": "AR",
     "name": "Arkansas",
@@ -33,6 +20,19 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification.",
       "v23.1.74: Arkansas/Tennessee weak-state rescue adds source-backed Buffalo/Ozark/Ouachita/USACE/USFS/NPS/TWRA campground and camping-area records; coordinate-blocked LBL/TVA/USACE/state-park/WMA/refuge systems remain in data/leads.js/data/rejected.js; UI cleanup removes public layer counts and fixes one-line state checkbox rows.",
       "v23.1.75: AR/TN cleanup coordinate-rescue adds exact-coordinate USACE/USFS/NPS/TRGT campground and primitive-site records; applies Erbie and Tennessee layer/model corrections; blocked GIS/RIDB/MVUM/state-park/refuge/private targets remain in data/leads.js/data/rejected.js instead of fake dots."
+    ]
+  },
+  "AZ": {
+    "code": "AZ",
+    "name": "Arizona",
+    "file": "data/states/AZ.js",
+    "count": 10,
+    "files": [
+      "data/states/AZ.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
     ]
   },
   "CA": {
@@ -73,6 +73,21 @@ window.CAMPING_STATES_MANIFEST = {
     "file": "data/states/FL.js",
     "count": 1
   },
+  "IA": {
+    "code": "IA",
+    "name": "Iowa",
+    "file": "data/states/IA.js",
+    "count": 108,
+    "files": [
+      "data/states/IA.js",
+      "data/supplements/ia-bulldog-first-pass-v23.1.63.js",
+      "data/supplements/ia-area-closeout-v23.1.64.js"
+    ],
+    "dynamicSources": [
+      "v23.1.63: Iowa Bulldog first-pass build adds 57 active records from Workers 1–3 and appends durable Iowa leads/rejects; also applies 3 existing-record source/layer corrections.",
+      "v23.1.64: Iowa area-closeout adds 35 active campground/camping-area records from the closeout workers; preserves USACE/state-forest/component rows as leads when exact coordinates were still blocked."
+    ]
+  },
   "IL": {
     "code": "IL",
     "name": "Illinois",
@@ -104,19 +119,16 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.69: IN/NE coordinate-rescue closeout integrates accepted Indiana DNR/private/operator rows, adds Nebraska NGPC/NRD/USACE/city/private coordinate-rescue rows, and applies WMA/Niobrara/Lake McConaughy source/layer corrections. Coordinate-blocked components remain in data/leads.js."
     ]
   },
-  "IA": {
-    "code": "IA",
-    "name": "Iowa",
-    "file": "data/states/IA.js",
-    "count": 108,
+  "KS": {
+    "code": "KS",
+    "name": "Kansas",
+    "file": "data/states/KS.js",
+    "count": 38,
     "files": [
-      "data/states/IA.js",
-      "data/supplements/ia-bulldog-first-pass-v23.1.63.js",
-      "data/supplements/ia-area-closeout-v23.1.64.js"
+      "data/states/KS.js"
     ],
     "dynamicSources": [
-      "v23.1.63: Iowa Bulldog first-pass build adds 57 active records from Workers 1–3 and appends durable Iowa leads/rejects; also applies 3 existing-record source/layer corrections.",
-      "v23.1.64: Iowa area-closeout adds 35 active campground/camping-area records from the closeout workers; preserves USACE/state-forest/component rows as leads when exact coordinates were still blocked."
+      "v23.1.77: Kansas weak-state worker integration replaces two bad legacy Kansas rows with 38 source-backed active campground/camping-area records from Workers 5–8; blocked component systems remain in data/leads.js and official contradiction traps remain in data/rejected.js."
     ]
   },
   "KY": {
@@ -196,19 +208,6 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.61: Minnesota Worker 2/3 supervisor audit adds 16 additional active records after personal coordinate/source rescue from Bulldog Worker 2 and Worker 3 returns. Promotes source-proven state park, municipal, and private campground rows that were previously over-held as leads."
     ]
   },
-  "MS": {
-    "code": "MS",
-    "name": "Mississippi",
-    "file": "data/states/MS.js",
-    "count": 4,
-    "files": [
-      "data/states/MS.js",
-      "data/supplements/modern-audit-cleanup-v23.1.21.js"
-    ],
-    "dynamicSources": [
-      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
   "MO": {
     "code": "MO",
     "name": "Missouri",
@@ -222,6 +221,19 @@ window.CAMPING_STATES_MANIFEST = {
     "dynamicSources": [
       "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted official/operator campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps.",
       "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
+    ]
+  },
+  "MS": {
+    "code": "MS",
+    "name": "Mississippi",
+    "file": "data/states/MS.js",
+    "count": 4,
+    "files": [
+      "data/states/MS.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js"
+    ],
+    "dynamicSources": [
+      "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
     ]
   },
   "MT": {
@@ -247,6 +259,21 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
     ]
   },
+  "ND": {
+    "code": "ND",
+    "name": "North Dakota",
+    "file": "data/states/ND.js",
+    "count": 64,
+    "files": [
+      "data/states/ND.js",
+      "data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js"
+    ],
+    "dynamicSources": [
+      "v23.1.53: North Dakota final first-pass cleanup adds 24 records directly into data/states/ND.js: 13 official/operator campground or recreation-area records, 3 community-supported boondocking records, and 8 approximate Area/rule pins for national grasslands, NDGF WMA regions, and the Sheyenne River Water Trail corridor. Adds data/leads.js and data/rejected.js as project-memory files; no ND supplement file is created.",
+      "v23.1.52: North Dakota first expansion cleanup folds 25 accepted supervisor-reconciled official/operator records directly into data/states/ND.js, updates Lindenwood to a source-backed Modern Campgrounds row, moves the broad Theodore Roosevelt NP legacy row to Info / Reference, and moves vague Campsite #2 to Needs Verification. No ND supplement file is created.",
+      "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted official/operator campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps."
+    ]
+  },
   "NE": {
     "code": "NE",
     "name": "Nebraska",
@@ -270,21 +297,6 @@ window.CAMPING_STATES_MANIFEST = {
     "file": "data/states/NH.js",
     "count": 1
   },
-  "ND": {
-    "code": "ND",
-    "name": "North Dakota",
-    "file": "data/states/ND.js",
-    "count": 64,
-    "files": [
-      "data/states/ND.js",
-      "data/supplements/sd-nd-mo-weakstate-rescue-v23.1.70.js"
-    ],
-    "dynamicSources": [
-      "v23.1.53: North Dakota final first-pass cleanup adds 24 records directly into data/states/ND.js: 13 official/operator campground or recreation-area records, 3 community-supported boondocking records, and 8 approximate Area/rule pins for national grasslands, NDGF WMA regions, and the Sheyenne River Water Trail corridor. Adds data/leads.js and data/rejected.js as project-memory files; no ND supplement file is created.",
-      "v23.1.52: North Dakota first expansion cleanup folds 25 accepted supervisor-reconciled official/operator records directly into data/states/ND.js, updates Lindenwood to a source-backed Modern Campgrounds row, moves the broad Theodore Roosevelt NP legacy row to Info / Reference, and moves vague Campsite #2 to Needs Verification. No ND supplement file is created.",
-      "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted official/operator campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps."
-    ]
-  },
   "OH": {
     "code": "OH",
     "name": "Ohio",
@@ -302,6 +314,20 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.66: OH/IL next-round closeout adds 41 net active records/camping-area markers and applies source-backed corrections where needed. Non-modern/component rows without honest coordinates remain in data/leads.js for GIS/official map extraction.",
       "v23.1.71: MT/OH/KY weak-state rescue first wave adds accepted source-backed campground/camping-area rows and preserves coordinate-blocked USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads, not fake dots.",
       "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
+    ]
+  },
+  "PA": {
+    "code": "PA",
+    "name": "Pennsylvania",
+    "file": "data/states/PA.js",
+    "count": 139,
+    "files": [
+      "data/states/PA.js",
+      "data/supplements/pa-area-closeout-v23.1.64.js"
+    ],
+    "dynamicSources": [
+      "v23.1.62: Pennsylvania Bulldog first-pass build adds 108 active records from Workers 4–8 and appends durable PA leads/rejects from the worker ledger.",
+      "v23.1.64: Pennsylvania area-closeout adds 31 active campground/area records from water/backpack, state-park component, and private/county/operator rescue; preserves DCNR state-forest ArcGIS extraction as leads, not fake forest centroids."
     ]
   },
   "SD": {
@@ -380,20 +406,6 @@ window.CAMPING_STATES_MANIFEST = {
     ],
     "dynamicSources": [
       "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
-    ]
-  },
-  "PA": {
-    "code": "PA",
-    "name": "Pennsylvania",
-    "file": "data/states/PA.js",
-    "count": 139,
-    "files": [
-      "data/states/PA.js",
-      "data/supplements/pa-area-closeout-v23.1.64.js"
-    ],
-    "dynamicSources": [
-      "v23.1.62: Pennsylvania Bulldog first-pass build adds 108 active records from Workers 4–8 and appends durable PA leads/rejects from the worker ledger.",
-      "v23.1.64: Pennsylvania area-closeout adds 31 active campground/area records from water/backpack, state-park component, and private/county/operator rescue; preserves DCNR state-forest ArcGIS extraction as leads, not fake forest centroids."
     ]
   }
 };
