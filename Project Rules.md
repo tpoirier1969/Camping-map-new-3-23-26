@@ -47,6 +47,11 @@ Every package that changes version files must preserve the app's current version
 
 Keep `window.APP_VERSION` and `window.DATA_BUILD` only as backward-compatible aliases, not as the only version fields. If `window.CAMPING_BUILD.version` or `window.CAMPING_APP_VERSION` is missing, the visible app version can fall back to `dev`, which is a packaging failure.
 
+
+Version-shell packaging rule:
+
+Whenever a package increments the visible app version or changes script/cache-busting behavior, include `index.html` in the changed/new-files ZIP even if the script references appear unchanged. The app shell controls the version.js/app.js cache keys and visible runtime flag; omitting `index.html` can let a deployed page continue to display an older version flag after version.js/version.json were updated. QA must search the delivered ZIP for stale visible version strings in `version.js`, `version.json`, `index.html`, and `app.js`. Historical data provenance strings such as `dataCorrectionVersion` may retain old revision numbers when they describe when a record was originally added.
+
 Worker-handoff delivery rule:
 
 When the project is in active state-building mode and the next useful step is worker research, provide worker handoffs to keep workers busy. Do not wait for Tod to separately ask for worker handoffs. Provide individual `.txt` files by default. Do not create a ZIP unless Tod asks for one. Do not include a supervisor handoff unless Tod explicitly asks for a supervisor handoff or reconciliation assignment.

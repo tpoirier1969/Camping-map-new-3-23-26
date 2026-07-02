@@ -1,15 +1,9 @@
 {
-  "version": "v23.1.79",
-  "build": "v23.1.79",
-  "dataVersion": "v23.1.79-ks-kdwp-usace-local-boondocking-ui-search",
-  "dataBuild": "v23.1.79-ks-kdwp-usace-local-boondocking-ui-search",
+  "version": "v23.1.80",
+  "build": "v23.1.80",
+  "dataVersion": "v23.1.80-version-flag-hardening-v79-data",
+  "dataBuild": "v23.1.80-version-flag-hardening-v79-data",
   "released": "2026-07-02",
-  "label": "Boondocking & Camping Maps v23.1.79",
-  "notes": [
-    "Kansas Worker 1/2/3 active records and ledger updates integrated directly into owning files.",
-    "Worker 5 boondocking/social-app mining integrated conservatively: duplicates skipped, Four Corners MT added as Community Reported Boondocking, Osage SFL added as KS area/rule marker, leads/rejects preserved.",
-    "High-visibility basemap-aware marker color palettes added, including satellite halo/stroke treatment.",
-    "Search field now supports site/metadata search plus place/geographic search that centers Nearby Search for distance filtering.",
-    "No new supplemental files created."
-  ]
+  "label": "Boondocking & Camping Maps v23.1.80",
+  "notes": "Version-flag hardening package. Carries forward v23.1.79 data/UI/search changes and includes index.html so the deployed app shell refreshes its cache-busted version/app script loaders instead of continuing to display an older runtime flag."
 }

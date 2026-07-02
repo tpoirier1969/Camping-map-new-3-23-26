@@ -1,0 +1,15 @@
+BUILD NOTES — v23.1.80
+
+Purpose:
+- Hotfix the visible version flag problem reported after v23.1.78 and v23.1.79.
+- Carries forward v23.1.79 data/UI/search changes unchanged.
+- Adds index.html to the changed/new-files package so the deployed app shell refreshes cache-busted version.js and app.js loading instead of continuing to use an older shell/runtime flag.
+
+Changed from v23.1.79:
+- version.js bumped to v23.1.80.
+- version.json bumped to v23.1.80.
+- index.html included and tagged with the v23.1.80 app-shell metadata/comment.
+- PROJECT_RULES.md and Project Rules.md updated with the version-shell packaging rule.
+
+No data additions in this hotfix beyond v23.1.79.
+No new supplement files.
