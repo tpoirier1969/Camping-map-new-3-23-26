@@ -1,0 +1,29 @@
+Tod’s Boondocking & Camping Maps — v23.1.82
+Changed/new-files package
+Released: 2026-07-02
+
+Purpose
+- Integrate Worker 5 Round 2 boondocking/social-app mining return.
+- Integrate Worker 6 blocked-geometry extraction as lead/rejected-ledger maintenance only.
+- Preserve v23.1.81 single-source version contract and zoom-redraw fix.
+
+Active additions
+- AR: +1 Community Reported Boondocking candidate
+  - Dispersed Camping FR132, Ouachita NF / Winona area
+- MT: +1 Community Reported Boondocking candidate
+  - Copper City BLM dispersed camping
+- Four Corners Dispersed Camping was already active from v23.1.79/v23.1.81 and was not duplicated.
+
+Ledger additions / updates
+- Added Ouachita FR132 corridor and one-report spot leads.
+- Added/updated Montana, Missouri, Nebraska, Minnesota, Wisconsin boondocking/dispersed leads from Worker 5 Round 2 where proof/geometry was not active-ready.
+- Added Worker 6 blocked-geometry extraction leads for MDC, Kansas USACE/Recreation.gov, Kansas KDWP, and LBL systems.
+- Updated Little Lost Creek CA rejected/no-camping treatment to stale/reopen-as-lead because Worker 5 found current MDC support for designated primitive camping; active import still requires official geometry.
+
+UI/version carry-forward
+- v23.1.81 behavior is preserved: version.js is the only authoritative runtime version source.
+- version.json and index.html intentionally do not carry the visible version flag.
+- Normal zoom icon scaling should not rebuild all markers; redraws happen when filters/data/search/state/layer inputs change or when crossing the cluster threshold.
+- v23.1.79 high-visibility basemap icon palettes and place/geography search remain carried forward.
+
+No new supplement files were created.

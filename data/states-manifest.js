@@ -9,7 +9,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "AR",
     "name": "Arkansas",
     "file": "data/states/AR.js",
-    "count": 93,
+    "count": 94,
     "files": [
       "data/states/AR.js",
       "data/supplements/modern-audit-cleanup-v23.1.21.js",
@@ -20,6 +20,9 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification.",
       "v23.1.74: Arkansas/Tennessee weak-state rescue adds source-backed Buffalo/Ozark/Ouachita/USACE/USFS/NPS/TWRA campground and camping-area records; coordinate-blocked LBL/TVA/USACE/state-park/WMA/refuge systems remain in data/leads.js/data/rejected.js; UI cleanup removes public layer counts and fixes one-line state checkbox rows.",
       "v23.1.75: AR/TN cleanup coordinate-rescue adds exact-coordinate USACE/USFS/NPS/TRGT campground and primitive-site records; applies Erbie and Tennessee layer/model corrections; blocked GIS/RIDB/MVUM/state-park/refuge/private targets remain in data/leads.js/data/rejected.js instead of fake dots."
+    ],
+    "notes": [
+      "v23.1.82: Adds Worker 5 Round 2 Community Reported Boondocking candidate for Ouachita NF FR132; additional Ouachita corridor/spot leads remain in data/leads.js until MVUM/same-spot checks are complete."
     ]
   },
   "AZ": {
@@ -244,7 +247,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MT",
     "name": "Montana",
     "file": "data/states/MT.js",
-    "count": 220,
+    "count": 221,
     "files": [
       "data/states/MT.js",
       "data/supplements/modern-audit-cleanup-v23.1.21.js",
@@ -263,7 +266,8 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
     ],
     "notes": [
-      "v23.1.79: Adds Four Corners Dispersed Camping as Community Reported Boondocking from Worker 5 public-facing app/social mining; coordinate remains same-spot/tight-cluster, not exact pad."
+      "v23.1.79: Adds Four Corners Dispersed Camping as Community Reported Boondocking from Worker 5 public-facing app/social mining; coordinate remains same-spot/tight-cluster, not exact pad.",
+      "v23.1.82: Adds Worker 5 Round 2 Community Reported Boondocking candidate for Copper City BLM; Four Corners from v23.1.79 remains de-duped."
     ]
   },
   "ND": {

@@ -6833,16 +6833,17 @@ window.CAMPING_REJECTED = [
     "countyRegion": "Warren",
     "rejectedAsLayer": "Reject / Do Not Import",
     "rejectionType": "official_no_camping_or_wrong_feature_trap",
-    "rejectionStrength": "hard_reject_or_guardrail",
-    "currentDecision": "KEEP REJECTED",
+    "rejectionStrength": "superseded_or_needs_recheck",
+    "currentDecision": "STALE / REOPEN AS LEAD — current MDC source needs geometry verification",
     "canReopen": true,
     "reopenIf": [
-      "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+      "Current MDC source supports designated primitive camping, but active import still requires official campsite/camping-area geometry.",
+      "Do not keep as a hard no-camping reject unless a newer MDC source again prohibits camping."
     ],
-    "sourceSummary": "MDC regulations state camping is prohibited at Little Lost Creek CA. ([Missouri Department of Conservation][22])",
+    "sourceSummary": "MDC regulations state camping is prohibited at Little Lost Creek CA. ([Missouri Department of Conservation][22]) Updated v23.1.82: Worker 5 Round 2 found current MDC support for designated primitive camping at Little Lost Creek CA; reopen as geometry lead instead of hard no-camping reject.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.70",
-    "notes": "From MO_W8 v23.1.70 weak-state rescue return."
+    "lastCheckedVersion": "v23.1.82",
+    "notes": "From MO_W8 v23.1.70 weak-state rescue return. v23.1.82 update: stale no-camping treatment superseded by current MDC designated-camping evidence; exact geometry still blocked."
   },
   {
     "id": "mo-w8-troy-lakeview-rv-estates-long-term",
@@ -7661,16 +7662,17 @@ window.CAMPING_REJECTED = [
     "countyRegion": "Missouri MDC conservation areas",
     "rejectedAsLayer": "Reject / Do Not Import",
     "rejectionType": "wrong_feature_type / no_honest_map_record",
-    "rejectionStrength": "hard_reject_or_guardrail",
-    "currentDecision": "KEEP REJECTED",
+    "rejectionStrength": "superseded_or_needs_recheck",
+    "currentDecision": "STALE / REOPEN AS LEAD — current MDC source needs geometry verification",
     "canReopen": true,
     "reopenIf": [
-      "Only if a current official/operator source clearly proves public overnight camping and an honest campsite/camping-area coordinate can be made."
+      "Current MDC source supports designated primitive camping, but active import still requires official campsite/camping-area geometry.",
+      "Do not keep as a hard no-camping reject unless a newer MDC source again prohibits camping."
     ],
-    "sourceSummary": "Explicit MDC no-camping/prohibited language controls over contradictory camping-category snippets unless MDC later clarifies.",
+    "sourceSummary": "Explicit MDC no-camping/prohibited language controls over contradictory camping-category snippets unless MDC later clarifies. Updated v23.1.82: Worker 5 Round 2 found current MDC support for designated primitive camping at Little Lost Creek CA; reopen as geometry lead instead of hard no-camping reject.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.73",
-    "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73."
+    "lastCheckedVersion": "v23.1.82",
+    "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73. v23.1.82 update: stale no-camping treatment superseded by current MDC designated-camping evidence; exact geometry still blocked."
   },
   {
     "id": "mo-v73-reject-table-rock-mark-twain-day-use-proxies",
