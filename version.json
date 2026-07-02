@@ -1,9 +1,5 @@
 {
-  "version": "v23.1.80",
-  "build": "v23.1.80",
-  "dataVersion": "v23.1.80-version-flag-hardening-v79-data",
-  "dataBuild": "v23.1.80-version-flag-hardening-v79-data",
-  "released": "2026-07-02",
-  "label": "Boondocking & Camping Maps v23.1.80",
-  "notes": "Version-flag hardening package. Carries forward v23.1.79 data/UI/search changes and includes index.html so the deployed app shell refreshes its cache-busted version/app script loaders instead of continuing to display an older runtime flag."
+  "sourceOfTruth": "version.js",
+  "purpose": "Runtime/build version is defined only in version.js. This file intentionally does not carry a version flag so the app has one authoritative version source.",
+  "notes": "Install the matching version.js and index.html from the package. index.html loads version.js with a no-store probe and uses those runtime variables for app/data cache busting."
 }

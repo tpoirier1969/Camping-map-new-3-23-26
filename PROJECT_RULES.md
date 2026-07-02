@@ -36,7 +36,9 @@ As the map gains more campsite records, marker icons must scale down at lower zo
 
 Version flag / build identity contract:
 
-Every package that changes version files must preserve the app's current version flag contract. `version.js` must define all of the fields used by `app.js` and `index.html`:
+The app must have exactly one authoritative runtime version source: `version.js`.
+
+`version.js` must define all runtime/build fields consumed by `app.js` and `index.html`:
 
 * `window.CAMPING_APP_VERSION`
 * `window.CAMPING_APP_BUILD`
@@ -45,12 +47,19 @@ Every package that changes version files must preserve the app's current version
 * `window.CAMPING_VERSION`
 * `window.CAMPING_BUILD = { version, build, dataVersion, dataBuild, released, label }`
 
-Keep `window.APP_VERSION` and `window.DATA_BUILD` only as backward-compatible aliases, not as the only version fields. If `window.CAMPING_BUILD.version` or `window.CAMPING_APP_VERSION` is missing, the visible app version can fall back to `dev`, which is a packaging failure.
+Keep `window.APP_VERSION` and `window.DATA_BUILD` only as backward-compatible aliases. Do not make them the only version fields.
 
+No other runtime file should carry the current visible version flag. `version.json` may exist only as a non-authoritative pointer/metadata file and must not contain the current visible app version. `index.html` must load `version.js` and use the variables from `version.js`; it must not hardcode the current visible app version. `app.js` must display the version from `window.CAMPING_BUILD` / `window.CAMPING_APP_VERSION` only.
+
+If `window.CAMPING_BUILD.version` or `window.CAMPING_APP_VERSION` is missing, stale, or duplicated inconsistently in another runtime file, the visible app version can be wrong. That is a packaging failure.
+
+Marker zoom-redraw rule:
+
+Marker icon size may change visually with zoom using CSS scaling, but ordinary zooming in/out must not rebuild every individual site marker. Do not include continuous icon-scale values in the marker render cache key. Redraw markers on filter/search/state/layer/data changes and when the app crosses the clustering boundary below/above zoom 4.5, but not for normal zoom-scale changes above the clustering threshold. Clustering may rebuild when entering or leaving clustered mode.
 
 Version-shell packaging rule:
 
-Whenever a package increments the visible app version or changes script/cache-busting behavior, include `index.html` in the changed/new-files ZIP even if the script references appear unchanged. The app shell controls the version.js/app.js cache keys and visible runtime flag; omitting `index.html` can let a deployed page continue to display an older version flag after version.js/version.json were updated. QA must search the delivered ZIP for stale visible version strings in `version.js`, `version.json`, `index.html`, and `app.js`. Historical data provenance strings such as `dataCorrectionVersion` may retain old revision numbers when they describe when a record was originally added.
+Whenever a package increments the visible app version or changes script/cache-busting behavior, include `index.html` in the changed/new-files ZIP even if the script references appear unchanged. The app shell controls the version.js/app.js cache keys and visible runtime flag; omitting `index.html` can let a deployed page continue to display an older version flag after version.js/version.json were updated. QA must verify that the current visible version appears only in `version.js` among runtime files. `version.json`, `index.html`, and `app.js` must not hardcode the current visible version. Historical data provenance strings such as `dataCorrectionVersion` may retain old revision numbers when they describe when a record was originally added.
 
 Worker-handoff delivery rule:
 

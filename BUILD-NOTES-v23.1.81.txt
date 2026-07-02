@@ -1,0 +1,34 @@
+Tod's Boondocking & Camping Maps — v23.1.81 Changed/New Files Only
+
+Purpose:
+- Correct the version flag contract so version.js is the only authoritative runtime version file.
+- Remove the current visible version flag from version.json and index.html.
+- Preserve v23.1.79 data/UI/search changes and v23.1.80 app-shell refresh handling.
+- Fix marker zoom behavior so ordinary zoom scaling does not rebuild every individual marker.
+
+Version behavior:
+- version.js is the single source of truth for the visible app version and data build keys.
+- version.json is intentionally non-authoritative and contains no current version flag.
+- index.html loads version.js with a no-store probe and uses version.js variables for cache-busting scripts; it does not hardcode the current visible version.
+
+Marker behavior:
+- Icon scaling above the cluster threshold is handled through CSS variable --camping-marker-zoom-scale.
+- The render cache no longer includes continuous icon scale values.
+- Markers rebuild when data/filter/search/state/layer inputs change or when crossing the cluster boundary below/above zoom 4.5, not just because the user zoomed in.
+
+Files included:
+- BUILD-NOTES-v23.1.81.txt
+- PROJECT_RULES.md
+- Project Rules.md
+- app.js
+- index.html
+- styles/marker-icons.css
+- version.js
+- version.json
+- data/states-manifest.js
+- data/states/KS.js
+- data/states/MT.js
+- data/leads.js
+- data/rejected.js
+
+No new supplement files were created.

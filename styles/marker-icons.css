@@ -33,6 +33,13 @@
   flex: 0 0 24px;
 }
 
+.map-pin {
+  transform: scale(var(--camping-marker-zoom-scale, 1));
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform .12s linear;
+}
+
 .map-pin.pin-parking,
 .layer-icon.pin-parking,
 .map-pin.pin-rest,

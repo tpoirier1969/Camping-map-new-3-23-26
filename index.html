@@ -152,7 +152,7 @@
 </script>
 <script>
 (function(){
-  // v23.1.80 version-shell hardening: this changed-only package includes index.html so stale deployed shells cannot keep old version/app script cache keys.
+  // Version shell loader: version.js is the only authoritative runtime version source.
   document.write("<script src=\"version.js?buildProbe=" + Date.now() + "\" onerror=\"window.CAMPING_STARTUP_FAIL&&window.CAMPING_STARTUP_FAIL('Failed to load version.js')\"><\/script>");
 })();
 </script>
