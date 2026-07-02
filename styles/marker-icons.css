@@ -175,3 +175,64 @@
   margin: .45rem 0 0;
   padding-left: 1.1rem;
 }
+
+
+/* Basemap-aware high-visibility palettes — v23.1.79.
+   Preserve icon shapes/layer meanings; only color variables change with the selected basemap. */
+body.basemap-osm .pin-modern { --fill:#2563EB; --stroke:#0F2F7A; --icon:#fff; }
+body.basemap-osm .pin-rustic { --fill:#F59E0B; --stroke:#6B3D00; --icon:#2E1A00; }
+body.basemap-osm .pin-boondocking { --fill:#22C55E; --stroke:#0B5D2A; --icon:#052E16; }
+body.basemap-osm .pin-boat-backpack { --fill:#06B6D4; --stroke:#075B68; --icon:#083344; }
+body.basemap-osm .pin-private { --fill:#DC2626; --stroke:#fff; --icon:#fff; }
+body.basemap-osm .pin-draft { --fill:#A855F7; --stroke:#4C1D95; --icon:#fff; }
+body.basemap-osm .pin-parking { --fill:#fff; --stroke:#374151; --icon:#111827; }
+body.basemap-osm .pin-rest { --fill:#111827; --stroke:#fff; --icon:#fff; }
+body.basemap-osm .pin-info { --fill:#FDE68A; --stroke:#92400E; --icon:#78350F; }
+
+body.basemap-opentopo .pin-modern { --fill:#1D4ED8; --stroke:#0B245E; --icon:#fff; }
+body.basemap-opentopo .pin-rustic { --fill:#EA580C; --stroke:#5A1F00; --icon:#fff; }
+body.basemap-opentopo .pin-boondocking { --fill:#16A34A; --stroke:#052E16; --icon:#fff; }
+body.basemap-opentopo .pin-boat-backpack { --fill:#0891B2; --stroke:#083344; --icon:#fff; }
+body.basemap-opentopo .pin-private { --fill:#BE123C; --stroke:#fff; --icon:#fff; }
+body.basemap-opentopo .pin-draft { --fill:#7C3AED; --stroke:#2E1065; --icon:#fff; }
+body.basemap-opentopo .pin-parking { --fill:#fff; --stroke:#1F2937; --icon:#111827; }
+body.basemap-opentopo .pin-rest { --fill:#1F2937; --stroke:#fff; --icon:#fff; }
+body.basemap-opentopo .pin-info { --fill:#FACC15; --stroke:#713F12; --icon:#422006; }
+
+body.basemap-topo .pin-modern { --fill:#0066CC; --stroke:#003366; --icon:#fff; }
+body.basemap-topo .pin-rustic { --fill:#D97706; --stroke:#5F2A00; --icon:#fff; }
+body.basemap-topo .pin-boondocking { --fill:#15803D; --stroke:#052E16; --icon:#fff; }
+body.basemap-topo .pin-boat-backpack { --fill:#0284C7; --stroke:#033D5C; --icon:#fff; }
+body.basemap-topo .pin-private { --fill:#B91C1C; --stroke:#fff; --icon:#fff; }
+body.basemap-topo .pin-draft { --fill:#9333EA; --stroke:#3B0764; --icon:#fff; }
+body.basemap-topo .pin-parking { --fill:#fff; --stroke:#374151; --icon:#111827; }
+body.basemap-topo .pin-rest { --fill:#374151; --stroke:#fff; --icon:#fff; }
+body.basemap-topo .pin-info { --fill:#FCD34D; --stroke:#92400E; --icon:#78350F; }
+
+body.basemap-satellite .map-pin,
+body.basemap-satellite .layer-icon {
+  box-shadow: 0 0 0 2px #fff, 0 2px 10px rgba(0,0,0,.72);
+}
+body.basemap-satellite .pin-modern { --fill:#00A3FF; --stroke:#000; --icon:#fff; }
+body.basemap-satellite .pin-rustic { --fill:#FFD400; --stroke:#000; --icon:#000; }
+body.basemap-satellite .pin-boondocking { --fill:#39FF14; --stroke:#000; --icon:#000; }
+body.basemap-satellite .pin-boat-backpack { --fill:#00FFFF; --stroke:#000; --icon:#000; }
+body.basemap-satellite .pin-private { --fill:#FF2D55; --stroke:#000; --icon:#fff; }
+body.basemap-satellite .pin-draft { --fill:#FF7A00; --stroke:#000; --icon:#000; }
+body.basemap-satellite .pin-parking { --fill:#fff; --stroke:#000; --icon:#000; }
+body.basemap-satellite .pin-rest { --fill:#FFFF00; --stroke:#000; --icon:#000; }
+body.basemap-satellite .pin-info { --fill:#fff; --stroke:#000; --icon:#000; }
+
+body.basemap-osm .map-cluster,
+body.basemap-opentopo .map-cluster,
+body.basemap-topo .map-cluster {
+  --fill:#111827;
+  --stroke:#fff;
+  --icon:#fff;
+}
+body.basemap-satellite .map-cluster {
+  --fill:#FFFF00;
+  --stroke:#000;
+  --icon:#000;
+  box-shadow: 0 0 0 2px #fff, 0 2px 10px rgba(0,0,0,.78);
+}

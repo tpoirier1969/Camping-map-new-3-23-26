@@ -24,6 +24,14 @@ When Tod and the assistant make a durable workflow, architecture, data-model, pr
 
 UI marker-density / zoom-scaling / clustering rule:
 
+Basemap-aware high-visibility marker color rule:
+
+When the app changes basemap type, marker colors may change by basemap to preserve visibility, but marker shapes and layer meanings must remain stable. Satellite imagery should use high-visibility fills with black stroke and a white halo so icons do not disappear into forest, field, road, water, or shadow backgrounds. Street/topo basemaps may use less neon but still high-contrast palettes. Cluster markers below zoom 4.5 should also use basemap-aware high-contrast styling.
+
+Search / place-search behavior rule:
+
+The main search field should support both campsite-record search and geographic place search. A normal search should match campsite names plus city, county/region, waterbody/reservoir, route/location notes, state, layer, and source text. If a typed term is not a loaded campsite match, or if the user chooses to use it as a map place, geocode the term as a U.S. place/geographic feature and center Nearby Search there so the mileage slider can show sites within the chosen distance. This supports searches such as city names, county names, reservoirs, national parks, and notable features like Grand Canyon.
+
 As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. The approved target curve is: full/current icon size at zoom 8.5 and above; about 50% size at zoom 7; about one-sixth size at zoom 6; about one-eighth size at zoom 4.5. Interpolate smoothly between those levels. Below zoom 4.5, switch to numbered marker clustering so broad regional views draw grouped counts instead of every individual campsite pin. Preserve existing layer icon meanings, colors, and shapes unless Tod explicitly asks to change them.
 
 Version flag / build identity contract:

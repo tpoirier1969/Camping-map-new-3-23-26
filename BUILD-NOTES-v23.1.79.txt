@@ -1,0 +1,47 @@
+TOD'S BOONDOCKING & CAMPING MAPS — BUILD NOTES v23.1.79
+
+Build: v23.1.79-ks-kdwp-usace-local-boondocking-ui-search
+Date: 2026-07-02
+Package type: changed/new files only
+
+Summary:
+- Integrated Worker 1 v23.1.78 KDWP remaining state-park component coordinate-rescue return.
+- Integrated Worker 2 v23.1.78 USACE/Recreation.gov/RIDB facility metadata coordinate-rescue return.
+- Integrated Worker 3 v23.1.78 local/city/county lake closeout return.
+- Integrated Worker 5 v23.1.79 boondocking/social-app public mining return conservatively.
+- Worker 4 TN v23.1.78 closeout produced no active promotions; v23.1.78 lead/reject guardrails remain in place.
+- Added high-visibility basemap-aware icon colors, including satellite black stroke + white halo treatment.
+- Added search place mode: the search field now supports site/metadata search and can geocode city/county/geographic places to center Nearby Search for the mileage slider.
+- Updated version flag contract in version.js/version.json.
+- No new supplemental files created.
+
+Active data changes:
+- KS active count: 56 -> 89 (+33).
+- MT direct state-file count: 6 -> 7 (+1); MT runtime/manifest count with existing supplements: 219 -> 220 (+1).
+- Added 9 KS KDWP state-park active records.
+- Added 20 KS USACE/Recreation.gov facility metadata active records.
+- Added 3 KS local/operator/city-lake active records.
+- Added 1 KS Osage State Fishing Lake active area/rule marker.
+- Added 1 MT Community Reported Boondocking active candidate: Four Corners Dispersed Camping.
+- Worker 5 Cowley/Chase SFL rows were duplicates of v23.1.78 and were not re-added.
+
+Ledger changes:
+- Added/updated KS KDWP component leads and reject traps.
+- Added/updated KS USACE/RIDB coordinate-rescue leads.
+- Updated Atchison County Lake and Smoky Gardens leads from Worker 3 closeout.
+- Added Worker 5 boondocking/social-app leads across KS, MO, WI, AR, MT, and MN.
+- Added Pipestone Trailhead Camp proxy reject trap.
+
+Changed/new files expected:
+- BUILD-NOTES-v23.1.79.txt
+- PROJECT_RULES.md
+- Project Rules.md
+- app.js
+- styles/marker-icons.css
+- version.js
+- version.json
+- data/states-manifest.js
+- data/states/KS.js
+- data/states/MT.js
+- data/leads.js
+- data/rejected.js

@@ -9552,5 +9552,81 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.78",
     "notes": "Worker 4 missing rejected guardrail; revisit after official reopening."
+  },
+  {
+    "id": "ks-reject-crawford-evening-breeze-area",
+    "state": "KS",
+    "name": "Crawford State Park — Evening Breeze Area",
+    "countyRegion": "Crawford / Crawford State Park",
+    "rejectedAsLayer": "Rustic / Primitive / campsite proxy",
+    "rejectionType": "official_no_camping",
+    "rejectionStrength": "confirmed_reject",
+    "currentDecision": "KEEP REJECTED",
+    "reason": "KDWP Crawford area table shows Camping Available: No; do not import as a campsite/campground pin.",
+    "proofRequiredToReopen": [
+      "Current official source confirms overnight camping is allowed at the exact feature",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Worker 1 v23.1.78 KDWP return flagged this no-camping named-area trap.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.79",
+    "notes": "Added/updated from v23.1.79 worker-return integration."
+  },
+  {
+    "id": "ks-reject-crawford-beach-day-use-area",
+    "state": "KS",
+    "name": "Crawford State Park — Beach Day Use Area",
+    "countyRegion": "Crawford / Crawford State Park",
+    "rejectedAsLayer": "Rustic / Primitive / campsite proxy",
+    "rejectionType": "official_no_camping / wrong_feature_type",
+    "rejectionStrength": "confirmed_reject",
+    "currentDecision": "KEEP REJECTED",
+    "reason": "KDWP Crawford area table shows Camping Available: No; wrong-feature beach/day-use proxy.",
+    "proofRequiredToReopen": [
+      "Current official source confirms overnight camping is allowed at the exact feature",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Worker 1 v23.1.78 KDWP return flagged this no-camping/day-use trap.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.79",
+    "notes": "Added/updated from v23.1.79 worker-return integration."
+  },
+  {
+    "id": "ks-reject-kdwp-state-park-proxy-features",
+    "state": "KS",
+    "name": "Kansas KDWP state-park proxy features",
+    "countyRegion": "Statewide KDWP target systems",
+    "rejectedAsLayer": "Campsite/campground proxy",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "confirmed_reject",
+    "currentDecision": "KEEP REJECTED",
+    "reason": "Do not import park offices, lake/reservoir centers, dams, ramps, marinas, beaches, showerhouses, dump stations, trailheads, parking, or broad park addresses as campground coordinates unless the official source identifies that exact point as the campground/camping area.",
+    "proofRequiredToReopen": [
+      "Current official source confirms overnight camping is allowed at the exact feature",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Worker 1 v23.1.78 KDWP return flagged statewide KDWP proxy-feature trap.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.79",
+    "notes": "Added/updated from v23.1.79 worker-return integration."
+  },
+  {
+    "id": "mt_pipestone_trailhead_camp_proxy_trap",
+    "state": "MT",
+    "name": "Pipestone Trailhead Camp proxy listing",
+    "countyRegion": "Jefferson / Pipestone area",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "trailhead_proxy / insufficient_overnight_evidence",
+    "rejectionStrength": "confirmed_reject",
+    "currentDecision": "KEEP REJECTED",
+    "reason": "Public app evidence is weak/self-contradictory; one report says it is just a trailhead/no camping, and no official designated camping proof or 3+ same-spot overnight reports were found.",
+    "proofRequiredToReopen": [
+      "Current official source confirms overnight camping is allowed at the exact feature",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Worker 5 v23.1.79 boondocking/social-app mining return.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.79",
+    "notes": "Added/updated from v23.1.79 worker-return integration."
   }
 ];

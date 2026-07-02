@@ -123,13 +123,16 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "KS",
     "name": "Kansas",
     "file": "data/states/KS.js",
-    "count": 56,
+    "count": 89,
     "files": [
       "data/states/KS.js"
     ],
     "dynamicSources": [
       "v23.1.77: Kansas weak-state worker integration replaces two bad legacy Kansas rows with 38 source-backed active campground/camping-area records from Workers 5–8; blocked component systems remain in data/leads.js and official contradiction traps remain in data/rejected.js.",
       "v23.1.78: Kansas Worker 1/3 integration adds 18 active KDWP state-park and city/county/local-lake campground/camping-area records; Worker 2 Council Grove active rows were already present and de-duped. Additional KS leads/rejected guardrails and TN Worker 4 closure guardrails are integrated into data/leads.js and data/rejected.js; no new supplement files created."
+    ],
+    "notes": [
+      "v23.1.79: Adds accepted KS KDWP state-park components, USACE/Recreation.gov facility metadata coordinates, local/operator campground-system records, Osage SFL area/rule marker, and additional lead/rejected ledger memory from Workers 1–3 and Worker 5; no new supplement files created."
     ]
   },
   "KY": {
@@ -241,7 +244,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MT",
     "name": "Montana",
     "file": "data/states/MT.js",
-    "count": 219,
+    "count": 220,
     "files": [
       "data/states/MT.js",
       "data/supplements/modern-audit-cleanup-v23.1.21.js",
@@ -258,6 +261,9 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.54: Historical leads/rejected backfill active checkpoint adds 9 Montana records via supplement: James Kipp Campground, Downstream Campground, West End Tent and Trailer Campground, and 6 approximate official Area/rule markers for Upper Missouri River Breaks, CMR NWR, UL Bend Wilderness, Chalk Buttes, Long Pines, and Ekalaka Hills. Area/rule markers are not exact campsites or legal boundaries.",
       "v23.1.71: MT/OH/KY weak-state rescue first wave adds accepted source-backed campground/camping-area rows and preserves coordinate-blocked USACE/ODNR/LBL/KDFWR/DBNF/private/operator/component opportunities as leads, not fake dots.",
       "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
+    ],
+    "notes": [
+      "v23.1.79: Adds Four Corners Dispersed Camping as Community Reported Boondocking from Worker 5 public-facing app/social mining; coordinate remains same-spot/tight-cluster, not exact pad."
     ]
   },
   "ND": {

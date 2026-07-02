@@ -68,6 +68,18 @@ function currentMarkerIconScale(){return markerIconScaleForZoom(app&&app.map&&ap
 function currentMarkerClusterMode(){const z=app&&app.map&&app.map.getZoom?Number(app.map.getZoom()):8.5;return Number.isFinite(z)&&z<4.5;}
 function scaledMarkerSizeForLayer(key){return Math.max(5,Math.round(markerSizeForLayer(key)*currentMarkerIconScale()));}
 function markerScaleCacheKey(){return (currentMarkerClusterMode()?'cluster:':'icons:')+currentMarkerIconScale().toFixed(3);} 
+function applyBasemapClass(key){
+  const allowed=new Set(['osm','opentopo','topo','satellite']);
+  const safe=allowed.has(String(key))?String(key):'topo';
+  const classes=['basemap-osm','basemap-opentopo','basemap-topo','basemap-satellite'];
+  if(document&&document.body){document.body.classList.remove(...classes);document.body.classList.add('basemap-'+safe);}
+  return safe;
+}
+function currentBasemapKey(){
+  const sel=$('basemapSelect');
+  return applyBasemapClass((sel&&sel.value)||localStorage.getItem(STORE.basemap)||'topo');
+}
+
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
@@ -140,7 +152,7 @@ function migrateLayerKeys(rawLayers){
 function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
-function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=localStorage.getItem(STORE.basemap)||'topo'; (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();if(app.markerLayerCacheKey&&app.markerLayerCacheKey!==markerCacheKey())renderMarkers(false);});}
+function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();if(app.markerLayerCacheKey&&app.markerLayerCacheKey!==markerCacheKey())renderMarkers(false);});}
 function retireLegacyLayerControls(){
   // v23.1.30+: layer controls live in the map legend. Remove stale cached layer home panels
   // so duplicate IDs do not steal handlers, but keep the v23.1.72 phone Layers shortcut.
@@ -1007,7 +1019,7 @@ function bindEvents(){
   const closeSidebar=$('closeSidebar');
   if(closeSidebar)closeSidebar.onclick=()=>{if(isPhoneView()){setMobileMode('map');$('sidebar').classList.add('closed');}else{setDesktopMode('map');} setTimeout(()=>app.map.invalidateSize(),220)};
   const basemap=$('basemapSelect');
-  if(basemap)basemap.onchange=e=>{Object.values(app.baseLayers).forEach(t=>app.map.removeLayer(t));(app.baseLayers[e.target.value]||app.baseLayers.topo).addTo(app.map);localStorage.setItem(STORE.basemap,e.target.value)};
+  if(basemap)basemap.onchange=e=>{const key=applyBasemapClass(e.target.value);Object.values(app.baseLayers).forEach(t=>app.map.removeLayer(t));(app.baseLayers[key]||app.baseLayers.topo).addTo(app.map);localStorage.setItem(STORE.basemap,key)};
   const stateMenuButton=$('stateMenuButton'); const stateMenuPanel=$('stateMenuPanel');
   if(stateMenuButton&&stateMenuPanel)stateMenuButton.onclick=()=>{const open=stateMenuPanel.hidden; stateMenuPanel.hidden=!open; stateMenuButton.setAttribute('aria-expanded',open?'true':'false')};
   document.addEventListener('click',e=>{if(stateMenuPanel&&stateMenuButton&&!stateMenuPanel.hidden&&$('stateSection')&&!$('stateSection').contains(e.target)){stateMenuPanel.hidden=true;stateMenuButton.setAttribute('aria-expanded','false')}});
@@ -2464,8 +2476,28 @@ function renderSearchResults(hits,q){
   const out=$('searchResults');
   if(!out)return;
   const shown=hits.slice(0,20);
-  out.innerHTML=shown.length?shown.map((s,i)=>{const key=layerKey(s);const hidden=searchResultHiddenByLayer(s);return `<button class="search-result" type="button" data-result-index="${i}"><strong>${esc(s.name)}</strong><br><span class="muted">${esc(s.stateName||s.stateCode||'')} · ${esc(layerDef(key).label)}${hidden?' · Hidden layer currently off':''}</span>${hidden?'<br><span class="mini-note">Selecting this result temporarily reveals it.</span>':''}</button>`}).join(''):`<div class="mini-note">No loaded sites matched “${esc(q)}”. Choose/load the right state first, or use Nearby search for a map spot.</div>`;
+  const placeButton=`<div class="mini-note"><button class="secondary" type="button" data-search-place="1">Use “${esc(q)}” as a map place / Nearby center</button></div>`;
+  out.innerHTML=shown.length?shown.map((s,i)=>{const key=layerKey(s);const hidden=searchResultHiddenByLayer(s);return `<button class="search-result" type="button" data-result-index="${i}"><strong>${esc(s.name)}</strong><br><span class="muted">${esc(s.stateName||s.stateCode||'')} · ${esc(layerDef(key).label)}${hidden?' · Hidden layer currently off':''}</span>${hidden?'<br><span class="mini-note">Selecting this result temporarily reveals it.</span>':''}</button>`}).join('')+placeButton:`<div class="mini-note">No loaded sites matched “${esc(q)}”. Searching as a map place…</div>`;
   $$('.search-result',out).forEach(b=>b.onclick=()=>showSearchResult(shown[Number(b.dataset.resultIndex)]));
+  const placeBtn=out.querySelector('[data-search-place]');
+  if(placeBtn)placeBtn.onclick=()=>runPlaceSearch(q);
+}
+async function runPlaceSearch(raw){
+  const q=String(raw||'').trim();
+  const out=$('searchResults');
+  if(!q)return;
+  try{
+    if(out)out.innerHTML=`<div class="mini-note">Finding map place “${esc(q)}”…</div>`;
+    clearSearchRevealMarker();
+    app.search={active:false,query:''};
+    const place=await geocodeRoutePlace(q);
+    await applyNearMapLocation(place.lat,place.lng,'Nearby search center: '+place.label);
+    if(out)out.innerHTML=`<div class="mini-note">Nearby search centered on <strong>${esc(place.label)}</strong>. Adjust the mileage slider to show sites within your chosen distance.</div>`;
+    notify(`Nearby search centered on ${place.label}. Adjust mileage to widen or narrow results.`,6500);
+  }catch(err){
+    if(out)out.innerHTML=`<div class="mini-note">No loaded sites matched “${esc(q)}”, and no map place was found. Try adding a state, national park, county, or coordinates.</div>`;
+    notify(err&&err.message?err.message:'Place search failed.');
+  }
 }
 async function runSearch(){
   const q=$('searchInput')?.value.trim()||'';
@@ -2475,14 +2507,15 @@ async function runSearch(){
   const coord=q.match(/^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*$/);
   if(coord){
     clearSearchMode(false);
-    await applyNearMapLocation(Number(coord[1]),Number(coord[2]));
+    await applyNearMapLocation(Number(coord[1]),Number(coord[2]),'Nearby search center: '+q);
     return;
   }
   app.search={active:true,query:q.toLowerCase()};
   const hits=app.sites.filter(s=>Number.isFinite(Number(s.lat))&&Number.isFinite(Number(s.lng))&&siteWithinTextSearch(s));
   renderSearchResults(hits,q);
+  if(!hits.length){await runPlaceSearch(q);return;}
   await renderMarkers(true);
-  notify(hits.length?`Search active: found ${hits.length} loaded matching site${hits.length===1?'':'s'} across all loaded layers.`:'Search active: no loaded matches.');
+  notify(`Search active: found ${hits.length} loaded matching site${hits.length===1?'':'s'}. Use the map-place button to center Nearby search on “${q}” instead.`);
 }
 
 const DEFAULT_NEAR_RADIUS_MILES=180;
@@ -2502,13 +2535,13 @@ function setNearCenterMarker(ll,label='Nearby center'){
   const icon=L.divIcon({className:'',html:`<span class="map-pin pin-boondocking">${ICONS.dot}</span>`,iconSize:[22,22],iconAnchor:[11,11],popupAnchor:[0,-10]});
   if(app.nearCenterMarker){app.nearCenterMarker.setLatLng(latLng);}else{app.nearCenterMarker=L.marker(latLng,{icon}).addTo(app.map).bindPopup(label);}
 }
-async function applyNearMapLocation(lat,lng){
+async function applyNearMapLocation(lat,lng,label='Nearby search center'){
   if(!Number.isFinite(lat)||!Number.isFinite(lng)){notify('That map spot does not have usable coordinates.');return;}
   app.nearPickMode=false;
   app.localAreaCenter=[lat,lng];
   app.nearMeActive=true;
   app.liveLocationLastLoadCenter=[lat,lng];
-  setNearCenterMarker([lat,lng],'Nearby search center');
+  setNearCenterMarker([lat,lng],label);
   const codes=mappedStatesNearLocation(lat,lng);
   app.enabledStates=new Set(codes);
   saveJson(STORE.states,[...app.enabledStates]);

@@ -1,9 +1,15 @@
 {
-  "version": "v23.1.78",
-  "build": "v23.1.78",
-  "dataVersion": "v23.1.78-ks-workers-1-3-tn-worker4-ledger-rules",
-  "dataBuild": "v23.1.78-ks-workers-1-3-tn-worker4-ledger-rules",
+  "version": "v23.1.79",
+  "build": "v23.1.79",
+  "dataVersion": "v23.1.79-ks-kdwp-usace-local-boondocking-ui-search",
+  "dataBuild": "v23.1.79-ks-kdwp-usace-local-boondocking-ui-search",
   "released": "2026-07-02",
-  "label": "Boondocking & Camping Maps v23.1.78",
-  "notes": "Integrates Kansas Worker 1 KDWP state-park active area records, Kansas Worker 3 city/county/local lake active records, Kansas Worker 2 USACE lead/reject memory without duplicating existing Council Grove active rows, TN Worker 4 conservative lead/reject updates, and Tod-provided coordinate resolutions for Atwood Lions RV Park and Arkalon Park. No new supplement files created."
+  "label": "Boondocking & Camping Maps v23.1.79",
+  "notes": [
+    "Kansas Worker 1/2/3 active records and ledger updates integrated directly into owning files.",
+    "Worker 5 boondocking/social-app mining integrated conservatively: duplicates skipped, Four Corners MT added as Community Reported Boondocking, Osage SFL added as KS area/rule marker, leads/rejects preserved.",
+    "High-visibility basemap-aware marker color palettes added, including satellite halo/stroke treatment.",
+    "Search field now supports site/metadata search plus place/geographic search that centers Nearby Search for distance filtering.",
+    "No new supplemental files created."
+  ]
 }
