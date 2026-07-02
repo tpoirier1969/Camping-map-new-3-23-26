@@ -9189,8 +9189,8 @@ window.CAMPING_REJECTED = [
     ],
     "sourceSummary": "Official source marked Perry Park/day-use feature as day-use only; do not confuse with valid Perry Lake campgrounds.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.77",
-    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone. v23.1.78 Worker 2 confirmed this remains a day-use/marina/info-center trap distinct from valid Perry Lake campgrounds."
   },
   {
     "id": "ks-reject-council-grove-city-lake-public-camping-unproven-v23177",
@@ -9324,5 +9324,233 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.77",
     "notes": "Added from Kansas weak-state worker reconciliation; do not promote from community/app/name-match evidence alone."
+  },
+  {
+    "id": "ks-reject-cheney-toad-stool-loop-day-use",
+    "state": "KS",
+    "name": "Cheney State Park — Toad Stool Loop Day Use",
+    "countyRegion": "Sedgwick/Cheney Reservoir",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_no_camping_day_use",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "KDWP West Shore page marks Toad Stool Loop Day Use Camping Available: No.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 1 reject-memory trap; do not use day-use loop as campsite/campground pin."
+  },
+  {
+    "id": "ks-reject-cheney-mr-ds-no-camping",
+    "state": "KS",
+    "name": "Cheney State Park — Mr Ds",
+    "countyRegion": "Sedgwick/Cheney Reservoir",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_no_camping",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "KDWP East Shore page marks Mr Ds Camping Available: No.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 1 reject-memory trap; boat ramp/facility context is not campground proof."
+  },
+  {
+    "id": "ks-reject-kdwp-facility-proxy-pins",
+    "state": "KS",
+    "name": "KDWP state-park offices, marinas, ramps, beaches, trailheads, showerhouses, dump stations, lake centers",
+    "countyRegion": "Statewide KDWP state-park system",
+    "rejectedAsLayer": "Any campsite/campground layer",
+    "rejectionType": "wrong_feature_proxy",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "KDWP pages expose coordinates for many facilities; those are not campsite coordinates unless the official source identifies the feature as campground/camping area.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 1 statewide KDWP proxy guardrail."
+  },
+  {
+    "id": "ks-reject-clinton-overlook-park-day-use",
+    "state": "KS",
+    "name": "Clinton Lake — Overlook Park",
+    "countyRegion": "Douglas / Clinton Lake",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Recreation.gov official page for Clinton Overlook Park states day-use only/no overnight camping.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 2 reject-memory trap."
+  },
+  {
+    "id": "ks-reject-perry-park-day-use",
+    "state": "KS",
+    "name": "Perry Lake — Perry Park",
+    "countyRegion": "Jefferson / Perry Lake",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Recreation.gov identifies Perry Park as a recreational day-use area next to marina/information center; do not confuse with valid Perry Lake campgrounds.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 2 reject-memory trap."
+  },
+  {
+    "id": "ks-reject-milford-east-rolling-hills-day-use",
+    "state": "KS",
+    "name": "Milford Lake — East Rolling Hills Park",
+    "countyRegion": "Geary / Milford Lake",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Recreation.gov describes East Rolling Hills as a day-use park with shelters.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 2 reject-memory trap."
+  },
+  {
+    "id": "ks-reject-milford-outlet-park-day-use",
+    "state": "KS",
+    "name": "Milford Lake — Outlet Park",
+    "countyRegion": "Geary / Milford Lake",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Recreation.gov describes Milford Outlet Park as a day-use park below the dam with a shelter.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 2 reject-memory trap."
+  },
+  {
+    "id": "ks-reject-milford-north-overlook-day-use",
+    "state": "KS",
+    "name": "Milford Lake — North Overlook Park",
+    "countyRegion": "Geary / Milford Lake",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Recreation.gov describes North Overlook Park as a day-use park with shelters.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 2 reject-memory trap."
+  },
+  {
+    "id": "ks-reject-tuttle-creek-outlet-park-day-use",
+    "state": "KS",
+    "name": "Tuttle Creek Lake — Outlet Park",
+    "countyRegion": "Riley / Tuttle Creek Lake",
+    "rejectedAsLayer": "Modern or Rustic / Primitive",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Recreation.gov describes Outlet Park at Tuttle Creek Lake as a day-use park with group shelters and day-use hours.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 2 reject-memory trap."
+  },
+  {
+    "id": "tn-w8-chickasaw-tent-wrangler-campgrounds-closed",
+    "state": "TN",
+    "name": "Chickasaw State Park — Tent + Wrangler Campgrounds",
+    "countyRegion": "Chester / Hardeman region",
+    "rejectedAsLayer": "Modern / Rustic / Primitive / Equestrian campground",
+    "rejectionType": "official_closure_renovation",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Official TSP and official park notice state tent and wrangler campgrounds are closed for renovations.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 4 missing rejected guardrail; stale campground directories should not promote these components."
+  },
+  {
+    "id": "tn-w8-natchez-trace-cub-lake-2-wrangler-closed",
+    "state": "TN",
+    "name": "Natchez Trace State Park — Cub Lake Campground 2 + Wrangler Campground",
+    "countyRegion": "Henderson / Carroll / Benton region",
+    "rejectedAsLayer": "Modern / Rustic / Primitive / Equestrian campground",
+    "rejectionType": "official_closure_renovation",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "Official TSP/ReserveTN sources state Cub Lake Campground 2 and Wrangler Campground are closed for renovations.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 4 missing rejected guardrail; keep open/backcountry components as leads until geometry/current status recovered."
+  },
+  {
+    "id": "tn-w8-nathan-bedford-forrest-standard-campgrounds-2026-closed",
+    "state": "TN",
+    "name": "Nathan Bedford Forrest State Park — Happy Hollow + Lakefront Standard Campgrounds",
+    "countyRegion": "Benton County",
+    "rejectedAsLayer": "Modern campground",
+    "rejectionType": "official_closure_renovation_2026",
+    "rejectionStrength": "strong_official_contradiction",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official agency/operator source proves overnight camping is allowed",
+      "Official source provides an honest campsite/campground coordinate or area geometry where needed"
+    ],
+    "sourceSummary": "ReserveTN says standard campgrounds are closed for 2026 due to renovation; backcountry remains a separate lead/status check.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.78",
+    "notes": "Worker 4 missing rejected guardrail; revisit after official reopening."
   }
 ];

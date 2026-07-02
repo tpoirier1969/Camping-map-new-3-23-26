@@ -123,12 +123,13 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "KS",
     "name": "Kansas",
     "file": "data/states/KS.js",
-    "count": 38,
+    "count": 56,
     "files": [
       "data/states/KS.js"
     ],
     "dynamicSources": [
-      "v23.1.77: Kansas weak-state worker integration replaces two bad legacy Kansas rows with 38 source-backed active campground/camping-area records from Workers 5–8; blocked component systems remain in data/leads.js and official contradiction traps remain in data/rejected.js."
+      "v23.1.77: Kansas weak-state worker integration replaces two bad legacy Kansas rows with 38 source-backed active campground/camping-area records from Workers 5–8; blocked component systems remain in data/leads.js and official contradiction traps remain in data/rejected.js.",
+      "v23.1.78: Kansas Worker 1/3 integration adds 18 active KDWP state-park and city/county/local-lake campground/camping-area records; Worker 2 Council Grove active rows were already present and de-duped. Additional KS leads/rejected guardrails and TN Worker 4 closure guardrails are integrated into data/leads.js and data/rejected.js; no new supplement files created."
     ]
   },
   "KY": {

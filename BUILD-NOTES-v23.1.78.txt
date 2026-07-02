@@ -1,0 +1,38 @@
+Tod's Boondocking & Camping Maps — Build Notes v23.1.78
+
+Build label: v23.1.78-ks-workers-1-3-tn-worker4-ledger-rules
+Date: 2026-07-02
+
+Baseline: v23.1.77 restored-supplements Kansas integration/icon-clusters package.
+
+Summary:
+- Added 18 Kansas active campground/camping-area records from the new worker returns.
+  - 8 KDWP state-park aggregate camping-area records from Kansas Worker 1.
+  - 10 city/county/local-lake campground records from Kansas Worker 3.
+- Did not duplicate Kansas Worker 2's three Council Grove USACE active records because they were already present in v23.1.77.
+- Added/update Kansas lead memory for KDWP loop splits, USACE/RIDB coordinate-rescue systems, and local/city lake coordinate-rescue targets.
+- Added Kansas rejected guardrails for KDWP wrong-feature/no-camping traps and USACE day-use/overlook/outlet proxy traps.
+- Kept Atwood Lions RV Park and Arkalon Park active using Tod-provided coordinate resolutions plus official city camping proof.
+- Applied Tennessee Worker 4 conservatively: no active TN promotions; existing leads updated, and 3 missing closure guardrails added to data/rejected.js.
+- No new supplement files were created. Existing supplement files are left standing pending a deliberate consolidation pass.
+- PROJECT_RULES.md and Project Rules.md updated/synced to emphasize direct edits to owning data files first; only create incremental supplements when owning files become too large/unwieldy or Tod explicitly approves.
+
+Kansas active count:
+- v23.1.77 baseline: 38
+- v23.1.78 after integration: 56
+
+Layer split for Kansas after v23.1.78:
+- Modern: 21
+- Rustic / Primitive: 33
+- Boondocking / Dispersed: 2
+
+QA checklist run:
+- node --check app.js
+- node --check data/states/KS.js
+- node --check data/leads.js
+- node --check data/rejected.js
+- node --check version.js
+- manifest referenced JS presence check
+- targeted runtime state counts for AR/TN/KS
+- Project rules sync check
+- changed/new-files-only ZIP integrity check
