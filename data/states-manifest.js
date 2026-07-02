@@ -247,7 +247,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MT",
     "name": "Montana",
     "file": "data/states/MT.js",
-    "count": 221,
+    "count": 222,
     "files": [
       "data/states/MT.js",
       "data/supplements/modern-audit-cleanup-v23.1.21.js",
@@ -267,7 +267,8 @@ window.CAMPING_STATES_MANIFEST = {
     ],
     "notes": [
       "v23.1.79: Adds Four Corners Dispersed Camping as Community Reported Boondocking from Worker 5 public-facing app/social mining; coordinate remains same-spot/tight-cluster, not exact pad.",
-      "v23.1.82: Adds Worker 5 Round 2 Community Reported Boondocking candidate for Copper City BLM; Four Corners from v23.1.79 remains de-duped."
+      "v23.1.82: Adds Worker 5 Round 2 Community Reported Boondocking candidate for Copper City BLM; Four Corners from v23.1.79 remains de-duped.",
+      "v23.1.83: Adds Homestake Pass dispersed camping as Community Reported Boondocking from Worker 5 Round 3; adds Homestake Lake day-use/no-overnight rejected guardrail and preserves remaining public-land sanity checks in data/leads.js."
     ]
   },
   "ND": {

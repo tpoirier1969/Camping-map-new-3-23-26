@@ -1,0 +1,51 @@
+Tod's Boondocking & Camping Maps — v23.1.83
+Changed/new-files-only package
+Date: 2026-07-02
+
+Purpose:
+- Fix the old Select All / multi-state behavior: state selection now loads data without zooming the map out to fit every selected state.
+- Restore the intended window-based render behavior: for large/multi-state selections, the current map view determines what campsite markers are drawn, with padded overscan for panning.
+- Preserve the v23.1.81 zoom rule: normal zooming inside the rendered window uses CSS marker scaling and does not rebuild every marker unless the cluster threshold is crossed or the viewport leaves the rendered window.
+- Add Tod's instruction-validation rule to PROJECT_RULES.md / Project Rules.md.
+- Integrate the new Worker 5 Round 3 data that is actually new relative to v23.1.82.
+- Correct the Little Lost Creek v23.1.82 reopen interpretation and keep current MDC no-camping treatment.
+
+Data changes:
+- MT active count: 221 -> 222.
+- Adds Homestake Pass dispersed camping / Homestake Road front dispersed area as Community Reported Boondocking.
+- Adds Homestake Lake Recreation Area / picnic ground as rejected day-use/no-overnight guardrail.
+- Keeps Copper City, Four Corners, and FR132 de-duped because they were already active in v23.1.82.
+- Removes the stale Little Lost Creek reopen-as-lead row from data/leads.js and reaffirms current rejected records.
+- Adds/updates lead detail for Brown Creek Cascade AR, Bassway Strip WMA NE, and Lincoln County Forest / Horn Lake WI.
+
+UI behavior changes:
+- Select All Map and multi-state selections no longer call fitBounds across selected state bounds.
+- Single-state selection may still fit that state.
+- Large/multi-state selections render markers for the padded current viewport instead of every loaded state record.
+- Panning outside the rendered window refreshes markers; normal zooming inside the rendered window does not force marker rebuild.
+
+Changed files:
+- BUILD-NOTES-v23.1.83.txt
+- PROJECT_RULES.md
+- Project Rules.md
+- app.js
+- index.html
+- styles/marker-icons.css
+- version.js
+- version.json
+- data/states-manifest.js
+- data/states/AR.js
+- data/states/MT.js
+- data/states/KS.js
+- data/leads.js
+- data/rejected.js
+- data/supplements/ar-tn-weakstate-rescue-v23.1.74.js
+- data/supplements/wi-mi-closeout-cleanup-v23.1.56.js
+
+QA:
+- JavaScript syntax checks passed.
+- ZIP integrity passed.
+- PROJECT_RULES.md and Project Rules.md are synced.
+- Runtime version visible flag remains in version.js only.
+- Manifest counts updated: MT 222; AR 94; KS 89; TN 65.
+- No new supplement files created; existing required v23.1.74 and v23.1.56 supplement files are included so the package remains self-contained against older live baselines.

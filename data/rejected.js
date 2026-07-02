@@ -6833,17 +6833,18 @@ window.CAMPING_REJECTED = [
     "countyRegion": "Warren",
     "rejectedAsLayer": "Reject / Do Not Import",
     "rejectionType": "official_no_camping_or_wrong_feature_trap",
-    "rejectionStrength": "superseded_or_needs_recheck",
-    "currentDecision": "STALE / REOPEN AS LEAD — current MDC source needs geometry verification",
-    "canReopen": true,
-    "reopenIf": [
-      "Current MDC source supports designated primitive camping, but active import still requires official campsite/camping-area geometry.",
-      "Do not keep as a hard no-camping reject unless a newer MDC source again prohibits camping."
-    ],
-    "sourceSummary": "MDC regulations state camping is prohibited at Little Lost Creek CA. ([Missouri Department of Conservation][22]) Updated v23.1.82: Worker 5 Round 2 found current MDC support for designated primitive camping at Little Lost Creek CA; reopen as geometry lead instead of hard no-camping reject.",
+    "rejectionStrength": "confirmed_reject",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": false,
+    "sourceSummary": "Current MDC page explicitly says camping is prohibited. Worker 5 Round 3 and Worker 6 v23.1.82 correction reaffirmed this as a reject, not a reopen lead.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.82",
-    "notes": "From MO_W8 v23.1.70 weak-state rescue return. v23.1.82 update: stale no-camping treatment superseded by current MDC designated-camping evidence; exact geometry still blocked."
+    "lastCheckedVersion": "v23.1.83",
+    "notes": "v23.1.83 corrects the v23.1.82 reopen-as-lead interpretation. Keep rejected unless a newer official MDC source reverses the prohibition.",
+    "reason": "Current MDC Little Lost Creek Conservation Area page says camping is prohibited. Older app snippets, old primitive-site references, or prior reopen interpretations do not override current official no-camping language.",
+    "proofRequiredToReopen": [
+      "Newer current official MDC source explicitly reverses the camping-prohibited language and confirms public overnight camping is allowed",
+      "Official source or approved geometry source provides honest campsite/camping-area coordinates or area geometry"
+    ]
   },
   {
     "id": "mo-w8-troy-lakeview-rv-estates-long-term",
@@ -7662,17 +7663,18 @@ window.CAMPING_REJECTED = [
     "countyRegion": "Missouri MDC conservation areas",
     "rejectedAsLayer": "Reject / Do Not Import",
     "rejectionType": "wrong_feature_type / no_honest_map_record",
-    "rejectionStrength": "superseded_or_needs_recheck",
-    "currentDecision": "STALE / REOPEN AS LEAD — current MDC source needs geometry verification",
-    "canReopen": true,
-    "reopenIf": [
-      "Current MDC source supports designated primitive camping, but active import still requires official campsite/camping-area geometry.",
-      "Do not keep as a hard no-camping reject unless a newer MDC source again prohibits camping."
-    ],
-    "sourceSummary": "Explicit MDC no-camping/prohibited language controls over contradictory camping-category snippets unless MDC later clarifies. Updated v23.1.82: Worker 5 Round 2 found current MDC support for designated primitive camping at Little Lost Creek CA; reopen as geometry lead instead of hard no-camping reject.",
+    "rejectionStrength": "confirmed_reject",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": false,
+    "sourceSummary": "Current MDC no-camping language reaffirmed in Worker 5 Round 3 / Worker 6 v23.1.82 correction; do not reopen Little Lost Creek without a newer official MDC reversal.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.82",
-    "notes": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73. v23.1.82 update: stale no-camping treatment superseded by current MDC designated-camping evidence; exact geometry still blocked."
+    "lastCheckedVersion": "v23.1.83",
+    "notes": "v23.1.83 removes stale reopen interpretation and keeps the guardrail.",
+    "reason": "Explicit current MDC no-camping/prohibited language for Little Lost Creek controls over contradictory snippets or stale camping references.",
+    "proofRequiredToReopen": [
+      "Newer current official MDC source explicitly reverses the camping-prohibited language and confirms public overnight camping is allowed",
+      "Official source or approved geometry source provides honest campsite/camping-area coordinates or area geometry"
+    ]
   },
   {
     "id": "mo-v73-reject-table-rock-mark-twain-day-use-proxies",
@@ -9630,5 +9632,24 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.79",
     "notes": "Added/updated from v23.1.79 worker-return integration."
+  },
+  {
+    "id": "mt_homestake_lake_day_use_no_overnight_trap",
+    "state": "MT",
+    "name": "Homestake Lake Recreation Area / picnic ground overnight-camping trap",
+    "countyRegion": "Beaverhead-Deerlodge NF / Homestake Lake",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "official_day_use_no_overnight / wrong_feature_type",
+    "rejectionStrength": "confirmed_reject",
+    "currentDecision": "KEEP REJECTED",
+    "reason": "Official tourism/agency-adjacent sources identify Homestake Lake Recreation Area / picnic ground as day-use/no overnight. Do not use the lake/picnic/day-use point as the nearby Homestake Pass dispersed camping pin.",
+    "proofRequiredToReopen": [
+      "Current official source confirms overnight camping is allowed at the exact Homestake Lake Recreation Area/picnic-ground feature",
+      "Official source provides an honest campsite/camping-area coordinate or designated overnight area geometry"
+    ],
+    "sourceSummary": "Worker 5 Round 3 found official day-use/no-overnight contradiction for the Homestake Lake Recreation Area/picnic ground while separately supporting nearby Homestake Road dispersed camping as Community Reported.",
+    "relatedActiveOrPendingRecord": "mt_homestake_pass_dispersed_community_reported",
+    "lastCheckedVersion": "v23.1.83",
+    "notes": "Guardrail prevents workers/users from pinning the day-use lake/picnic ground instead of the nearby reported dispersed road cluster."
   }
 ];

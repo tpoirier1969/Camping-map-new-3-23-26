@@ -69,6 +69,44 @@ function currentMarkerClusterMode(){const z=app&&app.map&&app.map.getZoom?Number
 function scaledMarkerSizeForLayer(key){return Math.max(5,Math.round(markerSizeForLayer(key)*currentMarkerIconScale()));}
 function markerScaleCacheKey(){return currentMarkerClusterMode()?'cluster':'icons';}
 function updateMarkerZoomScale(){try{const scale=currentMarkerIconScale(); if(document&&document.documentElement)document.documentElement.style.setProperty('--camping-marker-zoom-scale', String(scale));}catch(_e){}}
+
+const VIEWPORT_RENDER_STATE_THRESHOLD=2;
+const VIEWPORT_RENDER_RECORD_THRESHOLD=600;
+const VIEWPORT_RENDER_PADDING_RATIO=.85;
+function routeSearchIsActive(){return !!(app&&app.routeSearch&&app.routeSearch.active&&app.routeSearch.coords&&app.routeSearch.coords.length);}
+function shouldUseViewportRenderWindow(){
+  if(!app||!app.map)return false;
+  if(app.nearMeActive||routeSearchIsActive())return false;
+  if(app.search&&app.search.active)return false;
+  const stateCount=app.enabledStates&&app.enabledStates.size?app.enabledStates.size:0;
+  const recordCount=Array.isArray(app.sites)?app.sites.length:0;
+  return stateCount>=VIEWPORT_RENDER_STATE_THRESHOLD||recordCount>=VIEWPORT_RENDER_RECORD_THRESHOLD;
+}
+function makeViewportRenderBounds(){
+  if(!(app&&app.map&&app.map.getBounds))return null;
+  const b=app.map.getBounds();
+  if(!b||!b.isValid||!b.isValid())return null;
+  return b.pad?b.pad(VIEWPORT_RENDER_PADDING_RATIO):b;
+}
+function siteWithinViewportRenderWindow(site){
+  if(!app.renderWindowMode||!app.renderWindowBounds)return true;
+  const lat=Number(site&&site.lat),lng=Number(site&&site.lng);
+  if(!Number.isFinite(lat)||!Number.isFinite(lng))return false;
+  return app.renderWindowBounds.contains([lat,lng]);
+}
+function renderWindowNeedsRefresh(){
+  if(!shouldUseViewportRenderWindow())return false;
+  if(!app.renderWindowBounds)return true;
+  const view=app.map&&app.map.getBounds&&app.map.getBounds();
+  if(!view||!view.isValid||!view.isValid())return false;
+  return !(app.renderWindowBounds.contains(view.getSouthWest())&&app.renderWindowBounds.contains(view.getNorthEast()));
+}
+function shouldAutoFitStateSelection(codes,options={}){
+  if(options.forceFit)return true;
+  if(app.nearMeActive||routeSearchIsActive())return true;
+  const count=(codes||[]).length;
+  return count===1;
+}
 function applyBasemapClass(key){
   const allowed=new Set(['osm','opentopo','topo','satellite']);
   const safe=allowed.has(String(key))?String(key):'topo';
@@ -84,7 +122,7 @@ function currentBasemapKey(){
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
-const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
+const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
 window.__campingApp=app;
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function readJson(key,fb){try{return JSON.parse(localStorage.getItem(key)||'null')??fb}catch{return fb}}
@@ -153,7 +191,7 @@ function migrateLayerKeys(rawLayers){
 function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
-function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; updateMarkerZoomScale(); app.map.on('zoom zoomend',()=>{updateMarkerZoomScale();}); app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();if(app.markerLayerCacheKey&&app.markerLayerCacheKey!==markerCacheKey())renderMarkers(false);});}
+function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; updateMarkerZoomScale(); app.map.on('zoom zoomend',()=>{updateMarkerZoomScale();}); app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();if(app.markerLayerCacheKey&&(app.markerLayerCacheKey!==markerCacheKey()||renderWindowNeedsRefresh()))renderMarkers(false);});}
 function retireLegacyLayerControls(){
   // v23.1.30+: layer controls live in the map legend. Remove stale cached layer home panels
   // so duplicate IDs do not steal handlers, but keep the v23.1.72 phone Layers shortcut.
@@ -250,7 +288,7 @@ function syncStateControls(){
       const perf=stateSelectionPerformanceText(codes);
       if(n===0)note.textContent='No states selected. Choose one or more states to load map data.';
       else if(n===1)note.textContent=`${stateLabel(codes[0])} selected (${formatRecordCount(count)} listed records).`;
-      else note.textContent=`${n} states selected (${formatRecordCount(count)} listed records). ${perf||'The map will zoom to the combined selected area.'}`;
+      else note.textContent=`${n} states selected (${formatRecordCount(count)} listed records). ${perf||'The map will stay on the current view and draw sites in/near the visible map window.'}`;
     }
   }
 }
@@ -270,7 +308,9 @@ async function setEnabledStates(codes,fit=true,options={}){
   if(addingStates)notifyLargeStateSelection(picked);
   const outlinesWanted=areaOutlineLayerEnabled();
   pauseAreaOutlinesForStateChange(picked.length);
-  await loadEnabledStates(fit);
+  const fitAfterLoad=!!fit&&shouldAutoFitStateSelection(picked,options);
+  await loadEnabledStates(fitAfterLoad);
+  if(fit&&!fitAfterLoad&&picked.length>1)notify('State selection loaded. The map stayed on the current view and will draw sites as you pan or zoom.',5500);
   if(outlinesWanted)refreshAreaOutlineLayerForStateSelection(false,{afterMarkers:true});
 }
 function buildLayerList(){const box=$('layerList'); if(box)box.innerHTML='';}
@@ -359,14 +399,13 @@ function boundsForSelectedStates(){
 function fitSelectedStateView(){
   if(!app.map) return;
   const codes=selectedStateCodes();
+  if(codes.length!==1) return;
   const stateBounds=boundsForSelectedStates();
   const shownBounds=markerBoundsFromShownSites();
-  const useStateBounds=stateBounds.isValid();
-  const bounds=useStateBounds?stateBounds:shownBounds;
+  const bounds=stateBounds.isValid()?stateBounds:shownBounds;
   if(!bounds.isValid()) return;
   const pad=window.matchMedia&&window.matchMedia('(max-width:700px)').matches?[22,22]:[42,42];
-  const maxZoom=codes.length<=1?8:6;
-  app.map.fitBounds(bounds,{padding:pad,maxZoom,animate:false});
+  app.map.fitBounds(bounds,{padding:pad,maxZoom:8,animate:false});
 }
 function fitCurrentPreferredView(){
   if(app.routeSearch&&app.routeSearch.active&&app.routeSearch.coords&&app.routeSearch.coords.length){
@@ -2181,6 +2220,7 @@ function sitePassesNonLayerFilters(site){
   const key=layerKey(site);
   if(key==='info')return false;
   if(!Number.isFinite(Number(site.lat))||!Number.isFinite(Number(site.lng)))return false;
+  if(!siteWithinViewportRenderWindow(site))return false;
   if(!siteWithinNearMeRange(site))return false;
   if(!siteWithinRouteRange(site))return false;
   if(!siteWithinTextSearch(site))return false;
@@ -2296,7 +2336,8 @@ function updateMarkerReadouts(total,prefix='Showing'){
     const layerBits=app.renderDiagnostics&&app.renderDiagnostics.last&&app.renderDiagnostics.last.visibleExpectedByLayer?layerCountText(app.renderDiagnostics.last.visibleExpectedByLayer,enabledMapLayerKeys()):'';
     const layerSuffix=layerBits?` — ${layerBits}`:'';
     const clusterInfo=app.renderDiagnostics&&app.renderDiagnostics.last&&app.renderDiagnostics.last.clusterMode&&app.renderDiagnostics.last.clusterCount?` · clustered into ${app.renderDiagnostics.last.clusterCount} markers below zoom 4.5`:'';
-    countEl.textContent=app.restOnlyMode?`Rest stops only: ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}${layerSuffix}${clusterInfo}`:`${prefix} ${app.shownSites.length} of ${total} loaded sites${routeSuffix}${searchSuffix}${layerSuffix}${outlineSuffix}${clusterInfo}`;
+    const windowSuffix=app.renderWindowMode?' in current map window':'';
+    countEl.textContent=app.restOnlyMode?`Rest stops only: ${app.shownSites.length} of ${total} loaded sites${windowSuffix}${routeSuffix}${searchSuffix}${layerSuffix}${clusterInfo}`:`${prefix} ${app.shownSites.length} of ${total} loaded sites${windowSuffix}${routeSuffix}${searchSuffix}${layerSuffix}${outlineSuffix}${clusterInfo}`;
   }
   updateRouteStatus();
   updateRestRoadsideDiagnostics();
@@ -2313,6 +2354,8 @@ async function renderMarkers(fit,attempt=0){
   updateMarkerZoomScale();
   const renderId=++app.renderSeq;
   resetMarkerLayerGroups();
+  app.renderWindowMode=shouldUseViewportRenderWindow();
+  app.renderWindowBounds=app.renderWindowMode?makeViewportRenderBounds():null;
   setRenderIntegrityStatus('',false);
   if(app.areaOutline){app.areaOutline.registry={}; (app.areaOutline.standalone||[]).forEach(site=>{app.areaOutline.registry[site.id]=site;});}
   const layerDiagnostics=loadedSiteLayerDiagnostics();

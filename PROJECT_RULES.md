@@ -16,6 +16,12 @@ Current controlling rules filename: `PROJECT_RULES.md`. If a `Project Rules.md` 
 * When a named revision is requested, return full fixed replacement files or a full fixed-files ZIP.
 * Be honest about blockers. If required files or sources are missing, stop and say exactly what is needed.
 
+
+Instruction validation / better-way challenge rule:
+
+Do not blindly execute Tod’s requested change without first validating whether it is a good idea for the map, data integrity, usability, package structure, or workflow. If the requested approach has a better alternative, creates trust/accuracy problems, increases technical debt, conflicts with project rules, or is likely to cause downstream trouble, say so clearly before implementing. Tod’s instruction controls after the concern is identified and he still chooses that direction, unless it violates safety, legality, source honesty, coordinate integrity, or project-integrity rules.
+
+
 Workflow evolution / rules freshness rule:
 
 When Tod and the assistant make a durable workflow, architecture, data-model, proof-standard, handoff-format, or QA decision during project work, that change should be folded into `Project Rules.md` in the next revision. The controlling rules file should stay current with the way the project is actually being run. Do not let stale handoffs, old proof habits, or older package assumptions override the latest project decisions.
@@ -27,6 +33,14 @@ UI marker-density / zoom-scaling / clustering rule:
 Basemap-aware high-visibility marker color rule:
 
 When the app changes basemap type, marker colors may change by basemap to preserve visibility, but marker shapes and layer meanings must remain stable. Satellite imagery should use high-visibility fills with black stroke and a white halo so icons do not disappear into forest, field, road, water, or shadow backgrounds. Street/topo basemaps may use less neon but still high-contrast palettes. Cluster markers below zoom 4.5 should also use basemap-aware high-contrast styling.
+
+
+Map viewport / state-selection render rule:
+
+State selection is a data-loading control, not an automatic command to zoom the map to every selected state. Selecting multiple states or Select All Map must preserve the current map view and draw only the records relevant to the visible map window, with padding/overscan for smooth panning. Do not restore the old behavior where selecting all states draws every site and zooms out to fit the full United States. Single-state selection may still fit that one state when appropriate. Nearby Search and route search may still fit their own radius/route views because those are explicit spatial searches.
+
+Normal zooming inside the already-rendered marker window should not rebuild every marker. Marker scaling should remain CSS-driven. Rebuild markers only when filters/search/state/layer data changes, when the map leaves the padded rendered window, or when crossing the low-zoom cluster threshold.
+
 
 Search / place-search behavior rule:
 
