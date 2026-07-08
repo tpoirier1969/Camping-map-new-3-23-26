@@ -1,7 +1,11 @@
--- Tod's Boondocking & Camping Maps — Supabase Phase 1
+-- Tod's Boondocking & Camping Maps — Supabase Phase 1 SAFE v2
 -- Project-specific account/community tables for the shared Supabase project.
 -- Creates/updates: profiles, favorites/visited/loved, site comments, and correction submissions.
 -- No storage buckets are created in this phase.
+-- Safety notes:
+--   * No DROP TABLE / DELETE / TRUNCATE statements.
+--   * Only project-prefixed policies/triggers/functions are dropped/replaced.
+--   * User profile updates do NOT allow users to promote themselves to moderator/admin.
 
 create extension if not exists pgcrypto;
 
@@ -15,14 +19,98 @@ create table if not exists public.boondocking_map_profiles (
 
 alter table public.boondocking_map_profiles enable row level security;
 
-drop policy if exists boondocking_map_profiles_select_own on public.boondocking_map_profiles;
-create policy boondocking_map_profiles_select_own on public.boondocking_map_profiles for select using (auth.uid() = id);
+-- Helper: staff check. SECURITY DEFINER avoids recursive RLS trouble when policies check role.
+create or replace function public.boondocking_map_is_staff(check_user_id uuid default auth.uid())
+returns boolean
+language sql
+security definer
+set search_path = public
+stable
+as $$
+  select exists (
+    select 1
+    from public.boondocking_map_profiles p
+    where p.id = check_user_id
+      and p.role in ('admin','moderator')
+  );
+$$;
+
+-- Helper: admin check. Use for role-management paths later.
+create or replace function public.boondocking_map_is_admin(check_user_id uuid default auth.uid())
+returns boolean
+language sql
+security definer
+set search_path = public
+stable
+as $$
+  select exists (
+    select 1
+    from public.boondocking_map_profiles p
+    where p.id = check_user_id
+      and p.role = 'admin'
+  );
+$$;
+
+-- Trigger helper for timestamps.
+create or replace function public.boondocking_map_set_updated_at()
+returns trigger
+language plpgsql
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+-- Trigger helper: prevent ordinary users from changing their own role.
+-- Admins can change roles through SQL/dashboard or a future admin UI.
+create or replace function public.boondocking_map_prevent_self_role_escalation()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  if new.role is distinct from old.role then
+    if auth.uid() = new.id and not public.boondocking_map_is_admin(auth.uid()) then
+      raise exception 'Users may not change their own boondocking map role';
+    end if;
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists boondocking_map_profiles_prevent_self_role_escalation on public.boondocking_map_profiles;
+create trigger boondocking_map_profiles_prevent_self_role_escalation
+before update on public.boondocking_map_profiles
+for each row execute function public.boondocking_map_prevent_self_role_escalation();
+
+drop policy if exists boondocking_map_profiles_select_own_or_staff on public.boondocking_map_profiles;
+create policy boondocking_map_profiles_select_own_or_staff
+on public.boondocking_map_profiles
+for select
+using (auth.uid() = id or public.boondocking_map_is_staff(auth.uid()));
 
 drop policy if exists boondocking_map_profiles_insert_own on public.boondocking_map_profiles;
-create policy boondocking_map_profiles_insert_own on public.boondocking_map_profiles for insert with check (auth.uid() = id);
+create policy boondocking_map_profiles_insert_own
+on public.boondocking_map_profiles
+for insert
+with check (auth.uid() = id and role = 'user');
 
-drop policy if exists boondocking_map_profiles_update_own on public.boondocking_map_profiles;
-create policy boondocking_map_profiles_update_own on public.boondocking_map_profiles for update using (auth.uid() = id) with check (auth.uid() = id);
+drop policy if exists boondocking_map_profiles_update_own_display on public.boondocking_map_profiles;
+create policy boondocking_map_profiles_update_own_display
+on public.boondocking_map_profiles
+for update
+using (auth.uid() = id)
+with check (auth.uid() = id);
+
+-- Optional admin role update policy for future admin tools/dashboard API.
+drop policy if exists boondocking_map_profiles_update_admin on public.boondocking_map_profiles;
+create policy boondocking_map_profiles_update_admin
+on public.boondocking_map_profiles
+for update
+using (public.boondocking_map_is_admin(auth.uid()))
+with check (public.boondocking_map_is_admin(auth.uid()));
 
 create table if not exists public.boondocking_map_site_favorites (
   id uuid primary key default gen_random_uuid(),
@@ -48,6 +136,13 @@ alter table public.boondocking_map_site_favorites add column if not exists state
 alter table public.boondocking_map_site_favorites add column if not exists layer text;
 alter table public.boondocking_map_site_favorites add column if not exists latitude double precision;
 alter table public.boondocking_map_site_favorites add column if not exists longitude double precision;
+alter table public.boondocking_map_site_favorites add column if not exists is_favorite boolean not null default true;
+alter table public.boondocking_map_site_favorites add column if not exists want_to_visit boolean not null default false;
+alter table public.boondocking_map_site_favorites add column if not exists visited boolean not null default false;
+alter table public.boondocking_map_site_favorites add column if not exists loved boolean not null default false;
+alter table public.boondocking_map_site_favorites add column if not exists private_note text;
+alter table public.boondocking_map_site_favorites add column if not exists created_at timestamptz not null default now();
+alter table public.boondocking_map_site_favorites add column if not exists updated_at timestamptz not null default now();
 
 create index if not exists boondocking_map_site_favorites_user_idx on public.boondocking_map_site_favorites(user_id);
 create index if not exists boondocking_map_site_favorites_site_idx on public.boondocking_map_site_favorites(site_id);
@@ -55,16 +150,29 @@ create index if not exists boondocking_map_site_favorites_site_idx on public.boo
 alter table public.boondocking_map_site_favorites enable row level security;
 
 drop policy if exists boondocking_map_site_favorites_select_own on public.boondocking_map_site_favorites;
-create policy boondocking_map_site_favorites_select_own on public.boondocking_map_site_favorites for select using (auth.uid() = user_id);
+create policy boondocking_map_site_favorites_select_own
+on public.boondocking_map_site_favorites
+for select
+using (auth.uid() = user_id);
 
 drop policy if exists boondocking_map_site_favorites_insert_own on public.boondocking_map_site_favorites;
-create policy boondocking_map_site_favorites_insert_own on public.boondocking_map_site_favorites for insert with check (auth.uid() = user_id);
+create policy boondocking_map_site_favorites_insert_own
+on public.boondocking_map_site_favorites
+for insert
+with check (auth.uid() = user_id);
 
 drop policy if exists boondocking_map_site_favorites_update_own on public.boondocking_map_site_favorites;
-create policy boondocking_map_site_favorites_update_own on public.boondocking_map_site_favorites for update using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy boondocking_map_site_favorites_update_own
+on public.boondocking_map_site_favorites
+for update
+using (auth.uid() = user_id)
+with check (auth.uid() = user_id);
 
 drop policy if exists boondocking_map_site_favorites_delete_own on public.boondocking_map_site_favorites;
-create policy boondocking_map_site_favorites_delete_own on public.boondocking_map_site_favorites for delete using (auth.uid() = user_id);
+create policy boondocking_map_site_favorites_delete_own
+on public.boondocking_map_site_favorites
+for delete
+using (auth.uid() = user_id);
 
 create table if not exists public.boondocking_map_site_comments (
   id uuid primary key default gen_random_uuid(),
@@ -89,13 +197,23 @@ create index if not exists boondocking_map_site_comments_status_idx on public.bo
 alter table public.boondocking_map_site_comments enable row level security;
 
 drop policy if exists boondocking_map_site_comments_select_visible on public.boondocking_map_site_comments;
-create policy boondocking_map_site_comments_select_visible on public.boondocking_map_site_comments for select using (status = 'visible' or auth.uid() = user_id or exists (select 1 from public.boondocking_map_profiles p where p.id = auth.uid() and p.role in ('admin','moderator')));
+create policy boondocking_map_site_comments_select_visible
+on public.boondocking_map_site_comments
+for select
+using (status = 'visible' or auth.uid() = user_id or public.boondocking_map_is_staff(auth.uid()));
 
-drop policy if exists boondocking_map_site_comments_insert_own on public.boondocking_map_site_comments;
-create policy boondocking_map_site_comments_insert_own on public.boondocking_map_site_comments for insert with check (auth.uid() = user_id);
+drop policy if exists boondocking_map_site_comments_insert_own_visible on public.boondocking_map_site_comments;
+create policy boondocking_map_site_comments_insert_own_visible
+on public.boondocking_map_site_comments
+for insert
+with check (auth.uid() = user_id and status = 'visible');
 
 drop policy if exists boondocking_map_site_comments_update_own_or_staff on public.boondocking_map_site_comments;
-create policy boondocking_map_site_comments_update_own_or_staff on public.boondocking_map_site_comments for update using (auth.uid() = user_id or exists (select 1 from public.boondocking_map_profiles p where p.id = auth.uid() and p.role in ('admin','moderator'))) with check (auth.uid() = user_id or exists (select 1 from public.boondocking_map_profiles p where p.id = auth.uid() and p.role in ('admin','moderator')));
+create policy boondocking_map_site_comments_update_own_or_staff
+on public.boondocking_map_site_comments
+for update
+using (auth.uid() = user_id or public.boondocking_map_is_staff(auth.uid()))
+with check (auth.uid() = user_id or public.boondocking_map_is_staff(auth.uid()));
 
 create table if not exists public.boondocking_map_site_corrections (
   id uuid primary key default gen_random_uuid(),
@@ -107,7 +225,7 @@ create table if not exists public.boondocking_map_site_corrections (
   latitude double precision,
   longitude double precision,
   correction_type text not null check (correction_type in ('coordinates_wrong','camping_no_longer_allowed','closed','amenities_changed','road_inaccessible','fee_changed','seasonal_closure','duplicate','layer_wrong','source_update','other')),
-  message text not null,
+  message text not null check (char_length(message) between 1 and 4000),
   suggested_latitude double precision,
   suggested_longitude double precision,
   status text not null default 'new' check (status in ('new','reviewing','accepted','rejected','needs_more_info','archived')),
@@ -122,6 +240,7 @@ alter table public.boondocking_map_site_corrections add column if not exists sta
 alter table public.boondocking_map_site_corrections add column if not exists layer text;
 alter table public.boondocking_map_site_corrections add column if not exists latitude double precision;
 alter table public.boondocking_map_site_corrections add column if not exists longitude double precision;
+alter table public.boondocking_map_site_corrections add column if not exists message text;
 
 create index if not exists boondocking_map_site_corrections_status_idx on public.boondocking_map_site_corrections(status);
 create index if not exists boondocking_map_site_corrections_site_idx on public.boondocking_map_site_corrections(site_id);
@@ -130,43 +249,76 @@ create index if not exists boondocking_map_site_corrections_user_idx on public.b
 alter table public.boondocking_map_site_corrections enable row level security;
 
 drop policy if exists boondocking_map_site_corrections_insert_signed_in on public.boondocking_map_site_corrections;
-create policy boondocking_map_site_corrections_insert_signed_in on public.boondocking_map_site_corrections for insert with check (auth.uid() = user_id);
+create policy boondocking_map_site_corrections_insert_signed_in
+on public.boondocking_map_site_corrections
+for insert
+with check (auth.uid() = user_id and status = 'new');
 
 drop policy if exists boondocking_map_site_corrections_select_own_or_staff on public.boondocking_map_site_corrections;
-create policy boondocking_map_site_corrections_select_own_or_staff on public.boondocking_map_site_corrections for select using (auth.uid() = user_id or exists (select 1 from public.boondocking_map_profiles p where p.id = auth.uid() and p.role in ('admin','moderator')));
+create policy boondocking_map_site_corrections_select_own_or_staff
+on public.boondocking_map_site_corrections
+for select
+using (auth.uid() = user_id or public.boondocking_map_is_staff(auth.uid()));
 
 drop policy if exists boondocking_map_site_corrections_update_staff_only on public.boondocking_map_site_corrections;
-create policy boondocking_map_site_corrections_update_staff_only on public.boondocking_map_site_corrections for update using (exists (select 1 from public.boondocking_map_profiles p where p.id = auth.uid() and p.role in ('admin','moderator'))) with check (exists (select 1 from public.boondocking_map_profiles p where p.id = auth.uid() and p.role in ('admin','moderator')));
+create policy boondocking_map_site_corrections_update_staff_only
+on public.boondocking_map_site_corrections
+for update
+using (public.boondocking_map_is_staff(auth.uid()))
+with check (public.boondocking_map_is_staff(auth.uid()));
 
-create or replace function public.boondocking_map_set_updated_at()
-returns trigger language plpgsql as $$
-begin
-  new.updated_at = now();
-  return new;
-end;
-$$;
-
+-- Timestamp triggers.
 drop trigger if exists boondocking_map_profiles_set_updated_at on public.boondocking_map_profiles;
-create trigger boondocking_map_profiles_set_updated_at before update on public.boondocking_map_profiles for each row execute function public.boondocking_map_set_updated_at();
+create trigger boondocking_map_profiles_set_updated_at
+before update on public.boondocking_map_profiles
+for each row execute function public.boondocking_map_set_updated_at();
 
 drop trigger if exists boondocking_map_site_favorites_set_updated_at on public.boondocking_map_site_favorites;
-create trigger boondocking_map_site_favorites_set_updated_at before update on public.boondocking_map_site_favorites for each row execute function public.boondocking_map_set_updated_at();
+create trigger boondocking_map_site_favorites_set_updated_at
+before update on public.boondocking_map_site_favorites
+for each row execute function public.boondocking_map_set_updated_at();
 
 drop trigger if exists boondocking_map_site_comments_set_updated_at on public.boondocking_map_site_comments;
-create trigger boondocking_map_site_comments_set_updated_at before update on public.boondocking_map_site_comments for each row execute function public.boondocking_map_set_updated_at();
+create trigger boondocking_map_site_comments_set_updated_at
+before update on public.boondocking_map_site_comments
+for each row execute function public.boondocking_map_set_updated_at();
 
 drop trigger if exists boondocking_map_site_corrections_set_updated_at on public.boondocking_map_site_corrections;
-create trigger boondocking_map_site_corrections_set_updated_at before update on public.boondocking_map_site_corrections for each row execute function public.boondocking_map_set_updated_at();
+create trigger boondocking_map_site_corrections_set_updated_at
+before update on public.boondocking_map_site_corrections
+for each row execute function public.boondocking_map_set_updated_at();
 
+-- Auto-create a profile for new auth users.
 create or replace function public.boondocking_map_handle_new_user()
-returns trigger language plpgsql security definer set search_path = public as $$
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
 begin
-  insert into public.boondocking_map_profiles (id, display_name)
-  values (new.id, coalesce(new.raw_user_meta_data->>'display_name', new.email))
+  insert into public.boondocking_map_profiles (id, display_name, role)
+  values (new.id, coalesce(new.raw_user_meta_data->>'display_name', new.email), 'user')
   on conflict (id) do nothing;
   return new;
 end;
 $$;
 
 drop trigger if exists boondocking_map_on_auth_user_created on auth.users;
-create trigger boondocking_map_on_auth_user_created after insert on auth.users for each row execute function public.boondocking_map_handle_new_user();
+create trigger boondocking_map_on_auth_user_created
+after insert on auth.users
+for each row execute function public.boondocking_map_handle_new_user();
+
+-- Backfill profiles for existing auth users. Safe/idempotent.
+insert into public.boondocking_map_profiles (id, display_name, role)
+select u.id, coalesce(u.raw_user_meta_data->>'display_name', u.email), 'user'
+from auth.users u
+on conflict (id) do nothing;
+
+-- Explicit grants for Supabase REST access. RLS still controls row visibility/write access.
+grant usage on schema public to anon, authenticated;
+grant select, insert, update, delete on public.boondocking_map_site_favorites to authenticated;
+grant select, insert, update on public.boondocking_map_site_comments to anon, authenticated;
+grant select, insert, update on public.boondocking_map_site_corrections to authenticated;
+grant select, insert, update on public.boondocking_map_profiles to authenticated;
+grant execute on function public.boondocking_map_is_staff(uuid) to anon, authenticated;
+grant execute on function public.boondocking_map_is_admin(uuid) to authenticated;

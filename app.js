@@ -1176,6 +1176,25 @@ function syncFilters(){
   $$('[data-filter-chip]').forEach(c=>c.classList.toggle('active',isQuickFilterActive(c.dataset.filterChip)));
   updateFilterStatus();
 }
+
+function updateFilterStatus(){
+  normalizeFilters();
+  const parts=[];
+  const maxCost=String(app.filters.maxCost||'');
+  if(maxCost==='0')parts.push('Free only');
+  else if(maxCost)parts.push(`$${maxCost} or less`);
+  const water=app.filters.water||{};
+  if(water.lake)parts.push('Lake / pond / flowage');
+  if(water.rivercreek)parts.push('River / creek');
+  const access=app.filters.access||{};
+  if(access.twowd)parts.push('2WD friendly');
+  if(access.hc)parts.push('High clearance');
+  if(access.fw)parts.push('4WD noted');
+  if(app.filters.chips&&app.filters.chips.showers)parts.push('Showers');
+  const el=$('filterStatus');
+  if(el)el.textContent=parts.length?`Filters active: ${parts.join(' · ')}`:'No filters active.';
+}
+
 function saveFilters(){normalizeFilters();saveJson(STORE.filters,app.filters)}
 function applyFilterChange(){syncFilters();saveFilters();renderMarkers(false)}
 function setCostFilter(value){normalizeFilters();app.filters.maxCost=String(value||'');applyFilterChange()}

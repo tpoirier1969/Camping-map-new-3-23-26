@@ -1,0 +1,20 @@
+Boondocking & Camping Maps v23.1.85 — startup/filter/Supabase SQL hotfix
+
+Purpose
+- Repair startup failure in v23.1.84 where the app called updateFilterStatus() but no function definition existed.
+- Replace the bundled Supabase Phase 1 schema with the SAFE v2 schema that prevents profile role self-promotion.
+- Keep the single-source version contract: visible runtime version is defined only in version.js.
+
+Changed files
+- app.js
+- version.js
+- boondocking_map_supabase_phase1_schema.sql
+- BUILD-NOTES-v23.1.85.txt
+- index.html included for app-shell/cache refresh per PROJECT_RULES.md
+
+QA
+- node --check app.js passed.
+- Stubbed startup-path smoke test reached the loading-states stage with no building-controls failure.
+- updateFilterStatus is now defined and call sites remain valid.
+- Supabase schema scan confirms boondocking_map_prevent_self_role_escalation trigger/function exists.
+- Version source scan confirms v23.1.85 appears only in version.js among runtime files.
