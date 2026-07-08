@@ -40,6 +40,25 @@ When Tod and the assistant make a durable workflow, architecture, data-model, pr
 
 UI marker-density / zoom-scaling / clustering rule:
 
+
+Stable marker icon / layer-color lock:
+
+The approved marker/icon policy is locked unless Tod explicitly asks to redesign it. Layer shapes must be stable across revisions and across basemap changes. Basemap-aware styling may change color variables for contrast only; it must not change which symbol belongs to which layer. No two visible map layers may share the same icon design, and no two layer colors may be similar enough to confuse during normal use.
+
+Canonical current layer symbols:
+
+* Modern campgrounds: electric hookup / developed-services icon.
+* Rustic / Primitive: tent icon.
+* Private campgrounds: camper/RV icon inside the private octagon marker.
+* Boondocking / Dispersed: tree icon.
+* Boat / Backpack: tree-with-water icon.
+* Overnight Parking: P icon.
+* Rest Areas & Roadside Stops: R icon.
+* Needs Verification: draft/pencil icon.
+* Info / Reference: info icon.
+
+Do not rewrite marker icon CSS inline in `index.html`. Keep marker styling in `styles/marker-icons.css`, and keep `app.js` layer icon assignments synchronized with that CSS policy.
+
 Basemap-aware high-visibility marker color rule:
 
 When the app changes basemap type, marker colors may change by basemap to preserve visibility, but marker shapes and layer meanings must remain stable. Satellite imagery should use high-visibility fills with black stroke and a white halo so icons do not disappear into forest, field, road, water, or shadow backgrounds. Street/topo basemaps may use less neon but still high-contrast palettes. Cluster markers below zoom 4.5 should also use basemap-aware high-contrast styling.
@@ -218,6 +237,18 @@ Every geography-locked worker must explicitly report what they checked for non-m
 
 Do not force fake Rustic, Boat/Backpack, or Boondocking pins to make the layer counts look better. If exact non-modern coordinates are blocked, return a durable lead with the exact acquisition path: GIS layer, GeoPDF, reservation metadata, official map, agency contact, or operator source. The target is better non-modern coverage, not fake equality between layers.
 
+
+
+
+Handoff execution-intent rule:
+
+Every worker or supervisor handoff must explicitly state what the recipient is supposed to do with the handoff. A handoff must not leave the worker asking whether to run the assignment, whether to merely acknowledge it, or whether to return data.
+
+For normal worker assignments created to keep work moving, the handoff must include clear language near the top such as: “You are to run and complete this assignment now. Return the required research/data tables only. Do not edit files, package changes, or ask whether to proceed unless a required input is missing or the assignment target genuinely conflicts with the supplied files/rules.”
+
+If a handoff is only a standby, review, QA, supervisor-planning, or question-answering assignment, it must say that explicitly. Do not rely on implication, filename, previous chat context, or a separate master instruction. Each standalone handoff block must carry its own execution intent.
+
+A worker response like “This may be the wrong target if I assume too much — do you want me to run this?” means the handoff was not clear enough unless the target files or scope truly were ambiguous. Fix the handoff wording before reusing that pattern.
 
 Standalone handoff block rule:
 

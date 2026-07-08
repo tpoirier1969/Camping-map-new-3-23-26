@@ -1,0 +1,32 @@
+Tod's Boondocking & Camping Maps — v23.1.92
+
+Scope:
+- Restored/locked stable unique layer icon assignments and high-contrast basemap-aware marker colors.
+- Added import-ready U.P. public-discovery campsite records with honest coordinates.
+- Folded non-import-ready U.P. discoveries into data/leads.js for coordinate rescue/proof work.
+- Applied high-confidence corrections and removed/downgraded active records that worker returns showed were unsafe as confident active pins.
+
+Active additions: 27
+Removed unsafe active records: 7
+New leads added this revision: 99
+New rejected guardrails added this revision: 7
+
+Icon lock:
+- Modern = electric hookup / developed-services icon.
+- Rustic / Primitive = tent icon.
+- Private = camper/RV icon in private octagon.
+- Boondocking / Dispersed = tree icon.
+- Boat / Backpack = tree-with-water icon.
+- Parking/Rest/Needs/Info retain separate P/R/draft/info icons.
+- Colors remain basemap-aware but layer shapes stay stable.
+
+Changed files:
+- app.js
+- styles/marker-icons.css
+- index.html
+- version.js
+- PROJECT_RULES.md
+- Project Rules.md
+- data/states/MI.js
+- data/leads.js
+- data/rejected.js

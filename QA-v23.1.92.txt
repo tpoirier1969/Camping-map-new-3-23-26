@@ -1,0 +1,30 @@
+QA v23.1.92
+
+Data parse:
+- MI records parsed: 555
+- Leads parsed: 2033
+- Rejected parsed: 524
+- Duplicate MI ids: none
+
+Counts:
+- Active U.P. additions: 27
+- Unsafe active records removed/downgraded: 7
+- New U.P. leads added: 99
+- New rejected guardrails added: 7
+
+Manual QA performed in script:
+- app.js icon assignments include stable unique symbols for Modern, Rustic, Private, Boondocking, and Boat/Backpack.
+- PROJECT_RULES.md and Project Rules.md copies are identical.
+
+Post-build QA commands run:
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/states/MI.js: PASS
+- node --check data/leads.js: PASS
+- node --check data/rejected.js: PASS
+- Parsed MI/leads/rejected JS arrays as JSON payloads: PASS
+- MI duplicate id scan: PASS, none found
+- leads duplicate id scan: PASS, none found
+- rejected duplicate id scan: PASS, none found
+- Icon assignment check: PASS, Modern/Rustic/Private/Boondocking/Boat-Backpack use distinct SVG assignments
+- PROJECT_RULES.md and Project Rules.md identical: PASS
