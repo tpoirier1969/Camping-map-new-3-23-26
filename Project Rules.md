@@ -75,6 +75,11 @@ Version-shell packaging rule:
 
 Whenever a package increments the visible app version or changes script/cache-busting behavior, include `index.html` in the changed/new-files ZIP even if the script references appear unchanged. The app shell controls the version.js/app.js cache keys and visible runtime flag; omitting `index.html` can let a deployed page continue to display an older version flag after version.js/version.json were updated. QA must verify that the current visible version appears only in `version.js` among runtime files. `version.json`, `index.html`, and `app.js` must not hardcode the current visible version. Historical data provenance strings such as `dataCorrectionVersion` may retain old revision numbers when they describe when a record was originally added.
 
+Community / Supabase feature implementation rule:
+
+When Tod approves a Supabase-backed feature, a complete package must include both sides of the feature: the database migration/schema file and the site UI/app code that uses it. Do not deliver only SQL unless Tod explicitly asks for database-only work. For this shared Supabase project, all table names, functions, policies, and storage buckets must use a project-specific `boondocking_map_` prefix unless Tod approves another prefix. Public user contributions must not directly edit campsite source records; favorites, comments, and correction submissions must write to separate community/moderation tables. Corrections go to Tod/moderation first. No user-submitted comment, favorite, rating, or correction should silently alter official campsite data.
+
+
 Worker-handoff delivery rule:
 
 When the project is in active state-building mode and the next useful step is worker research, provide worker handoffs to keep workers busy. Do not wait for Tod to separately ask for worker handoffs. Provide individual `.txt` files by default. Do not create a ZIP unless Tod asks for one. Do not include a supervisor handoff unless Tod explicitly asks for a supervisor handoff or reconciliation assignment.

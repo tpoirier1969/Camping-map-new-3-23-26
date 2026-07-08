@@ -1,0 +1,36 @@
+Tod's Boondocking & Camping Maps — v23.1.84
+Changed/new-files package: Supabase community Phase 1 UI wiring
+
+Purpose
+- Wire the site UI to the Phase 1 Supabase community tables instead of only delivering SQL.
+- Keep the shared Supabase table names project-specific with boondocking_map_ prefix.
+- Do not create storage buckets.
+
+Changes
+- Added campsite popup community tools for signed-in users:
+  - Favorite
+  - Want to visit
+  - Visited
+  - Loved
+  - Public comments
+  - Suggest a correction
+- Added correction submission modal.
+- Added Supabase client calls for:
+  - boondocking_map_profiles
+  - boondocking_map_site_favorites
+  - boondocking_map_site_comments
+  - boondocking_map_site_corrections
+- Updated account UI wording to mention routes, favorites, comments, and corrections.
+- Updated Supabase SQL schema to include the comments table and site snapshot columns used by the app.
+- Updated project rules to require complete database + site implementation for approved Supabase-backed features.
+- Version source remains version.js only.
+
+Important operational note
+- The UI will show signed-in community tools only when Supabase config is present and the user is signed in.
+- The SQL migration must be run in Supabase before the new tables will work.
+- User submissions do not directly edit campsite source data. Corrections go to a moderation table for Tod.
+
+QA
+- node --check app.js passed.
+- Current visible version v23.1.84 appears only in version.js among runtime files.
+- No new supplement files created.

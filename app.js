@@ -38,6 +38,12 @@ const STATE_BOUNDS={
 };
 const STORE={states:'campingMap.enabledStates.v22328',layers:'campingMap.layers.v22328',basemap:'campingMap.basemap.v22328',queue:'campingMap.draftQueue.v22328',filters:'campingMap.filters.v22328',pending:'campingMap.showPending.v22328',desktopMode:'campingMap.desktopMode.v23087',controlHome:'campingMap.controlHome.v23126',areaOutlines:'campingMap.areaOutlines.v23126',lastActive:'campingMap.lastActive.v23152'};
 const SAVED_ROUTES_TABLE='boondocking_saved_routes';
+const COMMUNITY_TABLES={
+  profiles:'boondocking_map_profiles',
+  favorites:'boondocking_map_site_favorites',
+  comments:'boondocking_map_site_comments',
+  corrections:'boondocking_map_site_corrections'
+};
 const ICONS={tent:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M3 18.5 10.8 5h2.4L21 18.5h-3.1l-5.1-9.1-2.9 4.9 1.9 4.2H9.2l-1.5-3.2-1.7 3.2H3Zm6.8 0h4.5l-2.2-5-2.3 5Z\"/></svg>',tree:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"m12 2 4 5h-2.1l3.6 4.5H15l3 3.8h-4.2V22h-3.6v-6.7H6l3-3.8H6.5L10.1 7H8L12 2Z\"/></svg>',camper:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M4 8.5h10.6c.8 0 1.6.4 2.1 1l2.3 2.6H21a1 1 0 0 1 1 1v4.9h-1.7a2.6 2.6 0 0 1-5.1 0H9.8a2.6 2.6 0 0 1-5.1 0H3v-8.5a1 1 0 0 1 1-1Zm1.2 1.8v2.8H14v-2.8H5.2Zm11 3.1h3.2l-1.6-1.8a1.1 1.1 0 0 0-.8-.4h-.8v2.2ZM7.2 19a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Zm10.6 0a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Z\"/></svg>',stopTent:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M9 2.5h6l6.5 6.5v6L15 21.5H9L2.5 15V9L9 2.5Zm2 5.2-4 8h2.4l1-2h3.2l1 2H17l-4-8h-2Zm.9 4.2h.2l1 2h-2.2l1-2Z\"/></svg>',parking:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M6 3h7.4c3 0 5.1 2.1 5.1 5s-2.1 5.1-5.1 5.1H9.6V21H6V3Zm3.6 3.2v3.7h3.4c1.1 0 1.9-.7 1.9-1.9s-.8-1.8-1.9-1.8H9.6Z\"/></svg>',restR:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M6 3h7.2c3 0 5.1 1.9 5.1 4.8 0 2-1 3.5-2.8 4.3l3.3 5h-4.1L12 12.8H9.6V21H6V3Zm3.6 3v3.8h3c1.3 0 2.1-.7 2.1-1.9 0-1.2-.8-1.9-2.1-1.9h-3Z\"/></svg>',backpackerWater:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M10.2 3.3a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4Zm1.7 4.2 2 1.1c.6.3 1 .9 1 1.5V12h-1.8v-1.3l-1.1-.6-.8 2.5 1.9 1.9v3.6h-1.8V15.3l-1.8-1.8-.8 2.4-1.6-.5 1.2-3.8.8-2.4c.3-1 1.2-1.7 2.3-1.7h.5Zm-4.7 3.7 1.5.7-1.4 2.9 1.6 1.6-1.3 1.2-2.4-2.4 2-4Zm9.4 3.3c1.1 0 2 .3 2.9.8l-.8 1.4c-.7-.3-1.3-.5-2.1-.5-1.2 0-1.8.5-2.6 1.1-.8.6-1.7 1.3-3.2 1.3-1.4 0-2.4-.6-3.2-1.3-.7-.5-1.4-1.1-2.6-1.1-.7 0-1.4.2-2 .5L2 16c.9-.5 1.8-.8 2.9-.8 1.7 0 2.7.7 3.5 1.4.7.5 1.2 1 2.3 1 .9 0 1.5-.4 2.2-1 .9-.8 2-1.6 3.7-1.6Zm.9 4c.7 0 1.4.2 2.1.5l-.8 1.4c-.4-.2-.8-.3-1.3-.3-.8 0-1.2.3-1.9.8-.7.5-1.6 1.1-3 1.1-1.3 0-2.2-.6-2.9-1-.6-.4-1-.7-1.8-.7-.5 0-.9.1-1.3.3l-.8-1.4c.7-.3 1.3-.5 2.1-.5 1.3 0 2.2.6 2.9 1 .6.4 1 .7 1.8.7.9 0 1.4-.3 2-.8.8-.5 1.7-1.1 2.9-1.1Z\"/></svg>',info:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 2.8A9.2 9.2 0 1 1 2.8 12 9.2 9.2 0 0 1 12 2.8Zm0 4a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm-1.7 5v1.8h1.1v3.6h-1.1V19h4.5v-1.8h-1.1v-5.4h-3.4Z\"/></svg>',draft:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M4 17.5V20h2.5l8.6-8.6-2.5-2.5L4 17.5Zm12.4-9.9 1.5-1.5a1.2 1.2 0 0 1 1.7 0l.8.8a1.2 1.2 0 0 1 0 1.7l-1.5 1.5-2.5-2.5Z\"/></svg>',navArrow:'<svg viewBox=\"0 0 28 28\"><circle cx=\"14\" cy=\"14\" r=\"11.5\" fill=\"#ffffff\"/><path fill=\"#1e78ff\" d=\"M14 3.8 20.8 21l-6.8-3.2L7.2 21 14 3.8Z\"/><circle cx=\"14\" cy=\"14\" r=\"11.5\" fill=\"none\" stroke=\"rgba(18,69,140,.22)\" stroke-width=\"1\"/></svg>',dot:'<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"6\" fill=\"currentColor\"/></svg>'};
 const LAYERS=[
  {key:'boondocking',label:'Boondocking / dispersed',css:'pin-boondocking',icon:ICONS.tree},
@@ -122,7 +128,7 @@ function currentBasemapKey(){
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
-const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
+const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
 window.__campingApp=app;
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function readJson(key,fb){try{return JSON.parse(localStorage.getItem(key)||'null')??fb}catch{return fb}}
@@ -1115,6 +1121,7 @@ function bindEvents(){
   const copyQueueBtn=$('copyQueueBtn'); if(copyQueueBtn)copyQueueBtn.onclick=copyQueue;
   const clearQueueBtn=$('clearQueueBtn'); if(clearQueueBtn)clearQueueBtn.onclick=()=>{app.draftQueue=[];saveJson(STORE.queue,app.draftQueue);$('draftQueue').value='';notify('Queue cleared.')};
   const sendDraftSupabaseBtn=$('sendDraftSupabaseBtn'); if(sendDraftSupabaseBtn)sendDraftSupabaseBtn.onclick=sendDraftSupabase;
+  const submitCorrectionBtn=$('submitCorrectionBtn'); if(submitCorrectionBtn)submitCorrectionBtn.onclick=submitCorrection;
   const sbAuthForm=$('sbAuthForm'); if(sbAuthForm)sbAuthForm.onsubmit=signIn;
   const createBtn=$('sbCreateAccountBtn'); if(createBtn)createBtn.onclick=createAccount;
   const sbSignOutBtn=$('sbSignOutBtn'); if(sbSignOutBtn)sbSignOutBtn.onclick=signOut;
@@ -2479,30 +2486,150 @@ async function renderMarkers(fit,attempt=0){
   if(fit){fitCurrentPreferredView()}
 }
 
-function popup(s){const siteLat=Number(s.lat),siteLng=Number(s.lng);const lat=siteLat.toFixed(6),lng=siteLng.toFixed(6);const userCenter=app.localAreaCenter;const hasUserLocation=Array.isArray(userCenter)&&Number.isFinite(Number(userCenter[0]))&&Number.isFinite(Number(userCenter[1]));const straightMiles=hasUserLocation?distanceMiles(Number(userCenter[0]),Number(userCenter[1]),siteLat,siteLng):null;const distanceText=Number.isFinite(straightMiles)?`${straightMiles<10?straightMiles.toFixed(1):Math.round(straightMiles)} mi straight-line`:'';const directionsUrl=hasUserLocation?`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(Number(userCenter[0]).toFixed(6)+','+Number(userCenter[1]).toFixed(6))}&destination=${encodeURIComponent(lat+','+lng)}&travelmode=driving`:`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;const links=[];if(s.website)links.push(`<a href="${esc(s.website)}" target="_blank" rel="noopener">Website</a>`); const sourceLink=restRoadsideSourceLink(s); if(sourceLink)links.push(sourceLink);const markerNotice=markerTypeNotice(s);const rows=[['Type',layerDef(layerKey(s)).label],['Distance from you',distanceText],['Traveler stop',isTravelerStop(s)?'Yes — useful for a short public pull-off/rest stop.':''],['Camping',isTravelerStop(s)?'Not implied. Use overnight-parking status and posted rules separately.':''],['Facility',s.facilityType],['Useful for',s.travelerUse],['Owner level',s.ownerLevel],['Current status',s.currentStatus],['Overnight parking',s.overnightParking],['Local likelihood',s.localParkingLikelihood],['Parking-policy note',s.parkingPolicyNotes],['Location evidence',s.locationEvidenceSummary],['Evidence confidence',s.evidenceConfidence],['Parking fit',s.parkingFit],['Season status',s.seasonStatus],['Season notes',s.seasonNotes],['Route',s.routeName],['Direction',s.routeDirection],['Mile marker',s.mileMarker],['Honoree',s.honoree],['Cost',s.costDisplay||s.cost],['Showers',s.showers],['Access',s.access],['Amenities',s.amenities],['Season',s.season],['Rating',s.rating],['Source',s.sourceName],['Location precision',s.locationPrecision],['Last checked',s.lastChecked]].filter(r=>r[1]);return `<div><div class="popup-title">${esc(s.name||'Unnamed site')}</div><div class="popup-meta">${esc(s.stateName||s.stateCode||'')} · ${lat}, ${lng}</div>${markerNotice?`<div class="popup-notice">${esc(markerNotice)}</div>`:''}${areaOutlinePopup(s)}<div class="popup-grid">${rows.map(r=>`<div class="popup-row"><strong>${esc(r[0])}</strong><span>${esc(r[1])}</span></div>`).join('')}</div>${s.description?`<div class="popup-copy">${esc(s.description)}</div>`:''}${links.length?`<div class="popup-actions">${links.join('')}</div>`:''}<div class="popup-actions"><button class="secondary" onclick="navigator.clipboard&&navigator.clipboard.writeText('${lat}, ${lng}')">Copy coordinates</button><a class="secondary" target="_blank" rel="noopener" href="${directionsUrl}">${hasUserLocation?'Driving directions':'Google Maps'}</a><a class="secondary" target="_blank" rel="noopener" href="https://maps.apple.com/?ll=${lat},${lng}&q=${encodeURIComponent(s.name||'Camping site')}">Apple Maps</a></div></div>`}
-function updateFilterStatus(){normalizeFilters();let parts=[];if(app.filters.maxCost==='0')parts.push('Free');else if(app.filters.maxCost)parts.push('≤ $'+app.filters.maxCost);const water=app.filters.water||{};if(water.lake)parts.push('Waterfront lake/pond/flowage');if(water.rivercreek)parts.push('Waterfront river/creek');const access=app.filters.access||{};if(access.twowd)parts.push('2WD');if(access.hc)parts.push('High clearance');if(access.fw)parts.push('4WD');if(app.filters.chips&&app.filters.chips.showers)parts.push('Showers');const el=$('filterStatus');if(el)el.textContent=parts.length?`Filters active: ${parts.join(' · ')}`:'No filters active.'}
-function siteWithinTextSearch(site){
-  const q=app.search&&app.search.active?String(app.search.query||'').toLowerCase().trim():'';
-  if(!q)return true;
-  return siteText(site).includes(q);
+
+function siteStableId(site){
+  if(!site)return '';
+  return String(site.id||site.siteId||site.slug||[site.stateCode||site.stateName||'',site.name||'',site.lat||'',site.lng||''].join('|')).trim();
 }
-function clearSearchRevealMarker(){
-  if(app.searchRevealMarker){
-    try{app.searchRevealMarker.remove();}catch(_e){}
-    app.searchRevealMarker=null;
+function siteByStableId(id){
+  const key=String(id||'');
+  return (app.sites||[]).find(s=>siteStableId(s)===key)||null;
+}
+function domSafeId(value){return String(value||'').replace(/[^a-zA-Z0-9_-]/g,'_').slice(0,80)||'site';}
+function signedInCommunity(){return !!(app.supabase&&app.session&&app.session.user&&app.session.user.id);}
+function favoriteState(siteId){return app.communityFavorites&&app.communityFavorites[siteId]?app.communityFavorites[siteId]:{};}
+function communityActionLabel(state,key,label){return state&&state[key]?'✓ '+label:label;}
+function siteSnapshot(site){
+  if(!site)return {};
+  return {
+    site_id: siteStableId(site),
+    site_name: site.name||'',
+    state_code: site.stateCode||'',
+    layer: layerDef(layerKey(site)).label||layerKey(site),
+    latitude: Number.isFinite(Number(site.lat))?Number(site.lat):null,
+    longitude: Number.isFinite(Number(site.lng))?Number(site.lng):null
+  };
+}
+function communityHtml(site){
+  const siteId=siteStableId(site);
+  const safe=domSafeId(siteId);
+  const signed=signedInCommunity();
+  const fav=favoriteState(siteId);
+  const comments=app.communityComments&&app.communityComments[siteId];
+  const commentRows=Array.isArray(comments)?comments.slice(0,3).map(c=>`<div class="community-comment"><strong>${esc(c.display_name||c.user_email||'Camper')}</strong><span>${esc(c.comment_text||'')}</span></div>`).join(''):'';
+  if(!signed){
+    return `<div class="community-panel"><div class="community-title">Community tools</div><div class="mini-note">Sign in under Options to favorite sites, comment, or send corrections to Tod.</div></div>`;
   }
+  return `<div class="community-panel" data-community-site="${esc(siteId)}"><div class="community-title">Community tools</div><div class="popup-actions community-actions"><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','is_favorite')">${esc(communityActionLabel(fav,'is_favorite','Favorite'))}</button><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','want_to_visit')">${esc(communityActionLabel(fav,'want_to_visit','Want to visit'))}</button><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','visited')">${esc(communityActionLabel(fav,'visited','Visited'))}</button><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','loved')">${esc(communityActionLabel(fav,'loved','Loved'))}</button></div><div class="community-comment-box"><textarea id="comment_${safe}" placeholder="Add a public comment for this site"></textarea><div class="popup-actions"><button class="secondary" type="button" onclick="window.__campingApp.submitSiteComment&&window.__campingApp.submitSiteComment('${jsString(siteId)}')">Post comment</button><button class="secondary" type="button" onclick="window.__campingApp.loadSiteComments&&window.__campingApp.loadSiteComments('${jsString(siteId)}',true)">Load comments</button></div><div id="comments_${safe}" class="community-comments">${commentRows||'<div class="mini-note">Comments load when requested.</div>'}</div></div><div class="popup-actions"><button class="primary" type="button" onclick="window.__campingApp.openCorrectionModal&&window.__campingApp.openCorrectionModal('${jsString(siteId)}')">Suggest a correction</button></div></div>`;
 }
-function clearSearchMode(showNotice=false){
-  if(app.search){app.search.active=false;app.search.query='';}
-  clearSearchRevealMarker();
-  const input=$('searchInput'); if(input)input.value='';
-  const out=$('searchResults'); if(out)out.innerHTML='';
-  if(showNotice){renderMarkers(true);notify('Search cleared.');}
+async function ensureCommunityProfile(){
+  if(!signedInCommunity())return;
+  const user=app.session.user;
+  try{
+    await app.supabase.from(COMMUNITY_TABLES.profiles).upsert({id:user.id,display_name:user.email||'Camper'},{onConflict:'id'});
+  }catch(e){console.warn('Profile upsert failed',e);}
 }
-function searchResultHiddenByLayer(site){
-  const key=layerKey(site);
-  return MAP_LAYER_KEYS.has(key)&&!enabledMapLayerKeys().includes(key);
+async function refreshCommunityFavorites(){
+  if(!signedInCommunity()){app.communityFavorites={};return;}
+  try{
+    const {data,error}=await app.supabase.from(COMMUNITY_TABLES.favorites).select('*').eq('user_id',app.session.user.id);
+    if(error)throw error;
+    const map={};
+    (data||[]).forEach(r=>{map[String(r.site_id)]={is_favorite:!!r.is_favorite,want_to_visit:!!r.want_to_visit,visited:!!r.visited,loved:!!r.loved,private_note:r.private_note||''};});
+    app.communityFavorites=map;
+  }catch(e){console.warn('Could not load favorites',e);notify('Could not load favorites. Check Supabase table/RLS setup.',6000);}
 }
+async function toggleSiteFavorite(siteId,field){
+  if(!signedInCommunity())return notify('Sign in first.');
+  if(!['is_favorite','want_to_visit','visited','loved'].includes(field))return;
+  const site=siteByStableId(siteId);
+  const current=favoriteState(siteId);
+  const next=!current[field];
+  const payload={user_id:app.session.user.id,site_id:String(siteId),...siteSnapshot(site),is_favorite:!!current.is_favorite,want_to_visit:!!current.want_to_visit,visited:!!current.visited,loved:!!current.loved};
+  payload[field]=next;
+  try{
+    const {error}=await app.supabase.from(COMMUNITY_TABLES.favorites).upsert(payload,{onConflict:'user_id,site_id'});
+    if(error)throw error;
+    app.communityFavorites[String(siteId)]={...current,[field]:next};
+    notify(next?'Saved.':'Updated.');
+  }catch(e){console.error(e);notify(e&&e.message?e.message:'Could not update favorite.',7000);}
+}
+async function loadSiteComments(siteId,openToast=false){
+  if(!app.supabase)return notify('Supabase config is not loaded.');
+  const safe=domSafeId(siteId);
+  const out=$('comments_'+safe);
+  if(out)out.innerHTML='<div class="mini-note">Loading comments…</div>';
+  try{
+    const {data,error}=await app.supabase.from(COMMUNITY_TABLES.comments).select('comment_text,display_name,created_at').eq('site_id',String(siteId)).eq('status','visible').order('created_at',{ascending:false}).limit(20);
+    if(error)throw error;
+    app.communityComments[String(siteId)]=data||[];
+    if(out)out.innerHTML=(data&&data.length)?data.map(c=>`<div class="community-comment"><strong>${esc(c.display_name||'Camper')}</strong><span>${esc(c.comment_text||'')}</span><em>${esc((c.created_at||'').slice(0,10))}</em></div>`).join(''):'<div class="mini-note">No comments yet.</div>';
+    if(openToast)notify('Comments loaded.');
+  }catch(e){console.error(e);if(out)out.innerHTML='<div class="mini-note">Could not load comments.</div>';notify(e&&e.message?e.message:'Could not load comments.',7000);}
+}
+async function submitSiteComment(siteId){
+  if(!signedInCommunity())return notify('Sign in first.');
+  const safe=domSafeId(siteId);
+  const box=$('comment_'+safe);
+  const text=(box&&box.value||'').trim();
+  if(text.length<3)return notify('Write a short comment first.');
+  if(text.length>2000)return notify('Comment is too long. Keep it under 2,000 characters.');
+  const site=siteByStableId(siteId);
+  const payload={user_id:app.session.user.id,display_name:sessionEmail(),comment_text:text,status:'visible',...siteSnapshot(site)};
+  try{
+    const {error}=await app.supabase.from(COMMUNITY_TABLES.comments).insert(payload);
+    if(error)throw error;
+    if(box)box.value='';
+    await loadSiteComments(siteId,false);
+    notify('Comment posted.');
+  }catch(e){console.error(e);notify(e&&e.message?e.message:'Could not post comment.',7000);}
+}
+function openCorrectionModal(siteId){
+  if(!signedInCommunity())return notify('Sign in first.');
+  const site=siteByStableId(siteId);
+  app.communityCurrentSite=site;
+  const snap=siteSnapshot(site);
+  if($('correctionSiteLabel'))$('correctionSiteLabel').textContent=`${snap.site_name||'Selected site'} (${snap.site_id})`;
+  if($('correctionType'))$('correctionType').value='other';
+  if($('correctionMessage'))$('correctionMessage').value='';
+  if($('correctionCoords'))$('correctionCoords').value='';
+  openModal('correctionModal');
+}
+async function submitCorrection(){
+  if(!signedInCommunity())return notify('Sign in first.');
+  const site=app.communityCurrentSite;
+  const snap=siteSnapshot(site);
+  const type=($('correctionType')&&$('correctionType').value)||'other';
+  const msg=($('correctionMessage')&&$('correctionMessage').value||'').trim();
+  if(msg.length<5)return notify('Add a useful correction note first.');
+  let lat=null,lng=null;
+  const coord=($('correctionCoords')&&$('correctionCoords').value||'').trim();
+  if(coord){const parsed=parseLatLngText(coord); if(!parsed)return notify('Correction coordinates need to be like 45.123, -87.456'); lat=parsed.lat; lng=parsed.lng;}
+  const payload={user_id:app.session.user.id,...snap,correction_type:type,message:msg,suggested_latitude:lat,suggested_longitude:lng,status:'new'};
+  try{
+    const {error}=await app.supabase.from(COMMUNITY_TABLES.corrections).insert(payload);
+    if(error)throw error;
+    closeModal('correctionModal');
+    notify('Correction sent to Tod.');
+  }catch(e){console.error(e);notify(e&&e.message?e.message:'Could not submit correction.',7000);}
+}
+
+function popup(s){
+  const siteLat=Number(s.lat),siteLng=Number(s.lng);
+  const lat=siteLat.toFixed(6),lng=siteLng.toFixed(6);
+  const userCenter=app.localAreaCenter;
+  const hasUserLocation=Array.isArray(userCenter)&&Number.isFinite(Number(userCenter[0]))&&Number.isFinite(Number(userCenter[1]));
+  const straightMiles=hasUserLocation?distanceMiles(Number(userCenter[0]),Number(userCenter[1]),siteLat,siteLng):null;
+  const distanceText=Number.isFinite(straightMiles)?`${straightMiles<10?straightMiles.toFixed(1):Math.round(straightMiles)} mi straight-line`:'';
+  const directionsUrl=hasUserLocation?`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(Number(userCenter[0]).toFixed(6)+','+Number(userCenter[1]).toFixed(6))}&destination=${encodeURIComponent(lat+','+lng)}&travelmode=driving`:`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+  const links=[];
+  if(s.website)links.push(`<a href="${esc(s.website)}" target="_blank" rel="noopener">Website</a>`);
+  const sourceLink=restRoadsideSourceLink(s); if(sourceLink)links.push(sourceLink);
+  const markerNotice=markerTypeNotice(s);
+  const rows=[['Type',layerDef(layerKey(s)).label],['Distance from you',distanceText],['Traveler stop',isTravelerStop(s)?'Yes — useful for a short public pull-off/rest stop.':''],['Camping',isTravelerStop(s)?'Not implied. Use overnight-parking status and posted rules separately.':''],['Facility',s.facilityType],['Useful for',s.travelerUse],['Owner level',s.ownerLevel],['Current status',s.currentStatus],['Overnight parking',s.overnightParking],['Local likelihood',s.localParkingLikelihood],['Parking-policy note',s.parkingPolicyNotes],['Location evidence',s.locationEvidenceSummary],['Evidence confidence',s.evidenceConfidence],['Parking fit',s.parkingFit],['Season status',s.seasonStatus],['Season notes',s.seasonNotes],['Route',s.routeName],['Direction',s.routeDirection],['Mile marker',s.mileMarker],['Honoree',s.honoree],['Cost',s.costDisplay||s.cost],['Showers',s.showers],['Access',s.access],['Amenities',s.amenities],['Season',s.season],['Rating',s.rating],['Source',s.sourceName],['Location precision',s.locationPrecision],['Last checked',s.lastChecked]].filter(r=>r[1]);
+  return `<div><div class="popup-title">${esc(s.name||'Unnamed site')}</div><div class="popup-meta">${esc(s.stateName||s.stateCode||'')} · ${lat}, ${lng}</div>${markerNotice?`<div class="popup-notice">${esc(markerNotice)}</div>`:''}${areaOutlinePopup(s)}<div class="popup-grid">${rows.map(r=>`<div class="popup-row"><strong>${esc(r[0])}</strong><span>${esc(r[1])}</span></div>`).join('')}</div>${s.description?`<div class="popup-copy">${esc(s.description)}</div>`:''}${links.length?`<div class="popup-actions">${links.join('')}</div>`:''}<div class="popup-actions"><button class="secondary" onclick="navigator.clipboard&&navigator.clipboard.writeText('${lat}, ${lng}')">Copy coordinates</button><a class="secondary" target="_blank" rel="noopener" href="${directionsUrl}">${hasUserLocation?'Driving directions':'Google Maps'}</a><a class="secondary" target="_blank" rel="noopener" href="https://maps.apple.com/?ll=${lat},${lng}&q=${encodeURIComponent(s.name||'Camping site')}">Apple Maps</a></div>${communityHtml(s)}</div>`;
+}
+
 function showSearchResult(site){
   if(!site||!app.map)return;
   const lat=Number(site.lat),lng=Number(site.lng);
@@ -2727,11 +2854,11 @@ async function initSupabase(){
   const cfg=window.CAMPING_SUPABASE_CONFIG;
   if(!cfg||!window.supabase){updateAuthUi('Static fallback mode.');return}
   app.supabase=window.supabase.createClient(cfg.url,cfg.anonKey,{db:{schema:cfg.schema||'public'}});
-  app.supabase.auth.onAuthStateChange((_event,session)=>{app.session=session||null;updateAuthUi();if(app.session)refreshSavedRoutes(false);else{app.savedRoutes=[];app.savedRoutesLoaded=false;app.savedRoutesError=null;renderSavedRoutes();}});
+  app.supabase.auth.onAuthStateChange((_event,session)=>{app.session=session||null;updateAuthUi();if(app.session){ensureCommunityProfile();refreshSavedRoutes(false);refreshCommunityFavorites();}else{app.savedRoutes=[];app.savedRoutesLoaded=false;app.savedRoutesError=null;app.communityFavorites={};app.communityComments={};renderSavedRoutes();}});
   const {data}=await app.supabase.auth.getSession();
   app.session=data.session||null;
   updateAuthUi();
-  if(app.session)await refreshSavedRoutes(false);
+  if(app.session){await ensureCommunityProfile();await refreshSavedRoutes(false);await refreshCommunityFavorites();}
 }
 async function createAccount(){
   if(!app.supabase)return notify('Supabase config is not loaded.');
@@ -2746,8 +2873,10 @@ async function createAccount(){
     if(data&&data.session){
       app.session=data.session;
       updateAuthUi();
+      await ensureCommunityProfile();
       await refreshSavedRoutes(false);
-      notify('Account created and signed in. Cloud saved routes are ready.');
+      await refreshCommunityFavorites();
+      notify('Account created and signed in. Cloud saved routes and community tools are ready.');
     }else{
       updateAuthUi('Account created. Check email to confirm, then sign in.');
       notify('Account created. If email confirmation is enabled in Supabase, confirm the email before signing in.',7000);
@@ -2768,7 +2897,9 @@ async function signIn(e){
     if(error)throw error;
     app.session=(await app.supabase.auth.getSession()).data.session;
     updateAuthUi();
+    await ensureCommunityProfile();
     await refreshSavedRoutes(false);
+    await refreshCommunityFavorites();
     notify('Signed in.');
   }catch(err){console.error(err);updateAuthUi();notify(err&&err.message?err.message:'Sign in failed.',7000);}
   finally{if(btn)btn.disabled=false;}
@@ -2780,6 +2911,8 @@ async function signOut(){
   app.savedRoutes=[];
   app.savedRoutesLoaded=false;
   app.savedRoutesError=null;
+  app.communityFavorites={};
+  app.communityComments={};
   updateAuthUi('Signed out.');
 }
 async function sendDraftSupabase(){const d=draftPayload();if(!d.name)return notify('Add a site name first.');if(!app.supabase||!app.session)return notify('Sign in to Supabase first, or use the manual queue.');notify('Supabase insert is not enabled in this integrated rebuild yet; added to manual queue instead.',5000);appendDraft()}
@@ -2817,6 +2950,12 @@ async function checkForAppUpdate(){
     if(remote&&isNewerVersion(remote,VERSION))showUpdateNotice(remote);
   }catch(_e){}
 }
+
+app.toggleSiteFavorite=toggleSiteFavorite;
+app.loadSiteComments=loadSiteComments;
+app.submitSiteComment=submitSiteComment;
+app.openCorrectionModal=openCorrectionModal;
+app.submitCorrection=submitCorrection;
 
 function startupStatus(msg){
   try{window.CAMPING_STARTUP_STAGE=msg||'';}catch(_e){}
