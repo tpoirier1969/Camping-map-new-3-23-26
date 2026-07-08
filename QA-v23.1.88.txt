@@ -1,0 +1,47 @@
+Tod’s Boondocking & Camping Maps — v23.1.88 QA
+
+Checks run:
+- node --check app.js: PASS
+- node --check version.js: PASS
+- Startup VM simulation: PASS
+  - bootStarted: true
+  - bootOk: true
+  - startupFail: null
+  - runtime version: v23.1.88
+  - startup reached Loading states / marker draw path without throwing
+
+Focused code-path checks:
+- Confirmed app.js contains persistent community preference active-state helpers:
+  - communityActionButtonHtml
+  - refreshCommunityButtons
+  - refreshCommunityFavorites
+- Confirmed saved-site filters are wired:
+  - COMMUNITY_FILTER_DEFS
+  - toggleCommunityFilter
+  - siteMatchesCommunityFilters
+  - filter-status text includes saved-site filters
+- Confirmed password-eye control is present and bound:
+  - index.html contains sbPasswordToggle
+  - app.js contains togglePasswordVisibility
+  - bindEvents attaches sbPasswordToggle.onclick
+- Confirmed admin controls are present and bound:
+  - index.html contains adminSection/adminEmailInput/adminMakeAdminBtn
+  - app.js contains refreshCurrentProfile / promoteAdminByEmail / toggleAdminHiddenSite
+  - app.js exposes app.toggleAdminHiddenSite and app.promoteAdminByEmail
+- Confirmed admin hidden-site suppression path exists:
+  - admin hidden flags table constant exists
+  - loadAdminHiddenSites loads hidden_admin_only flags
+  - sitePassesNonLayerFilters blocks hidden sites for non-admin users
+  - runSearch filters out hidden sites for non-admin users
+
+SQL review:
+- SQL creates/updates public.boondocking_map_site_admin_flags.
+- SQL bootstraps tpoirier@nmu.edu as admin when that Auth user exists.
+- SQL updates the new-user trigger so future tpoirier@nmu.edu account creation receives admin role.
+- SQL adds boondocking_map_set_user_role_by_email(target_email, target_role) RPC.
+- SQL keeps self-promotion prevention in place.
+
+Known limitations:
+- Browser-live test was not run in an actual browser here.
+- Supabase RPC/table behavior was statically reviewed but not executed against Tod’s live Supabase instance from this environment.
+- Because this is a static GitHub Pages app, hidden-site suppression is UI-level moderation, not cryptographic or server-side secrecy.

@@ -42,7 +42,8 @@ const COMMUNITY_TABLES={
   profiles:'boondocking_map_profiles',
   favorites:'boondocking_map_site_favorites',
   comments:'boondocking_map_site_comments',
-  corrections:'boondocking_map_site_corrections'
+  corrections:'boondocking_map_site_corrections',
+  adminFlags:'boondocking_map_site_admin_flags'
 };
 const ICONS={tent:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M3 18.5 10.8 5h2.4L21 18.5h-3.1l-5.1-9.1-2.9 4.9 1.9 4.2H9.2l-1.5-3.2-1.7 3.2H3Zm6.8 0h4.5l-2.2-5-2.3 5Z\"/></svg>',tree:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"m12 2 4 5h-2.1l3.6 4.5H15l3 3.8h-4.2V22h-3.6v-6.7H6l3-3.8H6.5L10.1 7H8L12 2Z\"/></svg>',camper:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M4 8.5h10.6c.8 0 1.6.4 2.1 1l2.3 2.6H21a1 1 0 0 1 1 1v4.9h-1.7a2.6 2.6 0 0 1-5.1 0H9.8a2.6 2.6 0 0 1-5.1 0H3v-8.5a1 1 0 0 1 1-1Zm1.2 1.8v2.8H14v-2.8H5.2Zm11 3.1h3.2l-1.6-1.8a1.1 1.1 0 0 0-.8-.4h-.8v2.2ZM7.2 19a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Zm10.6 0a1.2 1.2 0 1 0 0-2.5 1.2 1.2 0 0 0 0 2.4Z\"/></svg>',stopTent:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M9 2.5h6l6.5 6.5v6L15 21.5H9L2.5 15V9L9 2.5Zm2 5.2-4 8h2.4l1-2h3.2l1 2H17l-4-8h-2Zm.9 4.2h.2l1 2h-2.2l1-2Z\"/></svg>',parking:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M6 3h7.4c3 0 5.1 2.1 5.1 5s-2.1 5.1-5.1 5.1H9.6V21H6V3Zm3.6 3.2v3.7h3.4c1.1 0 1.9-.7 1.9-1.9s-.8-1.8-1.9-1.8H9.6Z\"/></svg>',restR:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M6 3h7.2c3 0 5.1 1.9 5.1 4.8 0 2-1 3.5-2.8 4.3l3.3 5h-4.1L12 12.8H9.6V21H6V3Zm3.6 3v3.8h3c1.3 0 2.1-.7 2.1-1.9 0-1.2-.8-1.9-2.1-1.9h-3Z\"/></svg>',backpackerWater:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M10.2 3.3a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4Zm1.7 4.2 2 1.1c.6.3 1 .9 1 1.5V12h-1.8v-1.3l-1.1-.6-.8 2.5 1.9 1.9v3.6h-1.8V15.3l-1.8-1.8-.8 2.4-1.6-.5 1.2-3.8.8-2.4c.3-1 1.2-1.7 2.3-1.7h.5Zm-4.7 3.7 1.5.7-1.4 2.9 1.6 1.6-1.3 1.2-2.4-2.4 2-4Zm9.4 3.3c1.1 0 2 .3 2.9.8l-.8 1.4c-.7-.3-1.3-.5-2.1-.5-1.2 0-1.8.5-2.6 1.1-.8.6-1.7 1.3-3.2 1.3-1.4 0-2.4-.6-3.2-1.3-.7-.5-1.4-1.1-2.6-1.1-.7 0-1.4.2-2 .5L2 16c.9-.5 1.8-.8 2.9-.8 1.7 0 2.7.7 3.5 1.4.7.5 1.2 1 2.3 1 .9 0 1.5-.4 2.2-1 .9-.8 2-1.6 3.7-1.6Zm.9 4c.7 0 1.4.2 2.1.5l-.8 1.4c-.4-.2-.8-.3-1.3-.3-.8 0-1.2.3-1.9.8-.7.5-1.6 1.1-3 1.1-1.3 0-2.2-.6-2.9-1-.6-.4-1-.7-1.8-.7-.5 0-.9.1-1.3.3l-.8-1.4c.7-.3 1.3-.5 2.1-.5 1.3 0 2.2.6 2.9 1 .6.4 1 .7 1.8.7.9 0 1.4-.3 2-.8.8-.5 1.7-1.1 2.9-1.1Z\"/></svg>',info:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 2.8A9.2 9.2 0 1 1 2.8 12 9.2 9.2 0 0 1 12 2.8Zm0 4a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm-1.7 5v1.8h1.1v3.6h-1.1V19h4.5v-1.8h-1.1v-5.4h-3.4Z\"/></svg>',draft:'<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M4 17.5V20h2.5l8.6-8.6-2.5-2.5L4 17.5Zm12.4-9.9 1.5-1.5a1.2 1.2 0 0 1 1.7 0l.8.8a1.2 1.2 0 0 1 0 1.7l-1.5 1.5-2.5-2.5Z\"/></svg>',navArrow:'<svg viewBox=\"0 0 28 28\"><circle cx=\"14\" cy=\"14\" r=\"11.5\" fill=\"#ffffff\"/><path fill=\"#1e78ff\" d=\"M14 3.8 20.8 21l-6.8-3.2L7.2 21 14 3.8Z\"/><circle cx=\"14\" cy=\"14\" r=\"11.5\" fill=\"none\" stroke=\"rgba(18,69,140,.22)\" stroke-width=\"1\"/></svg>',dot:'<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"6\" fill=\"currentColor\"/></svg>'};
 const LAYERS=[
@@ -128,7 +129,7 @@ function currentBasemapKey(){
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
-const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,communityAvailable:true,communityError:null,communityUnavailableNotified:false,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
+const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,currentProfile:null,adminHiddenSites:{},adminFlagsAvailable:true,adminFlagsError:null,communityAvailable:true,communityError:null,communityUnavailableNotified:false,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
 window.__campingApp=app;
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function readJson(key,fb){try{return JSON.parse(localStorage.getItem(key)||'null')??fb}catch{return fb}}
@@ -194,7 +195,7 @@ function migrateLayerKeys(rawLayers){
   }
   return [...migrated];
 }
-function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false}};}
+function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false},community:{is_favorite:false,want_to_visit:false,visited:false,loved:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
 function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; updateMarkerZoomScale(); app.map.on('zoom zoomend',()=>{updateMarkerZoomScale();}); app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();if(app.markerLayerCacheKey&&(app.markerLayerCacheKey!==markerCacheKey()||renderWindowNeedsRefresh()))renderMarkers(false);});}
@@ -1124,11 +1125,15 @@ function bindEvents(){
   const submitCorrectionBtn=$('submitCorrectionBtn'); if(submitCorrectionBtn)submitCorrectionBtn.onclick=submitCorrection;
   const sbAuthForm=$('sbAuthForm'); if(sbAuthForm)sbAuthForm.onsubmit=signIn;
   const createBtn=$('sbCreateAccountBtn'); if(createBtn)createBtn.onclick=createAccount;
+  const passwordToggle=$('sbPasswordToggle'); if(passwordToggle)passwordToggle.onclick=togglePasswordVisibility;
+  const adminMakeAdminBtn=$('adminMakeAdminBtn'); if(adminMakeAdminBtn)adminMakeAdminBtn.onclick=promoteAdminByEmail;
+  const adminEmailInput=$('adminEmailInput'); if(adminEmailInput)adminEmailInput.addEventListener('keydown',e=>{if(e.key==='Enter')promoteAdminByEmail();});
   const sbSignOutBtn=$('sbSignOutBtn'); if(sbSignOutBtn)sbSignOutBtn.onclick=signOut;
   const costFilter=$('costFilter'); if(costFilter)costFilter.onchange=()=>setCostFilter(costFilter.value);
   $$('[data-water-filter]').forEach(cb=>cb.onchange=()=>setWaterFilter(cb.dataset.waterFilter,cb.checked));
   $$('[data-access-filter]').forEach(cb=>cb.onchange=()=>setAccessFilter(cb.dataset.accessFilter,cb.checked));
   $$('[data-filter-chip]').forEach(c=>c.onclick=()=>toggleQuickFilter(c.dataset.filterChip));
+  $$('[data-community-filter]').forEach(c=>c.onclick=()=>toggleCommunityFilter(c.dataset.communityFilter));
   const clearFiltersBtn=$('clearFiltersBtn'); if(clearFiltersBtn)clearFiltersBtn.onclick=clearFilters;
   retireLegacyLayerControls();
 }
@@ -1156,6 +1161,8 @@ function normalizeFilters(){
   app.filters.access.hc=!!app.filters.access.hc;
   app.filters.access.fw=!!app.filters.access.fw;
   app.filters.chips.showers=!!app.filters.chips.showers;
+  if(!app.filters.community||typeof app.filters.community!=='object'||Array.isArray(app.filters.community))app.filters.community={is_favorite:false,want_to_visit:false,visited:false,loved:false};
+  ['is_favorite','want_to_visit','visited','loved'].forEach(key=>{app.filters.community[key]=!!app.filters.community[key];});
   delete app.filters.chips.free;
   delete app.filters.chips.under20;
   delete app.filters.chips.twowd;
@@ -1168,12 +1175,45 @@ function isQuickFilterActive(key){
   if(key==='showers')return !!app.filters.chips.showers;
   return false;
 }
+const COMMUNITY_FILTER_DEFS=[
+  {key:'is_favorite',label:'Favorited'},
+  {key:'want_to_visit',label:'Want to visit'},
+  {key:'visited',label:'Visited'},
+  {key:'loved',label:'Loved'}
+];
+function communityFilterLabel(key){const row=COMMUNITY_FILTER_DEFS.find(x=>x.key===key);return row?row.label:key;}
+function activeCommunityFilterKeys(){normalizeFilters();return COMMUNITY_FILTER_DEFS.map(x=>x.key).filter(key=>app.filters.community&&app.filters.community[key]);}
+function communityFilterIsActive(){return activeCommunityFilterKeys().length>0;}
+function syncCommunityFilterControls(){
+  normalizeFilters();
+  $$('[data-community-filter]').forEach(btn=>{
+    const key=btn.dataset.communityFilter;
+    const on=!!(app.filters.community&&app.filters.community[key]);
+    btn.classList.toggle('active',on);
+    btn.setAttribute('aria-pressed',on?'true':'false');
+  });
+}
+function toggleCommunityFilter(key){
+  normalizeFilters();
+  if(!COMMUNITY_FILTER_DEFS.some(x=>x.key===key))return;
+  app.filters.community[key]=!app.filters.community[key];
+  applyFilterChange();
+  if(app.filters.community[key]&&!app.session)notify('Sign in under Options to use saved-site filters.',6500);
+}
+function siteMatchesCommunityFilters(site){
+  const keys=activeCommunityFilterKeys();
+  if(!keys.length)return true;
+  if(!signedInCommunity())return false;
+  const state=favoriteState(siteStableId(site));
+  return keys.some(key=>!!(state&&state[key]));
+}
 function syncFilters(){
   normalizeFilters();
   const cost=$('costFilter'); if(cost)cost.value=app.filters.maxCost||'';
   $$('[data-water-filter]').forEach(cb=>{cb.checked=!!app.filters.water[cb.dataset.waterFilter]});
   $$('[data-access-filter]').forEach(cb=>{cb.checked=!!app.filters.access[cb.dataset.accessFilter]});
   $$('[data-filter-chip]').forEach(c=>c.classList.toggle('active',isQuickFilterActive(c.dataset.filterChip)));
+  syncCommunityFilterControls();
   updateFilterStatus();
 }
 
@@ -1191,6 +1231,8 @@ function updateFilterStatus(){
   if(access.hc)parts.push('High clearance');
   if(access.fw)parts.push('4WD noted');
   if(app.filters.chips&&app.filters.chips.showers)parts.push('Showers');
+  const communityKeys=activeCommunityFilterKeys();
+  if(communityKeys.length)parts.push('My saved sites: '+communityKeys.map(communityFilterLabel).join(' / ')+(app.session?'':' (sign in required)'));
   const el=$('filterStatus');
   if(el)el.textContent=parts.length?`Filters active: ${parts.join(' · ')}`:'No filters active.';
 }
@@ -2276,10 +2318,12 @@ function sitePassesNonLayerFilters(site){
   const key=layerKey(site);
   if(key==='info')return false;
   if(!Number.isFinite(Number(site.lat))||!Number.isFinite(Number(site.lng)))return false;
+  if(!siteVisibleToCurrentUser(site))return false;
   if(!siteWithinViewportRenderWindow(site))return false;
   if(!siteWithinNearMeRange(site))return false;
   if(!siteWithinRouteRange(site))return false;
   if(!siteWithinTextSearch(site))return false;
+  if(!siteMatchesCommunityFilters(site))return false;
   if(!siteMatchesWater(site))return false;
   if(app.restOnlyMode)return key==='rest-truck';
   const text=siteText(site);
@@ -2308,7 +2352,8 @@ function siteMatches(site){
 }
 function markerCacheKey(){
   const siteKey=(app.sites||[]).map(s=>s.id||s.name||'').join('|');
-  return JSON.stringify({siteKey,filters:app.filters,near:app.nearMeActive?[app.localAreaCenter,nearRadiusMiles()]:null,route:app.routeSearch&&app.routeSearch.active?[app.routeSearch.coords&&app.routeSearch.coords.length,app.routeSearch.bufferMiles,app.routeSearch.distanceMiles]:null,search:app.search,restOnly:app.restOnlyMode,markerScale:markerScaleCacheKey()});
+  const communitySig=communityFilterIsActive()?Object.entries(app.communityFavorites||{}).filter(([,v])=>v&&(v.is_favorite||v.want_to_visit||v.visited||v.loved)).map(([id,v])=>`${id}:${v.is_favorite?'f':''}${v.want_to_visit?'w':''}${v.visited?'v':''}${v.loved?'l':''}`).sort().join('|'):'';
+  return JSON.stringify({siteKey,filters:app.filters,communitySig,near:app.nearMeActive?[app.localAreaCenter,nearRadiusMiles()]:null,route:app.routeSearch&&app.routeSearch.active?[app.routeSearch.coords&&app.routeSearch.coords.length,app.routeSearch.bufferMiles,app.routeSearch.distanceMiles]:null,search:app.search,restOnly:app.restOnlyMode,markerScale:markerScaleCacheKey()});
 }
 function resetMarkerLayerGroups(){
   if(app.markerLayer)app.markerLayer.clearLayers();
@@ -2564,6 +2609,24 @@ function markCommunityUnavailable(err){
   }
 }
 function communityActionLabel(state,key,label){return state&&state[key]?'✓ '+label:label;}
+function communityActionButtonHtml(siteId,state,key,label){
+  const active=!!(state&&state[key]);
+  return `<button class="secondary community-action-btn${active?' active':''}" data-community-action="${esc(key)}" data-community-label="${esc(label)}" aria-pressed="${active?'true':'false'}" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','${jsString(key)}')">${esc(communityActionLabel(state,key,label))}</button>`;
+}
+function refreshCommunityButtons(siteId){
+  const state=favoriteState(siteId);
+  $$('[data-community-site]').forEach(panel=>{
+    if(panel.dataset.communitySite!==String(siteId))return;
+    $$('[data-community-action]',panel).forEach(btn=>{
+      const key=btn.dataset.communityAction;
+      const label=btn.dataset.communityLabel||communityFilterLabel(key);
+      const active=!!(state&&state[key]);
+      btn.classList.toggle('active',active);
+      btn.setAttribute('aria-pressed',active?'true':'false');
+      btn.textContent=communityActionLabel(state,key,label);
+    });
+  });
+}
 function siteSnapshot(site){
   if(!site)return {};
   return {
@@ -2586,7 +2649,8 @@ function communityHtml(site){
     const msg=app.communityAvailable===false?communityUnavailableMessage():'Sign in under Options to favorite sites, comment, or send corrections to Tod.';
     return `<div class="community-panel"><div class="community-title">Community tools</div><div class="mini-note">${esc(msg)}</div></div>`;
   }
-  return `<div class="community-panel" data-community-site="${esc(siteId)}"><div class="community-title">Community tools</div><div class="popup-actions community-actions"><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','is_favorite')">${esc(communityActionLabel(fav,'is_favorite','Favorite'))}</button><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','want_to_visit')">${esc(communityActionLabel(fav,'want_to_visit','Want to visit'))}</button><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','visited')">${esc(communityActionLabel(fav,'visited','Visited'))}</button><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','loved')">${esc(communityActionLabel(fav,'loved','Loved'))}</button></div><div class="community-comment-box"><textarea id="comment_${safe}" placeholder="Add a public comment for this site"></textarea><div class="popup-actions"><button class="secondary" type="button" onclick="window.__campingApp.submitSiteComment&&window.__campingApp.submitSiteComment('${jsString(siteId)}')">Post comment</button><button class="secondary" type="button" onclick="window.__campingApp.loadSiteComments&&window.__campingApp.loadSiteComments('${jsString(siteId)}',true)">Load comments</button></div><div id="comments_${safe}" class="community-comments">${commentRows||'<div class="mini-note">Comments load when requested.</div>'}</div></div><div class="popup-actions"><button class="primary" type="button" onclick="window.__campingApp.openCorrectionModal&&window.__campingApp.openCorrectionModal('${jsString(siteId)}')">Suggest a correction</button></div></div>`;
+  const actionButtons=COMMUNITY_FILTER_DEFS.map(def=>communityActionButtonHtml(siteId,fav,def.key,def.label)).join('');
+  return `<div class="community-panel" data-community-site="${esc(siteId)}"><div class="community-title">Community tools</div><div class="popup-actions community-actions">${actionButtons}</div><div class="community-comment-box"><textarea id="comment_${safe}" placeholder="Add a public comment for this site"></textarea><div class="popup-actions"><button class="secondary" type="button" onclick="window.__campingApp.submitSiteComment&&window.__campingApp.submitSiteComment('${jsString(siteId)}')">Post comment</button><button class="secondary" type="button" onclick="window.__campingApp.loadSiteComments&&window.__campingApp.loadSiteComments('${jsString(siteId)}',true)">Load comments</button></div><div id="comments_${safe}" class="community-comments">${commentRows||'<div class="mini-note">Comments load when requested.</div>'}</div></div><div class="popup-actions"><button class="primary" type="button" onclick="window.__campingApp.openCorrectionModal&&window.__campingApp.openCorrectionModal('${jsString(siteId)}')">Suggest a correction</button></div></div>`;
 }
 async function ensureCommunityProfile(){
   if(!signedInCommunity())return;
@@ -2595,14 +2659,16 @@ async function ensureCommunityProfile(){
     await app.supabase.from(COMMUNITY_TABLES.profiles).upsert({id:user.id,display_name:user.email||'Camper'},{onConflict:'id'});
   }catch(e){if(isMissingSupabaseTableError(e))markCommunityUnavailable(e);else console.warn('Profile upsert failed',e);}
 }
-async function refreshCommunityFavorites(){
-  if(!signedInCommunity()){app.communityFavorites={};return;}
+async function refreshCommunityFavorites(options={}){
+  if(!signedInCommunity()){app.communityFavorites={};syncFilters();return;}
   try{
     const {data,error}=await app.supabase.from(COMMUNITY_TABLES.favorites).select('*').eq('user_id',app.session.user.id);
     if(error)throw error;
     const map={};
     (data||[]).forEach(r=>{map[String(r.site_id)]={is_favorite:!!r.is_favorite,want_to_visit:!!r.want_to_visit,visited:!!r.visited,loved:!!r.loved,private_note:r.private_note||''};});
     app.communityFavorites=map;
+    syncFilters();
+    if(options.refreshMap&&communityFilterIsActive()&&app.map&&Array.isArray(app.sites)&&app.sites.length)renderMarkers(false);
   }catch(e){
     if(isMissingSupabaseTableError(e)){markCommunityUnavailable(e);return;}
     console.warn('Could not load favorites',e);
@@ -2621,6 +2687,9 @@ async function toggleSiteFavorite(siteId,field){
     const {error}=await app.supabase.from(COMMUNITY_TABLES.favorites).upsert(payload,{onConflict:'user_id,site_id'});
     if(error)throw error;
     app.communityFavorites[String(siteId)]={...current,[field]:next};
+    refreshCommunityButtons(String(siteId));
+    syncFilters();
+    if(communityFilterIsActive()&&app.map&&Array.isArray(app.sites)&&app.sites.length)renderMarkers(false);
     notify(next?'Saved.':'Updated.');
   }catch(e){
     console.error(e);
@@ -2717,7 +2786,7 @@ function popup(s){
   const sourceLink=restRoadsideSourceLink(s); if(sourceLink)links.push(sourceLink);
   const markerNotice=markerTypeNotice(s);
   const rows=[['Type',layerDef(layerKey(s)).label],['Distance from you',distanceText],['Traveler stop',isTravelerStop(s)?'Yes — useful for a short public pull-off/rest stop.':''],['Camping',isTravelerStop(s)?'Not implied. Use overnight-parking status and posted rules separately.':''],['Facility',s.facilityType],['Useful for',s.travelerUse],['Owner level',s.ownerLevel],['Current status',s.currentStatus],['Overnight parking',s.overnightParking],['Local likelihood',s.localParkingLikelihood],['Parking-policy note',s.parkingPolicyNotes],['Location evidence',s.locationEvidenceSummary],['Evidence confidence',s.evidenceConfidence],['Parking fit',s.parkingFit],['Season status',s.seasonStatus],['Season notes',s.seasonNotes],['Route',s.routeName],['Direction',s.routeDirection],['Mile marker',s.mileMarker],['Honoree',s.honoree],['Cost',s.costDisplay||s.cost],['Showers',s.showers],['Access',s.access],['Amenities',s.amenities],['Season',s.season],['Rating',s.rating],['Source',s.sourceName],['Location precision',s.locationPrecision],['Last checked',s.lastChecked]].filter(r=>r[1]);
-  return `<div><div class="popup-title">${esc(s.name||'Unnamed site')}</div><div class="popup-meta">${esc(s.stateName||s.stateCode||'')} · ${lat}, ${lng}</div>${markerNotice?`<div class="popup-notice">${esc(markerNotice)}</div>`:''}${areaOutlinePopup(s)}<div class="popup-grid">${rows.map(r=>`<div class="popup-row"><strong>${esc(r[0])}</strong><span>${esc(r[1])}</span></div>`).join('')}</div>${s.description?`<div class="popup-copy">${esc(s.description)}</div>`:''}${links.length?`<div class="popup-actions">${links.join('')}</div>`:''}<div class="popup-actions"><button class="secondary" onclick="navigator.clipboard&&navigator.clipboard.writeText('${lat}, ${lng}')">Copy coordinates</button><a class="secondary" target="_blank" rel="noopener" href="${directionsUrl}">${hasUserLocation?'Driving directions':'Google Maps'}</a><a class="secondary" target="_blank" rel="noopener" href="https://maps.apple.com/?ll=${lat},${lng}&q=${encodeURIComponent(s.name||'Camping site')}">Apple Maps</a></div>${communityHtml(s)}</div>`;
+  return `<div><div class="popup-title">${esc(s.name||'Unnamed site')}</div><div class="popup-meta">${esc(s.stateName||s.stateCode||'')} · ${lat}, ${lng}</div>${markerNotice?`<div class="popup-notice">${esc(markerNotice)}</div>`:''}${adminHiddenNotice(s)}${areaOutlinePopup(s)}<div class="popup-grid">${rows.map(r=>`<div class="popup-row"><strong>${esc(r[0])}</strong><span>${esc(r[1])}</span></div>`).join('')}</div>${s.description?`<div class="popup-copy">${esc(s.description)}</div>`:''}${links.length?`<div class="popup-actions">${links.join('')}</div>`:''}<div class="popup-actions"><button class="secondary" onclick="navigator.clipboard&&navigator.clipboard.writeText('${lat}, ${lng}')">Copy coordinates</button><a class="secondary" target="_blank" rel="noopener" href="${directionsUrl}">${hasUserLocation?'Driving directions':'Google Maps'}</a><a class="secondary" target="_blank" rel="noopener" href="https://maps.apple.com/?ll=${lat},${lng}&q=${encodeURIComponent(s.name||'Camping site')}">Apple Maps</a></div>${adminToolsHtml(s)}${communityHtml(s)}</div>`;
 }
 
 function showSearchResult(site){
@@ -2773,7 +2842,7 @@ async function runSearch(){
     return;
   }
   app.search={active:true,query:q.toLowerCase()};
-  const hits=app.sites.filter(s=>Number.isFinite(Number(s.lat))&&Number.isFinite(Number(s.lng))&&siteWithinTextSearch(s));
+  const hits=app.sites.filter(s=>Number.isFinite(Number(s.lat))&&Number.isFinite(Number(s.lng))&&siteVisibleToCurrentUser(s)&&siteWithinTextSearch(s));
   renderSearchResults(hits,q);
   if(!hits.length){await runPlaceSearch(q);return;}
   await renderMarkers(true);
@@ -2941,6 +3010,130 @@ function validateAuthFields(){
   if(!password||password.length<6){notify('Enter a password with at least 6 characters.');return null;}
   return {email,password};
 }
+
+function normalizeEmailAddress(value){return String(value||'').trim().toLowerCase();}
+function primaryAdminEmail(){return 'tpoirier@nmu.edu';}
+function sessionEmailNormalized(){return normalizeEmailAddress(app.session&&app.session.user&&app.session.user.email);}
+function isAdminUser(){return !!(app.session&&((app.currentProfile&&app.currentProfile.role==='admin')||sessionEmailNormalized()===primaryAdminEmail()));}
+function setAdminStatus(message){const el=$('adminStatus');if(el)el.textContent=message||'';}
+function updateAdminUi(message){
+  const admin=isAdminUser();
+  const section=$('adminSection');
+  if(section)section.hidden=!admin;
+  const role=$('adminRoleStatus');
+  if(role){
+    if(!app.session)role.textContent='Admin mode is off — sign in first.';
+    else if(admin)role.textContent=`Admin mode active for ${sessionEmail()}.`;
+    else role.textContent='Signed in, but not an admin.';
+  }
+  if(message)setAdminStatus(message);
+}
+function togglePasswordVisibility(){
+  const input=$('sbPassword'),btn=$('sbPasswordToggle');
+  if(!input||!btn)return;
+  const show=input.type==='password';
+  input.type=show?'text':'password';
+  btn.textContent=show?'🙈':'👁';
+  btn.setAttribute('aria-label',show?'Hide password':'Show password');
+  btn.setAttribute('aria-pressed',show?'true':'false');
+  input.focus();
+}
+async function refreshCurrentProfile(){
+  app.currentProfile=null;
+  if(!app.supabase||!app.session){updateAdminUi();return null;}
+  try{
+    const {data,error}=await app.supabase.from(COMMUNITY_TABLES.profiles).select('id,display_name,role').eq('id',app.session.user.id).maybeSingle();
+    if(error)throw error;
+    app.currentProfile=data||{id:app.session.user.id,display_name:sessionEmail(),role:sessionEmailNormalized()===primaryAdminEmail()?'admin':'user'};
+  }catch(e){
+    if(isMissingSupabaseTableError(e))markCommunityUnavailable(e);else console.warn('Could not load admin profile',e);
+    app.currentProfile={id:app.session.user.id,display_name:sessionEmail(),role:sessionEmailNormalized()===primaryAdminEmail()?'admin':'user'};
+  }
+  updateAdminUi();
+  return app.currentProfile;
+}
+async function promoteAdminByEmail(){
+  if(!app.supabase||!app.session)return notify('Sign in first.');
+  if(!isAdminUser())return notify('Admin mode is required.');
+  const input=$('adminEmailInput');
+  const email=normalizeEmailAddress(input&&input.value);
+  if(!email)return notify('Enter the email address to elevate.');
+  const btn=$('adminMakeAdminBtn');
+  if(btn)btn.disabled=true;
+  setAdminStatus('Updating role…');
+  try{
+    const {data,error}=await app.supabase.rpc('boondocking_map_set_user_role_by_email',{target_email:email,target_role:'admin'});
+    if(error)throw error;
+    const msg=(data&&data.message)||`${email} was marked as admin.`;
+    setAdminStatus(msg);
+    notify(msg,7000);
+  }catch(e){
+    console.error(e);
+    const msg=e&&e.message?e.message:'Could not update admin role. Run the current Supabase SQL migration if the admin RPC is missing.';
+    setAdminStatus(msg);
+    notify(msg,9000);
+  }finally{if(btn)btn.disabled=false;}
+}
+function siteVisibleToCurrentUser(site){return !siteIsAdminHidden(site)||isAdminUser();}
+function siteIsAdminHidden(siteOrId){const id=typeof siteOrId==='string'?siteOrId:siteStableId(siteOrId);return !!(id&&app.adminHiddenSites&&app.adminHiddenSites[String(id)]);}
+function adminHiddenSiteRow(siteOrId){const id=typeof siteOrId==='string'?siteOrId:siteStableId(siteOrId);return id&&app.adminHiddenSites?app.adminHiddenSites[String(id)]||null:null;}
+function adminHiddenNotice(site){if(!isAdminUser()||!siteIsAdminHidden(site))return '';return '<div class="popup-notice">Admin hidden — this site is hidden from normal map users.</div>';}
+function refreshAdminSiteButtons(siteId){
+  const hidden=siteIsAdminHidden(siteId);
+  $$('[data-admin-hide-site]').forEach(btn=>{
+    if(btn.dataset.adminHideSite!==String(siteId))return;
+    btn.classList.toggle('active',hidden);
+    btn.setAttribute('aria-pressed',hidden?'true':'false');
+    btn.textContent=hidden?'Unhide from normal users':'Hide from normal users';
+  });
+}
+function adminToolsHtml(site){
+  if(!isAdminUser())return '';
+  const siteId=siteStableId(site);
+  const hidden=siteIsAdminHidden(siteId);
+  return `<div class="community-panel admin-panel" data-admin-site="${esc(siteId)}"><div class="community-title">Admin tools</div><div class="mini-note">Admin-only controls. Hidden sites remain visible to admins but are suppressed for normal map users.</div><div class="popup-actions"><button class="secondary admin-hide-btn${hidden?' active':''}" data-admin-hide-site="${esc(siteId)}" aria-pressed="${hidden?'true':'false'}" type="button" onclick="window.__campingApp.toggleAdminHiddenSite&&window.__campingApp.toggleAdminHiddenSite('${jsString(siteId)}')">${hidden?'Unhide from normal users':'Hide from normal users'}</button></div></div>`;
+}
+async function loadAdminHiddenSites(options={}){
+  if(!app.supabase){app.adminHiddenSites={};return {};}
+  try{
+    const {data,error}=await app.supabase.from(COMMUNITY_TABLES.adminFlags).select('site_id,site_name,state_code,layer,latitude,longitude,hidden_admin_only,hidden_reason,updated_at').eq('hidden_admin_only',true);
+    if(error)throw error;
+    const map={};
+    (data||[]).forEach(row=>{if(row&&row.site_id)map[String(row.site_id)]=row;});
+    app.adminHiddenSites=map;
+    app.adminFlagsAvailable=true;
+    app.adminFlagsError=null;
+    if(options.refreshMap&&app.map&&Array.isArray(app.sites)&&app.sites.length)renderMarkers(false);
+    return map;
+  }catch(e){
+    app.adminHiddenSites={};
+    app.adminFlagsAvailable=false;
+    app.adminFlagsError=e&&e.message?e.message:'Admin hidden-site table unavailable.';
+    if(isMissingSupabaseTableError(e))console.warn('Admin flags table unavailable. Run the current Supabase SQL migration for admin hidden-site controls.',e);else console.warn('Could not load admin hidden-site flags',e);
+    updateAdminUi();
+    return {};
+  }
+}
+async function toggleAdminHiddenSite(siteId){
+  if(!app.supabase||!app.session)return notify('Sign in first.');
+  if(!isAdminUser())return notify('Admin mode is required.');
+  const site=siteByStableId(siteId);
+  if(!site)return notify('Could not find that site record.');
+  const next=!siteIsAdminHidden(siteId);
+  const payload={...siteSnapshot(site),hidden_admin_only:next,hidden_reason:next?'Hidden from normal map users by admin UI':'',hidden_by:app.session.user.id,hidden_at:next?new Date().toISOString():null};
+  try{
+    const {error}=await app.supabase.from(COMMUNITY_TABLES.adminFlags).upsert(payload,{onConflict:'site_id'});
+    if(error)throw error;
+    if(next)app.adminHiddenSites[String(siteId)]={...payload,site_id:String(siteId)};else delete app.adminHiddenSites[String(siteId)];
+    refreshAdminSiteButtons(String(siteId));
+    renderMarkers(false);
+    notify(next?'Site hidden from normal users.':'Site unhidden for normal users.',6500);
+  }catch(e){
+    console.error(e);
+    const msg=e&&e.message?e.message:'Could not update hidden-site status. Run the current Supabase SQL migration if this is the first admin install.';
+    notify(msg,9000);
+  }
+}
 async function initSupabase(){
   const cfg=window.CAMPING_SUPABASE_CONFIG;
   if(!cfg||!window.supabase){updateAuthUi('Static fallback mode.');return}
@@ -2949,11 +3142,12 @@ async function initSupabase(){
   app.communityError=null;
   app.communityUnavailableNotified=false;
   app.supabase=window.supabase.createClient(cfg.url,cfg.anonKey,{db:{schema:dbSchema}});
-  app.supabase.auth.onAuthStateChange((_event,session)=>{app.session=session||null;updateAuthUi();if(app.session){ensureCommunityProfile();refreshSavedRoutes(false);refreshCommunityFavorites();}else{app.savedRoutes=[];app.savedRoutesLoaded=false;app.savedRoutesError=null;app.communityFavorites={};app.communityComments={};renderSavedRoutes();}});
+  app.supabase.auth.onAuthStateChange((_event,session)=>{app.session=session||null;updateAuthUi();if(app.session){ensureCommunityProfile();refreshCurrentProfile();refreshSavedRoutes(false);refreshCommunityFavorites({refreshMap:true});loadAdminHiddenSites({refreshMap:true});}else{app.currentProfile=null;app.savedRoutes=[];app.savedRoutesLoaded=false;app.savedRoutesError=null;app.communityFavorites={};app.communityComments={};syncFilters();updateAdminUi();renderSavedRoutes();loadAdminHiddenSites({refreshMap:true});if(communityFilterIsActive()&&app.map&&Array.isArray(app.sites)&&app.sites.length)renderMarkers(false);}});
   const {data}=await app.supabase.auth.getSession();
   app.session=data.session||null;
   updateAuthUi();
-  if(app.session){await ensureCommunityProfile();await refreshSavedRoutes(false);await refreshCommunityFavorites();}
+  await loadAdminHiddenSites({refreshMap:true});
+  if(app.session){await ensureCommunityProfile();await refreshCurrentProfile();await refreshSavedRoutes(false);await refreshCommunityFavorites({refreshMap:true});}else updateAdminUi();
 }
 async function createAccount(){
   if(!app.supabase)return notify('Supabase config is not loaded.');
@@ -2969,6 +3163,7 @@ async function createAccount(){
       app.session=data.session;
       updateAuthUi();
       await ensureCommunityProfile();
+      await refreshCurrentProfile();
       await refreshSavedRoutes(false);
       await refreshCommunityFavorites();
       notify('Account created and signed in. Cloud saved routes and community tools are ready.');
@@ -2993,8 +3188,10 @@ async function signIn(e){
     app.session=(await app.supabase.auth.getSession()).data.session;
     updateAuthUi();
     await ensureCommunityProfile();
+    await refreshCurrentProfile();
     await refreshSavedRoutes(false);
-    await refreshCommunityFavorites();
+    await refreshCommunityFavorites({refreshMap:true});
+    await loadAdminHiddenSites({refreshMap:true});
     notify('Signed in.');
   }catch(err){console.error(err);updateAuthUi();notify(err&&err.message?err.message:'Sign in failed.',7000);}
   finally{if(btn)btn.disabled=false;}
@@ -3003,12 +3200,17 @@ async function signOut(){
   if(!app.supabase)return;
   await app.supabase.auth.signOut();
   app.session=null;
+  app.currentProfile=null;
   app.savedRoutes=[];
   app.savedRoutesLoaded=false;
   app.savedRoutesError=null;
   app.communityFavorites={};
   app.communityComments={};
+  syncFilters();
   updateAuthUi('Signed out.');
+  updateAdminUi();
+  await loadAdminHiddenSites({refreshMap:true});
+  if(communityFilterIsActive()&&app.map&&Array.isArray(app.sites)&&app.sites.length)renderMarkers(false);
 }
 async function sendDraftSupabase(){const d=draftPayload();if(!d.name)return notify('Add a site name first.');if(!app.supabase||!app.session)return notify('Sign in to Supabase first, or use the manual queue.');notify('Supabase insert is not enabled in this integrated rebuild yet; added to manual queue instead.',5000);appendDraft()}
 
@@ -3051,6 +3253,9 @@ app.loadSiteComments=loadSiteComments;
 app.submitSiteComment=submitSiteComment;
 app.openCorrectionModal=openCorrectionModal;
 app.submitCorrection=submitCorrection;
+app.toggleAdminHiddenSite=toggleAdminHiddenSite;
+app.promoteAdminByEmail=promoteAdminByEmail;
+app.refreshCommunityFavorites=refreshCommunityFavorites;
 
 function startupStatus(msg){
   try{window.CAMPING_STARTUP_STAGE=msg||'';}catch(_e){}

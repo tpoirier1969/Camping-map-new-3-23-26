@@ -1,0 +1,58 @@
+Tod’s Boondocking & Camping Maps — v23.1.88
+Community preference feedback, saved-site filters, admin bootstrap, admin hide controls, password visibility
+
+Baseline:
+- Built on the v23.1.87 Supabase schema/community guard stabilization package.
+- No campground/source data files were changed.
+- No GitHub commit was made.
+
+Important correction captured:
+- Tod’s Garden Peninsula field correction was clarified as Fairport, the town — not airport. The queued correction should be treated as the Fairport-area record, not an airport-area record.
+
+User-facing changes:
+1. Community preference buttons now give visible feedback.
+   - Favorite / Want to visit / Visited / Loved buttons turn active when saved.
+   - Active buttons show a checkmark label and stay active after the user signs back in, based on the user’s Supabase saved rows.
+
+2. New saved-site filters.
+   - Filters panel now includes: Favorited, Want to visit, Visited, Loved.
+   - The filters are personal and require sign-in.
+   - Multiple selected saved-site filters are OR logic: a site appears if it matches any selected saved flag.
+
+3. Password visibility control.
+   - Added an eye button next to the Supabase password field.
+   - Clicking it toggles password visibility while typing.
+
+4. Admin mode.
+   - Primary owner admin email is tpoirier@nmu.edu.
+   - When signed in as an admin, an Admin panel appears under Options.
+   - Admins can elevate an existing Supabase Auth user to admin by email.
+   - Target user must already have a Supabase Auth account.
+
+5. Admin hidden-site moderation.
+   - Admins see an Admin tools panel inside site details/popups.
+   - Admins can mark a site “Hidden from normal users” or unhide it.
+   - Hidden sites remain visible to admins with an “Admin hidden” notice.
+   - Hidden sites are suppressed from normal marker display and normal search once the Supabase hidden-site flags load.
+
+Files changed:
+- app.js
+- index.html
+- version.js
+- boondocking_map_supabase_phase1_schema.sql
+- PROJECT_RULES.md
+- Project Rules.md
+
+Files unchanged but included because they remain required for this feature set:
+- config.js
+
+SQL / Supabase requirement:
+- YES, run boondocking_map_supabase_phase1_schema.sql again after installing this package.
+- v23.1.88 adds:
+  - primary admin bootstrap for tpoirier@nmu.edu
+  - admin role elevation RPC
+  - boondocking_map_site_admin_flags table
+  - RLS policies/grants for hidden-site flags
+
+Caveat:
+- This is still a static GitHub Pages app. “Hidden” suppresses sites from the normal app UI, but it is not true data secrecy because static source data is still delivered to the browser. True admin-only campsite data would require moving the protected data behind a server-side or Supabase query path that non-admins cannot read.

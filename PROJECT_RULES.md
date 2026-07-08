@@ -101,6 +101,11 @@ Community / Supabase feature implementation rule:
 When Tod approves a Supabase-backed feature, a complete package must include both sides of the feature: the database migration/schema file and the site UI/app code that uses it. Do not deliver only SQL unless Tod explicitly asks for database-only work. For this shared Supabase project, all table names, functions, policies, and storage buckets must use a project-specific `boondocking_map_` prefix unless Tod approves another prefix. Public user contributions must not directly edit campsite source records; favorites, comments, and correction submissions must write to separate community/moderation tables. Corrections go to Tod/moderation first. No user-submitted comment, favorite, rating, or correction should silently alter official campsite data.
 
 
+Community preference UI / saved-site filter rule:
+
+Signed-in user preference actions such as Favorite, Want to visit, Visited, and Loved must give immediate visible feedback in the site-detail popup and must render the persisted state again after the user signs in later. Preference buttons should use clear selected styling plus accessible pressed state, not just a temporary toast. User-specific saved-site filters must filter against the signed-in user's persisted preference rows, use OR behavior when multiple saved-site filters are selected, and fail soft when the user is signed out or community tables are unavailable. Toggling a preference while a saved-site filter is active must refresh the visible marker set so the map does not show stale results.
+
+
 Worker-handoff delivery rule:
 
 When the project is in active state-building mode and the next useful step is worker research, provide worker handoffs to keep workers busy. Do not wait for Tod to separately ask for worker handoffs. Provide individual `.txt` files by default. Do not create a ZIP unless Tod asks for one. Do not include a supervisor handoff unless Tod explicitly asks for a supervisor handoff or reconciliation assignment.
@@ -1203,3 +1208,12 @@ All geography-locked workers must complete four required phases before returning
 A real overnight camping opportunity may not disappear because coordinates are difficult. If official/operator/community proof supports overnight camping, the worker must either return an active candidate using an honest exact or medium-confidence address/map-supported coordinate, or create a durable lead with the exact acquisition path. Address-based coordinate rescue is mandatory for ordinary public/operator campgrounds before downgrading to lead-only.
 
 Workers must self-QA before returning. The self-QA must cover public discovery, deep discovery, non-modern/area-rule checks, address-coordinate rescue attempts, final action for every discovered site, reject traps, and 3–5 control searches for missed campground names. If the worker’s own self-QA fails, they must keep working or clearly identify the external blocker. Supervisor acceptance QA still applies.
+
+Admin / community moderation rule:
+
+Admin/community features that depend on Supabase must ship with matching app code and matching SQL/schema updates in the same revision unless Tod explicitly asks for only one side. The app, `config.js`, and SQL must agree on schema/table/function names. Admin role changes must not allow ordinary users to self-promote. The primary owner admin email is `tpoirier@nmu.edu` unless Tod changes it.
+
+Hidden-site admin moderation rule:
+
+A static GitHub Pages map can hide flagged sites from the normal user interface, but that is UI moderation, not true secrecy, because static data files are still delivered to the browser. If Tod needs genuinely admin-only campsite data, that data must be moved behind a server-side or Supabase query path that non-admin users cannot read. Until then, “Hidden” means suppressed from normal map display, search, and marker filtering, while still available to admins in the app.
+

@@ -14,6 +14,11 @@
 -- config.js schema 'camping' with public.* tables causes PostgREST schema-cache
 -- errors like: Could not find the table 'camping.boondocking_map_site_favorites'.
 
+-- v23.1.88 note: adds admin bootstrap/elevation tools and admin hidden-site flags.
+-- Primary admin bootstrap email: tpoirier@nmu.edu.
+-- Re-run this migration after installing v23.1.88 so the admin RPC and hidden-site
+-- flag table exist before using the new Admin panel.
+
 create extension if not exists pgcrypto;
 
 create table if not exists public.boondocking_map_profiles (
@@ -56,6 +61,46 @@ as $$
     where p.id = check_user_id
       and p.role = 'admin'
   );
+$$;
+
+-- Admin helper: elevate an existing Supabase Auth user by email.
+-- The target user must already have created an account in Supabase Auth.
+create or replace function public.boondocking_map_set_user_role_by_email(target_email text, target_role text default 'admin')
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  requester uuid := auth.uid();
+  normalized_email text := lower(trim(coalesce(target_email,'')));
+  safe_role text := lower(trim(coalesce(target_role,'admin')));
+  user_rec record;
+begin
+  if requester is null or not public.boondocking_map_is_admin(requester) then
+    raise exception 'Only boondocking map admins can change user roles';
+  end if;
+  if normalized_email = '' then
+    raise exception 'Target email is required';
+  end if;
+  if safe_role not in ('user','moderator','admin') then
+    raise exception 'Invalid boondocking map role: %', safe_role;
+  end if;
+  select id, email into user_rec
+  from auth.users
+  where lower(email) = normalized_email
+  limit 1;
+  if user_rec.id is null then
+    return jsonb_build_object('ok', false, 'message', 'No Supabase Auth user found for ' || normalized_email || '. They must create an account first.');
+  end if;
+  insert into public.boondocking_map_profiles (id, display_name, role)
+  values (user_rec.id, user_rec.email, safe_role)
+  on conflict (id) do update
+    set role = excluded.role,
+        display_name = coalesce(public.boondocking_map_profiles.display_name, excluded.display_name),
+        updated_at = now();
+  return jsonb_build_object('ok', true, 'email', user_rec.email, 'role', safe_role, 'message', user_rec.email || ' is now ' || safe_role || '.');
+end;
 $$;
 
 -- Trigger helper for timestamps.
@@ -274,6 +319,65 @@ for update
 using (public.boondocking_map_is_staff(auth.uid()))
 with check (public.boondocking_map_is_staff(auth.uid()));
 
+
+create table if not exists public.boondocking_map_site_admin_flags (
+  id uuid primary key default gen_random_uuid(),
+  site_id text not null unique,
+  site_name text,
+  state_code text,
+  layer text,
+  latitude double precision,
+  longitude double precision,
+  hidden_admin_only boolean not null default false,
+  hidden_reason text,
+  hidden_by uuid references auth.users(id) on delete set null,
+  hidden_at timestamptz,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.boondocking_map_site_admin_flags add column if not exists site_name text;
+alter table public.boondocking_map_site_admin_flags add column if not exists state_code text;
+alter table public.boondocking_map_site_admin_flags add column if not exists layer text;
+alter table public.boondocking_map_site_admin_flags add column if not exists latitude double precision;
+alter table public.boondocking_map_site_admin_flags add column if not exists longitude double precision;
+alter table public.boondocking_map_site_admin_flags add column if not exists hidden_admin_only boolean not null default false;
+alter table public.boondocking_map_site_admin_flags add column if not exists hidden_reason text;
+alter table public.boondocking_map_site_admin_flags add column if not exists hidden_by uuid references auth.users(id) on delete set null;
+alter table public.boondocking_map_site_admin_flags add column if not exists hidden_at timestamptz;
+alter table public.boondocking_map_site_admin_flags add column if not exists created_at timestamptz not null default now();
+alter table public.boondocking_map_site_admin_flags add column if not exists updated_at timestamptz not null default now();
+
+create index if not exists boondocking_map_site_admin_flags_site_idx on public.boondocking_map_site_admin_flags(site_id);
+create index if not exists boondocking_map_site_admin_flags_hidden_idx on public.boondocking_map_site_admin_flags(hidden_admin_only);
+
+alter table public.boondocking_map_site_admin_flags enable row level security;
+
+drop policy if exists boondocking_map_site_admin_flags_select_hidden_or_admin on public.boondocking_map_site_admin_flags;
+create policy boondocking_map_site_admin_flags_select_hidden_or_admin
+on public.boondocking_map_site_admin_flags
+for select
+using (hidden_admin_only = true or public.boondocking_map_is_admin(auth.uid()));
+
+drop policy if exists boondocking_map_site_admin_flags_insert_admin on public.boondocking_map_site_admin_flags;
+create policy boondocking_map_site_admin_flags_insert_admin
+on public.boondocking_map_site_admin_flags
+for insert
+with check (public.boondocking_map_is_admin(auth.uid()));
+
+drop policy if exists boondocking_map_site_admin_flags_update_admin on public.boondocking_map_site_admin_flags;
+create policy boondocking_map_site_admin_flags_update_admin
+on public.boondocking_map_site_admin_flags
+for update
+using (public.boondocking_map_is_admin(auth.uid()))
+with check (public.boondocking_map_is_admin(auth.uid()));
+
+drop policy if exists boondocking_map_site_admin_flags_delete_admin on public.boondocking_map_site_admin_flags;
+create policy boondocking_map_site_admin_flags_delete_admin
+on public.boondocking_map_site_admin_flags
+for delete
+using (public.boondocking_map_is_admin(auth.uid()));
+
 -- Timestamp triggers.
 drop trigger if exists boondocking_map_profiles_set_updated_at on public.boondocking_map_profiles;
 create trigger boondocking_map_profiles_set_updated_at
@@ -295,6 +399,11 @@ create trigger boondocking_map_site_corrections_set_updated_at
 before update on public.boondocking_map_site_corrections
 for each row execute function public.boondocking_map_set_updated_at();
 
+drop trigger if exists boondocking_map_site_admin_flags_set_updated_at on public.boondocking_map_site_admin_flags;
+create trigger boondocking_map_site_admin_flags_set_updated_at
+before update on public.boondocking_map_site_admin_flags
+for each row execute function public.boondocking_map_set_updated_at();
+
 -- Auto-create a profile for new auth users.
 create or replace function public.boondocking_map_handle_new_user()
 returns trigger
@@ -304,7 +413,7 @@ set search_path = public
 as $$
 begin
   insert into public.boondocking_map_profiles (id, display_name, role)
-  values (new.id, coalesce(new.raw_user_meta_data->>'display_name', new.email), 'user')
+  values (new.id, coalesce(new.raw_user_meta_data->>'display_name', new.email), case when lower(new.email) = 'tpoirier@nmu.edu' then 'admin' else 'user' end)
   on conflict (id) do nothing;
   return new;
 end;
@@ -317,9 +426,16 @@ for each row execute function public.boondocking_map_handle_new_user();
 
 -- Backfill profiles for existing auth users. Safe/idempotent.
 insert into public.boondocking_map_profiles (id, display_name, role)
-select u.id, coalesce(u.raw_user_meta_data->>'display_name', u.email), 'user'
+select u.id, coalesce(u.raw_user_meta_data->>'display_name', u.email), case when lower(u.email) = 'tpoirier@nmu.edu' then 'admin' else 'user' end
 from auth.users u
 on conflict (id) do nothing;
+
+-- Primary admin bootstrap. Safe/idempotent; preserves the requested owner admin.
+update public.boondocking_map_profiles p
+set role = 'admin', updated_at = now()
+from auth.users u
+where p.id = u.id
+  and lower(u.email) = 'tpoirier@nmu.edu';
 
 -- Explicit grants for Supabase REST access. RLS still controls row visibility/write access.
 grant usage on schema public to anon, authenticated;
@@ -327,5 +443,8 @@ grant select, insert, update, delete on public.boondocking_map_site_favorites to
 grant select, insert, update on public.boondocking_map_site_comments to anon, authenticated;
 grant select, insert, update on public.boondocking_map_site_corrections to authenticated;
 grant select, insert, update on public.boondocking_map_profiles to authenticated;
+grant select on public.boondocking_map_site_admin_flags to anon, authenticated;
+grant insert, update, delete on public.boondocking_map_site_admin_flags to authenticated;
 grant execute on function public.boondocking_map_is_staff(uuid) to anon, authenticated;
 grant execute on function public.boondocking_map_is_admin(uuid) to authenticated;
+grant execute on function public.boondocking_map_set_user_role_by_email(text, text) to authenticated;
