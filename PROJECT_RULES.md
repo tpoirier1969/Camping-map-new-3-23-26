@@ -81,6 +81,11 @@ Marker zoom-redraw rule:
 
 Marker icon size may change visually with zoom using CSS scaling, but ordinary zooming in/out must not rebuild every individual site marker. Do not include continuous icon-scale values in the marker render cache key. Redraw markers on filter/search/state/layer/data changes and when the app crosses the clustering boundary below/above zoom 4.5, but not for normal zoom-scale changes above the clustering threshold. Clustering may rebuild when entering or leaving clustered mode.
 
+
+Viewport pan-render performance rule:
+
+For multi-state, all-state, or high-record-count views, panning the map should not clear and redraw every visible marker on every normal pan. The map should keep a padded render window, avoid rebuilding while the current viewport remains inside that padded window, and when the padded window must shift, prefer incremental marker add/remove behavior over full marker-layer teardown when the data/filter/search/layer cache has not changed and the app is above the low-zoom clustering threshold. Full rebuilds are still appropriate when filters, layer selection, state selection, search, route/nearby mode, hidden/admin visibility, community filters, underlying data, or cluster-mode threshold changes require them.
+
 Version-shell packaging rule:
 
 Whenever a package increments the visible app version or changes script/cache-busting behavior, include `index.html` in the changed/new-files ZIP even if the script references appear unchanged. The app shell controls the version.js/app.js cache keys and visible runtime flag; omitting `index.html` can let a deployed page continue to display an older version flag after version.js/version.json were updated. QA must verify that the current visible version appears only in `version.js` among runtime files. `version.json`, `index.html`, and `app.js` must not hardcode the current visible version. Historical data provenance strings such as `dataCorrectionVersion` may retain old revision numbers when they describe when a record was originally added.
@@ -184,6 +189,19 @@ Workers must act like a bulldog, not a mouse. Resolving the seed list is not eno
 An assignment return fails supervisor acceptance if Tod can spend about 90 seconds on Google Maps or a basic web search and find obvious campgrounds inside the assigned geography that the worker did not mention.
 
 Every geography-locked worker must complete an obvious-miss sweep before closing. The closeout must say what geography was swept, what search terms or source families were checked, what additional campground names were found beyond the seed list, and how each was handled.
+
+
+Public-discovery matrix / place-anchor search rule:
+
+For every geography-locked discovery, Bulldog, new-state, revisit, or closeout worker assignment, public discovery must be systematic and tabulated, not casual. Workers must build a place-anchor list for their geographic lock and search camping terms against that list before closeout.
+
+Mandatory Tier 1 anchors include: counties, cities, villages, towns, townships where relevant, major unincorporated communities, major highways/corridors, state/national forests, state parks, county parks/forests, major recreation areas, major lakes/reservoirs, major rivers, and named public-land units inside the assignment area. Tier 2 anchors include named bays, islands, trailheads, boat launches, water trails, ORV/equestrian systems, fishing lakes with public access, dam/flowage areas, wildlife areas, scenic roads, and map-visible communities when the geography suggests they matter. Tier 3 minor creeks, tiny lakes, road names, and historic/local names should be searched only when clues point to camping there; do not waste the assignment brute-forcing every tiny feature with no camping signal.
+
+Workers must combine anchors with ordinary public search terms such as `camping`, `campground`, `campgrounds near`, `RV park`, `primitive camping`, `dispersed camping`, `boondocking`, `free camping`, `canoe campsite`, `boat-in camping`, `hike-in camping`, `horse camp`, `ORV camping`, and corridor terms such as `US 2 campground [town]` or `[highway] camping [county]` when relevant. They must also use map/POI discovery where accessible, including ordinary web search, map-result snippets, operator websites, reservation pages, official agency pages, county/township/city pages, OpenStreetMap-style campground/campsite/caravan tags where practical, and community/app/social sources as leads under the community proof rule.
+
+The worker return must include a public-discovery matrix or ledger summarizing: anchor searched, search terms/source families used, discovered result names, whether each result is already on the map, evidence/source trail, coordinate basis, and final action. Every public-facing overnight opportunity found through ordinary searches must be reconciled as ADD CANDIDATE, DUPLICATE / ALREADY PRESENT, MOVE / CORRECTION CANDIDATE, NEEDS VERIFICATION, LEAD ONLY, COMMUNITY REPORTED CANDIDATE, EXTERNAL ACCESS REQUIRED, UNATTAINABLE FROM ACCESSIBLE OFFICIAL SOURCES, or REJECT / DO NOT IMPORT.
+
+Closeout fails if a signed, mapped, website-having, reservation-listed, map-POI-visible, or otherwise ordinary-camper-discoverable campground/campsite/RV park/camping opportunity inside the assigned geography is missing from the discovery ledger. Official proof remains required for ordinary campground final import whenever possible, but discovery must begin wider than official agency pages.
 
 Campground addresses are coordinate evidence. A campground street address, official city/county park campground address, reservation-system address, or operator campground/RV-park address may support a medium-confidence active coordinate when map/imagery/parcel/reservation spot-checking shows that the point lands on the campground, campground loop, RV area, camping area, or relevant campground entrance. Exact official GIS or official campsite coordinates are still better, but an honest campground address is not the same as no coordinate.
 

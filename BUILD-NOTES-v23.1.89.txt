@@ -1,0 +1,44 @@
+Boondocking & Camping Maps v23.1.89 — viewport pan stabilization + South Dakota worker handoff prep
+
+Target/baseline
+- Built from the local v23.1.88 fixed-files package: boondocking_maps_v23.1.88_community_preferences_admin_tools_FIXED_FILES.zip.
+- This is a changed-files package, not a full repo package.
+- No campsite data was added, edited, removed, or reclassified in this app/UI package.
+
+Why this revision exists
+- Tod reported that the viewport/window rendering behavior was only partially working: panning the map appeared to redraw every site instead of keeping the padded render window and adding/removing markers as the window moves.
+- Tod also approved the new South Dakota worker test using a mandatory public-discovery/place-anchor matrix.
+
+App changes
+- Added more robust numeric bounds containment checks for viewport render-window refresh decisions.
+- Replaced the direct moveend/zoomend full-render trigger with a debounced requestMarkerRenderIfNeeded() path.
+- Added incremental viewport marker maintenance when only the padded render window changes:
+  - keep existing marker groups when the data/filter/search/layer cache is unchanged;
+  - remove markers for sites that left the new padded render window;
+  - add markers for sites newly entering the padded render window;
+  - avoid full marker-layer teardown on ordinary panning above the low-zoom clustering threshold.
+- Full marker rebuilds still occur when state selection, filters, layers, search, route/nearby mode, hidden/admin visibility, community filters, underlying site data, or cluster-mode threshold changes require them.
+
+Rules updates
+- Added a Public-discovery matrix / place-anchor search rule to PROJECT_RULES.md and Project Rules.md.
+- Added a Viewport pan-render performance rule to PROJECT_RULES.md and Project Rules.md.
+
+Version/package changes
+- Bumped version.js to v23.1.89.
+- Included index.html per version-shell/cache-busting discipline.
+
+Changed/included files
+- app.js
+- version.js
+- PROJECT_RULES.md
+- Project Rules.md
+- index.html
+- BUILD-NOTES-v23.1.89.txt
+- QA-v23.1.89.txt
+
+Not changed
+- config.js
+- Supabase SQL
+- data files
+- site records
+- leads/rejected ledgers

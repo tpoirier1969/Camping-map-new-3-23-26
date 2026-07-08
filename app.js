@@ -95,18 +95,61 @@ function makeViewportRenderBounds(){
   if(!b||!b.isValid||!b.isValid())return null;
   return b.pad?b.pad(VIEWPORT_RENDER_PADDING_RATIO):b;
 }
+function boundsEdges(bounds){
+  if(!bounds)return null;
+  const sw=bounds.getSouthWest&&bounds.getSouthWest();
+  const ne=bounds.getNorthEast&&bounds.getNorthEast();
+  if(!sw||!ne)return null;
+  const south=Number(sw.lat),west=Number(sw.lng),north=Number(ne.lat),east=Number(ne.lng);
+  if(![south,west,north,east].every(Number.isFinite))return null;
+  return {south,west,north,east};
+}
+function boundsContainsLatLngNumeric(bounds,lat,lng){
+  const e=boundsEdges(bounds);
+  if(!e||!Number.isFinite(lat)||!Number.isFinite(lng))return false;
+  const tol=.0000001;
+  const latOk=lat>=e.south-tol&&lat<=e.north+tol;
+  const lngOk=e.west<=e.east
+    ? lng>=e.west-tol&&lng<=e.east+tol
+    : (lng>=e.west-tol||lng<=e.east+tol);
+  return latOk&&lngOk;
+}
+function renderWindowContainsView(renderBounds,viewBounds){
+  if(!renderBounds||!viewBounds)return false;
+  const sw=viewBounds.getSouthWest&&viewBounds.getSouthWest();
+  const ne=viewBounds.getNorthEast&&viewBounds.getNorthEast();
+  if(!sw||!ne)return false;
+  return boundsContainsLatLngNumeric(renderBounds,Number(sw.lat),Number(sw.lng))&&boundsContainsLatLngNumeric(renderBounds,Number(ne.lat),Number(ne.lng));
+}
 function siteWithinViewportRenderWindow(site){
   if(!app.renderWindowMode||!app.renderWindowBounds)return true;
   const lat=Number(site&&site.lat),lng=Number(site&&site.lng);
-  if(!Number.isFinite(lat)||!Number.isFinite(lng))return false;
-  return app.renderWindowBounds.contains([lat,lng]);
+  return boundsContainsLatLngNumeric(app.renderWindowBounds,lat,lng);
 }
 function renderWindowNeedsRefresh(){
   if(!shouldUseViewportRenderWindow())return false;
   if(!app.renderWindowBounds)return true;
   const view=app.map&&app.map.getBounds&&app.map.getBounds();
   if(!view||!view.isValid||!view.isValid())return false;
-  return !(app.renderWindowBounds.contains(view.getSouthWest())&&app.renderWindowBounds.contains(view.getNorthEast()));
+  return !renderWindowContainsView(app.renderWindowBounds,view);
+}
+function requestMarkerRenderIfNeeded(reason){
+  if(!app.markerLayerCacheKey)return;
+  const cacheChanged=app.markerLayerCacheKey!==markerCacheKey();
+  const viewportChanged=renderWindowNeedsRefresh();
+  if(!cacheChanged&&!viewportChanged)return;
+  clearTimeout(requestMarkerRenderIfNeeded.timer);
+  requestMarkerRenderIfNeeded.timer=setTimeout(()=>{
+    if(!app.markerLayerCacheKey)return;
+    const freshCacheChanged=app.markerLayerCacheKey!==markerCacheKey();
+    const freshViewportChanged=renderWindowNeedsRefresh();
+    if(!freshCacheChanged&&!freshViewportChanged)return;
+    if(freshViewportChanged&&!freshCacheChanged&&app.renderWindowMode&&!currentMarkerClusterMode()){
+      refreshMarkersForViewportWindow(false);
+      return;
+    }
+    renderMarkers(false);
+  },70);
 }
 function shouldAutoFitStateSelection(codes,options={}){
   if(options.forceFit)return true;
@@ -129,7 +172,7 @@ function currentBasemapKey(){
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
-const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,currentProfile:null,adminHiddenSites:{},adminFlagsAvailable:true,adminFlagsError:null,communityAvailable:true,communityError:null,communityUnavailableNotified:false,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
+const app={map:null,markerLayer:null,markerGroups:{},markerIndex:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,currentProfile:null,adminHiddenSites:{},adminFlagsAvailable:true,adminFlagsError:null,communityAvailable:true,communityError:null,communityUnavailableNotified:false,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
 window.__campingApp=app;
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function readJson(key,fb){try{return JSON.parse(localStorage.getItem(key)||'null')??fb}catch{return fb}}
@@ -198,7 +241,7 @@ function migrateLayerKeys(rawLayers){
 function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false},community:{is_favorite:false,want_to_visit:false,visited:false,loved:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
-function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; updateMarkerZoomScale(); app.map.on('zoom zoomend',()=>{updateMarkerZoomScale();}); app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();if(app.markerLayerCacheKey&&(app.markerLayerCacheKey!==markerCacheKey()||renderWindowNeedsRefresh()))renderMarkers(false);});}
+function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; updateMarkerZoomScale(); app.map.on('zoom zoomend',()=>{updateMarkerZoomScale();}); app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();requestMarkerRenderIfNeeded('map move/zoom');});}
 function retireLegacyLayerControls(){
   // v23.1.30+: layer controls live in the map legend. Remove stale cached layer home panels
   // so duplicate IDs do not steal handlers, but keep the v23.1.72 phone Layers shortcut.
@@ -2358,6 +2401,7 @@ function markerCacheKey(){
 function resetMarkerLayerGroups(){
   if(app.markerLayer)app.markerLayer.clearLayers();
   app.markerGroups={};
+  app.markerIndex={};
   app.markerBaseCandidates=[];
   app.shownSites=[];
 }
@@ -2451,6 +2495,84 @@ function toggleMarkerLayer(key,on){
   if(app.renderDiagnostics&&app.renderDiagnostics.last){app.renderDiagnostics.last.visibleExpectedByLayer=visibleRenderExpectedCounts(app.renderDiagnostics.last.expectedByLayer||{});}
   updateMarkerReadouts((app.markerBaseCandidates||[]).length,'Showing');
 }
+
+function markerCandidateSetForCurrentRenderWindow(){
+  const layerDiagnostics=loadedSiteLayerDiagnostics();
+  const candidates=[];
+  const expectedByLayer={};
+  (app.sites||[]).forEach(site=>{
+    if(sitePassesNonLayerFilters(site)){
+      const key=layerKey(site);
+      if(MAP_LAYER_KEYS.has(key))incrementLayerCount(expectedByLayer,key);
+      candidates.push(site);
+    }
+  });
+  return {layerDiagnostics,candidates,expectedByLayer};
+}
+function addSingleSiteMarker(site,markerErrors,boundsOut){
+  const key=layerKey(site);
+  if(!MAP_LAYER_KEYS.has(key))return false;
+  const lat=Number(site&&site.lat),lng=Number(site&&site.lng);
+  if(!Number.isFinite(lat)||!Number.isFinite(lng)){
+    if(markerErrors)markerErrors.push(`${site&&site.name||site&&site.id||'Unnamed site'}: invalid coordinates`);
+    return false;
+  }
+  try{
+    const marker=L.marker([lat,lng],{icon:markerIcon(site)}).bindPopup(popup(site));
+    if(!app.markerGroups[key])app.markerGroups[key]=L.layerGroup();
+    app.markerGroups[key].addLayer(marker);
+    if(app.markerIndex)app.markerIndex[siteStableId(site)]={marker,site,layerKey:key};
+    if(boundsOut)boundsOut.push([lat,lng]);
+    return true;
+  }catch(err){
+    if(markerErrors)markerErrors.push(`${site&&site.name||site&&site.id||'Unnamed site'}: ${err&&err.message?err.message:String(err)}`);
+    console.error('Marker render failed for site',site,err);
+    return false;
+  }
+}
+function removeSingleSiteMarker(site){
+  const id=siteStableId(site);
+  const entry=app.markerIndex&&app.markerIndex[id];
+  if(!entry)return;
+  const group=app.markerGroups&&app.markerGroups[entry.layerKey];
+  if(group&&entry.marker)group.removeLayer(entry.marker);
+  delete app.markerIndex[id];
+}
+function refreshMarkersForViewportWindow(fit=false){
+  if(!shouldUseViewportRenderWindow()||currentMarkerClusterMode()){
+    renderMarkers(fit);
+    return;
+  }
+  const nextBounds=makeViewportRenderBounds();
+  if(!nextBounds){renderMarkers(fit);return;}
+  app.renderWindowMode=true;
+  app.renderWindowBounds=nextBounds;
+  const snapshot=markerCandidateSetForCurrentRenderWindow();
+  const candidates=snapshot.candidates;
+  const desiredIds=new Set(candidates.map(siteStableId));
+  (app.markerBaseCandidates||[]).forEach(site=>{if(!desiredIds.has(siteStableId(site)))removeSingleSiteMarker(site);});
+  const existingIds=new Set(Object.keys(app.markerIndex||{}));
+  const markerErrors=[];
+  candidates.forEach(site=>{const id=siteStableId(site); if(!existingIds.has(id)){addSingleSiteMarker(site,markerErrors,null); existingIds.add(id);}});
+  app.markerBaseCandidates=candidates;
+  syncEnabledMarkerGroups();
+  const validation=validateMarkerRender(snapshot.expectedByLayer,markerErrors);
+  app.renderDiagnostics.last=Object.assign(app.renderDiagnostics.last||{}, {loadedLayerCounts:snapshot.layerDiagnostics.raw,drawableByLayer:snapshot.layerDiagnostics.drawable,filteredOutByLayer:snapshot.layerDiagnostics.filteredOut,invalidCoordsByLayer:snapshot.layerDiagnostics.invalidCoords,expectedByLayer:snapshot.expectedByLayer,visibleExpectedByLayer:visibleRenderExpectedCounts(snapshot.expectedByLayer),drawnByLayer:validation.drawnByLayer,mismatches:validation.mismatches,markerErrors:validation.markerErrors,attempt:0,clusterMode:false,clusterCount:0,viewportIncremental:true});
+  if(!validation.ok){
+    const detail=validation.mismatches.concat(validation.markerErrors.slice(0,4)).join(' · ');
+    const msg=`Map render warning after pan update: ${detail}`;
+    setRenderIntegrityStatus(msg,true);
+    notify(msg,9000);
+  }else{
+    const visible=visibleRenderExpectedCounts(snapshot.expectedByLayer);
+    const visibleText=layerCountText(visible,enabledMapLayerKeys());
+    setRenderIntegrityStatus(visibleText?`Render check OK: ${visibleText}`:'Render check OK.',false);
+  }
+  app.markerLayerCacheKey=markerCacheKey();
+  updateMarkerReadouts(candidates.length,'Showing');
+  if(fit)fitCurrentPreferredView();
+}
+
 async function renderMarkers(fit,attempt=0){
   updateMarkerZoomScale();
   const renderId=++app.renderSeq;
@@ -2459,16 +2581,10 @@ async function renderMarkers(fit,attempt=0){
   app.renderWindowBounds=app.renderWindowMode?makeViewportRenderBounds():null;
   setRenderIntegrityStatus('',false);
   if(app.areaOutline){app.areaOutline.registry={}; (app.areaOutline.standalone||[]).forEach(site=>{app.areaOutline.registry[site.id]=site;});}
-  const layerDiagnostics=loadedSiteLayerDiagnostics();
-  const candidates=[];
-  const expectedByLayer={};
-  app.sites.forEach(site=>{
-    if(sitePassesNonLayerFilters(site)){
-      const key=layerKey(site);
-      if(MAP_LAYER_KEYS.has(key))incrementLayerCount(expectedByLayer,key);
-      candidates.push(site);
-    }
-  });
+  const markerSnapshot=markerCandidateSetForCurrentRenderWindow();
+  const layerDiagnostics=markerSnapshot.layerDiagnostics;
+  const candidates=markerSnapshot.candidates;
+  const expectedByLayer=markerSnapshot.expectedByLayer;
   app.markerBaseCandidates=candidates;
   const clusterMode=currentMarkerClusterMode();
   app.renderDiagnostics.last={loadedLayerCounts:layerDiagnostics.raw,drawableByLayer:layerDiagnostics.drawable,filteredOutByLayer:layerDiagnostics.filteredOut,invalidCoordsByLayer:layerDiagnostics.invalidCoords,expectedByLayer,visibleExpectedByLayer:visibleRenderExpectedCounts(expectedByLayer),drawnByLayer:{},mismatches:[],markerErrors:[],attempt,clusterMode,clusterCount:0};
@@ -2534,10 +2650,7 @@ async function renderMarkers(fit,attempt=0){
         if(!MAP_LAYER_KEYS.has(key))continue;
         const lat=Number(site.lat),lng=Number(site.lng);
         if(!Number.isFinite(lat)||!Number.isFinite(lng)){markerErrors.push(`${site&&site.name||site&&site.id||'Unnamed site'}: invalid coordinates`);continue;}
-        const m=L.marker([lat,lng],{icon:markerIcon(site)}).bindPopup(popup(site));
-        if(!app.markerGroups[key])app.markerGroups[key]=L.layerGroup();
-        app.markerGroups[key].addLayer(m);
-        bounds.push([lat,lng]);
+        addSingleSiteMarker(site,markerErrors,bounds);
       }catch(err){
         markerErrors.push(`${site&&site.name||site&&site.id||'Unnamed site'}: ${err&&err.message?err.message:String(err)}`);
         console.error('Marker render failed for site',site,err);

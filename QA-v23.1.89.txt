@@ -1,0 +1,26 @@
+QA — Boondocking & Camping Maps v23.1.89
+
+Checks run
+1. Syntax
+   - node --check app.js: PASS
+   - node --check version.js: PASS
+
+2. Startup-path simulation
+   - Ran local VM startup harness using qa_v89 full-file staging with v23.1.89 app.js/version.js/index/rules overlaid.
+   - Result: bootStarted=true, bootOk=true, startupFail=null, runtime version v23.1.89.
+
+3. Version-source discipline
+   - version.js is the runtime source of v23.1.89.
+   - version.json was not changed.
+   - index.html included for deployment/cache-busting discipline.
+
+4. Viewport-render code audit
+   - moveend/zoomend no longer directly calls renderMarkers(false).
+   - moveend/zoomend now calls requestMarkerRenderIfNeeded().
+   - requestMarkerRenderIfNeeded() returns without redraw when marker cache is unchanged and the current view remains inside the padded render window.
+   - when only viewport window changed and the app is above clustering threshold, refreshMarkersForViewportWindow() does incremental add/remove instead of full marker-layer teardown.
+   - full renderMarkers() remains available for cache changes and low-zoom cluster transitions.
+
+Known limitations
+- The VM harness verifies startup and static code paths, not real browser frame-by-frame map pan performance.
+- Real Leaflet/browser testing should still be done after install: select multiple states/all map, pan within the padded window, then pan far enough to force a window shift. Expected behavior: no full redraw on normal small pans; incremental marker update when the padded render window shifts; full redraw only on real data/filter/search/layer/cluster changes.
