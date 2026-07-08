@@ -1,0 +1,59 @@
+Boondocking & Camping Maps v23.1.86 QA
+Date: 2026-07-08
+
+Baseline / target
+- Source inspected: current uploaded live model / current repo-equivalent package identified as v23.1.85.
+- PROJECT_RULES.md reviewed before changes.
+- No campsite/state data edits were made.
+
+Fix audit
+- Confirmed missing helper cluster in app.js:
+  - siteWithinTextSearch(site) was called by sitePassesNonLayerFilters() and runSearch(), but was not defined.
+  - clearSearchMode() was called by setEnabledStates(), the Clear Search button, and runSearch(), but was not defined.
+  - clearSearchRevealMarker() was called by showSearchResult() and runPlaceSearch(), but was not defined.
+  - searchResultHiddenByLayer() was called by showSearchResult() and renderSearchResults(), but was not defined.
+- Added real helper implementations for those four functions.
+
+Syntax checks
+- PASS: node --check app.js
+- PASS: node --check version.js
+- PASS: node --check data/states-manifest.js
+
+Static undefined-helper scan
+- PASS: raw startup/search/helper scan found no remaining actionable undefined function candidates.
+- Ignored false positives came from CSS/template text tokens, not executable helper calls.
+
+Version-source scan
+- PASS: v23.1.86 appears only in version.js among runtime identity files checked:
+  - app.js
+  - index.html
+  - version.json
+  - version.js
+- version.json remains non-authoritative metadata pointing to version.js.
+
+Startup-path simulation
+- PASS: local VM startup harness using current app.js, version.js, manifest, pending/leads/rejected files, local state data, and Leaflet/Supabase stubs.
+- Result:
+  - bootStarted: true
+  - bootOk: true
+  - startupFail: null
+  - runtime version: v23.1.86
+  - default MI data loaded: 636 sites in app.sites
+  - 634 drawable/shown sites reached in the simulated render path
+  - filterStatus: No filters active.
+
+Search-path simulation
+- PASS: local VM invoked Search button and Clear Search button after startup.
+- Result:
+  - searchError: null
+  - clearSearchError: null
+  - no startupFail triggered
+
+Browser/live test
+- Not performed against deployed GitHub Pages.
+- A direct local Chromium page load was not used as final proof because the local environment could hang/fail on external CDN dependencies. The VM harness intentionally stubbed Leaflet/Supabase to test the app startup logic and helper references without depending on external network.
+
+Supabase
+- No Supabase SQL/schema change in this package.
+- Existing Supabase setup requirements remain whatever they were in v23.1.85.
+- App startup must still fall back gracefully when Supabase config or tables are unavailable.

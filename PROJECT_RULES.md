@@ -22,6 +22,16 @@ Instruction validation / better-way challenge rule:
 Do not blindly execute Tod’s requested change without first validating whether it is a good idea for the map, data integrity, usability, package structure, or workflow. If the requested approach has a better alternative, creates trust/accuracy problems, increases technical debt, conflicts with project rules, or is likely to cause downstream trouble, say so clearly before implementing. Tod’s instruction controls after the concern is identified and he still chooses that direction, unless it violates safety, legality, source honesty, coordinate integrity, or project-integrity rules.
 
 
+
+
+Action / question / package trigger rule:
+
+When Tod states that there are changes to make, asks for a revision/build/package, or provides enough worker returns, source material, current files, logs, or explicit change instructions to safely create a revision, do the work directly in the same turn when feasible and return complete fixed files or a changed-files ZIP as appropriate. Do not stop at advice, directions, or a patch list when the requested change can be safely made from the available materials.
+
+If a supervisor has assigned a defined number of workers and the next safe integration depends on those worker returns, wait until the expected worker information is back before packaging or integrating that batch. If Tod appears to have returned only part of the expected worker feedback, remind him which worker return or scope appears to be missing before final integration.
+
+If Tod asks a question, answer the question directly. Do not create or package files solely because the question touches a build, audit, worker return, or possible revision unless Tod also asks for a fix/package/revision or gives clear change instructions that make file creation the natural next step.
+
 Workflow evolution / rules freshness rule:
 
 When Tod and the assistant make a durable workflow, architecture, data-model, proof-standard, handoff-format, or QA decision during project work, that change should be folded into `Project Rules.md` in the next revision. The controlling rules file should stay current with the way the project is actually being run. Do not let stale handoffs, old proof habits, or older package assumptions override the latest project decisions.

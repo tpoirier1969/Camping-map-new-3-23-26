@@ -2184,6 +2184,36 @@ app.hideAreaOutlineByKey=hideAreaOutlineByKey;
 app.clearAreaOutline=clearAreaOutline;
 
 function siteText(site){return Object.values(site||{}).filter(v=>typeof v==='string'||typeof v==='number').join(' ').toLowerCase()}
+function siteWithinTextSearch(site){
+  const search=app&&app.search?app.search:{};
+  if(!search.active)return true;
+  const raw=String(search.query||'').trim().toLowerCase();
+  if(!raw)return true;
+  const text=siteText(site);
+  const terms=raw.split(/\s+/).filter(Boolean);
+  return terms.every(term=>text.includes(term));
+}
+function clearSearchRevealMarker(){
+  if(!app||!app.searchRevealMarker)return;
+  try{
+    if(app.map&&app.map.removeLayer)app.map.removeLayer(app.searchRevealMarker);
+    else if(app.searchRevealMarker.remove)app.searchRevealMarker.remove();
+  }catch(_e){}
+  app.searchRevealMarker=null;
+}
+function clearSearchMode(refresh=true){
+  if(app)app.search={active:false,query:''};
+  clearSearchRevealMarker();
+  const input=$('searchInput'); if(input)input.value='';
+  const out=$('searchResults'); if(out)out.innerHTML='';
+  if(refresh&&app&&app.map&&app.markerLayer)renderMarkers(false);
+}
+function searchResultHiddenByLayer(site){
+  const key=layerKey(site);
+  if(!MAP_LAYER_KEYS.has(key))return true;
+  if(app.restOnlyMode)return key!=='rest-truck';
+  return !app.enabledLayers.has(key);
+}
 function waterFilterText(site){
   return [
     site.waterfront,site.waterFront,site.waterfrontType,site.waterFrontType,site.shoreline,site.shore,
