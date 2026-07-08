@@ -1,0 +1,24 @@
+QA NOTES — v23.1.90
+
+Checks run
+- Parsed data/states/SD.js as JSON payload after edits.
+- Parsed data/leads.js as JSON payload after edits.
+- Confirmed no duplicate IDs in SD.js after appended records.
+- Confirmed v23.1.90 appears only in version.js among app.js/index.html/version.js runtime identity files, except historical/build-note/rule text.
+- Ran node --check app.js.
+- Ran node --check version.js.
+- Ran node --check data/states/SD.js.
+- Ran node --check data/leads.js.
+
+Counts
+- New active SD records appended: 19
+- SD coordinate/correction leads appended: 96
+- SD corrections applied: 2
+
+Active import gate
+- Active records were limited to worker ADD CANDIDATE rows with numeric coordinates.
+- NEEDS VERIFICATION, coordinate-rescue, and no-coordinate rows were kept out of active SD.js and preserved in leads.
+
+Limitations
+- Browser map rendering was not exercised in a real browser in this container.
+- Exact aerial/map POI coordinate validation was not performed for medium-confidence third-party coordinates. Those records include caution/coordinate-basis language.

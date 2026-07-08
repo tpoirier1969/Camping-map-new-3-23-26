@@ -1,0 +1,53 @@
+BUILD NOTES — v23.1.90
+
+Purpose
+- Integrate South Dakota public-discovery worker returns without creating fake coordinates.
+- Add UP recheck worker handoffs using the improved place-anchor/public-discovery method.
+- Fold the import-gate improvement into PROJECT_RULES.md / Project Rules.md.
+
+Files changed
+- app.js — carried forward from v23.1.89 viewport pan incremental build.
+- version.js — bumped to v23.1.90.
+- index.html — included per version-shell packaging rule.
+- PROJECT_RULES.md and Project Rules.md — updated with public-discovery import-gate rule.
+- data/states/SD.js — appended 19 active South Dakota records and applied limited safe corrections.
+- data/leads.js — appended 96 South Dakota coordinate/correction rescue leads for discovered sites that lacked safe active coordinates or needed further verification.
+
+Active SD additions by runtime layer
+{
+  "modern": 5,
+  "private": 11,
+  "rustic": 2,
+  "boondocking": 1
+}
+
+Held SD leads by likely layer
+{
+  "Rustic / Primitive": 7,
+  "Modern Campgrounds": 33,
+  "Private Campgrounds": 53,
+  "Needs Verification": 1,
+  "Boat / Backpack": 1,
+  "Boondocking / Dispersed": 1
+}
+
+Corrections applied
+- Hidden Valley Campground legacy row moved to Needs Verification/name corrected
+- Flandreau City Park Campground layer corrected Rustic/Primitive -> Modern
+
+Integration standard
+- Numeric coordinate + source-backed proof was required for active import.
+- Worker-discovered rows without honest coordinates were preserved as data/leads.js records instead of being turned into lake-center, park-center, office, city hall, or road-proxy pins.
+- Existing duplicates already active in the app were not re-added.
+
+Known caveats
+- Many South Dakota worker discoveries are real public-facing campgrounds, but still need coordinate rescue before they should become visible active map pins.
+- No Google Maps/OSM bulk coordinate extraction was run in this integration package.
+- This package does not resolve every worker reject row; it focuses on active adds, durable leads, rules, and UP handoffs.
+
+UP handoffs created separately
+- Worker_1_UP_Western_Keweenaw_Public_Discovery_v23.1.90.txt
+- Worker_2_UP_North_Central_Marquette_Alger_Public_Discovery_v23.1.90.txt
+- Worker_3_UP_Southern_US2_Garden_Fairport_Public_Discovery_v23.1.90.txt
+- Worker_4_UP_East_Central_Schoolcraft_Luce_Mackinac_Public_Discovery_v23.1.90.txt
+- Worker_5_UP_Eastern_Chippewa_Islands_Water_Access_Public_Discovery_v23.1.90.txt

@@ -1235,3 +1235,11 @@ Hidden-site admin moderation rule:
 
 A static GitHub Pages map can hide flagged sites from the normal user interface, but that is UI moderation, not true secrecy, because static data files are still delivered to the browser. If Tod needs genuinely admin-only campsite data, that data must be moved behind a server-side or Supabase query path that non-admin users cannot read. Until then, “Hidden” means suppressed from normal map display, search, and marker filtering, while still available to admins in the app.
 
+South Dakota public-discovery import-gate rule:
+
+A successful public-discovery worker pass may find many real campground names before it finds safe coordinates. Integration must not turn that discovery success into fake pins. When integrating worker returns, import active records only when the worker/supervisor has an honest campground, camping-area, campground-loop, official/operator GPS, reservation-system, map-verified address, or clearly labeled Area/rule coordinate. All other discovered overnight opportunities must be preserved in `data/leads.js` with the exact blocker and next acquisition path.
+
+Every worker active/correction candidate should be written as if a supervisor might import it directly: final action, proposed layer, name, county/region, lat/lng or explicit coordinate blocker, coordinate basis/confidence, source proof, duplicate check, and popup wording. If coordinates are missing, the row must still be a durable lead; missing coordinates are not a reason to omit a real campground from project memory.
+
+For broad state rechecks, use a two-step acceptance pattern: first, public-discovery/place-anchor matrix workers find and reconcile the obvious and non-obvious names; second, coordinate-rescue/import workers convert the held names into active records only after exact or honest campground-level coordinates are proven. Do not demand that one worker do every search, every source proof, every coordinate rescue, and every import decision for a large geography if that causes lower accuracy.
+
