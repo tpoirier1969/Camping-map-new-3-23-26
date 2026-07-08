@@ -91,6 +91,11 @@ Startup-path QA rule:
 
 Any build that changes `app.js`, `index.html`, controls, filters, search, marker rendering, account/community UI, Supabase integration, or startup/loading logic must run a startup-path audit before delivery. At minimum, verify JavaScript syntax and confirm that every function called during boot/control-building exists. Do not ship a package that only passes `node --check` if a browser/runtime startup path can still fail from a missing function such as a renamed or deleted UI helper. Startup failures must be fixed at the root cause, not hidden with empty no-op stubs unless the missing call is genuinely obsolete and intentionally removed.
 
+Supabase schema-alignment rule:
+
+The app's `config.js` Supabase `schema` value must match the schema where the installed SQL actually creates the app tables. The current Phase 1 community SQL creates project-prefixed `boondocking_map_*` tables in `public`, so `config.js` must use `schema: 'public'` unless the SQL is intentionally rewritten to create and grant the same tables/functions in another exposed Supabase API schema. Do not ship a package where the app client points at `camping.*` but the SQL creates `public.*`, or vice versa. Package QA for Supabase/community changes must compare `config.js`, the SQL schema qualifiers, and every `.from(...)` table name. Community tools must also fail soft: if a Supabase table is missing, blocked by RLS, or unavailable from the schema cache, the map must still load and campsite popups must not show raw database errors to normal users.
+
+
 Community / Supabase feature implementation rule:
 
 When Tod approves a Supabase-backed feature, a complete package must include both sides of the feature: the database migration/schema file and the site UI/app code that uses it. Do not deliver only SQL unless Tod explicitly asks for database-only work. For this shared Supabase project, all table names, functions, policies, and storage buckets must use a project-specific `boondocking_map_` prefix unless Tod approves another prefix. Public user contributions must not directly edit campsite source records; favorites, comments, and correction submissions must write to separate community/moderation tables. Corrections go to Tod/moderation first. No user-submitted comment, favorite, rating, or correction should silently alter official campsite data.

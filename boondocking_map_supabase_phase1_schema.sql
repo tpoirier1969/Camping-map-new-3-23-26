@@ -7,6 +7,13 @@
 --   * Only project-prefixed policies/triggers/functions are dropped/replaced.
 --   * User profile updates do NOT allow users to promote themselves to moderator/admin.
 
+-- v23.1.87 note: this migration intentionally creates the boondocking_map_*
+-- community tables in the public schema. The deployed app config.js must use
+-- schema: 'public' unless this SQL is deliberately rewritten to create the
+-- same tables in another exposed Supabase API schema. A mismatch such as
+-- config.js schema 'camping' with public.* tables causes PostgREST schema-cache
+-- errors like: Could not find the table 'camping.boondocking_map_site_favorites'.
+
 create extension if not exists pgcrypto;
 
 create table if not exists public.boondocking_map_profiles (

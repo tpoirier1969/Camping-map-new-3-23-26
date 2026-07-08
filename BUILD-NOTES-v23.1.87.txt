@@ -1,0 +1,32 @@
+Boondocking & Camping Maps v23.1.87 — Supabase schema/community guard stabilization
+
+Purpose
+- Fix the live v23.1.86 user-facing Supabase error: PostgREST was looking for camping.boondocking_map_site_favorites while the provided SAFE v2 SQL creates public.boondocking_map_site_favorites.
+- Keep the map usable even if community tables are missing, blocked, or out of schema-cache sync.
+
+Changed files
+- app.js
+- version.js
+- config.js
+- boondocking_map_supabase_phase1_schema.sql
+- PROJECT_RULES.md
+- Project Rules.md
+- index.html
+- BUILD-NOTES-v23.1.87.txt
+- QA-v23.1.87.txt
+
+Fixes
+- Changed config.js from schema: 'camping' to schema: 'public' to match the existing SAFE v2 community SQL.
+- Added community-table failure guards so favorites, comments, corrections, and profile upsert fail soft instead of showing raw Supabase/PostgREST table errors.
+- Added a community unavailable state so popups explain the issue calmly rather than continuing to offer buttons that will fail.
+- Updated the community SQL header with the schema-alignment warning.
+- Added a PROJECT_RULES.md / Project Rules.md rule requiring future Supabase packages to compare config.js schema, SQL schema qualifiers, and app table names before packaging.
+
+SQL/install note
+- If you already ran boondocking_map_supabase_phase1_schema.sql from v23.1.84/v23.1.85, you should not need to rerun it for this fix. The app was pointing at the wrong schema.
+- Use the included SQL only if you need a clean/reference copy or if the tables were never actually created.
+
+Not changed
+- No campsite data changed.
+- No Supabase bucket was added.
+- No GitHub commit was made.

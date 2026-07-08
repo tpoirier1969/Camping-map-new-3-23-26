@@ -128,7 +128,7 @@ function currentBasemapKey(){
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
-const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
+const app={map:null,markerLayer:null,markerGroups:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,communityAvailable:true,communityError:null,communityUnavailableNotified:false,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
 window.__campingApp=app;
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function readJson(key,fb){try{return JSON.parse(localStorage.getItem(key)||'null')??fb}catch{return fb}}
@@ -2545,8 +2545,24 @@ function siteByStableId(id){
   return (app.sites||[]).find(s=>siteStableId(s)===key)||null;
 }
 function domSafeId(value){return String(value||'').replace(/[^a-zA-Z0-9_-]/g,'_').slice(0,80)||'site';}
-function signedInCommunity(){return !!(app.supabase&&app.session&&app.session.user&&app.session.user.id);}
+function signedInCommunity(){return !!(app.supabase&&app.session&&app.session.user&&app.session.user.id&&app.communityAvailable!==false);}
 function favoriteState(siteId){return app.communityFavorites&&app.communityFavorites[siteId]?app.communityFavorites[siteId]:{};}
+function supabaseErrorText(err){return String((err&&(err.message||err.details||err.hint||err.code))||err||'');}
+function isMissingSupabaseTableError(err){
+  const text=supabaseErrorText(err).toLowerCase();
+  return text.includes('schema cache')||text.includes('could not find the table')||text.includes('relation')&&text.includes('does not exist')||text.includes('pgrst205')||text.includes('pgrst106');
+}
+function communityUnavailableMessage(){return app.communityError||'Community tools are unavailable because the Supabase community tables are not reachable. The map still works.';}
+function markCommunityUnavailable(err){
+  app.communityAvailable=false;
+  app.communityError='Community tools are temporarily unavailable. Check that config.js uses the same Supabase schema as the installed boondocking_map_* tables.';
+  console.warn('Community Supabase tables unavailable',err);
+  updateAuthUi();
+  if(!app.communityUnavailableNotified){
+    app.communityUnavailableNotified=true;
+    notify(communityUnavailableMessage(),7000);
+  }
+}
 function communityActionLabel(state,key,label){return state&&state[key]?'✓ '+label:label;}
 function siteSnapshot(site){
   if(!site)return {};
@@ -2567,7 +2583,8 @@ function communityHtml(site){
   const comments=app.communityComments&&app.communityComments[siteId];
   const commentRows=Array.isArray(comments)?comments.slice(0,3).map(c=>`<div class="community-comment"><strong>${esc(c.display_name||c.user_email||'Camper')}</strong><span>${esc(c.comment_text||'')}</span></div>`).join(''):'';
   if(!signed){
-    return `<div class="community-panel"><div class="community-title">Community tools</div><div class="mini-note">Sign in under Options to favorite sites, comment, or send corrections to Tod.</div></div>`;
+    const msg=app.communityAvailable===false?communityUnavailableMessage():'Sign in under Options to favorite sites, comment, or send corrections to Tod.';
+    return `<div class="community-panel"><div class="community-title">Community tools</div><div class="mini-note">${esc(msg)}</div></div>`;
   }
   return `<div class="community-panel" data-community-site="${esc(siteId)}"><div class="community-title">Community tools</div><div class="popup-actions community-actions"><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','is_favorite')">${esc(communityActionLabel(fav,'is_favorite','Favorite'))}</button><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','want_to_visit')">${esc(communityActionLabel(fav,'want_to_visit','Want to visit'))}</button><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','visited')">${esc(communityActionLabel(fav,'visited','Visited'))}</button><button class="secondary" type="button" onclick="window.__campingApp.toggleSiteFavorite&&window.__campingApp.toggleSiteFavorite('${jsString(siteId)}','loved')">${esc(communityActionLabel(fav,'loved','Loved'))}</button></div><div class="community-comment-box"><textarea id="comment_${safe}" placeholder="Add a public comment for this site"></textarea><div class="popup-actions"><button class="secondary" type="button" onclick="window.__campingApp.submitSiteComment&&window.__campingApp.submitSiteComment('${jsString(siteId)}')">Post comment</button><button class="secondary" type="button" onclick="window.__campingApp.loadSiteComments&&window.__campingApp.loadSiteComments('${jsString(siteId)}',true)">Load comments</button></div><div id="comments_${safe}" class="community-comments">${commentRows||'<div class="mini-note">Comments load when requested.</div>'}</div></div><div class="popup-actions"><button class="primary" type="button" onclick="window.__campingApp.openCorrectionModal&&window.__campingApp.openCorrectionModal('${jsString(siteId)}')">Suggest a correction</button></div></div>`;
 }
@@ -2576,7 +2593,7 @@ async function ensureCommunityProfile(){
   const user=app.session.user;
   try{
     await app.supabase.from(COMMUNITY_TABLES.profiles).upsert({id:user.id,display_name:user.email||'Camper'},{onConflict:'id'});
-  }catch(e){console.warn('Profile upsert failed',e);}
+  }catch(e){if(isMissingSupabaseTableError(e))markCommunityUnavailable(e);else console.warn('Profile upsert failed',e);}
 }
 async function refreshCommunityFavorites(){
   if(!signedInCommunity()){app.communityFavorites={};return;}
@@ -2586,7 +2603,11 @@ async function refreshCommunityFavorites(){
     const map={};
     (data||[]).forEach(r=>{map[String(r.site_id)]={is_favorite:!!r.is_favorite,want_to_visit:!!r.want_to_visit,visited:!!r.visited,loved:!!r.loved,private_note:r.private_note||''};});
     app.communityFavorites=map;
-  }catch(e){console.warn('Could not load favorites',e);notify('Could not load favorites. Check Supabase table/RLS setup.',6000);}
+  }catch(e){
+    if(isMissingSupabaseTableError(e)){markCommunityUnavailable(e);return;}
+    console.warn('Could not load favorites',e);
+    notify('Could not load favorites. Check Supabase table/RLS setup.',6000);
+  }
 }
 async function toggleSiteFavorite(siteId,field){
   if(!signedInCommunity())return notify('Sign in first.');
@@ -2601,9 +2622,14 @@ async function toggleSiteFavorite(siteId,field){
     if(error)throw error;
     app.communityFavorites[String(siteId)]={...current,[field]:next};
     notify(next?'Saved.':'Updated.');
-  }catch(e){console.error(e);notify(e&&e.message?e.message:'Could not update favorite.',7000);}
+  }catch(e){
+    console.error(e);
+    if(isMissingSupabaseTableError(e)){markCommunityUnavailable(e);return;}
+    notify(e&&e.message?e.message:'Could not update favorite.',7000);
+  }
 }
 async function loadSiteComments(siteId,openToast=false){
+  if(app.communityAvailable===false)return notify(communityUnavailableMessage(),6000);
   if(!app.supabase)return notify('Supabase config is not loaded.');
   const safe=domSafeId(siteId);
   const out=$('comments_'+safe);
@@ -2614,7 +2640,12 @@ async function loadSiteComments(siteId,openToast=false){
     app.communityComments[String(siteId)]=data||[];
     if(out)out.innerHTML=(data&&data.length)?data.map(c=>`<div class="community-comment"><strong>${esc(c.display_name||'Camper')}</strong><span>${esc(c.comment_text||'')}</span><em>${esc((c.created_at||'').slice(0,10))}</em></div>`).join(''):'<div class="mini-note">No comments yet.</div>';
     if(openToast)notify('Comments loaded.');
-  }catch(e){console.error(e);if(out)out.innerHTML='<div class="mini-note">Could not load comments.</div>';notify(e&&e.message?e.message:'Could not load comments.',7000);}
+  }catch(e){
+    console.error(e);
+    if(isMissingSupabaseTableError(e)){markCommunityUnavailable(e);if(out)out.innerHTML=`<div class="mini-note">${esc(communityUnavailableMessage())}</div>`;return;}
+    if(out)out.innerHTML='<div class="mini-note">Could not load comments.</div>';
+    notify(e&&e.message?e.message:'Could not load comments.',7000);
+  }
 }
 async function submitSiteComment(siteId){
   if(!signedInCommunity())return notify('Sign in first.');
@@ -2631,9 +2662,14 @@ async function submitSiteComment(siteId){
     if(box)box.value='';
     await loadSiteComments(siteId,false);
     notify('Comment posted.');
-  }catch(e){console.error(e);notify(e&&e.message?e.message:'Could not post comment.',7000);}
+  }catch(e){
+    console.error(e);
+    if(isMissingSupabaseTableError(e)){markCommunityUnavailable(e);return;}
+    notify(e&&e.message?e.message:'Could not post comment.',7000);
+  }
 }
 function openCorrectionModal(siteId){
+  if(app.communityAvailable===false)return notify(communityUnavailableMessage(),6000);
   if(!signedInCommunity())return notify('Sign in first.');
   const site=siteByStableId(siteId);
   app.communityCurrentSite=site;
@@ -2645,6 +2681,7 @@ function openCorrectionModal(siteId){
   openModal('correctionModal');
 }
 async function submitCorrection(){
+  if(app.communityAvailable===false)return notify(communityUnavailableMessage(),6000);
   if(!signedInCommunity())return notify('Sign in first.');
   const site=app.communityCurrentSite;
   const snap=siteSnapshot(site);
@@ -2660,7 +2697,11 @@ async function submitCorrection(){
     if(error)throw error;
     closeModal('correctionModal');
     notify('Correction sent to Tod.');
-  }catch(e){console.error(e);notify(e&&e.message?e.message:'Could not submit correction.',7000);}
+  }catch(e){
+    console.error(e);
+    if(isMissingSupabaseTableError(e)){markCommunityUnavailable(e);return;}
+    notify(e&&e.message?e.message:'Could not submit correction.',7000);
+  }
 }
 
 function popup(s){
@@ -2871,6 +2912,7 @@ function updateAuthUi(message){
   if(status){
     if(message)status.textContent=message;
     else if(!app.supabase)status.textContent='Static fallback mode.';
+    else if(app.session&&app.communityAvailable===false)status.textContent=`Signed in as ${sessionEmail()}. Community tools unavailable; check Supabase schema/table setup.`;
     else if(app.session)status.textContent=`Signed in as ${sessionEmail()}.`;
     else status.textContent='Supabase ready; not signed in.';
   }
@@ -2902,7 +2944,11 @@ function validateAuthFields(){
 async function initSupabase(){
   const cfg=window.CAMPING_SUPABASE_CONFIG;
   if(!cfg||!window.supabase){updateAuthUi('Static fallback mode.');return}
-  app.supabase=window.supabase.createClient(cfg.url,cfg.anonKey,{db:{schema:cfg.schema||'public'}});
+  const dbSchema=String(cfg.schema||'public').trim()||'public';
+  app.communityAvailable=true;
+  app.communityError=null;
+  app.communityUnavailableNotified=false;
+  app.supabase=window.supabase.createClient(cfg.url,cfg.anonKey,{db:{schema:dbSchema}});
   app.supabase.auth.onAuthStateChange((_event,session)=>{app.session=session||null;updateAuthUi();if(app.session){ensureCommunityProfile();refreshSavedRoutes(false);refreshCommunityFavorites();}else{app.savedRoutes=[];app.savedRoutesLoaded=false;app.savedRoutesError=null;app.communityFavorites={};app.communityComments={};renderSavedRoutes();}});
   const {data}=await app.supabase.auth.getSession();
   app.session=data.session||null;

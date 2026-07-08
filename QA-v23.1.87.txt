@@ -1,0 +1,35 @@
+QA v23.1.87 — Supabase schema/community guard stabilization
+
+Checks run
+1. Confirmed the live screenshot error was schema mismatch driven:
+   - app config.js used schema: 'camping'
+   - SAFE v2 community SQL created public.boondocking_map_site_favorites and the other public.boondocking_map_* tables
+   - Supabase/PostgREST therefore looked for camping.boondocking_map_site_favorites and failed.
+
+2. Static syntax checks
+   - node --check app.js: PASS
+   - node --check version.js: PASS
+
+3. Runtime-style VM checks
+   - Confirmed app boot can initialize with config.js schema public.
+   - Confirmed community missing-table errors are caught by isMissingSupabaseTableError().
+   - VM guard test called app.toggleSiteFavorite() against a fake PGRST205 schema-cache error and confirmed app.communityAvailable becomes false.
+   - Confirmed markCommunityUnavailable() sets app.communityAvailable=false and avoids repeat raw table-error toasts.
+   - Confirmed signedInCommunity() returns false when community tools are unavailable, so popup buttons are replaced by explanatory text after a detected table/schema failure.
+
+4. Version-source check
+   - v23.1.87 appears in version.js.
+   - version.json was not changed and remains non-authoritative metadata in the repo/package baseline.
+   - index.html included because package version/cache-busting behavior depends on it.
+
+5. Supabase/package consistency check
+   - config.js schema: public
+   - boondocking_map_supabase_phase1_schema.sql creates public.boondocking_map_profiles
+   - boondocking_map_supabase_phase1_schema.sql creates public.boondocking_map_site_favorites
+   - boondocking_map_supabase_phase1_schema.sql creates public.boondocking_map_site_comments
+   - boondocking_map_supabase_phase1_schema.sql creates public.boondocking_map_site_corrections
+   - app.js COMMUNITY_TABLES uses the same project-prefixed table names without a conflicting schema prefix.
+
+Limitations
+- I could not directly query Tod's Supabase database from this environment, so I verified the local app/config/SQL mismatch and guarded the failure path.
+- Browser-live smoke test was inferred from static/runtime simulation, not from controlling Tod's deployed browser session.
