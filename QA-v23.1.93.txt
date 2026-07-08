@@ -1,0 +1,25 @@
+Tod's Boondocking & Camping Maps — QA v23.1.93
+
+Lead rows after edit: 2048
+New lead rows added: 15
+Rules copies identical: True
+No active state data file changed from v23.1.92 in this package except copied unchanged files present in base. v23.1.93 package includes no data/states/*.js changes.
+Worker target summary:
+- Worker 1: 164 targets; states=['MI', 'WI', 'WI/MI']; high=113; coordinate-ish=137
+- Worker 2: 241 targets; states=['MN']; high=182; coordinate-ish=188
+- Worker 3: 202 targets; states=['ND', 'SD']; high=139; coordinate-ish=170
+- Worker 4: 221 targets; states=['NE']; high=140; coordinate-ish=207
+- Worker 5: 237 targets; states=['IA', 'KS']; high=227; coordinate-ish=229
+- Worker 6: 191 targets; states=['MO', 'AR']; high=130; coordinate-ish=168
+- Worker 7: 198 targets; states=['IN', 'IL']; high=87; coordinate-ish=157
+- Worker 8: 354 targets; states=['OH', 'PA']; high=269; coordinate-ish=274
+- Worker 9: 157 targets; states=['KY', 'TN', 'KY/TN']; high=108; coordinate-ish=137
+- Worker 10: 83 targets; states=['MT', 'CO', 'WY', '']; high=39; coordinate-ish=54
+
+Syntax / parse QA:
+- node --check version.js: PASSED
+- node --check data/leads.js: PASSED
+- Parsed data/leads.js JSON payload: PASSED
+- Duplicate lead IDs: 0
+- Rules copies identical: PASSED
+- Fixed-files ZIP integrity: PASSED

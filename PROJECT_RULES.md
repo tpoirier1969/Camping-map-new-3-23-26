@@ -36,6 +36,36 @@ Workflow evolution / rules freshness rule:
 
 When Tod and the assistant make a durable workflow, architecture, data-model, proof-standard, handoff-format, or QA decision during project work, that change should be folded into `Project Rules.md` in the next revision. The controlling rules file should stay current with the way the project is actually being run. Do not let stale handoffs, old proof habits, or older package assumptions override the latest project decisions.
 
+No unrequested app changes / narrow package rule:
+
+A package revision must be the narrowest safe change that solves the requested problem. Do not bundle unrelated improvements, refactors, styling changes, data reorganizations, behavior changes, or visual changes just because files are already open.
+
+Do not make random, opportunistic, aesthetic, structural, behavioral, or cleanup changes to the app unless Tod explicitly requested them or they are directly necessary to complete the assigned fix. This includes layer icon designs, layer colors, layer names, marker styling, popup wording patterns, search/filter behavior, state-selection behavior, map startup/viewport behavior, file organization, schema/status names, data field names, CSS/layout changes, UI button behavior, cache/version logic, and manifest/script references.
+
+If a change seems useful but was not requested, pause and ask Tod before making it. Do not quietly include it in a package. Do not suppress useful observations: clearly raise the improvement, risk, inconsistency, bug, or better approach as a recommendation and ask whether Tod wants it included. Good wording: “I noticed a possible improvement: ____. It is not required for this assignment. Do you want it included, or should I leave it for later?” Bad behavior: making the change silently and mentioning it afterward.
+
+If a change is necessary as part of the requested task, state it clearly in the changelog and explain why it was necessary.
+
+Lead-ledger accountability rule:
+
+No worker lead may vanish. Every named lead or actionable source-system lead returned by a worker must end in exactly one of these places during supervisor/integration review:
+
+* active data, if it is import-ready with an honest coordinate/layer/source basis;
+* `data/leads.js`, if it is real or plausibly real but still needs coordinate rescue, source proof, policy review, live-map/OSM/GIS extraction, agency contact, current-status confirmation, duplicate review, or geometry work;
+* `data/rejected.js`, if it is disproved, private/nonpublic, event-only without public camping policy, day-use-only, a boat launch/marina/trailhead/beach/scenic point trap, a duplicate that should not be reopened, or otherwise not a public overnight opportunity;
+* a written supervisor note explaining why the row was intentionally not retained.
+
+Do not assume a lead is unimportant because it lacks coordinates. A real overnight opportunity with weak coordinates is a lead, not trash. Conversely, do not keep generic non-actionable chatter forever: if a “lead” is not named or source-system actionable, either convert it into a specific acquisition task or write why it was not retained.
+
+Coordinate-rescue completion rule:
+
+“Coordinate rescue needed” is not a valid final answer until the worker has attempted the basic rescue ladder that the assignment allows. For ordinary official/operator campgrounds, workers must try exact name search, official/operator address search, Google Maps/Apple Maps/Bing Maps/OSM when available, reservation-system maps, official GIS/PDF maps, and aerial/parcel spot-checking before claiming the coordinate is blocked. The return must state what was checked. A missing printed latitude/longitude on the official page is not by itself a blocker.
+
+Existing-active-record review rule:
+
+If an existing active app record appears wrong, weak, closed, duplicated, misplaced, mislayered, or supported only by a proxy coordinate, workers must put it in a separate `EXISTING ACTIVE RECORD REVIEW` table instead of mixing it with new add candidates. The table must include existing name/ID if known, current app problem, proof found, recommended action, confidence, and what proof is still needed.
+
+
 
 
 UI marker-density / zoom-scaling / clustering rule:

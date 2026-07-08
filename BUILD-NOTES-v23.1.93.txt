@@ -1,0 +1,53 @@
+Tod's Boondocking & Camping Maps — v23.1.93
+
+Purpose:
+- Backfill missed durable leads from accessible worker returns/build notes.
+- Add the new no-unrequested-app-changes, no-lead-vanish, and stronger coordinate-rescue completion language to the rules.
+- Provide lead address/coordinate rescue handoffs and per-worker target files for all currently represented lead states, not Michigan only.
+
+Changed files:
+- version.js
+- index.html (included unchanged for fixed-file/version shell consistency)
+- PROJECT_RULES.md
+- Project Rules.md
+- data/leads.js
+- BUILD-NOTES-v23.1.93.txt
+- QA-v23.1.93.txt
+- 10 worker handoff .txt files
+- lead-rescue-targets-v23.1.93/*.json and *.csv target lists
+
+Lead ledger:
+- Starting data/leads.js rows: 2033
+- Added missed/backfilled lead rows: 15
+- Final data/leads.js rows: 2048
+
+Backfilled lead IDs:
+- mi-v23193-lead-southern-up-county-state-forest-dispersed-opportunities
+- mi-v23193-lead-keweenaw-hipcamp-small-private-hosted-sites
+- mi-v23193-lead-western-up-live-map-poi-sweep
+- mi-v23193-lead-western-up-osm-overpass-campground-extract
+- mi-v23193-lead-chippewa-islands-live-map-osm-poi-sweep
+- mi-v23193-lead-schoolcraft-luce-mackinac-live-map-poi-sweep
+- mi-v23193-lead-schoolcraft-luce-mackinac-osm-overpass-extract
+- mi-v23193-lead-hiawatha-recreationgov-usfs-facility-geometry-schoolcraft-mackinac
+- mi-v23193-lead-loons-nest-resort-camping-status
+- mi-v23193-lead-sunset-pines-resort-camping-status
+- mi-v23193-lead-gitche-gumee-rv-newberry-transient-status
+- mi-v23193-lead-luce-west-mackinac-fairgrounds-camping
+- mi-v23193-lead-michigamme-township-campground-name-cleanup
+- mt-v23193-lead-smith-river-putin-takeout-blocker-sites
+- mn-v23193-lead-river-bend-resort-rv-park-wrong-state-coordinate
+
+Worker handoff strategy:
+- Worker 1: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['MI', 'WI', 'WI/MI']: 164 targets (113 high priority, 137 coordinate-ish)
+- Worker 2: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['MN']: 241 targets (182 high priority, 188 coordinate-ish)
+- Worker 3: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['ND', 'SD']: 202 targets (139 high priority, 170 coordinate-ish)
+- Worker 4: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['NE']: 221 targets (140 high priority, 207 coordinate-ish)
+- Worker 5: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['IA', 'KS']: 237 targets (227 high priority, 229 coordinate-ish)
+- Worker 6: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['MO', 'AR']: 191 targets (130 high priority, 168 coordinate-ish)
+- Worker 7: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['IN', 'IL']: 198 targets (87 high priority, 157 coordinate-ish)
+- Worker 8: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['OH', 'PA']: 354 targets (269 high priority, 274 coordinate-ish)
+- Worker 9: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['KY', 'TN', 'KY/TN']: 157 targets (108 high priority, 137 coordinate-ish)
+- Worker 10: Montana / Colorado / Wyoming / blank-state cleanup lead rescue / states ['MT', 'CO', 'WY', '']: 83 targets (39 high priority, 54 coordinate-ish)
+
+No active campsite records changed in this revision. No app logic, icon, color, CSS, marker, filter, map behavior, manifest, or data/state active record files were changed.
