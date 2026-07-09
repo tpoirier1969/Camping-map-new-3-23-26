@@ -1799,6 +1799,66 @@ function usfsBoundaryQueryUrl(bounds,zoom){
   });
 }
 function normalizeUsfsNoteKey(value){return String(value||'').toUpperCase().replace(/&/g,'AND').replace(/[^A-Z0-9]+/g,' ').replace(/\s+/g,' ').trim();}
+function normalizeAreaUnitKey(value){
+  let text=String(value||'');
+  try{text=text.normalize('NFKD');}catch(_e){}
+  text=text
+    .replace(/[\u2019']/g,'')
+    .replace(/&/g,' AND ')
+    .replace(/\s+[\u2014\u2013]\s+.*$/,' ')
+    .toUpperCase()
+    .replace(/\bUNITED STATES\b|\bUSDA\b|\bU\.?S\.?\b/g,' ')
+    .replace(/\bFOREST SERVICE\b|\bUSFS\b/g,' ')
+    .replace(/\bADMINISTRATIVE\b|\bBOUNDAR(?:Y|IES)\b|\bPLANNING\b|\bCONTEXT\b|\bOUTLINE\b/g,' ')
+    .replace(/\bNATIONAL\s+FORESTS?\b|\bNATL\s+FORESTS?\b|\bNF\b/g,' ')
+    .replace(/\bOWNED\b|\bSURFACE\b|\bOWNERSHIP\b|\bBASIC\b|\bEDW\b|\bINHOLDINGS?\b|\bNON\s*FS\b|\bNON\s*FOREST\b/g,' ')
+    .replace(/\bDISPERSED\b|\bCAMPING\b|\bRULE\b|\bAREA\b/g,' ')
+    .replace(/[^A-Z0-9]+/g,' ')
+    .replace(/\s+/g,' ')
+    .trim();
+  return text;
+}
+function forestNameFromWhere(value){
+  const text=String(value||'');
+  const m=text.match(/forestname\s+LIKE\s+['"]%([^%'"]+)%['"]/i);
+  return m?m[1]:'';
+}
+function areaOutlineIdentityText(site){
+  const outline=areaOutlineCandidate(site)||{};
+  return [site&&site.id,site&&site.name,site&&site.category,site&&site.opportunityKind,outline.name,outline.category,outline.sourceName,outline.sourceUrl,outline.layerUrl,outline.where,outline.queryUrl].map(v=>String(v||'')).join(' ');
+}
+function areaOutlineSearchText(site){
+  const outline=areaOutlineCandidate(site)||{};
+  return [areaOutlineIdentityText(site),outline.boundaryRepresents,outline.caution,outline.rulesSummary].map(v=>String(v||'')).join(' ');
+}
+function forestUnitKeyForAreaOutline(site){
+  const outline=areaOutlineCandidate(site)||{};
+  const fromWhere=forestNameFromWhere(outline.where)||forestNameFromWhere(outline.queryUrl);
+  const candidate=fromWhere||site&&site.name||outline.name||outline.boundaryRepresents||'';
+  const key=normalizeAreaUnitKey(candidate);
+  return key&&key.length>=3?key:'';
+}
+function forestUnitKeyForUsfsFeature(feature){
+  const props=(feature&&feature.properties)||{};
+  const key=normalizeAreaUnitKey(props.FORESTNAME||props.ADMINFORESTID||props.FORESTORGCODE||'');
+  return key&&key.length>=3?key:'';
+}
+function isNonFsInholdingOutline(site){
+  const text=areaOutlineIdentityText(site).toLowerCase();
+  return /non[-\s]?fs|non[-\s]?forest|inholding|ownerclassification\s*<>|ownerclassification[^a-z0-9]+not/i.test(text);
+}
+function isUsfsOwnedSurfaceOutline(site){
+  const text=areaOutlineIdentityText(site).toLowerCase();
+  return /usfs[-\s]?owned\s+surface|ownerclassification\s*=\s*['"]?usda\s+forest\s+service|basic\s+ownership/i.test(text)&&!isNonFsInholdingOutline(site);
+}
+function isBroadFederalForestBoundaryOutline(site){
+  const text=areaOutlineSearchText(site).toLowerCase();
+  return /national\s+forest/.test(text)&&(/administrative\s+forest\s+boundar|administrative\s+boundary|edw\s+administrative\s+forest\s+boundar|forestsystemboundaries/i.test(text));
+}
+function isNationalForestAreaOutline(site){
+  const text=areaOutlineIdentityText(site).toLowerCase();
+  return /national\s+forest|forestname\s+like/.test(text)&&!/wilderness/.test(text);
+}
 function usfsBoundaryNotes(){return (window.USFS_BOUNDARY_NOTES&&typeof window.USFS_BOUNDARY_NOTES==='object')?window.USFS_BOUNDARY_NOTES:{generic:{}};}
 function usfsBoundaryNoteForProps(props){
   const notes=usfsBoundaryNotes();
@@ -1850,8 +1910,8 @@ function drawUsfsBoundaryGeoJson(geo){
   const rawFeatures=geo&&geo.type==='FeatureCollection'?geo.features:(geo&&geo.type==='Feature'?[geo]:[]);
   const detailed=detailedFederalOutlineNamesForSelectedStates();
   const features=rawFeatures.filter(feature=>{
-    const name=String(feature&&feature.properties&&feature.properties.FORESTNAME||'');
-    return !(name&&detailed.has(normalizeUsfsNoteKey(name)));
+    const key=forestUnitKeyForUsfsFeature(feature);
+    return !(key&&detailed.has(key));
   });
   if(!features.length){app.usfsBoundary.lastFeatureCount=0;return;}
   const filtered={type:'FeatureCollection',features};
@@ -2052,13 +2112,35 @@ function boondockingOutlineRecords(){
   const records=(app.areaOutline&&Array.isArray(app.areaOutline.standalone)?app.areaOutline.standalone:standaloneAreaOutlineRecords());
   return records.filter(site=>outlineLayerKey(site)==='boondocking'&&outlineStateMatches(site)&&outlineToggleAllows(site)&&areaOutlineIsAvailable(areaOutlineCandidate(site)));
 }
+function baseAreaOutlineRecordsForSelectedStates(){
+  return (app.areaOutline&&Array.isArray(app.areaOutline.standalone)?app.areaOutline.standalone:standaloneAreaOutlineRecords())
+    .filter(site=>outlineStateMatches(site)&&outlineToggleAllows(site)&&areaOutlineIsAvailable(areaOutlineCandidate(site)));
+}
+function filterRedundantAreaOutlineRecords(records){
+  const list=Array.isArray(records)?records.slice():[];
+  const detailedForestKeys=new Set();
+  list.forEach(site=>{
+    if(outlineJurisdiction(site)!=='federal'||!isNationalForestAreaOutline(site))return;
+    if(isUsfsOwnedSurfaceOutline(site)){
+      const key=forestUnitKeyForAreaOutline(site);
+      if(key)detailedForestKeys.add(key);
+    }
+  });
+  return list.filter(site=>{
+    if(outlineJurisdiction(site)!=='federal')return true;
+    if(isNonFsInholdingOutline(site))return false;
+    const key=forestUnitKeyForAreaOutline(site);
+    if(key&&detailedForestKeys.has(key)&&isBroadFederalForestBoundaryOutline(site))return false;
+    return true;
+  });
+}
 function detailedFederalOutlineNamesForSelectedStates(){
-  const records=(app.areaOutline&&Array.isArray(app.areaOutline.standalone)?app.areaOutline.standalone:standaloneAreaOutlineRecords());
+  const records=filterRedundantAreaOutlineRecords(baseAreaOutlineRecordsForSelectedStates());
   const names=new Set();
   records.forEach(site=>{
-    if(outlineJurisdiction(site)!=='federal'||!outlineStateMatches(site)||!areaOutlineIsAvailable(areaOutlineCandidate(site)))return;
-    const name=String(site.name||'').replace(/\s+administrative boundary$/i,'').trim();
-    if(name)names.add(normalizeUsfsNoteKey(name));
+    if(outlineJurisdiction(site)!=='federal'||!isNationalForestAreaOutline(site))return;
+    const key=forestUnitKeyForAreaOutline(site);
+    if(key)names.add(key);
   });
   return names;
 }
@@ -2086,8 +2168,7 @@ function registerStandaloneAreaOutlines(){
   return records;
 }
 function areaOutlineRecordsForSelectedStates(){
-  return (app.areaOutline&&Array.isArray(app.areaOutline.standalone)?app.areaOutline.standalone:standaloneAreaOutlineRecords())
-    .filter(site=>outlineStateMatches(site)&&outlineToggleAllows(site)&&areaOutlineIsAvailable(areaOutlineCandidate(site)))
+  return filterRedundantAreaOutlineRecords(baseAreaOutlineRecordsForSelectedStates())
     .sort((a,b)=>outlineJurisdiction(a).localeCompare(outlineJurisdiction(b))||String(a.stateCode||'').localeCompare(String(b.stateCode||''))||String(a.name).localeCompare(String(b.name)));
 }
 function areaOutlineRecordsByState(records){
@@ -2136,7 +2217,7 @@ async function setFederalAreaLayerEnabled(on,fit=true,opts={}){
   await setAreaOutlineLayerEnabled(areaOutlineLayerEnabled(),fit,Object.assign({},opts,{silent:true}));
   updateUsfsBoundaryControls();
   updateAreaOutlineLayerControls();
-  if(opts.notify)notify(on?'Federal Areas on. Detailed federal outlines are kept where available; broad USFS boundaries fill in as sparse context.':'Federal Areas turned off.',6500);
+  if(opts.notify)notify(on?'Federal Areas on. Detailed federal outlines are kept where available; broad USFS administrative outlines are suppressed to avoid duplicate drawing.':'Federal Areas turned off.',6500);
 }
 async function setStateLocalAreaLayerEnabled(on,fit=true,opts={}){
   writeAreaToggle(STORE.stateLocalAreas,on);

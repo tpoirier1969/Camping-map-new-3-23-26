@@ -1,0 +1,13 @@
+# QA — v23.1.101 Federal Areas de-duplication
+
+Checks run:
+- node --check app.js — PASS
+- node --check version.js — PASS
+- PROJECT_RULES.md and Project Rules.md match — PASS
+- Static startup/function check: filterRedundantAreaOutlineRecords, baseAreaOutlineRecordsForSelectedStates, forestUnitKeyForUsfsFeature, and detailedFederalOutlineNamesForSelectedStates are present — PASS
+- Area-outline filter logic checked against current area-outlines-v23.1.39 data:
+  - MI federal area records reduce to the two USFS-owned surface outlines for Ottawa and Hiawatha; broad admin and non-FS/inholding context records are suppressed.
+  - WI federal area records reduce to the Chequamegon-Nicolet USFS-owned surface outline; broad admin and non-FS/inholding context records are suppressed.
+  - KY retains Daniel Boone administrative boundary and Clifty Wilderness because no more detailed USFS-owned surface outline is present for Daniel Boone.
+- Dynamic USFS boundary suppression now compares normalized forest/unit keys instead of literal display names — PASS
+- ZIP integrity — PASS

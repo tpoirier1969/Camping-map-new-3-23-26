@@ -62,6 +62,11 @@ Lead semantic cleanup / promotion rule:
 
 `data/leads.js` must not become a permanent holding pen for records that are practically import-ready. During cleanup, classify leads into promotion-ready, quick status-check, true research/external, area/rule/community overlay, and reject/duplicate/closure buckets. Ordinary campground/operator/city/county records may be promoted with an honest campground entrance/area coordinate when public overnight use is supported and no contradiction exists; do not require exact individual campsite pads for these records. Bad or outdated web design is not a reason to bury a real campground forever. For boondocking/community and public-land rule records, do not force official exact campsite coordinates; evaluate them as area/rule/community markers with clear caveats when the evidence standard is met.
 
+Federal/state-local area overlay de-duplication rule:
+
+Federal/state/local area overlays must stay sparse and must not draw multiple broad outline systems for the same land unit. If a detailed official federal outline or USFS-owned surface/ownership context exists for a National Forest, that detailed outline takes priority and the broad USFS administrative boundary must be suppressed for that same forest. Non-FS/private-inholding context polygons should not auto-display as part of the Federal Areas toggle unless Tod explicitly requests a separate inholding/ownership-risk layer; Federal Areas should show federal context, not a second contradictory non-federal color layer. Nested genuinely different federal areas such as wilderness or backcountry rule units may still display inside a larger federal area when they represent a distinct rule system.
+
+
 Coordinate-rescue completion rule:
 
 “Coordinate rescue needed” is not a valid final answer until the worker has attempted the basic rescue ladder that the assignment allows. For ordinary official/operator campgrounds, workers must try exact name search, official/operator address search, Google Maps/Apple Maps/Bing Maps/OSM when available, reservation-system maps, official GIS/PDF maps, and aerial/parcel spot-checking before claiming the coordinate is blocked. The return must state what was checked. A missing printed latitude/longitude on the official page is not by itself a blocker.

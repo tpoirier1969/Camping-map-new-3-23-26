@@ -1,0 +1,25 @@
+# Build Notes — v23.1.101 Federal Areas de-duplication
+
+Purpose:
+- Fix Federal Areas drawing duplicate forest outlines in different styles/colors.
+- Keep the layer clean and sparse: detailed official federal outline/surface context wins; broad USFS administrative boundary only fills gaps.
+
+Changed files:
+- app.js
+- version.js
+- index.html
+- PROJECT_RULES.md
+- Project Rules.md
+
+Behavior change:
+- Federal Areas now filters redundant federal area outline records before loading.
+- For National Forests with an existing detailed USFS-owned surface/ownership outline, the older broad administrative forest outline is not auto-loaded.
+- Non-FS/private-inholding context polygons are not auto-loaded as part of Federal Areas because they are not federal areas and were creating a second-color duplicate-looking layer.
+- The dynamic USFS administrative boundary overlay now uses a stronger normalized forest/unit key, so it is suppressed when a matching detailed federal outline is already available.
+- Wilderness/backcountry rule areas remain allowed as distinct nested federal rule areas.
+
+No data changes:
+- No campsite records changed.
+- No leads or rejected records changed.
+- No new discovery or promotion work.
+- No config.js.
