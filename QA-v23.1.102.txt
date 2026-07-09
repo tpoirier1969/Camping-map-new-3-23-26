@@ -1,0 +1,17 @@
+QA v23.1.102
+
+Passed:
+- node --check app.js
+- node --check version.js
+- PROJECT_RULES.md and Project Rules.md match
+- Static checks confirmed new USFS selected-state gate helpers exist:
+  - selectedStateKeyForBoundaryCache
+  - usfsFeatureMatchesSelectedStates
+  - usfsFeatureStateHints
+- Static check confirmed dynamic USFS boundary cache key includes selected-state set.
+- Static check confirmed drawUsfsBoundaryGeoJson filters dynamic USFS features through usfsFeatureMatchesSelectedStates before drawing.
+
+Manual browser QA recommended:
+- Select MI only, turn on Federal Areas, and pan/zoom near WI: WI-only forest outlines should not draw.
+- Select WI only: WI federal outlines may draw, MI-only outlines should not.
+- Add/remove a state with Federal Areas on: old off-state dynamic outlines should disappear; retained in-state outlines should not trigger full campsite redraws.

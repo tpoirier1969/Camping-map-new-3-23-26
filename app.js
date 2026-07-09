@@ -1769,9 +1769,12 @@ function usfsBoundarySnapSize(zoom){
   return .25;
 }
 function snapCoordForKey(value,snap){return Math.floor(Number(value)/snap)*snap;}
+function selectedStateKeyForBoundaryCache(){
+  return [...(app.enabledStates||new Set())].map(c=>String(c||'').toUpperCase()).filter(Boolean).sort().join(',')||'NO_STATES';
+}
 function usfsBoundaryCacheKey(bounds,zoom){
   const snap=usfsBoundarySnapSize(zoom);
-  return [Math.floor(Number(zoom)||0),snapCoordForKey(bounds.getWest(),snap),snapCoordForKey(bounds.getSouth(),snap),snapCoordForKey(bounds.getEast(),snap),snapCoordForKey(bounds.getNorth(),snap)].join('|');
+  return [selectedStateKeyForBoundaryCache(),Math.floor(Number(zoom)||0),snapCoordForKey(bounds.getWest(),snap),snapCoordForKey(bounds.getSouth(),snap),snapCoordForKey(bounds.getEast(),snap),snapCoordForKey(bounds.getNorth(),snap)].join('|');
 }
 function usfsBoundaryOffset(zoom){
   const z=Number(zoom);
@@ -1843,6 +1846,45 @@ function forestUnitKeyForUsfsFeature(feature){
   const key=normalizeAreaUnitKey(props.FORESTNAME||props.ADMINFORESTID||props.FORESTORGCODE||'');
   return key&&key.length>=3?key:'';
 }
+
+const USFS_FOREST_STATE_HINTS={
+  'ALLEGHENY':['PA'], 'ANGELES':['CA'], 'APACHE SITGREAVES':['AZ','NM'], 'ARAPAHO AND ROOSEVELT':['CO'], 'ASHLEY':['UT','WY'], 'BEAVERHEAD DEERLODGE':['MT'], 'BIGHORN':['WY'], 'BITTERROOT':['MT','ID'], 'BLACK HILLS':['SD','WY'], 'BOISE':['ID'], 'BRIDGER TETON':['WY'], 'CARIBOU TARGHEE':['ID','WY','UT'], 'CHATTAHOOCHEE OCONEE':['GA'], 'CHEQUAMEGON NICOLET':['WI'], 'CHEROKEE':['TN','NC'], 'CHIPPEWA':['MN'], 'CHUGACH':['AK'], 'CLEARWATER':['ID'], 'CLEVELAND':['CA'], 'COCONINO':['AZ'], 'COLVILLE':['WA'], 'CORONADO':['AZ','NM'], 'CUSTER GALLATIN':['MT','SD'], 'DANIEL BOONE':['KY'], 'DAVY CROCKETT':['TX'], 'DE SOTO':['MS'], 'DELTA':['MS'], 'DESCHUTES':['OR'], 'DIXIE':['UT'], 'ELDORADO':['CA'], 'EL YUNQUE':['PR'], 'FINGER LAKES':['NY'], 'FISHLAKE':['UT'], 'FLATHEAD':['MT'], 'FRANCIS MARION AND SUMTER':['SC'], 'FREMONT WINEMA':['OR'], 'GIFFORD PINCHOT':['WA'], 'GILA':['NM'], 'GRAND MESA UNCOMPAHGRE AND GUNNISON':['CO'], 'GREEN MOUNTAIN AND FINGER LAKES':['VT','NY'], 'HELENA LEWIS AND CLARK':['MT'], 'HIAWATHA':['MI'], 'HOLLY SPRINGS':['MS'], 'HOMER':['AK'], 'HOOSIER':['IN'], 'HURON MANISTEE':['MI'], 'IDAHO PANHANDLE':['ID','MT','WA'], 'INYO':['CA','NV'], 'KAIBAB':['AZ'], 'KISATCHIE':['LA'], 'KLAMATH':['CA','OR'], 'KOOTENAI':['MT','ID'], 'LAKE TAHOE BASIN':['CA','NV'], 'LAND BETWEEN THE LAKES':['KY','TN'], 'LASSEN':['CA'], 'LINCOLN':['NM'], 'LOLO':['MT'], 'LOS PADRES':['CA'], 'MANTI LA SAL':['UT','CO'], 'MARK TWAIN':['MO'], 'MEDICINE BOW ROUTT':['WY','CO'], 'MENDOCINO':['CA'], 'MODOC':['CA'], 'MONONGAHELA':['WV'], 'MOUNT BAKER SNOQUALMIE':['WA'], 'MOUNT HOOD':['OR'], 'NANTAHALA':['NC'], 'NATIONAL FORESTS IN ALABAMA':['AL'], 'NATIONAL FORESTS IN FLORIDA':['FL'], 'NATIONAL FORESTS IN MISSISSIPPI':['MS'], 'NATIONAL FORESTS AND GRASSLANDS IN TEXAS':['TX'], 'NEBRASKA':['NE','SD'], 'NEZ PERCE CLEARWATER':['ID'], 'NICOLET':['WI'], 'OCALA':['FL'], 'OCHOCO':['OR'], 'OKANOGAN WENATCHEE':['WA'], 'OLYMPIC':['WA'], 'OSCEOLA':['FL'], 'OTTAWA':['MI'], 'OUACHITA':['AR','OK'], 'OZARK ST FRANCIS':['AR'], 'PAYETTE':['ID'], 'PIKE SAN ISABEL':['CO','KS'], 'PISGAH':['NC'], 'PLUMAS':['CA'], 'PRESCOTT':['AZ'], 'RIO GRANDE':['CO'], 'ROGUE RIVER SISKIYOU':['OR','CA'], 'SABINE':['TX'], 'SALMON CHALLIS':['ID'], 'SAM HOUSTON':['TX'], 'SAN BERNARDINO':['CA'], 'SAN JUAN':['CO'], 'SANTA FE':['NM'], 'SAWTOOTH':['ID','UT'], 'SEQUOIA':['CA'], 'SHAWNEE':['IL'], 'SHASTA TRINITY':['CA'], 'SHOSHONE':['WY'], 'SIERRA':['CA'], 'SIX RIVERS':['CA'], 'SIUSLAW':['OR'], 'STANISLAUS':['CA'], 'SUPERIOR':['MN'], 'TAHOE':['CA'], 'TALLADEGA':['AL'], 'TARGHEE':['ID','WY'], 'TONGASS':['AK'], 'TONTO':['AZ'], 'TUSKEGEE':['AL'], 'UINTA WASATCH CACHE':['UT','WY','ID'], 'UMATILLA':['OR','WA'], 'UMPQUA':['OR'], 'UNCOMPAHGRE':['CO'], 'WALLOWA WHITMAN':['OR','ID'], 'WAYNE':['OH'], 'WHITE MOUNTAIN':['NH','ME'], 'WHITE RIVER':['CO'], 'WILLAMETTE':['OR']
+};
+function usfsFeatureStateHints(feature){
+  const props=(feature&&feature.properties)||{};
+  const key=normalizeAreaUnitKey(props.FORESTNAME||props.ADMINFORESTID||props.FORESTORGCODE||'');
+  if(!key)return [];
+  if(USFS_FOREST_STATE_HINTS[key])return USFS_FOREST_STATE_HINTS[key];
+  const hit=Object.keys(USFS_FOREST_STATE_HINTS).find(k=>key.includes(k)||k.includes(key));
+  return hit?USFS_FOREST_STATE_HINTS[hit]:[];
+}
+function usfsGeometryBounds(feature){
+  const coords=[];
+  function walk(value){
+    if(!Array.isArray(value))return;
+    if(value.length>=2&&typeof value[0]==='number'&&typeof value[1]==='number'){
+      coords.push([value[1],value[0]]);
+      return;
+    }
+    value.forEach(walk);
+  }
+  walk(feature&&feature.geometry&&feature.geometry.coordinates);
+  if(!coords.length)return null;
+  let south=Infinity,west=Infinity,north=-Infinity,east=-Infinity;
+  coords.forEach(([lat,lng])=>{if(Number.isFinite(lat)&&Number.isFinite(lng)){south=Math.min(south,lat);north=Math.max(north,lat);west=Math.min(west,lng);east=Math.max(east,lng);}});
+  return Number.isFinite(south)&&Number.isFinite(west)&&Number.isFinite(north)&&Number.isFinite(east)?[[south,west],[north,east]]:null;
+}
+function boundsOverlapArray(a,b){
+  return !!(a&&b&&a[0]&&a[1]&&b[0]&&b[1]&&a[0][0]<=b[1][0]&&a[1][0]>=b[0][0]&&a[0][1]<=b[1][1]&&a[1][1]>=b[0][1]);
+}
+function usfsFeatureMatchesSelectedStates(feature){
+  const selected=[...(app.enabledStates||new Set())].map(c=>String(c||'').toUpperCase()).filter(Boolean);
+  if(!selected.length)return false;
+  const hints=usfsFeatureStateHints(feature);
+  if(hints.length)return hints.some(code=>selected.includes(code));
+  const fb=usfsGeometryBounds(feature);
+  return selected.some(code=>STATE_BOUNDS[code]&&boundsOverlapArray(fb,STATE_BOUNDS[code]));
+}
 function isNonFsInholdingOutline(site){
   const text=areaOutlineIdentityText(site).toLowerCase();
   return /non[-\s]?fs|non[-\s]?forest|inholding|ownerclassification\s*<>|ownerclassification[^a-z0-9]+not/i.test(text);
@@ -1910,6 +1952,7 @@ function drawUsfsBoundaryGeoJson(geo){
   const rawFeatures=geo&&geo.type==='FeatureCollection'?geo.features:(geo&&geo.type==='Feature'?[geo]:[]);
   const detailed=detailedFederalOutlineNamesForSelectedStates();
   const features=rawFeatures.filter(feature=>{
+    if(!usfsFeatureMatchesSelectedStates(feature))return false;
     const key=forestUnitKeyForUsfsFeature(feature);
     return !(key&&detailed.has(key));
   });

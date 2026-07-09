@@ -1,0 +1,22 @@
+Boondocking & Camping Maps v23.1.102
+Federal Areas selected-state gate hotfix
+
+Changed files:
+- app.js
+- version.js
+- PROJECT_RULES.md
+- Project Rules.md
+
+Change summary:
+- Fixed Federal Areas / dynamic USFS administrative boundary overlay drawing forests outside the selected states merely because the current viewport intersects them.
+- Added selected-state gating for dynamic USFS boundary features.
+- Added selected-state set to the dynamic USFS boundary cache key so cached viewport results cannot bleed across state selections.
+- Kept the existing detailed-outline suppression/de-dup behavior from v23.1.101.
+- Updated PROJECT_RULES.md / Project Rules.md to require selected-state gating for dynamic area overlays.
+
+Not changed:
+- No campsite data changed.
+- No lead/rejected data changed.
+- No layer icon/color/style redesign.
+- No Supabase/community logic changed.
+- No config.js included.

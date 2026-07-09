@@ -66,6 +66,8 @@ Federal/state-local area overlay de-duplication rule:
 
 Federal/state/local area overlays must stay sparse and must not draw multiple broad outline systems for the same land unit. If a detailed official federal outline or USFS-owned surface/ownership context exists for a National Forest, that detailed outline takes priority and the broad USFS administrative boundary must be suppressed for that same forest. Non-FS/private-inholding context polygons should not auto-display as part of the Federal Areas toggle unless Tod explicitly requests a separate inholding/ownership-risk layer; Federal Areas should show federal context, not a second contradictory non-federal color layer. Nested genuinely different federal areas such as wilderness or backcountry rule units may still display inside a larger federal area when they represent a distinct rule system.
 
+Federal and state/local area overlays must also be gated by the selected-state set. A dynamic federal boundary service query may intersect the current viewport, but returned outlines must be filtered so forests/areas outside the selected states do not draw merely because the map view overlaps them. Cache keys for dynamic boundary queries must include the selected-state set so changing selected states cannot reuse a stale off-state boundary result.
+
 
 Coordinate-rescue completion rule:
 
