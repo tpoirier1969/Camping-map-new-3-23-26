@@ -1,0 +1,39 @@
+Boondocking & Camping Maps v23.1.98 QA
+
+Syntax checks
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/usfs-boundary-notes-v23.1.98.js: PASS
+
+Startup-path / reference checks
+- index.html loads data/usfs-boundary-notes-v23.1.98.js before app.js: PASS
+- app.js defines updateUsfsBoundaryControls: PASS
+- app.js defines setUsfsBoundaryEnabled: PASS
+- app.js defines scheduleUsfsBoundaryRefresh: PASS
+- app.js includes data-usfs-boundary-toggle binding: PASS
+- USFS boundary refresh is called from startup only if stored toggle is on: PASS
+- USFS boundary refresh is called on map move/zoom only if the toggle is on: PASS
+
+Data checks
+- data/usfs-boundary-notes-v23.1.98.js loads in a VM with window.USFS_BOUNDARY_NOTES: PASS
+- Generic USFS boundary note present: PASS
+- Huron-Manistee ready forest note present: PASS
+- Alias keys generated for abbreviated/common forest names: PASS
+
+Performance controls verified in code
+- Overlay default is off through separate localStorage key: PASS
+- Overlay waits for zoom 5+ before loading: PASS
+- Overlay uses current viewport envelope query only: PASS
+- Overlay uses request debounce: PASS
+- Overlay uses request sequence guard to ignore stale fetch returns: PASS
+- Overlay uses small cache with eviction: PASS
+- Overlay clears/replaces its own Leaflet group instead of accumulating polygon layers: PASS
+- Overlay does not call renderMarkers or rebuild campsite markers: PASS
+- Boundary styling is sparse, muted, dashed, and unlabeled: PASS
+
+Rules / package checks
+- PROJECT_RULES.md updated with USFS/public-land boundary overlay rule: PASS
+- Project Rules.md compatibility copy matches PROJECT_RULES.md: PASS
+- version.js updated to v23.1.98: PASS
+- index.html does not hardcode v23.1.98 visible version: PASS
+- config.js not included: PASS

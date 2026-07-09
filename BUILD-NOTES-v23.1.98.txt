@@ -1,0 +1,45 @@
+Boondocking & Camping Maps v23.1.98 — USFS Boundary Overlay MVP
+
+Purpose
+- Add a toggleable, sparse USDA Forest Service National Forest administrative boundary overlay.
+- Keep the overlay as reference context only, not campsite proof, ownership proof, MVUM proof, or camping-permission proof.
+
+Changed files
+- app.js
+- index.html
+- version.js
+- data/usfs-boundary-notes-v23.1.98.js
+- PROJECT_RULES.md
+- Project Rules.md
+- BUILD-NOTES-v23.1.98.txt
+- QA-v23.1.98.txt
+
+App behavior
+- Added a new legend toggle: "USFS Boundaries".
+- Default is off.
+- When on, the app queries the official USFS EDW Forest System Boundaries administrative forest boundary service for the current map viewport only.
+- The overlay waits until zoom 5+ before loading, so it does not try to draw the whole country at low zoom.
+- The app debounces map move/zoom refreshes and uses a small viewport cache with a hard limit to reduce repeated redraws and memory growth.
+- The overlay clears and redraws only its own boundary layer. It does not force campsite-marker rebuilds.
+- Boundaries use thin/muted dashed styling and no labels so campsite pins remain the primary visual layer.
+- Clickable boundary popups include blunt warnings that administrative boundaries may include private inholdings, other government lands, water, roads, wilderness, developed recreation sites, closed/restricted areas, and places where camping is not allowed.
+
+Data/source behavior
+- Added forest-specific popup notes only for forests marked READY by the v23.1.98 USFS overlay worker return.
+- Forests without ready notes fall back to a generic administrative-boundary warning.
+- Did not add Basic Ownership, Surface Ownership, or MVUM layers. Those remain future phases.
+
+Performance safeguards
+- Viewport-only query; no full-national polygon load.
+- Zoom guard below 5.
+- Debounced refresh on moveend/zoomend.
+- Geometry simplification request via maxAllowableOffset and geometryPrecision.
+- Result count cap for each viewport query.
+- Limited in-memory cache with eviction.
+- No boundary labels.
+- No marker re-render caused by boundary refresh.
+
+Not changed
+- No campsite data changed.
+- No marker icons, colors, shapes, filters, search logic, Supabase/community behavior, saved routes, startup data, state data, leads, or rejected records changed.
+- No config.js included.

@@ -36,7 +36,7 @@ const STATE_BOUNDS={
   SD:[[42.48,-104.06],[45.95,-96.44]], TN:[[34.98,-90.31],[36.68,-81.65]], TX:[[25.84,-106.65],[36.50,-93.51]], UT:[[36.99,-114.05],[42.00,-109.04]], VT:[[42.73,-73.44],[45.02,-71.50]],
   VA:[[36.54,-83.68],[39.47,-75.24]], WA:[[45.54,-124.85],[49.00,-116.91]], WV:[[37.20,-82.64],[40.64,-77.72]], WI:[[42.49,-92.89],[47.31,-86.25]], WY:[[40.99,-111.06],[45.01,-104.05]]
 };
-const STORE={states:'campingMap.enabledStates.v22328',layers:'campingMap.layers.v22328',basemap:'campingMap.basemap.v22328',queue:'campingMap.draftQueue.v22328',filters:'campingMap.filters.v22328',pending:'campingMap.showPending.v22328',desktopMode:'campingMap.desktopMode.v23087',controlHome:'campingMap.controlHome.v23126',areaOutlines:'campingMap.areaOutlines.v23126',lastActive:'campingMap.lastActive.v23152'};
+const STORE={states:'campingMap.enabledStates.v22328',layers:'campingMap.layers.v22328',basemap:'campingMap.basemap.v22328',queue:'campingMap.draftQueue.v22328',filters:'campingMap.filters.v22328',pending:'campingMap.showPending.v22328',desktopMode:'campingMap.desktopMode.v23087',controlHome:'campingMap.controlHome.v23126',areaOutlines:'campingMap.areaOutlines.v23126',usfsBoundaries:'campingMap.usfsBoundaries.v23198',lastActive:'campingMap.lastActive.v23152'};
 const SAVED_ROUTES_TABLE='boondocking_saved_routes';
 const COMMUNITY_TABLES={
   profiles:'boondocking_map_profiles',
@@ -176,7 +176,7 @@ function currentBasemapKey(){
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
 window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
-const app={map:null,markerLayer:null,markerGroups:{},markerIndex:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,currentProfile:null,adminHiddenSites:{},adminFlagsAvailable:true,adminFlagsError:null,communityAvailable:true,communityError:null,communityUnavailableNotified:false,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
+const app={map:null,markerLayer:null,markerGroups:{},markerIndex:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,currentProfile:null,adminHiddenSites:{},adminFlagsAvailable:true,adminFlagsError:null,communityAvailable:true,communityError:null,communityUnavailableNotified:false,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},usfsBoundary:{layer:null,cache:{},cacheOrder:[],requestSeq:0,refreshTimer:null,lastKey:'',lastFeatureCount:0,paused:false,loading:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
 window.__campingApp=app;
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function readJson(key,fb){try{return JSON.parse(localStorage.getItem(key)||'null')??fb}catch{return fb}}
@@ -245,14 +245,14 @@ function migrateLayerKeys(rawLayers){
 function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false},community:{is_favorite:false,want_to_visit:false,visited:false,loved:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
-function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; updateMarkerZoomScale(); app.map.on('zoom zoomend',()=>{updateMarkerZoomScale();}); app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();requestMarkerRenderIfNeeded('map move/zoom');});}
+function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.usfsBoundary.layer=L.layerGroup().addTo(app.map); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; updateMarkerZoomScale(); app.map.on('zoom zoomend',()=>{updateMarkerZoomScale();}); app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();scheduleUsfsBoundaryRefresh('map move/zoom');requestMarkerRenderIfNeeded('map move/zoom');});}
 function retireLegacyLayerControls(){
   // v23.1.30+: layer controls live in the map legend. Remove stale cached layer home panels
   // so duplicate IDs do not steal handlers, but keep the v23.1.72 phone Layers shortcut.
   $$('[data-control-panel="layers"]').forEach(el=>el.remove());
   $$('[data-control-home="layers"]').forEach(el=>el.remove());
 }
-function buildControls(){retireLegacyLayerControls(); buildStateSelect(); buildLegend(); syncFilters(); bindEvents(); updatePendingMeta(); setNearMilesUI(app.nearRadiusMiles||DEFAULT_NEAR_RADIUS_MILES,false); syncRouteControls(); registerStandaloneAreaOutlines(); refreshAreaOutlineLayerForStateSelection(false); renderReferences(); updateAreaOutlinePanel();}
+function buildControls(){retireLegacyLayerControls(); buildStateSelect(); buildLegend(); syncFilters(); bindEvents(); updatePendingMeta(); setNearMilesUI(app.nearRadiusMiles||DEFAULT_NEAR_RADIUS_MILES,false); syncRouteControls(); registerStandaloneAreaOutlines(); refreshAreaOutlineLayerForStateSelection(false); renderReferences(); updateAreaOutlinePanel(); updateUsfsBoundaryControls(); if(usfsBoundaryEnabled())scheduleUsfsBoundaryRefresh('startup',{force:true});}
 function buildStateSelect(){buildStateChecklist(); syncStateControls();}
 function mappedStateEntries(){return manifestEntries().filter(s=>Number(s.count||0)>0 || s.file || (Array.isArray(s.files)&&s.files.length))}
 function buildStateChecklist(){const box=$('stateChecklist'); if(!box)return; const rows=mappedStateEntries(); box.innerHTML=rows.map(s=>`<label class="state-check"><input type="checkbox" data-state-code="${esc(s.code)}"><span>${esc(s.name||s.code)}</span></label>`).join('');}
@@ -370,6 +370,7 @@ async function setEnabledStates(codes,fit=true,options={}){
 function buildLayerList(){const box=$('layerList'); if(box)box.innerHTML='';}
 function legendCollapsedStored(){try{return localStorage.getItem('campingMap.legendCollapsed.v1')==='1'}catch(e){return false}}
 function legendAreaOutlineOn(){try{return localStorage.getItem(STORE.areaOutlines)==='1'}catch(e){return false}}
+function legendUsfsBoundaryOn(){try{return localStorage.getItem(STORE.usfsBoundaries)==='1'}catch(e){return false}}
 function setLegendCollapsed(collapsed){const panel=$('mapLegendDesktop');if(!panel)return;panel.classList.toggle('collapsed',!!collapsed);const btn=$('legendToggleDesktop');if(btn){btn.setAttribute('aria-expanded',String(!collapsed));btn.setAttribute('aria-label',collapsed?'Expand map legend':'Shrink map legend')}try{localStorage.setItem('campingMap.legendCollapsed.v1',collapsed?'1':'0')}catch(e){}}
 function toggleLegendCollapsed(){const panel=$('mapLegendDesktop');setLegendCollapsed(!(panel&&panel.classList.contains('collapsed')))}
 function formatZoomLabel(value){
@@ -409,14 +410,16 @@ function applyLegendZoom(value){
 function buildLegend(){
   const layerItems=MAP_LAYERS.map(l=>`<label class="legend-item legend-layer-toggle"><input type="checkbox" data-layer="${l.key}" ${app.enabledLayers.has(l.key)?'checked':''}><span class="layer-icon ${l.css}">${l.icon}</span><span>${esc(l.label)}</span></label>`).join('');
   const outlineOn=legendAreaOutlineOn();
+  const usfsOn=legendUsfsBoundaryOn();
   const areaItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-area-outline-toggle="1" type="checkbox" ${outlineOn?'checked':''}><span class="layer-icon pin-boondocking">${ICONS.tree}</span><span>Official Area Outlines</span></label>`;
-  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide outlines</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
-  const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div>`;
+  const usfsItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-usfs-boundary-toggle="1" type="checkbox" ${usfsOn?'checked':''}><span class="layer-icon pin-info">${ICONS.info}</span><span>USFS Boundaries</span></label>`;
+  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}${usfsItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide outlines</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
+  const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}${usfsItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div>`;
   if($('mapLegendDesktop')){$('mapLegendDesktop').innerHTML=desktopHtml;$('legendToggleDesktop').onclick=toggleLegendCollapsed;setLegendCollapsed(legendCollapsedStored())}
   if($('mapLegendMobile'))$('mapLegendMobile').innerHTML=mobileHtml;
   syncLegendZoomControls();
 }
-function syncLayerControls(){const boxes=$$('input[data-layer]');boxes.forEach(cb=>{cb.checked=app.enabledLayers.has(cb.dataset.layer)});const pending=$('showPendingLayer');if(pending)pending.checked=app.enabledLayers.has('pending');updateAreaOutlineLayerControls();}
+function syncLayerControls(){const boxes=$$('input[data-layer]');boxes.forEach(cb=>{cb.checked=app.enabledLayers.has(cb.dataset.layer)});const pending=$('showPendingLayer');if(pending)pending.checked=app.enabledLayers.has('pending');updateAreaOutlineLayerControls();updateUsfsBoundaryControls();}
 function applyLayerCheckboxChange(e){if(!e.target.dataset.layer)return;const key=e.target.dataset.layer;app.restOnlyMode=false;syncRestOnlyToggle();e.target.checked?app.enabledLayers.add(key):app.enabledLayers.delete(key);saveLayers();localStorage.setItem(STORE.pending,app.enabledLayers.has('pending')?'1':'0');updatePendingMeta();syncLayerControls();toggleMarkerLayer(key,e.target.checked)}
 
 function selectedStateCodes(){return [...app.enabledStates].filter(Boolean);}
@@ -1126,6 +1129,7 @@ function bindEvents(){
   const clearAllLayersMobile=$('clearAllLayersMobile'); if(clearAllLayersMobile)clearAllLayersMobile.onclick=()=>{app.restOnlyMode=false;syncRestOnlyToggle();setAllLayers(false)};
   const restOnlyToggle=$('restOnlyToggle'); if(restOnlyToggle)restOnlyToggle.onclick=toggleRestOnlyMode;
   $$('[data-area-outline-toggle]').forEach(areaToggle=>{areaToggle.onchange=e=>setAreaOutlineLayerEnabled(e.target.checked,false);});
+  $$('[data-usfs-boundary-toggle]').forEach(usfsToggle=>{usfsToggle.onchange=e=>setUsfsBoundaryEnabled(e.target.checked,{notify:true});});
   $$('[data-legend-zoom]').forEach(z=>{z.oninput=e=>applyLegendZoom(e.target.value);});
   const clearOutlineBtn=$('clearAreaOutlineBtn'); if(clearOutlineBtn)clearOutlineBtn.onclick=()=>setAreaOutlineLayerEnabled(false,false);
   const layerList=$('layerList'); if(layerList)layerList.addEventListener('change',applyLayerCheckboxChange);
@@ -1722,6 +1726,165 @@ function updateRestRoadsideDiagnostics(){
     el.textContent=text;
     el.hidden=!text;
   });
+}
+
+
+const USFS_BOUNDARY_SERVICE_URL='https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_ForestSystemBoundaries_01/MapServer/0/query';
+const USFS_BOUNDARY_MIN_ZOOM=5;
+const USFS_BOUNDARY_RESULT_LIMIT=32;
+const USFS_BOUNDARY_CACHE_LIMIT=10;
+function usfsBoundaryEnabled(){try{return localStorage.getItem(STORE.usfsBoundaries)==='1'}catch(_e){return false}}
+function updateUsfsBoundaryControls(){const on=usfsBoundaryEnabled();$$('[data-usfs-boundary-toggle]').forEach(toggle=>{toggle.checked=on});}
+function setUsfsBoundaryEnabled(on,opts={}){
+  try{localStorage.setItem(STORE.usfsBoundaries,on?'1':'0')}catch(_e){}
+  updateUsfsBoundaryControls();
+  app.usfsBoundary.requestSeq=(app.usfsBoundary.requestSeq||0)+1;
+  app.usfsBoundary.lastKey='';
+  if(!on){clearUsfsBoundaryGraphics();if(opts.notify)notify('USFS Boundary Overlay turned off.');return;}
+  if(opts.notify)notify('USFS Boundary Overlay on. It loads only the current map view and is administrative-boundary context only.',6500);
+  scheduleUsfsBoundaryRefresh('toggle',{force:true});
+}
+function clearUsfsBoundaryGraphics(){
+  if(app.usfsBoundary&&app.usfsBoundary.layer)app.usfsBoundary.layer.clearLayers();
+  if(app.usfsBoundary){app.usfsBoundary.lastFeatureCount=0;app.usfsBoundary.paused=false;app.usfsBoundary.loading=false;}
+}
+function usfsBoundaryQueryBounds(){
+  if(!(app.map&&app.map.getBounds))return null;
+  const b=app.map.getBounds();
+  if(!(b&&b.isValid&&b.isValid()))return null;
+  const z=Number(app.map.getZoom&&app.map.getZoom());
+  const pad=z<6?.08:z<8?.12:.18;
+  return b.pad?b.pad(pad):b;
+}
+function usfsBoundarySnapSize(zoom){
+  const z=Number(zoom);
+  if(!Number.isFinite(z)||z<6)return 2;
+  if(z<8)return 1;
+  if(z<10)return .5;
+  return .25;
+}
+function snapCoordForKey(value,snap){return Math.floor(Number(value)/snap)*snap;}
+function usfsBoundaryCacheKey(bounds,zoom){
+  const snap=usfsBoundarySnapSize(zoom);
+  return [Math.floor(Number(zoom)||0),snapCoordForKey(bounds.getWest(),snap),snapCoordForKey(bounds.getSouth(),snap),snapCoordForKey(bounds.getEast(),snap),snapCoordForKey(bounds.getNorth(),snap)].join('|');
+}
+function usfsBoundaryOffset(zoom){
+  const z=Number(zoom);
+  if(!Number.isFinite(z)||z<6)return .025;
+  if(z<8)return .012;
+  if(z<10)return .006;
+  if(z<12)return .003;
+  return .0015;
+}
+function usfsBoundaryQueryUrl(bounds,zoom){
+  const envelope=[bounds.getWest(),bounds.getSouth(),bounds.getEast(),bounds.getNorth()].map(n=>Number(n).toFixed(6)).join(',');
+  return addQueryParams(USFS_BOUNDARY_SERVICE_URL,{
+    where:'1=1',
+    outFields:'FORESTNAME,FORESTNUMBER,FORESTORGCODE,REGION,ADMINFORESTID,GIS_ACRES',
+    returnGeometry:'true',
+    geometry:envelope,
+    geometryType:'esriGeometryEnvelope',
+    inSR:'4326',
+    outSR:'4326',
+    spatialRel:'esriSpatialRelIntersects',
+    resultRecordCount:String(USFS_BOUNDARY_RESULT_LIMIT),
+    maxAllowableOffset:String(usfsBoundaryOffset(zoom)),
+    geometryPrecision:'5',
+    f:'geojson'
+  });
+}
+function normalizeUsfsNoteKey(value){return String(value||'').toUpperCase().replace(/&/g,'AND').replace(/[^A-Z0-9]+/g,' ').replace(/\s+/g,' ').trim();}
+function usfsBoundaryNotes(){return (window.USFS_BOUNDARY_NOTES&&typeof window.USFS_BOUNDARY_NOTES==='object')?window.USFS_BOUNDARY_NOTES:{generic:{}};}
+function usfsBoundaryNoteForProps(props){
+  const notes=usfsBoundaryNotes();
+  const name=String((props&&props.FORESTNAME)||'');
+  const code=String((props&&props.FORESTORGCODE)||(props&&props.ADMINFORESTID)||'');
+  return notes[code]||notes[normalizeUsfsNoteKey(name)]||notes.generic||{};
+}
+function usfsBoundaryPopup(feature){
+  const props=(feature&&feature.properties)||{};
+  const name=props.FORESTNAME||'National Forest';
+  const acres=Number(props.GIS_ACRES);
+  const acresText=Number.isFinite(acres)?` · ${Math.round(acres).toLocaleString()} GIS acres`:'';
+  const note=usfsBoundaryNoteForProps(props);
+  const summary=note.summary||'This outline shows the official USDA Forest Service administrative boundary for orientation and planning. It is not campsite, ownership, vehicle-access, or camping-permission proof.';
+  const restrictions=Array.isArray(note.restrictions)?note.restrictions:[];
+  const sourceUrl=note.sourceUrl||'https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_ForestSystemBoundaries_01/MapServer/0';
+  const status=note.status==='ready'?'Forest-specific note':'Generic caution note';
+  const verify=[
+    'Confirm land ownership and private inholdings before camping.',
+    'Check current forest orders, closures, fire restrictions, and food-storage rules.',
+    'Use the current MVUM/open-road rules before driving to any dispersed spot.',
+    'Verify distance rules from roads, trails, water, trailheads, developed recreation sites, private land, and structures.',
+    'Confirm stay limits, permits, passes, seasonal access, road condition, waste/trash rules, and posted signs.'
+  ];
+  const items=restrictions.concat(verify).filter(Boolean);
+  return `<div class="area-rules-popup usfs-boundary-popup"><div class="popup-title">${esc(name)} — National Forest administrative boundary</div><div class="popup-notice"><strong>${esc(status)}.</strong><br>${esc(summary)}</div><div class="popup-grid"><div class="popup-row"><strong>Boundary source</strong><span>USDA Forest Service EDW Forest System Boundaries${esc(acresText)}</span></div><div class="popup-row"><strong>Important limitation</strong><span>This outline may include private inholdings, other government lands, water, roads, wilderness, developed sites, closed areas, and restricted zones. It does not mean every spot inside is public, vehicle-accessible, open, or legal for dispersed camping.</span></div></div><div class="area-rules-detail"><strong>Verify before camping inside this outline</strong><ul>${items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div><div class="popup-actions"><a class="secondary" target="_blank" rel="noopener" href="${esc(sourceUrl)}">Official source</a></div></div>`;
+}
+function usfsBoundaryStyle(){return {color:'#2f6544',weight:1.35,opacity:.82,fillColor:'#6da77b',fillOpacity:.035,dashArray:'7 6',interactive:true};}
+function rememberUsfsBoundaryCache(key,geo){
+  const u=app.usfsBoundary;
+  if(!u)return;
+  u.cache[key]=geo;
+  u.cacheOrder=u.cacheOrder||[];
+  u.cacheOrder=u.cacheOrder.filter(k=>k!==key);
+  u.cacheOrder.push(key);
+  while(u.cacheOrder.length>USFS_BOUNDARY_CACHE_LIMIT){const old=u.cacheOrder.shift();if(old)delete u.cache[old];}
+}
+async function fetchUsfsBoundaryGeoJson(key,bounds,zoom){
+  const u=app.usfsBoundary;
+  if(u.cache&&u.cache[key])return u.cache[key];
+  const data=await fetchJsonWithTimeout(usfsBoundaryQueryUrl(bounds,zoom),25000);
+  const geo=normalizeAreaGeoJson(data);
+  rememberUsfsBoundaryCache(key,geo);
+  return geo;
+}
+function drawUsfsBoundaryGeoJson(geo){
+  if(!(app.usfsBoundary&&app.usfsBoundary.layer))return;
+  app.usfsBoundary.layer.clearLayers();
+  const features=geo&&geo.type==='FeatureCollection'?geo.features:(geo&&geo.type==='Feature'?[geo]:[]);
+  if(!features.length){app.usfsBoundary.lastFeatureCount=0;return;}
+  const group=L.geoJSON(geo,{style:usfsBoundaryStyle,onEachFeature:(feature,layer)=>{if(layer&&layer.bindPopup)layer.bindPopup(usfsBoundaryPopup(feature),{maxWidth:420});}});
+  group.addTo(app.usfsBoundary.layer);
+  if(group.bringToBack)group.bringToBack();
+  app.usfsBoundary.lastFeatureCount=features.length;
+}
+function scheduleUsfsBoundaryRefresh(reason,opts={}){
+  if(!usfsBoundaryEnabled()||!(app.usfsBoundary&&app.map))return;
+  clearTimeout(app.usfsBoundary.refreshTimer);
+  const delay=opts.force?60:420;
+  app.usfsBoundary.refreshTimer=setTimeout(()=>refreshUsfsBoundaryLayer(reason,opts),delay);
+}
+async function refreshUsfsBoundaryLayer(reason,opts={}){
+  if(!usfsBoundaryEnabled()||!(app.usfsBoundary&&app.map))return;
+  const zoom=Number(app.map.getZoom&&app.map.getZoom());
+  if(!Number.isFinite(zoom)||zoom<USFS_BOUNDARY_MIN_ZOOM){
+    clearUsfsBoundaryGraphics();
+    app.usfsBoundary.paused=true;
+    if(opts.force)notify('USFS Boundary Overlay is on, but it waits until zoom 5+ to avoid heavy national redraws.',6500);
+    return;
+  }
+  const bounds=usfsBoundaryQueryBounds();
+  if(!bounds)return;
+  const key=usfsBoundaryCacheKey(bounds,zoom);
+  if(!opts.force&&key===app.usfsBoundary.lastKey)return;
+  app.usfsBoundary.lastKey=key;
+  const seq=(app.usfsBoundary.requestSeq||0)+1;
+  app.usfsBoundary.requestSeq=seq;
+  app.usfsBoundary.loading=true;
+  try{
+    const geo=await fetchUsfsBoundaryGeoJson(key,bounds,zoom);
+    if(seq!==app.usfsBoundary.requestSeq||!usfsBoundaryEnabled())return;
+    drawUsfsBoundaryGeoJson(geo);
+    app.usfsBoundary.paused=false;
+    if(opts.force)notify(`USFS Boundary Overlay showing ${app.usfsBoundary.lastFeatureCount||0} administrative outline${app.usfsBoundary.lastFeatureCount===1?'':'s'} in the current view.`,6000);
+  }catch(err){
+    console.error(err);
+    if(opts.force)notify(err&&err.message?err.message:'Could not load USFS Boundary Overlay.',7000);
+  }finally{
+    if(seq===app.usfsBoundary.requestSeq)app.usfsBoundary.loading=false;
+    updateUsfsBoundaryControls();
+  }
 }
 
 function areaOutlineCandidate(site){

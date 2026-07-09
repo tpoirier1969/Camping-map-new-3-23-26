@@ -1322,3 +1322,13 @@ Every worker active/correction candidate should be written as if a supervisor mi
 
 For broad state rechecks, use a two-step acceptance pattern: first, public-discovery/place-anchor matrix workers find and reconcile the obvious and non-obvious names; second, coordinate-rescue/import workers convert the held names into active records only after exact or honest campground-level coordinates are proven. Do not demand that one worker do every search, every source proof, every coordinate rescue, and every import decision for a large geography if that causes lower accuracy.
 
+
+USFS / public-land boundary overlay rule:
+
+USFS National Forest boundary outlines are reference/area overlays only. The approved MVP uses the USDA Forest Service EDW Forest System Boundaries administrative forest boundary layer as a sparse, toggleable, viewport-loaded overlay. These outlines must never be treated as campsite pins, actual ownership proof, MVUM road-access proof, or dispersed-camping permission by themselves.
+
+The USFS boundary overlay must default off, load only for the current viewport, avoid full-national redraws, and avoid loading below the low-zoom guard used by the app. Keep geometry styling muted and sparse so campsite pins remain the primary map object. Do not add labels or heavy national polygon sets unless Tod explicitly asks and performance QA supports it.
+
+Clickable USFS boundary popups must clearly warn that administrative boundaries can include private inholdings, non-USFS lands, water, roads, wilderness, developed recreation sites, closed areas, and restricted zones. Forest-specific dispersed-camping notes may be shown only where official forest sources were checked and the note is marked ready. Otherwise use a generic administrative-boundary caution note.
+
+Actual ownership/surface estate overlays and MVUM/open-road overlays are separate future phases. Do not bundle them into the USFS boundary MVP or use them as camping-rule proof without a separate source-system workflow and UI decision.
