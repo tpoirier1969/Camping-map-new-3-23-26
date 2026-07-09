@@ -2083,15 +2083,12 @@ function clearAreaOutlineGraphics(){
   updateAreaOutlineLayerControls();
 }
 function pauseAreaOutlinesForStateChange(selectedCount){
+  // v23.1.99 redraw discipline: state selection changes should cancel in-flight
+  // outline loads, but must not clear/redraw outlines that remain valid after
+  // the new selection. Reconciliation happens after state data is loaded.
   if(!app.areaOutline)return;
   app.areaOutline.requestSeq=(app.areaOutline.requestSeq||0)+1;
-  clearAreaOutlineGraphics();
-  if(areaOutlineLayerEnabled()&&selectedCount>3){
-    app.areaOutline.paused=true;
-    notify('Official Area Outlines paused for large multi-state selection. Narrow to 3 or fewer states to resume outlines.',6500);
-  }else{
-    app.areaOutline.paused=false;
-  }
+  app.areaOutline.paused=false;
 }
 async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
   const silent=!!opts.silent;
@@ -2105,32 +2102,54 @@ async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
     return;
   }
   const records=areaOutlineRecordsForSelectedStates();
-  clearAreaOutlineGraphics();
+  const targetKeys=new Set(records.map(site=>site.id));
+  let removed=0;
+  Object.keys(app.areaOutline.layers||{}).forEach(key=>{
+    if(!targetKeys.has(key)){hideAreaOutlineByKey(key,{deferPanel:true});removed++;}
+  });
   if(!records.length){
+    app.areaOutline.paused=false;
+    updateAreaOutlinePanel();
+    renderAreaOutlineList();
+    updateAreaOutlineLayerControls();
     if(!silent)notify(app.enabledStates.size?'No official area outlines are available for the active state selection.':'Choose a state before turning on Official Area Outlines.',6000);
     return;
   }
   const hardCap=80;
-  if(records.length>hardCap||app.enabledStates.size>3){
+  if(records.length>hardCap){
     app.areaOutline.paused=true;
+    updateAreaOutlinePanel();
+    renderAreaOutlineList();
     updateAreaOutlineLayerControls();
-    if(!silent)notify(`Official Area Outlines paused because ${records.length} outlines are available. Narrow the state selection first.`,8000);
+    updateAreaOutlineLabelVisibility();
+    if(!silent)notify(`Official Area Outlines paused before loading new outlines because ${records.length} outlines are available. Already-loaded outlines that still match the selection were left in place. Narrow the state selection to load more.`,8000);
     return;
   }
   app.areaOutline.paused=false;
-  setLoading(true,`Loading ${records.length} official outline${records.length===1?'':'s'}…`);
+  const toLoad=records.filter(site=>!(app.areaOutline.layers&&app.areaOutline.layers[site.id]));
+  if(!toLoad.length){
+    updateAreaOutlinePanel();
+    renderAreaOutlineList();
+    updateAreaOutlineLayerControls();
+    updateAreaOutlineLabelVisibility();
+    if(fit&&removed&&app.enabledStates.size<=2)fitAreaOutline();
+    if(!silent)notify(`Official Area Outlines already showing ${records.length} matching outline${records.length===1?'':'s'}.`,4500);
+    return;
+  }
+  setLoading(true,`Loading ${toLoad.length} new official outline${toLoad.length===1?'':'s'}…`);
   try{
     let i=0;
-    for(const site of records){
+    for(const site of toLoad){
       if(requestId!==app.areaOutline.requestSeq)return;
       i++;
-      setLoading(true,`Loading official outlines ${i} of ${records.length}…`);
-      await showAreaOutlineByKey(site.id,{fit:false,silent:true,fromBatch:true});
+      setLoading(true,`Loading new official outlines ${i} of ${toLoad.length}…`);
+      await showAreaOutlineByKey(site.id,{fit:false,silent:true,fromBatch:true,deferPanel:true});
     }
     if(requestId!==app.areaOutline.requestSeq)return;
     updateAreaOutlinePanel();
+    renderAreaOutlineList();
     if(fit&&app.enabledStates.size<=2)fitAreaOutline();
-    if(!silent)notify(`Official Area Outlines on: showing ${records.length} outline${records.length===1?'':'s'}. Click an outline for details.`,6500);
+    if(!silent)notify(`Official Area Outlines on: showing ${records.length} outline${records.length===1?'':'s'}; kept existing outlines and loaded only ${toLoad.length} new one${toLoad.length===1?'':'s'}.`,6500);
   }finally{
     if(requestId===app.areaOutline.requestSeq)setLoading(false);
     updateAreaOutlineLayerControls();
@@ -2140,13 +2159,8 @@ async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
 function refreshAreaOutlineLayerForStateSelection(fit=false,opts={}){
   renderAreaOutlineList();
   if(areaOutlineLayerEnabled()){
-    if(app.enabledStates.size>3){
-      app.areaOutline.paused=true;
-      if(!opts.afterMarkers)pauseAreaOutlinesForStateChange(app.enabledStates.size);
-      return;
-    }
     app.areaOutline.paused=false;
-    setAreaOutlineLayerEnabled(true,fit,{silent:true});
+    setAreaOutlineLayerEnabled(true,fit,{silent:true,incremental:true});
   }
 }
 
@@ -2201,15 +2215,14 @@ function updateAreaOutlinePanel(){
 function clearAreaOutline(){
   setAreaOutlineLayerEnabled(false,true);
 }
-function hideAreaOutlineByKey(key){
+function hideAreaOutlineByKey(key,opts={}){
   if(!(app.areaOutline&&key))return;
   const layer=app.areaOutline.layers&&app.areaOutline.layers[key];
   if(layer&&app.areaOutline.layer)app.areaOutline.layer.removeLayer(layer);
   if(app.areaOutline.layers)delete app.areaOutline.layers[key];
   if(app.areaOutline.active)delete app.areaOutline.active[key];
   if(Array.isArray(app.areaOutline.labelMarkers))app.areaOutline.labelMarkers=app.areaOutline.labelMarkers.filter(m=>m._areaOutlineKey!==key);
-  updateAreaOutlinePanel();
-  renderAreaOutlineList();
+  if(!opts.deferPanel){updateAreaOutlinePanel();renderAreaOutlineList();}
 }
 function fitAreaOutline(){
   if(!(app.areaOutline&&app.areaOutline.layer))return;
@@ -2411,7 +2424,7 @@ async function showAreaOutlineByKey(key,opts={}){
   if(!site){notify('Area outline record not found for this popup. Reopen the marker and try again.',5000);return;}
   const outline=areaOutlineCandidate(site);
   if(!areaOutlineIsAvailable(outline)){notify('This record does not have an import-ready official outline source yet.',5000);return;}
-  if(app.areaOutline.layers&&app.areaOutline.layers[key]){updateAreaOutlinePanel();renderAreaOutlineList();if(opts.fit!==false)fitAreaOutline();updateAreaOutlineLabelVisibility();return;}
+  if(app.areaOutline.layers&&app.areaOutline.layers[key]){if(!opts.deferPanel){updateAreaOutlinePanel();renderAreaOutlineList();}if(opts.fit!==false)fitAreaOutline();updateAreaOutlineLabelVisibility();return;}
   setLoading(true,'Loading official area outline…');
   try{
     const geo=await loadAreaOutlineGeoJson(outline);
@@ -2421,8 +2434,7 @@ async function showAreaOutlineByKey(key,opts={}){
     updateAreaOutlineLabelVisibility();
     app.areaOutline.layers[key]=group;
     app.areaOutline.active[key]={name:site.name||'Area outline',boundaryRepresents:outline.boundaryRepresents,caution:outline.caution,sourceUrl:outline.sourceUrl||areaOutlineFetchUrl(outline),officialCampingLegality:outline.officialCampingLegality||outline.rulesSummary||site.officialCampingLegality};
-    updateAreaOutlinePanel();
-    renderAreaOutlineList();
+    if(!opts.deferPanel){updateAreaOutlinePanel();renderAreaOutlineList();}
     if(opts.fit!==false)fitAreaOutline();
     updateAreaOutlineLabelVisibility();
     if(!opts.silent)notify('Official area outline shown. Context only — not a legal campsite boundary.',5500);

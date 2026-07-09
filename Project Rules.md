@@ -57,6 +57,11 @@ No worker lead may vanish. Every named lead or actionable source-system lead ret
 
 Do not assume a lead is unimportant because it lacks coordinates. A real overnight opportunity with weak coordinates is a lead, not trash. Conversely, do not keep generic non-actionable chatter forever: if a “lead” is not named or source-system actionable, either convert it into a specific acquisition task or write why it was not retained.
 
+
+Lead semantic cleanup / promotion rule:
+
+`data/leads.js` must not become a permanent holding pen for records that are practically import-ready. During cleanup, classify leads into promotion-ready, quick status-check, true research/external, area/rule/community overlay, and reject/duplicate/closure buckets. Ordinary campground/operator/city/county records may be promoted with an honest campground entrance/area coordinate when public overnight use is supported and no contradiction exists; do not require exact individual campsite pads for these records. Bad or outdated web design is not a reason to bury a real campground forever. For boondocking/community and public-land rule records, do not force official exact campsite coordinates; evaluate them as area/rule/community markers with clear caveats when the evidence standard is met.
+
 Coordinate-rescue completion rule:
 
 “Coordinate rescue needed” is not a valid final answer until the worker has attempted the basic rescue ladder that the assignment allows. For ordinary official/operator campgrounds, workers must try exact name search, official/operator address search, Google Maps/Apple Maps/Bing Maps/OSM when available, reservation-system maps, official GIS/PDF maps, and aerial/parcel spot-checking before claiming the coordinate is blocked. The return must state what was checked. A missing printed latitude/longitude on the official page is not by itself a blocker.
@@ -99,6 +104,11 @@ Map viewport / state-selection render rule:
 State selection is a data-loading control, not an automatic command to zoom the map to every selected state. Selecting multiple states or Select All Map must preserve the current map view and draw only the records relevant to the visible map window, with padding/overscan for smooth panning. Do not restore the old behavior where selecting all states draws every site and zooms out to fit the full United States. Single-state selection may still fit that one state when appropriate. Nearby Search and route search may still fit their own radius/route views because those are explicit spatial searches.
 
 Normal zooming inside the already-rendered marker window should not rebuild every marker. Marker scaling should remain CSS-driven. Rebuild markers only when filters/search/state/layer data changes, when the map leaves the padded rendered window, or when crossing the low-zoom cluster threshold.
+
+
+Retained overlay / map-object redraw rule:
+
+Map overlays, area outlines, boundary layers, and markers that remain valid after a state-selection, filter, layer, or search change must not be torn down and redrawn merely because the selection changed. Reconcile by difference: keep existing map objects that still match, add only newly needed objects, and remove only objects that no longer match. Full overlay/marker teardown is reserved for turning a layer off, changing the underlying data/source, crossing a rendering mode boundary that requires different geometry, or clearing the map intentionally. This applies especially to official area outlines and boundary overlays because polygon redraws are expensive and visually disruptive.
 
 
 Search / place-search behavior rule:

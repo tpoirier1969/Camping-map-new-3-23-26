@@ -39977,28 +39977,6 @@ window.CAMPING_LEADS = [
     "notes": "Existing-active QA lead to prevent wrong-state coordinate regression."
   },
   {
-    "id": "mi-v23195-lead-nahma-resort-campground-coordinate-public-status-rescue",
-    "state": "MI",
-    "name": "Nahma Resort and Campground / Upper Peninsula Golf and Lake Resort / former No-Nah-Ma Resort",
-    "countyRegion": "Delta / Nahma / Big Bay de Noc",
-    "leadType": "operator_address_coordinate_rescue",
-    "likelyLayer": "Private Campgrounds or Needs Verification",
-    "status": "coordinate_supplied_public_status_rescue",
-    "priority": "High",
-    "sourceType": "Official township business listing + user field/discovery report; operator/live-map proof still needed",
-    "coordinate": {
-      "lat": 45.839247203191924,
-      "lng": -86.66451775729603
-    },
-    "coordinateConfidence": "USER-PROVIDED FIELD/LOCAL COORDINATE — likely campground/resort coordinate; still needs operator/public-status and aerial/live-map check before active import.",
-    "blocker": "Nahma Township official business page lists Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, at 13723 Main St., Nahma, MI 49864, and the township visitor text says Nahma has camping. The accessible web pass did not recover an operator campground page, exact campground/RV-loop coordinate, or public transient camping details. Do not lose this lead, but do not fake an address centroid.",
-    "nextAction": "Use Tod-provided coordinate 45.839247203191924, -86.66451775729603 as the first map/aerial check point. Confirm it lands on the campground/resort camping area or entrance, verify current public transient overnight camping and current name, then promote only if operator/public-status proof is solid.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.97",
-    "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94; previous Worker 3 Nahma row said no add and to preserve map-only/POI-only hints as leads.",
-    "notes": "Do not import as active from broad Nahma-town/township coordinate. Verify current name and public transient availability before active map add. Township source trail: Nahma Township Businesses page, Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, 13723 Main St., Nahma MI. User flagged this as missed under possible names Nahma Campground and Resort / Resort and Campground. Tod supplied coordinate on 2026-07-09: 45.839247203191924, -86.66451775729603."
-  },
-  {
     "id": "mi-v23195-lead-nahma-area-boondocking-user-reported-site-1",
     "state": "MI",
     "name": "Nahma-area boondocking site 1 — user-reported nearby site",

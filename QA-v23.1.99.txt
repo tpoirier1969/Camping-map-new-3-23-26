@@ -1,0 +1,25 @@
+QA — v23.1.99
+
+Syntax / load checks:
+- node --check app.js: passed
+- node --check version.js: passed
+- node --check data/states/MI.js: passed
+- node --check data/leads.js: passed
+- data/rejected.js load check: passed
+- all data/states/*.js syntax checks: passed
+
+Data checks:
+- Michigan active data loaded.
+- data/leads.js loaded.
+- data/rejected.js loaded.
+- Full active duplicate ID scan: passed.
+- Duplicate lead ID scan: passed.
+- Duplicate rejected ID scan: passed.
+- Nahma Resort Campground active record present in MI.js.
+- Promoted Nahma campground lead removed from data/leads.js.
+- Nahma-area boondocking leads retained in data/leads.js.
+
+Rules / package checks:
+- PROJECT_RULES.md and Project Rules.md are identical.
+- Version source updated to v23.1.99 in version.js only.
+- ZIP integrity: passed.

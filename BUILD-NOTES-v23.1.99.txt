@@ -1,0 +1,43 @@
+Tod's Boondocking & Camping Maps — v23.1.99
+Area redraw discipline + first lead semantic cleanup
+
+Changed files:
+- app.js
+- version.js
+- data/states/MI.js
+- data/leads.js
+- PROJECT_RULES.md
+- Project Rules.md
+- LEAD_SEMANTIC_CLEANUP_REVIEW_v23.1.99.csv
+
+App behavior changes:
+- Fixed Official Area Outlines redraw behavior during state-selection changes.
+- State selection now reconciles area outlines by difference:
+  - keeps already-drawn outlines that still match the new state/filter selection;
+  - loads only newly needed outlines;
+  - removes only outlines that no longer match;
+  - no longer clears all area outlines simply because selected states changed.
+- Removed the old hard pause at more than 3 selected states for area outlines. The performance guard is now based on total available outline count instead of state count.
+- Batch area-outline loading now defers panel/list refreshes until the batch ends, reducing redraw churn.
+- Existing USFS Boundary Overlay behavior remains off-by-default and viewport-lazy.
+
+Lead cleanup/data changes:
+- Promoted Nahma Resort Campground / Upper Peninsula Golf and Lake Resort from data/leads.js to active Michigan Private Campgrounds.
+- Removed the promoted Nahma campground lead from data/leads.js to reduce lead clutter.
+- Kept the two Nahma-area boondocking leads in data/leads.js.
+- Added LEAD_SEMANTIC_CLEANUP_REVIEW_v23.1.99.csv to classify remaining leads by practical cleanup bucket.
+
+Lead semantic review bucket counts after Nahma promotion:
+- ORDINARY_CAMPGROUND_COORDINATE_RESCUE: 1198
+- AREA_RULE_COMMUNITY_OR_OVERLAY_CANDIDATE: 462
+- TRUE_LEAD_RESEARCH_OR_EXTERNAL: 207
+- REJECT_DUPLICATE_OR_CLOSURE_REVIEW: 166
+- PROMOTION_STATUS_CHECK_CANDIDATE: 20
+
+Rules updates:
+- Added retained overlay/map-object redraw rule.
+- Added lead semantic cleanup/promotion rule.
+
+Notes:
+- This package does not yet split Official Area Outlines into separate Federal Areas and State/Local Areas. That should be handled as its own small UI/data-organization revision so it is not mixed with the redraw bug fix.
+- No marker icon, color, search, Supabase, community, or basemap behavior was intentionally changed.
