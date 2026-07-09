@@ -1,0 +1,55 @@
+Tod's Boondocking & Camping Maps — QA v23.1.94
+Date: 2026-07-08
+
+Commands run from package worktree:
+- node --check version.js
+- node --check data/states/MI.js
+- node --check data/states/ND.js
+- node --check data/states/SD.js
+- node --check data/states/NE.js
+- node --check data/states/MO.js
+- node --check data/states/IL.js
+- node --check data/states/OH.js
+- node --check data/states/PA.js
+- node --check data/states/TN.js
+- node --check data/leads.js
+- node --check data/rejected.js
+- node --check data/states-manifest.js
+
+Parse/load QA:
+- Loaded all changed state files in Node with window.CAMPING_STATE_DATA.
+- Loaded data/leads.js.
+- Loaded data/rejected.js.
+- Loaded data/states-manifest.js.
+
+Results:
+- JS syntax: PASS.
+- Changed state files load: PASS.
+- data/leads.js loads: PASS.
+- data/rejected.js loads: PASS.
+- data/states-manifest.js loads: PASS.
+- Duplicate IDs inside changed state files: 0.
+- Duplicate lead IDs: 0.
+- Duplicate rejected IDs: 0.
+- Manifest counts updated for changed states: PASS.
+
+Changed state counts after v23.1.94:
+- MI: 558
+- ND: 53
+- SD: 125
+- NE: 30
+- MO: 41
+- IL: 104
+- OH: 8
+- PA: 110
+- TN: 20
+
+Lead/rejected counts after v23.1.94:
+- data/leads.js: 2,048 rows
+- data/rejected.js: 526 rows
+
+Important QA notes:
+- No browser render smoke test was run in this environment.
+- Worker 5 IA/KS and Worker 10 western/blank-state returns are intentionally not included yet.
+- Several worker-return coordinates are medium-confidence address/map/directory-based candidates rather than official GIS/site-level coordinates; popups preserve verify-before-travel cautions.
+- Broad/system/geometry leads were kept in data/leads.js instead of fake-pinned.

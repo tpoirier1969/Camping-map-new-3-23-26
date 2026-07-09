@@ -9763,5 +9763,37 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "s960",
     "lastCheckedVersion": "v23.1.92",
     "notes": "Worker 2 found separate plausible Van Riper state park record and suspicious duplicate coordinate; duplicate removed pending official campground map check. "
+  },
+  {
+    "id": "nd-grand-forks-afb-famcamp-restricted-access",
+    "state": "ND",
+    "name": "Grand Forks AFB FamCamp",
+    "countyRegion": "Grand Forks AFB",
+    "rejectedAsLayer": "Private / Modern",
+    "rejectionType": "restricted_access_nonpublic",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT AS ACTIVE",
+    "canReopen": true,
+    "reopenIf": "Only if current official/operator proof confirms public overnight camping and provides an honest coordinate.",
+    "sourceSummary": "Worker 3 target indicates restricted military/private access; not public transient camping unless public eligibility is later proven.",
+    "relatedActiveOrPendingRecord": "",
+    "lastCheckedVersion": "v23.1.94",
+    "notes": "Keep out of public active layers unless official access rules prove public eligibility."
+  },
+  {
+    "id": "pa-needs-lambs-creek-recreation-area-no-overnight-proof",
+    "state": "PA",
+    "name": "Lambs Creek Recreation Area",
+    "countyRegion": "Tioga",
+    "rejectedAsLayer": "Rustic / Primitive / Modern",
+    "rejectionType": "day_use_or_group_shelter_trap_no_overnight_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT AS ACTIVE",
+    "canReopen": true,
+    "reopenIf": "Only if current official/operator proof confirms public overnight camping and provides an honest coordinate.",
+    "sourceSummary": "Worker 8 return says target/Recreation.gov facility appears day-use/group shelter rather than overnight campground.",
+    "relatedActiveOrPendingRecord": "",
+    "lastCheckedVersion": "v23.1.94",
+    "notes": "Do not import unless USACE/Recreation.gov later confirms overnight camping."
   }
 ];

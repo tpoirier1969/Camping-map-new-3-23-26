@@ -662,12 +662,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST COORDINATE FOUND",
     "blocker": "Official campground exists, but prior pass did not recover an import-safe coordinate.",
     "nextAction": "Check NPS GIS, NPS campground map metadata, Recreation.gov/RIDB, or agency contact.",
-    "relatedActiveOrPendingRecord": "None; not active in SD.js",
+    "relatedActiveOrPendingRecord": "sd-v23194-sage-creek-campground",
     "sourceSummary": "v23.1.50/v23.1.51 notes repeatedly hold Sage Creek for coordinate rescue.",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.94",
     "notes": "ADD TO data/leads.js. Do not use Badlands park centroid, road pullout, or broad Sage Creek area as exact point.",
-    "sourceFile": "Pasted markdown.md"
+    "sourceFile": "Pasted markdown.md",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 3 return."
   },
   {
     "id": "sd-lead-spearfish-city-campground",
@@ -2741,12 +2744,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Low",
     "blocker": "Active description says “Or maybe one of the other parks in town,” so identity and coordinate are unresolved.",
     "nextAction": "Verify exact campground/park name, city/county operator source, camping permission, coordinate, and service level. Reject or move to Needs Verification if no honest identity can be made.",
-    "relatedActiveOrPendingRecord": "s886 Streeter Park Campground",
+    "relatedActiveOrPendingRecord": "s886",
     "sourceSummary": "Current row is named but internally uncertain.",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.94",
     "notes": "Similar to Bow Creek: the old row admits it may be wrong.",
-    "sourceFile": "Worker_08_NE_KS_Historical_Backfill_Return.txt"
+    "sourceFile": "Worker_08_NE_KS_Historical_Backfill_Return.txt",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing s886 corrected/annotated; no duplicate added."
   },
   {
     "id": "ne-lead-scouts-rest-campground-source-proof",
@@ -9150,9 +9156,12 @@ window.CAMPING_LEADS = [
     "blocker": "Do not import as campground unless USACE confirms overnight camping.",
     "nextAction": "Add verification/reject-watch lead.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.62",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "PA_W5 Bulldog return",
-    "notes": "Recreation.gov describes Lambs Creek as a group shelter/picnic/day-use facility with boat ramp and rail trail access, not an overnight campground. ([Recreation.gov][36])"
+    "notes": "Recreation.gov describes Lambs Creek as a group shelter/picnic/day-use facility with boat ramp and rail trail access, not an overnight campground. ([Recreation.gov][36])",
+    "resolutionStatus": "rejected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Rejected: no overnight campground proof; appears day-use/group-shelter trap."
   },
   {
     "id": "pa-lead-schuylkill-tuscarora-state-park-overnight-cottages-yurts-schema-check",
@@ -9956,10 +9965,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Directory/discovery source identifies campground; public access/current operator needs confirmation",
     "blocker": "Not enough for active import.",
     "nextAction": "Find operator/municipal source, address-map check, then promote or reject.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.62",
+    "relatedActiveOrPendingRecord": "pa-v23194-conewago-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "PA_W7 Bulldog return",
-    "notes": "https://www.camping.org/campgrounds/pennsylvania/gettysburg/gettysburg-battlefield-resort"
+    "notes": "https://www.camping.org/campgrounds/pennsylvania/gettysburg/gettysburg-battlefield-resort",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 8 return."
   },
   {
     "id": "pa-hersheypark-camping-resort-coordinate-rescue",
@@ -10317,10 +10329,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Obvious Bedford-area private campground; coordinate/source not fully extracted in accessible pass",
     "blocker": "Likely obvious active candidate.",
     "nextAction": "Operator proof + coordinate rescue.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.62",
+    "relatedActiveOrPendingRecord": "pa-v23194-friendship-village-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "PA_W7 Bulldog return",
-    "notes": "Search family: Bedford PA campground / RV park"
+    "notes": "Search family: Bedford PA campground / RV park",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 8 return."
   },
   {
     "id": "pa-harrisburg-east-campground-coordinate-rescue",
@@ -14440,10 +14455,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official ODNR proof; exact camping coordinate not recovered.",
     "blocker": "Good Maumee River corridor rustic add after coordinate rescue.",
     "nextAction": "Add lead.",
-    "relatedActiveOrPendingRecord": "No active OH match.",
-    "lastCheckedVersion": "v23.1.65",
+    "relatedActiveOrPendingRecord": "oh-v23194-independence-dam-sp-primitive-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "No OH lead rows.",
-    "notes": "OH_W1 first-pass return. Source/citation text: ODNR says the campground at Independence Dam State Park is along the Maumee River and offers seasonal primitive tent-only campsites. ([Ohio Department of Natural Resources][11])"
+    "notes": "OH_W1 first-pass return. Source/citation text: ODNR says the campground at Independence Dam State Park is along the Maumee River and offers seasonal primitive tent-only campsites. ([Ohio Department of Natural Resources][11])",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 8 return."
   },
   {
     "id": "oh-lead-oak-openings-white-oak-springbrook-campgrounds",
@@ -15000,10 +15018,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST IMPORT COORDINATE RECOVERED in accessible tools; official map/reservation/GIS extraction needed.",
     "blocker": "Good future active candidate, but not safe to import until campground loop/component coordinate is recovered.",
     "nextAction": "Use normal browser ODNR page/reservation map, ODNR GIS/static map, or georeference official map; add active row only after point lands on campground/component.",
-    "relatedActiveOrPendingRecord": "NO ACTIVE OH MATCH FOUND in current OH.js unless otherwise noted",
-    "lastCheckedVersion": "v23.1.65",
+    "relatedActiveOrPendingRecord": "oh-v23194-kiser-lake-sp-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "NO OH LEAD FOUND",
-    "notes": "OH_W3 first-pass return. Source/citation text: https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/kiser-lake-state-park ; https://ohiodnr.gov/static/documents/parks/parkmaps/kiserlakeparkmap.pdf"
+    "notes": "OH_W3 first-pass return. Source/citation text: https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/kiser-lake-state-park ; https://ohiodnr.gov/static/documents/parks/parkmaps/kiserlakeparkmap.pdf",
+    "resolutionStatus": "resolved_duplicate",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Merged into promoted Kiser Lake active record."
   },
   {
     "id": "oh-lead-john-bryan-state-park-campground",
@@ -15114,10 +15135,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST IMPORT COORDINATE RECOVERED in accessible tools; official map/reservation/GIS extraction needed.",
     "blocker": "Good future active candidate, but not safe to import until campground loop/component coordinate is recovered.",
     "nextAction": "Use normal browser ODNR page/reservation map, ODNR GIS/static map, or georeference official map; add active row only after point lands on campground/component.",
-    "relatedActiveOrPendingRecord": "NO ACTIVE OH MATCH FOUND in current OH.js unless otherwise noted",
-    "lastCheckedVersion": "v23.1.65",
+    "relatedActiveOrPendingRecord": "oh-v23194-hueston-woods-sp-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "NO OH LEAD FOUND",
-    "notes": "OH_W3 first-pass return. Source/citation text: https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/hueston-woods-state-park ; https://ohiodnr.gov/static/documents/parks/parkmaps/huestonwoodsparkmap.pdf"
+    "notes": "OH_W3 first-pass return. Source/citation text: https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/hueston-woods-state-park ; https://ohiodnr.gov/static/documents/parks/parkmaps/huestonwoodsparkmap.pdf",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 8 return."
   },
   {
     "id": "oh-lead-stonelick-state-park-campground",
@@ -15969,10 +15993,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official camping proof recovered; exact campground coordinate needs ODNR/ReserveOhio extraction.",
     "blocker": "Strong state-park lead.",
     "nextAction": "Add lead.",
-    "relatedActiveOrPendingRecord": "NO ACTIVE IN-LOCK OH ROW FOUND",
-    "lastCheckedVersion": "v23.1.65",
+    "relatedActiveOrPendingRecord": "oh-v23194-hocking-hills-sp-main-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "None",
-    "notes": "OH_W4 first-pass return. Source/citation text: ODNR reservation page lists full-hookup, electric, and non-electric campground inventory at Hocking Hills; ODNR state camping table confirms Hocking Hills camping. ([Ohio Department of Natural Resources][13])"
+    "notes": "OH_W4 first-pass return. Source/citation text: ODNR reservation page lists full-hookup, electric, and non-electric campground inventory at Hocking Hills; ODNR state camping table confirms Hocking Hills camping. ([Ohio Department of Natural Resources][13])",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 8 return."
   },
   {
     "id": "oh-hocking-hocking-hills-state-park-primitive-hikein-campground-coordinate-rescue",
@@ -16064,10 +16091,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official camping proof recovered; exact campground coordinate blocked.",
     "blocker": "State park lead, not duplicate of Wayne NF Burr Oak Cove.",
     "nextAction": "Add lead.",
-    "relatedActiveOrPendingRecord": "NO ACTIVE IN-LOCK OH ROW FOUND",
-    "lastCheckedVersion": "v23.1.65",
+    "relatedActiveOrPendingRecord": "oh-v23194-burr-oak-sp-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "None",
-    "notes": "OH_W4 first-pass return. Source/citation text: ODNR reservation pages list Burr Oak campground with electric, non-electric, and tent-only inventory; state camping table confirms Burr Oak camping. ([Ohio Department of Natural Resources][17])"
+    "notes": "OH_W4 first-pass return. Source/citation text: ODNR reservation pages list Burr Oak campground with electric, non-electric, and tent-only inventory; state camping table confirms Burr Oak camping. ([Ohio Department of Natural Resources][17])",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 8 return."
   },
   {
     "id": "oh-morgan-burr-oak-backpack-trail-camping-coordinate-rescue",
@@ -16102,10 +16132,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "ODNR camping-table proof; exact coordinate and amenities blocked.",
     "blocker": "Do not use lake/park centroid.",
     "nextAction": "Add lead.",
-    "relatedActiveOrPendingRecord": "NO ACTIVE IN-LOCK OH ROW FOUND",
-    "lastCheckedVersion": "v23.1.65",
+    "relatedActiveOrPendingRecord": "oh-v23194-strouds-run-state-park-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "None",
-    "notes": "OH_W4 first-pass return. Source/citation text: ODNR camping table lists Strouds Run as a camping state park in the southeast region."
+    "notes": "OH_W4 first-pass return. Source/citation text: ODNR camping table lists Strouds Run as a camping state park in the southeast region.",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 8 return."
   },
   {
     "id": "oh-meigs-forked-run-state-park-campground-coordinate-rescue",
@@ -16558,10 +16591,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official/operator proof recovered; exact campground coordinate not extracted.",
     "blocker": "Electric alone does not justify Modern.",
     "nextAction": "Add lead.",
-    "relatedActiveOrPendingRecord": "NO ACTIVE IN-LOCK OH ROW FOUND",
-    "lastCheckedVersion": "v23.1.65",
+    "relatedActiveOrPendingRecord": "oh-v23194-lake-snowden-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "None",
-    "notes": "OH_W4 first-pass return. Source/citation text: Lake Snowden official sources describe daily/weekly/monthly/seasonal camping with 125 sites, including 95 electric and 30 primitive sites. ([lakesnowden.hocking.edu][28])"
+    "notes": "OH_W4 first-pass return. Source/citation text: Lake Snowden official sources describe daily/weekly/monthly/seasonal camping with 125 sites, including 95 electric and 30 primitive sites. ([lakesnowden.hocking.edu][28])",
+    "resolutionStatus": "resolved_duplicate",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Merged into promoted Lake Snowden active record."
   },
   {
     "id": "oh-monroe-county-parks-campground-system-coordinate-rescue",
@@ -17356,9 +17392,12 @@ window.CAMPING_LEADS = [
     "blocker": "Existing row is useful but under-described. Needs proper Boondocking / Dispersed area/rule wording, not a fake exact campground",
     "nextAction": "Convert/update existing active row",
     "relatedActiveOrPendingRecord": "Existing active broad `Shawnee National Forest` row found, but it is not honestly worded as an approximate area/rule marker",
-    "lastCheckedVersion": "v23.1.65",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "No IL lead match",
-    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says primitive camping is allowed outside developed recreation areas, with restrictions, and free dispersed camping is allowed up to 14 consecutive days; it also warns not to camp in day-use areas or where overnight parking is prohibited. ([US Forest Service][1])"
+    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says primitive camping is allowed outside developed recreation areas, with restrictions, and free dispersed camping is allowed up to 14 consecutive days; it also warns not to camp in day-use areas or where overnight parking is prohibited. ([US Forest Service][1])",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing IL active row corrected/normalized from Worker 7 return."
   },
   {
     "id": "il-saline-garden-of-gods-pharaoh-campground",
@@ -17377,10 +17416,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official Forest Service lat/lon; high",
     "blocker": "This is not Modern. Current row is classic stale-source-folder nonsense. Fix layer and source",
     "nextAction": "Correct existing active row",
-    "relatedActiveOrPendingRecord": "Existing active `Garden of the Gods Recreational Area` found, but it is stale/generic and marked modern/state",
-    "lastCheckedVersion": "v23.1.65",
+    "relatedActiveOrPendingRecord": "il-v23194-pharaoh-campground-garden-of-the-gods",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "No IL lead match",
-    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Pharaoh Campground has 12 campsites, tables, fire grills, toilets, drinking water, no permit required for Garden of the Gods Wilderness camping, and official lat/lon 37.6025, -88.37944444. ([US Forest Service][3])"
+    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Pharaoh Campground has 12 campsites, tables, fire grills, toilets, drinking water, no permit required for Garden of the Gods Wilderness camping, and official lat/lon 37.6025, -88.37944444. ([US Forest Service][3])",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 7 return."
   },
   {
     "id": "il-gallatin-camp-cadiz-campground",
@@ -17400,9 +17442,12 @@ window.CAMPING_LEADS = [
     "blocker": "Not Modern. Needs source-backed layer correction",
     "nextAction": "Correct existing active row",
     "relatedActiveOrPendingRecord": "Existing active `Camp Cadiz` found, but stale layer/subtype says modern/state",
-    "lastCheckedVersion": "v23.1.65",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "No IL lead match",
-    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Camp Cadiz is first-come, equestrian camping is allowed, campsites have fire rings/picnic tables, vault toilets and potable water are available, and official lat/lon is 37.57833333, -88.24416667. ([US Forest Service][4])"
+    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Camp Cadiz is first-come, equestrian camping is allowed, campsites have fire rings/picnic tables, vault toilets and potable water are available, and official lat/lon is 37.57833333, -88.24416667. ([US Forest Service][4])",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing IL active row corrected/normalized from Worker 7 return."
   },
   {
     "id": "il-jackson-johnson-creek-recreation-area-campground",
@@ -17422,9 +17467,12 @@ window.CAMPING_LEADS = [
     "blocker": "Move from stale state/modern ambiguity to Rustic / Primitive unless separate marina component is being mapped",
     "nextAction": "Correct existing active row",
     "relatedActiveOrPendingRecord": "Existing active `Johnson Creek Recreation Area` found, but row is still messy and not cleanly layered",
-    "lastCheckedVersion": "v23.1.65",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "No IL lead match",
-    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Johnson Creek has a first-come campground, equestrian features, vault toilets, no potable water, and official lat/lon 37.83444444, -89.52055556. ([US Forest Service][6])"
+    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Johnson Creek has a first-come campground, equestrian features, vault toilets, no potable water, and official lat/lon 37.83444444, -89.52055556. ([US Forest Service][6])",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing IL active row corrected/normalized from Worker 7 return."
   },
   {
     "id": "il-gallatin-pine-ridge-campground-pounds-hollow",
@@ -17444,9 +17492,12 @@ window.CAMPING_LEADS = [
     "blocker": "Keep Rustic/Primitive unless showers are proven; add Pounds Hollow alias so search finds it",
     "nextAction": "Update existing active row",
     "relatedActiveOrPendingRecord": "Existing active `Pine Ridge Campground` found; no active `Pounds Hollow` alias row",
-    "lastCheckedVersion": "v23.1.65",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "No IL lead match",
-    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Pine Ridge Campground at Pounds Hollow has 13 electric sites and 22 non-electric campsites, potable water at the campground entrance, and official lat/lon 37.615001, -88.2666667. ([US Forest Service][7])"
+    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Pine Ridge Campground at Pounds Hollow has 13 electric sites and 22 non-electric campsites, potable water at the campground entrance, and official lat/lon 37.615001, -88.2666667. ([US Forest Service][7])",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing IL active row corrected/normalized from Worker 7 return."
   },
   {
     "id": "il-jackson-turkey-bayou-campground",
@@ -17466,9 +17517,12 @@ window.CAMPING_LEADS = [
     "blocker": "Formal primitive campground belongs Rustic / Primitive, not generic boondocking, unless kept as a no-fee primitive special case",
     "nextAction": "Correct existing active row",
     "relatedActiveOrPendingRecord": "Existing active `Turkey Bayou` and `Oakwood Bottoms` rows found",
-    "lastCheckedVersion": "v23.1.65",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "No IL lead match",
-    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Turkey Bayou is a no-fee campground, 14-day maximum stay, no water, no restrooms, and official lat/lon 37.685, -89.41138889. ([US Forest Service][8])"
+    "notes": "IL_W8 first-pass return. Source/citation text: Forest Service says Turkey Bayou is a no-fee campground, 14-day maximum stay, no water, no restrooms, and official lat/lon 37.685, -89.41138889. ([US Forest Service][8])",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing IL active row corrected/normalized from Worker 7 return."
   },
   {
     "id": "il-lead-rend-lake-south-sandusky-coordinate-conflict",
@@ -17640,9 +17694,12 @@ window.CAMPING_LEADS = [
     "blocker": "Runtime duplicate check showed the proposed Sand Ridge area/rule marker was skipped by coordinate duplicate against existing Illinois data.",
     "nextAction": "Update existing Sand Ridge/Sand Ridge State Forest active row wording/layer as an approximate area/rule marker if needed; do not add a duplicate point.",
     "relatedActiveOrPendingRecord": "Existing coordinate duplicate in IL runtime data",
-    "lastCheckedVersion": "v23.1.65",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "runtime duplicate skip",
-    "notes": "Moved from active add to lead/correction during v23.1.65 QA."
+    "notes": "Moved from active add to lead/correction during v23.1.65 QA.",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing IL active row corrected/normalized from Worker 7 return."
   },
   {
     "id": "oh-lead-east-fork-backcountry-sites-status-check",
@@ -19938,10 +19995,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official address/proof; exact campground point not extracted",
     "blocker": "Good non-modern target",
     "nextAction": "Add lead; promote after coordinate snap",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.68",
+    "relatedActiveOrPendingRecord": "ne-v23194-long-pine-sra-basic-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE public-discovery worker return",
-    "notes": "NGPC says Long Pine has eight non-electric pads and 21 non-pad Basic sites, all first-come, first-served, with 14-day stay limit. ([Nebraska Game & Parks Commission][10])"
+    "notes": "NGPC says Long Pine has eight non-electric pads and 21 non-pad Basic sites, all first-come, first-served, with 14-day stay limit. ([Nebraska Game & Parks Commission][10])",
+    "resolutionStatus": "resolved_duplicate",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Merged into Long Pine active record."
   },
   {
     "id": "ne-lead-ne-cherry-cottonwood-lake-sra-primitive-campground",
@@ -20033,10 +20093,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official city proof; coordinate needs final snap",
     "blocker": "Active candidate proof exists, but no import-safe coordinate was available in the worker return. Address/map/reservation coordinate rescue required.",
     "nextAction": "Add active after coordinate check",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.68",
+    "relatedActiveOrPendingRecord": "ne-v23194-ainsworth-east-city-park-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE public-discovery worker return",
-    "notes": "City says tents and RVs are allowed in East City Park, first-come/first-served, April–October, with no-hookup tent and water/electric RV rates plus dump fee. ([cityofainsworth.com][16])"
+    "notes": "City says tents and RVs are allowed in East City Park, first-come/first-served, April–October, with no-hookup tent and water/electric RV rates plus dump fee. ([cityofainsworth.com][16])",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "ne-lead-ne-holt-atkinson-mill-race-park-campground",
@@ -20052,10 +20115,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official city address/proof; coordinate needs final snap",
     "blocker": "Active candidate proof exists, but no import-safe coordinate was available in the worker return. Address/map/reservation coordinate rescue required.",
     "nextAction": "Add active after coordinate snap",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.68",
+    "relatedActiveOrPendingRecord": "ne-v23194-atkinson-mill-race-park-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE public-discovery worker return",
-    "notes": "Atkinson says Mill Race Park & Campground is open year-round at 47450 877th Rd with RV and tent campsites, RV $20/night and tent $10/night. ([atkinsonne.com][17])"
+    "notes": "Atkinson says Mill Race Park & Campground is open year-round at 47450 877th Rd with RV and tent campsites, RV $20/night and tent $10/night. ([atkinsonne.com][17])",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "ne-lead-ne-holt-oneill-carney-park-campground",
@@ -20090,10 +20156,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "City official proof; coordinate needs final snap",
     "blocker": "Active candidate proof exists, but no import-safe coordinate was available in the worker return. Address/map/reservation coordinate rescue required.",
     "nextAction": "Add active after coordinate snap",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.68",
+    "relatedActiveOrPendingRecord": "ne-v23194-bassett-rv-camping-pads",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE public-discovery worker return",
-    "notes": "Bassett official page says RV camping pads west of the fishing ponds are first-come/first-served, with electric and water access and suggested donation. ([Bassett NE][19])"
+    "notes": "Bassett official page says RV camping pads west of the fishing ponds are first-come/first-served, with electric and water access and suggested donation. ([Bassett NE][19])",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "ne-lead-ne-cherry-valentine-city-park-campground",
@@ -21059,10 +21128,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official NGPC page",
     "blocker": "Active candidate proof exists, but no import-safe coordinate was available in the worker return. Address/map/reservation coordinate rescue required.",
     "nextAction": "Add after coordinate rescue",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.68",
+    "relatedActiveOrPendingRecord": "ne-v23194-summit-lake-sra",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE public-discovery worker return",
-    "notes": "NGPC lists Electric Plus and Basic camping, primitive overnight equestrian by superintendent approval, water, shower house, primitive restrooms, dump station. ([Nebraska Game & Parks Commission][20])"
+    "notes": "NGPC lists Electric Plus and Basic camping, primitive overnight equestrian by superintendent approval, water, shower house, primitive restrooms, dump station. ([Nebraska Game & Parks Commission][20])",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "ne-lead-ne-w8-pelican-point-sra",
@@ -21078,10 +21150,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official NGPC page",
     "blocker": "Active candidate proof exists, but no import-safe coordinate was available in the worker return. Address/map/reservation coordinate rescue required.",
     "nextAction": "Add after coordinate rescue",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.68",
+    "relatedActiveOrPendingRecord": "ne-v23194-pelican-point-sra",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE public-discovery worker return",
-    "notes": "NGPC lists six primitive campsites, vault restrooms, no potable water, and Missouri River access. ([Nebraska Game & Parks Commission][21])"
+    "notes": "NGPC lists six primitive campsites, vault restrooms, no potable water, and Missouri River access. ([Nebraska Game & Parks Commission][21])",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "ne-lead-ne-w8-riverview-marina-sra",
@@ -22902,10 +22977,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Need campground-side point, not marina/ramp",
     "nextAction": "Extract official map/GIS or reservation metadata",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.69",
+    "relatedActiveOrPendingRecord": "ne-v23194-lake-mcconaughy-otter-creek-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE coordinate-rescue closeout v23.1.69",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "ne-lake-ogallala-east-campground-coordinate-rescue",
@@ -22921,10 +22999,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Do not use Lake Ogallala center/dam",
     "nextAction": "Extract reservation metadata or official GIS",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.69",
+    "relatedActiveOrPendingRecord": "ne-v23194-lake-ogallala-east-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE coordinate-rescue closeout v23.1.69",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "ne-enders-reservoir-area-a-b-center-dam-coordinate-rescue",
@@ -23035,10 +23116,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Good non-modern target, coordinate blocked",
     "nextAction": "Extract official campground map/GIS",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.69",
+    "relatedActiveOrPendingRecord": "ne-v23194-long-pine-sra-basic-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE coordinate-rescue closeout v23.1.69",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "ne-willow-creek-willow-way-equestrian-components-coordinate-rescue",
@@ -23377,10 +23461,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Small obvious central-corridor primitive/basic miss",
     "nextAction": "Add lead",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.69",
+    "relatedActiveOrPendingRecord": "ne-v23194-union-pacific-sra-basic-camping",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE coordinate-rescue closeout v23.1.69",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "ne-lead-broken-bow-tomahawk-rv-park",
@@ -23928,10 +24015,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Modern campground plus non-modern equestrian component",
     "nextAction": "Add active; add separate equestrian lead if splitting",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.69",
+    "relatedActiveOrPendingRecord": "ne-v23194-summit-lake-sra",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE coordinate-rescue closeout v23.1.69",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "resolved_duplicate",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Merged into Summit Lake active record."
   },
   {
     "id": "ne-lead-summit-lake-primitive-equestrian-camping",
@@ -23966,10 +24056,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Missouri River primitive target",
     "nextAction": "Add active after coordinate snap",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.69",
+    "relatedActiveOrPendingRecord": "ne-v23194-pelican-point-sra",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE coordinate-rescue closeout v23.1.69",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "resolved_duplicate",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Merged into Pelican Point active record."
   },
   {
     "id": "ne-otoe-riverview-marina-sra-campground",
@@ -24612,10 +24705,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Separate from Shoreline Road zones.",
     "nextAction": "Add area/rule candidate",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.69",
+    "relatedActiveOrPendingRecord": "ne-v23194-lake-mcconaughy-cedar-view-beach-camping",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from IN/NE coordinate-rescue closeout v23.1.69",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 4 return."
   },
   {
     "id": "sd-lead-buffalo-gap-ng-dispersed-mvum-geometry",
@@ -24670,9 +24766,12 @@ window.CAMPING_LEADS = [
     "blocker": "Do not use American Creek, river, bridge, marina, or city-center proxy.",
     "nextAction": "Extract official city/operator campground address/map/reservation coordinate; classify by amenities.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.70",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from SD/ND/MO weak-state rescue v23.1.70",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "resolved_already_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Already represented in current state data; no duplicate added."
   },
   {
     "id": "sd-lead-lake-oahe-private-resorts-operator-proof-sweep",
@@ -25448,10 +25547,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Do not final-proof from The Dyrt/control snippets",
     "nextAction": "Keep/update lead",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.70",
+    "relatedActiveOrPendingRecord": "nd-v23194-clausen-springs-park-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from SD/ND/MO weak-state rescue v23.1.70",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 3 return."
   },
   {
     "id": "nd-valley-city-faust-park-sheyenne-primitive-camping-coordinate-rescue",
@@ -25487,9 +25589,12 @@ window.CAMPING_LEADS = [
     "blocker": "Useful reject/lead memory so it doesn’t become a public pin",
     "nextAction": "Add restricted-access lead or reject memory",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.70",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from SD/ND/MO weak-state rescue v23.1.70",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "rejected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Restricted military access; not public transient camping unless public eligibility is proven."
   },
   {
     "id": "mn-red-river-state-recreation-area-east-grand-forks",
@@ -25885,10 +25990,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Rename/retag: Nemo Landing, USACE, Modern Campgrounds",
     "nextAction": "Correct active record source/layer/name; optionally coordinate-rescue",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.70",
+    "relatedActiveOrPendingRecord": "s639",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from SD/ND/MO weak-state rescue v23.1.70",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing Nemo row corrected."
   },
   {
     "id": "mo-lead-pomme-damsite-usace-coordinate-rescue",
@@ -26588,10 +26696,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Do not remove permanently; add 2026 closure status.",
     "nextAction": "Update source/status wording in next revision",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.70",
+    "relatedActiveOrPendingRecord": "s560",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from SD/ND/MO weak-state rescue v23.1.70",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing Long Branch row updated with 2026 closure warning."
   },
   {
     "id": "mo-w8-danville-ca-designated-camping",
@@ -30065,10 +30176,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Official/source proof exists but exact campsite/campground coordinate is still blocked or medium-only.",
     "nextAction": "Extract ReserveOhio or georeference official map; keep Rustic unless electric/full-service proof emerges.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.73",
+    "relatedActiveOrPendingRecord": "oh-v23194-kiser-lake-sp-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 8 return."
   },
   {
     "id": "oh-v73-john-bryan-coordinate-rescue",
@@ -30160,10 +30274,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Official/source proof exists but exact campsite/campground coordinate is still blocked or medium-only.",
     "nextAction": "Use operator map, parcel/imagery check, or direct campground coordinate; consider horse-camp component if exact point emerges.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.73",
+    "relatedActiveOrPendingRecord": "oh-v23194-lake-snowden-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from MO/KY/OH/MT coordinate/component rescue v23.1.73",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 8 return."
   },
   {
     "id": "oh-v73-great-parks-and-five-rivers-trail-camping",
@@ -31186,10 +31303,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "TVA/operator proof exists but campground coordinate needs spot-check.",
     "nextAction": "Use TVA/concession campground map or address-map/imagery; do not use dam centroid.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.74",
+    "relatedActiveOrPendingRecord": "tn-v23194-pickwick-dam-tva-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from AR/TN weak-state rescue v23.1.74",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 9 return."
   },
   {
     "id": "tn-v74-west-tn-private-local-campgrounds-coordinate-rescue",
@@ -32883,10 +33003,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "TVA/operator map needed; avoid dam coordinate",
     "blocker": "Official/operator proof strong; coordinate not safely rescued; Strong candidate, but dam coordinates are a trap.; Need operator campground map, reservation map, or address-map spot-check; do not use dam",
     "nextAction": "Add coordinate-rescue lead",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.75",
+    "relatedActiveOrPendingRecord": "tn-v23194-pickwick-dam-tva-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/updated from AR/TN cleanup coordinate-rescue v23.1.75.",
-    "notes": "Optional"
+    "notes": "Optional",
+    "resolutionStatus": "resolved_duplicate",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Merged into promoted Pickwick Dam TVA active record."
   },
   {
     "id": "tn-w8-tva-undeveloped-public-land-geometry",
@@ -35582,9 +35705,12 @@ window.CAMPING_LEADS = [
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "GFP lists 14 campsites, non-electrical campsite fee, horse camp fee, year-round. (South Dakota Game, Fish, and Parks) Primitive/non-electric campground with horse-friendly sites; verify current conditions, reservations, access, and seasonal services"
+    "notes": "GFP lists 14 campsites, non-electrical campsite fee, horse camp fee, year-round. (South Dakota Game, Fish, and Parks) Primitive/non-electric campground with horse-friendly sites; verify current conditions, reservations, access, and seasonal services",
+    "resolutionStatus": "resolved_already_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Already represented in current state data; no duplicate added."
   },
   {
     "id": "sd-v23190-lead-fort-sisseton-historic-state-park-campground",
@@ -35602,9 +35728,12 @@ window.CAMPING_LEADS = [
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Fort Sisseton listing shows camping/camping cabins and address. (South Dakota Glacial Lakes and Prairies) State historic park campground/cabins; verify exact campground point and current reservation details"
+    "notes": "Fort Sisseton listing shows camping/camping cabins and address. (South Dakota Glacial Lakes and Prairies) State historic park campground/cabins; verify exact campground point and current reservation details",
+    "resolutionStatus": "resolved_already_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Already represented in current state data; no duplicate added."
   },
   {
     "id": "sd-v23190-lead-roy-lake-state-park-campgrounds",
@@ -35662,9 +35791,12 @@ window.CAMPING_LEADS = [
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "GFP lists 30 campsites and 1 camping cabin, 10 miles east of Clear Lake. (South Dakota Game, Fish, and Parks) State recreation area campground; verify exact campground entrance/loop"
+    "notes": "GFP lists 30 campsites and 1 camping cabin, 10 miles east of Clear Lake. (South Dakota Game, Fish, and Parks) State recreation area campground; verify exact campground entrance/loop",
+    "resolutionStatus": "resolved_already_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Already represented in current state data; no duplicate added."
   },
   {
     "id": "sd-v23190-lead-lake-poinsett-recreation-area-campgrounds",
@@ -35682,9 +35814,12 @@ window.CAMPING_LEADS = [
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Listing/GFP search show 106+ campsites and camping cabins. (South Dakota Glacial Lakes and Prairies) Scope-edge candidate; verify campground footprint is within assigned geography before import"
+    "notes": "Listing/GFP search show 106+ campsites and camping cabins. (South Dakota Glacial Lakes and Prairies) Scope-edge candidate; verify campground footprint is within assigned geography before import",
+    "resolutionStatus": "resolved_already_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Already represented in current state data; no duplicate added."
   },
   {
     "id": "sd-v23190-lead-mina-lake-recreation-area-campground",
@@ -35702,9 +35837,12 @@ window.CAMPING_LEADS = [
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Listing shows 37-site campground, 30/50 amp, restroom, dump/fill, cabin/modern cabin. (South Dakota Glacial Lakes and Prairies) State recreation area campground"
+    "notes": "Listing shows 37-site campground, 30/50 amp, restroom, dump/fill, cabin/modern cabin. (South Dakota Glacial Lakes and Prairies) State recreation area campground",
+    "resolutionStatus": "resolved_already_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Already represented in current state data; no duplicate added."
   },
   {
     "id": "sd-v23190-lead-richmond-lake-recreation-area-campground",
@@ -35722,9 +35860,12 @@ window.CAMPING_LEADS = [
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Listing shows 24-site campground, 30/50 amp, restroom, dump/fill, cabin. (South Dakota Glacial Lakes and Prairies) State recreation area campground"
+    "notes": "Listing shows 24-site campground, 30/50 amp, restroom, dump/fill, cabin. (South Dakota Glacial Lakes and Prairies) State recreation area campground",
+    "resolutionStatus": "resolved_already_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Already represented in current state data; no duplicate added."
   },
   {
     "id": "sd-v23190-lead-pelican-lake-recreation-area-campground",
@@ -35742,9 +35883,12 @@ window.CAMPING_LEADS = [
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Listing/search shows campground/cabins and 83 campsites with 50 amp/dump station. (South Dakota Glacial Lakes and Prairies) State recreation area campground"
+    "notes": "Listing/search shows campground/cabins and 83 campsites with 50 amp/dump station. (South Dakota Glacial Lakes and Prairies) State recreation area campground",
+    "resolutionStatus": "resolved_already_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Already represented in current state data; no duplicate added."
   },
   {
     "id": "sd-v23190-lead-sandy-shore-recreation-area-campground",
@@ -35782,9 +35926,12 @@ window.CAMPING_LEADS = [
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Listing shows 22 electrical campsites, restroom, dump/fill, address. (South Dakota Glacial Lakes and Prairies) State park campground"
+    "notes": "Listing shows 22 electrical campsites, restroom, dump/fill, address. (South Dakota Glacial Lakes and Prairies) State park campground",
+    "resolutionStatus": "resolved_already_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Already represented in current state data; no duplicate added."
   },
   {
     "id": "sd-v23190-lead-hartford-beach-state-park-campground",
@@ -36807,10 +36954,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Operator address only; coordinate rescue required",
     "blocker": "No honest lat/lng was supplied in the worker active/correction table. Worker returned this as Needs Verification or coordinate-verification required.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "relatedActiveOrPendingRecord": "sd-v23194-river-city-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Operator page: full-hookup seasonal RV park, all sites require reservation, address 333 East Prospect Ave. (River City Campground) Confirm transient/public overnight availability vs full-time/seasonal RV-only before map add."
+    "notes": "Operator page: full-hookup seasonal RV park, all sites require reservation, address 333 East Prospect Ave. (River City Campground) Confirm transient/public overnight availability vs full-time/seasonal RV-only before map add.",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 3 return."
   },
   {
     "id": "sd-v23190-lead-whetstone-bay-lakeside-use-area",
@@ -36927,10 +37077,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official city address: 10 Jersey Ave NE; exact campground-loop pin required before import",
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "relatedActiveOrPendingRecord": "sd-v23194-memorial-park-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Huron city confirms 24 full hookups and campground package details. (Huron SD) City campground on James River/Ravine Lake area; verify exact entrance/loop before pinning."
+    "notes": "Huron city confirms 24 full hookups and campground package details. (Huron SD) City campground on James River/Ravine Lake area; verify exact entrance/loop before pinning.",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 3 return."
   },
   {
     "id": "sd-v23190-lead-south-dakota-state-fairgrounds-campground",
@@ -37170,10 +37323,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Existing repo coordinate; official/operator amenities support modern or mixed modern layer",
     "blocker": "Worker returned this as a correction candidate, not a new import-ready site.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "relatedActiveOrPendingRecord": "sd-split-rock-park-campground-v23151",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Operator/city pages confirm RV/tent camping and 30/50 amp sites. (Split Rock Park Campground) Correct layer to Modern or consider mixed note: RV electric plus primitive tent area."
+    "notes": "Operator/city pages confirm RV/tent camping and 30/50 amp sites. (Split Rock Park Campground) Correct layer to Modern or consider mixed note: RV electric plus primitive tent area.",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing Split Rock Park row corrected to Modern."
   },
   {
     "id": "sd-v23190-lead-elk-point-city-park-and-campground",
@@ -37333,10 +37489,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Existing repo coordinate; official amenities support modern layer",
     "blocker": "Worker returned this as a correction candidate, not a new import-ready site.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "relatedActiveOrPendingRecord": "sd-lake-mitchell-campground-v23151",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Mitchell city page confirms 48 RV hookup sites and 9 tent sites. (City of Mitchell) Correct layer from Rustic / Primitive to Modern."
+    "notes": "Mitchell city page confirms 48 RV hookup sites and 9 tent sites. (City of Mitchell) Correct layer from Rustic / Primitive to Modern.",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing Lake Mitchell row corrected to Modern."
   },
   {
     "id": "sd-v23190-lead-mitchell-koa-journey",
@@ -37393,10 +37552,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Operator/booking source address: 1500 S Main St; exact campground pin required",
     "blocker": "No honest lat/lng was supplied in the worker active/correction table.",
     "nextAction": "Perform coordinate rescue using official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass POI, aerial imagery, parcel/GIS, agency/operator contact, or georeferenced official PDF. Import only when the point lands on the campground/camping area/entrance and does not use an office, lake center, park centroid, boat ramp, or other proxy.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.90",
+    "relatedActiveOrPendingRecord": "sd-v23194-white-lake-lodge-rv-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added from South Dakota public-discovery workers as durable lead because the active import gate would not accept a fake or unverified pin.",
-    "notes": "Operator/booking page confirms RV campground and check-in. (whitelake.holidayfuture.com) Private campground/lodge; verify transient RV availability."
+    "notes": "Operator/booking page confirms RV campground and check-in. (whitelake.holidayfuture.com) Private campground/lodge; verify transient RV availability.",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 3 return."
   },
   {
     "id": "sd-v23190-lead-armour-lions-park-campground",
@@ -37930,10 +38092,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
     "blocker": "Recreation.gov proof; only third-party coordinate captured.",
     "nextAction": "Acquire official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass point, DNR/USFS GIS, aerial-confirmed campground loop, or direct agency/operator confirmation. Do not use lake centers, park centroids, offices, boat launches, ferry docks, beaches, trailheads, or broad property centers.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.92",
+    "relatedActiveOrPendingRecord": "mi-v23194-au-train-lake-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/retained as durable lead from U.P. public-discovery workers because the active import gate would not accept missing/weak/ambiguous coordinates or unresolved proof.",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 1 return."
   },
   {
     "id": "mi-v23192-lead-pictured-rocks-rv-park-and-campground",
@@ -38101,10 +38266,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
     "blocker": "USFS confirms electricity/water/dump, but restroom/shower class for Modern remains unresolved.",
     "nextAction": "Acquire official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass point, DNR/USFS GIS, aerial-confirmed campground loop, or direct agency/operator confirmation. Do not use lake centers, park centroids, offices, boat launches, ferry docks, beaches, trailheads, or broad property centers.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.92",
+    "relatedActiveOrPendingRecord": "s205",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/retained as durable lead from U.P. public-discovery workers because the active import gate would not accept missing/weak/ambiguous coordinates or unresolved proof.",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing Colwell Lake row corrected."
   },
   {
     "id": "mi-v23192-lead-hiawatha-community-dispersed-poi-cluster-audit",
@@ -38405,10 +38573,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
     "blocker": "Recreation.gov/USFS proof strong, but exact coordinate not accepted.",
     "nextAction": "Acquire official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass point, DNR/USFS GIS, aerial-confirmed campground loop, or direct agency/operator confirmation. Do not use lake centers, park centroids, offices, boat launches, ferry docks, beaches, trailheads, or broad property centers.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.92",
+    "relatedActiveOrPendingRecord": "mi-v23194-little-bay-de-noc-campground",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/retained as durable lead from U.P. public-discovery workers because the active import gate would not accept missing/weak/ambiguous coordinates or unresolved proof.",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 1 return."
   },
   {
     "id": "mi-v23192-lead-park-place-of-the-north",
@@ -38576,10 +38747,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
     "blocker": "Official campground proof; exact coordinate not recovered.",
     "nextAction": "Acquire official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass point, DNR/USFS GIS, aerial-confirmed campground loop, or direct agency/operator confirmation. Do not use lake centers, park centroids, offices, boat launches, ferry docks, beaches, trailheads, or broad property centers.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.92",
+    "relatedActiveOrPendingRecord": "s315",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/retained as durable lead from U.P. public-discovery workers because the active import gate would not accept missing/weak/ambiguous coordinates or unresolved proof.",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing Fox River row corrected."
   },
   {
     "id": "mi-v23192-lead-big-island-lake-wilderness-designated-campsites",
@@ -38690,10 +38864,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
     "blocker": "Official campground proof; exact coordinate not recovered.",
     "nextAction": "Acquire official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass point, DNR/USFS GIS, aerial-confirmed campground loop, or direct agency/operator confirmation. Do not use lake centers, park centroids, offices, boat launches, ferry docks, beaches, trailheads, or broad property centers.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.92",
+    "relatedActiveOrPendingRecord": "mi-v23194-reed-green-bridge-sfcg",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/retained as durable lead from U.P. public-discovery workers because the active import gate would not accept missing/weak/ambiguous coordinates or unresolved proof.",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Promoted from Worker 1 return."
   },
   {
     "id": "mi-v23192-lead-perch-lake-state-forest-campground",
@@ -38823,10 +39000,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
     "blocker": "Official USFS/Recreation.gov proof; exact coordinate not recovered.",
     "nextAction": "Acquire official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass point, DNR/USFS GIS, aerial-confirmed campground loop, or direct agency/operator confirmation. Do not use lake centers, park centroids, offices, boat launches, ferry docks, beaches, trailheads, or broad property centers.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.92",
+    "relatedActiveOrPendingRecord": "s166",
+    "lastCheckedVersion": "v23.1.94",
     "leadRejectedFileResult": "Added/retained as durable lead from U.P. public-discovery workers because the active import gate would not accept missing/weak/ambiguous coordinates or unresolved proof.",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.94",
+    "resolutionNotes": "Existing Carp River row corrected."
   },
   {
     "id": "mi-v23192-lead-epoufette-bay-campground-and-park",

@@ -1,0 +1,139 @@
+Tod's Boondocking & Camping Maps — BUILD NOTES v23.1.94
+Date: 2026-07-08
+Base: v23.1.93 lead ledger backfill + rescue handoffs
+
+Purpose
+- Partial integration of returned lead address/coordinate rescue workers.
+- Included workers returned so far: Worker 1 MI/WI, Worker 2 MN, Worker 3 ND/SD, Worker 4 NE, Worker 6 MO/AR, Worker 7 IN/IL, Worker 8 OH/PA, Worker 9 KY/TN.
+- Not included yet: Worker 5 IA/KS and Worker 10 western/blank-state cleanup. Tod said those would arrive later.
+
+Scope control
+- Data-only revision.
+- No app behavior changes.
+- No icon/color/style changes.
+- No UI/layout/search/map-rendering changes.
+- No config.js change.
+- Unresolved leads were preserved in data/leads.js; the revision did not fake coordinates from broad parks, lake centers, boat ramps, offices, trailheads, or broad rule areas.
+
+Active additions imported
+- Total new active campsite/campground records added: 29.
+- By state:
+  - MI: 3
+  - ND: 1
+  - SD: 4
+  - NE: 10
+  - IL: 1
+  - OH: 7
+  - PA: 2
+  - TN: 1
+
+New active additions
+MI
+- Au Train Lake Campground — Rustic / Primitive
+- Little Bay De Noc Campground — Rustic / Primitive
+- Reed & Green Bridge State Forest Campground — Rustic / Primitive
+
+ND
+- Clausen Springs Park Campground — Modern campground system marker with primitive/basic component note
+
+SD
+- White Lake Lodge & RV Campground — Private Campgrounds
+- Sage Creek Campground — Rustic / Primitive
+- Memorial Park Campground — Modern campground system marker with tent-area note
+- River City Campground — Private Campgrounds
+
+NE
+- Ainsworth East City Park Campground — Rustic / Primitive
+- Long Pine SRA Basic Campground — Rustic / Primitive
+- Union Pacific SRA Basic Camping — Rustic / Primitive
+- Pelican Point SRA — Rustic / Primitive
+- Summit Lake SRA Campground — Modern campground system marker with basic component note
+- Atkinson Mill Race Park Campground — Rustic / Primitive
+- Bassett RV Camping Pads / Fishing Ponds Area — Rustic / Primitive
+- Lake McConaughy Cedar View Designated Beach Camping Area — Rustic / Primitive / beach-designated camping candidate
+- Lake McConaughy Otter Creek Campground — Rustic / Primitive
+- Lake Ogallala East Campground — Modern Campgrounds
+
+IL
+- Garden of the Gods / Pharaoh Campground — Rustic / Primitive
+
+OH
+- Strouds Run State Park Campground — Rustic / Primitive
+- Lake Snowden Campground — Private Campgrounds
+- Independence Dam State Park Primitive Campground — Rustic / Primitive
+- Hueston Woods State Park Campground — Modern Campgrounds
+- Kiser Lake State Park Campground — Rustic / Primitive
+- Hocking Hills State Park Main Campground / Old Man’s Cave Campground — Modern Campgrounds
+- Burr Oak State Park Campground — Modern Campgrounds
+
+PA
+- Conewago Campground — Private Campgrounds
+- Friendship Village Campground & RV Park — Private Campgrounds
+
+TN
+- Pickwick Dam TVA Campground — Modern campground system marker with primitive tent component note
+
+Existing active corrections / downgrades applied
+- Total existing active record corrections/downgrades applied: 18.
+
+MI corrections
+- Carp River Campground: corrected to official USFS coordinate and Rustic / Primitive.
+- Fox River State Forest Campground: coordinate/source corrected from Worker 1 return; still flagged as future DNR map-layer check useful.
+- Colwell Lake Campground: corrected to official USFS coordinate and Rustic / Primitive.
+
+SD corrections
+- Lake Mitchell Campground: corrected from Rustic / Primitive to Modern campground system marker.
+- Split Rock Park Campground: corrected from Rustic / Primitive to Modern campground system marker.
+
+NE corrections/downgrades
+- Streeter Park Campground: corrected/annotated with proved Streeter Park identity and coordinate basis.
+- Bow Creek Recreation Area: downgraded to Needs Verification because the active row admitted identity/coordinate uncertainty.
+- Point 21: downgraded to Needs Verification pending community/legal same-area proof.
+- Niobrara River: downgraded to Needs Verification because the active row was a broad river point.
+- Sunshine Bottom Boat Ramp: downgraded to Needs Verification because the active row was a boat-ramp/proxy trap.
+
+MO corrections
+- Nemo Campground renamed/retagged to Nemo Landing Campground and Modern Campgrounds based on Worker 6 Recreation.gov proof.
+- Long Branch State Park: added 2026 campground closure warning from Worker 6; not deleted permanently.
+
+IL corrections
+- Camp Cadiz: normalized to official USFS coordinate/source and Rustic / Primitive.
+- Pine Ridge Campground / Pounds Hollow: normalized to official USFS coordinate/source and Rustic / Primitive.
+- Oakwood Bottoms broad/proxy row corrected to Turkey Bayou Campground / Oakwood Bottoms using Worker 7 official USFS coordinate.
+- Johnson Creek Recreation Area corrected to Johnson Creek Recreation Area Campground with Worker 7 official USFS coordinate.
+- Shawnee National Forest broad point converted to Boondocking / Dispersed area-rule wording; not an exact campsite pin.
+- Sand Ridge State Forest broad point converted to area-rule/correction wording; not an exact campsite pin.
+
+Rejected guardrails added
+- Grand Forks AFB FamCamp — rejected/reopenable only if public transient access is officially proven.
+- Lambs Creek Recreation Area — rejected/reopenable because Worker 8 found no overnight campground proof and the target appears to be a day-use/group-shelter trap.
+
+Lead ledger updates
+- data/leads.js retained all 2,048 lead records.
+- Marked 60 lead rows with v23.1.94 resolution metadata:
+  - 29 promoted_active
+  - 14 resolved_existing_corrected
+  - 9 resolved_already_active
+  - 6 resolved_duplicate
+  - 2 rejected
+- Unresolved lead targets remain in data/leads.js for Worker 5/10 and future coordinate/GIS/source-system rescue passes.
+
+Changed files
+- version.js
+- index.html (carried forward from v23.1.93 for install consistency)
+- PROJECT_RULES.md (carried forward from v23.1.93 for install consistency)
+- Project Rules.md (compatibility copy, carried forward)
+- data/states-manifest.js
+- data/states/MI.js
+- data/states/ND.js
+- data/states/SD.js
+- data/states/NE.js
+- data/states/MO.js
+- data/states/IL.js
+- data/states/OH.js
+- data/states/PA.js
+- data/states/TN.js
+- data/leads.js
+- data/rejected.js
+- BUILD-NOTES-v23.1.94.txt
+- QA-v23.1.94.txt
