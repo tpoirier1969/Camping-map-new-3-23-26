@@ -36,7 +36,7 @@ const STATE_BOUNDS={
   SD:[[42.48,-104.06],[45.95,-96.44]], TN:[[34.98,-90.31],[36.68,-81.65]], TX:[[25.84,-106.65],[36.50,-93.51]], UT:[[36.99,-114.05],[42.00,-109.04]], VT:[[42.73,-73.44],[45.02,-71.50]],
   VA:[[36.54,-83.68],[39.47,-75.24]], WA:[[45.54,-124.85],[49.00,-116.91]], WV:[[37.20,-82.64],[40.64,-77.72]], WI:[[42.49,-92.89],[47.31,-86.25]], WY:[[40.99,-111.06],[45.01,-104.05]]
 };
-const STORE={states:'campingMap.enabledStates.v22328',layers:'campingMap.layers.v22328',basemap:'campingMap.basemap.v22328',queue:'campingMap.draftQueue.v22328',filters:'campingMap.filters.v22328',pending:'campingMap.showPending.v22328',desktopMode:'campingMap.desktopMode.v23087',controlHome:'campingMap.controlHome.v23126',areaOutlines:'campingMap.areaOutlines.v23126',usfsBoundaries:'campingMap.usfsBoundaries.v23198',lastActive:'campingMap.lastActive.v23152'};
+const STORE={states:'campingMap.enabledStates.v22328',layers:'campingMap.layers.v22328',basemap:'campingMap.basemap.v22328',queue:'campingMap.draftQueue.v22328',filters:'campingMap.filters.v22328',pending:'campingMap.showPending.v22328',desktopMode:'campingMap.desktopMode.v23087',controlHome:'campingMap.controlHome.v23126',areaOutlines:'campingMap.areaOutlines.v23126',federalAreas:'campingMap.federalAreas.v231100',stateLocalAreas:'campingMap.stateLocalAreas.v231100',usfsBoundaries:'campingMap.usfsBoundaries.v23198',lastActive:'campingMap.lastActive.v23152'};
 const SAVED_ROUTES_TABLE='boondocking_saved_routes';
 const COMMUNITY_TABLES={
   profiles:'boondocking_map_profiles',
@@ -369,8 +369,8 @@ async function setEnabledStates(codes,fit=true,options={}){
 }
 function buildLayerList(){const box=$('layerList'); if(box)box.innerHTML='';}
 function legendCollapsedStored(){try{return localStorage.getItem('campingMap.legendCollapsed.v1')==='1'}catch(e){return false}}
-function legendAreaOutlineOn(){try{return localStorage.getItem(STORE.areaOutlines)==='1'}catch(e){return false}}
-function legendUsfsBoundaryOn(){try{return localStorage.getItem(STORE.usfsBoundaries)==='1'}catch(e){return false}}
+function legendAreaOutlineOn(){return stateLocalAreaLayerEnabled()}
+function legendUsfsBoundaryOn(){return federalAreaLayerEnabled()}
 function setLegendCollapsed(collapsed){const panel=$('mapLegendDesktop');if(!panel)return;panel.classList.toggle('collapsed',!!collapsed);const btn=$('legendToggleDesktop');if(btn){btn.setAttribute('aria-expanded',String(!collapsed));btn.setAttribute('aria-label',collapsed?'Expand map legend':'Shrink map legend')}try{localStorage.setItem('campingMap.legendCollapsed.v1',collapsed?'1':'0')}catch(e){}}
 function toggleLegendCollapsed(){const panel=$('mapLegendDesktop');setLegendCollapsed(!(panel&&panel.classList.contains('collapsed')))}
 function formatZoomLabel(value){
@@ -409,12 +409,12 @@ function applyLegendZoom(value){
 }
 function buildLegend(){
   const layerItems=MAP_LAYERS.map(l=>`<label class="legend-item legend-layer-toggle"><input type="checkbox" data-layer="${l.key}" ${app.enabledLayers.has(l.key)?'checked':''}><span class="layer-icon ${l.css}">${l.icon}</span><span>${esc(l.label)}</span></label>`).join('');
-  const outlineOn=legendAreaOutlineOn();
-  const usfsOn=legendUsfsBoundaryOn();
-  const areaItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-area-outline-toggle="1" type="checkbox" ${outlineOn?'checked':''}><span class="layer-icon pin-boondocking">${ICONS.tree}</span><span>Official Area Outlines</span></label>`;
-  const usfsItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-usfs-boundary-toggle="1" type="checkbox" ${usfsOn?'checked':''}><span class="layer-icon pin-info">${ICONS.info}</span><span>USFS Boundaries</span></label>`;
-  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}${usfsItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide outlines</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
-  const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${areaItem}${usfsItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div>`;
+  const federalOn=federalAreaLayerEnabled();
+  const stateLocalOn=stateLocalAreaLayerEnabled();
+  const federalItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-federal-area-toggle="1" type="checkbox" ${federalOn?'checked':''}><span class="layer-icon pin-info">${ICONS.info}</span><span>Federal Areas</span></label>`;
+  const stateLocalItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-state-local-area-toggle="1" type="checkbox" ${stateLocalOn?'checked':''}><span class="layer-icon pin-boondocking">${ICONS.tree}</span><span>State / Local Areas</span></label>`;
+  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${federalItem}${stateLocalItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide areas</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
+  const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${federalItem}${stateLocalItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div>`;
   if($('mapLegendDesktop')){$('mapLegendDesktop').innerHTML=desktopHtml;$('legendToggleDesktop').onclick=toggleLegendCollapsed;setLegendCollapsed(legendCollapsedStored())}
   if($('mapLegendMobile'))$('mapLegendMobile').innerHTML=mobileHtml;
   syncLegendZoomControls();
@@ -1128,10 +1128,12 @@ function bindEvents(){
   const selectAllLayersMobile=$('selectAllLayersMobile'); if(selectAllLayersMobile)selectAllLayersMobile.onclick=()=>{app.restOnlyMode=false;syncRestOnlyToggle();setAllLayers(true)};
   const clearAllLayersMobile=$('clearAllLayersMobile'); if(clearAllLayersMobile)clearAllLayersMobile.onclick=()=>{app.restOnlyMode=false;syncRestOnlyToggle();setAllLayers(false)};
   const restOnlyToggle=$('restOnlyToggle'); if(restOnlyToggle)restOnlyToggle.onclick=toggleRestOnlyMode;
-  $$('[data-area-outline-toggle]').forEach(areaToggle=>{areaToggle.onchange=e=>setAreaOutlineLayerEnabled(e.target.checked,false);});
-  $$('[data-usfs-boundary-toggle]').forEach(usfsToggle=>{usfsToggle.onchange=e=>setUsfsBoundaryEnabled(e.target.checked,{notify:true});});
+  $$('[data-federal-area-toggle]').forEach(areaToggle=>{areaToggle.onchange=e=>setFederalAreaLayerEnabled(e.target.checked,false,{notify:true});});
+  $$('[data-state-local-area-toggle]').forEach(areaToggle=>{areaToggle.onchange=e=>setStateLocalAreaLayerEnabled(e.target.checked,false,{notify:true});});
+  $$('[data-area-outline-toggle]').forEach(areaToggle=>{areaToggle.onchange=e=>setStateLocalAreaLayerEnabled(e.target.checked,false,{notify:true});});
+  $$('[data-usfs-boundary-toggle]').forEach(usfsToggle=>{usfsToggle.onchange=e=>setFederalAreaLayerEnabled(e.target.checked,false,{notify:true});});
   $$('[data-legend-zoom]').forEach(z=>{z.oninput=e=>applyLegendZoom(e.target.value);});
-  const clearOutlineBtn=$('clearAreaOutlineBtn'); if(clearOutlineBtn)clearOutlineBtn.onclick=()=>setAreaOutlineLayerEnabled(false,false);
+  const clearOutlineBtn=$('clearAreaOutlineBtn'); if(clearOutlineBtn)clearOutlineBtn.onclick=()=>setAllReferenceAreasEnabled(false,false,{notify:true});
   const layerList=$('layerList'); if(layerList)layerList.addEventListener('change',applyLayerCheckboxChange);
   const desktopLegend=$('mapLegendDesktop'); if(desktopLegend)desktopLegend.addEventListener('change',applyLayerCheckboxChange);
   const showPending=$('showPendingLayer'); if(showPending)showPending.onchange=e=>{e.target.checked?app.enabledLayers.add('pending'):app.enabledLayers.delete('pending');localStorage.setItem(STORE.pending,e.target.checked?'1':'0');saveLayers();updatePendingMeta();syncLayerControls();toggleMarkerLayer('pending',e.target.checked)};
@@ -1733,17 +1735,20 @@ const USFS_BOUNDARY_SERVICE_URL='https://apps.fs.usda.gov/arcx/rest/services/EDW
 const USFS_BOUNDARY_MIN_ZOOM=5;
 const USFS_BOUNDARY_RESULT_LIMIT=32;
 const USFS_BOUNDARY_CACHE_LIMIT=10;
-function usfsBoundaryEnabled(){try{return localStorage.getItem(STORE.usfsBoundaries)==='1'}catch(_e){return false}}
-function updateUsfsBoundaryControls(){const on=usfsBoundaryEnabled();$$('[data-usfs-boundary-toggle]').forEach(toggle=>{toggle.checked=on});}
-function setUsfsBoundaryEnabled(on,opts={}){
-  try{localStorage.setItem(STORE.usfsBoundaries,on?'1':'0')}catch(_e){}
-  updateUsfsBoundaryControls();
-  app.usfsBoundary.requestSeq=(app.usfsBoundary.requestSeq||0)+1;
-  app.usfsBoundary.lastKey='';
-  if(!on){clearUsfsBoundaryGraphics();if(opts.notify)notify('USFS Boundary Overlay turned off.');return;}
-  if(opts.notify)notify('USFS Boundary Overlay on. It loads only the current map view and is administrative-boundary context only.',6500);
-  scheduleUsfsBoundaryRefresh('toggle',{force:true});
+function readAreaToggle(key,legacyKey){
+  try{
+    const current=localStorage.getItem(key);
+    if(current==='1'||current==='0')return current==='1';
+    if(legacyKey){const legacy=localStorage.getItem(legacyKey);if(legacy==='1')return true;}
+  }catch(_e){}
+  return false;
 }
+function federalAreaLayerEnabled(){return readAreaToggle(STORE.federalAreas,STORE.usfsBoundaries)}
+function stateLocalAreaLayerEnabled(){return readAreaToggle(STORE.stateLocalAreas,STORE.areaOutlines)}
+function areaOutlineLayerEnabled(){return federalAreaLayerEnabled()||stateLocalAreaLayerEnabled()}
+function usfsBoundaryEnabled(){return federalAreaLayerEnabled()}
+function updateUsfsBoundaryControls(){const on=federalAreaLayerEnabled();$$('[data-usfs-boundary-toggle],[data-federal-area-toggle]').forEach(toggle=>{toggle.checked=on});}
+function setUsfsBoundaryEnabled(on,opts={}){setFederalAreaLayerEnabled(on,false,opts);}
 function clearUsfsBoundaryGraphics(){
   if(app.usfsBoundary&&app.usfsBoundary.layer)app.usfsBoundary.layer.clearLayers();
   if(app.usfsBoundary){app.usfsBoundary.lastFeatureCount=0;app.usfsBoundary.paused=false;app.usfsBoundary.loading=false;}
@@ -1842,9 +1847,15 @@ async function fetchUsfsBoundaryGeoJson(key,bounds,zoom){
 function drawUsfsBoundaryGeoJson(geo){
   if(!(app.usfsBoundary&&app.usfsBoundary.layer))return;
   app.usfsBoundary.layer.clearLayers();
-  const features=geo&&geo.type==='FeatureCollection'?geo.features:(geo&&geo.type==='Feature'?[geo]:[]);
+  const rawFeatures=geo&&geo.type==='FeatureCollection'?geo.features:(geo&&geo.type==='Feature'?[geo]:[]);
+  const detailed=detailedFederalOutlineNamesForSelectedStates();
+  const features=rawFeatures.filter(feature=>{
+    const name=String(feature&&feature.properties&&feature.properties.FORESTNAME||'');
+    return !(name&&detailed.has(normalizeUsfsNoteKey(name)));
+  });
   if(!features.length){app.usfsBoundary.lastFeatureCount=0;return;}
-  const group=L.geoJSON(geo,{style:usfsBoundaryStyle,onEachFeature:(feature,layer)=>{if(layer&&layer.bindPopup)layer.bindPopup(usfsBoundaryPopup(feature),{maxWidth:420});}});
+  const filtered={type:'FeatureCollection',features};
+  const group=L.geoJSON(filtered,{style:usfsBoundaryStyle,onEachFeature:(feature,layer)=>{if(layer&&layer.bindPopup)layer.bindPopup(usfsBoundaryPopup(feature),{maxWidth:420});}});
   group.addTo(app.usfsBoundary.layer);
   if(group.bringToBack)group.bringToBack();
   app.usfsBoundary.lastFeatureCount=features.length;
@@ -2023,13 +2034,33 @@ function outlineLayerKey(site){
   if(cat.includes('boondocking')||cat.includes('dispersed'))return 'boondocking';
   return '';
 }
+function outlineJurisdiction(site){
+  const outline=areaOutlineCandidate(site)||{};
+  const text=[site.id,site.name,site.stateCode,site.category,site.opportunityKind,outline.category,outline.sourceName,outline.sourceUrl,outline.boundaryRepresents,outline.name].map(v=>String(v||'')).join(' ').toLowerCase();
+  if(/\b(usfs|usda|national forest|forest service|blm|bureau of land management|nps|national park service|usfws|u\.s\. fish|fish and wildlife service|national wildlife refuge|nwr|usace|army corps|wilderness|federal)\b/.test(text))return 'federal';
+  return 'state-local';
+}
+function outlineToggleAllows(site){
+  const j=outlineJurisdiction(site);
+  return (j==='federal'&&federalAreaLayerEnabled())||(j!=='federal'&&stateLocalAreaLayerEnabled());
+}
 function outlineStateMatches(site){
   const state=String(site.stateCode||site.state||'').toUpperCase();
   return !state||app.enabledStates.has(state);
 }
 function boondockingOutlineRecords(){
   const records=(app.areaOutline&&Array.isArray(app.areaOutline.standalone)?app.areaOutline.standalone:standaloneAreaOutlineRecords());
-  return records.filter(site=>outlineLayerKey(site)==='boondocking'&&outlineStateMatches(site)&&areaOutlineIsAvailable(areaOutlineCandidate(site)));
+  return records.filter(site=>outlineLayerKey(site)==='boondocking'&&outlineStateMatches(site)&&outlineToggleAllows(site)&&areaOutlineIsAvailable(areaOutlineCandidate(site)));
+}
+function detailedFederalOutlineNamesForSelectedStates(){
+  const records=(app.areaOutline&&Array.isArray(app.areaOutline.standalone)?app.areaOutline.standalone:standaloneAreaOutlineRecords());
+  const names=new Set();
+  records.forEach(site=>{
+    if(outlineJurisdiction(site)!=='federal'||!outlineStateMatches(site)||!areaOutlineIsAvailable(areaOutlineCandidate(site)))return;
+    const name=String(site.name||'').replace(/\s+administrative boundary$/i,'').trim();
+    if(name)names.add(normalizeUsfsNoteKey(name));
+  });
+  return names;
 }
 async function showBoondockingAreaOutlines(){
   const records=boondockingOutlineRecords();
@@ -2056,19 +2087,23 @@ function registerStandaloneAreaOutlines(){
 }
 function areaOutlineRecordsForSelectedStates(){
   return (app.areaOutline&&Array.isArray(app.areaOutline.standalone)?app.areaOutline.standalone:standaloneAreaOutlineRecords())
-    .filter(site=>outlineStateMatches(site)&&areaOutlineIsAvailable(areaOutlineCandidate(site)))
-    .sort((a,b)=>String(a.stateCode||'').localeCompare(String(b.stateCode||''))||String(a.name).localeCompare(String(b.name)));
+    .filter(site=>outlineStateMatches(site)&&outlineToggleAllows(site)&&areaOutlineIsAvailable(areaOutlineCandidate(site)))
+    .sort((a,b)=>outlineJurisdiction(a).localeCompare(outlineJurisdiction(b))||String(a.stateCode||'').localeCompare(String(b.stateCode||''))||String(a.name).localeCompare(String(b.name)));
 }
 function areaOutlineRecordsByState(records){
   const byState={};
   (records||[]).forEach(site=>{const code=String(site.stateCode||site.state||'Other').toUpperCase();(byState[code]||(byState[code]=[])).push(site);});
   return byState;
 }
-function areaOutlineLayerEnabled(){try{return localStorage.getItem(STORE.areaOutlines)==='1'}catch(_e){return false}}
 function updateAreaOutlineLayerControls(){
-  const on=areaOutlineLayerEnabled();
-  $$('[data-area-outline-toggle]').forEach(toggle=>{toggle.checked=on});
-  const meta=$('areaOutlineMeta'); if(meta)meta.textContent=on?'on':'off';
+  const federalOn=federalAreaLayerEnabled();
+  const stateLocalOn=stateLocalAreaLayerEnabled();
+  const on=federalOn||stateLocalOn;
+  $$('[data-federal-area-toggle]').forEach(toggle=>{toggle.checked=federalOn});
+  $$('[data-state-local-area-toggle]').forEach(toggle=>{toggle.checked=stateLocalOn});
+  $$('[data-area-outline-toggle]').forEach(toggle=>{toggle.checked=stateLocalOn});
+  $$('[data-usfs-boundary-toggle]').forEach(toggle=>{toggle.checked=federalOn});
+  const meta=$('areaOutlineMeta'); if(meta)meta.textContent=federalOn&&stateLocalOn?'federal + state/local':federalOn?'federal':stateLocalOn?'state/local':'off';
   const section=$('areaOutlineSection'); if(section)section.classList.toggle('area-outline-layer-on',on);
   const offBtn=$('clearAreaOutlineBtn'); if(offBtn)offBtn.disabled=!on;
 }
@@ -2083,22 +2118,51 @@ function clearAreaOutlineGraphics(){
   updateAreaOutlineLayerControls();
 }
 function pauseAreaOutlinesForStateChange(selectedCount){
-  // v23.1.99 redraw discipline: state selection changes should cancel in-flight
+  // v23.1.99+ redraw discipline: state selection changes should cancel in-flight
   // outline loads, but must not clear/redraw outlines that remain valid after
   // the new selection. Reconciliation happens after state data is loaded.
   if(!app.areaOutline)return;
   app.areaOutline.requestSeq=(app.areaOutline.requestSeq||0)+1;
   app.areaOutline.paused=false;
 }
+function writeAreaToggle(key,on){try{localStorage.setItem(key,on?'1':'0')}catch(_e){}}
+async function setFederalAreaLayerEnabled(on,fit=true,opts={}){
+  writeAreaToggle(STORE.federalAreas,on);
+  try{localStorage.setItem(STORE.usfsBoundaries,on?'1':'0')}catch(_e){}
+  app.usfsBoundary.requestSeq=(app.usfsBoundary.requestSeq||0)+1;
+  app.usfsBoundary.lastKey='';
+  if(!on){clearUsfsBoundaryGraphics();}
+  else{scheduleUsfsBoundaryRefresh('federal area toggle',{force:true});}
+  await setAreaOutlineLayerEnabled(areaOutlineLayerEnabled(),fit,Object.assign({},opts,{silent:true}));
+  updateUsfsBoundaryControls();
+  updateAreaOutlineLayerControls();
+  if(opts.notify)notify(on?'Federal Areas on. Detailed federal outlines are kept where available; broad USFS boundaries fill in as sparse context.':'Federal Areas turned off.',6500);
+}
+async function setStateLocalAreaLayerEnabled(on,fit=true,opts={}){
+  writeAreaToggle(STORE.stateLocalAreas,on);
+  try{localStorage.setItem(STORE.areaOutlines,on?'1':'0')}catch(_e){}
+  await setAreaOutlineLayerEnabled(areaOutlineLayerEnabled(),fit,Object.assign({},opts,{silent:true}));
+  updateAreaOutlineLayerControls();
+  if(opts.notify)notify(on?'State / Local Areas on. Context outlines only; verify current camping rules before relying on a spot.':'State / Local Areas turned off.',6500);
+}
+async function setAllReferenceAreasEnabled(on,fit=true,opts={}){
+  writeAreaToggle(STORE.federalAreas,on); writeAreaToggle(STORE.stateLocalAreas,on);
+  try{localStorage.setItem(STORE.usfsBoundaries,on?'1':'0'); localStorage.setItem(STORE.areaOutlines,on?'1':'0')}catch(_e){}
+  app.usfsBoundary.requestSeq=(app.usfsBoundary.requestSeq||0)+1;
+  app.usfsBoundary.lastKey='';
+  if(!on)clearUsfsBoundaryGraphics(); else scheduleUsfsBoundaryRefresh('all area toggle',{force:true});
+  await setAreaOutlineLayerEnabled(on,fit,Object.assign({},opts,{silent:true}));
+  updateUsfsBoundaryControls(); updateAreaOutlineLayerControls();
+  if(opts.notify)notify(on?'Federal Areas and State / Local Areas turned on.':'Area overlays hidden.');
+}
 async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
   const silent=!!opts.silent;
-  try{localStorage.setItem(STORE.areaOutlines,on?'1':'0')}catch(_e){}
   app.areaOutline.requestSeq=(app.areaOutline.requestSeq||0)+1;
   const requestId=app.areaOutline.requestSeq;
   if(!on){
     app.areaOutline.paused=false;
     clearAreaOutlineGraphics();
-    if(!silent)notify('Official Area Outlines turned off.');
+    if(!silent)notify('Area overlays turned off.');
     return;
   }
   const records=areaOutlineRecordsForSelectedStates();
@@ -2112,7 +2176,7 @@ async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
     updateAreaOutlinePanel();
     renderAreaOutlineList();
     updateAreaOutlineLayerControls();
-    if(!silent)notify(app.enabledStates.size?'No official area outlines are available for the active state selection.':'Choose a state before turning on Official Area Outlines.',6000);
+    if(!silent)notify(app.enabledStates.size?'No enabled area outlines are available for the active state selection.':'Choose a state before turning on area overlays.',6000);
     return;
   }
   const hardCap=80;
@@ -2122,7 +2186,7 @@ async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
     renderAreaOutlineList();
     updateAreaOutlineLayerControls();
     updateAreaOutlineLabelVisibility();
-    if(!silent)notify(`Official Area Outlines paused before loading new outlines because ${records.length} outlines are available. Already-loaded outlines that still match the selection were left in place. Narrow the state selection to load more.`,8000);
+    if(!silent)notify(`Area overlays paused before loading new outlines because ${records.length} outlines are available. Already-loaded outlines that still match the selection were left in place. Narrow the state selection to load more.`,8000);
     return;
   }
   app.areaOutline.paused=false;
@@ -2133,7 +2197,7 @@ async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
     updateAreaOutlineLayerControls();
     updateAreaOutlineLabelVisibility();
     if(fit&&removed&&app.enabledStates.size<=2)fitAreaOutline();
-    if(!silent)notify(`Official Area Outlines already showing ${records.length} matching outline${records.length===1?'':'s'}.`,4500);
+    if(!silent)notify(`Area overlays already showing ${records.length} matching outline${records.length===1?'':'s'}.`,4500);
     return;
   }
   setLoading(true,`Loading ${toLoad.length} new official outline${toLoad.length===1?'':'s'}…`);
@@ -2149,7 +2213,7 @@ async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
     updateAreaOutlinePanel();
     renderAreaOutlineList();
     if(fit&&app.enabledStates.size<=2)fitAreaOutline();
-    if(!silent)notify(`Official Area Outlines on: showing ${records.length} outline${records.length===1?'':'s'}; kept existing outlines and loaded only ${toLoad.length} new one${toLoad.length===1?'':'s'}.`,6500);
+    if(!silent)notify(`Area overlays on: showing ${records.length} outline${records.length===1?'':'s'}; kept existing outlines and loaded only ${toLoad.length} new one${toLoad.length===1?'':'s'}.`,6500);
   }finally{
     if(requestId===app.areaOutline.requestSeq)setLoading(false);
     updateAreaOutlineLayerControls();
@@ -2162,6 +2226,7 @@ function refreshAreaOutlineLayerForStateSelection(fit=false,opts={}){
     app.areaOutline.paused=false;
     setAreaOutlineLayerEnabled(true,fit,{silent:true,incremental:true});
   }
+  if(federalAreaLayerEnabled())scheduleUsfsBoundaryRefresh('state selection',{force:true});
 }
 
 async function showSelectedAreaOutline(){
