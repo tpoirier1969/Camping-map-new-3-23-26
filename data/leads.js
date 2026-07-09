@@ -38793,17 +38793,20 @@ window.CAMPING_LEADS = [
     "countyRegion": "Delta / Garden Peninsula / Hiawatha NF",
     "leadType": "up_public_discovery_coordinate_or_correction_rescue_v23192",
     "likelyLayer": "Boondocking / Dispersed",
-    "status": "proof_or_status_rescue",
+    "status": "user_coordinate_approximate_proof_rescue",
     "priority": "High",
     "sourceType": "UP public-discovery worker return",
-    "coordinate": null,
-    "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
+    "coordinate": {
+      "lat": 45.66972446128993,
+      "lng": -86.96570109115932
+    },
+    "coordinateConfidence": "USER-PROVIDED APPROXIMATE COORDINATE — Tod says the site is near here and may be about 1/4 mile before the lighthouse; verify exact pullout/site location before active import.",
     "blocker": "Active row removed; 3+ independent same-spot report standard not met.",
-    "nextAction": "Acquire official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass point, DNR/USFS GIS, aerial-confirmed campground loop, or direct agency/operator confirmation. Do not use lake centers, park centroids, offices, boat launches, ferry docks, beaches, trailheads, or broad property centers.",
+    "nextAction": "Verify the reported spot about 1/4 mile before Peninsula Point Lighthouse using live map/aerial/OSM/community reports, official Hiawatha NF/MVUM/forest-order checks, posted-rule review, and same-spot overnight evidence. Do not use the lighthouse, boat launch, beach, or road center as the campsite coordinate.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.92",
+    "lastCheckedVersion": "v23.1.97",
     "leadRejectedFileResult": "Added/retained as durable lead from U.P. public-discovery workers because the active import gate would not accept missing/weak/ambiguous coordinates or unresolved proof.",
-    "notes": ""
+    "notes": "Tod supplied approximate coordinate on 2026-07-09: 45.66972446128993, -86.96570109115932; he says coordinates might be off a little and the site is about 1/4 mile before the lighthouse."
   },
   {
     "id": "mi-v23192-lead-hiawatha-nf-garden-peninsula-dispersed-area-rule-geometry",
@@ -39980,17 +39983,20 @@ window.CAMPING_LEADS = [
     "countyRegion": "Delta / Nahma / Big Bay de Noc",
     "leadType": "operator_address_coordinate_rescue",
     "likelyLayer": "Private Campgrounds or Needs Verification",
-    "status": "coordinate_public_status_rescue",
+    "status": "coordinate_supplied_public_status_rescue",
     "priority": "High",
     "sourceType": "Official township business listing + user field/discovery report; operator/live-map proof still needed",
-    "coordinate": null,
-    "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED IN ACCESSIBLE SOURCES",
+    "coordinate": {
+      "lat": 45.839247203191924,
+      "lng": -86.66451775729603
+    },
+    "coordinateConfidence": "USER-PROVIDED FIELD/LOCAL COORDINATE — likely campground/resort coordinate; still needs operator/public-status and aerial/live-map check before active import.",
     "blocker": "Nahma Township official business page lists Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, at 13723 Main St., Nahma, MI 49864, and the township visitor text says Nahma has camping. The accessible web pass did not recover an operator campground page, exact campground/RV-loop coordinate, or public transient camping details. Do not lose this lead, but do not fake an address centroid.",
-    "nextAction": "Run the mandatory address-to-map rescue ladder: search exact names Nahma Resort and Campground, Nahma Campground and Resort, Upper Peninsula Golf and Lake Resort, No-Nah-Ma Resort, and address 13723 Main St., Nahma MI. Check Google Maps, Apple Maps, Bing Maps, OSM/Overpass, operator/Facebook pages, campground directories only as support, and aerial imagery. Promote only if the point lands on the campground/camping area/RV area/campground entrance and public overnight camping is confirmed. Otherwise keep as lead with exactly what was checked.",
+    "nextAction": "Use Tod-provided coordinate 45.839247203191924, -86.66451775729603 as the first map/aerial check point. Confirm it lands on the campground/resort camping area or entrance, verify current public transient overnight camping and current name, then promote only if operator/public-status proof is solid.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.95",
+    "lastCheckedVersion": "v23.1.97",
     "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94; previous Worker 3 Nahma row said no add and to preserve map-only/POI-only hints as leads.",
-    "notes": "Do not import as active from broad Nahma-town/township coordinate. Verify current name and public transient availability before active map add. Township source trail: Nahma Township Businesses page, Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, 13723 Main St., Nahma MI. User flagged this as missed under possible names Nahma Campground and Resort / Resort and Campground."
+    "notes": "Do not import as active from broad Nahma-town/township coordinate. Verify current name and public transient availability before active map add. Township source trail: Nahma Township Businesses page, Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, 13723 Main St., Nahma MI. User flagged this as missed under possible names Nahma Campground and Resort / Resort and Campground. Tod supplied coordinate on 2026-07-09: 45.839247203191924, -86.66451775729603."
   },
   {
     "id": "mi-v23195-lead-nahma-area-boondocking-user-reported-site-1",
@@ -40007,7 +40013,7 @@ window.CAMPING_LEADS = [
     "blocker": "Tod reported one of two boondocking sites near Nahma, but no exact name, coordinate, same-spot report count, land-management proof, access legality, or official contradiction check has been captured in the repo. Under current rules this cannot be active until exact same-spot evidence or official permission is recovered.",
     "nextAction": "Ask Tod for the map result/name/coordinate if available, then run exact-name and tight-cluster checks in Google Maps, Apple Maps, Bing Maps, OSM/Overpass, iOverlander/Campendium/The Dyrt/FreeCampsites-style directories, forums/blogs only as community evidence, and official Hiawatha NF/MVUM/forest-order/ownership checks. Active Community Reported candidate requires 3+ independent same-spot/tight-cluster overnight reports and no official contradiction; otherwise keep lead.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.95",
+    "lastCheckedVersion": "v23.1.97",
     "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94 so the Nahma-area boondocking lead does not vanish.",
     "notes": "No fake pin. Do not use a boat launch, marina, beach, scenic point, road center, township center, or Hiawatha NF broad rule point as the campsite."
   },
@@ -40029,5 +40035,68 @@ window.CAMPING_LEADS = [
     "lastCheckedVersion": "v23.1.95",
     "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94 so the Nahma-area boondocking lead does not vanish.",
     "notes": "No fake pin. Treat separately from site 1 until exact map result or cluster proof shows they are the same location."
+  },
+  {
+    "id": "mi-v23197-lead-readmond-township-park-overnight-proof-check",
+    "state": "MI",
+    "name": "Readmond Township Park overnight camping proof check",
+    "countyRegion": "Emmet County / Good Hart / Readmond Township",
+    "leadType": "active_downgrade_followup",
+    "likelyLayer": "Needs Verification or Reject / Do Not Import",
+    "status": "active_removed_needs_overnight_proof",
+    "priority": "High",
+    "sourceType": "Audit worker found day-use beach/overlook evidence only",
+    "coordinate": {
+      "lat": 45.5738171,
+      "lng": -85.1181938
+    },
+    "coordinateConfidence": "Existing active coordinate retained only as follow-up location; not active campsite proof.",
+    "blocker": "Audit found park/beach/overlook context rather than campground proof. Overnight legality and campsite facilities not documented.",
+    "nextAction": "Verify with Readmond Township / Emmet County whether public overnight camping is allowed. If only day-use beach/overlook, keep rejected.",
+    "relatedActiveOrPendingRecord": "MI s764 removed from active in v23.1.97",
+    "lastCheckedVersion": "v23.1.97",
+    "leadRejectedFileResult": "Active row removed/downgraded by correction-risk audit v23.1.97.",
+    "notes": "Do not import as campground without direct official/operator proof of public overnight camping."
+  },
+  {
+    "id": "mi-v23197-lead-misery-bay-boat-launch-overnight-proof-check",
+    "state": "MI",
+    "name": "Misery Bay Boat Launch overnight camping proof check",
+    "countyRegion": "Upper Peninsula / Misery Bay",
+    "leadType": "active_downgrade_followup",
+    "likelyLayer": "Needs Verification or Reject / Do Not Import",
+    "status": "active_removed_needs_overnight_proof",
+    "priority": "High",
+    "sourceType": "Audit worker found boat-launch/proxy feature without camping proof",
+    "coordinate": {
+      "lat": 46.9984775,
+      "lng": -88.9794594
+    },
+    "coordinateConfidence": "Existing active coordinate retained only as follow-up location; boat launch is not campsite proof.",
+    "blocker": "No official or qualifying community proof of legal overnight camping at the boat launch was recovered.",
+    "nextAction": "Verify land manager, overnight legality, signage, and same-spot overnight evidence. Reject if it is only a boat launch/day-use feature.",
+    "relatedActiveOrPendingRecord": "MI s613 removed from active in v23.1.97",
+    "lastCheckedVersion": "v23.1.97",
+    "leadRejectedFileResult": "Active row removed/downgraded by correction-risk audit v23.1.97.",
+    "notes": "Do not use the boat launch itself as a campsite pin."
+  },
+  {
+    "id": "ms-v23197-lead-jeff-busby-campground-closure-status-recheck",
+    "state": "MS",
+    "name": "Jeff Busby Campground closure/status recheck",
+    "countyRegion": "Natchez Trace Parkway / Mississippi",
+    "leadType": "closure_status_recheck",
+    "likelyLayer": "Needs Verification / Rustic / Primitive if reopened",
+    "status": "closure_status_recheck",
+    "priority": "High",
+    "sourceType": "NPS closure/status page",
+    "coordinate": null,
+    "coordinateConfidence": "Existing active coordinate not changed; site moved to Needs Verification pending current NPS status.",
+    "blocker": "Audit found NPS source saying Jeff Busby campground/day-use section has been closed since June 9, 2025.",
+    "nextAction": "Recheck current NPS Natchez Trace camping page. If still closed, reject/keep non-active. If reopened, restore as Rustic / Primitive with current NPS source and coordinate.",
+    "relatedActiveOrPendingRecord": "MS s443 moved to Needs Verification in v23.1.97",
+    "lastCheckedVersion": "v23.1.97",
+    "leadRejectedFileResult": "Closure/status follow-up from Worker 6 P4 audit.",
+    "notes": "Do not present as active campground until current NPS source confirms reopening."
   }
 ];

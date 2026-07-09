@@ -9867,5 +9867,119 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.96",
     "notes": "Reject as camping candidate."
+  },
+  {
+    "id": "mi-reject-s764-v23197",
+    "state": "MI",
+    "name": "Readmond Township Park",
+    "countyRegion": "See related active/lead record",
+    "rejectedAsLayer": "Active campground/campsite record",
+    "rejectionType": "duplicate_or_wrong_feature_type_or_wrong_state",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof or qualifying community evidence proves public overnight camping at the same feature and coordinate.",
+      "For duplicates/wrong-state rows, reopen only under the correct state/name without duplicating the existing active record."
+    ],
+    "sourceSummary": "Readmond Township Park appears to be day-use beach/overlook, not documented campground.",
+    "relatedActiveOrPendingRecord": "MI s764",
+    "lastCheckedVersion": "v23.1.97",
+    "notes": "Added by correction-risk audit integration v23.1.97."
+  },
+  {
+    "id": "mi-reject-s613-v23197",
+    "state": "MI",
+    "name": "Misery Bay Boat Launch",
+    "countyRegion": "See related active/lead record",
+    "rejectedAsLayer": "Active campground/campsite record",
+    "rejectionType": "duplicate_or_wrong_feature_type_or_wrong_state",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof or qualifying community evidence proves public overnight camping at the same feature and coordinate.",
+      "For duplicates/wrong-state rows, reopen only under the correct state/name without duplicating the existing active record."
+    ],
+    "sourceSummary": "Misery Bay Boat Launch is a boat launch/proxy feature with no recovered camping proof.",
+    "relatedActiveOrPendingRecord": "MI s613",
+    "lastCheckedVersion": "v23.1.97",
+    "notes": "Added by correction-risk audit integration v23.1.97."
+  },
+  {
+    "id": "nv-reject-s856-v23197",
+    "state": "NV",
+    "name": "Snow Canyon State Park Nevada duplicate",
+    "countyRegion": "See related active/lead record",
+    "rejectedAsLayer": "Active campground/campsite record",
+    "rejectionType": "duplicate_or_wrong_feature_type_or_wrong_state",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof or qualifying community evidence proves public overnight camping at the same feature and coordinate.",
+      "For duplicates/wrong-state rows, reopen only under the correct state/name without duplicating the existing active record."
+    ],
+    "sourceSummary": "Nevada Snow Canyon duplicate; coordinate/name point to Utah Snow Canyon State Park.",
+    "relatedActiveOrPendingRecord": "NV s856",
+    "lastCheckedVersion": "v23.1.97",
+    "notes": "Added by correction-risk audit integration v23.1.97."
+  },
+  {
+    "id": "vt-reject-s616-v23197",
+    "state": "VT",
+    "name": "Moose Alley Vermont duplicate",
+    "countyRegion": "See related active/lead record",
+    "rejectedAsLayer": "Active campground/campsite record",
+    "rejectionType": "duplicate_or_wrong_feature_type_or_wrong_state",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof or qualifying community evidence proves public overnight camping at the same feature and coordinate.",
+      "For duplicates/wrong-state rows, reopen only under the correct state/name without duplicating the existing active record."
+    ],
+    "sourceSummary": "Vermont Moose Alley duplicate/state mismatch; coordinate/name point to New Hampshire context.",
+    "relatedActiveOrPendingRecord": "VT s616",
+    "lastCheckedVersion": "v23.1.97",
+    "notes": "Added by correction-risk audit integration v23.1.97."
+  },
+  {
+    "id": "ok-reject-s321-v23197",
+    "state": "OK",
+    "name": "Fritch Fortress Campground Oklahoma wrong-state duplicate",
+    "countyRegion": "See related active/lead record",
+    "rejectedAsLayer": "Active campground/campsite record",
+    "rejectionType": "duplicate_or_wrong_feature_type_or_wrong_state",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof or qualifying community evidence proves public overnight camping at the same feature and coordinate.",
+      "For duplicates/wrong-state rows, reopen only under the correct state/name without duplicating the existing active record."
+    ],
+    "sourceSummary": "Wrong-state duplicate of Fritch Fortress Campground; correct active record belongs in Texas.",
+    "relatedActiveOrPendingRecord": "OK s321",
+    "lastCheckedVersion": "v23.1.97",
+    "notes": "Added by correction-risk audit integration v23.1.97."
+  },
+  {
+    "id": "mt-reject-mt-v23196-homestake-pass-dispersed-camping-v23197",
+    "state": "MT",
+    "name": "Homestake Pass duplicate marker",
+    "countyRegion": "See related active/lead record",
+    "rejectedAsLayer": "Active campground/campsite record",
+    "rejectionType": "duplicate_or_wrong_feature_type_or_wrong_state",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official/operator proof or qualifying community evidence proves public overnight camping at the same feature and coordinate.",
+      "For duplicates/wrong-state rows, reopen only under the correct state/name without duplicating the existing active record."
+    ],
+    "sourceSummary": "Merged duplicate Homestake Pass marker into existing community-reported cluster.",
+    "relatedActiveOrPendingRecord": "MT mt-v23196-homestake-pass-dispersed-camping",
+    "lastCheckedVersion": "v23.1.97",
+    "notes": "Added by correction-risk audit integration v23.1.97."
   }
 ];

@@ -1,0 +1,40 @@
+Tod’s Boondocking & Camping Maps — v23.1.97
+Correction-risk audit integration
+Date: 2026-07-09
+
+Scope:
+- Integrated returned correction-risk audit workers 1, 2, 3, 4, 5, and 6 from the v23.1.96 audit ledger.
+- Applied high-confidence active correction candidates and hard duplicate/wrong-feature cleanup.
+- Did not mass-downgrade every lead/external row where worker proof was incomplete or where honest parent/area markers remain useful.
+- Added a follow-up CSV for unresolved C-bucket items that still need targeted proof before active change.
+- Updated Nahma Resort Campground lead with Tod’s supplied coordinate.
+- Updated/added Peninsula Point Lighthouse access-road boondocking lead with Tod’s approximate coordinate.
+- Preserved v23.1.95 auth-status hotfix by carrying forward unchanged app.js in the cumulative package.
+
+Audit worker returns integrated:
+- Worker 1 — P1 Proxy / Wrong Access / Layer Audit: 678 processed; 16 corrections; 16 lead/external.
+- Worker 2 — Modern Service Proof Audit: 266 processed; 65 corrections; 22 lead/external; 1 duplicate.
+- Worker 3 — Boat / Backpack Access Audit: 317 processed; 13 corrections; 4 lead/external; 1 reject.
+- Worker 4 — Boondocking / Community Audit: 152 processed; 6 corrections; 66 lead/external; 1 duplicate.
+- Worker 5 — Broad System / Component Audit: 601 processed; 5 corrections; 12 lead/external; 1 downgrade/reject.
+- Worker 6 — Legacy Source / Duplicate Cleanup Audit: 181 processed; 17 corrections; 22 lead/external; 1 duplicate.
+
+Important integration choice:
+The C-bucket lead/external rows were not blindly converted or removed. Many are legitimate candidates that need source rebuilding, coordinate extraction, current-status verification, or component splitting. Applying only A/D hard decisions avoids overcorrecting boondocking/community and honest entrance/area markers.
+
+Changed active-data state files:
+AR.js, AZ.js, CA.js, CO.js, IA.js, IL.js, IN.js, KY.js, ME.js, MI.js, MI2.js, MO.js, MS.js, MT.js, NE.js, NV.js, OK.js, PA.js, TN.js, TX.js, VT.js, WI.js.
+
+Removed/downgraded active rows:
+- MI s764 Readmond Township Park removed from active; parked as lead/rejected guardrail pending overnight proof.
+- MI s613 Misery Bay Boat Launch removed from active; parked as lead/rejected guardrail pending overnight proof.
+- NV s856 Snow Canyon State Park duplicate removed; correct UT row retained.
+- VT s616 Moose Alley duplicate/state mismatch removed; NH context retained for follow-up.
+- OK s321 Fritch Fortress wrong-state duplicate removed; correct TX active row retained/corrected.
+- MT mt-v23196-homestake-pass-dispersed-camping duplicate removed if existing Homestake community-reported row is present.
+
+Rule file update:
+- Added public-land / National Forest outline overlay rule: public-land ownership outlines are reference/area-context overlays, not campsite proof and not campsite pins by themselves.
+
+No app/UI behavior changes:
+- No icon, CSS, layout, search, filter, map-rendering, Supabase, or startup logic changes were made.

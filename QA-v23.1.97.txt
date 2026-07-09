@@ -1,0 +1,33 @@
+Tod’s Boondocking & Camping Maps — v23.1.97 QA
+Date: 2026-07-09
+
+Scope checked:
+- Correction-risk audit integration package.
+- Changed active-data state files plus leads/rejected/version/rules/build notes.
+
+Syntax checks:
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/leads.js: PASS
+- node --check data/rejected.js: PASS
+- node --check data/states-manifest.js: PASS
+- node --check data/states/*.js for every packaged state file: PASS
+
+Runtime-style data load checks:
+- Packaged changed state files loaded in Node VM: PASS
+- Full merged data set with v23.1.97 overlays loaded in Node VM: PASS
+- Full merged active state count: 33 states
+- Full merged active record count: 2,078
+- Full merged duplicate active IDs within state arrays: 0
+- Lead count after integration: 2,054
+- Duplicate lead IDs: 0
+- Rejected count after integration: 536
+- Duplicate rejected IDs: 0
+
+Rules consistency:
+- PROJECT_RULES.md and Project Rules.md identical: PASS
+
+Package notes:
+- No app/UI behavior changes were made.
+- app.js is included unchanged from the prior cumulative package to preserve the v23.1.95 auth-status hotfix.
+- C-bucket audit items were not mass-applied. They are staged in CORRECTION_RISK_AUDIT_FOLLOWUP_v23.1.97.csv.

@@ -345,6 +345,13 @@ For each outline-ready lead, capture the area/outline name, agency/owner, geomet
 
 Approximate Area pin rule when official geometry is unavailable:
 
+
+Public-land / National Forest outline overlay rule:
+
+USFS/National Forest, BLM, state forest, county forest, refuge, WMA, and other public-land boundary outlines may be added only as reference/overlay or area-context geometry, not as campsite layers by themselves. A land-ownership outline helps users understand context, but it does not prove camping is legal everywhere inside the boundary. Pair outlines with MVUMs, closure orders, wilderness/refuge rules, private inholdings, road/trail access rules, stay limits, fire restrictions, and posted-rule warnings before using them to support Boondocking / Dispersed or Area/rule records.
+
+Do not mix public-land ownership outlines directly into campsite pins. If future UI supports toggleable overlays, label them as reference/public-land boundaries or area context, not as guaranteed camping areas.
+
 If official geometry does not exist or cannot be extracted yet, but official rules or 3+ independent community/social reports support a known boondocking/dispersed/primitive camping area, use an approximate Area-layer pin roughly near the center of the known/reported area.
 
 The pin must be labeled as an approximate area marker, not an exact campsite or exact boundary. The popup/details must clearly say that exact borders are unknown and that the user must research legal access, ownership, postings, fire restrictions, road conditions, stay limits, and current rules before staying.
