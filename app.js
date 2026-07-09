@@ -3300,9 +3300,10 @@ async function signIn(e){
   if(btn)btn.disabled=true;
   updateAuthUi('Signing in…');
   try{
-    const {error}=await app.supabase.auth.signInWithPassword(creds);
+    const {data,error}=await app.supabase.auth.signInWithPassword(creds);
     if(error)throw error;
-    app.session=(await app.supabase.auth.getSession()).data.session;
+    app.session=(data&&data.session)||(await app.supabase.auth.getSession()).data.session;
+    if(!app.session)throw new Error('Sign in did not return a confirmed session.');
     updateAuthUi();
     await ensureCommunityProfile();
     await refreshCurrentProfile();
@@ -3310,8 +3311,13 @@ async function signIn(e){
     await refreshCommunityFavorites({refreshMap:true});
     await loadAdminHiddenSites({refreshMap:true});
     notify('Signed in.');
-  }catch(err){console.error(err);updateAuthUi();notify(err&&err.message?err.message:'Sign in failed.',7000);}
-  finally{if(btn)btn.disabled=false;}
+  }catch(err){
+    console.error(err);
+    const msg=err&&err.message?err.message:'Sign in failed.';
+    if(app.session)updateAuthUi(`Sign in failed: ${msg}. Still signed in as ${sessionEmail()}.`);
+    else updateAuthUi(`Sign in failed: ${msg}`);
+    notify(`Sign in failed: ${msg}`,7000);
+  }finally{if(btn)btn.disabled=false;}
 }
 async function signOut(){
   if(!app.supabase)return;

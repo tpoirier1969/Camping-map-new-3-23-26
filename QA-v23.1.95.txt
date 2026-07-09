@@ -1,0 +1,20 @@
+Tod's Boondocking & Camping Maps — v23.1.95 QA
+
+Commands run:
+- node --check app.js
+- node --check version.js
+- node parse/load for data/leads.js
+- duplicate lead ID scan
+- zip integrity test
+
+Results:
+- app.js syntax: PASS
+- version.js syntax: PASS
+- data/leads.js loads: PASS
+- final lead count: 2051
+- duplicate lead IDs: 0
+- zip integrity: PASS
+
+Manual review:
+- signIn() catch path now displays explicit sign-in failure status instead of calling updateAuthUi() with no message, which could show a stale signed-in session while invalid-password notification appeared.
+- Nahma campground/resort and two nearby boondocking sites were added only as leads. No active coordinates were invented.

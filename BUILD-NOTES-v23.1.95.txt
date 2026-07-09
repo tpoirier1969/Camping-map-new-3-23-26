@@ -1,0 +1,32 @@
+Tod's Boondocking & Camping Maps — v23.1.95 auth-status + Nahma lead hotfix
+
+Purpose:
+- Fix confusing Supabase sign-in status when an invalid password is submitted while a session still exists.
+- Preserve Tod's newly reported Nahma campground/resort miss and two nearby boondocking-site misses as durable leads without fake pins.
+
+Changed files:
+- app.js
+- version.js
+- data/leads.js
+
+Auth fix:
+- signIn() now uses the session returned from signInWithPassword instead of blindly re-reading session state first.
+- If sign-in fails and an older session still exists, the account status now says the sign-in failed and that the user is still signed in as the existing account.
+- If sign-in fails with no session, the account status now reports the sign-in failure instead of falling back to a generic signed-out/signed-in state.
+- This avoids the previous mixed message where one part of the page could say signed in while another reported invalid credentials.
+
+Lead changes:
+- Added mi-v23195-lead-nahma-resort-campground-coordinate-public-status-rescue.
+- Added mi-v23195-lead-nahma-area-boondocking-user-reported-site-1.
+- Added mi-v23195-lead-nahma-area-boondocking-user-reported-site-2.
+
+Nahma handling:
+- No active map pin was added for Nahma Resort/Campground because the accessible source trail in this environment did not provide an import-safe campground/RV-loop coordinate or current public transient camping details.
+- The township business source trail identifies Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, at 13723 Main St., Nahma, MI 49864. The lead now requires exact address-to-map/live-map/aerial/operator confirmation before active import.
+- The two nearby boondocking sites were preserved as separate user-reported leads. They require exact location/name/report-count and official contradiction checks before any active Community Reported boondocking row.
+
+No app/UI changes:
+- No icon, marker color, layout, filter, map render, layer, popup pattern, or CSS changes were made.
+
+Worker-return context:
+- Prior Worker 3 UP return searched Nahma/Big Bay de Noc and said no source-backed public campground was found, but map-only/POI-only hints should be preserved as leads. v23.1.95 does that preservation rather than letting the Nahma items vanish.
