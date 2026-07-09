@@ -62,6 +62,9 @@ window.CAMPING_STATES_MANIFEST = {
     ],
     "dynamicSources": [
       "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ],
+    "notes": [
+      "v23.1.96: Integrates remaining lead rescue worker returns and correction-risk cleanup for CO; uses worker-return source trails, no fake coordinate upgrade."
     ]
   },
   "DE": {
@@ -80,7 +83,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "IA",
     "name": "Iowa",
     "file": "data/states/IA.js",
-    "count": 108,
+    "count": 121,
     "files": [
       "data/states/IA.js",
       "data/supplements/ia-bulldog-first-pass-v23.1.63.js",
@@ -89,6 +92,9 @@ window.CAMPING_STATES_MANIFEST = {
     "dynamicSources": [
       "v23.1.63: Iowa Bulldog first-pass build adds 57 active records from Workers 1–3 and appends durable Iowa leads/rejects; also applies 3 existing-record source/layer corrections.",
       "v23.1.64: Iowa area-closeout adds 35 active campground/camping-area records from the closeout workers; preserves USACE/state-forest/component rows as leads when exact coordinates were still blocked."
+    ],
+    "notes": [
+      "v23.1.96: Integrates remaining lead rescue worker returns and correction-risk cleanup for IA; uses worker-return source trails, no fake coordinate upgrade."
     ]
   },
   "IL": {
@@ -198,7 +204,8 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
-      "v23.1.94: Integrated partial lead address/coordinate rescue worker returns (Workers 1,2,3,4,6,7,8,9). Worker 5 and 10 returns are not included yet."
+      "v23.1.94: Integrated partial lead address/coordinate rescue worker returns (Workers 1,2,3,4,6,7,8,9). Worker 5 and 10 returns are not included yet.",
+      "v23.1.96: Integrates remaining lead rescue worker returns and correction-risk cleanup for MI; uses worker-return source trails, no fake coordinate upgrade."
     ]
   },
   "MN": {
@@ -256,7 +263,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MT",
     "name": "Montana",
     "file": "data/states/MT.js",
-    "count": 222,
+    "count": 230,
     "files": [
       "data/states/MT.js",
       "data/supplements/modern-audit-cleanup-v23.1.21.js",
@@ -277,7 +284,8 @@ window.CAMPING_STATES_MANIFEST = {
     "notes": [
       "v23.1.79: Adds Four Corners Dispersed Camping as Community Reported Boondocking from Worker 5 public-facing app/social mining; coordinate remains same-spot/tight-cluster, not exact pad.",
       "v23.1.82: Adds Worker 5 Round 2 Community Reported Boondocking candidate for Copper City BLM; Four Corners from v23.1.79 remains de-duped.",
-      "v23.1.83: Adds Homestake Pass dispersed camping as Community Reported Boondocking from Worker 5 Round 3; adds Homestake Lake day-use/no-overnight rejected guardrail and preserves remaining public-land sanity checks in data/leads.js."
+      "v23.1.83: Adds Homestake Pass dispersed camping as Community Reported Boondocking from Worker 5 Round 3; adds Homestake Lake day-use/no-overnight rejected guardrail and preserves remaining public-land sanity checks in data/leads.js.",
+      "v23.1.96: Integrates remaining lead rescue worker returns and correction-risk cleanup for MT; uses worker-return source trails, no fake coordinate upgrade."
     ]
   },
   "ND": {
@@ -438,13 +446,16 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "WY",
     "name": "Wyoming",
     "file": "data/states/WY.js",
-    "count": 17,
+    "count": 19,
     "files": [
       "data/states/WY.js",
       "data/supplements/modern-audit-cleanup-v23.1.21.js"
     ],
     "dynamicSources": [
       "v23.1.21: Modern criteria audit cleanup supplement applied; moves proven non-Modern rows out of Modern and sends unproven rows to Needs Verification."
+    ],
+    "notes": [
+      "v23.1.96: Integrates remaining lead rescue worker returns and correction-risk cleanup for WY; uses worker-return source trails, no fake coordinate upgrade."
     ]
   }
 };

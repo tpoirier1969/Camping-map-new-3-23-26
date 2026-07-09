@@ -1,0 +1,31 @@
+QA — v23.1.96
+
+Syntax checks passed:
+- node --check version.js
+- node --check app.js
+- node --check data/states/IA.js
+- node --check data/states/CO.js
+- node --check data/states/MT.js
+- node --check data/states/WY.js
+- node --check data/states/MI2.js
+- node --check data/leads.js
+- node --check data/rejected.js
+- node --check data/states-manifest.js
+
+Runtime/data load checks passed for changed state files:
+IA 29 dups 0
+CO 37 dups 0
+MT 17 dups 0
+WY 21 dups 0
+MI 562 dups 0
+leads 2051 lead dup ids 0
+rejected 530 rej dup ids 0
+manifest states 30
+
+Additional checks:
+- PROJECT_RULES.md and Project Rules.md are identical.
+- Version source of truth updated in version.js to v23.1.96.
+- No icon, CSS, search, filter, popup-engine, marker-rendering, or map-behavior code was changed in this revision.
+- app.js is included unchanged from v23.1.95 only to preserve the prior auth-status hotfix in a cumulative fixed-files package.
+- Cottonwood Campground / Coralville Lake was held as a lead/status check instead of active import because the accessible Recreation.gov page still states it was closed for the 2025 recreation season.
+- Audit ledger generated as review signal only; audit rows are not automatic corrections.

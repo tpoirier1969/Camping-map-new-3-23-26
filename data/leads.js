@@ -2009,12 +2009,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Unknown",
     "blocker": "Repo unavailable; active CO record/source proof not inspectable here",
     "nextAction": "Reopen CO active record audit; verify official managing source and amenities; move from Modern to Rustic / Primitive only if official proof still supports",
-    "relatedActiveOrPendingRecord": "Prior context says active CO Modern-subtype audit found “Alamosa Campground → MOVE TO RUSTIC / PRIMITIVE”",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior Colorado audit note identified likely wrong layer, but current active record and official proof were not accessible in this session",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Treat as correction lead, not new campsite add.",
-    "sourceFile": "Pasted text (5).txt"
+    "sourceFile": "Pasted text (5).txt",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Existing active record corrected from Worker 10 Western/blank-state return."
   },
   {
     "id": "co-lead-antero-reservoir-south-shore-proof",
@@ -2030,12 +2033,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Unknown",
     "blocker": "Prior audit could not prove from accessible official sources; repo unavailable here",
     "nextAction": "Check active CO record, managing agency, reservation/source pages, GIS/PDF maps, and county/state reservoir pages; agency contact if still blocked",
-    "relatedActiveOrPendingRecord": "Possible active CO record",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior context says “UNATTAINABLE FROM ACCESSIBLE OFFICIAL SOURCES / NEEDS VERIFICATION”",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Do not import or keep as verified until official proof is recovered.",
-    "sourceFile": "Pasted text (5).txt"
+    "sourceFile": "Pasted text (5).txt",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Existing active record corrected from Worker 10 Western/blank-state return."
   },
   {
     "id": "co-lead-clear-creek-reservoir-proof",
@@ -2051,12 +2057,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Unknown",
     "blocker": "Prior audit could not prove from accessible official sources; repo unavailable here",
     "nextAction": "Verify managing agency and whether exact campground/camping opportunity has official proof; agency contact if still blocked",
-    "relatedActiveOrPendingRecord": "Possible active CO record",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior context says “UNATTAINABLE FROM ACCESSIBLE OFFICIAL SOURCES / NEEDS VERIFICATION”",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Keep as unresolved proof item, not a closure.",
-    "sourceFile": "Pasted text (5).txt"
+    "sourceFile": "Pasted text (5).txt",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Existing active record corrected from Worker 10 Western/blank-state return."
   },
   {
     "id": "co-lead-lone-duck-campground-proof",
@@ -2072,12 +2081,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Unknown",
     "blocker": "Official-source proof not recovered in prior audit; target eligibility may be unclear if private/commercial",
     "nextAction": "Confirm whether this belongs in the project at all; if private ordinary campground, reject; if public/officially relevant, verify source and layer",
-    "relatedActiveOrPendingRecord": "Possible active CO record",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior context says “UNATTAINABLE FROM ACCESSIBLE OFFICIAL SOURCES / NEEDS VERIFICATION”",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Strong candidate for reject if it proves to be ordinary private campground with no project reason.",
-    "sourceFile": "Pasted text (5).txt"
+    "sourceFile": "Pasted text (5).txt",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Existing active record corrected from Worker 10 Western/blank-state return."
   },
   {
     "id": "co-lead-pingree-park-proof",
@@ -2093,12 +2105,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Unknown",
     "blocker": "Official proof/source role unclear; repo unavailable here",
     "nextAction": "Determine whether this is an actual public camping record, institutional/site reference, or wrong-feature trap",
-    "relatedActiveOrPendingRecord": "Possible active CO record",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior context says “UNATTAINABLE FROM ACCESSIBLE OFFICIAL SOURCES / NEEDS VERIFICATION”",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Do not treat broad area/institutional name as campsite without source-backed campground point.",
-    "sourceFile": "Pasted text (5).txt"
+    "sourceFile": "Pasted text (5).txt",
+    "resolutionStatus": "retained_for_correction_risk_audit",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Worker 10 identified active-record/system correction risk; retained for correction-risk audit rather than applying a blind data move."
   },
   {
     "id": "co-lead-john-martin-reservoir-sp-supervisor",
@@ -2114,12 +2129,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Unknown",
     "blocker": "Prior audit flagged for supervisor review; active record/source details unavailable here",
     "nextAction": "Check whether the active record is too broad, duplicate, wrong layer, or missing campground-level specificity",
-    "relatedActiveOrPendingRecord": "Possible active CO record",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior context says “SUPERVISOR REVIEW REQUIRED”",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "State park may have valid camping, but record granularity/layer needs review before durable decision.",
-    "sourceFile": "Pasted text (5).txt"
+    "sourceFile": "Pasted text (5).txt",
+    "resolutionStatus": "retained_for_correction_risk_audit",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Worker 10 identified active-record/system correction risk; retained for correction-risk audit rather than applying a blind data move."
   },
   {
     "id": "co-lead-lake-pueblo-sp-supervisor",
@@ -2135,12 +2153,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Unknown",
     "blocker": "Prior audit flagged for supervisor review; active record/source details unavailable here",
     "nextAction": "Check whether the active record is too broad, duplicate, wrong layer, or missing campground-level specificity",
-    "relatedActiveOrPendingRecord": "Possible active CO record",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior context says “SUPERVISOR REVIEW REQUIRED”",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Same issue as John Martin: likely real camping, but broad state-park records can be lousy map records if not campground-specific.",
-    "sourceFile": "Pasted text (5).txt"
+    "sourceFile": "Pasted text (5).txt",
+    "resolutionStatus": "retained_for_correction_risk_audit",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Worker 10 identified active-record/system correction risk; retained for correction-risk audit rather than applying a blind data move."
   },
   {
     "id": "co-lead-hornsilver-campground-layer-audit",
@@ -2156,12 +2177,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Unknown",
     "blocker": "Prior note is truncated after “Hornsilver Campground → MOVE”; destination layer not recoverable here",
     "nextAction": "Recover full CO audit output or re-check official source path; determine correct layer/status",
-    "relatedActiveOrPendingRecord": "Possible active CO record",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior context contains truncated finding: “Hornsilver Campground → MOVE”",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Needs follow-up because the available prior note proves there was an issue but not the final correction.",
-    "sourceFile": "Pasted text (5).txt"
+    "sourceFile": "Pasted text (5).txt",
+    "resolutionStatus": "resolved_existing_corrected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Existing active record corrected from Worker 10 Western/blank-state return."
   },
   {
     "id": "mt-lead-umbr-dispersed-rule-area",
@@ -2219,12 +2243,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No coordinate",
     "blocker": "Needs official area geometry or honest approximate rule marker",
     "nextAction": "Extract refuge boundary / allowed-use geometry; do not pin HQ or lake centroid",
-    "relatedActiveOrPendingRecord": "Related to CMR NWR and UL Bend Wilderness",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "FWS says campgrounds are available and backcountry camping is allowed on the refuge; rules also allow camping outside campgrounds unless closed, and vehicles may travel directly up to 100 yards from an open numbered road to establish campsites. ([U.S. Fish and Wildlife Service][2]) ([U.S. Fish and Wildlife Service][3])",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "This is a strong area-rule lead, not a single campsite.",
-    "sourceFile": "Pasted text.txt"
+    "sourceFile": "Pasted text.txt",
+    "resolutionStatus": "retained_for_correction_risk_audit",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Worker 10 identified active-record/system correction risk; retained for correction-risk audit rather than applying a blind data move."
   },
   {
     "id": "mt-lead-ul-bend-wilderness-camping-area",
@@ -2324,12 +2351,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No coordinate",
     "blocker": "Need FishMT/FWP detail proving camping and exact coordinate",
     "nextAction": "Open FishMT detail/API/GIS; confirm camping before import",
-    "relatedActiveOrPendingRecord": "None confirmed",
+    "relatedActiveOrPendingRecord": "mt-v23196-bearpaw-lake-fishing-access-site",
     "sourceSummary": "FWP says many FAS offer camping, but each site’s availability, fees, and amenities are unique and must be checked individually. ([Montana FWP][7])",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Prior worker listed as blocked FAS candidate.",
-    "sourceFile": "Pasted text.txt"
+    "sourceFile": "Pasted text.txt",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 10 Western/blank-state return."
   },
   {
     "id": "mt-lead-fwp-fort-peck-dredge-cut-pond-fas",
@@ -2345,12 +2375,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No coordinate",
     "blocker": "Need FishMT/FWP detail proving camping and exact coordinate",
     "nextAction": "Open FishMT detail/API/GIS; confirm camping before import",
-    "relatedActiveOrPendingRecord": "None confirmed",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Same FWP FAS rule: site-specific camping proof required. ([Montana FWP][7])",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Do not confuse with USACE Dredge / 1st Dredge shelter records.",
-    "sourceFile": "Pasted text.txt"
+    "sourceFile": "Pasted text.txt",
+    "resolutionStatus": "rejected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Rejected from Worker 10 return; no camping/overnight proof or official no overnight/use conflict."
   },
   {
     "id": "mt-lead-fwp-rock-creek-fas",
@@ -2366,12 +2399,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No coordinate",
     "blocker": "Need FishMT/FWP detail proving camping and exact coordinate",
     "nextAction": "Open FishMT detail/API/GIS; confirm whether FAS itself allows camping",
-    "relatedActiveOrPendingRecord": "Related to CMR / USACE Rock Creek Recreation Area",
+    "relatedActiveOrPendingRecord": "mt-v23196-rock-creek-fishing-access-site",
     "sourceSummary": "FWS lists Rock Creek Fishing Access Site near Rock Creek Recreation Area, but this does not by itself prove a campsite pin. ([U.S. Fish and Wildlife Service][2])",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Duplicate risk with USACE Rock Creek Recreation Area.",
-    "sourceFile": "Pasted text.txt"
+    "sourceFile": "Pasted text.txt",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 10 Western/blank-state return."
   },
   {
     "id": "mt-lead-fwp-duck-creek-fas",
@@ -2408,12 +2444,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No coordinate",
     "blocker": "Need FishMT/FWP detail proving camping and exact coordinate",
     "nextAction": "Open FishMT detail/API/GIS",
-    "relatedActiveOrPendingRecord": "None confirmed",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior worker named this as blocked FishMT/FAS lead; FWP requires individual site check for camping. ([Montana FWP][7])",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Lower priority than river-corridor duplicates.",
-    "sourceFile": "Pasted text.txt"
+    "sourceFile": "Pasted text.txt",
+    "resolutionStatus": "rejected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Rejected from Worker 10 return; no camping/overnight proof or official no overnight/use conflict."
   },
   {
     "id": "mt-lead-fwp-sidney-bridge-fas",
@@ -2513,12 +2552,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No coordinate",
     "blocker": "Need FishMT/FWP detail proving camping and exact coordinate",
     "nextAction": "Open FishMT detail/API/GIS",
-    "relatedActiveOrPendingRecord": "None confirmed",
+    "relatedActiveOrPendingRecord": "mt-v23196-glasgow-base-pond-fishing-access-site",
     "sourceSummary": "Prior worker named this as blocked FishMT/FAS lead; FWP requires individual site check for camping. ([Montana FWP][7])",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Possible day-use/fishing-only trap until proven.",
-    "sourceFile": "Pasted text.txt"
+    "sourceFile": "Pasted text.txt",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 10 Western/blank-state return."
   },
   {
     "id": "mt-lead-fwp-conclow-fas",
@@ -2534,12 +2576,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No coordinate",
     "blocker": "Need FishMT/FWP detail proving camping and exact coordinate",
     "nextAction": "Open FishMT detail/API/GIS",
-    "relatedActiveOrPendingRecord": "None confirmed",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior worker named this as blocked FishMT/FAS lead; FWP requires individual site check for camping. ([Montana FWP][7])",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Keep as low-priority blocked FAS.",
-    "sourceFile": "Pasted text.txt"
+    "sourceFile": "Pasted text.txt",
+    "resolutionStatus": "rejected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Rejected from Worker 10 return; no camping/overnight proof or official no overnight/use conflict."
   },
   {
     "id": "mt-lead-fwp-amelia-island-fas",
@@ -2555,12 +2600,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No coordinate",
     "blocker": "Need FishMT/FWP detail proving camping, access type, and exact coordinate",
     "nextAction": "Open FishMT detail/API/GIS",
-    "relatedActiveOrPendingRecord": "None confirmed",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior worker named this as blocked FishMT/FAS lead; FWP requires individual site check for camping. ([Montana FWP][7])",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Island/water-access possibility; do not vehicle-pin unless proven.",
-    "sourceFile": "Pasted text.txt"
+    "sourceFile": "Pasted text.txt",
+    "resolutionStatus": "rejected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Rejected from Worker 10 return; no camping/overnight proof or official no overnight/use conflict."
   },
   {
     "id": "mt-lead-fwp-gartside-reservoir-fas",
@@ -2576,12 +2624,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No coordinate",
     "blocker": "Need FishMT/FWP detail proving camping and exact coordinate",
     "nextAction": "Open FishMT detail/API/GIS",
-    "relatedActiveOrPendingRecord": "None confirmed",
+    "relatedActiveOrPendingRecord": "mt-v23196-gartside-reservoir-fishing-access-site",
     "sourceSummary": "Prior worker named this as blocked FishMT/FAS lead; FWP requires individual site check for camping. ([Montana FWP][7])",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Possible fishing-only trap until proven.",
-    "sourceFile": "Pasted text.txt"
+    "sourceFile": "Pasted text.txt",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 10 Western/blank-state return."
   },
   {
     "id": "ne-lead-wma-boondocking-cluster-source-geometry",
@@ -2789,12 +2840,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Not applicable",
     "blocker": "data/states/KS.js exists with two rows, but KS is absent from data/states-manifest.js, so Kansas rows will not reliably load through the stable manifest.",
     "nextAction": "Supervisor/package builder should decide whether to add KS to manifest, remove/hold the bad KS rows, or rebuild KS from scratch. Do not treat this as campsite research.",
-    "relatedActiveOrPendingRecord": "data/states/KS.js rows s660 Old Town Park and s954 US National Forest Campground Guide",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "The manifest/load gap is the only durable Kansas-specific lead recovered.",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "This is a recurring project trap worth preserving even though it is not a campsite.",
-    "sourceFile": "Worker_08_NE_KS_Historical_Backfill_Return.txt"
+    "sourceFile": "Worker_08_NE_KS_Historical_Backfill_Return.txt",
+    "resolutionStatus": "resolved_no_map_data_change",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Manifest QA item reviewed; current available manifest contains KS.js. No campsite data change made."
   },
   {
     "id": "mi-lead-state-forest-dispersed-up-geometry",
@@ -3251,12 +3305,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST AREA PIN SELECTED",
     "blocker": "Prior worker output says camping outside campgrounds is allowed unless closed with limits, but record must use official boundary/geometry only.",
     "nextAction": "Extract official refuge outline/geometry, closure exceptions, road-distance rules, and camping limits; create Area/rule marker or future polygon.",
-    "relatedActiveOrPendingRecord": "None known; MT active 170, broad leads held out per manifest",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior MT worker file: CMR NWR is an area/rule candidate needing official boundary geometry; no fake pin.",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "This is one of the strongest MT area leads.",
-    "sourceFile": "W10_CrossState_Area_Geometry_Harvest_RESULTS.md"
+    "sourceFile": "W10_CrossState_Area_Geometry_Harvest_RESULTS.md",
+    "resolutionStatus": "retained_for_correction_risk_audit",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Worker 10 identified active-record/system correction risk; retained for correction-risk audit rather than applying a blind data move."
   },
   {
     "id": "mt-lead-ul-bend-wilderness-backcountry-geometry",
@@ -3356,12 +3413,15 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST EXACT PIN",
     "blocker": "Prior follow-up lead says this should be an area/rule marker, not a campsite pin; West Fork Denny Creek row was flagged for correction.",
     "nextAction": "Check active MT for West Fork Denny Creek or broad CGNF row; convert inappropriate point record to area/rule marker; extract MVUM/ownership geometry.",
-    "relatedActiveOrPendingRecord": "Possible active or held MT row",
+    "relatedActiveOrPendingRecord": "",
     "sourceSummary": "Prior MT file: Custer Gallatin NF dispersed-camping rule marker and West Fork Denny Creek correction were flagged.",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
+    "lastCheckedVersion": "v23.1.96",
     "notes": "Duplicate/correction risk high.",
-    "sourceFile": "W10_CrossState_Area_Geometry_Harvest_RESULTS.md"
+    "sourceFile": "W10_CrossState_Area_Geometry_Harvest_RESULTS.md",
+    "resolutionStatus": "retained_for_correction_risk_audit",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Worker 10 identified active-record/system correction risk; retained for correction-risk audit rather than applying a blind data move."
   },
   {
     "id": "mt-lead-sw-montana-lolo-blm-dnrc-system-extraction",
@@ -12194,10 +12254,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official Recreation.gov facility page proves campground and amenities; no safe parsed lat/lng exposed. Facility address present: 2192 Mehaffey Bridge Rd NE; needs map/imagery/API confirmation before active import.",
     "blocker": "Clean add once facility coordinate is map/imagery checked against campground loop, not gateway coordinate.",
     "nextAction": "Extract Recreation.gov facility geometry/RIDB/DevTools or geocode official facility address and imagery-check loop.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-sugar-bottom-campground-coralville",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Recreation.gov Sugar Bottom; Coralville USACE page"
+    "notes": "Recreation.gov Sugar Bottom; Coralville USACE page",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-coralville-sandy-beach-campground",
@@ -12213,10 +12276,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official Recreation.gov facility proof; no safe parsed lat/lng exposed.",
     "blocker": "Do not use Sandy Beach day-use/beach/boat ramp points.",
     "nextAction": "Extract facility coordinate from Rec.gov API/map or official campground map.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-sandy-beach-campground-coralville",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Recreation.gov Sandy Beach; Coralville USACE page"
+    "notes": "Recreation.gov Sandy Beach; Coralville USACE page",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-coralville-tailwater-east-campground",
@@ -12232,10 +12298,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official facility page proves campground below dam; parsed page has directions/address but no safe campground point.",
     "blocker": "Coordinate must land on campground loop east of river below dam.",
     "nextAction": "Extract facility coordinate/reservation geometry.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-tailwater-east-campground-coralville",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Recreation.gov Tailwater East; Coralville USACE page"
+    "notes": "Recreation.gov Tailwater East; Coralville USACE page",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-coralville-tailwater-west-campground",
@@ -12251,10 +12320,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official facility page proves campground below dam; parsed page has directions/address but no safe campground point.",
     "blocker": "Coordinate must distinguish west-bank campground from West Overlook and Tailwater East.",
     "nextAction": "Extract facility coordinate/reservation geometry.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-tailwater-west-campground-coralville",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Recreation.gov Tailwater West; Coralville USACE page"
+    "notes": "Recreation.gov Tailwater West; Coralville USACE page",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-saylorville-prairie-flower-campground",
@@ -12346,10 +12418,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official Recreation.gov facility page gives campground-specific address/directions and amenities; parsed page does not expose safe lat/lng.",
     "blocker": "Good active modern candidate after coordinate rescue.",
     "nextAction": "Extract/map-check campground coordinate.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-howell-station-campground-red-rock",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Recreation.gov Howell Station; Lake Red Rock USACE"
+    "notes": "Recreation.gov Howell Station; Lake Red Rock USACE",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-red-rock-wallashuck-campground",
@@ -12365,10 +12440,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official facility page gives campground-specific address/directions and amenities; parsed page lacks safe lat/lng.",
     "blocker": "Clean modern add once coordinate is rescued.",
     "nextAction": "Extract/map-check campground coordinate.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-wallashuck-campground-red-rock",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Recreation.gov Wallashuck; Lake Red Rock USACE"
+    "notes": "Recreation.gov Wallashuck; Lake Red Rock USACE",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-red-rock-north-overlook-campground",
@@ -12384,10 +12462,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official facility page gives campground-specific address and amenities; no safe lat/lng exposed.",
     "blocker": "Primitive tent sites may be noted but one campground record is probably enough unless schema supports component split.",
     "nextAction": "Extract/map-check campground coordinate.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-north-overlook-campground-red-rock",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Recreation.gov North Overlook Camp; Lake Red Rock USACE"
+    "notes": "Recreation.gov North Overlook Camp; Lake Red Rock USACE",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-whitebreast-campground-lake-red-rock",
@@ -12441,10 +12522,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official USACE Rathbun page lists Buck Creek campground with 42 electric reservable campsites and amenities; exact coordinate not extracted.",
     "blocker": "Do not confuse with Buck Creek Marina/concession campground or Ohio Buck Creek.",
     "nextAction": "Extract facility/map coordinate.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-buck-creek-campground-rathbun",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Kansas City District Rathbun Lake page"
+    "notes": "Kansas City District Rathbun Lake page",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-rathbun-island-view-campground",
@@ -12460,10 +12544,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official USACE Rathbun page lists Island View as largest Rathbun campground with 192 electric campsites, plus group camp within campground.",
     "blocker": "One parent Modern record likely enough; group camp can be note unless child schema desired.",
     "nextAction": "Extract coordinate; capture group camp as subcomponent note.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-island-view-campground-rathbun",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Kansas City District Rathbun Lake page"
+    "notes": "Kansas City District Rathbun Lake page",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-rathbun-prairie-ridge-campground",
@@ -12479,10 +12566,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official USACE Rathbun page lists Prairie Ridge with 56 electric sites and group camp; exact coordinate not extracted.",
     "blocker": "Modern parent row; group camp note or separate lead if supervisor wants component split.",
     "nextAction": "Extract coordinate and decide group camp representation.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-prairie-ridge-campground-rathbun",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Kansas City District Rathbun Lake page"
+    "notes": "Kansas City District Rathbun Lake page",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-bridge-view-campground-rathbun",
@@ -12498,10 +12588,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "USACE Rathbun source family; exact facility coordinate not recovered.",
     "blocker": "Avoid bridge/boat-ramp proxy.",
     "nextAction": "Extract official coordinate.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.63",
+    "relatedActiveOrPendingRecord": "ia-v23196-bridge-view-campground-rathbun",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 Bulldog return",
-    "notes": "https://www.recreation.gov/camping/gateways/162"
+    "notes": "https://www.recreation.gov/camping/gateways/162",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return as Bridgeview / Bridge View Campground active record."
   },
   {
     "id": "ia-lead-jester-park-campground",
@@ -13353,10 +13446,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Coralville USACE page names Linder Point as one of Dam Complex campgrounds, but exact facility page/coordinates were not recovered in parsed sources.",
     "blocker": "Do not use dam complex centroid.",
     "nextAction": "Open facility-specific Rec.gov/USACE campground map; extract coordinate and amenities.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-linder-point-campground-coralville",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Coralville USACE page and Recreation.gov gateway"
+    "notes": "Coralville USACE page and Recreation.gov gateway",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return."
   },
   {
     "id": "ia-lead-coralville-cottonwood-campground",
@@ -13372,10 +13468,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Coralville Recreation.gov gateway lists Cottonwood as a campground/activity component, but facility details/coordinates were not recovered in parsed sources.",
     "blocker": "Avoid confusing with ND Cottonwood or other Cottonwood campgrounds.",
     "nextAction": "Extract facility page and coordinate; reject if it proves day-use/non-camping.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Coralville Recreation.gov gateway"
+    "notes": "Coralville Recreation.gov gateway",
+    "resolutionStatus": "retained_lead_status_check",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Held from active import because Recreation.gov still carries a 2025 closure notice; verify current-season open status before import."
   },
   {
     "id": "ia-lead-saylorville-bob-shetler-campground",
@@ -13410,10 +13509,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "USACE/Corps Lakes and Recreation.gov identify Whitebreast Camp as campground; detailed facility proof captured enough for lead, not coordinate.",
     "blocker": "Do not confuse Whitebreast Camp with Whitebreast Beach/Point Shelter.",
     "nextAction": "Extract facility coordinate and amenities from Rec.gov/API.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Lake Red Rock USACE / Corps Lakes; Recreation.gov Whitebreast Camp"
+    "notes": "Lake Red Rock USACE / Corps Lakes; Recreation.gov Whitebreast Camp",
+    "resolutionStatus": "retained_lead_coordinate_proxy_rejected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Worker 5 rejected youth-camp proxy coordinate; keep lead until official Whitebreast campground loop coordinate is recovered."
   },
   {
     "id": "ia-lead-red-rock-ivans-campground",
@@ -13429,10 +13531,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "USACE/Corps Lakes lists Ivans as Corps-managed reservation/camping component; details/coordinate not recovered enough for active import.",
     "blocker": "Not enough for active import yet; don’t lose it.",
     "nextAction": "Open Ivan’s facility page/API; extract coordinate and amenity layer.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-ivans-campground-red-rock",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Lake Red Rock Corps Lakes / Recreation.gov gateway"
+    "notes": "Lake Red Rock Corps Lakes / Recreation.gov gateway",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return; duplicate spelling variants merged."
   },
   {
     "id": "ia-lead-red-rock-roberts-creek-east-west-campgrounds",
@@ -13467,10 +13572,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "Official USACE Rathbun page lists Bridgeview with 104 reservable campsites, 92 electric sites, shower houses and campground map/reservation links. Exact coordinate not extracted.",
     "blocker": "Clean modern candidate once coordinate extracted.",
     "nextAction": "Open/georeference Bridgeview Campground Map or extract Rec.gov facility coordinate.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.64",
+    "relatedActiveOrPendingRecord": "ia-v23196-bridge-view-campground-rathbun",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "IA_W3 area-closeout return",
-    "notes": "Kansas City District Rathbun Lake page"
+    "notes": "Kansas City District Rathbun Lake page",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 5 IA/KS return as Bridgeview / Bridge View Campground active record."
   },
   {
     "id": "ia-lead-rathbun-rathbun-marina-campground",
@@ -24746,10 +24854,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Do not let W1 leak into Wyoming.",
     "nextAction": "Future WY/Black Hills pass only.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.70",
+    "relatedActiveOrPendingRecord": "wy-v23196-reuter-campground; wy-v23196-sundance-horse-camp",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "Added/updated from SD/ND/MO weak-state rescue v23.1.70",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "partially_promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Worker 10 bundle promoted Reuter Campground and Sundance Horse Camp; Cook Lake remains lead until official campground coordinate is recovered."
   },
   {
     "id": "sd-lead-american-creek-campground-chamberlain-official-proof-coordinate-rescue",
@@ -27535,10 +27646,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "One-line source context only, per scope-control rule.",
     "nextAction": "Assign to eastern/Hi-Line/northeast MT worker if needed.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.71",
+    "relatedActiveOrPendingRecord": "mt-v23196-brush-lake-state-park-campground",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "Added/updated from MT/OH/KY weak-state rescue v23.1.71",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 10 Western/blank-state return."
   },
   {
     "id": "mt-lead-bannack-hike-bike-campsite-coordinate-rescue",
@@ -27592,10 +27706,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Real, valuable primitive campground lead; exact coordinate still needed.",
     "nextAction": "Add durable coordinate-rescue lead.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.71",
+    "relatedActiveOrPendingRecord": "mt-v23196-red-rock-lakes-upper-lake-campground",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "Added/updated from MT/OH/KY weak-state rescue v23.1.71",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 10 Western/blank-state return."
   },
   {
     "id": "mt-future-beavertail-hill-state-park-campground",
@@ -27611,10 +27728,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST ACTIVE COORDINATE ACCEPTED",
     "blocker": "Parked only because it sits outside the assigned southwest lock.",
     "nextAction": "Assign to western Montana/Missoula-Clark Fork worker.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.71",
+    "relatedActiveOrPendingRecord": "mt-v23196-beavertail-hill-state-park-campground",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "Added/updated from MT/OH/KY weak-state rescue v23.1.71",
-    "notes": ""
+    "notes": "",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 10 Western/blank-state return."
   },
   {
     "id": "mt-lead-madison-river-fas-camping-rule-gis-review",
@@ -34214,10 +34334,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST COORDINATE FOUND",
     "blocker": "Worker 3 flagged coordinate as blocked; Tod provided v23.1.78 coordinate resolution and active row was updated.",
     "nextAction": "Keep as history/QA lead tied to active row; upgrade if official city/GIS coordinate becomes available.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.78",
+    "relatedActiveOrPendingRecord": "",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "Added/updated from v23.1.78 worker return reconciliation after package duplicate check.",
-    "notes": "Active row ks-lake-atwood-lions-rv-park updated in v23.1.78 with Tod-provided coordinate resolution; do not downgrade."
+    "notes": "Active row ks-lake-atwood-lions-rv-park updated in v23.1.78 with Tod-provided coordinate resolution; do not downgrade.",
+    "resolutionStatus": "resolved_existing_protected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Coordinate-history protection: preserve Tod-provided coordinate unless newer authoritative proof contradicts it."
   },
   {
     "id": "ks-lead-arkalon-park-coordinate-conflict-qa",
@@ -34233,10 +34356,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "NO HONEST COORDINATE FOUND",
     "blocker": "Worker 3 flagged coordinate conflict; Tod provided v23.1.78 coordinate resolution and official city page.",
     "nextAction": "Keep as history/QA lead tied to active row; upgrade if official city/GIS coordinate becomes available.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.78",
+    "relatedActiveOrPendingRecord": "",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "Added/updated from v23.1.78 worker return reconciliation after package duplicate check.",
-    "notes": "Active row ks-seward-arkalon-park-campground updated in v23.1.78 with Tod-provided coordinate resolution; do not downgrade."
+    "notes": "Active row ks-seward-arkalon-park-campground updated in v23.1.78 with Tod-provided coordinate resolution; do not downgrade.",
+    "resolutionStatus": "resolved_existing_protected",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Coordinate-conflict QA: preserve Tod-provided coordinate unless newer authoritative proof contradicts it."
   },
   {
     "id": "ks-lead-crawford-lake-view-group-use-area",
@@ -35000,10 +35126,13 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "BROAD ROAD/PASS AREA / no honest point",
     "blocker": "Many public-facing reports describe dispersed use, but reports are broad across the Homestake Pass/Homestake Lake road area rather than a tight import-safe point.",
     "nextAction": "Promoted to active Community Reported Boondocking in v23.1.83; keep as geometry-sanity follow-up for USFS road/parcel/MVUM/posting review and to keep the Homestake Lake day-use trap separate.",
-    "relatedActiveOrPendingRecord": "mt_homestake_pass_dispersed_community_reported",
-    "lastCheckedVersion": "v23.1.83",
+    "relatedActiveOrPendingRecord": "mt-v23196-homestake-pass-dispersed-camping",
+    "lastCheckedVersion": "v23.1.96",
     "leadRejectedFileResult": "Added/updated from Worker 5 Round 2 / Worker 6 v23.1.82 integration",
-    "notes": "Worker 5 Round 3 converted the broad Homestake lead into an active tight-cluster Community Reported candidate while preserving this as a later road/parcel/posting sanity lead."
+    "notes": "Worker 5 Round 3 converted the broad Homestake lead into an active tight-cluster Community Reported candidate while preserving this as a later road/parcel/posting sanity lead.",
+    "resolutionStatus": "promoted_active",
+    "resolutionVersion": "v23.1.96",
+    "resolutionNotes": "Promoted from Worker 10 Western/blank-state return."
   },
   {
     "id": "mo_pony_express_lake_ca_primitive_camping_geometry",
@@ -39844,61 +39973,61 @@ window.CAMPING_LEADS = [
     "leadRejectedFileResult": "Backfilled from accessible worker returns/build notes because the item was not represented as active, rejected, or durable lead in v23.1.92.",
     "notes": "Existing-active QA lead to prevent wrong-state coordinate regression."
   },
-{
-  "id": "mi-v23195-lead-nahma-resort-campground-coordinate-public-status-rescue",
-  "state": "MI",
-  "name": "Nahma Resort and Campground / Upper Peninsula Golf and Lake Resort / former No-Nah-Ma Resort",
-  "countyRegion": "Delta / Nahma / Big Bay de Noc",
-  "leadType": "operator_address_coordinate_rescue",
-  "likelyLayer": "Private Campgrounds or Needs Verification",
-  "status": "coordinate_public_status_rescue",
-  "priority": "High",
-  "sourceType": "Official township business listing + user field/discovery report; operator/live-map proof still needed",
-  "coordinate": null,
-  "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED IN ACCESSIBLE SOURCES",
-  "blocker": "Nahma Township official business page lists Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, at 13723 Main St., Nahma, MI 49864, and the township visitor text says Nahma has camping. The accessible web pass did not recover an operator campground page, exact campground/RV-loop coordinate, or public transient camping details. Do not lose this lead, but do not fake an address centroid.",
-  "nextAction": "Run the mandatory address-to-map rescue ladder: search exact names Nahma Resort and Campground, Nahma Campground and Resort, Upper Peninsula Golf and Lake Resort, No-Nah-Ma Resort, and address 13723 Main St., Nahma MI. Check Google Maps, Apple Maps, Bing Maps, OSM/Overpass, operator/Facebook pages, campground directories only as support, and aerial imagery. Promote only if the point lands on the campground/camping area/RV area/campground entrance and public overnight camping is confirmed. Otherwise keep as lead with exactly what was checked.",
-  "relatedActiveOrPendingRecord": null,
-  "lastCheckedVersion": "v23.1.95",
-  "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94; previous Worker 3 Nahma row said no add and to preserve map-only/POI-only hints as leads.",
-  "notes": "Do not import as active from broad Nahma-town/township coordinate. Verify current name and public transient availability before active map add. Township source trail: Nahma Township Businesses page, Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, 13723 Main St., Nahma MI. User flagged this as missed under possible names Nahma Campground and Resort / Resort and Campground."
-},
-{
-  "id": "mi-v23195-lead-nahma-area-boondocking-user-reported-site-1",
-  "state": "MI",
-  "name": "Nahma-area boondocking site 1 \u2014 user-reported nearby site",
-  "countyRegion": "Delta / Nahma / Big Bay de Noc / Hiawatha NF vicinity",
-  "leadType": "community_reported_boondocking_coordinate_rescue",
-  "likelyLayer": "Boondocking / Dispersed or Needs Verification",
-  "status": "community_coordinate_report_count_needed",
-  "priority": "High",
-  "sourceType": "User report; community/app/social and official contradiction check needed",
-  "coordinate": null,
-  "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
-  "blocker": "Tod reported one of two boondocking sites near Nahma, but no exact name, coordinate, same-spot report count, land-management proof, access legality, or official contradiction check has been captured in the repo. Under current rules this cannot be active until exact same-spot evidence or official permission is recovered.",
-  "nextAction": "Ask Tod for the map result/name/coordinate if available, then run exact-name and tight-cluster checks in Google Maps, Apple Maps, Bing Maps, OSM/Overpass, iOverlander/Campendium/The Dyrt/FreeCampsites-style directories, forums/blogs only as community evidence, and official Hiawatha NF/MVUM/forest-order/ownership checks. Active Community Reported candidate requires 3+ independent same-spot/tight-cluster overnight reports and no official contradiction; otherwise keep lead.",
-  "relatedActiveOrPendingRecord": null,
-  "lastCheckedVersion": "v23.1.95",
-  "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94 so the Nahma-area boondocking lead does not vanish.",
-  "notes": "No fake pin. Do not use a boat launch, marina, beach, scenic point, road center, township center, or Hiawatha NF broad rule point as the campsite."
-},
-{
-  "id": "mi-v23195-lead-nahma-area-boondocking-user-reported-site-2",
-  "state": "MI",
-  "name": "Nahma-area boondocking site 2 \u2014 user-reported nearby site",
-  "countyRegion": "Delta / Nahma / Big Bay de Noc / Hiawatha NF vicinity",
-  "leadType": "community_reported_boondocking_coordinate_rescue",
-  "likelyLayer": "Boondocking / Dispersed or Needs Verification",
-  "status": "community_coordinate_report_count_needed",
-  "priority": "High",
-  "sourceType": "User report; community/app/social and official contradiction check needed",
-  "coordinate": null,
-  "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
-  "blocker": "Tod reported a second boondocking site near Nahma, but no exact name, coordinate, same-spot report count, land-management proof, access legality, or official contradiction check has been captured in the repo. Under current rules this cannot be active until exact same-spot evidence or official permission is recovered.",
-  "nextAction": "Ask Tod for the map result/name/coordinate if available, then run exact-name and tight-cluster checks in Google Maps, Apple Maps, Bing Maps, OSM/Overpass, iOverlander/Campendium/The Dyrt/FreeCampsites-style directories, forums/blogs only as community evidence, and official Hiawatha NF/MVUM/forest-order/ownership checks. Active Community Reported candidate requires 3+ independent same-spot/tight-cluster overnight reports and no official contradiction; otherwise keep lead.",
-  "relatedActiveOrPendingRecord": null,
-  "lastCheckedVersion": "v23.1.95",
-  "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94 so the Nahma-area boondocking lead does not vanish.",
-  "notes": "No fake pin. Treat separately from site 1 until exact map result or cluster proof shows they are the same location."
-}
+  {
+    "id": "mi-v23195-lead-nahma-resort-campground-coordinate-public-status-rescue",
+    "state": "MI",
+    "name": "Nahma Resort and Campground / Upper Peninsula Golf and Lake Resort / former No-Nah-Ma Resort",
+    "countyRegion": "Delta / Nahma / Big Bay de Noc",
+    "leadType": "operator_address_coordinate_rescue",
+    "likelyLayer": "Private Campgrounds or Needs Verification",
+    "status": "coordinate_public_status_rescue",
+    "priority": "High",
+    "sourceType": "Official township business listing + user field/discovery report; operator/live-map proof still needed",
+    "coordinate": null,
+    "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED IN ACCESSIBLE SOURCES",
+    "blocker": "Nahma Township official business page lists Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, at 13723 Main St., Nahma, MI 49864, and the township visitor text says Nahma has camping. The accessible web pass did not recover an operator campground page, exact campground/RV-loop coordinate, or public transient camping details. Do not lose this lead, but do not fake an address centroid.",
+    "nextAction": "Run the mandatory address-to-map rescue ladder: search exact names Nahma Resort and Campground, Nahma Campground and Resort, Upper Peninsula Golf and Lake Resort, No-Nah-Ma Resort, and address 13723 Main St., Nahma MI. Check Google Maps, Apple Maps, Bing Maps, OSM/Overpass, operator/Facebook pages, campground directories only as support, and aerial imagery. Promote only if the point lands on the campground/camping area/RV area/campground entrance and public overnight camping is confirmed. Otherwise keep as lead with exactly what was checked.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.95",
+    "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94; previous Worker 3 Nahma row said no add and to preserve map-only/POI-only hints as leads.",
+    "notes": "Do not import as active from broad Nahma-town/township coordinate. Verify current name and public transient availability before active map add. Township source trail: Nahma Township Businesses page, Upper Peninsula Golf and Lake Resort, formerly No-Nah-Ma Resort, 13723 Main St., Nahma MI. User flagged this as missed under possible names Nahma Campground and Resort / Resort and Campground."
+  },
+  {
+    "id": "mi-v23195-lead-nahma-area-boondocking-user-reported-site-1",
+    "state": "MI",
+    "name": "Nahma-area boondocking site 1 — user-reported nearby site",
+    "countyRegion": "Delta / Nahma / Big Bay de Noc / Hiawatha NF vicinity",
+    "leadType": "community_reported_boondocking_coordinate_rescue",
+    "likelyLayer": "Boondocking / Dispersed or Needs Verification",
+    "status": "community_coordinate_report_count_needed",
+    "priority": "High",
+    "sourceType": "User report; community/app/social and official contradiction check needed",
+    "coordinate": null,
+    "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
+    "blocker": "Tod reported one of two boondocking sites near Nahma, but no exact name, coordinate, same-spot report count, land-management proof, access legality, or official contradiction check has been captured in the repo. Under current rules this cannot be active until exact same-spot evidence or official permission is recovered.",
+    "nextAction": "Ask Tod for the map result/name/coordinate if available, then run exact-name and tight-cluster checks in Google Maps, Apple Maps, Bing Maps, OSM/Overpass, iOverlander/Campendium/The Dyrt/FreeCampsites-style directories, forums/blogs only as community evidence, and official Hiawatha NF/MVUM/forest-order/ownership checks. Active Community Reported candidate requires 3+ independent same-spot/tight-cluster overnight reports and no official contradiction; otherwise keep lead.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.95",
+    "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94 so the Nahma-area boondocking lead does not vanish.",
+    "notes": "No fake pin. Do not use a boat launch, marina, beach, scenic point, road center, township center, or Hiawatha NF broad rule point as the campsite."
+  },
+  {
+    "id": "mi-v23195-lead-nahma-area-boondocking-user-reported-site-2",
+    "state": "MI",
+    "name": "Nahma-area boondocking site 2 — user-reported nearby site",
+    "countyRegion": "Delta / Nahma / Big Bay de Noc / Hiawatha NF vicinity",
+    "leadType": "community_reported_boondocking_coordinate_rescue",
+    "likelyLayer": "Boondocking / Dispersed or Needs Verification",
+    "status": "community_coordinate_report_count_needed",
+    "priority": "High",
+    "sourceType": "User report; community/app/social and official contradiction check needed",
+    "coordinate": null,
+    "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
+    "blocker": "Tod reported a second boondocking site near Nahma, but no exact name, coordinate, same-spot report count, land-management proof, access legality, or official contradiction check has been captured in the repo. Under current rules this cannot be active until exact same-spot evidence or official permission is recovered.",
+    "nextAction": "Ask Tod for the map result/name/coordinate if available, then run exact-name and tight-cluster checks in Google Maps, Apple Maps, Bing Maps, OSM/Overpass, iOverlander/Campendium/The Dyrt/FreeCampsites-style directories, forums/blogs only as community evidence, and official Hiawatha NF/MVUM/forest-order/ownership checks. Active Community Reported candidate requires 3+ independent same-spot/tight-cluster overnight reports and no official contradiction; otherwise keep lead.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.95",
+    "leadRejectedFileResult": "Backfilled from Tod user report after v23.1.94 so the Nahma-area boondocking lead does not vanish.",
+    "notes": "No fake pin. Treat separately from site 1 until exact map result or cluster proof shows they are the same location."
+  }
 ];

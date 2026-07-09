@@ -59,7 +59,7 @@
     verificationNotes: 'Layer corrected from Modern Campgrounds based on project classification: Misery Bay belongs with boondocking/rustic style camping, not modern campground service.'
   });
 
-  // Add: Mouth of the Montreal River, Keweenaw — user-requested boondocking site.
+  // Corrected v23.1.96: Mouth of the Montreal River is hike/boat-in, not vehicle-access boondocking.
   if(!existsByIdOrName('mi-boondocking-montreal-river-mouth', /mouth\s+of\s+the\s+montreal\s+river|montreal\s+river\s+mouth/)){
     list.push({
       id: 'mi-boondocking-montreal-river-mouth',
@@ -68,36 +68,36 @@
       lng: -87.8410194,
       stateCode: 'MI',
       stateName: 'Michigan',
-      layer: 'boondocking',
-      subtype: 'rustic',
-      siteForm: 'dispersed-area',
-      rawCategory: 'boondocking rustic',
-      categoryLabel: 'Boondocking',
+      layer: 'boat-backpack',
+      subtype: 'boat / backpack',
+      siteForm: 'hike-boat-in-primitive-site',
+      rawCategory: 'boat / backpack primitive',
+      categoryLabel: 'Boat / Backpack',
       sourceFolder: 'Michigan base data continuation',
       owner: 'Michigan public land / Keweenaw shoreline area',
-      layerLabel: 'Boondocking / dispersed',
-      description: 'Boondocking-style public-land camping area at the Lake Superior mouth of the Montreal River on the Keweenaw Peninsula. The draw is remote shoreline access, river-mouth scenery, and a low-service setting rather than developed campground amenities.',
+      layerLabel: 'Boat / Backpack',
+      description: 'Hike/boat-in primitive camping area at the Lake Superior mouth of the Montreal River on the Keweenaw Peninsula. This is not normal vehicle-access boondocking; the draw is remote shoreline/river-mouth access and a low-service setting rather than developed campground amenities.',
       website: 'https://en.wikipedia.org/wiki/Montreal_River_(Michigan)',
       sourceName: 'Montreal River public-land acquisition reference; user-requested project site',
       sourceUrl: 'https://en.wikipedia.org/wiki/Montreal_River_(Michigan)',
-      sourceNotes: 'The Montreal River page notes the state purchase covers the river mouth and several miles upstream; this record is included as a project-requested boondocking site, not a developed campground.',
+      sourceNotes: 'The Montreal River page notes the state purchase covers the river mouth and several miles upstream; this record is included as a project-requested hike/boat-in primitive site, not a developed campground or normal drive-up boondocking site.',
       cost: 'Free / no developed campground fee expected; verify any posted local/state restrictions before staying.',
-      costDisplay: 'No developed campground fee is expected for this boondocking-style public-land site, but verify current posted rules before relying on it.',
+      costDisplay: 'No developed campground fee is expected for this hike/boat-in primitive public-land site, but verify current posted rules before relying on it.',
       costCheckedDate: checked,
       costNeedsReview: false,
       showers: 'No',
-      access: 'Remote Keweenaw shoreline/river-mouth access. Expect rough-road conditions, limited services, and possible seasonal access issues. Arrive in daylight and verify the exact legal parking/camping spot on site.',
+      access: 'Remote Keweenaw shoreline/river-mouth hike/boat-in access. This is not normal vehicle camping. Expect limited services, water/weather exposure, rough approaches, and possible seasonal access issues. Arrive in daylight and verify the exact legal parking/camping/staging situation on site.',
       amenities: 'No developed services assumed. Self-contained camping only; pack in/pack out; no showers or hookups.',
       trailheads: 'Montreal River mouth shoreline, nearby falls/river corridor, and Keweenaw coast exploration.',
       season: 'Best treated as seasonal access; snow, shoreline conditions, washouts, and posted restrictions can change access.',
-      reviewSummary: 'Useful as a remote Keweenaw boondocking-style site for campers who want Lake Superior solitude and can handle no-service conditions.',
-      locationPrecision: 'River-mouth coordinate for the Montreal River where it enters Lake Superior; no modern campground services claimed.',
+      reviewSummary: 'Useful as a remote Keweenaw hike/boat-in primitive site for campers who want Lake Superior solitude and can handle no-service conditions.',
+      locationPrecision: 'River-mouth coordinate for the Montreal River where it enters Lake Superior; hike/boat-in primitive access, not normal vehicle-access boondocking; no modern campground services claimed.',
       verificationStatus: 'verified-project-addition',
       verificationDate: checked,
-      verificationNotes: 'Added at user request as a Michigan boondocking site. Montreal River mouth coordinate and public-land context checked; no modern campground services claimed.',
+      verificationNotes: 'Corrected at user request from Boondocking / Dispersed to Boat / Backpack because local knowledge says the site is hike/boat-in, not normal vehicle-access boondocking. Montreal River mouth coordinate retained; no modern campground services claimed.',
       dataCorrectionFile: 'data/states/MI2.js',
-      dataCorrectionVersion: 'v23.0.34',
-      dataCorrectionDate: checked
+      dataCorrectionVersion: 'v23.1.96',
+      dataCorrectionDate: '2026-07-09'
     });
   }
 

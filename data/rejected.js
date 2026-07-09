@@ -9795,5 +9795,77 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "",
     "lastCheckedVersion": "v23.1.94",
     "notes": "Do not import unless USACE/Recreation.gov later confirms overnight camping."
+  },
+  {
+    "id": "mt-reject-amelia-island-fas-no-camping-v23196",
+    "state": "MT",
+    "name": "Amelia Island Fishing Access Site",
+    "countyRegion": "Treasure/Rosebud region",
+    "rejectedAsLayer": "Rustic / Primitive or Boondocking / Dispersed",
+    "rejectionType": "official_source_lacks_camping_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official FWP/FishMT or responsible agency proof shows public overnight camping at the same feature."
+    ],
+    "sourceSummary": "Worker 10: official FishMT page shows fishing/hunting/wildlife activities and facilities, but no camping activity/proof.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.96",
+    "notes": "Reject as campground; keep only if later FishMT camping flag contradicts current page."
+  },
+  {
+    "id": "mt-reject-fort-peck-dredge-cut-pond-fas-no-overnight-v23196",
+    "state": "MT",
+    "name": "Fort Peck Dredge Cut Pond Fishing Access Site",
+    "countyRegion": "Fort Peck / Valley County",
+    "rejectedAsLayer": "Rustic / Primitive or Boondocking / Dispersed",
+    "rejectionType": "official_no_overnight_or_no_camping",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official FWP/FishMT or responsible agency proof shows public overnight camping at the same feature."
+    ],
+    "sourceSummary": "Worker 10: FWP source indicates day-use/closed to overnight use; 2026 access restriction also flagged.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.96",
+    "notes": "Nearby COE camping should be handled as separate Fort Peck component lead."
+  },
+  {
+    "id": "mt-reject-conclow-fas-no-camping-v23196",
+    "state": "MT",
+    "name": "Conclow Fishing Access Site",
+    "countyRegion": "Lake County / Flathead River area",
+    "rejectedAsLayer": "Rustic / Primitive or Boondocking / Dispersed",
+    "rejectionType": "official_source_lacks_camping_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official FWP/FishMT or responsible agency proof shows public overnight camping at the same feature."
+    ],
+    "sourceSummary": "Worker 10: official FishMT page shows no facilities/activities and no camping proof.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.96",
+    "notes": "Reject as camping candidate unless FishMT camping flag is later found."
+  },
+  {
+    "id": "mt-reject-johnson-reservoir-fas-no-camping-v23196",
+    "state": "MT",
+    "name": "Johnson Reservoir Fishing Access Site",
+    "countyRegion": "McCone/Garfield region",
+    "rejectedAsLayer": "Rustic / Primitive or Boondocking / Dispersed",
+    "rejectionType": "official_source_lacks_camping_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Only if current official FWP/FishMT or responsible agency proof shows public overnight camping at the same feature."
+    ],
+    "sourceSummary": "Worker 10: official FishMT page does not show camping; no facilities listed.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.96",
+    "notes": "Reject as camping candidate."
   }
 ];

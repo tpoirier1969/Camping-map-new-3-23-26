@@ -268,6 +268,17 @@ Every geography-locked worker must explicitly report what they checked for non-m
 Do not force fake Rustic, Boat/Backpack, or Boondocking pins to make the layer counts look better. If exact non-modern coordinates are blocked, return a durable lead with the exact acquisition path: GIS layer, GeoPDF, reservation metadata, official map, agency contact, or operator source. The target is better non-modern coverage, not fake equality between layers.
 
 
+Correction-risk audit nuance rule:
+
+Correction-risk scans are review tools, not automatic proof that a record is wrong. Audit workers and supervisors must apply these nuances:
+
+* Vague wording is not automatically a defect for Boondocking / Dispersed or community-supported records. Boondocking records often start from community/local/user knowledge. Flag vague wording only when it creates a user-trust problem such as fake exactness, unclear legality, wrong access type, no usable same-spot source trail, or a proxy coordinate presented as an exact campsite.
+* A park, recreation-area, or campground entrance can be an acceptable medium-confidence marker when a real overnight campground/camping area is proved and a more exact loop/site point is unavailable. The popup must be honest that the marker is an entrance/area marker, not an exact campsite. Do not drop a real park campground solely because the worker cannot yet extract individual loop coordinates.
+* Boondocking / Dispersed does not require official exact campsite coordinates by definition. Community/social/user evidence can be the primary proof when it meets the project standard. Official sources should be used to check for contradictions, closures, day-use-only rules, road restrictions, MVUM/ownership context, and broad permissive/dispersed rules, but workers must not demand official point coordinates for every boondocking candidate.
+* Modern-service proof allows reasonable inference when the source is otherwise strong. If an official/operator source proves electric or hookup camping plus showers, shower house, or bathhouse/restroom infrastructure, and no source says vault toilets/no modern restrooms/no showers, the modern-restroom/flush component may be treated as satisfied. Electric alone still is not Modern.
+* Access type controls layer. A primitive site that is primarily hike-in, boat-in, canoe/kayak-in, shoreline walk-in, island/water-access, or backcountry access belongs in Boat / Backpack, not Boondocking / Dispersed, unless normal vehicle camping access is clearly supported.
+
+
 
 
 Handoff execution-intent rule:

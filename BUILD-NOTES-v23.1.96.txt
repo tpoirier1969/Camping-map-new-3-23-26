@@ -1,0 +1,24 @@
+BUILD NOTES — v23.1.96
+
+Scope:
+- Integrates remaining Worker 5 (IA/KS) and Worker 10 (Western/blank-state) lead address/coordinate rescue returns.
+- Applies user correction that Michigan Mouth of the Montreal River is Boat / Backpack, not Boondocking / Dispersed.
+- Updates PROJECT_RULES.md and Project Rules.md with correction-risk audit nuance: boondocking/community wording, park entrance markers, official-coordinate expectations for boondocking, Modern inference, and hike/boat/backpack access priority.
+- Generates a correction-risk audit ledger and six standalone worker handoffs for the next audit pass.
+
+Data changes:
+- IA active records added: 13 candidates from Worker 5, with Cottonwood held as a lead/status check because Recreation.gov still shows a 2025 closure notice.
+- MT active records added: 8 candidates from Worker 10.
+- WY active records added: 2 candidates from Worker 10.
+- CO corrections applied: Alamosa, Hornsilver, Antero South Shore, Lone Duck, Clear Creek Reservoir.
+- MI2 correction applied: Mouth of the Montreal River moved to Boat / Backpack.
+- New rejected guardrails: 4 named Montana FAS/no-camping candidates from Worker 10.
+- Leads retained/marked: lead ledger updated with v23.1.96 resolution metadata where target IDs were found.
+- Missing lead IDs while marking: 2 (ia-lead-ivans-campground-red-rock, ia-lead-whitebreast-campground-red-rock)
+
+Worker 5 caution:
+- Worker 5 explicitly reported that its return was an accountability + partial coordinate rescue, not a full 237-lead coordinate closeout. This build imports only the high-confidence active rows and keeps the rest as leads.
+
+No app/UI changes:
+- app.js is included unchanged from v23.1.95 to preserve the auth-status hotfix.
+- No icon, CSS, search, filter, layout, or map-rendering behavior was changed in this revision.

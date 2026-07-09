@@ -1,0 +1,25 @@
+TOD’S BOONDOCKING & CAMPING MAPS — Correction-Risk Audit v23.1.96
+
+EXECUTION INTENT — DO THE WORK NOW
+
+You are to run and complete this worker assignment now. Return the required research/data tables only. Do not edit files, package changes, commit, branch, or ask whether to proceed unless a required input is missing.
+
+Before starting, review and follow the current ChatGPT project settings and PROJECT_RULES.md. These rules override older handoffs and stale assumptions.
+
+Important nuance from Tod:
+- Vague wording is not automatically wrong for Boondocking / Dispersed or community-supported records.
+- Park/campground entrances can be acceptable medium-confidence markers when a real overnight campground is proved and the popup is honest that it is an entrance/area marker, not an exact campsite.
+- Boondocking / Dispersed does not require official exact coordinates for every point. Community/user/social evidence can be primary proof under the project standard. Use official sources mainly to check contradictions, closures, postings, MVUM/route restrictions, and broad legal context.
+- Modern proof may use common sense: electric/hookups plus showers/bathhouse/restroom infrastructure can satisfy the practical modern standard if no contrary vault/no-shower evidence exists. Electric alone is not Modern.
+- If access is primarily hike-in, boat-in, canoe/kayak-in, island, water-access, or backcountry, the layer should be Boat / Backpack unless normal vehicle camping access is clearly supported.
+
+Use CORRECTION_RISK_AUDIT_LEDGER_v23.1.96.csv as the target ledger. Every row you touch must end as KEEP, MOVE/CORRECT, DOWNGRADE TO LEAD, REJECT, DUPLICATE/MERGE, or NEEDS MORE PROOF.
+
+Output tables required:
+A. ACTIVE CORRECTION CANDIDATES: action; state; id; name; current layer; proposed layer; lat; lng; coordinate action; proof; popup/source wording; confidence.
+B. KEEP / NO CHANGE: state; id; name; why current record is acceptable; any wording improvement.
+C. LEAD / EXTERNAL ACCESS REQUIRED: state; id; name; why not corrected now; next acquisition path.
+D. REJECT / DO NOT IMPORT: state; id; name; reject reason; source trail.
+E. SUMMARY: assigned; processed; corrections; kept; lead/external; rejected; duplicates; unprocessed.
+
+Assignment focus: P4 legacy rows with missing source URL, duplicate-prone names, old s### records, and source-enrichment needs. This is mostly cleanup, not a reason to delete. Find official/operator/community proof where practical and recommend enrichment, duplicate merge, or leave alone.
