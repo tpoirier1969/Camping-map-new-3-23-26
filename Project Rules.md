@@ -1342,3 +1342,15 @@ The USFS boundary overlay must default off, load only for the current viewport, 
 Clickable USFS boundary popups must clearly warn that administrative boundaries can include private inholdings, non-USFS lands, water, roads, wilderness, developed recreation sites, closed areas, and restricted zones. Forest-specific dispersed-camping notes may be shown only where official forest sources were checked and the note is marked ready. Otherwise use a generic administrative-boundary caution note.
 
 Actual ownership/surface estate overlays and MVUM/open-road overlays are separate future phases. Do not bundle them into the USFS boundary MVP or use them as camping-rule proof without a separate source-system workflow and UI decision.
+
+
+Area overlay consolidation rule:
+
+The app should expose area/reference outlines as two user-facing overlay controls unless Tod explicitly changes the UI model:
+
+* Federal Areas — federal context and public-land reference overlays such as USFS/National Forest, BLM, NPS, USFWS/NWR, USACE, federal wilderness/backcountry/rule areas, and federal ownership/context outlines.
+* State / Local Areas — state forest, state wildlife/game/WMA, county forest, city/county/township/local public-land, permit-area, and similar non-federal public rule/context outlines.
+
+Do not keep separate overlapping user controls such as a broad USFS Boundary toggle plus an Official Area Outlines toggle when those controls duplicate the same conceptual geography. Prefer the more detailed original/official area outline when it exists; use broad administrative boundaries only as sparse context where no better detailed outline is available. These overlays must remain reference/context layers, not campsite layers or proof that camping is legal everywhere inside the boundary.
+
+Area overlays must reconcile by difference. If a state/filter/layer selection change leaves an already-drawn outline valid, keep that map object. Add only newly needed outlines and remove only outlines that no longer match the enabled area type or selected states. Avoid full polygon redraws except when the overlay is turned off, the source/data changes, or the rendering mode genuinely changes.

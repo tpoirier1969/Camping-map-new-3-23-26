@@ -1,0 +1,27 @@
+QA v23.1.100
+
+Passed:
+- node --check app.js
+- node --check version.js
+- node --check data/leads.js
+- node --check data/area-outlines-v23.1.39.js
+- Loaded data/leads.js: 1,959 leads, duplicate lead IDs: 0
+- Loaded data/rejected.js: 536 rejected records, duplicate rejected IDs: 0
+- Loaded all state files after applying v23.1.94 through v23.1.99 fixed files: 2,110 active records, duplicate active IDs: 0
+- Loaded data/area-outlines-v23.1.39.js: 24 outlines
+- Area outline classification check: 11 Federal Areas, 13 State / Local Areas
+- Startup/static function check confirmed new area-overlay functions exist:
+  - setFederalAreaLayerEnabled
+  - setStateLocalAreaLayerEnabled
+  - setAllReferenceAreasEnabled
+  - federalAreaLayerEnabled
+  - stateLocalAreaLayerEnabled
+  - outlineJurisdiction
+  - outlineToggleAllows
+  - detailedFederalOutlineNamesForSelectedStates
+- PROJECT_RULES.md and Project Rules.md are identical
+- ZIP integrity test passed
+
+Notes:
+- QA was performed against a reconstructed current working tree made from the uploaded full package plus v23.1.94, v23.1.95, v23.1.96, v23.1.97, v23.1.98, and v23.1.99 fixed-file packages.
+- This revision intentionally cleans resolved leads only. It does not perform live source checks for unresolved promotion candidates.

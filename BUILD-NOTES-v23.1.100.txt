@@ -1,0 +1,44 @@
+Boondocking & Camping Maps v23.1.100 — Lead backlog cleanup + area overlay consolidation
+
+Scope:
+- Consolidates area/reference overlays into two user-facing toggles:
+  - Federal Areas
+  - State / Local Areas
+- Keeps area overlays sparse and reconciled by difference so existing valid polygons are retained when state selections change.
+- Removes resolved/stale lead records that already had resolution metadata showing promotion, duplicate resolution, active correction, rejection, or no-map-data-change resolution.
+
+Changed files:
+- app.js
+- version.js
+- index.html (included unchanged as version-shell file per project rule)
+- data/leads.js
+- PROJECT_RULES.md
+- Project Rules.md
+- LEAD_SEMANTIC_CLEANUP_REVIEW_v23.1.100.csv
+- LEAD_RESOLUTION_CLEANUP_REMOVED_v23.1.100.csv
+- BUILD-NOTES-v23.1.100.txt
+- QA-v23.1.100.txt
+
+App behavior changes:
+- Replaces separate Official Area Outlines / USFS Boundaries UI with two cleaner area overlay controls:
+  - Federal Areas: federal reference/context outlines, including detailed existing federal outlines and sparse USFS administrative boundaries.
+  - State / Local Areas: county/state/local public-land area outlines.
+- Federal Areas still uses the sparse viewport-loaded USFS EDW boundary overlay as a fallback context layer.
+- Detailed existing federal outlines are preferred over broad USFS administrative boundaries when both represent the same forest/unit.
+- State selection changes reconcile area outlines by difference: keep existing matching outlines, add new needed outlines, remove only no-longer-valid outlines.
+- Broad USFS boundary refresh remains debounced, viewport-loaded, zoom-guarded, cached, and off by default unless Federal Areas is turned on.
+
+Lead cleanup:
+- Previous lead count: 2,053.
+- Removed 94 resolved leads from active lead backlog.
+- New lead count: 1,959.
+- Removed leads were not discarded silently; they are recorded in LEAD_RESOLUTION_CLEANUP_REMOVED_v23.1.100.csv.
+- Remaining lead review is recorded in LEAD_SEMANTIC_CLEANUP_REVIEW_v23.1.100.csv.
+
+Important non-changes:
+- No new campsite discovery was performed.
+- No mass promotion of unverified coordinate-rescue leads.
+- No active campsite records were added or removed in this revision.
+- No config.js included.
+- No marker icon/color/layer-symbol redesign.
+- No Supabase/community/account changes.
