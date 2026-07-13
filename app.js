@@ -2220,6 +2220,10 @@ function arcgisPortalBase(outline){
   const raw=String((outline&&outline.portalUrl)||'https://www.arcgis.com').replace(/\/+$/,'');
   try{return new URL(raw).origin+'/sharing/rest';}catch(_e){return 'https://www.arcgis.com/sharing/rest';}
 }
+function arcgisPortalBases(outline){
+  const globalBase='https://www.arcgis.com/sharing/rest';
+  return [...new Set([arcgisPortalBase(outline),globalBase])];
+}
 async function fetchArcgisJson(url,timeout=12000){
   const a=ensureAreaOutlineRuntimeStores();
   if(a.arcgisJsonCache[url])return a.arcgisJsonCache[url];
@@ -2235,28 +2239,36 @@ function arcgisItemUrl(base,itemId,data){
 }
 function arcgisServiceLayerUrl(url){return /\/(?:FeatureServer|MapServer)\/\d+\/?$/i.test(String(url||''));}
 function arcgisServiceRootUrl(url){return /\/(?:FeatureServer|MapServer)\/?$/i.test(String(url||''));}
-function collectArcgisReferences(value,refs,depth=0){
-  if(depth>16||value==null)return;
-  if(Array.isArray(value)){value.forEach(v=>collectArcgisReferences(v,refs,depth+1));return;}
+function collectArcgisReferences(value,refs,depth=0,parentKey=''){
+  if(depth>18||value==null)return;
+  if(Array.isArray(value)){value.forEach(v=>collectArcgisReferences(v,refs,depth+1,parentKey));return;}
   if(typeof value==='string'){
     const raw=value.trim();
-    // Raw service URLs are useful, but arbitrary 32-character strings are not
-    // automatically ArcGIS item references. Treating every such string as an
-    // item ID can explode one app configuration into dozens of slow REST
-    // lookups. Item IDs are collected only from recognized object keys below.
+    if(!raw)return;
     if(/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?(?:\?.*)?$/i.test(raw))refs.urls.push({url:raw.split('?')[0],title:''});
+    const key=String(parentKey||'').toLowerCase();
+    const keyCanHoldItem=/item|web.?map|map.?id|portal|service|data.?source|resource|application/i.test(key);
+    const explicitIds=[];
+    const itemPath=raw.match(/\/items\/([a-f0-9]{32})/i);if(itemPath)explicitIds.push(itemPath[1]);
+    const queryId=raw.match(/[?&](?:id|itemid|webmap)=([a-f0-9]{32})(?:&|$)/i);if(queryId)explicitIds.push(queryId[1]);
+    if(keyCanHoldItem&&/^[a-f0-9]{32}$/i.test(raw))explicitIds.push(raw);
+    explicitIds.forEach(id=>{if(refs.itemIds.size<48)refs.itemIds.add(id);});
+    if((raw.startsWith('{')||raw.startsWith('['))&&raw.length<2000000){
+      try{collectArcgisReferences(JSON.parse(raw),refs,depth+1,parentKey);}catch(_e){}
+    }
     return;
   }
   if(typeof value!=='object')return;
   const title=String(value.title||value.name||value.label||value.id||'');
   const url=String(value.url||value.serviceUrl||value.layerUrl||'');
   if(/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?(?:\?.*)?$/i.test(url))refs.urls.push({url:url.split('?')[0],title});
-  ['itemId','itemid','webMapId','webmapId','portalItemId','serviceItemId'].forEach(k=>{
+  ['itemId','itemid','itemID','webMapId','webmapId','webmap','webMap','mapId','mapItemId','portalItemId','serviceItemId','dataSourceItemId'].forEach(k=>{
     const id=String(value[k]||'');
-    if(/^[a-f0-9]{32}$/i.test(id))refs.itemIds.add(id);
+    if(/^[a-f0-9]{32}$/i.test(id)&&refs.itemIds.size<48)refs.itemIds.add(id);
   });
-  Object.values(value).forEach(v=>collectArcgisReferences(v,refs,depth+1));
+  Object.entries(value).forEach(([k,v])=>collectArcgisReferences(v,refs,depth+1,k));
 }
+
 function normalizeArcgisLayerText(value){return String(value||'').toLowerCase().replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim();}
 function arcgisLayerScore(text,outline,meta){
   const low=normalizeArcgisLayerText(text);
@@ -2349,7 +2361,8 @@ async function resolveArcgisDiscoveryLayer(outline){
   const cacheKey=JSON.stringify({portal:outline.portalUrl||'',item:outline.appItemId,layer:outline.layerUrl||outline.preferredLayerUrl||'',h:outline.layerNameHints||[],r:outline.layerNameRejects||[],f:outline.fallbackSearchTerms||[]});
   if(a.arcgisResolveCache[cacheKey])return a.arcgisResolveCache[cacheKey];
   const promise=(async()=>{
-    const base=arcgisPortalBase(outline);
+    const bases=arcgisPortalBases(outline);
+    const base=bases[0];
     const refs={urls:[],itemIds:new Set()};
     const pinned=String(outline.layerUrl||outline.preferredLayerUrl||'').replace(/\/+$/,'');
     if(pinned)refs.urls.push({url:pinned,title:outline.sourceName||outline.name||'Official configured layer'});
@@ -2360,13 +2373,17 @@ async function resolveArcgisDiscoveryLayer(outline){
     async function inspectItem(id){
       if(!/^[a-f0-9]{32}$/i.test(id)||seen.has(id))return;
       seen.add(id);
-      try{
-        const meta=await fetchArcgisJson(arcgisItemUrl(base,id,false),10000);
-        orgId=orgId||String(meta.orgId||'');
-        if(meta.url&&/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?(?:\?.*)?$/i.test(meta.url))refs.urls.push({url:String(meta.url).split('?')[0],title:meta.title||''});
-        const data=await fetchArcgisJson(arcgisItemUrl(base,id,true),10000);
-        collectArcgisReferences(data,refs);
-      }catch(_e){}
+      for(const itemBase of bases){
+        try{
+          const meta=await fetchArcgisJson(arcgisItemUrl(itemBase,id,false),10000);
+          orgId=orgId||String(meta.orgId||'');
+          if(meta.url&&/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?(?:\?.*)?$/i.test(meta.url))refs.urls.push({url:String(meta.url).split('?')[0],title:meta.title||''});
+          collectArcgisReferences(meta,refs,0,'itemMetadata');
+          const data=await fetchArcgisJson(arcgisItemUrl(itemBase,id,true),10000);
+          collectArcgisReferences(data,refs,0,'itemData');
+          return;
+        }catch(_e){}
+      }
     }
     async function chooseBest(rows,limit){
       const unique=[];const seenUrls=new Set();
@@ -2391,7 +2408,11 @@ async function resolveArcgisDiscoveryLayer(outline){
     // search, which was the main source of multi-minute waits in v23.1.107.
     let best=await chooseBest(refs.urls,18);
     if(best)return best;
-    const searchRows=await arcgisOrgSearchCandidates(base,orgId,outline);
+    let searchRows=[];
+    for(const searchBase of bases){
+      searchRows=await arcgisOrgSearchCandidates(searchBase,orgId,outline);
+      if(searchRows.length)break;
+    }
     for(const row of searchRows.slice(0,12)){
       if(row.url)refs.urls.push({url:String(row.url).split('?')[0],title:row.title||''});
       if(row.id&&!seen.has(row.id))queue.push(row.id);

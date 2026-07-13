@@ -1,0 +1,56 @@
+QA — v23.1.109 Muskallonge duplicate correction + Michigan state-forest/Fox River area resolver repair
+
+Automated/static checks
+- node --check app.js: PASS
+- node --check version.js: PASS
+- node --check data/mi-state-local-areas-v23.1.109.js: PASS
+- node --check data/states/MI.js: PASS
+- node --check data/states-manifest.js: PASS
+- node --check data/leads.js: PASS
+- index.html loads data/mi-state-local-areas-v23.1.109.js before app.js: PASS
+- index.html no longer references data/mi-state-local-areas-v23.1.106.js: PASS
+- Version/build fields consistently report v23.1.109: PASS
+
+Michigan runtime-data checks
+- Loaded MI.js, MI2.js and all Michigan manifest supplements in a Node VM fixture.
+- Produced Michigan runtime count after correction: 543.
+- Updated Michigan manifest count to 543.
+- Muskallonge records after all current Michigan files load: exactly 1.
+- Retained Muskallonge record:
+  - id s628
+  - name Muskallonge Lake State Park Campground
+  - coordinate 46.6766473, -85.6280737
+  - layer Modern Campgrounds
+- Displaced eastern duplicate s629: absent.
+- Duplicate Michigan runtime IDs: 0.
+
+Michigan area-data checks
+- Loaded 5 Michigan State / Local Area records.
+- Michigan State Forest Land record remains viewport-managed at zoom 6+.
+- All v23.1.109 area record IDs are unique.
+- State-forest style has stronger visible line/fill settings.
+- No Fox River point, rectangle, centroid or invented polygon was added.
+
+ArcGIS resolver fixtures
+- Embedded JSON string containing a nested web-map item ID is recognized.
+- Recognized Web AppBuilder/Experience Builder item-key variants are collected.
+- ArcGIS item URLs and id/itemid/webmap query parameters are recognized.
+- FeatureServer/MapServer URLs are recognized.
+- Arbitrary unrelated 32-character strings are not promoted to item IDs.
+- Configured portal plus global ArcGIS Online fallback bases are present.
+- Existing item and service scan caps remain bounded.
+
+Lead-accountability check
+- Fox River Pathway route/legal-area geometry is retained in data/leads.js.
+- Lead explicitly requires official route/ownership/exclusion geometry and prohibits fake point/corridor geometry.
+- Tank Lake record was not changed.
+
+Network limitation
+- The build environment could not execute the live Michigan DNR ArcGIS REST chain.
+- Runtime browser validation remains required for the state-forest parcel overlay.
+- The resolver continues to fail closed rather than drawing guessed geometry.
+
+ZIP check
+- Changed-files ZIP opens successfully.
+- Expected changed files are present.
+- No config.js is included.

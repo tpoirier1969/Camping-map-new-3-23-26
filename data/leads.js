@@ -37936,5 +37936,25 @@ window.CAMPING_LEADS = [
     "lastCheckedVersion": "v23.1.97",
     "leadRejectedFileResult": "Closure/status follow-up from Worker 6 P4 audit.",
     "notes": "Do not present as active campground until current NPS source confirms reopening."
+  },
+  {
+    "id": "mi-v231109-lead-fox-river-pathway-dispersed-camping-geometry",
+    "state": "MI",
+    "name": "Fox River Pathway dispersed-camping route / legal-area geometry",
+    "countyRegion": "Schoolcraft / Seney to Kingston Lake",
+    "leadType": "official_area_route_geometry_rescue",
+    "likelyLayer": "Boondocking / Dispersed",
+    "status": "geometry_rescue",
+    "priority": "High",
+    "sourceType": "Michigan DNR / official pathway and dispersed-camping rules",
+    "sourceUrl": "https://www.michigan.org/property/fox-river-pathway",
+    "coordinate": null,
+    "coordinateConfidence": "NO HONEST POINT COORDINATE — ROUTE / AREA GEOMETRY REQUIRED",
+    "blocker": "Official sources support backpacking/dispersed camping along qualifying portions of the Fox River Pathway, but the exact pathway polyline and legal state-land camping intersection were not extracted. The current Michigan State Forest Land overlay is ownership context and is not a Fox River Pathway camping boundary.",
+    "nextAction": "Acquire official Michigan DNR pathway polyline or defensibly georeference the official pathway map; intersect it with official state-forest ownership; exclude Seney NWR/private land/posted closures and the one-mile buffers around Fox River and Kingston Lake state forest campgrounds. Represent the result as route/rule context, not a campsite pin or broad rectangle.",
+    "relatedActiveOrPendingRecord": "Fox River SFCG s315; Kingston Lake SFCG s466; Michigan State Forest Land overlay v23.1.109",
+    "lastCheckedVersion": "v23.1.109",
+    "leadRejectedFileResult": "Retained from Workers 1 and 2 after supervisor audit; no fake point or invented corridor geometry added.",
+    "notes": "This lead explains why no dedicated Fox River Pathway area currently appears. State-forest parcels may display where the official ownership overlay resolves, but the pathway-specific legal camping corridor remains separate unfinished geometry work."
   }
 ];

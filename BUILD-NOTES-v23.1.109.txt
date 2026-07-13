@@ -1,0 +1,62 @@
+Tod's Boondocking & Camping Maps — v23.1.109
+Muskallonge duplicate correction + Michigan state-forest/Fox River area resolver repair
+
+Purpose
+- Remove the displaced eastern duplicate for Muskallonge Lake State Park Campground.
+- Retain the farther-west Muskallonge marker that Tod confirmed is correct.
+- Correct the retained Muskallonge record to the Modern Campgrounds layer based on its electric service, shower building and sanitation station.
+- Repair the Michigan State Forest Land area resolver so official state-forest ownership parcels have a better chance of drawing around the Fox River/Seney corridor and elsewhere in Michigan.
+- Preserve the Fox River Pathway camping-corridor geometry as an explicit lead rather than inventing a route polygon or campsite point.
+
+What was determined
+1. Muskallonge Lake
+- data/states/MI.js contained two records:
+  - s628 at 46.6766473, -85.6280737 (farther west; Tod confirmed correct)
+  - s629 at 46.641, -85.428 (displaced eastern duplicate)
+- v23.1.109 removes s629.
+- s628 is renamed Muskallonge Lake State Park Campground and moved to Modern Campgrounds.
+
+2. Fox River / Seney area coverage
+- No dedicated Fox River Pathway outline or legal-camping corridor existed in the runtime area data.
+- Worker research identified that as future official route/geometry work, not an already-loaded area that merely failed to render.
+- The broader Michigan State Forest Land ownership overlay was intended to draw official state-forest parcels at zoom 6+, but its ArcGIS child-item discovery remained too brittle.
+- v23.1.109 improves child-item discovery without returning to the unbounded item-ID scan that caused the earlier loading delay.
+
+ArcGIS resolver changes
+- Try both the configured Michigan DNR ArcGIS portal sharing endpoint and the public ArcGIS Online sharing endpoint.
+- Recognize more legitimate ArcGIS item-reference keys used by Web AppBuilder and Experience Builder configurations.
+- Extract item IDs from ArcGIS item URLs and id/itemid/webmap query parameters.
+- Parse embedded JSON configuration strings when they contain nested map/service references.
+- Keep item discovery bounded; arbitrary unrelated 32-character strings are still not treated as item IDs.
+- Keep fail-closed behavior: no guessed layer or fake geometry is drawn if no safe official polygon layer resolves.
+- Increase Michigan state-forest parcel opacity/line visibility so successfully loaded ownership parcels are distinguishable on normal basemaps.
+
+Fox River Pathway lead handling
+- Added one durable data/leads.js record for official Fox River Pathway route/legal-area geometry rescue.
+- No point, rectangle, centroid or hand-drawn corridor was added.
+- Future work must obtain an official pathway polyline or defensibly georeference the official map, intersect it with official state-forest ownership, and apply campground/refuge/private/posting exclusions.
+
+Changed files
+- app.js
+- index.html
+- version.js
+- data/mi-state-local-areas-v23.1.109.js
+- data/states/MI.js
+- data/states-manifest.js
+- data/leads.js
+- BUILD-NOTES-v23.1.109.txt
+- QA-v23.1.109.txt
+
+Not changed
+- No other campsite was added, removed, moved or reclassified.
+- Tank Lake was not downgraded or altered.
+- No Pictured Rocks, Seney NWR or Tahquamenon rules were changed.
+- No marker icons, colors, filters, search, Supabase behavior, CSS layout or config.js changed.
+- No invented Fox River area geometry was added.
+
+Browser validation required
+- Select Michigan and turn on State / Local Areas.
+- Zoom to 6 or closer over the Seney/Fox River corridor.
+- Verify that official Michigan state-forest ownership parcels load and remain visible while panning.
+- Verify only one Muskallonge Lake State Park Campground marker remains, at the farther-west location.
+- The Fox River Pathway itself will not appear as a dedicated corridor until official route geometry is acquired.
