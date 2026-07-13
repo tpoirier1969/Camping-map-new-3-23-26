@@ -1,0 +1,34 @@
+Tod's Boondocking & Camping Maps — v23.1.107
+State / Local Areas loading-mask lifecycle repair
+
+Baseline
+- v23.1.106 Michigan area browser repair fixed-files package installed over repo v23.1.105.
+
+Reported browser defect
+- Turning on State / Local Areas could leave the entire app behind a permanent "Loading..." mask.
+
+Root cause
+- Area overlay refreshes can overlap. A first request could raise the global loading mask, then be superseded by a second request.
+- The canceled request only cleared the mask when its request sequence was still current.
+- The replacement request could return without taking loading ownership, leaving the old mask permanently visible.
+- v23.1.106 also allowed arbitrary raw 32-character strings inside ArcGIS configuration data to be treated as item IDs, which could trigger excessive slow metadata lookups.
+
+Repair
+- Added explicit State / Local Areas loading ownership by request ID.
+- Superseded requests release stale area-loading ownership before the replacement request decides whether it has work to do.
+- A request clears only the loading mask it owns, avoiding cross-request teardown.
+- Batch child outline loads no longer overwrite or independently manage the parent loading mask.
+- Added a 12-second usability watchdog: slow official ArcGIS work may continue in the background, but the map is no longer locked behind the loading mask.
+- Raw FeatureServer/MapServer URLs are still collected, but arbitrary bare 32-character strings are no longer assumed to be ArcGIS item IDs. Recognized item-ID object fields remain supported.
+
+Changed files
+- app.js
+- version.js
+- index.html included under the version-shell packaging rule; its script structure is unchanged.
+- BUILD-NOTES-v23.1.107.txt
+- QA-v23.1.107.txt
+
+Not changed
+- Michigan area records and data file remain v23.1.106.
+- No campsite records, leads, rejected records, coordinates, layers, icons, colors, filters, Supabase files, config.js, or project rules changed.
+- No repo commit or branch was made.

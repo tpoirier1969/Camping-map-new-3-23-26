@@ -2240,8 +2240,11 @@ function collectArcgisReferences(value,refs,depth=0){
   if(Array.isArray(value)){value.forEach(v=>collectArcgisReferences(v,refs,depth+1));return;}
   if(typeof value==='string'){
     const raw=value.trim();
+    // Raw service URLs are useful, but arbitrary 32-character strings are not
+    // automatically ArcGIS item references. Treating every such string as an
+    // item ID can explode one app configuration into dozens of slow REST
+    // lookups. Item IDs are collected only from recognized object keys below.
     if(/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?(?:\?.*)?$/i.test(raw))refs.urls.push({url:raw.split('?')[0],title:''});
-    if(/^[a-f0-9]{32}$/i.test(raw))refs.itemIds.add(raw);
     return;
   }
   if(typeof value!=='object')return;
@@ -2753,10 +2756,20 @@ async function setAllReferenceAreasEnabled(on,fit=true,opts={}){
   updateUsfsBoundaryControls(); updateAreaOutlineLayerControls();
   if(opts.notify)notify(on?'Federal Areas and State / Local Areas turned on.':'Area overlays hidden.');
 }
+function releaseAreaOutlineLoading(requestId){
+  if(!app.areaOutline)return;
+  if(requestId!==undefined&&app.areaOutline.loadingRequestId!==requestId)return;
+  app.areaOutline.loadingRequestId=null;
+  setLoading(false);
+}
 async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
   const silent=!!opts.silent;
   app.areaOutline.requestSeq=(app.areaOutline.requestSeq||0)+1;
   const requestId=app.areaOutline.requestSeq;
+  // A prior area request may have been superseded after it raised the global
+  // loading mask. Release that stale ownership before the replacement request
+  // decides whether it has anything new to load.
+  if(app.areaOutline.loadingRequestId&&app.areaOutline.loadingRequestId!==requestId)releaseAreaOutlineLoading();
   if(!on){
     app.areaOutline.paused=false;
     clearAreaOutlineGraphics();
@@ -2798,7 +2811,17 @@ async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
     if(!silent)notify(`Area overlays already showing ${records.length} matching outline${records.length===1?'':'s'}.`,4500);
     return;
   }
+  app.areaOutline.loadingRequestId=requestId;
   setLoading(true,`Loading ${toLoad.length} new official outline${toLoad.length===1?'':'s'}…`);
+  // Official ArcGIS services may be slow or temporarily unreachable. Do not
+  // lock the entire map behind the loading mask while background area queries
+  // continue. The request still runs and can add outlines when it completes.
+  const loadingWatchdog=setTimeout(()=>{
+    if(app.areaOutline.loadingRequestId===requestId){
+      releaseAreaOutlineLoading(requestId);
+      if(!silent)notify('Area sources are still loading in the background. The map remains usable.',6000);
+    }
+  },12000);
   try{
     let i=0;
     for(const site of toLoad){
@@ -2813,7 +2836,10 @@ async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
     if(fit&&app.enabledStates.size<=2)fitAreaOutline();
     if(!silent)notify(`Area overlays on: showing ${records.length} outline${records.length===1?'':'s'}; kept existing outlines and loaded only ${toLoad.length} new one${toLoad.length===1?'':'s'}.`,6500);
   }finally{
-    if(requestId===app.areaOutline.requestSeq)setLoading(false);
+    clearTimeout(loadingWatchdog);
+    // Clear only the mask owned by this request. If a replacement request has
+    // taken ownership, it will clear its own mask when it finishes.
+    releaseAreaOutlineLoading(requestId);
     updateAreaOutlineLayerControls();
     updateAreaOutlineLabelVisibility();
   }
@@ -3094,7 +3120,7 @@ async function showAreaOutlineByKey(key,opts={}){
   if(!areaOutlineIsAvailable(outline)){notify('This record does not have an import-ready official outline source yet.',5000);return;}
   if(app.areaOutline.layers&&app.areaOutline.layers[key]){if(!opts.deferPanel){updateAreaOutlinePanel();renderAreaOutlineList();}if(opts.fit!==false&&!isViewportManagedAreaOutline(outline))fitAreaOutline();updateAreaOutlineLabelVisibility();return;}
   if(isViewportManagedAreaOutline(outline)){showManagedAreaOutline(key,site,outline,opts);return;}
-  setLoading(true,'Loading official area outline…');
+  if(!opts.fromBatch)setLoading(true,'Loading official area outline…');
   try{
     const geo=await loadAreaOutlineGeoJson(outline);
     const group=L.geoJSON(geo,{style:(feature)=>Object.assign({},areaOutlineStyle(feature),outline.style||{}),pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:6,weight:2,opacity:.9,fillOpacity:.25}),onEachFeature:(_feature,layer)=>layer.bindPopup(areaRulesHtml(site,outline),{maxWidth:390})});

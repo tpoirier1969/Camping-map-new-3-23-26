@@ -1,0 +1,31 @@
+QA — v23.1.107 State / Local Areas loading-mask lifecycle repair
+
+Checks run
+- node --check app.js: PASS
+- node --check version.js: PASS
+- Confirmed index.html still loads version.js, data/mi-state-local-areas-v23.1.106.js, and app.js: PASS
+- Confirmed visible app version v23.1.107 exists only in version.js among runtime files in this package: PASS
+- Confirmed campsite data version remains v23.1.106 because no data changed: PASS
+- Static lifecycle fixture: PASS
+  - request 1 acquires area-loading ownership
+  - request 2 supersedes request 1 and releases stale ownership
+  - request 2 may return without loading new outlines
+  - request 1 finalization cannot restore or strand the loading mask
+- Confirmed the area-loading watchdog releases the blocking map mask after 12 seconds while source work continues: PASS
+- Confirmed child batch outline loads do not independently raise the global loading mask: PASS
+- Confirmed raw ArcGIS service URLs remain discoverable: PASS
+- Confirmed arbitrary bare 32-character strings are no longer recursively chased as item IDs: PASS
+- Confirmed recognized itemId, webMapId, portalItemId, and serviceItemId object fields remain supported: PASS
+- ZIP integrity: PASS
+
+Required browser validation
+1. Select Michigan.
+2. Turn on State / Local Areas.
+3. Confirm the map never remains permanently blocked by "Loading...".
+4. If official DNR services take more than 12 seconds, confirm the loading mask clears and the map remains usable while outlines continue loading.
+5. Toggle State / Local Areas off and on rapidly; no stale loading mask should remain.
+6. Change the selected state while areas are loading; no stale loading mask should remain.
+7. Continue checking whether Michigan State Forest Land and Porcupine Mountains load; those source-resolution results are separate from this loading-lifecycle repair.
+
+Live-network limitation
+- This environment could not run the live Michigan DNR ArcGIS chain. Browser behavior against the deployed app remains required.
