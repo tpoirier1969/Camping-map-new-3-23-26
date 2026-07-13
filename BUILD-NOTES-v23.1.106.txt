@@ -1,0 +1,49 @@
+Tod's Boondocking & Camping Maps — v23.1.106
+Michigan State / Local Areas browser repair
+
+Purpose
+- Repair the two failures observed in the deployed v23.1.105 browser test: Michigan State Forest Land did not draw at zoom 6+, and the Porcupine Mountains backcountry context outline did not appear.
+- Keep the revision narrow. No campsite, lead, rejected, marker, layer-name, color, search, Supabase, or unrelated UI changes are included.
+
+Changes
+- Hardened ArcGIS application/service discovery so it:
+  - reads service URLs and ArcGIS item IDs even when they appear as raw strings;
+  - follows additional item-reference forms including serviceItemId;
+  - searches the official organization using multiple approved layer-name hints instead of only the first phrase;
+  - runs the official-organization search even when the application already exposed unrelated service URLs;
+  - inspects item data returned by official organization search results;
+  - supports an explicitly configured official layer URL later without bypassing polygon/type/name safety checks.
+- Expanded safe Michigan state-forest layer hints to cover official naming variants such as DNR managed lands, DNR land ownership, and state land ownership while retaining strong rejects for parks, project boundaries, game/wildlife areas, roads, trails, campgrounds, recreation areas, and mineral layers.
+- Repaired Porcupine Mountains matching:
+  - added official-name abbreviation aliases;
+  - normalized Mountains/Mtns wording;
+  - expanded the spatial envelope;
+  - queries the official project-boundary layer spatially first;
+  - allows a single-feature fallback only when the official spatial query returns exactly one polygon.
+- Replaced the v23.1.105 Michigan data script with data/mi-state-local-areas-v23.1.106.js.
+
+Changed files
+- app.js
+- index.html
+- version.js
+- data/mi-state-local-areas-v23.1.106.js
+- BUILD-NOTES-v23.1.106.txt
+- QA-v23.1.106.txt
+
+Intentionally not changed
+- PROJECT_RULES.md / Project Rules.md
+- data/leads.js
+- data/rejected.js
+- campsite/state data files
+- config.js
+- marker CSS/icons/colors
+- approved Federal Areas and State / Local Areas controls
+
+Required browser confirmation after installation
+1. Select Michigan and enable State / Local Areas.
+2. Zoom to 6 or closer over the Upper Peninsula; Michigan state-forest parcels should draw.
+3. Confirm Craig Lake, Porcupine Mountains, and Tahquamenon Falls appear in the U.P.
+4. Pan slightly and verify retained chunks do not flash or redraw.
+5. Add Wisconsin and verify Michigan geometry remains in place.
+6. Toggle Federal Areas and verify State / Local geometry is retained.
+7. Deselect Michigan and verify only Michigan State / Local geometry clears.

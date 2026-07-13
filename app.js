@@ -2236,13 +2236,19 @@ function arcgisItemUrl(base,itemId,data){
 function arcgisServiceLayerUrl(url){return /\/(?:FeatureServer|MapServer)\/\d+\/?$/i.test(String(url||''));}
 function arcgisServiceRootUrl(url){return /\/(?:FeatureServer|MapServer)\/?$/i.test(String(url||''));}
 function collectArcgisReferences(value,refs,depth=0){
-  if(depth>12||value==null)return;
+  if(depth>16||value==null)return;
   if(Array.isArray(value)){value.forEach(v=>collectArcgisReferences(v,refs,depth+1));return;}
+  if(typeof value==='string'){
+    const raw=value.trim();
+    if(/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?(?:\?.*)?$/i.test(raw))refs.urls.push({url:raw.split('?')[0],title:''});
+    if(/^[a-f0-9]{32}$/i.test(raw))refs.itemIds.add(raw);
+    return;
+  }
   if(typeof value!=='object')return;
   const title=String(value.title||value.name||value.label||value.id||'');
   const url=String(value.url||value.serviceUrl||value.layerUrl||'');
-  if(/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?$/i.test(url))refs.urls.push({url,title});
-  ['itemId','itemid','webMapId','webmapId','portalItemId'].forEach(k=>{
+  if(/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?(?:\?.*)?$/i.test(url))refs.urls.push({url:url.split('?')[0],title});
+  ['itemId','itemid','webMapId','webmapId','portalItemId','serviceItemId'].forEach(k=>{
     const id=String(value[k]||'');
     if(/^[a-f0-9]{32}$/i.test(id))refs.itemIds.add(id);
   });
@@ -2314,55 +2320,70 @@ async function expandArcgisUrlCandidate(candidate,outline,out){
 }
 async function arcgisOrgSearchCandidates(base,orgId,outline){
   if(!orgId)return [];
-  const phrase=(Array.isArray(outline.layerNameHints)&&outline.layerNameHints[0])||'state forest';
-  const q=`orgid:${orgId} AND (${phrase.split(/\s+/).filter(Boolean).join(' AND ')})`;
-  const url=addQueryParams(base+'/search',{q,num:50,start:1,sortField:'modified',sortOrder:'desc',f:'json'});
-  try{
-    const data=await fetchArcgisJson(url);
-    return (data.results||[]).map(row=>({id:row.id,url:row.url,title:row.title,type:row.type}));
-  }catch(_e){return [];}
+  const phrases=[...(Array.isArray(outline.layerNameHints)?outline.layerNameHints:[]),...(Array.isArray(outline.fallbackSearchTerms)?outline.fallbackSearchTerms:[])];
+  if(!phrases.length)phrases.push('state forest');
+  const out=[];const seen=new Set();
+  for(const phrase of [...new Set(phrases.map(v=>String(v||'').trim()).filter(Boolean))].slice(0,8)){
+    const words=phrase.split(/\s+/).filter(Boolean);
+    if(!words.length)continue;
+    const q=`orgid:${orgId} AND (${words.map(word=>`\"${word.replace(/\"/g,'')}\"`).join(' AND ')})`;
+    const url=addQueryParams(base+'/search',{q,num:50,start:1,sortField:'modified',sortOrder:'desc',f:'json'});
+    try{
+      const data=await fetchArcgisJson(url);
+      for(const row of (data.results||[])){
+        const key=String(row.id||row.url||'');
+        if(!key||seen.has(key))continue;
+        seen.add(key);out.push({id:row.id,url:row.url,title:row.title,type:row.type});
+      }
+    }catch(_e){}
+  }
+  return out;
 }
 async function resolveArcgisDiscoveryLayer(outline){
   const a=ensureAreaOutlineRuntimeStores();
-  const cacheKey=JSON.stringify({portal:outline.portalUrl||'',item:outline.appItemId,h:outline.layerNameHints||[],r:outline.layerNameRejects||[]});
+  const cacheKey=JSON.stringify({portal:outline.portalUrl||'',item:outline.appItemId,layer:outline.layerUrl||outline.preferredLayerUrl||'',h:outline.layerNameHints||[],r:outline.layerNameRejects||[],f:outline.fallbackSearchTerms||[]});
   if(a.arcgisResolveCache[cacheKey])return a.arcgisResolveCache[cacheKey];
   const promise=(async()=>{
     const base=arcgisPortalBase(outline);
-    const queue=[String(outline.appItemId||'')];
-    const seen=new Set();
     const refs={urls:[],itemIds:new Set()};
+    const pinned=String(outline.layerUrl||outline.preferredLayerUrl||'').replace(/\/+$/,'');
+    if(pinned)refs.urls.push({url:pinned,title:outline.sourceName||outline.name||'Official configured layer'});
+    const queue=[String(outline.appItemId||''),...(Array.isArray(outline.additionalItemIds)?outline.additionalItemIds:[])];
+    const seen=new Set();
     let orgId='';
-    while(queue.length&&seen.size<28){
-      const id=queue.shift();
-      if(!/^[a-f0-9]{32}$/i.test(id)||seen.has(id))continue;
+    async function inspectItem(id){
+      if(!/^[a-f0-9]{32}$/i.test(id)||seen.has(id))return;
       seen.add(id);
       try{
         const meta=await fetchArcgisJson(arcgisItemUrl(base,id,false));
         orgId=orgId||String(meta.orgId||'');
-        if(meta.url&&/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?$/i.test(meta.url))refs.urls.push({url:meta.url,title:meta.title||''});
+        if(meta.url&&/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?(?:\?.*)?$/i.test(meta.url))refs.urls.push({url:String(meta.url).split('?')[0],title:meta.title||''});
         const data=await fetchArcgisJson(arcgisItemUrl(base,id,true));
         collectArcgisReferences(data,refs);
-        refs.itemIds.forEach(child=>{if(!seen.has(child)&&!queue.includes(child))queue.push(child);});
       }catch(_e){}
     }
-    if(refs.urls.length<2){
-      const searchRows=await arcgisOrgSearchCandidates(base,orgId,outline);
-      for(const row of searchRows.slice(0,20)){
-        if(row.url)refs.urls.push({url:row.url,title:row.title||''});
-        if(row.id&&!seen.has(row.id)){
-          try{
-            const meta=await fetchArcgisJson(arcgisItemUrl(base,row.id,false));
-            if(meta.url)refs.urls.push({url:meta.url,title:meta.title||row.title||''});
-          }catch(_e){}
-        }
-      }
+    while(queue.length&&seen.size<48){
+      const id=String(queue.shift()||'');
+      await inspectItem(id);
+      refs.itemIds.forEach(child=>{if(!seen.has(child)&&!queue.includes(child))queue.push(child);});
+    }
+    const searchRows=await arcgisOrgSearchCandidates(base,orgId,outline);
+    for(const row of searchRows.slice(0,40)){
+      if(row.url)refs.urls.push({url:String(row.url).split('?')[0],title:row.title||''});
+      if(row.id&&!seen.has(row.id))queue.push(row.id);
+    }
+    while(queue.length&&seen.size<72){
+      const id=String(queue.shift()||'');
+      await inspectItem(id);
+      refs.itemIds.forEach(child=>{if(!seen.has(child)&&!queue.includes(child))queue.push(child);});
     }
     const unique=[];const seenUrls=new Set();
-    refs.urls.forEach(row=>{const u=String(row.url||'').replace(/\/+$/,'');if(u&&!seenUrls.has(u)){seenUrls.add(u);unique.push({url:u,title:row.title||''});}});
+    refs.urls.forEach(row=>{const u=String(row.url||'').split('?')[0].replace(/\/+$/,'');if(u&&!seenUrls.has(u)){seenUrls.add(u);unique.push({url:u,title:row.title||''});}});
     const scored=[];
-    for(const row of unique.slice(0,50))await expandArcgisUrlCandidate(row,outline,scored);
+    for(const row of unique.slice(0,100))await expandArcgisUrlCandidate(row,outline,scored);
     scored.sort((x,y)=>y.score-x.score);
-    const best=scored.find(row=>row.score>=70&&String(row.meta&&row.meta.geometryType||'').toLowerCase().includes('polygon'));
+    const threshold=Number(outline.minimumLayerScore||70);
+    const best=scored.find(row=>row.score>=threshold&&String(row.meta&&row.meta.geometryType||'').toLowerCase().includes('polygon'));
     if(!best)throw new Error(`Could not resolve a safe official polygon layer for ${outline.name||'this Michigan area'} from the Michigan DNR ArcGIS application.`);
     best.nameField=arcgisNameField(best.meta);
     return best;
@@ -2371,18 +2392,23 @@ async function resolveArcgisDiscoveryLayer(outline){
   return promise;
 }
 function sqlArcgisText(value){return String(value||'').replace(/'/g,"''");}
+function normalizeArcgisTargetText(value){return String(value||'').toLowerCase().replace(/\bmountains?\b/g,'mtn').replace(/\bwilderness\b/g,'').replace(/\bstate park\b/g,'').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();}
 function arcgisFeatureText(feature){return Object.values((feature&&feature.properties)||{}).filter(v=>typeof v==='string'||typeof v==='number').join(' ').toLowerCase();}
 function filterArcgisTargetFeatures(geo,outline){
-  const targets=(Array.isArray(outline.targetNames)?outline.targetNames:[]).map(v=>String(v||'').toLowerCase()).filter(Boolean);
+  const targets=(Array.isArray(outline.targetNames)?outline.targetNames:[]).map(normalizeArcgisTargetText).filter(Boolean);
   if(!targets.length)return geo;
-  const features=(geo.features||[]).filter(feature=>{const text=arcgisFeatureText(feature);return targets.some(t=>text.includes(t));});
+  const features=(geo.features||[]).filter(feature=>{
+    const text=normalizeArcgisTargetText(arcgisFeatureText(feature));
+    return targets.some(target=>text.includes(target)||target.includes(text));
+  });
+  if(!features.length&&outline.allowSingleFeatureFallback&&(geo.features||[]).length===1)return {type:'FeatureCollection',features:[geo.features[0]]};
   return {type:'FeatureCollection',features};
 }
 async function queryArcgisDiscoveryGeoJson(outline,bounds){
   const source=await resolveArcgisDiscoveryLayer(outline);
   const targets=(Array.isArray(outline.targetNames)?outline.targetNames:[]).filter(Boolean);
   let where='1=1';
-  if(targets.length&&source.nameField){where=targets.map(name=>`${source.nameField} LIKE '%${sqlArcgisText(name)}%'`).join(' OR ');}
+  if(targets.length&&source.nameField&&!outline.queryAllInEnvelope){where=targets.map(name=>`${source.nameField} LIKE '%${sqlArcgisText(name)}%'`).join(' OR ');}
   const params={where,outFields:source.nameField||'*',returnGeometry:'true',outSR:4326,f:'geojson',geometryPrecision:5,resultRecordCount:2000};
   const offset=Number(outline.maxAllowableOffset||0.0008);
   if(offset>0)params.maxAllowableOffset=offset;

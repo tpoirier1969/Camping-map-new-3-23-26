@@ -1,0 +1,58 @@
+QA — v23.1.106 Michigan State / Local Areas browser repair
+
+Baseline
+- Repo main / v23.1.105 application code.
+- The uploaded full ZIP's app.js matched the repo v23.1.105 app.js blob exactly, allowing a full-file repair without reconstructing the application from snippets.
+
+Checks passed
+- node --check app.js
+- node --check version.js
+- node --check data/mi-state-local-areas-v23.1.106.js
+- Michigan data VM load:
+  - 5 area records
+  - 1 viewport-managed Michigan State Forest Land record
+  - 4 designated-backcountry context records
+- ArcGIS resolver fixture tests:
+  - raw string FeatureServer/MapServer URLs are collected
+  - raw 32-character ArcGIS item IDs are collected
+  - serviceItemId is recognized
+  - a valid State Forest Land polygon scores above the safety threshold
+  - State Park Project Boundaries score below the state-forest safety threshold
+  - Porcupine Mtns abbreviation matches Porcupine Mountains
+  - single-feature spatial fallback works only when exactly one official polygon is returned
+- Index/startup static QA:
+  - index.html loads data/mi-state-local-areas-v23.1.106.js
+  - index.html no longer loads data/mi-state-local-areas-v23.1.105.js
+  - every required non-optional script reference exists in the full baseline
+  - app.js remains the application entry
+- Build identity QA:
+  - version.js is the authoritative visible version source
+  - app version is v23.1.106
+  - data build is v23.1.106-mi-area-browser-repair
+  - app.js and version.json do not hardcode the visible current version
+- Scope/diff QA:
+  - app.js changes are limited to ArcGIS reference collection, organization search, discovery traversal, safe target-name normalization, and Porkies spatial-query behavior
+  - index.html changes only the Michigan data-script reference
+  - no campground/state campsite data changed
+  - no leads or rejected records changed
+  - no config.js, marker CSS, icon, color, layer-name, search, filter, or Supabase change is included
+
+Observed browser failures this build is intended to repair
+- v23.1.105 displayed Craig Lake and Tahquamenon Falls in the Upper Peninsula.
+- Porcupine Mountains did not display.
+- Michigan State Forest Land did not draw even after zooming to level 6 or closer.
+
+Network/browser limitation
+- This execution environment could not complete a live request to the Michigan DNR ArcGIS REST chain, so the repaired resolver was tested with structural and scoring fixtures rather than a live service response.
+- The code continues to fail closed if it cannot identify a safe official polygon layer. It does not substitute broad project boundaries or invented geometry for state forest land.
+
+Required post-install browser confirmation
+1. Confirm the app displays v23.1.106.
+2. Select Michigan and enable State / Local Areas.
+3. At zoom 6 or closer over the U.P., confirm Michigan state-forest parcels draw.
+4. Confirm Craig Lake, Porcupine Mountains, and Tahquamenon Falls appear.
+5. Pan slightly; unchanged state-forest chunks should remain without flashing/redraw.
+6. Add Wisconsin; Michigan geometry should remain.
+7. Toggle Federal Areas; State / Local geometry should remain.
+8. Deselect Michigan; only Michigan State / Local geometry should clear.
+9. Verify state-forest and designated-site-only popup warnings.
