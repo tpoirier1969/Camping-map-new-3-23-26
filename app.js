@@ -245,7 +245,7 @@ function migrateLayerKeys(rawLayers){
 function blankFilters(){return {maxCost:'',water:'',access:{twowd:false,hc:false,fw:false},chips:{showers:false},community:{is_favorite:false,want_to_visit:false,visited:false,loved:false}};}
 function resetFiltersOnLoad(){app.filters=blankFilters();saveJson(STORE.filters,app.filters);}
 function initState(){document.title='Boondocking & Camping Maps'; paintRuntimeVersion(); app.draftQueue=readJson(STORE.queue,[]); $('draftQueue').value=app.draftQueue.join('\n'); const storedStates=readJson(STORE.states,null); const states=Array.isArray(storedStates)?storedStates:[DEFAULT_STATE]; app.enabledStates=new Set(states); let layers=migrateLayerKeys(readJson(STORE.layers,MAP_LAYERS.filter(x=>x.key!=='pending').map(x=>x.key))); layers=layers.filter(key=>key!=='rest-truck'); app.enabledLayers=new Set(layers); saveJson(STORE.layers,layers); if(localStorage.getItem(STORE.pending)==='1')app.enabledLayers.add('pending'); resetFiltersOnLoad();}
-function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.usfsBoundary.layer=L.layerGroup().addTo(app.map); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; updateMarkerZoomScale(); app.map.on('zoom zoomend',()=>{updateMarkerZoomScale();}); app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();scheduleUsfsBoundaryRefresh('map move/zoom');requestMarkerRenderIfNeeded('map move/zoom');});}
+function initMap(){app.map=L.map('map',{zoomControl:true,preferCanvas:true,zoomSnap:.25,zoomDelta:.25,wheelPxPerZoomLevel:80}).setView([44.9,-89.7],6); app.usfsBoundary.layer=L.layerGroup().addTo(app.map); app.areaOutline.layer=L.layerGroup().addTo(app.map); app.markerLayer=L.layerGroup().addTo(app.map); app.routeSearch.layer=L.layerGroup().addTo(app.map); app.baseLayers={osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}),opentopo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | Map style &copy; OpenTopoMap'}),topo:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri'})}; const key=applyBasemapClass(localStorage.getItem(STORE.basemap)||'topo'); (app.baseLayers[key]||app.baseLayers.topo).addTo(app.map); $('basemapSelect').value=key; updateMarkerZoomScale(); app.map.on('zoom zoomend',()=>{updateMarkerZoomScale();}); app.map.on('zoomend moveend',()=>{updateAreaOutlineLabelVisibility();syncLegendZoomControls();scheduleUsfsBoundaryRefresh('map move/zoom');scheduleManagedAreaOutlineRefresh('map move/zoom');requestMarkerRenderIfNeeded('map move/zoom');});}
 function retireLegacyLayerControls(){
   // v23.1.30+: layer controls live in the map legend. Remove stale cached layer home panels
   // so duplicate IDs do not steal handlers, but keep the v23.1.72 phone Layers shortcut.
@@ -2146,11 +2146,13 @@ function areaOutlineHasFetchSource(outline){
   if(outline.geojsonUrl||outline.queryUrl||outline.url)return true;
   if(outline.layerUrl||outline.arcgisLayerUrl||outline.gisLayerUrl)return true;
   if(outline.serviceUrl&&outline.layerId!==undefined)return true;
+  if(isArcgisDiscoveryOutline(outline))return true;
   return false;
 }
 function areaOutlineIsAvailable(outline){
   if(!outline)return false;
   if(['needs_verification','not_available','not-yet-available','not_yet_available','none','missing'].includes(String(outline.status||'').toLowerCase()))return false;
+  if(String(outline.coverageStatus||'').toLowerCase()==='complete')return false;
   return areaOutlineHasFetchSource(outline);
 }
 function siteOutlineKey(site){
@@ -2202,6 +2204,311 @@ function areaOutlineFetchUrl(outline){
   if(outline.url)return String(outline.url);
   return areaOutlineArcgisUrl(outline);
 }
+function isArcgisDiscoveryOutline(outline){
+  return !!(outline&&outline.appItemId&&String(outline.type||'').toLowerCase().includes('arcgis-portal-discovery'));
+}
+function isViewportManagedAreaOutline(outline){return !!(outline&&outline.viewportManaged&&isArcgisDiscoveryOutline(outline));}
+function ensureAreaOutlineRuntimeStores(){
+  const a=app.areaOutline||(app.areaOutline={});
+  a.arcgisJsonCache=a.arcgisJsonCache||{};
+  a.arcgisResolveCache=a.arcgisResolveCache||{};
+  a.viewportManagers=a.viewportManagers||{};
+  a.viewportRefreshTimer=a.viewportRefreshTimer||null;
+  return a;
+}
+function arcgisPortalBase(outline){
+  const raw=String((outline&&outline.portalUrl)||'https://www.arcgis.com').replace(/\/+$/,'');
+  try{return new URL(raw).origin+'/sharing/rest';}catch(_e){return 'https://www.arcgis.com/sharing/rest';}
+}
+async function fetchArcgisJson(url,timeout=25000){
+  const a=ensureAreaOutlineRuntimeStores();
+  if(a.arcgisJsonCache[url])return a.arcgisJsonCache[url];
+  const promise=fetchJsonWithTimeout(url,timeout).then(data=>{
+    if(data&&data.error)throw new Error(data.error.message||'ArcGIS source returned an error.');
+    return data;
+  }).catch(err=>{delete a.arcgisJsonCache[url];throw err;});
+  a.arcgisJsonCache[url]=promise;
+  return promise;
+}
+function arcgisItemUrl(base,itemId,data){
+  return `${base}/content/items/${encodeURIComponent(itemId)}${data?'/data':''}?f=json`;
+}
+function arcgisServiceLayerUrl(url){return /\/(?:FeatureServer|MapServer)\/\d+\/?$/i.test(String(url||''));}
+function arcgisServiceRootUrl(url){return /\/(?:FeatureServer|MapServer)\/?$/i.test(String(url||''));}
+function collectArcgisReferences(value,refs,depth=0){
+  if(depth>12||value==null)return;
+  if(Array.isArray(value)){value.forEach(v=>collectArcgisReferences(v,refs,depth+1));return;}
+  if(typeof value!=='object')return;
+  const title=String(value.title||value.name||value.label||value.id||'');
+  const url=String(value.url||value.serviceUrl||value.layerUrl||'');
+  if(/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?$/i.test(url))refs.urls.push({url,title});
+  ['itemId','itemid','webMapId','webmapId','portalItemId'].forEach(k=>{
+    const id=String(value[k]||'');
+    if(/^[a-f0-9]{32}$/i.test(id))refs.itemIds.add(id);
+  });
+  Object.values(value).forEach(v=>collectArcgisReferences(v,refs,depth+1));
+}
+function normalizeArcgisLayerText(value){return String(value||'').toLowerCase().replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim();}
+function arcgisLayerScore(text,outline,meta){
+  const low=normalizeArcgisLayerText(text);
+  let score=0;
+  const hints=Array.isArray(outline.layerNameHints)?outline.layerNameHints:[];
+  hints.forEach((hint,i)=>{
+    const h=normalizeArcgisLayerText(hint);
+    if(!h)return;
+    if(low===h)score+=140-i*3;
+    else if(low.includes(h))score+=90-i*3;
+    else{
+      const words=h.split(' ').filter(w=>w.length>3);
+      if(words.length&&words.every(w=>low.includes(w)))score+=55-i*2;
+    }
+  });
+  (Array.isArray(outline.layerNameRejects)?outline.layerNameRejects:[]).forEach(term=>{if(low.includes(normalizeArcgisLayerText(term)))score-=150;});
+  const geometry=String(meta&&meta.geometryType||'').toLowerCase();
+  if(geometry.includes('polygon'))score+=35;
+  else if(geometry)score-=100;
+  if(/project boundar/.test(low)&&hints.some(h=>/project boundar/i.test(h)))score+=30;
+  if(/state forest land/.test(low)&&hints.some(h=>/state forest/i.test(h)))score+=50;
+  return score;
+}
+function arcgisNameField(meta){
+  const fields=Array.isArray(meta&&meta.fields)?meta.fields:[];
+  const priorities=['PROJECTNAME','PROJECT_NAME','PROJ_NAME','UNIT_NAME','PROPERTYNAME','PROPERTY_NAME','PROP_NAME','PARKNAME','PARK_NAME','NAME','TITLE'];
+  for(const wanted of priorities){
+    const found=fields.find(f=>String(f.name||'').toUpperCase()===wanted);
+    if(found)return found.name;
+  }
+  const fallback=fields.find(f=>/name|title|property|project|unit|park/i.test(String(f.name||''))&&/string/i.test(String(f.type||'')));
+  return fallback?fallback.name:'';
+}
+async function expandArcgisUrlCandidate(candidate,outline,out){
+  const raw=String(candidate&&candidate.url||'').replace(/\/+$/,'');
+  if(!raw)return;
+  if(arcgisServiceLayerUrl(raw)){
+    try{
+      const meta=await fetchArcgisJson(raw+'?f=json');
+      const text=[candidate.title,meta.name,meta.displayField,meta.description,raw].join(' ');
+      out.push({url:raw,meta,title:candidate.title||meta.name||'',score:arcgisLayerScore(text,outline,meta)});
+    }catch(_e){}
+    return;
+  }
+  if(!arcgisServiceRootUrl(raw))return;
+  try{
+    const service=await fetchArcgisJson(raw+'?f=json');
+    const layers=[];
+    (service.layers||[]).forEach(l=>layers.push(l));
+    (service.tables||[]).forEach(l=>layers.push(l));
+    const shortlist=layers.map(layer=>{
+      const layerUrl=raw+'/'+layer.id;
+      const text=[candidate.title,service.mapName,service.description,layer.name,layerUrl].join(' ');
+      return {layer,layerUrl,preScore:arcgisLayerScore(text,outline,layer)};
+    }).sort((a,b)=>b.preScore-a.preScore).filter(row=>row.preScore>0).slice(0,10);
+    for(const row of shortlist){
+      const layer=row.layer,layerUrl=row.layerUrl;
+      let meta=layer;
+      try{meta=await fetchArcgisJson(layerUrl+'?f=json');}catch(_e){}
+      const text=[candidate.title,service.mapName,service.description,layer.name,meta.name,meta.description,layerUrl].join(' ');
+      out.push({url:layerUrl,meta,title:layer.name||candidate.title||'',score:arcgisLayerScore(text,outline,meta)});
+    }
+  }catch(_e){}
+}
+async function arcgisOrgSearchCandidates(base,orgId,outline){
+  if(!orgId)return [];
+  const phrase=(Array.isArray(outline.layerNameHints)&&outline.layerNameHints[0])||'state forest';
+  const q=`orgid:${orgId} AND (${phrase.split(/\s+/).filter(Boolean).join(' AND ')})`;
+  const url=addQueryParams(base+'/search',{q,num:50,start:1,sortField:'modified',sortOrder:'desc',f:'json'});
+  try{
+    const data=await fetchArcgisJson(url);
+    return (data.results||[]).map(row=>({id:row.id,url:row.url,title:row.title,type:row.type}));
+  }catch(_e){return [];}
+}
+async function resolveArcgisDiscoveryLayer(outline){
+  const a=ensureAreaOutlineRuntimeStores();
+  const cacheKey=JSON.stringify({portal:outline.portalUrl||'',item:outline.appItemId,h:outline.layerNameHints||[],r:outline.layerNameRejects||[]});
+  if(a.arcgisResolveCache[cacheKey])return a.arcgisResolveCache[cacheKey];
+  const promise=(async()=>{
+    const base=arcgisPortalBase(outline);
+    const queue=[String(outline.appItemId||'')];
+    const seen=new Set();
+    const refs={urls:[],itemIds:new Set()};
+    let orgId='';
+    while(queue.length&&seen.size<28){
+      const id=queue.shift();
+      if(!/^[a-f0-9]{32}$/i.test(id)||seen.has(id))continue;
+      seen.add(id);
+      try{
+        const meta=await fetchArcgisJson(arcgisItemUrl(base,id,false));
+        orgId=orgId||String(meta.orgId||'');
+        if(meta.url&&/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?$/i.test(meta.url))refs.urls.push({url:meta.url,title:meta.title||''});
+        const data=await fetchArcgisJson(arcgisItemUrl(base,id,true));
+        collectArcgisReferences(data,refs);
+        refs.itemIds.forEach(child=>{if(!seen.has(child)&&!queue.includes(child))queue.push(child);});
+      }catch(_e){}
+    }
+    if(refs.urls.length<2){
+      const searchRows=await arcgisOrgSearchCandidates(base,orgId,outline);
+      for(const row of searchRows.slice(0,20)){
+        if(row.url)refs.urls.push({url:row.url,title:row.title||''});
+        if(row.id&&!seen.has(row.id)){
+          try{
+            const meta=await fetchArcgisJson(arcgisItemUrl(base,row.id,false));
+            if(meta.url)refs.urls.push({url:meta.url,title:meta.title||row.title||''});
+          }catch(_e){}
+        }
+      }
+    }
+    const unique=[];const seenUrls=new Set();
+    refs.urls.forEach(row=>{const u=String(row.url||'').replace(/\/+$/,'');if(u&&!seenUrls.has(u)){seenUrls.add(u);unique.push({url:u,title:row.title||''});}});
+    const scored=[];
+    for(const row of unique.slice(0,50))await expandArcgisUrlCandidate(row,outline,scored);
+    scored.sort((x,y)=>y.score-x.score);
+    const best=scored.find(row=>row.score>=70&&String(row.meta&&row.meta.geometryType||'').toLowerCase().includes('polygon'));
+    if(!best)throw new Error(`Could not resolve a safe official polygon layer for ${outline.name||'this Michigan area'} from the Michigan DNR ArcGIS application.`);
+    best.nameField=arcgisNameField(best.meta);
+    return best;
+  })().catch(err=>{delete a.arcgisResolveCache[cacheKey];throw err;});
+  a.arcgisResolveCache[cacheKey]=promise;
+  return promise;
+}
+function sqlArcgisText(value){return String(value||'').replace(/'/g,"''");}
+function arcgisFeatureText(feature){return Object.values((feature&&feature.properties)||{}).filter(v=>typeof v==='string'||typeof v==='number').join(' ').toLowerCase();}
+function filterArcgisTargetFeatures(geo,outline){
+  const targets=(Array.isArray(outline.targetNames)?outline.targetNames:[]).map(v=>String(v||'').toLowerCase()).filter(Boolean);
+  if(!targets.length)return geo;
+  const features=(geo.features||[]).filter(feature=>{const text=arcgisFeatureText(feature);return targets.some(t=>text.includes(t));});
+  return {type:'FeatureCollection',features};
+}
+async function queryArcgisDiscoveryGeoJson(outline,bounds){
+  const source=await resolveArcgisDiscoveryLayer(outline);
+  const targets=(Array.isArray(outline.targetNames)?outline.targetNames:[]).filter(Boolean);
+  let where='1=1';
+  if(targets.length&&source.nameField){where=targets.map(name=>`${source.nameField} LIKE '%${sqlArcgisText(name)}%'`).join(' OR ');}
+  const params={where,outFields:source.nameField||'*',returnGeometry:'true',outSR:4326,f:'geojson',geometryPrecision:5,resultRecordCount:2000};
+  const offset=Number(outline.maxAllowableOffset||0.0008);
+  if(offset>0)params.maxAllowableOffset=offset;
+  const env=Array.isArray(bounds)?bounds:(Array.isArray(outline.queryEnvelope)?outline.queryEnvelope:null);
+  if(env&&env.length===4){
+    params.geometry=env.map(Number).join(',');
+    params.geometryType='esriGeometryEnvelope';
+    params.inSR=4326;
+    params.spatialRel='esriSpatialRelIntersects';
+  }
+  const queryUrl=String(source.url).replace(/\/+$/,'')+'/query';
+  const pages=[];
+  const supportsPaging=!!(source.meta&&source.meta.advancedQueryCapabilities&&source.meta.advancedQueryCapabilities.supportsPagination);
+  for(let page=0;page<(supportsPaging?4:1);page++){
+    const pageParams=Object.assign({},params);
+    if(page){pageParams.resultOffset=page*2000;pageParams.resultRecordCount=2000;}
+    const data=await fetchJsonWithTimeout(addQueryParams(queryUrl,pageParams),30000);
+    if(data&&data.error)throw new Error(data.error.message||'Michigan DNR ArcGIS query failed.');
+    const geo=normalizeAreaGeoJson(data);
+    pages.push(...(geo.type==='FeatureCollection'?geo.features:[geo]));
+    if(!supportsPaging||!data.exceededTransferLimit||(geo.features||[]).length<2000)break;
+  }
+  const filtered=filterArcgisTargetFeatures({type:'FeatureCollection',features:pages},outline);
+  if(targets.length&&!filtered.features.length)throw new Error(`The official Michigan DNR boundary source did not return a matching polygon for ${outline.name||targets[0]}.`);
+  return filtered;
+}
+function managedAreaOutlineStyle(outline){
+  const fallback=areaOutlineStyle(null);
+  return Object.assign({},fallback,(outline&&outline.style)||{});
+}
+function managedAreaTileBounds(outline){
+  if(!app.map)return [];
+  const stateCode=String(outline.stateCode||'').toUpperCase();
+  const sb=STATE_BOUNDS[stateCode];
+  if(!sb)return [];
+  const view=app.map.getBounds();
+  const south=Math.max(view.getSouth(),sb[0][0]);
+  const west=Math.max(view.getWest(),sb[0][1]);
+  const north=Math.min(view.getNorth(),sb[1][0]);
+  const east=Math.min(view.getEast(),sb[1][1]);
+  if(!(north>south&&east>west))return [];
+  const step=Math.max(1,Number(outline.tileDegrees||2.5));
+  const rows=[];
+  const x0=Math.floor(west/step),x1=Math.floor((east-1e-9)/step);
+  const y0=Math.floor(south/step),y1=Math.floor((north-1e-9)/step);
+  for(let x=x0;x<=x1;x++)for(let y=y0;y<=y1;y++){
+    const b=[Math.max(west,x*step),Math.max(south,y*step),Math.min(east,(x+1)*step),Math.min(north,(y+1)*step)];
+    if(b[2]>b[0]&&b[3]>b[1])rows.push({key:`${stateCode}:${step}:${x}:${y}`,bounds:b});
+  }
+  return rows.slice(0,20);
+}
+function removeManagedAreaManager(key){
+  const a=ensureAreaOutlineRuntimeStores();
+  const m=a.viewportManagers[key];
+  if(!m)return;
+  m.token=(m.token||0)+1;
+  if(m.group&&app.areaOutline.layer)app.areaOutline.layer.removeLayer(m.group);
+  delete a.viewportManagers[key];
+}
+async function refreshManagedAreaManager(key,opts={}){
+  const a=ensureAreaOutlineRuntimeStores();
+  const m=a.viewportManagers[key];
+  if(!m||m.loading)return;
+  const outline=m.outline;
+  const code=String(outline.stateCode||'').toUpperCase();
+  if(!stateLocalAreaLayerEnabled()||!app.enabledStates.has(code)){removeManagedAreaManager(key);return;}
+  const zoom=app.map&&app.map.getZoom?app.map.getZoom():0;
+  const minZoom=Number(outline.minZoom||6);
+  const desiredRows=zoom>=minZoom?managedAreaTileBounds(outline):[];
+  const desired=new Set(desiredRows.map(row=>row.key));
+  Object.keys(m.tileLayers).forEach(tileKey=>{
+    if(!desired.has(tileKey)){
+      m.group.removeLayer(m.tileLayers[tileKey]);
+      delete m.tileLayers[tileKey];
+    }
+  });
+  if(!desiredRows.length)return;
+  const missing=desiredRows.filter(row=>!m.tileLayers[row.key]);
+  if(!missing.length)return;
+  m.loading=true;
+  const token=++m.token;
+  try{
+    for(const row of missing){
+      if(token!==m.token)return;
+      let geo=m.cache[row.key];
+      if(!geo){
+        geo=await queryArcgisDiscoveryGeoJson(outline,row.bounds);
+        m.cache[row.key]=geo;
+        m.cacheOrder=m.cacheOrder.filter(k=>k!==row.key);m.cacheOrder.push(row.key);
+        const limit=Math.max(4,Number(outline.tileCacheLimit||12));
+        while(m.cacheOrder.length>limit){const old=m.cacheOrder.shift();delete m.cache[old];}
+      }
+      if(token!==m.token)return;
+      const layer=L.geoJSON(geo,{style:()=>managedAreaOutlineStyle(outline),onEachFeature:(_feature,l)=>l.bindPopup(areaRulesHtml(m.site,outline),{maxWidth:390})});
+      layer.addTo(m.group);
+      m.tileLayers[row.key]=layer;
+    }
+  }catch(err){
+    console.error(err);
+    if(!m.errorShown){m.errorShown=true;notify(err&&err.message?err.message:'Could not load Michigan state forest geometry.',7000);}
+  }finally{if(token===m.token)m.loading=false;}
+}
+function scheduleManagedAreaOutlineRefresh(reason,delay=260){
+  const a=ensureAreaOutlineRuntimeStores();
+  if(a.viewportRefreshTimer)clearTimeout(a.viewportRefreshTimer);
+  a.viewportRefreshTimer=setTimeout(()=>{
+    a.viewportRefreshTimer=null;
+    Object.keys(a.viewportManagers).forEach(key=>refreshManagedAreaManager(key,{reason}));
+  },delay);
+}
+function showManagedAreaOutline(key,site,outline,opts={}){
+  const a=ensureAreaOutlineRuntimeStores();
+  let m=a.viewportManagers[key];
+  if(!m){
+    const group=L.featureGroup().addTo(app.areaOutline.layer);
+    m={key,site,outline,group,tileLayers:{},cache:{},cacheOrder:[],token:0,loading:false,errorShown:false};
+    a.viewportManagers[key]=m;
+    app.areaOutline.layers[key]=group;
+    app.areaOutline.active[key]={name:site.name||'Area outline',boundaryRepresents:outline.boundaryRepresents,caution:outline.caution,sourceUrl:outline.sourceUrl,officialCampingLegality:outline.officialCampingLegality||outline.rulesSummary};
+  }
+  refreshManagedAreaManager(key,{force:true});
+  if(!opts.deferPanel){updateAreaOutlinePanel();renderAreaOutlineList();}
+  if(!opts.silent)notify(`Michigan state forest land will draw only for the visible map area at zoom ${outline.minZoom||6} or closer. Existing visible tiles are retained when the map selection changes.`,6500);
+  return m.group;
+}
+
 function normalizeAreaGeoJson(data){
   if(!data)throw new Error('No outline data returned.');
   if(data.type==='FeatureCollection'||data.type==='Feature')return data;
@@ -2209,6 +2516,7 @@ function normalizeAreaGeoJson(data){
   throw new Error('Outline source did not return GeoJSON geometry.');
 }
 async function loadAreaOutlineGeoJson(outline){
+  if(isArcgisDiscoveryOutline(outline)&&!isViewportManagedAreaOutline(outline))return queryArcgisDiscoveryGeoJson(outline);
   if(outline.geojson||outline.featureCollection)return normalizeAreaGeoJson(outline.geojson||outline.featureCollection);
   const url=areaOutlineFetchUrl(outline);
   if(!url)throw new Error('No fetchable official outline URL is attached to this record.');
@@ -2373,6 +2681,8 @@ function renderAreaOutlineList(){
   updateAreaOutlineLayerControls();
 }
 function clearAreaOutlineGraphics(){
+  const runtime=ensureAreaOutlineRuntimeStores();
+  Object.keys(runtime.viewportManagers||{}).forEach(removeManagedAreaManager);
   if(app.areaOutline&&app.areaOutline.layer)app.areaOutline.layer.clearLayers();
   if(app.areaOutline){app.areaOutline.active={};app.areaOutline.layers={};app.areaOutline.labelMarkers=[];}
   updateAreaOutlinePanel();
@@ -2544,6 +2854,7 @@ function clearAreaOutline(){
 }
 function hideAreaOutlineByKey(key,opts={}){
   if(!(app.areaOutline&&key))return;
+  if(app.areaOutline.viewportManagers&&app.areaOutline.viewportManagers[key])removeManagedAreaManager(key);
   const layer=app.areaOutline.layers&&app.areaOutline.layers[key];
   if(layer&&app.areaOutline.layer)app.areaOutline.layer.removeLayer(layer);
   if(app.areaOutline.layers)delete app.areaOutline.layers[key];
@@ -2586,6 +2897,7 @@ function generalAreaRuleChecklist(site,outline){
 }
 function areaRulesHtml(site,outline){
   const sourceUrl=outline.sourceUrl||areaOutlineFetchUrl(outline)||site.website||'';
+  const rulesSourceUrl=outline.rulesSourceUrl||outline.rulesUrl||'';
   const boundary=friendlyAreaText(outline.boundaryRepresents,'General public-land/agency planning boundary.');
   const legal=friendlyAreaText(outline.officialCampingLegality||outline.rulesSummary||site.officialCampingLegality,'Camping may be allowed only where the current agency rules, maps, closures, permits, and posted signs allow it.');
   const caution=friendlyAreaText(outline.caution,'This outline is not a legal campsite boundary and may include places where camping is not allowed.');
@@ -2597,7 +2909,10 @@ function areaRulesHtml(site,outline){
     ['Source',source]
   ].filter(r=>r[1]);
   const verify=generalAreaRuleChecklist(site,outline);
-  return `<div class="area-rules-popup"><div class="popup-title">${esc(site.name||outline.name||'Official area outline')}</div><div class="popup-notice"><strong>Area/rule marker — not a campsite pin.</strong><br>This outline helps you understand the planning area. It does not prove that every spot inside it is legal, accessible, public, or open for camping.</div><div class="popup-grid">${rules.map(r=>`<div class="popup-row"><strong>${esc(r[0])}</strong><span>${esc(r[1])}</span></div>`).join('')}</div><div class="area-rules-detail"><strong>Rules to verify before camping here</strong><ul>${verify.map(d=>`<li>${esc(d)}</li>`).join('')}</ul></div>${sourceUrl?`<div class="popup-actions"><a class="secondary" target="_blank" rel="noopener" href="${esc(sourceUrl)}">Official source</a></div>`:''}</div>`;
+  const sourceLinks=[];
+  if(sourceUrl)sourceLinks.push(`<a class="secondary" target="_blank" rel="noopener" href="${esc(sourceUrl)}">Official map/source</a>`);
+  if(rulesSourceUrl&&rulesSourceUrl!==sourceUrl)sourceLinks.push(`<a class="secondary" target="_blank" rel="noopener" href="${esc(rulesSourceUrl)}">Official camping rules</a>`);
+  return `<div class="area-rules-popup"><div class="popup-title">${esc(site.name||outline.name||'Official area outline')}</div><div class="popup-notice"><strong>Area/rule marker — not a campsite pin.</strong><br>This outline helps you understand the planning area. It does not prove that every spot inside it is legal, accessible, public, or open for camping.</div><div class="popup-grid">${rules.map(r=>`<div class="popup-row"><strong>${esc(r[0])}</strong><span>${esc(r[1])}</span></div>`).join('')}</div><div class="area-rules-detail"><strong>Rules to verify before camping here</strong><ul>${verify.map(d=>`<li>${esc(d)}</li>`).join('')}</ul></div>${sourceLinks.length?`<div class="popup-actions">${sourceLinks.join('')}</div>`:''}</div>`;
 }
 function areaOutlineLabelText(site,idx,total){
   let name=String(site.name||'Area outline').replace('Chequamegon-Nicolet National Forest','Cheq-Nicolet NF').replace('National Forest','NF').replace('County Forest','County Forest');
@@ -2751,12 +3066,13 @@ async function showAreaOutlineByKey(key,opts={}){
   if(!site){notify('Area outline record not found for this popup. Reopen the marker and try again.',5000);return;}
   const outline=areaOutlineCandidate(site);
   if(!areaOutlineIsAvailable(outline)){notify('This record does not have an import-ready official outline source yet.',5000);return;}
-  if(app.areaOutline.layers&&app.areaOutline.layers[key]){if(!opts.deferPanel){updateAreaOutlinePanel();renderAreaOutlineList();}if(opts.fit!==false)fitAreaOutline();updateAreaOutlineLabelVisibility();return;}
+  if(app.areaOutline.layers&&app.areaOutline.layers[key]){if(!opts.deferPanel){updateAreaOutlinePanel();renderAreaOutlineList();}if(opts.fit!==false&&!isViewportManagedAreaOutline(outline))fitAreaOutline();updateAreaOutlineLabelVisibility();return;}
+  if(isViewportManagedAreaOutline(outline)){showManagedAreaOutline(key,site,outline,opts);return;}
   setLoading(true,'Loading official area outline…');
   try{
     const geo=await loadAreaOutlineGeoJson(outline);
-    const group=L.geoJSON(geo,{style:areaOutlineStyle,pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:6,weight:2,opacity:.9,fillOpacity:.25})});
-    addAreaOutlineLabels(key,site,outline,group,geo);
+    const group=L.geoJSON(geo,{style:(feature)=>Object.assign({},areaOutlineStyle(feature),outline.style||{}),pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:6,weight:2,opacity:.9,fillOpacity:.25}),onEachFeature:(_feature,layer)=>layer.bindPopup(areaRulesHtml(site,outline),{maxWidth:390})});
+    if(!outline.suppressLabels)addAreaOutlineLabels(key,site,outline,group,geo);
     group.addTo(app.areaOutline.layer);
     updateAreaOutlineLabelVisibility();
     app.areaOutline.layers[key]=group;
