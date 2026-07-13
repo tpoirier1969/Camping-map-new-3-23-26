@@ -68,6 +68,14 @@ Federal/state/local area overlays must stay sparse and must not draw multiple br
 
 Federal and state/local area overlays must also be gated by the selected-state set. Multi-state administrative polygons must be split or clipped into separate state-specific display geometries before they are shown. The end user must never have to select every state touched by one forest or land unit just to see the portion inside the state they selected. Adding or removing a state must reconcile by state: preserve already-drawn state portions that remain selected, add only the newly selected state's portion, and remove only the deselected state's portion. Do not clear and redraw unchanged state portions. Static multi-state outline records must likewise be pre-split into separate state records rather than hidden behind an all-states-selected rule.
 
+Designated-site system area suppression rule:
+
+Do not add or retain a broad park, backcountry, island, water-access, or designated-campsite-system outline merely to duplicate a complete set of designated campsite points already on the map. Individual official campsite/component points take priority. Add or retain the broader area only when the individual designated site set is incomplete, unavailable, or the area conveys a distinct permit/rule context that the points cannot honestly communicate. The area popup must say designated-site-only when free-choice camping is not allowed. Track the site-coverage decision explicitly; a parent/system marker, trailhead, developed campground, or one broad cluster point does not count as a complete individual designated-site set. Once the designated sites are completely mapped, suppress or remove the redundant area unless Tod specifically wants the context retained.
+
+Tribal/reservation public-access control for future state work:
+
+For every new-state or major state-revisit discovery pass, check official tribal government, tribal park, tribal enterprise, casino/RV, and tribal permit sources where reservations or tribal lands fall inside the geographic lock. Do not assume reservation or tribal land is open to boondocking, dispersed camping, or public overnight use. Tribal/reservation camping is permission-based: import only official tribal/operator campgrounds, RV areas, named recreation camping, or permit-based designated/backcountry opportunities with clear public access. Fit accepted records into the existing approved layers; do not create a tribal layer. Community/app/social reports may be discovery leads but are not sufficient final permission proof for informal reservation-land pullouts.
+
 
 Coordinate-rescue completion rule:
 

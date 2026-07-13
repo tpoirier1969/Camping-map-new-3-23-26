@@ -1,0 +1,47 @@
+QA — v23.1.105 Michigan State / Local Areas population pass
+
+Checks run
+- node --check app.js
+- node --check version.js
+- node --check data/mi-state-local-areas-v23.1.105.js
+- Loaded data/mi-state-local-areas-v23.1.105.js in a Node VM:
+  - 5 Michigan area records
+  - 1 viewport-managed state forest record
+  - 4 designated-backcountry areas marked coverage-incomplete
+- ArcGIS resolver fixture test passed:
+  - followed a mock Web AppBuilder app -> web map -> FeatureServer chain
+  - selected State Forest Land instead of State Park Project Boundaries
+  - found the name field
+  - parsed Experience Builder-style itemId/dataSource references
+  - rejected lower-scoring wrong layer names
+- Current Michigan data audit confirmed:
+  - Craig Lake has a broad system marker and trailhead, not individual designated campsite points
+  - Porcupine Mountains has developed campground records, not a complete backcountry site set
+  - Tahquamenon Falls has developed campground records, not a complete backcountry site set
+  - Wilderness State Park has developed campground records, not a complete backcountry site set
+- Confirmed State / Local Areas record gating requires MI selected.
+- Confirmed fixed 2.5-degree state-forest chunk keys stay stable across normal pan/zoom operations.
+- Confirmed unchanged desired chunk layers are skipped instead of rebuilt.
+- Confirmed leaving chunks alone are removed.
+- Confirmed tile cache cap is 12 by default.
+- Confirmed state forest labels are suppressed.
+- Confirmed area polygons are clickable and use the existing area/rule popup system.
+- Confirmed official map/source and official camping-rules links can both appear in the popup.
+- Confirmed project-boundary popups disclose private-land and non-campsite limitations.
+- Confirmed coverageStatus=complete suppresses a future redundant designated-site system area.
+- Confirmed PROJECT_RULES.md and Project Rules.md match.
+- Confirmed index.html loads the Michigan area data file after the original area-outline data and before app.js.
+- Confirmed no config.js is packaged.
+- Confirmed ZIP integrity.
+
+Network limitation
+- The execution container could not make a live request to the ArcGIS REST endpoints, so the official DNR runtime discovery path was tested with structural fixtures rather than a live network response.
+- The browser implementation fails closed if the official app no longer exposes a safe matching polygon layer; it does not substitute project boundaries or guessed geometry for state forest land.
+
+Expected browser behavior
+- Select MI and turn on State / Local Areas.
+- At zoom 6 or closer, visible Michigan state-forest parcels load in stable chunks.
+- Pan slightly: unchanged chunks remain; only newly entered chunks query/draw.
+- Deselect MI: Michigan State / Local Areas are removed.
+- Click a state-forest polygon: popup states the one-mile campground separation, excluded land types, posting, ownership/access, and registration-card checks.
+- Click a park backcountry area: popup says designated-site-only and explains why the area is present.

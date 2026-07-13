@@ -1,0 +1,77 @@
+Tod's Boondocking & Camping Maps — v23.1.105
+Michigan State / Local Areas population pass
+
+Purpose
+- Add useful Michigan content to the existing State / Local Areas toggle without inventing a new layer.
+- Use official Michigan DNR mapping applications as the geometry source.
+- Follow Tod's rule: do not add a broad designated-backcountry system area when its designated sites are already completely mapped as individual points; add the area when the individual site set is incomplete.
+- Keep map redraw and memory use controlled.
+
+Michigan records added to State / Local Areas
+1. Michigan State Forest Land
+   - Official Michigan DNR state forest map is used to discover the current polygon service at runtime.
+   - Geometry is loaded only for visible 2.5-degree map chunks at zoom 6 or closer.
+   - Existing visible chunks remain in place; only entering chunks load and leaving chunks are removed.
+   - A 12-chunk GeoJSON LRU cache limits retained memory.
+   - Geometry is generalized server-side before drawing.
+   - No state project-boundary substitute is used for state forest ownership because Michigan DNR says project boundaries can include private land.
+
+2. Craig Lake State Park backcountry area
+3. Porcupine Mountains Wilderness State Park backcountry area
+4. Tahquamenon Falls State Park backcountry area
+5. Wilderness State Park backcountry area
+   - Official Michigan DNR project-boundary application supplies context geometry.
+   - Popups explicitly say these are designated-site systems, not open dispersed camping.
+   - Popups warn that project boundaries can include private parcels and are not campsite boundaries.
+   - Each area is marked coverage-incomplete and should be suppressed after the designated backcountry sites are completely mapped as individual points.
+
+Current designated-site coverage review
+- Craig Lake: one broad system/cluster marker plus trailhead; no individual designated campsite set.
+- Porcupine Mountains: developed campground records; no complete individual backcountry campsite set.
+- Tahquamenon Falls: developed campground records; no complete individual backcountry campsite set.
+- Wilderness State Park: developed campground records; no complete individual backcountry campsite set.
+- Review details are in MI_BACKCOUNTRY_AREA_COVERAGE_v23.1.105.csv.
+
+Performance/redraw controls
+- State / Local Areas remains off by default unless the user previously enabled it.
+- Michigan geometry is gated by Michigan being selected.
+- State forest polygons are viewport-managed in stable geographic chunks.
+- Pans/zooms reconcile by difference; unchanged visible chunks are not cleared/redrawn.
+- Only a small number of chunks are cached.
+- DNR layer discovery metadata is cached.
+- The layer resolver shortlists likely ArcGIS sublayers before fetching full metadata, avoiding broad service scans.
+- Park boundaries are four small one-time queries and share one resolved source cache.
+- State forest labels are suppressed to keep the map sparse; polygons remain clickable.
+
+Source behavior
+- The package intentionally does not hard-code an unverified FeatureServer URL.
+- It resolves the current public polygon layer from the official Michigan DNR ArcGIS app/web-map chain.
+- If the official app structure changes or no safe polygon layer can be identified, it fails closed and shows an error rather than drawing a guessed layer.
+
+Rules updated
+- Added designated-site system area suppression rule.
+- Added tribal/reservation public-access control for future new-state and major revisit work.
+- Tribal opportunities must use existing approved layers; no tribal layer is created.
+
+Changed files
+- app.js
+- index.html
+- version.js
+- PROJECT_RULES.md
+- Project Rules.md
+- data/mi-state-local-areas-v23.1.105.js
+- MI_BACKCOUNTRY_AREA_COVERAGE_v23.1.105.csv
+- BUILD-NOTES-v23.1.105.txt
+- QA-v23.1.105.txt
+
+Required v23.1.104 dependencies also included in the ZIP
+- data/us-states-10m-v23.1.104.json and license
+- vendor/topojson-client.min.js and license
+- vendor/polygon-clipping.min.js and license
+
+Not changed
+- No new user-facing layer was created.
+- No campsite records were added, removed, or reclassified.
+- No lead/rejected file was modified because the current data/leads.js was not present in the v23.1.104 fixed-files input package.
+- The existing Michigan state-forest geometry lead should be closed during the next full-repo lead-ledger integration after this feature is browser-confirmed.
+- No marker icons, layer colors, search, filters, Supabase, config.js, or unrelated UI behavior changed.
