@@ -1,0 +1,38 @@
+Tod's Boondocking & Camping Maps — v23.1.108
+State / Local Areas loading performance and stuck-progress repair
+
+Baseline
+- Current repo main: v23.1.107.
+- Data build remains v23.1.106-mi-area-browser-repair.
+
+Browser defect confirmed by Tod
+- State / Local Areas loaded very slowly.
+- Progress eventually reached “Loading new official outlines 3 of 3…” and stayed there.
+
+Root causes
+1. Missing outlines were awaited sequentially, so two slow ArcGIS resolver/query paths added their delays together.
+2. The v23.1.107 watchdog could release the loading mask, but the next loop iteration unconditionally called setLoading(true) and reopened it without restoring request ownership. The final cleanup then correctly refused to clear a mask it no longer owned, leaving the 3-of-3 screen stuck.
+3. ArcGIS discovery always ran a broad organization search after inspecting the official app chain, then could inspect up to 72 item records and expand up to 100 service candidates sequentially. This was excessive for a user-triggered map layer.
+
+Changes
+- Load independent missing outlines concurrently instead of one by one.
+- Progress now reports completed outlines, not the outline currently being started.
+- Progress can update the loading mask only while the current request still owns it.
+- The loading mask releases after 8 seconds and cannot be reopened by late outline completions; background requests may still finish and draw.
+- Resolve service references found in the official app/web-map chain before any organization-wide fallback search.
+- Limit fallback ArcGIS search to three phrases, 20 results per phrase, 12 candidate items, 24 inspected items total, and 30 service URLs.
+- Expand shortlisted service/layer metadata concurrently.
+- Reduce ArcGIS metadata timeout from 25 seconds to 12 seconds; geometry queries retain their existing background behavior.
+- Final message reports how many new outlines actually loaded instead of claiming every requested record succeeded.
+
+Changed files
+- app.js
+- version.js
+- index.html (included unchanged under the version-shell packaging rule)
+- BUILD-NOTES-v23.1.108.txt
+- QA-v23.1.108.txt
+
+Not changed
+- No Michigan area records or source definitions.
+- No campsite records, leads, rejected records, coordinates, layers, icons, colors, filters, Supabase files, config.js, or Project Rules files.
+- No repo commit or branch was created.

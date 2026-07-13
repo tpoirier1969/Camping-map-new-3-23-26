@@ -1,0 +1,29 @@
+QA — v23.1.108 State / Local Areas loading performance repair
+
+Checks run
+- node --check app.js: PASS
+- node --check version.js: PASS
+- Confirmed version.js is the only runtime file containing v23.1.108: PASS
+- Confirmed index.html still loads version.js, the v23.1.106 Michigan data file, and app.js through build/data cache keys: PASS
+- Confirmed missing outlines use Promise.all concurrent startup rather than sequential await: PASS
+- Confirmed progress increments only after each outline attempt returns: PASS
+- Confirmed progress calls setLoading(true) only while loadingRequestId still matches the request: PASS
+- Confirmed the watchdog releases the mask after 8 seconds and late completions cannot reopen it: PASS
+- Confirmed final cleanup cannot clear a newer request's mask: PASS
+- Loading ownership fixture with three staggered completions and a mid-flight watchdog: PASS
+- Confirmed official app-chain candidates are scored before organization search: PASS
+- Confirmed ArcGIS fallback limits: 3 phrases, 20 results per phrase, 12 search rows queued, 24 items inspected, 30 URL candidates scored: PASS
+- Confirmed service-root shortlisted layer metadata is fetched concurrently: PASS
+- Confirmed no config.js is included: PASS
+- ZIP integrity: PASS
+
+Expected browser behavior
+1. Turn on State / Local Areas.
+2. The initial blocking status should disappear within 8 seconds even if an official source is slow.
+3. Progress should count completed requests and must not remain permanently at 3 of 3.
+4. Missing outlines should begin together rather than waiting for earlier outlines to finish.
+5. Outlines that finish later may appear while the map remains usable.
+6. Turning the layer off or changing state selection must not let an older request clear or reopen a newer loading state.
+
+Limitation
+- Live Michigan DNR ArcGIS response timing and final geometry display could not be executed in the packaging environment. Tod's browser remains the authoritative live-source test.

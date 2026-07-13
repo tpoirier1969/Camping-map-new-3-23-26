@@ -2220,7 +2220,7 @@ function arcgisPortalBase(outline){
   const raw=String((outline&&outline.portalUrl)||'https://www.arcgis.com').replace(/\/+$/,'');
   try{return new URL(raw).origin+'/sharing/rest';}catch(_e){return 'https://www.arcgis.com/sharing/rest';}
 }
-async function fetchArcgisJson(url,timeout=25000){
+async function fetchArcgisJson(url,timeout=12000){
   const a=ensureAreaOutlineRuntimeStores();
   if(a.arcgisJsonCache[url])return a.arcgisJsonCache[url];
   const promise=fetchJsonWithTimeout(url,timeout).then(data=>{
@@ -2312,34 +2312,36 @@ async function expandArcgisUrlCandidate(candidate,outline,out){
       const text=[candidate.title,service.mapName,service.description,layer.name,layerUrl].join(' ');
       return {layer,layerUrl,preScore:arcgisLayerScore(text,outline,layer)};
     }).sort((a,b)=>b.preScore-a.preScore).filter(row=>row.preScore>0).slice(0,10);
-    for(const row of shortlist){
+    await Promise.all(shortlist.map(async row=>{
       const layer=row.layer,layerUrl=row.layerUrl;
       let meta=layer;
       try{meta=await fetchArcgisJson(layerUrl+'?f=json');}catch(_e){}
       const text=[candidate.title,service.mapName,service.description,layer.name,meta.name,meta.description,layerUrl].join(' ');
       out.push({url:layerUrl,meta,title:layer.name||candidate.title||'',score:arcgisLayerScore(text,outline,meta)});
-    }
+    }));
   }catch(_e){}
 }
 async function arcgisOrgSearchCandidates(base,orgId,outline){
   if(!orgId)return [];
   const phrases=[...(Array.isArray(outline.layerNameHints)?outline.layerNameHints:[]),...(Array.isArray(outline.fallbackSearchTerms)?outline.fallbackSearchTerms:[])];
   if(!phrases.length)phrases.push('state forest');
-  const out=[];const seen=new Set();
-  for(const phrase of [...new Set(phrases.map(v=>String(v||'').trim()).filter(Boolean))].slice(0,8)){
+  const uniquePhrases=[...new Set(phrases.map(v=>String(v||'').trim()).filter(Boolean))].slice(0,3);
+  const rows=await Promise.all(uniquePhrases.map(async phrase=>{
     const words=phrase.split(/\s+/).filter(Boolean);
-    if(!words.length)continue;
+    if(!words.length)return [];
     const q=`orgid:${orgId} AND (${words.map(word=>`\"${word.replace(/\"/g,'')}\"`).join(' AND ')})`;
-    const url=addQueryParams(base+'/search',{q,num:50,start:1,sortField:'modified',sortOrder:'desc',f:'json'});
+    const url=addQueryParams(base+'/search',{q,num:20,start:1,sortField:'modified',sortOrder:'desc',f:'json'});
     try{
-      const data=await fetchArcgisJson(url);
-      for(const row of (data.results||[])){
-        const key=String(row.id||row.url||'');
-        if(!key||seen.has(key))continue;
-        seen.add(key);out.push({id:row.id,url:row.url,title:row.title,type:row.type});
-      }
-    }catch(_e){}
-  }
+      const data=await fetchArcgisJson(url,10000);
+      return data.results||[];
+    }catch(_e){return [];}
+  }));
+  const out=[];const seen=new Set();
+  rows.flat().forEach(row=>{
+    const key=String(row.id||row.url||'');
+    if(!key||seen.has(key))return;
+    seen.add(key);out.push({id:row.id,url:row.url,title:row.title,type:row.type});
+  });
   return out;
 }
 async function resolveArcgisDiscoveryLayer(outline){
@@ -2354,41 +2356,53 @@ async function resolveArcgisDiscoveryLayer(outline){
     const queue=[String(outline.appItemId||''),...(Array.isArray(outline.additionalItemIds)?outline.additionalItemIds:[])];
     const seen=new Set();
     let orgId='';
+    const threshold=Number(outline.minimumLayerScore||70);
     async function inspectItem(id){
       if(!/^[a-f0-9]{32}$/i.test(id)||seen.has(id))return;
       seen.add(id);
       try{
-        const meta=await fetchArcgisJson(arcgisItemUrl(base,id,false));
+        const meta=await fetchArcgisJson(arcgisItemUrl(base,id,false),10000);
         orgId=orgId||String(meta.orgId||'');
         if(meta.url&&/\/(?:FeatureServer|MapServer)(?:\/\d+)?\/?(?:\?.*)?$/i.test(meta.url))refs.urls.push({url:String(meta.url).split('?')[0],title:meta.title||''});
-        const data=await fetchArcgisJson(arcgisItemUrl(base,id,true));
+        const data=await fetchArcgisJson(arcgisItemUrl(base,id,true),10000);
         collectArcgisReferences(data,refs);
       }catch(_e){}
     }
-    while(queue.length&&seen.size<48){
+    async function chooseBest(rows,limit){
+      const unique=[];const seenUrls=new Set();
+      (rows||[]).forEach(row=>{
+        const u=String(row&&row.url||'').split('?')[0].replace(/\/+$/,'');
+        if(u&&!seenUrls.has(u)){seenUrls.add(u);unique.push({url:u,title:row.title||''});}
+      });
+      const scored=[];
+      await Promise.all(unique.slice(0,limit).map(row=>expandArcgisUrlCandidate(row,outline,scored)));
+      scored.sort((x,y)=>y.score-x.score);
+      const best=scored.find(row=>row.score>=threshold&&String(row.meta&&row.meta.geometryType||'').toLowerCase().includes('polygon'));
+      if(best)best.nameField=arcgisNameField(best.meta);
+      return best||null;
+    }
+    while(queue.length&&seen.size<18){
       const id=String(queue.shift()||'');
       await inspectItem(id);
       refs.itemIds.forEach(child=>{if(!seen.has(child)&&!queue.includes(child))queue.push(child);});
     }
+    // Fast path: the official app/web-map chain normally exposes the needed
+    // service directly. Resolve those references before doing any broad org
+    // search, which was the main source of multi-minute waits in v23.1.107.
+    let best=await chooseBest(refs.urls,18);
+    if(best)return best;
     const searchRows=await arcgisOrgSearchCandidates(base,orgId,outline);
-    for(const row of searchRows.slice(0,40)){
+    for(const row of searchRows.slice(0,12)){
       if(row.url)refs.urls.push({url:String(row.url).split('?')[0],title:row.title||''});
       if(row.id&&!seen.has(row.id))queue.push(row.id);
     }
-    while(queue.length&&seen.size<72){
+    while(queue.length&&seen.size<24){
       const id=String(queue.shift()||'');
       await inspectItem(id);
       refs.itemIds.forEach(child=>{if(!seen.has(child)&&!queue.includes(child))queue.push(child);});
     }
-    const unique=[];const seenUrls=new Set();
-    refs.urls.forEach(row=>{const u=String(row.url||'').split('?')[0].replace(/\/+$/,'');if(u&&!seenUrls.has(u)){seenUrls.add(u);unique.push({url:u,title:row.title||''});}});
-    const scored=[];
-    for(const row of unique.slice(0,100))await expandArcgisUrlCandidate(row,outline,scored);
-    scored.sort((x,y)=>y.score-x.score);
-    const threshold=Number(outline.minimumLayerScore||70);
-    const best=scored.find(row=>row.score>=threshold&&String(row.meta&&row.meta.geometryType||'').toLowerCase().includes('polygon'));
+    best=await chooseBest(refs.urls,30);
     if(!best)throw new Error(`Could not resolve a safe official polygon layer for ${outline.name||'this Michigan area'} from the Michigan DNR ArcGIS application.`);
-    best.nameField=arcgisNameField(best.meta);
     return best;
   })().catch(err=>{delete a.arcgisResolveCache[cacheKey];throw err;});
   a.arcgisResolveCache[cacheKey]=promise;
@@ -2813,32 +2827,42 @@ async function setAreaOutlineLayerEnabled(on,fit=true,opts={}){
   }
   app.areaOutline.loadingRequestId=requestId;
   setLoading(true,`Loading ${toLoad.length} new official outline${toLoad.length===1?'':'s'}…`);
-  // Official ArcGIS services may be slow or temporarily unreachable. Do not
-  // lock the entire map behind the loading mask while background area queries
-  // continue. The request still runs and can add outlines when it completes.
+  // Area loads are independent and often use the same cached service resolver.
+  // Start them together instead of waiting for one slow ArcGIS request before
+  // beginning the next. The mask is a brief status cue, not a map lock.
   const loadingWatchdog=setTimeout(()=>{
     if(app.areaOutline.loadingRequestId===requestId){
       releaseAreaOutlineLoading(requestId);
       if(!silent)notify('Area sources are still loading in the background. The map remains usable.',6000);
     }
-  },12000);
+  },8000);
   try{
-    let i=0;
-    for(const site of toLoad){
+    let completed=0;
+    const updateProgress=()=>{
+      if(app.areaOutline.loadingRequestId===requestId){
+        setLoading(true,`Loading new official outlines ${completed} of ${toLoad.length}…`);
+      }
+    };
+    await Promise.all(toLoad.map(async site=>{
       if(requestId!==app.areaOutline.requestSeq)return;
-      i++;
-      setLoading(true,`Loading new official outlines ${i} of ${toLoad.length}…`);
       await showAreaOutlineByKey(site.id,{fit:false,silent:true,fromBatch:true,deferPanel:true});
-    }
+      completed++;
+      updateProgress();
+    }));
     if(requestId!==app.areaOutline.requestSeq)return;
     updateAreaOutlinePanel();
     renderAreaOutlineList();
     if(fit&&app.enabledStates.size<=2)fitAreaOutline();
-    if(!silent)notify(`Area overlays on: showing ${records.length} outline${records.length===1?'':'s'}; kept existing outlines and loaded only ${toLoad.length} new one${toLoad.length===1?'':'s'}.`,6500);
+    if(!silent){
+      const loadedNow=toLoad.filter(site=>app.areaOutline.layers&&app.areaOutline.layers[site.id]).length;
+      const failed=toLoad.length-loadedNow;
+      notify(`Area overlays on: loaded ${loadedNow} new outline${loadedNow===1?'':'s'}${failed?`; ${failed} source${failed===1?'':'s'} did not finish`:''}.`,6500);
+    }
   }finally{
     clearTimeout(loadingWatchdog);
-    // Clear only the mask owned by this request. If a replacement request has
-    // taken ownership, it will clear its own mask when it finishes.
+    // The watchdog may already have released this request. updateProgress()
+    // never reopens the mask after ownership is released, preventing the old
+    // “3 of 3” permanent loading state.
     releaseAreaOutlineLoading(requestId);
     updateAreaOutlineLayerControls();
     updateAreaOutlineLabelVisibility();
