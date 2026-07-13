@@ -1,0 +1,30 @@
+QA — v23.1.104 USFS Federal Areas state-split boundary fix
+
+Checks run
+- node --check app.js
+- node --check version.js
+- Parsed data/us-states-10m-v23.1.104.json as valid TopoJSON.
+- Confirmed TopoJSON contains 56 state/territory geometries with state FIPS IDs.
+- Confirmed browser UMD globals load:
+  - window.topojson.feature
+  - window.polygonClipping.intersection
+- Synthetic Black Hills-style polygon crossing SD/WY was clipped into separate nonempty SD and WY pieces.
+- Synthetic western-UP polygon crossing MI/WI was clipped into separate nonempty MI and WI pieces.
+- Confirmed old USFS_FOREST_STATE_HINTS / all-states-selected hard gate is absent.
+- Confirmed app uses per-state stateLayers/stateCache/stateLoaded registries.
+- Confirmed drawUsfsStateGeoJson removes/replaces only the named state group, not the master Federal Areas group.
+- Confirmed reconcile removes only deselected states and skips already-loaded unchanged states.
+- Confirmed normal map move/zoom scheduling returns immediately when no state reconciliation is needed.
+- Confirmed detailed-outline suppression is computed per state and can refresh only the affected state group if the detailed-outline set changes.
+- Confirmed PROJECT_RULES.md and Project Rules.md match.
+- Confirmed index.html loads the two required clipping libraries before app.js.
+- Confirmed vendor license notices are included.
+- Confirmed ZIP integrity.
+
+Browser behavior expected
+- Select SD only: the South Dakota portion of Black Hills National Forest may draw; Wyoming does not.
+- Add WY: the existing SD layer remains in place and only the WY portion is added.
+- Remove SD: only the SD portion is removed; the WY layer object remains.
+- Select MI only: Michigan USFS portions draw and Wisconsin portions do not.
+- Add WI: Michigan portions remain in place and Wisconsin portions are added.
+- Pan the map with the selected state set unchanged: no USFS state groups are rebuilt.

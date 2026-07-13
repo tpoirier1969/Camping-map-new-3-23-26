@@ -1733,8 +1733,12 @@ function updateRestRoadsideDiagnostics(){
 
 const USFS_BOUNDARY_SERVICE_URL='https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_ForestSystemBoundaries_01/MapServer/0/query';
 const USFS_BOUNDARY_MIN_ZOOM=5;
-const USFS_BOUNDARY_RESULT_LIMIT=32;
-const USFS_BOUNDARY_CACHE_LIMIT=10;
+const USFS_BOUNDARY_RESULT_LIMIT=100;
+const USFS_STATE_CACHE_LIMIT=8;
+const USFS_STATE_TOPOLOGY_URL='data/us-states-10m-v23.1.104.json';
+const USFS_STATE_BOUNDARY_SOURCE_URL='https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html';
+const USFS_STATE_FIPS={AL:'01',AK:'02',AZ:'04',AR:'05',CA:'06',CO:'08',CT:'09',DE:'10',DC:'11',FL:'12',GA:'13',HI:'15',ID:'16',IL:'17',IN:'18',IA:'19',KS:'20',KY:'21',LA:'22',ME:'23',MD:'24',MA:'25',MI:'26',MN:'27',MS:'28',MO:'29',MT:'30',NE:'31',NV:'32',NH:'33',NJ:'34',NM:'35',NY:'36',NC:'37',ND:'38',OH:'39',OK:'40',OR:'41',PA:'42',RI:'44',SC:'45',SD:'46',TN:'47',TX:'48',UT:'49',VT:'50',VA:'51',WA:'53',WV:'54',WI:'55',WY:'56',AS:'60',GU:'66',MP:'69',PR:'72',VI:'78'};
+const USFS_STATE_QUERY_BBOX_OVERRIDES={AK:[-170,51,-129,72],HI:[-161,18,-154,23],PR:[-68,17,-65,19]};
 function readAreaToggle(key,legacyKey){
   try{
     const current=localStorage.getItem(key);
@@ -1749,57 +1753,42 @@ function areaOutlineLayerEnabled(){return federalAreaLayerEnabled()||stateLocalA
 function usfsBoundaryEnabled(){return federalAreaLayerEnabled()}
 function updateUsfsBoundaryControls(){const on=federalAreaLayerEnabled();$$('[data-usfs-boundary-toggle],[data-federal-area-toggle]').forEach(toggle=>{toggle.checked=on});}
 function setUsfsBoundaryEnabled(on,opts={}){setFederalAreaLayerEnabled(on,false,opts);}
-function clearUsfsBoundaryGraphics(){
-  if(app.usfsBoundary&&app.usfsBoundary.layer)app.usfsBoundary.layer.clearLayers();
-  if(app.usfsBoundary){app.usfsBoundary.lastFeatureCount=0;app.usfsBoundary.paused=false;app.usfsBoundary.loading=false;}
+function ensureUsfsBoundaryStateStore(){
+  const u=app.usfsBoundary||(app.usfsBoundary={});
+  u.stateLayers=u.stateLayers||{};
+  u.stateCache=u.stateCache||{};
+  u.stateCacheOrder=u.stateCacheOrder||[];
+  u.stateLoaded=u.stateLoaded||{};
+  u.stateFeatureCounts=u.stateFeatureCounts||{};
+  u.stateDetailKeys=u.stateDetailKeys||{};
+  u.stateRequests=u.stateRequests||{};
+  u.stateRequestTokens=u.stateRequestTokens||{};
+  u.stateRetryAfter=u.stateRetryAfter||{};
+  u.stateFeatureCache=u.stateFeatureCache||{};
+  return u;
 }
-function usfsBoundaryQueryBounds(){
-  if(!(app.map&&app.map.getBounds))return null;
-  const b=app.map.getBounds();
-  if(!(b&&b.isValid&&b.isValid()))return null;
-  const z=Number(app.map.getZoom&&app.map.getZoom());
-  const pad=z<6?.08:z<8?.12:.18;
-  return b.pad?b.pad(pad):b;
+function removeUsfsStateLayer(code,opts={}){
+  const u=ensureUsfsBoundaryStateStore();
+  const key=String(code||'').toUpperCase();
+  const layer=u.stateLayers[key];
+  if(layer&&u.layer&&u.layer.removeLayer)u.layer.removeLayer(layer);
+  delete u.stateLayers[key];
+  delete u.stateLoaded[key];
+  delete u.stateFeatureCounts[key];
+  delete u.stateDetailKeys[key];
+  if(opts.cancelRequest!==false)u.stateRequestTokens[key]=(u.stateRequestTokens[key]||0)+1;
 }
-function usfsBoundarySnapSize(zoom){
-  const z=Number(zoom);
-  if(!Number.isFinite(z)||z<6)return 2;
-  if(z<8)return 1;
-  if(z<10)return .5;
-  return .25;
+function clearUsfsBoundaryGraphics(opts={}){
+  const u=ensureUsfsBoundaryStateStore();
+  Object.keys(u.stateLayers).forEach(code=>removeUsfsStateLayer(code,{cancelRequest:true}));
+  if(u.layer&&u.layer.clearLayers)u.layer.clearLayers();
+  u.lastFeatureCount=0;
+  u.paused=false;
+  u.loading=false;
+  if(opts.dropCache){u.stateCache={};u.stateCacheOrder=[];u.stateFeatureCache={};u.stateBoundaryTopology=null;u.stateBoundaryPromise=null;}
 }
-function snapCoordForKey(value,snap){return Math.floor(Number(value)/snap)*snap;}
-function selectedStateKeyForBoundaryCache(){
-  return [...(app.enabledStates||new Set())].map(c=>String(c||'').toUpperCase()).filter(Boolean).sort().join(',')||'NO_STATES';
-}
-function usfsBoundaryCacheKey(bounds,zoom){
-  const snap=usfsBoundarySnapSize(zoom);
-  return [selectedStateKeyForBoundaryCache(),Math.floor(Number(zoom)||0),snapCoordForKey(bounds.getWest(),snap),snapCoordForKey(bounds.getSouth(),snap),snapCoordForKey(bounds.getEast(),snap),snapCoordForKey(bounds.getNorth(),snap)].join('|');
-}
-function usfsBoundaryOffset(zoom){
-  const z=Number(zoom);
-  if(!Number.isFinite(z)||z<6)return .025;
-  if(z<8)return .012;
-  if(z<10)return .006;
-  if(z<12)return .003;
-  return .0015;
-}
-function usfsBoundaryQueryUrl(bounds,zoom){
-  const envelope=[bounds.getWest(),bounds.getSouth(),bounds.getEast(),bounds.getNorth()].map(n=>Number(n).toFixed(6)).join(',');
-  return addQueryParams(USFS_BOUNDARY_SERVICE_URL,{
-    where:'1=1',
-    outFields:'FORESTNAME,FORESTNUMBER,FORESTORGCODE,REGION,ADMINFORESTID,GIS_ACRES',
-    returnGeometry:'true',
-    geometry:envelope,
-    geometryType:'esriGeometryEnvelope',
-    inSR:'4326',
-    outSR:'4326',
-    spatialRel:'esriSpatialRelIntersects',
-    resultRecordCount:String(USFS_BOUNDARY_RESULT_LIMIT),
-    maxAllowableOffset:String(usfsBoundaryOffset(zoom)),
-    geometryPrecision:'5',
-    f:'geojson'
-  });
+function selectedUsfsStateCodes(){
+  return [...(app.enabledStates||new Set())].map(code=>String(code||'').toUpperCase()).filter(code=>USFS_STATE_FIPS[code]).sort();
 }
 function normalizeUsfsNoteKey(value){return String(value||'').toUpperCase().replace(/&/g,'AND').replace(/[^A-Z0-9]+/g,' ').replace(/\s+/g,' ').trim();}
 function normalizeAreaUnitKey(value){
@@ -1846,45 +1835,6 @@ function forestUnitKeyForUsfsFeature(feature){
   const key=normalizeAreaUnitKey(props.FORESTNAME||props.ADMINFORESTID||props.FORESTORGCODE||'');
   return key&&key.length>=3?key:'';
 }
-
-const USFS_FOREST_STATE_HINTS={
-  'ALLEGHENY':['PA'], 'ANGELES':['CA'], 'APACHE SITGREAVES':['AZ','NM'], 'ARAPAHO AND ROOSEVELT':['CO'], 'ASHLEY':['UT','WY'], 'BEAVERHEAD DEERLODGE':['MT'], 'BIGHORN':['WY'], 'BITTERROOT':['MT','ID'], 'BLACK HILLS':['SD','WY'], 'BOISE':['ID'], 'BRIDGER TETON':['WY'], 'CARIBOU TARGHEE':['ID','WY','UT'], 'CHATTAHOOCHEE OCONEE':['GA'], 'CHEQUAMEGON NICOLET':['WI'], 'CHEROKEE':['TN','NC'], 'CHIPPEWA':['MN'], 'CHUGACH':['AK'], 'CLEARWATER':['ID'], 'CLEVELAND':['CA'], 'COCONINO':['AZ'], 'COLVILLE':['WA'], 'CORONADO':['AZ','NM'], 'CUSTER GALLATIN':['MT','SD'], 'DANIEL BOONE':['KY'], 'DAVY CROCKETT':['TX'], 'DE SOTO':['MS'], 'DELTA':['MS'], 'DESCHUTES':['OR'], 'DIXIE':['UT'], 'ELDORADO':['CA'], 'EL YUNQUE':['PR'], 'FINGER LAKES':['NY'], 'FISHLAKE':['UT'], 'FLATHEAD':['MT'], 'FRANCIS MARION AND SUMTER':['SC'], 'FREMONT WINEMA':['OR'], 'GIFFORD PINCHOT':['WA'], 'GILA':['NM'], 'GRAND MESA UNCOMPAHGRE AND GUNNISON':['CO'], 'GREEN MOUNTAIN AND FINGER LAKES':['VT','NY'], 'HELENA LEWIS AND CLARK':['MT'], 'HIAWATHA':['MI'], 'HOLLY SPRINGS':['MS'], 'HOMER':['AK'], 'HOOSIER':['IN'], 'HURON MANISTEE':['MI'], 'IDAHO PANHANDLE':['ID','MT','WA'], 'INYO':['CA','NV'], 'KAIBAB':['AZ'], 'KISATCHIE':['LA'], 'KLAMATH':['CA','OR'], 'KOOTENAI':['MT','ID'], 'LAKE TAHOE BASIN':['CA','NV'], 'LAND BETWEEN THE LAKES':['KY','TN'], 'LASSEN':['CA'], 'LINCOLN':['NM'], 'LOLO':['MT'], 'LOS PADRES':['CA'], 'MANTI LA SAL':['UT','CO'], 'MARK TWAIN':['MO'], 'MEDICINE BOW ROUTT':['WY','CO'], 'MENDOCINO':['CA'], 'MODOC':['CA'], 'MONONGAHELA':['WV'], 'MOUNT BAKER SNOQUALMIE':['WA'], 'MOUNT HOOD':['OR'], 'NANTAHALA':['NC'], 'NATIONAL FORESTS IN ALABAMA':['AL'], 'NATIONAL FORESTS IN FLORIDA':['FL'], 'NATIONAL FORESTS IN MISSISSIPPI':['MS'], 'NATIONAL FORESTS AND GRASSLANDS IN TEXAS':['TX'], 'NEBRASKA':['NE','SD'], 'NEZ PERCE CLEARWATER':['ID'], 'NICOLET':['WI'], 'OCALA':['FL'], 'OCHOCO':['OR'], 'OKANOGAN WENATCHEE':['WA'], 'OLYMPIC':['WA'], 'OSCEOLA':['FL'], 'OTTAWA':['MI'], 'OUACHITA':['AR','OK'], 'OZARK ST FRANCIS':['AR'], 'PAYETTE':['ID'], 'PIKE SAN ISABEL':['CO','KS'], 'PISGAH':['NC'], 'PLUMAS':['CA'], 'PRESCOTT':['AZ'], 'RIO GRANDE':['CO'], 'ROGUE RIVER SISKIYOU':['OR','CA'], 'SABINE':['TX'], 'SALMON CHALLIS':['ID'], 'SAM HOUSTON':['TX'], 'SAN BERNARDINO':['CA'], 'SAN JUAN':['CO'], 'SANTA FE':['NM'], 'SAWTOOTH':['ID','UT'], 'SEQUOIA':['CA'], 'SHAWNEE':['IL'], 'SHASTA TRINITY':['CA'], 'SHOSHONE':['WY'], 'SIERRA':['CA'], 'SIX RIVERS':['CA'], 'SIUSLAW':['OR'], 'STANISLAUS':['CA'], 'SUPERIOR':['MN'], 'TAHOE':['CA'], 'TALLADEGA':['AL'], 'TARGHEE':['ID','WY'], 'TONGASS':['AK'], 'TONTO':['AZ'], 'TUSKEGEE':['AL'], 'UINTA WASATCH CACHE':['UT','WY','ID'], 'UMATILLA':['OR','WA'], 'UMPQUA':['OR'], 'UNCOMPAHGRE':['CO'], 'WALLOWA WHITMAN':['OR','ID'], 'WAYNE':['OH'], 'WHITE MOUNTAIN':['NH','ME'], 'WHITE RIVER':['CO'], 'WILLAMETTE':['OR']
-};
-function usfsFeatureStateHints(feature){
-  const props=(feature&&feature.properties)||{};
-  const key=normalizeAreaUnitKey(props.FORESTNAME||props.ADMINFORESTID||props.FORESTORGCODE||'');
-  if(!key)return [];
-  if(USFS_FOREST_STATE_HINTS[key])return USFS_FOREST_STATE_HINTS[key];
-  const hit=Object.keys(USFS_FOREST_STATE_HINTS).find(k=>key.includes(k)||k.includes(key));
-  return hit?USFS_FOREST_STATE_HINTS[hit]:[];
-}
-function usfsGeometryBounds(feature){
-  const coords=[];
-  function walk(value){
-    if(!Array.isArray(value))return;
-    if(value.length>=2&&typeof value[0]==='number'&&typeof value[1]==='number'){
-      coords.push([value[1],value[0]]);
-      return;
-    }
-    value.forEach(walk);
-  }
-  walk(feature&&feature.geometry&&feature.geometry.coordinates);
-  if(!coords.length)return null;
-  let south=Infinity,west=Infinity,north=-Infinity,east=-Infinity;
-  coords.forEach(([lat,lng])=>{if(Number.isFinite(lat)&&Number.isFinite(lng)){south=Math.min(south,lat);north=Math.max(north,lat);west=Math.min(west,lng);east=Math.max(east,lng);}});
-  return Number.isFinite(south)&&Number.isFinite(west)&&Number.isFinite(north)&&Number.isFinite(east)?[[south,west],[north,east]]:null;
-}
-function boundsOverlapArray(a,b){
-  return !!(a&&b&&a[0]&&a[1]&&b[0]&&b[1]&&a[0][0]<=b[1][0]&&a[1][0]>=b[0][0]&&a[0][1]<=b[1][1]&&a[1][1]>=b[0][1]);
-}
-function usfsFeatureMatchesSelectedStates(feature){
-  const selected=[...(app.enabledStates||new Set())].map(c=>String(c||'').toUpperCase()).filter(Boolean);
-  if(!selected.length)return false;
-  const hints=usfsFeatureStateHints(feature);
-  if(hints.length)return hints.some(code=>selected.includes(code));
-  const fb=usfsGeometryBounds(feature);
-  return selected.some(code=>STATE_BOUNDS[code]&&boundsOverlapArray(fb,STATE_BOUNDS[code]));
-}
 function isNonFsInholdingOutline(site){
   const text=areaOutlineIdentityText(site).toLowerCase();
   return /non[-\s]?fs|non[-\s]?forest|inholding|ownerclassification\s*<>|ownerclassification[^a-z0-9]+not/i.test(text);
@@ -1901,6 +1851,18 @@ function isNationalForestAreaOutline(site){
   const text=areaOutlineIdentityText(site).toLowerCase();
   return /national\s+forest|forestname\s+like/.test(text)&&!/wilderness/.test(text);
 }
+function detailedFederalOutlineNamesForState(code){
+  const stateCode=String(code||'').toUpperCase();
+  const records=filterRedundantAreaOutlineRecords(baseAreaOutlineRecordsForSelectedStates());
+  const names=new Set();
+  records.forEach(site=>{
+    const rowCode=String(site&& (site.stateCode||site.state)||'').toUpperCase();
+    if(rowCode!==stateCode||outlineJurisdiction(site)!=='federal'||!isNationalForestAreaOutline(site))return;
+    const key=forestUnitKeyForAreaOutline(site);
+    if(key)names.add(key);
+  });
+  return names;
+}
 function usfsBoundaryNotes(){return (window.USFS_BOUNDARY_NOTES&&typeof window.USFS_BOUNDARY_NOTES==='object')?window.USFS_BOUNDARY_NOTES:{generic:{}};}
 function usfsBoundaryNoteForProps(props){
   const notes=usfsBoundaryNotes();
@@ -1911,8 +1873,8 @@ function usfsBoundaryNoteForProps(props){
 function usfsBoundaryPopup(feature){
   const props=(feature&&feature.properties)||{};
   const name=props.FORESTNAME||'National Forest';
-  const acres=Number(props.GIS_ACRES);
-  const acresText=Number.isFinite(acres)?` · ${Math.round(acres).toLocaleString()} GIS acres`:'';
+  const stateCode=String(props.STATECODE||'').toUpperCase();
+  const stateText=stateCode?`${stateLabel(stateCode)} portion`:'';
   const note=usfsBoundaryNoteForProps(props);
   const summary=note.summary||'This outline shows the official USDA Forest Service administrative boundary for orientation and planning. It is not campsite, ownership, vehicle-access, or camping-permission proof.';
   const restrictions=Array.isArray(note.restrictions)?note.restrictions:[];
@@ -1926,81 +1888,242 @@ function usfsBoundaryPopup(feature){
     'Confirm stay limits, permits, passes, seasonal access, road condition, waste/trash rules, and posted signs.'
   ];
   const items=restrictions.concat(verify).filter(Boolean);
-  return `<div class="area-rules-popup usfs-boundary-popup"><div class="popup-title">${esc(name)} — National Forest administrative boundary</div><div class="popup-notice"><strong>${esc(status)}.</strong><br>${esc(summary)}</div><div class="popup-grid"><div class="popup-row"><strong>Boundary source</strong><span>USDA Forest Service EDW Forest System Boundaries${esc(acresText)}</span></div><div class="popup-row"><strong>Important limitation</strong><span>This outline may include private inholdings, other government lands, water, roads, wilderness, developed sites, closed areas, and restricted zones. It does not mean every spot inside is public, vehicle-accessible, open, or legal for dispersed camping.</span></div></div><div class="area-rules-detail"><strong>Verify before camping inside this outline</strong><ul>${items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div><div class="popup-actions"><a class="secondary" target="_blank" rel="noopener" href="${esc(sourceUrl)}">Official source</a></div></div>`;
+  const titleState=stateText?` — ${stateText}`:'';
+  return `<div class="area-rules-popup usfs-boundary-popup"><div class="popup-title">${esc(name)}${esc(titleState)}</div><div class="popup-notice"><strong>${esc(status)}.</strong><br>${esc(summary)}</div><div class="popup-grid"><div class="popup-row"><strong>Boundary source</strong><span>USDA Forest Service EDW Forest System Boundaries, clipped into a state-specific display portion using a Census cartographic state boundary topology (2017-derived display geometry).</span></div><div class="popup-row"><strong>Important limitation</strong><span>This outline may include private inholdings, other government lands, water, roads, wilderness, developed sites, closed areas, and restricted zones. It does not mean every spot inside is public, vehicle-accessible, open, or legal for dispersed camping.</span></div></div><div class="area-rules-detail"><strong>Verify before camping inside this outline</strong><ul>${items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div><div class="popup-actions"><a class="secondary" target="_blank" rel="noopener" href="${esc(sourceUrl)}">USFS source</a><a class="secondary" target="_blank" rel="noopener" href="${esc(USFS_STATE_BOUNDARY_SOURCE_URL)}">State boundary source</a></div></div>`;
 }
 function usfsBoundaryStyle(){return {color:'#2f6544',weight:1.35,opacity:.82,fillColor:'#6da77b',fillOpacity:.035,dashArray:'7 6',interactive:true};}
-function rememberUsfsBoundaryCache(key,geo){
-  const u=app.usfsBoundary;
-  if(!u)return;
-  u.cache[key]=geo;
-  u.cacheOrder=u.cacheOrder||[];
-  u.cacheOrder=u.cacheOrder.filter(k=>k!==key);
-  u.cacheOrder.push(key);
-  while(u.cacheOrder.length>USFS_BOUNDARY_CACHE_LIMIT){const old=u.cacheOrder.shift();if(old)delete u.cache[old];}
+function usfsTopologyUrl(){return addQueryParams(USFS_STATE_TOPOLOGY_URL,{data:String(DATA_VERSION||VERSION||Date.now())});}
+async function loadUsfsStateTopology(){
+  const u=ensureUsfsBoundaryStateStore();
+  if(u.stateBoundaryTopology)return u.stateBoundaryTopology;
+  if(u.stateBoundaryPromise)return u.stateBoundaryPromise;
+  if(!(window.topojson&&typeof window.topojson.feature==='function'))throw new Error('State-boundary decoder did not load.');
+  u.stateBoundaryPromise=fetchJsonWithTimeout(usfsTopologyUrl(),20000).then(topology=>{
+    if(!(topology&&topology.objects&&topology.objects.states))throw new Error('State-boundary topology is unavailable.');
+    u.stateBoundaryTopology=topology;
+    return topology;
+  }).finally(()=>{u.stateBoundaryPromise=null;});
+  return u.stateBoundaryPromise;
 }
-async function fetchUsfsBoundaryGeoJson(key,bounds,zoom){
-  const u=app.usfsBoundary;
-  if(u.cache&&u.cache[key])return u.cache[key];
-  const data=await fetchJsonWithTimeout(usfsBoundaryQueryUrl(bounds,zoom),25000);
-  const geo=normalizeAreaGeoJson(data);
-  rememberUsfsBoundaryCache(key,geo);
-  return geo;
+async function usfsStateBoundaryFeature(code){
+  const u=ensureUsfsBoundaryStateStore();
+  const stateCode=String(code||'').toUpperCase();
+  if(u.stateFeatureCache[stateCode])return u.stateFeatureCache[stateCode];
+  const fips=USFS_STATE_FIPS[stateCode];
+  if(!fips)throw new Error(`No state-boundary key for ${stateCode}.`);
+  const topology=await loadUsfsStateTopology();
+  const geometries=(topology.objects.states&&topology.objects.states.geometries)||[];
+  const geometry=geometries.find(row=>String(row&&row.id).padStart(2,'0')===fips);
+  if(!geometry)throw new Error(`State boundary not found for ${stateCode}.`);
+  const feature=window.topojson.feature(topology,geometry);
+  feature.properties=Object.assign({},feature.properties||{},{STATECODE:stateCode});
+  u.stateFeatureCache[stateCode]=feature;
+  return feature;
 }
-function drawUsfsBoundaryGeoJson(geo){
-  if(!(app.usfsBoundary&&app.usfsBoundary.layer))return;
-  app.usfsBoundary.layer.clearLayers();
-  const rawFeatures=geo&&geo.type==='FeatureCollection'?geo.features:(geo&&geo.type==='Feature'?[geo]:[]);
-  const detailed=detailedFederalOutlineNamesForSelectedStates();
-  const features=rawFeatures.filter(feature=>{
-    if(!usfsFeatureMatchesSelectedStates(feature))return false;
-    const key=forestUnitKeyForUsfsFeature(feature);
-    return !(key&&detailed.has(key));
+function geoJsonGeometryBounds(geometry){
+  let west=Infinity,south=Infinity,east=-Infinity,north=-Infinity;
+  function walk(value){
+    if(!Array.isArray(value))return;
+    if(value.length>=2&&Number.isFinite(Number(value[0]))&&Number.isFinite(Number(value[1]))){
+      const x=Number(value[0]),y=Number(value[1]);
+      if(x<west)west=x;if(x>east)east=x;if(y<south)south=y;if(y>north)north=y;
+      return;
+    }
+    value.forEach(walk);
+  }
+  walk(geometry&&geometry.coordinates);
+  return [west,south,east,north].every(Number.isFinite)?[west,south,east,north]:null;
+}
+function usfsStateQueryBounds(stateFeature,code){
+  const stateCode=String(code||'').toUpperCase();
+  return USFS_STATE_QUERY_BBOX_OVERRIDES[stateCode]||geoJsonGeometryBounds(stateFeature&&stateFeature.geometry);
+}
+function usfsBoundaryStateQueryUrl(stateFeature,code){
+  const bbox=usfsStateQueryBounds(stateFeature,code);
+  if(!bbox)throw new Error(`Could not determine ${code} state bounds.`);
+  const envelope=bbox.map(n=>Number(n).toFixed(6)).join(',');
+  return addQueryParams(USFS_BOUNDARY_SERVICE_URL,{
+    where:'1=1',
+    outFields:'FORESTNAME,FORESTNUMBER,FORESTORGCODE,REGION,ADMINFORESTID,GIS_ACRES',
+    returnGeometry:'true',
+    geometry:envelope,
+    geometryType:'esriGeometryEnvelope',
+    inSR:'4326',
+    outSR:'4326',
+    spatialRel:'esriSpatialRelIntersects',
+    resultRecordCount:String(USFS_BOUNDARY_RESULT_LIMIT),
+    maxAllowableOffset:'.003',
+    geometryPrecision:'5',
+    f:'geojson'
   });
-  if(!features.length){app.usfsBoundary.lastFeatureCount=0;return;}
-  const filtered={type:'FeatureCollection',features};
-  const group=L.geoJSON(filtered,{style:usfsBoundaryStyle,onEachFeature:(feature,layer)=>{if(layer&&layer.bindPopup)layer.bindPopup(usfsBoundaryPopup(feature),{maxWidth:420});}});
-  group.addTo(app.usfsBoundary.layer);
-  if(group.bringToBack)group.bringToBack();
-  app.usfsBoundary.lastFeatureCount=features.length;
+}
+function geometryAsMultiPolygon(geometry){
+  if(!geometry)return null;
+  if(geometry.type==='Polygon'&&Array.isArray(geometry.coordinates))return [geometry.coordinates];
+  if(geometry.type==='MultiPolygon'&&Array.isArray(geometry.coordinates))return geometry.coordinates;
+  return null;
+}
+function roundMultiPolygonCoordinates(value){
+  if(!Array.isArray(value))return value;
+  if(value.length>=2&&Number.isFinite(Number(value[0]))&&Number.isFinite(Number(value[1])))return [Number(Number(value[0]).toFixed(5)),Number(Number(value[1]).toFixed(5))];
+  return value.map(roundMultiPolygonCoordinates);
+}
+function clipUsfsFeatureToState(feature,stateFeature,stateCode){
+  if(!(window.polygonClipping&&typeof window.polygonClipping.intersection==='function'))throw new Error('Boundary clipping engine did not load.');
+  const forestGeometry=geometryAsMultiPolygon(feature&&feature.geometry);
+  const stateGeometry=geometryAsMultiPolygon(stateFeature&&stateFeature.geometry);
+  if(!forestGeometry||!stateGeometry)return null;
+  const clipped=window.polygonClipping.intersection(forestGeometry,stateGeometry);
+  if(!Array.isArray(clipped)||!clipped.length)return null;
+  return {type:'Feature',properties:Object.assign({},feature.properties||{},{STATECODE:stateCode,STATE_SPLIT:true}),geometry:{type:'MultiPolygon',coordinates:roundMultiPolygonCoordinates(clipped)}};
+}
+function clipUsfsGeoJsonToState(rawGeo,stateFeature,stateCode){
+  const rawFeatures=rawGeo&&rawGeo.type==='FeatureCollection'?rawGeo.features:(rawGeo&&rawGeo.type==='Feature'?[rawGeo]:[]);
+  const features=[];
+  rawFeatures.forEach(feature=>{
+    const key=forestUnitKeyForUsfsFeature(feature);
+    try{
+      const clipped=clipUsfsFeatureToState(feature,stateFeature,stateCode);
+      if(clipped)features.push(clipped);
+    }catch(err){console.warn(`Could not clip USFS boundary ${key||'feature'} to ${stateCode}`,err);}
+  });
+  return {type:'FeatureCollection',features};
+}
+function usfsDetailedOutlineKeyForState(code){
+  return [...detailedFederalOutlineNamesForState(code)].sort().join('|');
+}
+function rememberUsfsStateCache(code,geo){
+  const u=ensureUsfsBoundaryStateStore();
+  const stateCode=String(code||'').toUpperCase();
+  u.stateCache[stateCode]=geo;
+  u.stateCacheOrder=u.stateCacheOrder.filter(key=>key!==stateCode);
+  u.stateCacheOrder.push(stateCode);
+  const selected=new Set(selectedUsfsStateCodes());
+  let safety=0;
+  while(u.stateCacheOrder.length>USFS_STATE_CACHE_LIMIT&&safety++<50){
+    const old=u.stateCacheOrder.shift();
+    if(!old)break;
+    if(selected.has(old)){u.stateCacheOrder.push(old);continue;}
+    delete u.stateCache[old];
+  }
+}
+function recalcUsfsFeatureCount(){
+  const u=ensureUsfsBoundaryStateStore();
+  u.lastFeatureCount=Object.values(u.stateFeatureCounts).reduce((sum,n)=>sum+Number(n||0),0);
+}
+function drawUsfsStateGeoJson(code,geo){
+  const u=ensureUsfsBoundaryStateStore();
+  const stateCode=String(code||'').toUpperCase();
+  const old=u.stateLayers[stateCode];
+  if(old&&u.layer&&u.layer.removeLayer)u.layer.removeLayer(old);
+  delete u.stateLayers[stateCode];
+  const allFeatures=geo&&geo.type==='FeatureCollection'&&Array.isArray(geo.features)?geo.features:[];
+  const detailed=detailedFederalOutlineNamesForState(stateCode);
+  const features=allFeatures.filter(feature=>{const key=forestUnitKeyForUsfsFeature(feature);return !(key&&detailed.has(key));});
+  u.stateLoaded[stateCode]=true;
+  u.stateDetailKeys[stateCode]=[...detailed].sort().join('|');
+  u.stateFeatureCounts[stateCode]=features.length;
+  if(features.length){
+    const group=L.geoJSON({type:'FeatureCollection',features},{style:usfsBoundaryStyle,onEachFeature:(feature,layer)=>{if(layer&&layer.bindPopup)layer.bindPopup(usfsBoundaryPopup(feature),{maxWidth:420});}});
+    group.addTo(u.layer);
+    if(group.bringToBack)group.bringToBack();
+    u.stateLayers[stateCode]=group;
+  }
+  recalcUsfsFeatureCount();
+}
+async function loadUsfsStateBoundary(code,opts={}){
+  const u=ensureUsfsBoundaryStateStore();
+  const stateCode=String(code||'').toUpperCase();
+  if(!USFS_STATE_FIPS[stateCode])return;
+  if(Object.prototype.hasOwnProperty.call(u.stateCache,stateCode)){
+    if(usfsBoundaryEnabled()&&app.enabledStates.has(stateCode)&&Number(app.map&&app.map.getZoom&&app.map.getZoom())>=USFS_BOUNDARY_MIN_ZOOM)drawUsfsStateGeoJson(stateCode,u.stateCache[stateCode]);
+    return;
+  }
+  if(u.stateRequests[stateCode])return u.stateRequests[stateCode];
+  if(!opts.force&&Number(u.stateRetryAfter[stateCode]||0)>Date.now())return;
+  const token=u.stateRequestTokens[stateCode]||0;
+  const request=(async()=>{
+    try{
+      const stateFeature=await usfsStateBoundaryFeature(stateCode);
+      const raw=normalizeAreaGeoJson(await fetchJsonWithTimeout(usfsBoundaryStateQueryUrl(stateFeature,stateCode),30000));
+      const clipped=clipUsfsGeoJsonToState(raw,stateFeature,stateCode);
+      rememberUsfsStateCache(stateCode,clipped);
+      delete u.stateRetryAfter[stateCode];
+      if((u.stateRequestTokens[stateCode]||0)!==token||!usfsBoundaryEnabled()||!app.enabledStates.has(stateCode))return;
+      const zoom=Number(app.map&&app.map.getZoom&&app.map.getZoom());
+      if(Number.isFinite(zoom)&&zoom>=USFS_BOUNDARY_MIN_ZOOM)drawUsfsStateGeoJson(stateCode,clipped);
+    }catch(err){
+      console.error(err);
+      u.stateRetryAfter[stateCode]=Date.now()+60000;
+      if(opts.force)notify(`${stateLabel(stateCode)} federal boundary portion could not be loaded. ${err&&err.message?err.message:''}`.trim(),7000);
+    }finally{
+      delete u.stateRequests[stateCode];
+      u.loading=Object.keys(u.stateRequests).length>0;
+      updateUsfsBoundaryControls();
+    }
+  })();
+  u.stateRequests[stateCode]=request;
+  u.loading=true;
+  return request;
+}
+function usfsBoundaryNeedsRefresh(){
+  if(!usfsBoundaryEnabled()||!(app.usfsBoundary&&app.map))return false;
+  const u=ensureUsfsBoundaryStateStore();
+  const zoom=Number(app.map.getZoom&&app.map.getZoom());
+  if(!Number.isFinite(zoom)||zoom<USFS_BOUNDARY_MIN_ZOOM)return Object.keys(u.stateLayers).length>0;
+  const desired=selectedUsfsStateCodes();
+  const desiredSet=new Set(desired);
+  if(Object.keys(u.stateLayers).some(code=>!desiredSet.has(code)))return true;
+  if(Object.keys(u.stateLoaded).some(code=>!desiredSet.has(code)))return true;
+  for(const code of desired){
+    if(!u.stateLoaded[code])return true;
+    if(u.stateDetailKeys[code]!==usfsDetailedOutlineKeyForState(code))return true;
+  }
+  return false;
 }
 function scheduleUsfsBoundaryRefresh(reason,opts={}){
   if(!usfsBoundaryEnabled()||!(app.usfsBoundary&&app.map))return;
-  clearTimeout(app.usfsBoundary.refreshTimer);
-  const delay=opts.force?60:420;
-  app.usfsBoundary.refreshTimer=setTimeout(()=>refreshUsfsBoundaryLayer(reason,opts),delay);
+  if(!opts.force&&!usfsBoundaryNeedsRefresh())return;
+  const u=ensureUsfsBoundaryStateStore();
+  clearTimeout(u.refreshTimer);
+  const delay=opts.force?40:260;
+  u.refreshTimer=setTimeout(()=>refreshUsfsBoundaryLayer(reason,opts),delay);
 }
 async function refreshUsfsBoundaryLayer(reason,opts={}){
   if(!usfsBoundaryEnabled()||!(app.usfsBoundary&&app.map))return;
+  const u=ensureUsfsBoundaryStateStore();
   const zoom=Number(app.map.getZoom&&app.map.getZoom());
   if(!Number.isFinite(zoom)||zoom<USFS_BOUNDARY_MIN_ZOOM){
     clearUsfsBoundaryGraphics();
-    app.usfsBoundary.paused=true;
-    if(opts.force)notify('USFS Boundary Overlay is on, but it waits until zoom 5+ to avoid heavy national redraws.',6500);
+    u.paused=true;
+    if(opts.force)notify('Federal Areas is on, but broad USFS boundaries wait until zoom 5+ to keep the map sparse.',6500);
     return;
   }
-  const bounds=usfsBoundaryQueryBounds();
-  if(!bounds)return;
-  const key=usfsBoundaryCacheKey(bounds,zoom);
-  if(!opts.force&&key===app.usfsBoundary.lastKey)return;
-  app.usfsBoundary.lastKey=key;
-  const seq=(app.usfsBoundary.requestSeq||0)+1;
-  app.usfsBoundary.requestSeq=seq;
-  app.usfsBoundary.loading=true;
-  try{
-    const geo=await fetchUsfsBoundaryGeoJson(key,bounds,zoom);
-    if(seq!==app.usfsBoundary.requestSeq||!usfsBoundaryEnabled())return;
-    drawUsfsBoundaryGeoJson(geo);
-    app.usfsBoundary.paused=false;
-    if(opts.force)notify(`USFS Boundary Overlay showing ${app.usfsBoundary.lastFeatureCount||0} administrative outline${app.usfsBoundary.lastFeatureCount===1?'':'s'} in the current view.`,6000);
-  }catch(err){
-    console.error(err);
-    if(opts.force)notify(err&&err.message?err.message:'Could not load USFS Boundary Overlay.',7000);
-  }finally{
-    if(seq===app.usfsBoundary.requestSeq)app.usfsBoundary.loading=false;
-    updateUsfsBoundaryControls();
+  u.paused=false;
+  const desired=selectedUsfsStateCodes();
+  const desiredSet=new Set(desired);
+  Object.keys(u.stateLayers).forEach(code=>{if(!desiredSet.has(code))removeUsfsStateLayer(code,{cancelRequest:true});});
+  Object.keys(u.stateLoaded).forEach(code=>{if(!desiredSet.has(code))delete u.stateLoaded[code];});
+  Object.keys(u.stateRequests).forEach(code=>{if(!desiredSet.has(code))u.stateRequestTokens[code]=(u.stateRequestTokens[code]||0)+1;});
+  if(!desired.length){recalcUsfsFeatureCount();return;}
+  let added=0;
+  for(const code of desired){
+    if(u.stateLoaded[code]){
+      const currentDetailKey=usfsDetailedOutlineKeyForState(code);
+      if(u.stateDetailKeys[code]!==currentDetailKey&&Object.prototype.hasOwnProperty.call(u.stateCache,code))drawUsfsStateGeoJson(code,u.stateCache[code]);
+      continue;
+    }
+    if(Object.prototype.hasOwnProperty.call(u.stateCache,code)){
+      drawUsfsStateGeoJson(code,u.stateCache[code]);
+      added++;
+      continue;
+    }
+    await loadUsfsStateBoundary(code,opts);
+    if(u.stateLoaded[code])added++;
   }
+  recalcUsfsFeatureCount();
+  if(opts.force)notify(`Federal Areas showing ${u.lastFeatureCount||0} state-clipped USFS outline${u.lastFeatureCount===1?'':'s'} for ${desired.length} selected state${desired.length===1?'':'s'}. Existing state portions were left in place.`,6500);
 }
-
 function areaOutlineCandidate(site){
   if(!site)return null;
   const raw=site.areaOutline||site.area_outline||site.areaOverlay||site.area_overlay||null;
@@ -2147,9 +2270,24 @@ function outlineToggleAllows(site){
   const j=outlineJurisdiction(site);
   return (j==='federal'&&federalAreaLayerEnabled())||(j!=='federal'&&stateLocalAreaLayerEnabled());
 }
+function parseStateCodesFromText(value){
+  const text=String(value||'').toUpperCase();
+  const states=Object.keys(STATE_BOUNDS||{});
+  return states.filter(code=>new RegExp('(?:^|[^A-Z])'+code+'(?:[^A-Z]|$)').test(text));
+}
+function outlineStateCodes(site){
+  const outline=areaOutlineCandidate(site)||{};
+  return parseStateCodesFromText([site&&site.stateCode,site&&site.state,outline.stateCode,outline.state].join(' '));
+}
 function outlineStateMatches(site){
-  const state=String(site.stateCode||site.state||'').toUpperCase();
-  return !state||app.enabledStates.has(state);
+  const codes=outlineStateCodes(site);
+  if(codes.length!==1){
+    // Static multi-state outlines must be split into separate state records in
+    // the data package. Do not make users select several states to reveal one
+    // unsplit polygon, and do not let an unsplit polygon bleed across states.
+    return false;
+  }
+  return app.enabledStates.has(codes[0]);
 }
 function boondockingOutlineRecords(){
   const records=(app.areaOutline&&Array.isArray(app.areaOutline.standalone)?app.areaOutline.standalone:standaloneAreaOutlineRecords());

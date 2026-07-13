@@ -1,0 +1,48 @@
+Tod's Boondocking & Camping Maps — v23.1.104
+USFS Federal Areas state-split boundary fix
+
+Purpose
+- Replace the incorrect “select every state touched by a multi-state National Forest” gate.
+- Draw only the selected state's portion of each USFS administrative forest boundary.
+- Preserve already-drawn state portions when another state is added or removed.
+
+Changed files
+- app.js
+- index.html
+- version.js
+- PROJECT_RULES.md
+- Project Rules.md
+- data/us-states-10m-v23.1.104.json
+- data/us-states-10m-v23.1.104.LICENSE.txt
+- vendor/topojson-client.min.js
+- vendor/topojson-client.LICENSE.txt
+- vendor/polygon-clipping.min.js
+- vendor/polygon-clipping.LICENSE.txt
+
+Implementation
+- USFS EDW administrative forest polygons are queried once per selected state rather than repeatedly by viewport.
+- Returned multi-state forest polygons are clipped in the browser to a packaged state boundary topology.
+- State topology is a compact TopoJSON redistribution derived from U.S. Census Bureau 2017 cartographic state boundaries (us-atlas 3).
+- Each state receives its own Leaflet layer group.
+- Adding a state loads and draws only that state group.
+- Removing a state removes only that state group.
+- Existing selected-state groups are retained by object identity and are not cleared/redrawn.
+- Normal map pans and zooms above the low-zoom threshold do not schedule work when the selected state groups are already reconciled.
+- Clipped GeoJSON is cached by state with a small LRU cache; the state topology is loaded once.
+- Detailed existing federal outlines still take priority over broad USFS administrative outlines, evaluated separately for each state.
+- The low-zoom guard remains: broad USFS boundaries wait until zoom 5+.
+
+Static multi-state outline control
+- Static area records are expected to be pre-split into one state-specific record per geometry.
+- An unsplit static multi-state outline is suppressed rather than requiring the user to select several states or allowing it to bleed into an unselected state.
+
+Source and trust notes
+- USFS boundary source: USDA Forest Service EDW Forest System Boundaries.
+- State clipping source: Census-derived cartographic state boundary topology, 2017 edition, used for display clipping only.
+- These remain administrative reference outlines, not ownership, access, MVUM, campsite, or camping-permission proof.
+
+Not changed
+- No campsite records changed.
+- No leads changed.
+- No rejected records changed.
+- No marker icons, colors, search, filters, Supabase, or config.js changed.
