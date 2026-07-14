@@ -1,0 +1,51 @@
+TOD'S BOONDOCKING & CAMPING MAPS
+QA — v23.1.115
+Michigan Statewide Bulldog Integration
+
+SYNTAX
+PASS — node --check data/states/MI2.js
+PASS — node --check data/leads.js
+PASS — node --check data/rejected.js
+PASS — node --check data/states-manifest.js
+PASS — node --check version.js
+
+MICHIGAN RUNTIME
+PASS — Produced Michigan runtime count: 584
+PASS — Manifest Michigan count: 584
+PASS — Duplicate active IDs: 0
+PASS — Duplicate normalized active names: 0
+PASS — v23.1.115 active additions found: 61
+PASS — All 24 designated removal IDs are absent
+PASS — All 59 patch targets were found and processed
+
+LEDGERS
+PASS — Total lead rows: 2,282
+PASS — New v23.1.115 Michigan lead/follow-up rows: 323
+PASS — Duplicate lead IDs: 0
+PASS — Total rejected rows: 635
+PASS — New v23.1.115 rejected/duplicate/trap rows: 99
+PASS — Duplicate rejected IDs: 0
+
+VERSION / PACKAGE CONTRACT
+PASS — version.js is the authoritative runtime version assignment and reports v23.1.115
+PASS — Michigan data version/build is v23.1.115-mi-statewide-bulldog-integration
+PASS — No app.js, index.html, CSS, marker, search, rendering, hidden-site or Supabase behavior changed
+PASS — No new routine supplement file was created
+
+EXPECTED COORDINATE-RISK HOLDS
+PASS / INTENTIONAL HOLD — Courtney Lake Campground and Norway Lake Campground retain one shared coordinate pending official coordinate rescue.
+PASS / INTENTIONAL HOLD — Interlochen Duck Lake Modern and Green Lake Rustic retain one shared coordinate pending official Green Lake component extraction.
+These are documented leads. No guessed coordinate was introduced.
+
+DATA DECISION CONTROLS
+PASS — Newberry and Kritters were detected as already active and were not duplicated.
+PASS — Kewadin St. Ignace was held as a lead because the worker found a current-status/development conflict.
+PASS — Tank Lake remains active Boondocking / Dispersed.
+PASS — Western Muskallonge remains the active campground record.
+PASS — No community-reported informal site was promoted without meeting the project threshold.
+PASS — Boat launches, beaches, marinas, trailheads, day-use parks, event-only camping and restricted/member facilities were rejected or retained as leads instead of being imported as ordinary campgrounds.
+
+LIMITATION
+No live browser screenshot or manual click-through was generated. This revision changes data only; JavaScript syntax, produced runtime, counts, IDs, names, ledgers, version metadata and package integrity were tested.
+
+SQL ACTION: NONE

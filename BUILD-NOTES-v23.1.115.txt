@@ -1,0 +1,70 @@
+TOD'S BOONDOCKING & CAMPING MAPS
+BUILD NOTES — v23.1.115
+Michigan Statewide Bulldog Integration
+Released: 2026-07-14
+
+BASELINE
+- v23.1.114 Eastern U.P. closeout
+- Verified starting Michigan runtime: 547 active records
+- All seven geography-locked Michigan Bulldog worker returns were reconciled against the produced runtime before editing.
+
+SCOPE
+- Data-only Michigan statewide integration.
+- No app UI, marker styling, hidden-site behavior, Supabase schema, search behavior, map rendering, or area-overlay display code changed.
+- Existing approved data files were edited; no new routine supplement file was created.
+
+ACTIVE DATA RESULTS
+- Added 61 source-backed Michigan camping records:
+  - Worker 3 Eastern U.P.: 5
+  - Worker 4 Northern L.P. West: 13
+  - Worker 5 Northern L.P. East/Central: 22
+  - Worker 6 West/Central/South L.P.: 13
+  - Worker 7 East/Southeast/Thumb: 8
+  - Workers 1 and 2 produced no clean active additions.
+- Removed 24 proven duplicate, proxy, restricted-access, false-campground, day-use, or otherwise invalid active rows.
+- Applied 59 high-confidence coordinate, layer, name, ownership, access, component, closure/status, and source corrections.
+- Final Michigan runtime: 584 active records.
+- Net Michigan change: +37.
+
+IMPORTANT ADDITION GROUPS
+- Eastern U.P. tribal/operator RV camping and Lime Island boat-in camping context.
+- Huron-Manistee National Forest rustic campgrounds, horse camps, ORV camps, canoe sites, and backcountry systems.
+- Negwegon State Park's four exact official hike/paddle-in campsites.
+- Newaygo/Oceana federal rustic and equestrian campgrounds.
+- Bay City, Finn Road, Tom Graham, Quincy-Marble Lake, Gateway Park, and 6 Lakes.
+- Huron/Tuscola/Lapeer/Genesee/Jackson county and municipal campgrounds.
+
+KEY ACTIVE CORRECTIONS
+- Beaver Island Campground normalized to Isle Royale Boat / Backpack access.
+- Porcupine Mountains Union Bay and Presque Isle components normalized.
+- Lake Michigan Recreation Area moved to the exact official Huron-Manistee coordinate.
+- Petoskey, Fisherman's Island, Traverse City, Ludington, Aloha, South Higgins, Muskegon, Sleeper, Portage Lake, and other duplicate/component systems reconciled where proof was clean.
+- Thunder Bay River SFCG, Bass Lake SFCG, Black Creek SFCG, and Sawkaw Lake received official coordinate corrections.
+- Sawkaw Lake was corrected from generic dispersed camping to official Boat / Backpack backcountry camping.
+- Lake Michigan Campground near St. Ignace was reconciled into one official Hiawatha rustic record.
+- Multiple legacy ownership layers were corrected to Modern, Rustic / Primitive, Private, Boat / Backpack, or Info / Reference where worker proof was sufficient.
+
+LEADS / REJECTED ACCOUNTABILITY
+- Added 323 Michigan lead/follow-up rows to data/leads.js.
+- Added 99 Michigan rejected/duplicate/trap rows to data/rejected.js.
+- Every named unresolved worker target was retained as active data, a lead, a rejected record, or an explicit handled correction.
+- Kewadin St. Ignace RV Park was not promoted because the worker found a current-status/development conflict; it remains a lead.
+- Newberry and Kritters were not duplicated because both were already active from v23.1.112/v23.1.114.
+
+INTENTIONALLY UNRESOLVED COORDINATE CONFLICTS
+- Courtney Lake Campground and Norway Lake Campground still share one coordinate. Official component/coordinate rescue is required before moving either.
+- Interlochen Duck Lake Modern and Green Lake Rustic still share one coordinate. The Green Lake component requires official reservation-map/GIS extraction.
+- These were retained as leads rather than guessed.
+
+CHANGED FILES
+- data/states/MI2.js
+- data/leads.js
+- data/rejected.js
+- data/states-manifest.js
+- version.js
+- BUILD-NOTES-v23.1.115.txt
+- QA-v23.1.115.txt
+- SQL-ACTION-NONE-v23.1.115.txt
+
+SQL ACTION: NONE
+No SQL is required for v23.1.115.

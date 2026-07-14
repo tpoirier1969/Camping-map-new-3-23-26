@@ -9982,4 +9982,1935 @@ window.CAMPING_REJECTED = [
     "lastCheckedVersion": "v23.1.97",
     "notes": "Added by correction-risk audit integration v23.1.97."
   }
+,
+{
+  "id": "mi-v231115-reject-w1-generic-lake-superior-boat-launches-marinas",
+  "state": "MI",
+  "name": "Generic Lake Superior boat launches / marinas",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Boat launch / marina overnight claim",
+  "rejectionType": "Trap relationship to Misery Bay, river mouths, harbor launches, shoreline pull-offs",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Boat launch or marina access is not campsite proof; no overnight camping authority by itself",
+  "relatedActiveOrPendingRecord": "Trap relationship to Misery Bay, river mouths, harbor launches, shoreline pull-offs",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Project coordinate-honesty rule; official campground/source standard in handoff. Worker final action: REJECT / DO NOT IMPORT unless official camping authority is found."
+},
+{
+  "id": "mi-v231115-reject-w1-north-canal-breakers-style-shoreline-parking-claims",
+  "state": "MI",
+  "name": "North Canal / Breakers-style shoreline parking claims",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Parking/beach informal overnight claim",
+  "rejectionType": "Shoreline parking trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No official camping source recovered; parking/beach claims are not campground proof",
+  "relatedActiveOrPendingRecord": "Shoreline parking trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Local/official source still needed; community/map claims insufficient. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w1-informal-tribal-reservation-land-pullouts",
+  "state": "MI",
+  "name": "Informal tribal/reservation-land pullouts",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Informal boondocking",
+  "rejectionType": "Reservation-land permission trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Tribal/reservation land cannot be treated as open dispersed camping from community reports alone",
+  "relatedActiveOrPendingRecord": "Reservation-land permission trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Handoff tribal/reservation control requires official tribal/operator source.. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w1-isle-royale-drive-up-modern-campground-interpretation",
+  "state": "MI",
+  "name": "Isle Royale drive-up/modern campground interpretation",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Legacy layer/access interpretation",
+  "rejectionType": "Existing s65 correction trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Isle Royale campgrounds are accessible only by foot or watercraft and require permits; no drive-up modern-campground treatment",
+  "relatedActiveOrPendingRecord": "Existing s65 correction trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: NPS camping page. National Park Service. Worker final action: REJECT old interpretation; MOVE/CORRECT record.",
+  "sourceUrl": "https://www.nps.gov/isro/planyourvisit/camping.htm"
+},
+{
+  "id": "mi-v231115-reject-w1-porcupine-mountains-random-dispersed-backcountry-centroid",
+  "state": "MI",
+  "name": "Porcupine Mountains random dispersed/backcountry centroid",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Broad park-area camping idea",
+  "rejectionType": "Area/system trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "DNR uses designated/site-specific backcountry campsites and separate campground components; broad centroid would be fake precision",
+  "relatedActiveOrPendingRecord": "Area/system trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: DNR Porcupine page. www2.dnr.state.mi.us. Worker final action: REJECT broad fake point; use exact sites/area rule lead.",
+  "sourceUrl": "https://www2.dnr.state.mi.us/ParksandTrails/Details.aspx?id=426&type=SPRK"
+},
+{
+  "id": "mi-v231115-reject-w1-sylvania-general-dispersed-camping-interpretation",
+  "state": "MI",
+  "name": "Sylvania general dispersed camping interpretation",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Broad Ottawa NF dispersed assumption",
+  "rejectionType": "Boundary/rule trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Ottawa NF states Sylvania is not considered dispersed camping; designated backcountry campsites require permit",
+  "relatedActiveOrPendingRecord": "Boundary/rule trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Ottawa NF page. US Forest Service. Worker final action: REJECT broad dispersed interpretation; extract designated sites.",
+  "sourceUrl": "https://www.fs.usda.gov/r09/ottawa/recreation/camping-cabins"
+},
+{
+  "id": "mi-v231115-reject-w1-fort-wilkins-vague-group-campground-if-unscoped",
+  "state": "MI",
+  "name": "Fort Wilkins vague “Group Campground” if unscoped",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Generic group-camp row",
+  "rejectionType": "Component naming trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Should not remain vague if it is the DNR Fort Wilkins Group Use Area component",
+  "relatedActiveOrPendingRecord": "Component naming trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: DNR Fort Wilkins page. Michigan.gov. Worker final action: REJECT vague duplicate naming; MOVE/CORRECT to official component.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/fortwilkins"
+},
+{
+  "id": "mi-v231115-reject-w2-tribal-reservation-informal-dispersed-pullouts",
+  "state": "MI",
+  "name": "Tribal/reservation informal dispersed pullouts",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "informal boondocking",
+  "rejectionType": "Permission trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No official tribal public overnight permission found; assignment rule says do not assume tribal/reservation land open to dispersed camping",
+  "relatedActiveOrPendingRecord": "Permission trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Worker assignment tribal-control rule.. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w2-generic-boat-launches-beaches-marinas-on-little-bay-de-noc-lake-michigan-lake-su",
+  "state": "MI",
+  "name": "Generic boat launches / beaches / marinas on Little Bay de Noc / Lake Michigan / Lake Superior",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "boat-launch or beach overnight trap",
+  "rejectionType": "Proxy-coordinate trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No explicit overnight-camping authority; ordinary boat launch, marina or beach is not a campsite",
+  "relatedActiveOrPendingRecord": "Proxy-coordinate trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Project coordinate-honesty rule: no boat ramps, marinas, beaches, random parking lots as exact campsite pins.. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w2-fuller-park-picnic-area-if-separate-from-o-b-fuller-campground",
+  "state": "MI",
+  "name": "Fuller Park Picnic Area if separate from O.B. Fuller campground",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "picnic-area trap",
+  "rejectionType": "Possible duplicate/trap against O.B. Fuller County Park",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Accessible package had both picnic-area and county-park campground rows; picnic-only point should not remain campground if no overnight proof",
+  "relatedActiveOrPendingRecord": "Possible duplicate/trap against O.B. Fuller County Park",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Accessible package review; official proof not recovered. Worker final action: REJECT / DO NOT IMPORT if live proof absent."
+},
+{
+  "id": "mi-v231115-reject-w2-broad-lake-river-centers-for-canoe-corridors",
+  "state": "MI",
+  "name": "Broad lake/river centers for canoe corridors",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "fake coordinate trap",
+  "rejectionType": "Geometry trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "River/lake center does not represent campsite; corridor systems need exact site or area-rule geometry",
+  "relatedActiveOrPendingRecord": "Geometry trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Project coordinate rule.. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w2-event-only-fairground-camping-if-no-non-event-public-policy-exists",
+  "state": "MI",
+  "name": "Event-only fairground camping if no non-event public policy exists",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "event-only camping trap",
+  "rejectionType": "Needs status guardrail",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "U.P. State Fairgrounds has camping context, but non-event public policy was not verified",
+  "relatedActiveOrPendingRecord": "Needs status guardrail",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Public source notes fairgrounds camping volume but not ordinary transient policy. Wikipedia. Worker final action: REJECT / DO NOT IMPORT if official policy is event-only.",
+  "sourceUrl": "https://en.wikipedia.org/wiki/Upper_Peninsula_State_Fair"
+},
+{
+  "id": "mi-v231115-reject-w3-whitefish-point-beach-parking-overnight-camping",
+  "state": "MI",
+  "name": "Whitefish Point beach / parking overnight camping",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Beach/parking/shoreline camping claim",
+  "rejectionType": "Reject guardrail for community/map parking claims",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Whitefish Point Unit is daylight-use only; camping and overnight parking are prohibited",
+  "relatedActiveOrPendingRecord": "Reject guardrail for community/map parking claims",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: FWS rules page. U.S. Fish and Wildlife Service. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.fws.gov/refuge/seney/visit-us/rules-policies"
+},
+{
+  "id": "mi-v231115-reject-w3-seney-nwr-pull-off-refuge-road-camping",
+  "state": "MI",
+  "name": "Seney NWR pull-off / refuge road camping",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Refuge-road pull-off camping",
+  "rejectionType": "Reject guardrail; do not convert refuge roads/parking into boondocking",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "FWS rules prohibit camping and overnight parking",
+  "relatedActiveOrPendingRecord": "Reject guardrail; do not convert refuge roads/parking into boondocking",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: FWS rules page. U.S. Fish and Wildlife Service. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.fws.gov/refuge/seney/visit-us/rules-policies"
+},
+{
+  "id": "mi-v231115-reject-w3-pictured-rocks-dispersed-beach-camping",
+  "state": "MI",
+  "name": "Pictured Rocks dispersed / beach camping",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Dispersed or beach camping inside NPS",
+  "rejectionType": "Reject guardrail; preserve only designated NPS campgrounds/backcountry",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "NPS says camping outside designated campgrounds is not allowed, including beach and dispersed camping",
+  "relatedActiveOrPendingRecord": "Reject guardrail; preserve only designated NPS campgrounds/backcountry",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: NPS camping page. National Park Service. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.nps.gov/piro/planyourvisit/camping.htm"
+},
+{
+  "id": "mi-v231115-reject-w3-mackinac-island-shoreline-backcountry-camping",
+  "state": "MI",
+  "name": "Mackinac Island shoreline/backcountry camping",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Island camping claim",
+  "rejectionType": "Reject guardrail; lodging only, no public campground",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Camping not permitted on Mackinac Island",
+  "relatedActiveOrPendingRecord": "Reject guardrail; lodging only, no public campground",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Mackinac Island tourism rule page. Mackinac Island. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.mackinacisland.org/blog/post/can-you-camp-on-mackinac-island/"
+},
+{
+  "id": "mi-v231115-reject-w3-les-cheneaux-private-island-camping-claims-outside-government-island",
+  "state": "MI",
+  "name": "Les Cheneaux private-island camping claims outside Government Island",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Island camping claim",
+  "rejectionType": "Do not import unnamed/private islands from community chatter",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Public sources identify Government Island as the public camping island; other Les Cheneaux islands are not blanket public camping",
+  "relatedActiveOrPendingRecord": "Do not import unnamed/private islands from community chatter",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Les Cheneaux / UPTravel sources. lescheneauxwatershed.org. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.lescheneauxwatershed.org/projects/government-island-trails"
+},
+{
+  "id": "mi-v231115-reject-w3-bois-blanc-island-terminal-building-overnight-stays-for-non-pilots",
+  "state": "MI",
+  "name": "Bois Blanc Island terminal-building overnight stays for non-pilots",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Airport overnight/parking claim",
+  "rejectionType": "Reject terminal/airport-wide camping; preserve campground-area lead",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Township airport page says camping only in small campground area; terminal overnight stays only for pilots prevented from departing due weather/mechanical issues",
+  "relatedActiveOrPendingRecord": "Reject terminal/airport-wide camping; preserve campground-area lead",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Bois Blanc Township airport page. Bois Blanc Township. Worker final action: REJECT / DO NOT IMPORT as broad airport/terminal overnight.",
+  "sourceUrl": "https://www.boisblanctownship.org/government/airport-6y1/"
+},
+{
+  "id": "mi-v231115-reject-w4-dunes-campground-s260",
+  "state": "MI",
+  "name": "“Dunes campground” — s260",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Municipal campground",
+  "rejectionType": "Mislocated and misowned composite row",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Muskegon ownership/source is attached to a coordinate in the Sleeping Bear/Platte region; record is internally impossible",
+  "relatedActiveOrPendingRecord": "Mislocated and misowned composite row",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Runtime/source reconciliation. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w4-green-lake-township-memorial-park-s350",
+  "state": "MI",
+  "name": "Green Lake Township Memorial Park — s350",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Township park",
+  "rejectionType": "Day-use park; not Interlochen’s Green Lake Rustic Campground",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Officially supported park use did not establish public overnight camping",
+  "relatedActiveOrPendingRecord": "Day-use park; not Interlochen’s Green Lake Rustic Campground",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Township/public-discovery check. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w4-fishermans-island-south-campground-s300-as-a-standalone-campground",
+  "state": "MI",
+  "name": "Fisherman’s Island “South Campground” — s300 as a standalone campground",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "State-park component",
+  "rejectionType": "Duplicate subdivision of the same campground",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "DNR describes one rustic campground with three loops, not an independent official South Campground. Michigan.gov",
+  "relatedActiveOrPendingRecord": "Duplicate subdivision of the same campground",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: DNR. Worker final action: MERGE DUPLICATE."
+},
+{
+  "id": "mi-v231115-reject-w4-generic-green-lake-campground-s348-as-an-extra-third-interlochen-campground",
+  "state": "MI",
+  "name": "Generic Green Lake Campground — s348 as an extra third Interlochen campground",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "State-park campground",
+  "rejectionType": "Should supply the corrected coordinate for Green Lake Rustic, not survive as an additional campground",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Official system has Duck Lake Modern and Green Lake Rustic only. Michigan.gov",
+  "relatedActiveOrPendingRecord": "Should supply the corrected coordinate for Green Lake Rustic, not survive as an additional campground",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: DNR. Worker final action: MERGE DUPLICATE."
+},
+{
+  "id": "mi-v231115-reject-w4-legacy-ludington-beechwood-s69",
+  "state": "MI",
+  "name": "Legacy Ludington Beechwood — s69",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "State-park campground",
+  "rejectionType": "Duplicate of s573",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate of the newer Beechwood component",
+  "relatedActiveOrPendingRecord": "Duplicate of s573",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: DNR component list. Michigan.gov. Worker final action: MERGE DUPLICATE.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/ludington"
+},
+{
+  "id": "mi-v231115-reject-w4-legacy-ludington-cedar-s174",
+  "state": "MI",
+  "name": "Legacy Ludington Cedar — s174",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "State-park campground",
+  "rejectionType": "Duplicate of s574",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate of the newer Cedar component",
+  "relatedActiveOrPendingRecord": "Duplicate of s574",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: DNR component list. Michigan.gov. Worker final action: MERGE DUPLICATE.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/ludington"
+},
+{
+  "id": "mi-v231115-reject-w4-fishers-run-park-s297",
+  "state": "MI",
+  "name": "Fisher’s Run Park — s297",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Local park",
+  "rejectionType": "Likely day-use park trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No explicit public overnight-camping authorization recovered",
+  "relatedActiveOrPendingRecord": "Likely day-use park trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Local/public-discovery searches. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w4-robert-doerr-park-s785",
+  "state": "MI",
+  "name": "Robert Doerr Park — s785",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Local park",
+  "rejectionType": "Likely day-use park trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No explicit public overnight-camping authorization recovered",
+  "relatedActiveOrPendingRecord": "Likely day-use park trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Local/public-discovery searches. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w4-nurnberg-trailhead-as-a-campground-or-overnight-parking-point",
+  "state": "MI",
+  "name": "Nurnberg Trailhead as a campground or overnight-parking point",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Trailhead/access",
+  "rejectionType": "Access-point trap; use area/rule treatment",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Official evidence supports access to legal dispersed use, not a normal campsite at the trailhead itself. US Forest Service",
+  "relatedActiveOrPendingRecord": "Access-point trap; use area/rule treatment",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: USFS. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w4-peterson-bridge-canoe-landing-gleasons-river-access-rainbow-rapids-and-similar-l",
+  "state": "MI",
+  "name": "Peterson Bridge Canoe Landing, Gleason’s river access, Rainbow Rapids and similar launches as standalone camping points",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Boat launch / river access",
+  "rejectionType": "Launch/day-use trap adjacent to legitimate camping systems",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Access facilities are not automatically overnight campsites; only separately proved campground/site components qualify",
+  "relatedActiveOrPendingRecord": "Launch/day-use trap adjacent to legitimate camping systems",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: USFS river/campground pages. US Forest Service. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.fs.usda.gov/r09/huron-manistee/recreation/peterson-bridge-campground"
+},
+{
+  "id": "mi-v231115-reject-w5-lake-arrowhead-campground-s486",
+  "state": "MI",
+  "name": "Lake Arrowhead Campground s486",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Private campground",
+  "rejectionType": "Restricted-membership trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Member/guest amenity inside a property-owners association; ordinary public booking not proved",
+  "relatedActiveOrPendingRecord": "Restricted-membership trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Current operator-linked runtime record. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w5-presque-isle-state-park-campground-s749",
+  "state": "MI",
+  "name": "Presque Isle State Park Campground s749",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "State campground",
+  "rejectionType": "Fabricated/misnamed active point",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No official campground matching this name was found; point appears derived from the Presque Isle place/harbor area",
+  "relatedActiveOrPendingRecord": "Fabricated/misnamed active point",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: DNR facility reconciliation; Thompson’s Harbor source. Michigan.gov. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/thompsonsharbor"
+},
+{
+  "id": "mi-v231115-reject-w5-round-lake-campground-and-day-use-area",
+  "state": "MI",
+  "name": "Round Lake Campground and Day Use Area",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "USFS campground",
+  "rejectionType": "Legacy pending row; current closure",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Official page marks the site closed",
+  "relatedActiveOrPendingRecord": "Legacy pending row; current closure",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: USFS recreation page. US Forest Service. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.fs.usda.gov/r09/huron-manistee/recreation/round-lake-campground-and-day-use-area"
+},
+{
+  "id": "mi-v231115-reject-w5-thompsons-harbor-state-park-campground",
+  "state": "MI",
+  "name": "Thompson’s Harbor State Park “campground”",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "State-park camping",
+  "rejectionType": "Lodging/cabin-versus-campground trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Official offering recovered was rustic cabins, not a normal campground component",
+  "relatedActiveOrPendingRecord": "Lodging/cabin-versus-campground trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Michigan DNR. Michigan.gov. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/thompsonsharbor"
+},
+{
+  "id": "mi-v231115-reject-w5-rifle-river-rustic-cabins",
+  "state": "MI",
+  "name": "Rifle River rustic cabins",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "State recreation lodging",
+  "rejectionType": "Lodging-versus-campground trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Cabins are separate lodging units, not campground-site records",
+  "relatedActiveOrPendingRecord": "Lodging-versus-campground trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Michigan DNR component inventory. Michigan.gov. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/rifleriver"
+},
+{
+  "id": "mi-v231115-reject-w5-louds-pine-acres-launch-sawmill-point-gravel-point-and-other-au-sable-accesses-n",
+  "state": "MI",
+  "name": "Loud’s, Pine Acres launch, Sawmill Point, Gravel Point and other Au Sable accesses not identified as designated sites",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "River-access leads",
+  "rejectionType": "Access-point/site-system trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Launch, parking, trailhead or day-use status does not prove overnight camping",
+  "relatedActiveOrPendingRecord": "Access-point/site-system trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: USFS designated 102-site system. US Forest Service. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.fs.usda.gov/r09/huron-manistee/recreation/au-sable-river-backcountry-campsites"
+},
+{
+  "id": "mi-v231115-reject-w5-saganing-casino-parking-lot-camping-assumption",
+  "state": "MI",
+  "name": "Saganing casino parking-lot camping assumption",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Tribal/casino overnight parking",
+  "rejectionType": "Parking-lot and tribal-permission trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No formal campground, RV area or official overnight-parking permission was proved; casino existence alone is insufficient",
+  "relatedActiveOrPendingRecord": "Parking-lot and tribal-permission trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Tribal/operator source sweep. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w5-cheboygan-walmart-overnight-candidate",
+  "state": "MI",
+  "name": "Cheboygan Walmart overnight candidate",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight Parking",
+  "rejectionType": "Parking-lot policy trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Manager-discretion retail lot; no stable current site-specific permission",
+  "relatedActiveOrPendingRecord": "Parking-lot policy trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Inactive package parking dataset. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w5-gaylord-walmart-overnight-candidate",
+  "state": "MI",
+  "name": "Gaylord Walmart overnight candidate",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight Parking",
+  "rejectionType": "Parking-lot policy trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Manager-discretion retail lot; no stable current site-specific permission",
+  "relatedActiveOrPendingRecord": "Parking-lot policy trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Inactive package parking dataset. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w5-alpena-walmart-overnight-candidate",
+  "state": "MI",
+  "name": "Alpena Walmart overnight candidate",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight Parking",
+  "rejectionType": "Parking-lot policy trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Manager-discretion retail lot; no stable current site-specific permission",
+  "relatedActiveOrPendingRecord": "Parking-lot policy trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Inactive package parking dataset. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w5-grayling-walmart-overnight-candidate",
+  "state": "MI",
+  "name": "Grayling Walmart overnight candidate",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight Parking",
+  "rejectionType": "Parking-lot policy trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Manager-discretion retail lot; no stable current site-specific permission",
+  "relatedActiveOrPendingRecord": "Parking-lot policy trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Inactive package parking dataset. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w5-west-branch-walmart-overnight-candidate",
+  "state": "MI",
+  "name": "West Branch Walmart overnight candidate",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight Parking",
+  "rejectionType": "Parking-lot policy trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Manager-discretion retail lot; no stable current site-specific permission",
+  "relatedActiveOrPendingRecord": "Parking-lot policy trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Inactive package parking dataset. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w5-tawas-city-walmart-overnight-candidate",
+  "state": "MI",
+  "name": "Tawas City Walmart overnight candidate",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight Parking",
+  "rejectionType": "Parking-lot policy trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Manager-discretion retail lot; no stable current site-specific permission",
+  "relatedActiveOrPendingRecord": "Parking-lot policy trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Inactive package parking dataset. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w5-oscoda-walmart-overnight-candidate",
+  "state": "MI",
+  "name": "Oscoda Walmart overnight candidate",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight Parking",
+  "rejectionType": "Parking-lot policy trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Manager-discretion retail lot; no stable current site-specific permission",
+  "relatedActiveOrPendingRecord": "Parking-lot policy trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Inactive package parking dataset. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w5-clare-walmart-overnight-candidate",
+  "state": "MI",
+  "name": "Clare Walmart overnight candidate",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight Parking",
+  "rejectionType": "Parking-lot policy trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Manager-discretion retail lot; no stable current site-specific permission",
+  "relatedActiveOrPendingRecord": "Parking-lot policy trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Inactive package parking dataset. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-nichols-lake-north-recreation-area",
+  "state": "MI",
+  "name": "Nichols Lake North Recreation Area",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "USFS lake/day-use lead",
+  "rejectionType": "Near Nichols Lake South but not a duplicate campground; day-use trap.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Official source identifies day-use recreation, not an overnight campground.",
+  "relatedActiveOrPendingRecord": "Near Nichols Lake South but not a duplicate campground; day-use trap.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: USFS recreation system. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.fs.usda.gov/r09/huron-manistee/maps-guides"
+},
+{
+  "id": "mi-v231115-reject-w6-pines-point-day-use-area",
+  "state": "MI",
+  "name": "Pines Point Day Use Area",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "USFS day-use lead",
+  "rejectionType": "Separate from add-candidate campground; avoid duplicate day-use pin.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Official name/function is day use; campground is a separate Pines Point record.",
+  "relatedActiveOrPendingRecord": "Separate from add-candidate campground; avoid duplicate day-use pin.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Pines Point official. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.fs.usda.gov/r09/huron-manistee/recreation/pines-point-campground"
+},
+{
+  "id": "mi-v231115-reject-w6-white-river-trailhead",
+  "state": "MI",
+  "name": "White River Trailhead",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "USFS trailhead lead",
+  "rejectionType": "Trailhead trap.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No site-specific overnight camping permission; trailhead is not a campground.",
+  "relatedActiveOrPendingRecord": "Trailhead trap.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: USFS trail/MVUM source. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-horseshoe-cedar-creek-and-holton-motorized-trailheads",
+  "state": "MI",
+  "name": "Horseshoe, Cedar Creek and Holton motorized trailheads",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "USFS trailhead leads",
+  "rejectionType": "Trailhead traps.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "USFS unit rule says camping is not permitted at trailheads except designated exceptions outside this lock.",
+  "relatedActiveOrPendingRecord": "Trailhead traps.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: USFS OHV/trailhead rules. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-cedar-point-county-park-oceana",
+  "state": "MI",
+  "name": "Cedar Point County Park (Oceana)",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "County park lead",
+  "rejectionType": "Day-use/public-park trap unless official camping page is produced.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Overnight campground proof not recovered from official county park material.",
+  "relatedActiveOrPendingRecord": "Day-use/public-park trap unless official camping page is produced.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Oceana County Parks. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-saugatuck-dunes-state-park",
+  "state": "MI",
+  "name": "Saugatuck Dunes State Park",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "State park lead",
+  "rejectionType": "State-park-name trap.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Official park has day-use/trails/beach but no campground.",
+  "relatedActiveOrPendingRecord": "State-park-name trap.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Michigan DNR. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-wabasis-lake-park-listed-under-montcalm-inventory",
+  "state": "MI",
+  "name": "Wabasis Lake Park listed under Montcalm inventory",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Cross-county directory lead",
+  "rejectionType": "Cross-county duplicate/already present.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Actual campground is in Kent County and already active as s964.",
+  "relatedActiveOrPendingRecord": "Cross-county duplicate/already present.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Kent County Parks/current runtime. Worker final action: DUPLICATE / ALREADY PRESENT."
+},
+{
+  "id": "mi-v231115-reject-w6-gilead-lake-park",
+  "state": "MI",
+  "name": "Gilead Lake Park",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Branch County park lead",
+  "rejectionType": "Day-use/boat-launch trap.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Official county description supports day use/picnic/boat access, not campground use.",
+  "relatedActiveOrPendingRecord": "Day-use/boat-launch trap.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Branch County Parks. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-riverbend-park",
+  "state": "MI",
+  "name": "Riverbend Park",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Branch County park lead",
+  "rejectionType": "Day-use/water-access trap.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Official county description supports picnic/canoe/day use, not overnight camping.",
+  "relatedActiveOrPendingRecord": "Day-use/water-access trap.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Branch County Parks. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-lost-nation-state-game-area-informal-camping",
+  "state": "MI",
+  "name": "Lost Nation State Game Area informal camping",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Public-land/boondocking lead",
+  "rejectionType": "Official contradiction.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No designated camping proof; Michigan dispersed rule excludes state game areas.",
+  "relatedActiveOrPendingRecord": "Official contradiction.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Michigan DNR dispersed rule. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-cass-county-fair-camping-as-a-year-round-public-campground",
+  "state": "MI",
+  "name": "Cass County Fair camping as a year-round/public campground",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Fairground lead",
+  "rejectionType": "Event-only trap.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Only event/fair camping was proved; general public booking policy not established.",
+  "relatedActiveOrPendingRecord": "Event-only trap.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Cass County Fair materials. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-saginaw-bay-resort-standish",
+  "state": "MI",
+  "name": "Saginaw Bay Resort — Standish",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Private campground search result",
+  "rejectionType": "Out-of-scope name caused by regional search.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Address is Standish in Arenac County, outside geographic lock.",
+  "relatedActiveOrPendingRecord": "Out-of-scope name caused by regional search.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Operator official site. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-ambrose-lake-state-forest-campground-returned-for-branch-michigan",
+  "state": "MI",
+  "name": "Ambrose Lake State Forest Campground returned for “Branch Michigan”",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "State-forest campground search result",
+  "rejectionType": "Out-of-scope false county match.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "The campground is in Ogemaw County; “Branch” was interpreted as community/term, not Branch County.",
+  "relatedActiveOrPendingRecord": "Out-of-scope false county match.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Michigan DNR. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-public-boat-launches-beaches-and-marinas-without-explicit-overnight-policy",
+  "state": "MI",
+  "name": "Public boat launches, beaches and marinas without explicit overnight policy",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Parking/shoreline leads",
+  "rejectionType": "Generic trap class.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No explicit legal overnight vehicle camping or normal campsite proof.",
+  "relatedActiveOrPendingRecord": "Generic trap class.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Official local/agency pages checked by named site. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w6-usfs-trailhead-parking-as-campground-substitute",
+  "state": "MI",
+  "name": "USFS trailhead parking as campground substitute",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight-parking/boondocking lead",
+  "rejectionType": "Official contradiction.",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Unit-specific official rule prohibits trailhead camping except designated exceptions not in this lock.",
+  "relatedActiveOrPendingRecord": "Official contradiction.",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: USFS official rules. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w7-delaware-park-sanilac-county",
+  "state": "MI",
+  "name": "Delaware Park, Sanilac County",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "County shoreline park",
+  "rejectionType": "Day-use park trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No normal campground proof; identified as park/day-use rather than one of the county camping facilities",
+  "relatedActiveOrPendingRecord": "Day-use park trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: County/tourism reconciliation Sanilac County Parks. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.sanilaccountyparks.com/"
+},
+{
+  "id": "mi-v231115-reject-w7-caseville-sunset-campground-proposal",
+  "state": "MI",
+  "name": "Caseville Sunset campground proposal",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Future municipal/private campground",
+  "rejectionType": "Future-development trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Public opening reported for 2027, not operating in the current 2026 season",
+  "relatedActiveOrPendingRecord": "Future-development trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Current reporting Huron Daily Tribune. Worker final action: REJECT / DO NOT IMPORT now; reassess after opening.",
+  "sourceUrl": "https://www.michigansthumb.com/news/article/caseville-sunset-rv-resort-20403118.php"
+},
+{
+  "id": "mi-v231115-reject-w7-camp-holaka",
+  "state": "MI",
+  "name": "Camp Holaka",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Former camp property",
+  "rejectionType": "Closed-camp trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Closed/sold; no current public campground operation proved",
+  "relatedActiveOrPendingRecord": "Closed-camp trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Historical/property sources reviewed. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w7-d-bar-a-scout-ranch",
+  "state": "MI",
+  "name": "D-Bar-A Scout Ranch",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Scout/group camp",
+  "rejectionType": "Private-group trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Restricted institutional/group use; no ordinary public-transient campground proof",
+  "relatedActiveOrPendingRecord": "Private-group trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Operator/institutional discovery. Worker final action: REJECT / DO NOT IMPORT as ordinary campground."
+},
+{
+  "id": "mi-v231115-reject-w7-fowlerville-family-fairgrounds",
+  "state": "MI",
+  "name": "Fowlerville Family Fairgrounds",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Fairground camping",
+  "rejectionType": "Event-only risk",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No standing public-transient camping policy proved; camping appears tied to events/fair use",
+  "relatedActiveOrPendingRecord": "Event-only risk",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: County/tourism discovery. Worker final action: REJECT / DO NOT IMPORT pending explicit year-round transient policy."
+},
+{
+  "id": "mi-v231115-reject-w7-chelsea-fairgrounds",
+  "state": "MI",
+  "name": "Chelsea Fairgrounds",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Licensed/fairground lead",
+  "rejectionType": "Event-only/fairground trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Licensing/name does not prove normal public campground access",
+  "relatedActiveOrPendingRecord": "Event-only/fairground trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Washtenaw licensed list Washtenaw County. Worker final action: REJECT / DO NOT IMPORT unless operator proves ordinary stays.",
+  "sourceUrl": "https://www.washtenaw.org/campgrounds"
+},
+{
+  "id": "mi-v231115-reject-w7-friends-lake-cooperative-community",
+  "state": "MI",
+  "name": "Friends Lake Cooperative Community",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Licensed campground",
+  "rejectionType": "Membership trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Cooperative/membership characteristics; unrestricted public stays not proved",
+  "relatedActiveOrPendingRecord": "Membership trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Washtenaw licensed list. Worker final action: REJECT / DO NOT IMPORT unless public booking is documented."
+},
+{
+  "id": "mi-v231115-reject-w7-post-46-hunt-fish-club",
+  "state": "MI",
+  "name": "Post 46 Hunt & Fish Club",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Licensed campground",
+  "rejectionType": "Membership/club trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Club-restricted use indicated by identity; public booking not proved",
+  "relatedActiveOrPendingRecord": "Membership/club trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Washtenaw licensed list. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w7-wolcott-camp-rotary",
+  "state": "MI",
+  "name": "Wolcott Camp Rotary",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Group campground",
+  "rejectionType": "Seasonal/event/group trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Normally organized-youth/group facility; 2026 family camping was a single special weekend",
+  "relatedActiveOrPendingRecord": "Seasonal/event/group trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Metroparks official sources Metroparks. Worker final action: REJECT / DO NOT IMPORT as ordinary campground; optional Info/Reference.",
+  "sourceUrl": "https://www.metroparks.com/camping/"
+},
+{
+  "id": "mi-v231115-reject-w7-kensington-rustic-group-camp",
+  "state": "MI",
+  "name": "Kensington rustic group camp",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Group camping",
+  "rejectionType": "Restricted component; separate from canoe camp",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Restricted to properly sponsored and supervised youth groups",
+  "relatedActiveOrPendingRecord": "Restricted component; separate from canoe camp",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Official Metroparks page Metroparks. Worker final action: REJECT / DO NOT IMPORT as ordinary campground.",
+  "sourceUrl": "https://www.metroparks.com/kensington-metropark/"
+},
+{
+  "id": "mi-v231115-reject-w7-proud-lake-pines-group-facility",
+  "state": "MI",
+  "name": "Proud Lake Pines group facility",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Organizational camp",
+  "rejectionType": "Restricted component",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Youth-oriented eligibility; not a normal open campground",
+  "relatedActiveOrPendingRecord": "Restricted component",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Official DNR component description Michigan.gov. Worker final action: REJECT / DO NOT IMPORT as ordinary campground; restricted reference only.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/proudlake"
+},
+{
+  "id": "mi-v231115-reject-w7-state-game-area-ownership-pins",
+  "state": "MI",
+  "name": "State-game-area ownership pins",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Public-land/boondocking lead",
+  "rejectionType": "Ownership-equals-permission trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "State-game ownership does not create general camping permission; explicit seasonal restriction applies",
+  "relatedActiveOrPendingRecord": "Ownership-equals-permission trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Michigan DNR Michigan.gov. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.michigan.gov/dnr/-/media/Project/Websites/dnr/Documents/Forms/folder2/PR4134_CampRegCard.pdf"
+},
+{
+  "id": "mi-v231115-reject-w7-fort-gratiot-county-park",
+  "state": "MI",
+  "name": "Fort Gratiot County Park",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Shoreline park",
+  "rejectionType": "Shoreline park trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Recreation/day-use facilities; campground not proved",
+  "relatedActiveOrPendingRecord": "Shoreline park trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Official regional tourism Michigan's Thumbcoast. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.bluewater.org/outdoor-recreation/parks-beaches/"
+},
+{
+  "id": "mi-v231115-reject-w7-goodells-county-park",
+  "state": "MI",
+  "name": "Goodells County Park",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "County park",
+  "rejectionType": "Park-name trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Day-use/recreation facilities; no normal camping operation proved",
+  "relatedActiveOrPendingRecord": "Park-name trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Regional tourism Michigan's Thumbcoast. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.bluewater.org/things-to-do/"
+},
+{
+  "id": "mi-v231115-reject-w7-oakwoods-willow-and-lake-erie-metropark-general-park-pins",
+  "state": "MI",
+  "name": "Oakwoods, Willow and Lake Erie Metropark general park pins",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Metropark/public land",
+  "rejectionType": "Broad-park and day-use trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No ordinary camping outside specifically designated facilities",
+  "relatedActiveOrPendingRecord": "Broad-park and day-use trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Metroparks rules and individual park pages Metroparks. Worker final action: REJECT / DO NOT IMPORT.",
+  "sourceUrl": "https://www.metroparks.com/oakwoods-metropark/"
+},
+{
+  "id": "mi-v231115-reject-w7-ordinary-boat-launches-fishing-accesses-and-marinas",
+  "state": "MI",
+  "name": "Ordinary boat launches, fishing accesses and marinas",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Water-access/parking leads",
+  "rejectionType": "Boat-launch/marina trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Launch, slip or parking availability does not prove camping or overnight vehicle permission",
+  "relatedActiveOrPendingRecord": "Boat-launch/marina trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Official-rule and operator checks. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w7-ordinary-retail-and-commuter-lots",
+  "state": "MI",
+  "name": "Ordinary retail and commuter lots",
+  "countyRegion": "Michigan regional Bulldog reject control",
+  "rejectedAsLayer": "Overnight-parking leads",
+  "rejectionType": "Unstable parking-permission trap",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No reliable enduring operator authorization",
+  "relatedActiveOrPendingRecord": "Unstable parking-permission trap",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Source: Public/community search. Worker final action: REJECT / DO NOT IMPORT."
+},
+{
+  "id": "mi-v231115-reject-w0-union-bay-campground",
+  "state": "MI",
+  "name": "Union Bay Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate Union Bay campground; survivor is s1030.",
+  "relatedActiveOrPendingRecord": "Removed active ID s947",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate Union Bay campground; survivor is s1030."
+},
+{
+  "id": "mi-v231115-reject-w0-black-river-nfcg",
+  "state": "MI",
+  "name": "Black River NFCG",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "federal",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate Black River Harbor campground; survivor is s1040.",
+  "relatedActiveOrPendingRecord": "Removed active ID s96",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate Black River Harbor campground; survivor is s1040.",
+  "sourceUrl": "https://www.recreation.gov/camping/campgrounds/234526"
+},
+{
+  "id": "mi-v231115-reject-w0-baraga-state-park",
+  "state": "MI",
+  "name": "Baraga State Park",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "state",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate Baraga State Park record; survivor is s47.",
+  "relatedActiveOrPendingRecord": "Removed active ID s1063",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate Baraga State Park record; survivor is s47.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/baraga"
+},
+{
+  "id": "mi-v231115-reject-w0-craig-lake-trailhead",
+  "state": "MI",
+  "name": "Craig Lake Trailhead",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "Boat / Backpack",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Craig Lake trailhead proxy; exact backcountry campsite system is represented separately.",
+  "relatedActiveOrPendingRecord": "Removed active ID s220",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Craig Lake trailhead proxy; exact backcountry campsite system is represented separately.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/craiglake"
+},
+{
+  "id": "mi-v231115-reject-w0-fisherman-s-island-state-park",
+  "state": "MI",
+  "name": "Fisherman's Island State Park",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "Rustic / Primitive",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Fisherman’s Island broad parent duplicate; survivor campground is s299.",
+  "relatedActiveOrPendingRecord": "Removed active ID s298",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Fisherman’s Island broad parent duplicate; survivor campground is s299.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/fishermans"
+},
+{
+  "id": "mi-v231115-reject-w0-fisherman-s-island-state-park-south-campground",
+  "state": "MI",
+  "name": "Fisherman's Island State Park South Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "Rustic / Primitive",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Unsupported separate South Campground duplicate; merge into s299.",
+  "relatedActiveOrPendingRecord": "Removed active ID s300",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Unsupported separate South Campground duplicate; merge into s299.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/fishermans"
+},
+{
+  "id": "mi-v231115-reject-w0-traverse-city-state-park-campground",
+  "state": "MI",
+  "name": "Traverse City State Park Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "state",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate Traverse City State Park campground; survivor is s459.",
+  "relatedActiveOrPendingRecord": "Removed active ID s934",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate Traverse City State Park campground; survivor is s459.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/traversecity"
+},
+{
+  "id": "mi-v231115-reject-w0-ludington-state-park-and-campgrounds",
+  "state": "MI",
+  "name": "Ludington State Park and Campgrounds",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "state",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Broad Ludington parent record redundant after component records.",
+  "relatedActiveOrPendingRecord": "Removed active ID s572",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Broad Ludington parent record redundant after component records.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/ludington"
+},
+{
+  "id": "mi-v231115-reject-w0-beechwood-campground",
+  "state": "MI",
+  "name": "Beechwood Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate Ludington Beechwood component; survivor is s573.",
+  "relatedActiveOrPendingRecord": "Removed active ID s69",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate Ludington Beechwood component; survivor is s573."
+},
+{
+  "id": "mi-v231115-reject-w0-cedar-campground",
+  "state": "MI",
+  "name": "Cedar Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate Ludington Cedar component; survivor is s574.",
+  "relatedActiveOrPendingRecord": "Removed active ID s174",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate Ludington Cedar component; survivor is s574."
+},
+{
+  "id": "mi-v231115-reject-w0-dunes-campground",
+  "state": "MI",
+  "name": "Dunes campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Internally impossible mislocated/misowned Dunes campground record.",
+  "relatedActiveOrPendingRecord": "Removed active ID s260",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Internally impossible mislocated/misowned Dunes campground record.",
+  "sourceUrl": "https://www.cityofmuskegon.com/Facilities/Facility/Details/Pere-Marquette-Campground-25"
+},
+{
+  "id": "mi-v231115-reject-w0-green-lake-township-memorial-park",
+  "state": "MI",
+  "name": "Green Lake Township Memorial Park",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Green Lake Township Memorial Park is not proved as public overnight camping.",
+  "relatedActiveOrPendingRecord": "Removed active ID s350",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Green Lake Township Memorial Park is not proved as public overnight camping.",
+  "sourceUrl": "https://greenlaketownship.org/memorial-park/"
+},
+{
+  "id": "mi-v231115-reject-w0-huron-manistee-dispersed-area-boardman-corridor",
+  "state": "MI",
+  "name": "Huron-Manistee dispersed area - Boardman corridor",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "boondocking",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Boardman dispersed proxy duplicates Scheck’s Place coordinate without separate proof.",
+  "relatedActiveOrPendingRecord": "Removed active ID s415",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Boardman dispersed proxy duplicates Scheck’s Place coordinate without separate proof.",
+  "sourceUrl": "https://www.fs.usda.gov/r09/huron-manistee/recreation/camping-cabins"
+},
+{
+  "id": "mi-v231115-reject-w0-fisher-s-run-park",
+  "state": "MI",
+  "name": "Fisher's Run Park",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Fisher’s Run Park lacks public overnight-camping proof.",
+  "relatedActiveOrPendingRecord": "Removed active ID s297",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Fisher’s Run Park lacks public overnight-camping proof."
+},
+{
+  "id": "mi-v231115-reject-w0-robert-doerr-park",
+  "state": "MI",
+  "name": "Robert Doerr Park",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Robert Doerr Park lacks public overnight-camping proof.",
+  "relatedActiveOrPendingRecord": "Removed active ID s785",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Robert Doerr Park lacks public overnight-camping proof."
+},
+{
+  "id": "mi-v231115-reject-w0-aloha-state-park",
+  "state": "MI",
+  "name": "Aloha State Park",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "state",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate Aloha State Park parent; survivor is s12.",
+  "relatedActiveOrPendingRecord": "Removed active ID s11",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate Aloha State Park parent; survivor is s12.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/aloha"
+},
+{
+  "id": "mi-v231115-reject-w0-au-gres-city-park",
+  "state": "MI",
+  "name": "Au Gres City Park",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate Au Gres municipal campground; survivor is s193.",
+  "relatedActiveOrPendingRecord": "Removed active ID s30",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate Au Gres municipal campground; survivor is s193.",
+  "sourceUrl": "https://cityofaugresmi.com/city-augres-campground/"
+},
+{
+  "id": "mi-v231115-reject-w0-south-higgins-lake-camping",
+  "state": "MI",
+  "name": "South Higgins Lake Camping",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "state",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Misplaced duplicate South Higgins Lake campground; survivor is s860.",
+  "relatedActiveOrPendingRecord": "Removed active ID s859",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Misplaced duplicate South Higgins Lake campground; survivor is s860.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/southhigginslake"
+},
+{
+  "id": "mi-v231115-reject-w0-lake-arrowhead-campground",
+  "state": "MI",
+  "name": "Lake Arrowhead Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "Private Campgrounds",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Restricted property-owner association campground; not ordinary public-transient camping.",
+  "relatedActiveOrPendingRecord": "Removed active ID s486",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Restricted property-owner association campground; not ordinary public-transient camping.",
+  "sourceUrl": "https://www.lapoa.com/amenities-services/campground/"
+},
+{
+  "id": "mi-v231115-reject-w0-presque-isle-state-park-campground",
+  "state": "MI",
+  "name": "Presque Isle State Park Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "state",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "No official Presque Isle State Park campground supports this record.",
+  "relatedActiveOrPendingRecord": "Removed active ID s749",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. No official Presque Isle State Park campground supports this record.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/presqueisle"
+},
+{
+  "id": "mi-v231115-reject-w0-muskegon-state-park-campground",
+  "state": "MI",
+  "name": "Muskegon State Park Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "state",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Unsupported generic Muskegon State Park campground between the two official components.",
+  "relatedActiveOrPendingRecord": "Removed active ID s631",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Unsupported generic Muskegon State Park campground between the two official components.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/muskegon"
+},
+{
+  "id": "mi-v231115-reject-w0-sleeper-state-park-campground",
+  "state": "MI",
+  "name": "Sleeper State Park Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "state",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate/misplaced Sleeper State Park campground; survivor is s849.",
+  "relatedActiveOrPendingRecord": "Removed active ID s850",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate/misplaced Sleeper State Park campground; survivor is s849.",
+  "sourceUrl": "https://www.michigan.gov/recsearch/parks/sleeper"
+},
+{
+  "id": "mi-v231115-reject-w0-portage-lake-campground",
+  "state": "MI",
+  "name": "Portage Lake Campground",
+  "countyRegion": "Michigan active-runtime cleanup",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_or_proxy_or_no_public_overnight_proof",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate Portage Lake campground; survivor is s742.",
+  "relatedActiveOrPendingRecord": "Removed active ID s741",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115. Duplicate Portage Lake campground; survivor is s742."
+},
+{
+  "id": "mi-v231115-reject-w0-lake-michigan-campground",
+  "state": "MI",
+  "name": "Lake Michigan Campground",
+  "countyRegion": "Mackinac / St. Ignace",
+  "rejectedAsLayer": "local",
+  "rejectionType": "duplicate_official_campground_record",
+  "rejectionStrength": "reopenable_conflict",
+  "currentDecision": "KEEP REJECTED / DO NOT IMPORT ACTIVE AS SUBMITTED",
+  "canReopen": true,
+  "reopenIf": [
+    "Current official/operator proof establishes a public overnight opportunity at the same named feature and honest coordinate.",
+    "For duplicates, reopen only if a genuinely separate official component is proved without duplicating the survivor."
+  ],
+  "sourceSummary": "Duplicate generic Lake Michigan Campground at the same coordinate; survivor is official Hiawatha record s508.",
+  "relatedActiveOrPendingRecord": "Removed active ID s509; survivor s508",
+  "lastCheckedVersion": "v23.1.115",
+  "notes": "Removed from active runtime in v23.1.115; official Hiawatha campground survives as s508.",
+  "sourceUrl": "https://www.fs.usda.gov/r09/hiawatha/recreation/camping-cabins"
+}
 ];

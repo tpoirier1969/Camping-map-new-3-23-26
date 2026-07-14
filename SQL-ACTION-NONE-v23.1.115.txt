@@ -1,0 +1,6 @@
+SQL ACTION: NONE
+
+v23.1.115 is a Michigan campsite-data, lead-ledger, rejected-ledger, manifest, and version update only.
+No Supabase schema or database migration is added or changed by this package.
+
+The earlier hidden-from-normal-users feature still requires the reduced hidden-site/admin SQL if it has never been installed, but v23.1.115 adds no new SQL requirement.

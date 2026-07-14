@@ -189,7 +189,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 547,
+    "count": 584,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -208,7 +208,8 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.96: Integrates remaining lead rescue worker returns and correction-risk cleanup for MI; uses worker-return source trails, no fake coordinate upgrade.",
       "v23.1.109: Removes the displaced eastern Muskallonge Lake State Park Campground duplicate, retains Tod-confirmed western s628 as Modern, corrects the produced MI runtime count to 543, and records Fox River Pathway geometry rescue in data/leads.js.",
       "v23.1.112: Eastern U.P. reconciliation adds Newberry and Kritters campgrounds, merges the remaining Two Hearted mouth duplicate, applies audited campground-layer/name corrections, preserves Tank Lake, and corrects Silver Lake access layers from Tod firsthand knowledge.",
-      "v23.1.114: Eastern U.P. closeout adds the three exact official Tahquamenon backcountry sites, corrects Pretty Lake/Fox River/East Branch Fox River coordinates, separates Rivermouth Modern from Rivermouth Rustic/Pines, suppresses the now-redundant Tahquamenon broad backcountry outline, and upgrades unresolved geometry/component leads without fake points."
+      "v23.1.114: Eastern U.P. closeout adds the three exact official Tahquamenon backcountry sites, corrects Pretty Lake/Fox River/East Branch Fox River coordinates, separates Rivermouth Modern from Rivermouth Rustic/Pines, suppresses the now-redundant Tahquamenon broad backcountry outline, and upgrades unresolved geometry/component leads without fake points.",
+      "v23.1.115: Statewide Michigan Bulldog integration adds 61 source-backed camping records, removes 24 proven duplicate/proxy/restricted/non-camping rows, applies 59 high-confidence coordinate/layer/name/owner/status corrections, and retains all unresolved worker targets in leads/rejected ledgers.",
     ]
   },
   "MN": {
