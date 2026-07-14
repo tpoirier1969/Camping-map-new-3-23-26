@@ -1,0 +1,14 @@
+TOD'S BOONDOCKING & CAMPING MAPS — v23.1.111
+
+Purpose
+- Make the area-layer zoom warning display the exact same zoom value as the map zoom indicator.
+
+Change
+- Removed the warning's separate one-decimal formatting path.
+- The warning now uses the same quarter-step normalization and formatZoomLabel() function as the map zoom control.
+- Example: a map zoom of 4.25 is displayed as 4.25 in both locations, not 4.25 in the legend and 4.3 in the warning.
+
+Scope
+- UI consistency fix only.
+- No campsite data, coordinates, area geometry, layer thresholds, filters, map behavior, or styling changed.
+- Data build remains v23.1.109-mi-foxriver-muskallonge-fix.
