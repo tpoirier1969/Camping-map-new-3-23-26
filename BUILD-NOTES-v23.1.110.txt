@@ -1,0 +1,34 @@
+Tod's Boondocking & Camping Maps — v23.1.110
+Area-overlay zoom warning popup
+
+Purpose
+- Prevent users from turning on Federal Areas or State / Local Areas at a zoom level where zoom-gated geometry is intentionally hidden and assuming the layer is broken or empty.
+- Explain the exact zoom threshold without changing the selected layer or automatically moving the map.
+
+Behavior added
+- When Federal Areas is explicitly enabled below a relevant display threshold, a modal popup opens immediately.
+- When State / Local Areas is explicitly enabled below a relevant display threshold, the same popup opens immediately.
+- When both area systems are enabled together, the popup combines the applicable thresholds.
+- The warning is generated from the selected states and the actual `minZoom` values on applicable area records.
+- Broad U.S. Forest Service boundaries use the existing zoom-5 threshold.
+- Michigan State Forest Land uses its existing zoom-6 threshold.
+- The popup states that the layer remains enabled and that the hidden geometry loads automatically after zooming in.
+- It also explains that area records without a zoom limit may still appear.
+
+Design decisions
+- No automatic zoom was added. State/layer selection remains a data-display control and does not unexpectedly move the map.
+- The warning appears only for an explicit user area-layer selection, not on startup and not repeatedly during normal zooming.
+- The existing loading lifecycle, area-source resolver, geometry, colors, layer meanings and campground data were not changed.
+
+Changed files
+- app.js
+- index.html
+- version.js
+- BUILD-NOTES-v23.1.110.txt
+- QA-v23.1.110.txt
+
+Not changed
+- Data build remains v23.1.109-mi-foxriver-muskallonge-fix.
+- No campground, lead, rejected, coordinate, outline-geometry or source record changed.
+- No config.js change.
+- No PROJECT_RULES.md change was required for this narrowly requested user-interface warning.

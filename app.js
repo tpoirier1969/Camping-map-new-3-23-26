@@ -2762,9 +2762,57 @@ function pauseAreaOutlinesForStateChange(selectedCount){
   app.areaOutline.paused=false;
 }
 function writeAreaToggle(key,on){try{localStorage.setItem(key,on?'1':'0')}catch(_e){}}
+function areaZoomWarningCandidates(scope){
+  const zoom=Number(app.map&&app.map.getZoom&&app.map.getZoom());
+  if(!Number.isFinite(zoom))return {zoom:null,items:[]};
+  const includeFederal=scope==='federal'||scope==='all';
+  const includeStateLocal=scope==='state-local'||scope==='all';
+  const items=[];
+  if(includeFederal&&federalAreaLayerEnabled()&&zoom<USFS_BOUNDARY_MIN_ZOOM&&selectedUsfsStateCodes().length){
+    items.push({name:'Broad U.S. Forest Service boundaries',minZoom:USFS_BOUNDARY_MIN_ZOOM});
+  }
+  areaOutlineRecordsForSelectedStates().forEach(site=>{
+    const jurisdiction=outlineJurisdiction(site);
+    if(jurisdiction==='federal'?!includeFederal:!includeStateLocal)return;
+    const outline=areaOutlineCandidate(site)||{};
+    const minZoom=Number(outline.minZoom!==undefined?outline.minZoom:site&&site.minZoom);
+    if(Number.isFinite(minZoom)&&zoom<minZoom){
+      items.push({name:site.name||outline.name||'Area outline',minZoom});
+    }
+  });
+  const seen=new Set();
+  return {zoom,items:items.filter(item=>{
+    const key=`${item.name}|${item.minZoom}`;
+    if(seen.has(key))return false;
+    seen.add(key);
+    return true;
+  })};
+}
+function showAreaZoomWarningIfNeeded(scope){
+  const result=areaZoomWarningCandidates(scope);
+  if(!result.items.length)return false;
+  const body=$('areaZoomWarningText');
+  if(!body)return false;
+  const zoomText=Number.isInteger(result.zoom)?String(result.zoom):result.zoom.toFixed(1);
+  const grouped=new Map();
+  result.items.forEach(item=>{
+    const key=Number(item.minZoom);
+    if(!grouped.has(key))grouped.set(key,[]);
+    grouped.get(key).push(item.name);
+  });
+  const rows=Array.from(grouped.entries()).sort((a,b)=>a[0]-b[0]).map(([minZoom,names])=>{
+    const shown=names.slice(0,4).map(esc);
+    const extra=names.length>4?` and ${names.length-4} more`:'';
+    return `<li><strong>Zoom ${esc(minZoom)} or higher:</strong> ${shown.join(', ')}${esc(extra)}</li>`;
+  }).join('');
+  body.innerHTML=`<div class="popup-notice"><strong>Some selected area overlays are hidden at the current zoom level (${esc(zoomText)}).</strong></div><p>Zoom in and the selected areas will load automatically. The layer remains turned on.</p><ul>${rows}</ul><p class="mini-note">Other area outlines without a zoom limit may still appear.</p>`;
+  openModal('areaZoomWarningModal');
+  return true;
+}
 async function setFederalAreaLayerEnabled(on,fit=true,opts={}){
   writeAreaToggle(STORE.federalAreas,on);
   try{localStorage.setItem(STORE.usfsBoundaries,on?'1':'0')}catch(_e){}
+  if(on&&opts.notify)showAreaZoomWarningIfNeeded('federal');
   app.usfsBoundary.requestSeq=(app.usfsBoundary.requestSeq||0)+1;
   app.usfsBoundary.lastKey='';
   if(!on){clearUsfsBoundaryGraphics();}
@@ -2777,6 +2825,7 @@ async function setFederalAreaLayerEnabled(on,fit=true,opts={}){
 async function setStateLocalAreaLayerEnabled(on,fit=true,opts={}){
   writeAreaToggle(STORE.stateLocalAreas,on);
   try{localStorage.setItem(STORE.areaOutlines,on?'1':'0')}catch(_e){}
+  if(on&&opts.notify)showAreaZoomWarningIfNeeded('state-local');
   await setAreaOutlineLayerEnabled(areaOutlineLayerEnabled(),fit,Object.assign({},opts,{silent:true}));
   updateAreaOutlineLayerControls();
   if(opts.notify)notify(on?'State / Local Areas on. Context outlines only; verify current camping rules before relying on a spot.':'State / Local Areas turned off.',6500);
@@ -2784,6 +2833,7 @@ async function setStateLocalAreaLayerEnabled(on,fit=true,opts={}){
 async function setAllReferenceAreasEnabled(on,fit=true,opts={}){
   writeAreaToggle(STORE.federalAreas,on); writeAreaToggle(STORE.stateLocalAreas,on);
   try{localStorage.setItem(STORE.usfsBoundaries,on?'1':'0'); localStorage.setItem(STORE.areaOutlines,on?'1':'0')}catch(_e){}
+  if(on&&opts.notify)showAreaZoomWarningIfNeeded('all');
   app.usfsBoundary.requestSeq=(app.usfsBoundary.requestSeq||0)+1;
   app.usfsBoundary.lastKey='';
   if(!on)clearUsfsBoundaryGraphics(); else scheduleUsfsBoundaryRefresh('all area toggle',{force:true});

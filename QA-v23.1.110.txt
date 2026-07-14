@@ -1,0 +1,42 @@
+QA — v23.1.110 area-overlay zoom warning popup
+
+Checks run
+- node --check app.js
+- node --check version.js
+- Modal markup/ID audit:
+  - areaZoomWarningModal exists in index.html
+  - areaZoomWarningTitle exists and is referenced by aria-labelledby
+  - areaZoomWarningText exists for dynamic content
+  - close and OK controls use the existing data-close-modal handler
+- Toggle-path audit:
+  - Federal Areas explicit toggle calls showAreaZoomWarningIfNeeded('federal')
+  - State / Local Areas explicit toggle calls showAreaZoomWarningIfNeeded('state-local')
+  - combined area toggle calls showAreaZoomWarningIfNeeded('all')
+  - startup/state-refresh paths do not call the popup
+- Threshold fixture tests:
+  - state/local at zoom 5 with a minZoom 6 Michigan state-forest record produces a warning
+  - state/local at zoom 6 does not produce a warning
+  - federal at zoom 4 with an eligible selected state reports the zoom-5 USFS threshold
+  - combined scope groups different thresholds without duplicate rows
+- Popup copy audit:
+  - reports current zoom
+  - reports exact required zoom level(s)
+  - says hidden areas load automatically after zooming in
+  - says the selected layer remains on
+  - notes that unrestricted outlines may still appear
+- Version audit:
+  - visible app version is v23.1.110
+  - data build remains v23.1.109-mi-foxriver-muskallonge-fix
+  - version.js remains the only runtime version authority
+- Startup-path/static function audit passed for the new modal helpers.
+- ZIP integrity check passed.
+
+Expected browser behavior
+1. Select Michigan.
+2. Set map zoom below 6.
+3. Turn on State / Local Areas.
+4. A modal should explain that Michigan State Forest Land appears at zoom 6 or higher.
+5. Close the modal; the State / Local Areas checkbox remains selected.
+6. Zoom to 6 or closer; the selected state-forest geometry should attempt to load automatically.
+7. At zoom 6 or closer, turning State / Local Areas off and on should not show the low-zoom warning.
+8. Below zoom 5, turning on Federal Areas should report the federal zoom-5 threshold.
