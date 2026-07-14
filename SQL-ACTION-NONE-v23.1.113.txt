@@ -1,0 +1,3 @@
+SQL ACTION: NONE
+
+v23.1.113 changes only marker styling, marker zoom scaling, app version metadata and the controlling project rules. It does not change the Supabase schema or require any SQL migration.

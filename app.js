@@ -64,31 +64,22 @@ const LAYERS=[
 const MAP_LAYER_KEYS=new Set(['modern','rustic','private','boondocking','boat-backpack','overnight-parking','rest-truck','pending']);
 const LAYER_CONTROL_KEYS=new Set(['modern','rustic','private','boondocking','boat-backpack','overnight-parking','pending']);
 const MAP_LAYERS=LAYERS.filter(l=>LAYER_CONTROL_KEYS.has(l.key));
-const SMALL_EMPHASIS_LAYERS=new Set(['overnight-parking','rest-truck']);
+const SMALL_EMPHASIS_LAYERS=new Set(['rest-truck']);
 function markerSizeForLayer(key){if(key==='boat-backpack')return 26;return SMALL_EMPHASIS_LAYERS.has(key)?22:24;}
 function markerIconScaleForZoom(zoom){
   const z=Number(zoom);
   if(!Number.isFinite(z))return 1;
   if(z>=8.5)return 1;
-  if(z>=7)return .5+((z-7)/1.5)*.5;
-  if(z>=6)return (1/6)+((z-6))*(.5-(1/6));
-  if(z>=4.5)return .125+((z-4.5)/1.5)*((1/6)-.125);
-  return .125;
+  if(z>=7)return .54+((z-7)/1.5)*.46;
+  if(z>=6)return .28+((z-6))*(.54-.28);
+  if(z>=4.5)return .24+((z-4.5)/1.5)*(.28-.24);
+  return .24;
 }
 function currentMarkerIconScale(){return markerIconScaleForZoom(app&&app.map&&app.map.getZoom?app.map.getZoom():8.5);}
-function parkingMarkerIconScaleForZoom(zoom){
-  const z=Number(zoom);
-  if(!Number.isFinite(z))return 1;
-  if(z>=8.5)return 1;
-  if(z>=7)return .65+((z-7)/1.5)*.35;
-  if(z>=4.5)return .58+((z-4.5)/2.5)*.07;
-  return .58;
-}
-function currentParkingMarkerIconScale(){return parkingMarkerIconScaleForZoom(app&&app.map&&app.map.getZoom?app.map.getZoom():8.5);}
 function currentMarkerClusterMode(){const z=app&&app.map&&app.map.getZoom?Number(app.map.getZoom()):8.5;return Number.isFinite(z)&&z<4.5;}
 function scaledMarkerSizeForLayer(key){return Math.max(5,Math.round(markerSizeForLayer(key)*currentMarkerIconScale()));}
 function markerScaleCacheKey(){return currentMarkerClusterMode()?'cluster':'icons';}
-function updateMarkerZoomScale(){try{if(document&&document.documentElement){document.documentElement.style.setProperty('--camping-marker-zoom-scale',String(currentMarkerIconScale()));document.documentElement.style.setProperty('--camping-parking-zoom-scale',String(currentParkingMarkerIconScale()));}}catch(_e){}}
+function updateMarkerZoomScale(){try{if(document&&document.documentElement){document.documentElement.style.setProperty('--camping-marker-zoom-scale',String(currentMarkerIconScale()));}}catch(_e){}}
 
 const VIEWPORT_RENDER_STATE_THRESHOLD=2;
 const VIEWPORT_RENDER_RECORD_THRESHOLD=600;

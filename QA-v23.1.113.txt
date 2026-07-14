@@ -1,0 +1,26 @@
+Tod's Boondocking & Camping Maps v23.1.113 QA
+
+PASS — app.js JavaScript syntax (node --check)
+PASS — Overnight Parking no longer has a separate scale function
+PASS — --camping-parking-zoom-scale removed from app and CSS
+PASS — Parking uses the normal 24px base size
+PASS — Rest Areas retain their 22px base size
+PASS — Boat / Backpack retains its 26px base size
+PASS — shared marker scale equals 0.24 at zoom 4.5
+PASS — shared marker scale equals 0.28 at zoom 6
+PASS — shared marker scale equals 0.54 at zoom 7
+PASS — shared marker scale equals 1.00 at zoom 8.5
+PASS — interpolation is monotonic from zoom 4.5 through 8.5
+PASS — below-4.5 cluster threshold unchanged
+PASS — Parking base/OSM/OpenTopo/Topo/Satellite fills are darker than corresponding Rustic fills by relative luminance
+PASS — Parking rules contain no black or navy fill values from v23.1.112
+PASS — approved P icon unchanged
+PASS — PROJECT_RULES.md and Project Rules.md are byte-identical
+PASS — rules contain the new 24% / 28% / 54% shared target curve
+PASS — version.js is the only runtime file containing v23.1.113
+PASS — data version remains v23.1.112-eastern-up-reconciliation
+PASS — no campsite or data files included or modified
+PASS — ZIP integrity verified
+
+LIMITATION
+No live visual browser screenshot was generated in this build environment. The CSS palette, scale calculations, script syntax and static startup references were tested directly.

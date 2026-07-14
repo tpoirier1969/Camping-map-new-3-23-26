@@ -114,7 +114,7 @@ When the app changes basemap type, marker colors may change by basemap to preser
 
 Overnight Parking wider-zoom visibility rule:
 
-The Overnight Parking P marker must remain legible from zoom 7 outward. Use a high-contrast nonwhite palette on pale street/topographic maps and a parking-specific minimum visual scale between zoom 4.5 and 7. Preserve the P icon and the normal cluster transition below zoom 4.5; do not enlarge every other layer to solve parking visibility.
+The Overnight Parking P marker must remain legible from zoom 7 outward. Use a much darker burnt-orange palette than Rustic / Primitive on pale street/topographic maps; do not use a black Parking fill. Preserve the P icon and the normal cluster transition below zoom 4.5. Overnight Parking uses the shared marker-scale curve rather than a separate oversized scale floor.
 
 
 Map viewport / state-selection render rule:
@@ -133,7 +133,7 @@ Search / place-search behavior rule:
 
 The main search field should support both campsite-record search and geographic place search. A normal search should match campsite names plus city, county/region, waterbody/reservoir, route/location notes, state, layer, and source text. If a typed term is not a loaded campsite match, or if the user chooses to use it as a map place, geocode the term as a U.S. place/geographic feature and center Nearby Search there so the mileage slider can show sites within the chosen distance. This supports searches such as city names, county names, reservoirs, national parks, and notable features like Grand Canyon.
 
-As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. The approved target curve is: full/current icon size at zoom 8.5 and above; about 50% size at zoom 7; about one-sixth size at zoom 6; about one-eighth size at zoom 4.5. Interpolate smoothly between those levels. Below zoom 4.5, switch to numbered marker clustering so broad regional views draw grouped counts instead of every individual campsite pin. Preserve existing layer icon meanings, colors, and shapes unless Tod explicitly asks to change them.
+As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. The approved shared target curve is: full/current icon size at zoom 8.5 and above; about 54% size at zoom 7; about 28% size at zoom 6; about 24% size at zoom 4.5. Interpolate smoothly between those levels. These wider-zoom values intentionally raise all individual marker layers by roughly one-quarter of the former gap between the ordinary-marker curve and the oversized Overnight Parking curve. Below zoom 4.5, switch to numbered marker clustering so broad regional views draw grouped counts instead of every individual campsite pin. Preserve existing layer icon meanings, colors, and shapes unless Tod explicitly asks to change them.
 
 Version flag / build identity contract:
 

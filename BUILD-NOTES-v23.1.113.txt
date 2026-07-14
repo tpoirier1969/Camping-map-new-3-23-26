@@ -1,0 +1,46 @@
+Tod's Boondocking & Camping Maps v23.1.113
+Marker color and wider-zoom sizing correction
+Released: 2026-07-14
+Baseline: v23.1.112
+
+PURPOSE
+Correct the v23.1.112 Overnight Parking treatment, which was too dark and too large compared with the rest of the map.
+
+CHANGES
+1. Overnight Parking color
+   - Removed the navy/near-black Parking fill.
+   - Parking now uses a dark burnt-orange palette, substantially darker than Rustic / Primitive.
+   - The P remains white for contrast.
+   - Satellite Parking uses a stronger burnt orange with the existing white visibility halo.
+   - The Parking icon design remains the approved P.
+
+2. Shared wider-zoom marker sizing
+   - Removed the Parking-only zoom-scale floor.
+   - Parking returns to the normal 24px base marker size.
+   - All individual marker layers now share the same zoom scale curve:
+       zoom 4.5: approximately 24%
+       zoom 6.0: approximately 28%
+       zoom 7.0: approximately 54%
+       zoom 8.5+: 100%
+   - Values interpolate smoothly between those points.
+   - These targets move the ordinary icon curve roughly one-quarter of the former gap toward the oversized v23.1.112 Parking curve.
+   - Clustering below zoom 4.5 is unchanged.
+   - Existing base-size distinctions remain: Boat / Backpack is 26px; Rest Areas are 22px; normal site markers, including Parking, are 24px.
+
+3. Project rules
+   - Updated the controlling marker-sizing rule to the new shared curve.
+   - Updated the Overnight Parking rule to require dark burnt orange, prohibit a black Parking fill, and remove the Parking-specific oversized scale floor.
+   - PROJECT_RULES.md and Project Rules.md remain identical.
+
+UNCHANGED
+- Campsite data and coordinates
+- Michigan runtime count
+- Layer meanings and icon designs
+- Hidden-site behavior
+- Area overlays and zoom warnings
+- Supabase schema and SQL
+- Clustering threshold
+- Search, filters, state selection and map behavior
+
+INSTALLATION
+Replace the included files over a v23.1.112 installation while preserving the package folder structure.
