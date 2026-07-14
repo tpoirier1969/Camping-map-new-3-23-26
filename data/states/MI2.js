@@ -256,4 +256,222 @@
     qualityGate: 'legality-proven-coordinate-missing'
   }, /marquette\s+county\s+forest.*camping.*registration|marquette\s+county\s+forest.*needs\s+verification/);
 
+
+
+  // v23.1.114: Eastern U.P. exact-site/component closeout.
+  // Integrates only clean official-coordinate additions and source-backed corrections.
+  const easternUpChecked = '2026-07-14';
+
+  patchByName(/^pretty\s+lake\s+state\s+forest\s+campground$/, {
+    lat: 46.603335,
+    lng: -85.65739,
+    website: 'https://www.michigan.gov/recsearch/sfcampgroundsn-z/prettylake',
+    sourceName: 'Michigan DNR — Pretty Lake State Forest Campground',
+    sourceUrl: 'https://www.michigan.gov/recsearch/sfcampgroundsn-z/prettylake',
+    locationPrecision: 'Official Michigan DNR parent-campground coordinate. This point represents the 18-site drive-in campground only; remote sites 19–26 require separate exact coordinates and are not represented by this pin.',
+    coordinateConfidence: 'High — official Michigan DNR parent-campground coordinate.',
+    verificationStatus: 'verified-official-coordinate-v23.1.114',
+    verificationNotes: 'Moved the single live Pretty Lake parent record to the official DNR campground coordinate. The separate walk-in/paddle-in sites 19–26 remain in data/leads.js until honest individual coordinates are recovered.',
+    dataCorrectionVersion: 'v23.1.114',
+    dataCorrectionDate: easternUpChecked
+  });
+
+  patchByName(/^fox\s+river\s+state\s+forest\s+campground$/, {
+    lat: 46.399214,
+    lng: -86.028395,
+    website: 'https://www.michigan.gov/recsearch/sfcampgroundsa-m/foxriver',
+    sourceName: 'Michigan DNR — Fox River State Forest Campground',
+    sourceUrl: 'https://www.michigan.gov/recsearch/sfcampgroundsa-m/foxriver',
+    locationPrecision: 'Official Michigan DNR campground coordinate.',
+    coordinateConfidence: 'High — official Michigan DNR coordinate.',
+    verificationStatus: 'verified-official-coordinate-v23.1.114',
+    verificationNotes: 'Official DNR coordinate applied. This campground is also an exclusion anchor for Michigan state-forest dispersed camping: qualifying dispersed sites must be more than one mile from a state forest campground.',
+    dataCorrectionVersion: 'v23.1.114',
+    dataCorrectionDate: easternUpChecked
+  });
+
+  patchByName(/^east\s+branch\s+of\s+the\s+fox\s+river\s+state\s+forest\s+campground$/, {
+    lat: 46.4655831207,
+    lng: -85.944199273,
+    website: 'https://www.michigan.org/property/east-branch-fox-river-state-forest-campground',
+    sourceName: 'Pure Michigan / Michigan DNR-linked — East Branch of Fox River State Forest Campground',
+    sourceUrl: 'https://www.michigan.org/property/east-branch-fox-river-state-forest-campground',
+    locationPrecision: 'Official state-published campground coordinate.',
+    coordinateConfidence: 'High — official state-published coordinate.',
+    verificationStatus: 'verified-official-coordinate-v23.1.114',
+    verificationNotes: 'Official state-published coordinate applied. This campground creates a one-mile dispersed-camping exclusion under Michigan DNR state-forest rules.',
+    dataCorrectionVersion: 'v23.1.114',
+    dataCorrectionDate: easternUpChecked
+  });
+
+  patchByName(/^tahquamenon\s+falls\s+state\s+park\s+rivermouth\s+campgrounds$/, {
+    name: 'Tahquamenon Falls State Park — Rivermouth Modern Campground',
+    layer: 'modern',
+    subtype: 'modern',
+    rawCategory: 'state modern campground',
+    categoryLabel: 'Modern Campgrounds',
+    layerLabel: 'Modern Campgrounds',
+    description: 'The modern Rivermouth campground component at Tahquamenon Falls State Park, separate from the Rivermouth Rustic / Pines campground. Michigan DNR describes modern/electric camping, modern restroom and shower facilities, and river access in this campground area.',
+    website: 'https://www.michigan.gov/recsearch/parks/tahquamenonfalls',
+    sourceName: 'Michigan DNR — Tahquamenon Falls State Park',
+    sourceUrl: 'https://www.michigan.gov/recsearch/parks/tahquamenonfalls',
+    access: 'Drive-in modern state-park campground at the Tahquamenon River mouth. Verify current loop, electric service, reservations, seasonal services and road conditions with Michigan DNR.',
+    amenities: 'Modern/electric campground services, restroom and shower facilities, sanitation/recycling support and river access; verify current unit-specific availability.',
+    locationPrecision: 'Existing campground-component coordinate retained; no coordinate move was made in v23.1.114.',
+    coordinateConfidence: 'Medium — legitimate official campground component; exact component entrance still merits reservation-map QA.',
+    verificationStatus: 'verified-component-layer-v23.1.114',
+    verificationNotes: 'Normalized to the official Rivermouth Modern component. This is not a duplicate of the separate Rivermouth Rustic / Pines campground.',
+    dataCorrectionVersion: 'v23.1.114',
+    dataCorrectionDate: easternUpChecked
+  });
+
+  patchByName(/^tahquamenon\s+river\s+mouth\s+campground$/, {
+    name: 'Tahquamenon Falls State Park — Rivermouth Rustic / Pines Campground',
+    layer: 'rustic',
+    subtype: 'rustic / semi-modern',
+    rawCategory: 'state rustic semi-modern campground',
+    categoryLabel: 'Rustic / Primitive',
+    layerLabel: 'Rustic / Primitive',
+    description: 'The separate Rivermouth Rustic / Pines campground component at Tahquamenon Falls State Park. Michigan DNR describes rustic riverfront camping among red pines, with vault toilets, seasonal water spigots and seasonal access to nearby modern facilities.',
+    website: 'https://www.michigan.gov/recsearch/parks/tahquamenonfalls',
+    sourceName: 'Michigan DNR — Tahquamenon Falls State Park',
+    sourceUrl: 'https://www.michigan.gov/recsearch/parks/tahquamenonfalls',
+    showers: 'No dedicated shower house stated for the rustic component; nearby modern facilities may be seasonally available — verify.',
+    access: 'Drive-in rustic/semi-modern state-park campground along the Tahquamenon River. Verify exact loop, seasonal water, reservations and current facility access.',
+    amenities: 'Vault toilets, seasonal water spigots, picnic/fire-ring camping and nearby river access; do not assume full modern services at the rustic component.',
+    locationPrecision: 'Existing campground-component coordinate retained; no coordinate move was made in v23.1.114.',
+    coordinateConfidence: 'Medium — legitimate official campground component; exact component entrance still merits reservation-map QA.',
+    verificationStatus: 'verified-component-layer-v23.1.114',
+    verificationNotes: 'Corrected from a generic Modern/state campground record to the separate official Rivermouth Rustic / Pines component. It is not a duplicate of Rivermouth Modern.',
+    dataCorrectionVersion: 'v23.1.114',
+    dataCorrectionDate: easternUpChecked
+  });
+
+  function addEasternUpExactSite(site, namePattern){
+    if(!existsByIdOrName(site.id, namePattern)){
+      list.push(Object.assign({
+        dataCorrectionFile: 'data/states/MI2.js',
+        dataCorrectionVersion: 'v23.1.114',
+        dataCorrectionDate: easternUpChecked
+      }, site));
+    }
+  }
+
+  const tahquamenonBackcountryMap = 'https://www.michigan.gov/recsearch/-/media/Project/Websites/recsearch/documents/MapsT-Z/tahquamenon_backcountry_map.pdf?hash=856E509E8A6D47DAEDD0CFC7C6273A64&rev=8f560f49b5e7493f87d5ecfa1d799ac6';
+  const tahquamenonParkPage = 'https://www.michigan.gov/recsearch/parks/tahquamenonfalls';
+
+  addEasternUpExactSite({
+    id: 'mi-tahquamenon-clark-lake-backcountry-campsite',
+    name: 'Tahquamenon Falls State Park — Clark Lake Backcountry Campsite',
+    lat: 46.6163167,
+    lng: -85.2407,
+    stateCode: 'MI',
+    stateName: 'Michigan',
+    layer: 'boat-backpack',
+    subtype: 'hike-in backcountry',
+    siteForm: 'hike-in designated backcountry campsite',
+    rawCategory: 'state designated hike-in backcountry campsite',
+    categoryLabel: 'Boat / Backpack',
+    sourceFolder: 'Eastern U.P. exact-site closeout v23.1.114',
+    owner: 'Michigan DNR — Tahquamenon Falls State Park',
+    layerLabel: 'Boat / Backpack',
+    description: 'Official designated and reservable hike-in backcountry campsite in Tahquamenon Falls State Park. This is an exact campsite point, not permission to camp elsewhere inside the park boundary.',
+    website: tahquamenonParkPage,
+    sourceName: 'Michigan DNR — Tahquamenon Falls Backcountry Map',
+    sourceUrl: tahquamenonBackcountryMap,
+    cost: 'Reservation required; verify current Michigan DNR rate.',
+    costDisplay: 'Reservation required. Verify the current Michigan DNR backcountry campsite rate before booking.',
+    costNeedsReview: true,
+    showers: 'No',
+    water: 'Carry or treat water; verify current DNR instructions.',
+    toilets: 'Latrine',
+    electric: 'No',
+    amenities: 'Picnic table, fire ring and latrine as described by Michigan DNR; no modern campground services.',
+    access: 'Hike-in designated backcountry campsite. Verify route, trail conditions, reservation, weather, fire restrictions and current park rules.',
+    season: 'Verify current reservable dates, trail access and seasonal closures with Michigan DNR.',
+    reviewSummary: 'Exact official DNR backcountry campsite for hikers seeking a designated remote overnight inside Tahquamenon Falls State Park.',
+    locationPrecision: 'Exact official DNR GPS coordinate converted from N 46°36.979 W 085°14.442.',
+    coordinateConfidence: 'High — exact coordinate printed on the official Michigan DNR backcountry map.',
+    exactCampsiteLocation: true,
+    verificationStatus: 'verified-official-exact-coordinate-v23.1.114',
+    verificationDate: easternUpChecked,
+    verificationNotes: 'Official DNR designated backcountry campsite. Reservation required; not general dispersed camping.'
+  }, /tahquamenon.*clark\s+lake.*backcountry/);
+
+  addEasternUpExactSite({
+    id: 'mi-tahquamenon-old-stove-backcountry-campsite',
+    name: 'Tahquamenon Falls State Park — Old Stove Backcountry Campsite',
+    lat: 46.5688333,
+    lng: -85.1772,
+    stateCode: 'MI',
+    stateName: 'Michigan',
+    layer: 'boat-backpack',
+    subtype: 'hike-in backcountry',
+    siteForm: 'hike-in designated backcountry campsite',
+    rawCategory: 'state designated hike-in backcountry campsite',
+    categoryLabel: 'Boat / Backpack',
+    sourceFolder: 'Eastern U.P. exact-site closeout v23.1.114',
+    owner: 'Michigan DNR — Tahquamenon Falls State Park',
+    layerLabel: 'Boat / Backpack',
+    description: 'Official designated and reservable hike-in backcountry campsite in Tahquamenon Falls State Park. This is an exact campsite point, not permission to camp elsewhere inside the park boundary.',
+    website: tahquamenonParkPage,
+    sourceName: 'Michigan DNR — Tahquamenon Falls Backcountry Map',
+    sourceUrl: tahquamenonBackcountryMap,
+    cost: 'Reservation required; verify current Michigan DNR rate.',
+    costDisplay: 'Reservation required. Verify the current Michigan DNR backcountry campsite rate before booking.',
+    costNeedsReview: true,
+    showers: 'No',
+    water: 'Carry or treat water; verify current DNR instructions.',
+    toilets: 'Latrine',
+    electric: 'No',
+    amenities: 'Picnic table, fire ring and latrine as described by Michigan DNR; no modern campground services.',
+    access: 'Hike-in designated backcountry campsite. Verify route, trail conditions, reservation, weather, fire restrictions and current park rules.',
+    season: 'Verify current reservable dates, trail access and seasonal closures with Michigan DNR.',
+    reviewSummary: 'Exact official DNR backcountry campsite for hikers seeking a designated remote overnight inside Tahquamenon Falls State Park.',
+    locationPrecision: 'Exact official DNR GPS coordinate converted from N 46°34.130 W 085°10.632.',
+    coordinateConfidence: 'High — exact coordinate printed on the official Michigan DNR backcountry map.',
+    exactCampsiteLocation: true,
+    verificationStatus: 'verified-official-exact-coordinate-v23.1.114',
+    verificationDate: easternUpChecked,
+    verificationNotes: 'Official DNR designated backcountry campsite. Reservation required; not general dispersed camping.'
+  }, /tahquamenon.*old\s+stove.*backcountry/);
+
+  addEasternUpExactSite({
+    id: 'mi-tahquamenon-wilderness-backcountry-campsite',
+    name: 'Tahquamenon Falls State Park — Wilderness Backcountry Campsite',
+    lat: 46.5900833,
+    lng: -85.2800167,
+    stateCode: 'MI',
+    stateName: 'Michigan',
+    layer: 'boat-backpack',
+    subtype: 'hike-in backcountry',
+    siteForm: 'hike-in designated backcountry campsite',
+    rawCategory: 'state designated hike-in backcountry campsite',
+    categoryLabel: 'Boat / Backpack',
+    sourceFolder: 'Eastern U.P. exact-site closeout v23.1.114',
+    owner: 'Michigan DNR — Tahquamenon Falls State Park',
+    layerLabel: 'Boat / Backpack',
+    description: 'Official designated and reservable hike-in backcountry campsite in Tahquamenon Falls State Park. This is an exact campsite point, not permission to camp elsewhere inside the park boundary.',
+    website: tahquamenonParkPage,
+    sourceName: 'Michigan DNR — Tahquamenon Falls Backcountry Map',
+    sourceUrl: tahquamenonBackcountryMap,
+    cost: 'Reservation required; verify current Michigan DNR rate.',
+    costDisplay: 'Reservation required. Verify the current Michigan DNR backcountry campsite rate before booking.',
+    costNeedsReview: true,
+    showers: 'No',
+    water: 'Carry or treat water; verify current DNR instructions.',
+    toilets: 'Latrine',
+    electric: 'No',
+    amenities: 'Picnic table, fire ring and latrine as described by Michigan DNR; no modern campground services.',
+    access: 'Hike-in designated backcountry campsite. Verify route, trail conditions, reservation, weather, fire restrictions and current park rules.',
+    season: 'Verify current reservable dates, trail access and seasonal closures with Michigan DNR.',
+    reviewSummary: 'Exact official DNR backcountry campsite for hikers seeking a designated remote overnight inside Tahquamenon Falls State Park.',
+    locationPrecision: 'Exact official DNR GPS coordinate converted from N 46°35.405 W 085°16.801.',
+    coordinateConfidence: 'High — exact coordinate printed on the official Michigan DNR backcountry map.',
+    exactCampsiteLocation: true,
+    verificationStatus: 'verified-official-exact-coordinate-v23.1.114',
+    verificationDate: easternUpChecked,
+    verificationNotes: 'Official DNR designated backcountry campsite. Reservation required; not general dispersed camping.'
+  }, /tahquamenon.*wilderness.*backcountry/);
+
 })();

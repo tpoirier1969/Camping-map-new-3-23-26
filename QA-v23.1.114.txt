@@ -1,0 +1,69 @@
+QA REPORT — v23.1.114
+Date: 2026-07-14
+
+PASS — JavaScript syntax
+- data/states/MI2.js
+- data/leads.js
+- data/states-manifest.js
+- data/mi-state-local-areas-v23.1.109.js
+- version.js
+
+PASS — Michigan runtime reconstruction
+Loaded in runtime order:
+- data/states/MI.js from v23.1.112 baseline
+- updated data/states/MI2.js
+- data/supplements/mi-exact-rustic-primitive-v23.0.84.js
+- data/supplements/modern-audit-cleanup-v23.1.21.js
+- data/supplements/wi-mi-corridor-active-ui-v23.1.55.js
+- data/supplements/wi-mi-closeout-cleanup-v23.1.56.js
+
+Result:
+- 547 Michigan records
+- no duplicate IDs
+- three new Tahquamenon backcountry IDs present once each
+- all three new records are Boat / Backpack
+- exact official coordinate conversions match the worker return
+
+PASS — coordinate corrections
+- s750 Pretty Lake = 46.603335, -85.657390
+- s315 Fox River SFCG = 46.399214, -86.028395
+- s265 East Branch Fox River SFCG = 46.4655831207, -85.944199273
+
+PASS — Tahquamenon component handling
+- s902 is Modern and named Rivermouth Modern Campground
+- s903 is Rustic / Primitive and named Rivermouth Rustic / Pines Campground
+- s902 and s903 retain separate IDs and coordinates
+- no unsupported merge performed
+- s569 left unchanged and retained in the component-coordinate lead
+
+PASS — preserved-record guardrails
+- Tank Lake s905 remains Boondocking / Dispersed
+- one Muskallonge Lake State Park Campground record remains
+- one Mouth of Two Hearted River State Forest Campground record remains
+- Newberry and Kritters remain active
+
+PASS — lead ledger
+- data/leads.js loads as a JavaScript array
+- no duplicate lead IDs
+- four existing Eastern U.P. leads updated to v23.1.114
+- two new consolidated closeout leads present
+- no unresolved named worker target silently discarded
+
+PASS — designated-system area suppression
+- Tahquamenon backcountry area record remains in the established area file
+- coverageStatus is complete
+- recommendedUse is suppressed-after-complete-site-set
+- broad area outline will not draw after the complete three-site point set is loaded
+
+PASS — manifest and version
+- Michigan manifest count = 547
+- v23.1.114 note present
+- version.js is the only current visible version authority
+- app/data build values are internally consistent
+
+PASS — scope control
+- no app.js, index.html, CSS, marker, filter, hidden-site, search, startup or Supabase changes
+- no invented route, buffer, boundary, centroid, parent-point copy or parking/trailhead campsite pin
+- no repo write, commit, branch or PR
+
+SQL ACTION: NONE

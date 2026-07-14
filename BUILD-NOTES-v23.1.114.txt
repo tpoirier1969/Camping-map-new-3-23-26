@@ -1,0 +1,88 @@
+Tod's Boondocking & Camping Maps v23.1.114
+Eastern U.P. exact-site / geometry closeout integration
+Release date: 2026-07-14
+
+BASELINE
+- Starts from the complete v23.1.113 package state.
+- Campsite/runtime source baseline: v23.1.112 Eastern U.P. reconciliation plus v23.1.113 marker-style revision.
+- No repo commit, branch, PR, or live Supabase change was performed.
+
+ACTIVE DATA ADDS — 3
+1. Tahquamenon Falls State Park — Clark Lake Backcountry Campsite
+   - Boat / Backpack
+   - Exact official DNR GPS conversion: 46.6163167, -85.2407000
+2. Tahquamenon Falls State Park — Old Stove Backcountry Campsite
+   - Boat / Backpack
+   - Exact official DNR GPS conversion: 46.5688333, -85.1772000
+3. Tahquamenon Falls State Park — Wilderness Backcountry Campsite
+   - Boat / Backpack
+   - Exact official DNR GPS conversion: 46.5900833, -85.2800167
+
+ACTIVE DATA CORRECTIONS — 5
+1. Pretty Lake State Forest Campground s750
+   - Moved the single live parent campground record to the official DNR coordinate 46.603335, -85.657390.
+   - Explicitly states that this parent point does not represent remote sites 19–26.
+2. Fox River State Forest Campground s315
+   - Official DNR coordinate applied: 46.399214, -86.028395.
+   - Notes its role as a one-mile dispersed-camping exclusion anchor.
+3. East Branch of the Fox River State Forest Campground s265
+   - Official state-published coordinate applied: 46.4655831207, -85.944199273.
+   - Notes its role as a one-mile dispersed-camping exclusion anchor.
+4. Tahquamenon Rivermouth Modern s902
+   - Normalized to a separate Modern Campground component.
+   - Existing coordinate retained pending loop/entrance extraction.
+5. Tahquamenon Rivermouth Rustic / Pines s903
+   - Corrected to Rustic / Primitive.
+   - Normalized as a legitimate separate component, not a duplicate of Rivermouth Modern.
+   - Existing coordinate retained pending loop/entrance extraction.
+
+DUPLICATE REVIEW
+- No additional active duplicate rows were removed.
+- Worker duplicate warnings for Pretty Lake, Blind Sucker, Bodi, Culhane, Pike, East Branch Fox, Canoe, Lake Superior, Reed & Green Bridge and Two Hearted were compared against the actual v23.1.113 runtime.
+- The stale duplicate pairs were already absent from the live runtime.
+- Muskallonge remains one active western record only.
+- Mouth of Two Hearted River remains one active record only.
+
+AREA / RULE RESULT
+- The three official Tahquamenon backcountry campsites are now completely represented by individual points.
+- The broad Tahquamenon backcountry project-boundary outline is therefore marked coverageStatus=complete and suppressed under the designated-site system area-suppression rule.
+- No Fox River Pathway line, one-mile buffer, Seney boundary, seasonal hunter-camping polygon, MVUM line, or private-inholding geometry was invented or imported.
+
+LEAD LEDGER UPDATES
+Updated in place:
+- Pretty Lake sites 19–26 exact-site extraction.
+- Pictured Rocks Au Sable East and Masse Homestead exact-site extraction.
+- Seney NWR seasonal deer-hunter special-rule geometry.
+- Fox River Pathway route / ownership / campground-exclusion geometry.
+
+Added:
+- Seney NWR no-camping boundary / contradiction overlay extraction.
+- Tahquamenon developed campground component coordinate closeout, including Lower Falls Hemlock/Portage, Rivermouth Modern, Rivermouth Rustic/Pines and group-use component QA.
+
+INTENTIONALLY NOT IMPORTED
+- Pretty Lake sites 19–26: exact individual coordinates still blocked.
+- Au Sable East and Masse Homestead sites: exact individual coordinates still blocked.
+- Fox River Pathway corridor: exact route/ownership/exclusion geometry still incomplete.
+- Seney NWR seasonal deer-hunter camping: narrow seasonal geometry still incomplete.
+- Pictured Rocks pull-offs, beaches, trailheads and parking lots: official rules do not support ordinary camping; no trap pins added.
+- Lower Tahquamenon generic record s569: left unchanged until official loop/component extraction determines whether it is Hemlock, a valid parent, or a misplaced duplicate.
+
+PRESERVED WITHOUT CHANGE
+- Tank Lake remains active Boondocking / Dispersed with Tod firsthand provenance.
+- Newberry Campground remains active.
+- Kritters Campground remains active.
+- Muskallonge Lake State Park Campground s628 remains active Modern.
+- Existing marker styling, hidden-site admin behavior, area-toggle UI, zoom warnings and Supabase setup are unchanged.
+
+RUNTIME COUNT
+- Michigan: 547 records after all manifest-listed Michigan files and supplements load.
+- Net change from v23.1.113: +3.
+
+CHANGED FILES
+- data/states/MI2.js
+- data/leads.js
+- data/states-manifest.js
+- data/mi-state-local-areas-v23.1.109.js
+- version.js
+
+SQL ACTION: NONE

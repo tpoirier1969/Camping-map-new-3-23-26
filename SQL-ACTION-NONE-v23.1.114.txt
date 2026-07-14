@@ -1,0 +1,5 @@
+SQL ACTION: NONE
+
+v23.1.114 changes only campsite data, lead-ledger records, one existing area-record coverage status, the Michigan manifest count and version metadata.
+
+No Supabase table, function, policy, trigger, grant or configuration changed. Do not run additional SQL for this revision.
