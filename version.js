@@ -1,8 +1,8 @@
-window.CAMPING_APP_VERSION = 'v23.1.110';
-window.CAMPING_APP_BUILD = 'v23.1.110';
-window.CAMPING_DATA_VERSION = 'v23.1.109-mi-foxriver-muskallonge-fix';
-window.CAMPING_DATA_BUILD = 'v23.1.109-mi-foxriver-muskallonge-fix';
-window.CAMPING_VERSION = 'v23.1.110';
-window.CAMPING_BUILD = { version: 'v23.1.110', build: 'v23.1.110', dataVersion: 'v23.1.109-mi-foxriver-muskallonge-fix', dataBuild: 'v23.1.109-mi-foxriver-muskallonge-fix', released: '2026-07-13', label: 'Boondocking & Camping Maps v23.1.110' };
+window.CAMPING_APP_VERSION = 'v23.1.112';
+window.CAMPING_APP_BUILD = 'v23.1.112';
+window.CAMPING_DATA_VERSION = 'v23.1.112-eastern-up-reconciliation';
+window.CAMPING_DATA_BUILD = 'v23.1.112-eastern-up-reconciliation';
+window.CAMPING_VERSION = 'v23.1.112';
+window.CAMPING_BUILD = { version: 'v23.1.112', build: 'v23.1.112', dataVersion: 'v23.1.112-eastern-up-reconciliation', dataBuild: 'v23.1.112-eastern-up-reconciliation', released: '2026-07-14', label: 'Boondocking & Camping Maps v23.1.112' };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

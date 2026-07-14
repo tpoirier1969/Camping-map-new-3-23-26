@@ -76,10 +76,19 @@ function markerIconScaleForZoom(zoom){
   return .125;
 }
 function currentMarkerIconScale(){return markerIconScaleForZoom(app&&app.map&&app.map.getZoom?app.map.getZoom():8.5);}
+function parkingMarkerIconScaleForZoom(zoom){
+  const z=Number(zoom);
+  if(!Number.isFinite(z))return 1;
+  if(z>=8.5)return 1;
+  if(z>=7)return .65+((z-7)/1.5)*.35;
+  if(z>=4.5)return .58+((z-4.5)/2.5)*.07;
+  return .58;
+}
+function currentParkingMarkerIconScale(){return parkingMarkerIconScaleForZoom(app&&app.map&&app.map.getZoom?app.map.getZoom():8.5);}
 function currentMarkerClusterMode(){const z=app&&app.map&&app.map.getZoom?Number(app.map.getZoom()):8.5;return Number.isFinite(z)&&z<4.5;}
 function scaledMarkerSizeForLayer(key){return Math.max(5,Math.round(markerSizeForLayer(key)*currentMarkerIconScale()));}
 function markerScaleCacheKey(){return currentMarkerClusterMode()?'cluster':'icons';}
-function updateMarkerZoomScale(){try{const scale=currentMarkerIconScale(); if(document&&document.documentElement)document.documentElement.style.setProperty('--camping-marker-zoom-scale', String(scale));}catch(_e){}}
+function updateMarkerZoomScale(){try{if(document&&document.documentElement){document.documentElement.style.setProperty('--camping-marker-zoom-scale',String(currentMarkerIconScale()));document.documentElement.style.setProperty('--camping-parking-zoom-scale',String(currentParkingMarkerIconScale()));}}catch(_e){}}
 
 const VIEWPORT_RENDER_STATE_THRESHOLD=2;
 const VIEWPORT_RENDER_RECORD_THRESHOLD=600;
@@ -413,8 +422,8 @@ function buildLegend(){
   const stateLocalOn=stateLocalAreaLayerEnabled();
   const federalItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-federal-area-toggle="1" type="checkbox" ${federalOn?'checked':''}><span class="layer-icon pin-info">${ICONS.info}</span><span>Federal Areas</span></label>`;
   const stateLocalItem=`<label class="legend-item legend-layer-toggle legend-outline-toggle"><input data-state-local-area-toggle="1" type="checkbox" ${stateLocalOn?'checked':''}><span class="layer-icon pin-boondocking">${ICONS.tree}</span><span>State / Local Areas</span></label>`;
-  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${federalItem}${stateLocalItem}</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide areas</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
-  const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${federalItem}${stateLocalItem}</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div>`;
+  const desktopHtml=`<div class="legend-head"><div><h3>Map layers</h3></div><button id="legendToggleDesktop" class="legend-toggle" type="button" aria-expanded="true" aria-label="Shrink map legend"><span class="when-expanded">Shrink</span><span class="when-collapsed">Expand</span></button></div>${legendZoomHtml('desktop')}<div class="legend-grid legend-layer-grid">${layerItems}${federalItem}${stateLocalItem}</div><div class="filter-status area-permission-note">Areas show general boundaries where boondocking may be permitted. Open each area and check its specific rules before camping.</div><div class="legend-tools"><button id="selectAllLayers" class="secondary" type="button">Select all</button><button id="clearAllLayers" class="secondary" type="button">Clear layers</button><button id="clearAreaOutlineBtn" class="secondary" type="button">Hide areas</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div><div id="restRoadsideStats" class="filter-status" hidden></div>`;
+  const mobileHtml=`${legendZoomHtml('mobile')}<div class="legend-grid legend-layer-grid">${layerItems}${federalItem}${stateLocalItem}</div><div class="filter-status area-permission-note">Areas show general boundaries where boondocking may be permitted. Open each area and check its specific rules before camping.</div><div class="legend-tools"><button id="selectAllLayersMobile" class="secondary" type="button">Select all</button><button id="clearAllLayersMobile" class="secondary" type="button">Clear layers</button></div><div class="filter-status render-integrity-status" data-render-integrity-status hidden></div>`;
   if($('mapLegendDesktop')){$('mapLegendDesktop').innerHTML=desktopHtml;$('legendToggleDesktop').onclick=toggleLegendCollapsed;setLegendCollapsed(legendCollapsedStored())}
   if($('mapLegendMobile'))$('mapLegendMobile').innerHTML=mobileHtml;
   syncLegendZoomControls();
@@ -1668,7 +1677,7 @@ async function loadState(code){
 }
 
 function getPendingSites(){const raw=window.CAMPING_PENDING_SITES||window.CAMPING_PENDING||[];return Array.isArray(raw)?raw.map(s=>Object.assign({pending:true},s)):[]}
-function markerIcon(site){const key=layerKey(site);const d=layerDef(key);const size=markerSizeForLayer(key);const anchor=Math.round(size/2);const pinStyle=`width:${size}px;height:${size}px;flex:0 0 ${size}px;`;return L.divIcon({className:'',html:`<span class="map-pin ${d.css}" style="${pinStyle}">${d.icon}</span>`,iconSize:[size,size],iconAnchor:[anchor,anchor],popupAnchor:[0,-anchor]})}
+function markerIcon(site){const key=layerKey(site);const d=layerDef(key);const size=markerSizeForLayer(key);const anchor=Math.round(size/2);const pinStyle=`width:${size}px;height:${size}px;flex:0 0 ${size}px;`;const hiddenClass=isAdminUser()&&siteIsAdminHidden(site)?' admin-hidden-marker':'';return L.divIcon({className:'',html:`<span class="map-pin ${d.css}${hiddenClass}" style="${pinStyle}">${d.icon}</span>`,iconSize:[size,size],iconAnchor:[anchor,anchor],popupAnchor:[0,-anchor]})}
 
 function markerClusterIcon(key,count){
   const d=layerDef(key);
@@ -2793,7 +2802,7 @@ function showAreaZoomWarningIfNeeded(scope){
   if(!result.items.length)return false;
   const body=$('areaZoomWarningText');
   if(!body)return false;
-  const zoomText=Number.isInteger(result.zoom)?String(result.zoom):result.zoom.toFixed(1);
+  const zoomText=formatZoomLabel(roundedZoomStep(result.zoom));
   const grouped=new Map();
   result.items.forEach(item=>{
     const key=Number(item.minZoom);
@@ -4166,14 +4175,19 @@ function refreshAdminSiteButtons(siteId){
     if(btn.dataset.adminHideSite!==String(siteId))return;
     btn.classList.toggle('active',hidden);
     btn.setAttribute('aria-pressed',hidden?'true':'false');
-    btn.textContent=hidden?'Unhide from normal users':'Hide from normal users';
+    btn.setAttribute('aria-label',hidden?'Hidden from normal users. Click to show this site again.':'Hide this site from normal users.');
+    btn.title=hidden?'Hidden from normal users — click to show this site again.':'Hide this site from normal users.';
+    btn.textContent=hidden?'Hidden from normal users':'Hide from normal users';
   });
 }
 function adminToolsHtml(site){
   if(!isAdminUser())return '';
   const siteId=siteStableId(site);
   const hidden=siteIsAdminHidden(siteId);
-  return `<div class="community-panel admin-panel" data-admin-site="${esc(siteId)}"><div class="community-title">Admin tools</div><div class="mini-note">Admin-only controls. Hidden sites remain visible to admins but are suppressed for normal map users.</div><div class="popup-actions"><button class="secondary admin-hide-btn${hidden?' active':''}" data-admin-hide-site="${esc(siteId)}" aria-pressed="${hidden?'true':'false'}" type="button" onclick="window.__campingApp.toggleAdminHiddenSite&&window.__campingApp.toggleAdminHiddenSite('${jsString(siteId)}')">${hidden?'Unhide from normal users':'Hide from normal users'}</button></div></div>`;
+  if(!app.adminFlagsAvailable)return `<div class="community-panel admin-panel" data-admin-site="${esc(siteId)}"><div class="community-title">Admin tools</div><div class="popup-notice">Hidden-site controls need the current Supabase SQL migration.</div><div class="popup-actions"><button class="secondary admin-hide-btn" type="button" disabled>Run Supabase SQL to enable hiding</button></div></div>`;
+  const label=hidden?'Hidden from normal users':'Hide from normal users';
+  const help=hidden?'Hidden from normal users — click to show this site again.':'Hide this site from normal users.';
+  return `<div class="community-panel admin-panel" data-admin-site="${esc(siteId)}"><div class="community-title">Admin tools</div><div class="mini-note">Hidden is an admin visibility status, not a separate camping layer. Hidden sites remain in their real layer for admins and are suppressed for normal map users.</div><div class="popup-actions"><button class="secondary admin-hide-btn${hidden?' active':''}" data-admin-hide-site="${esc(siteId)}" aria-pressed="${hidden?'true':'false'}" aria-label="${esc(help)}" title="${esc(help)}" type="button" onclick="window.__campingApp.toggleAdminHiddenSite&&window.__campingApp.toggleAdminHiddenSite('${jsString(siteId)}')">${label}</button></div></div>`;
 }
 async function loadAdminHiddenSites(options={}){
   if(!app.supabase){app.adminHiddenSites={};return {};}
@@ -4208,8 +4222,9 @@ async function toggleAdminHiddenSite(siteId){
     if(error)throw error;
     if(next)app.adminHiddenSites[String(siteId)]={...payload,site_id:String(siteId)};else delete app.adminHiddenSites[String(siteId)];
     refreshAdminSiteButtons(String(siteId));
-    renderMarkers(false);
-    notify(next?'Site hidden from normal users.':'Site unhidden for normal users.',6500);
+    const entry=app.markerIndex&&app.markerIndex[String(siteId)];
+    if(entry&&entry.marker&&entry.marker.setIcon)entry.marker.setIcon(markerIcon(site));
+    notify(next?'Site is hidden from normal users. The red admin status button and marker show that it remains visible only to admins.':'Site is visible to normal users again.',7500);
   }catch(e){
     console.error(e);
     const msg=e&&e.message?e.message:'Could not update hidden-site status. Run the current Supabase SQL migration if this is the first admin install.';

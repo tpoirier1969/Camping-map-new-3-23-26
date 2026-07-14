@@ -1,0 +1,16 @@
+SQL ACTION REQUIRED — v23.1.112
+
+Run this exact file in the Supabase project SQL Editor:
+  boondocking_map_supabase_phase1_schema.sql
+
+Steps:
+1. Open the Supabase project used by config.js.
+2. Open SQL Editor.
+3. Open/copy the entire boondocking_map_supabase_phase1_schema.sql file.
+4. Run the entire script.
+5. Sign out and back into the camping map as tpoirier@nmu.edu.
+6. Open a site as admin and test Hide from normal users.
+
+The migration is designed to be safe and idempotent to re-run. It creates/updates the project-prefixed public.boondocking_map_* tables, admin/profile functions, RLS policies, triggers and grants. It does not drop the project data tables.
+
+Until this SQL is run, the admin-hidden button cannot persist hidden status and the app will show a migration-required notice.

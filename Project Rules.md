@@ -32,6 +32,13 @@ If a supervisor has assigned a defined number of workers and the next safe integ
 
 If Tod asks a question, answer the question directly. Do not create or package files solely because the question touches a build, audit, worker return, or possible revision unless Tod also asks for a fix/package/revision or gives clear change instructions that make file creation the natural next step.
 
+
+SQL action disclosure rule:
+
+Every package, build handoff, or supervisor return must end with an explicit SQL action statement. Use a prominent heading of either `SQL ACTION REQUIRED` or `SQL ACTION: NONE`.
+
+When SQL must be run, state the exact SQL filename, where to run it, whether it is safe/idempotent to re-run, and which app feature will fail or remain unavailable until it is run. Do not bury SQL instructions in build notes, a changelog, or the middle of the response. When no SQL is required, say so explicitly at the end.
+
 Workflow evolution / rules freshness rule:
 
 When Tod and the assistant make a durable workflow, architecture, data-model, proof-standard, handoff-format, or QA decision during project work, that change should be folded into `Project Rules.md` in the next revision. The controlling rules file should stay current with the way the project is actually being run. Do not let stale handoffs, old proof habits, or older package assumptions override the latest project decisions.
@@ -67,14 +74,6 @@ Federal/state-local area overlay de-duplication rule:
 Federal/state/local area overlays must stay sparse and must not draw multiple broad outline systems for the same land unit. If a detailed official federal outline or USFS-owned surface/ownership context exists for a National Forest, that detailed outline takes priority and the broad USFS administrative boundary must be suppressed for that same forest. Non-FS/private-inholding context polygons should not auto-display as part of the Federal Areas toggle unless Tod explicitly requests a separate inholding/ownership-risk layer; Federal Areas should show federal context, not a second contradictory non-federal color layer. Nested genuinely different federal areas such as wilderness or backcountry rule units may still display inside a larger federal area when they represent a distinct rule system.
 
 Federal and state/local area overlays must also be gated by the selected-state set. Multi-state administrative polygons must be split or clipped into separate state-specific display geometries before they are shown. The end user must never have to select every state touched by one forest or land unit just to see the portion inside the state they selected. Adding or removing a state must reconcile by state: preserve already-drawn state portions that remain selected, add only the newly selected state's portion, and remove only the deselected state's portion. Do not clear and redraw unchanged state portions. Static multi-state outline records must likewise be pre-split into separate state records rather than hidden behind an all-states-selected rule.
-
-Designated-site system area suppression rule:
-
-Do not add or retain a broad park, backcountry, island, water-access, or designated-campsite-system outline merely to duplicate a complete set of designated campsite points already on the map. Individual official campsite/component points take priority. Add or retain the broader area only when the individual designated site set is incomplete, unavailable, or the area conveys a distinct permit/rule context that the points cannot honestly communicate. The area popup must say designated-site-only when free-choice camping is not allowed. Track the site-coverage decision explicitly; a parent/system marker, trailhead, developed campground, or one broad cluster point does not count as a complete individual designated-site set. Once the designated sites are completely mapped, suppress or remove the redundant area unless Tod specifically wants the context retained.
-
-Tribal/reservation public-access control for future state work:
-
-For every new-state or major state-revisit discovery pass, check official tribal government, tribal park, tribal enterprise, casino/RV, and tribal permit sources where reservations or tribal lands fall inside the geographic lock. Do not assume reservation or tribal land is open to boondocking, dispersed camping, or public overnight use. Tribal/reservation camping is permission-based: import only official tribal/operator campgrounds, RV areas, named recreation camping, or permit-based designated/backcountry opportunities with clear public access. Fit accepted records into the existing approved layers; do not create a tribal layer. Community/app/social reports may be discovery leads but are not sufficient final permission proof for informal reservation-land pullouts.
 
 
 Coordinate-rescue completion rule:
@@ -112,6 +111,10 @@ Do not rewrite marker icon CSS inline in `index.html`. Keep marker styling in `s
 Basemap-aware high-visibility marker color rule:
 
 When the app changes basemap type, marker colors may change by basemap to preserve visibility, but marker shapes and layer meanings must remain stable. Satellite imagery should use high-visibility fills with black stroke and a white halo so icons do not disappear into forest, field, road, water, or shadow backgrounds. Street/topo basemaps may use less neon but still high-contrast palettes. Cluster markers below zoom 4.5 should also use basemap-aware high-contrast styling.
+
+Overnight Parking wider-zoom visibility rule:
+
+The Overnight Parking P marker must remain legible from zoom 7 outward. Use a high-contrast nonwhite palette on pale street/topographic maps and a parking-specific minimum visual scale between zoom 4.5 and 7. Preserve the P icon and the normal cluster transition below zoom 4.5; do not enlarge every other layer to solve parking visibility.
 
 
 Map viewport / state-selection render rule:

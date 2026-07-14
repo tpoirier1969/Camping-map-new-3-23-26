@@ -14,6 +14,13 @@
 -- config.js schema 'camping' with public.* tables causes PostgREST schema-cache
 -- errors like: Could not find the table 'camping.boondocking_map_site_favorites'.
 
+
+-- v23.1.112 IMPORTANT: RUN THIS ENTIRE FILE in the Supabase SQL Editor after
+-- installing the v23.1.112 app files if it has not already been run. The
+-- admin-hidden button depends on public.boondocking_map_site_admin_flags,
+-- the profile/admin functions and their RLS policies. This migration is
+-- designed to be safe to re-run and does not drop project data tables.
+
 -- v23.1.88 note: adds admin bootstrap/elevation tools and admin hidden-site flags.
 -- Primary admin bootstrap email: tpoirier@nmu.edu.
 -- Re-run this migration after installing v23.1.88 so the admin RPC and hidden-site

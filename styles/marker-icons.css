@@ -49,6 +49,11 @@
   flex: 0 0 22px;
 }
 
+/* Overnight Parking remains intentionally larger than ordinary markers from zoom 7 outward. */
+.map-pin.pin-parking {
+  transform: scale(var(--camping-parking-zoom-scale, var(--camping-marker-zoom-scale, 1)));
+}
+
 .map-pin.pin-boat-backpack,
 .layer-icon.pin-boat-backpack {
   width: 26px;
@@ -112,9 +117,10 @@
 }
 
 .pin-parking {
-  --fill: #ffffff;
-  --stroke: #6a6f78;
-  --icon: #4a515b;
+  --fill: #172554;
+  --stroke: #ffffff;
+  --icon: #fde047;
+  box-shadow: 0 0 0 1px #111827, 0 2px 10px rgba(0,0,0,.38);
 }
 
 .pin-rest {
@@ -192,7 +198,7 @@ body.basemap-osm .pin-boondocking { --fill:#12A150; --stroke:#063F1C; --icon:#ff
 body.basemap-osm .pin-boat-backpack { --fill:#00A6C8; --stroke:#004854; --icon:#fff; }
 body.basemap-osm .pin-private { --fill:#D61F69; --stroke:#fff; --icon:#fff; }
 body.basemap-osm .pin-draft { --fill:#A855F7; --stroke:#4C1D95; --icon:#fff; }
-body.basemap-osm .pin-parking { --fill:#fff; --stroke:#374151; --icon:#111827; }
+body.basemap-osm .pin-parking { --fill:#172554; --stroke:#fff; --icon:#FDE047; box-shadow:0 0 0 1px #111827,0 2px 10px rgba(0,0,0,.42); }
 body.basemap-osm .pin-rest { --fill:#111827; --stroke:#fff; --icon:#fff; }
 body.basemap-osm .pin-info { --fill:#FDE68A; --stroke:#92400E; --icon:#78350F; }
 
@@ -202,7 +208,7 @@ body.basemap-opentopo .pin-boondocking { --fill:#128A3E; --stroke:#052E16; --ico
 body.basemap-opentopo .pin-boat-backpack { --fill:#008FA3; --stroke:#003B45; --icon:#fff; }
 body.basemap-opentopo .pin-private { --fill:#C2185B; --stroke:#fff; --icon:#fff; }
 body.basemap-opentopo .pin-draft { --fill:#7C3AED; --stroke:#2E1065; --icon:#fff; }
-body.basemap-opentopo .pin-parking { --fill:#fff; --stroke:#1F2937; --icon:#111827; }
+body.basemap-opentopo .pin-parking { --fill:#172554; --stroke:#fff; --icon:#FDE047; box-shadow:0 0 0 1px #111827,0 2px 10px rgba(0,0,0,.46); }
 body.basemap-opentopo .pin-rest { --fill:#1F2937; --stroke:#fff; --icon:#fff; }
 body.basemap-opentopo .pin-info { --fill:#FACC15; --stroke:#713F12; --icon:#422006; }
 
@@ -212,7 +218,7 @@ body.basemap-topo .pin-boondocking { --fill:#167A3D; --stroke:#052E16; --icon:#f
 body.basemap-topo .pin-boat-backpack { --fill:#007C91; --stroke:#003B45; --icon:#fff; }
 body.basemap-topo .pin-private { --fill:#B91C5C; --stroke:#fff; --icon:#fff; }
 body.basemap-topo .pin-draft { --fill:#9333EA; --stroke:#3B0764; --icon:#fff; }
-body.basemap-topo .pin-parking { --fill:#fff; --stroke:#374151; --icon:#111827; }
+body.basemap-topo .pin-parking { --fill:#172554; --stroke:#fff; --icon:#FDE047; box-shadow:0 0 0 1px #111827,0 2px 10px rgba(0,0,0,.44); }
 body.basemap-topo .pin-rest { --fill:#374151; --stroke:#fff; --icon:#fff; }
 body.basemap-topo .pin-info { --fill:#FCD34D; --stroke:#92400E; --icon:#78350F; }
 
@@ -226,7 +232,7 @@ body.basemap-satellite .pin-boondocking { --fill:#00FF5A; --stroke:#000; --icon:
 body.basemap-satellite .pin-boat-backpack { --fill:#00E5FF; --stroke:#000; --icon:#000; }
 body.basemap-satellite .pin-private { --fill:#FF2D88; --stroke:#000; --icon:#fff; }
 body.basemap-satellite .pin-draft { --fill:#FF7A00; --stroke:#000; --icon:#000; }
-body.basemap-satellite .pin-parking { --fill:#fff; --stroke:#000; --icon:#000; }
+body.basemap-satellite .pin-parking { --fill:#FDE047; --stroke:#000; --icon:#111827; box-shadow:0 0 0 2px #fff,0 2px 10px rgba(0,0,0,.78); }
 body.basemap-satellite .pin-rest { --fill:#111827; --stroke:#fff; --icon:#fff; }
 body.basemap-satellite .pin-info { --fill:#fff; --stroke:#000; --icon:#000; }
 
@@ -242,4 +248,14 @@ body.basemap-satellite .map-cluster {
   --stroke:#000;
   --icon:#000;
   box-shadow: 0 0 0 2px #fff, 0 2px 10px rgba(0,0,0,.78);
+}
+
+
+/* Admin visibility status — preserves the site's real layer shape while making hidden records unmistakable to admins. */
+.map-pin.admin-hidden-marker {
+  --fill: #8b1e2d !important;
+  --stroke: #ffffff !important;
+  --icon: #ffffff !important;
+  box-shadow: 0 0 0 3px #f4b942, 0 2px 10px rgba(0,0,0,.45) !important;
+  opacity: .88;
 }

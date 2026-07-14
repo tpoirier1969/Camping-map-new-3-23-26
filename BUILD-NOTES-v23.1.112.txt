@@ -1,0 +1,37 @@
+Tod's Boondocking & Camping Maps v23.1.112
+Eastern U.P. reconciliation + admin-hidden framework completion
+
+DATA
+- Added operator-backed Newberry Campground and Kritters Campground.
+- Removed the remaining live duplicate Two Hearted River row (s945); retained official-coordinate s622.
+- Corrected Woodland Park to Modern and Ross Lake, Little Beaver Lake, Hurricane River, Twelvemile Beach, and Reed & Green Bridge to Rustic / Primitive; Reed & Green also receives the official DNR coordinate and source.
+- Normalized Blind Sucker No. 1 and No. 2 names.
+- Preserved Tank Lake with Tod firsthand overnight-stay provenance.
+- Silver Lake access correction: s839/s840/s841 moved to Boat / Backpack; Silver Lake site No. 3 (s842) remains drive-in Boondocking / Dispersed.
+- Closed resolved Newberry, Kritters, and Muskallonge leads.
+
+AREA UI
+- Added a persistent note beside both area toggles: area outlines are general boundaries where boondocking may be permitted; users must open each area and check its specific rules.
+
+ADMIN HIDDEN STATUS
+- Hidden remains a moderation/visibility status, not a separate camping layer.
+- Normal users do not see hidden records; admins see them in their real layer.
+- Hidden button now reads 'Hidden from normal users', turns red, and can be clicked again to restore visibility.
+- Admin-hidden markers keep their real layer shape but display with a red fill and gold status ring.
+- Marker status updates in place so the popup does not disappear after the admin action.
+- If the database table is missing, the popup explicitly says to run the Supabase SQL migration.
+
+OVERNIGHT PARKING VISIBILITY
+- Replaced the white parking marker on pale basemaps with a dark-navy/yellow high-contrast P marker.
+- Added a parking-only wider-zoom scale floor: approximately 58% at zoom 4.5, 65% at zoom 7, then smoothly returning to full size by zoom 8.5.
+- Other layer sizes, icon shapes and the below-4.5 cluster transition are unchanged.
+- index.html now cache-busts marker-icons.css from the runtime version so the revised parking and admin-hidden styling is not masked by an older browser cache.
+
+SUPABASE
+- Included boondocking_map_supabase_phase1_schema.sql. Run it in Supabase SQL Editor; safe to re-run.
+- config.js remains unchanged and already targets schema public, matching the SQL.
+
+RULES
+- Added mandatory end-of-handoff SQL ACTION REQUIRED / SQL ACTION: NONE disclosure rule to both rule filenames.
+
+No Tahquamenon component merges and no disputed boondocking downgrades were included.

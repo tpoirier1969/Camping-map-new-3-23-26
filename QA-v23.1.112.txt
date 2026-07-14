@@ -1,0 +1,77 @@
+Tod's Boondocking & Camping Maps v23.1.112 — QA
+Date: 2026-07-14
+
+RESULT: PASS
+
+BASELINE / SCOPE
+- Reconstructed the current package sequence through v23.1.111 before applying v23.1.112.
+- No repo commit, branch, PR or upload was performed.
+- No Tahquamenon campground component merge was made.
+- No disputed boondocking site was downgraded.
+- config.js was not changed.
+
+JAVASCRIPT / STARTUP
+- node --check passed: app.js
+- node --check passed: version.js
+- node --check passed: data/states/MI.js
+- node --check passed: data/states/MI2.js
+- node --check passed: data/states-manifest.js
+- node --check passed: data/leads.js
+- All inline index.html scripts passed node syntax checks.
+- Startup/feature function presence verified for initState, confirmRestoredLargeStateSelection, initMap, buildControls, bindAppActivityTracking, initSupabase, loadEnabledStates, updateMarkerZoomScale, showAreaZoomWarningIfNeeded and toggleAdminHiddenSite.
+
+VERSION / CACHE
+- version.js is the sole visible runtime v23.1.112 source.
+- app.js and index.html do not hardcode the current visible version.
+- marker-icons.css now receives a runtime-version cache key from index.html.
+
+MICHIGAN RUNTIME
+- Produced Michigan runtime count: 544.
+- Manifest count: 544.
+- Duplicate Michigan IDs: 0.
+- Correct western Muskallonge s628 retained as Modern; displaced eastern s629 absent.
+- Newberry Campground added to Private Campgrounds at operator-published coordinate.
+- Kritters Campground added to Private Campgrounds at operator-address/established-POI campground marker.
+- Mouth of Two Hearted River s622 retained; duplicate s945 absent.
+- Tank Lake s905 retained active in Boondocking / Dispersed with Tod firsthand overnight-stay provenance.
+- Silver Lake s839, s840 and s841 are Boat / Backpack.
+- Silver Lake site No. 3, s842, remains drive-in Boondocking / Dispersed.
+- Woodland Park s1021 is Modern.
+- Ross Lake s791, Little Beaver Lake s540, Hurricane River s416, Twelvemile Beach s942 and Reed & Green Bridge s766 are Rustic / Primitive.
+- Reed & Green Bridge s766 uses the official DNR coordinate 46.661448, -85.522359 and official campground source.
+- Blind Sucker No. 1 / No. 2 names normalized.
+- Resolved Newberry, Kritters and Muskallonge leads removed.
+- Fox River Pathway geometry lead retained.
+
+AREA USER GUIDANCE
+- Desktop and mobile legends both contain the general-boundary / check-specific-rules note.
+- Area zoom warning continues to use the same quarter-step formatting as the map zoom indicator.
+
+ADMIN-HIDDEN STATUS
+- Hidden remains a visibility status, not a camping layer.
+- Normal-user marker filtering calls siteVisibleToCurrentUser().
+- Admin button changes to “Hidden from normal users,” uses active red styling and remains a restore toggle.
+- Admin-only marker status preserves the site's real layer shape and adds red/gold status styling.
+- Missing Supabase framework produces a migration-required notice instead of a dead control.
+- SQL contains public.boondocking_map_site_admin_flags, admin/profile functions, RLS policies, triggers and grants.
+- config.js schema 'public' matches the SQL.
+
+OVERNIGHT PARKING VISIBILITY
+- P icon assignment is unchanged.
+- Pale basemaps use dark navy fill, white border and yellow P instead of white fill.
+- Satellite uses yellow fill with dark P and white halo.
+- Parking-only visual scale fixture passed:
+  zoom 4.5 = 0.58
+  zoom 6.0 = 0.622
+  zoom 7.0 = 0.65
+  zoom 7.75 = 0.825
+  zoom 8.5 = 1.0
+- Other layer scale curves and cluster transition below zoom 4.5 are unchanged.
+
+RULES / SQL DISCLOSURE
+- PROJECT_RULES.md and Project Rules.md match exactly.
+- Both include the SQL action disclosure rule.
+- Both include the Overnight Parking wider-zoom visibility rule.
+- SQL-ACTION-REQUIRED-v23.1.112.txt identifies the exact migration and rerun safety.
+
+TOTAL AUTOMATED / STATIC ASSERTIONS: 76 passed.

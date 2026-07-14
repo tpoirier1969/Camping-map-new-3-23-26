@@ -189,7 +189,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 543,
+    "count": 544,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -206,7 +206,8 @@ window.CAMPING_STATES_MANIFEST = {
     "notes": [
       "v23.1.94: Integrated partial lead address/coordinate rescue worker returns (Workers 1,2,3,4,6,7,8,9). Worker 5 and 10 returns are not included yet.",
       "v23.1.96: Integrates remaining lead rescue worker returns and correction-risk cleanup for MI; uses worker-return source trails, no fake coordinate upgrade.",
-      "v23.1.109: Removes the displaced eastern Muskallonge Lake State Park Campground duplicate, retains Tod-confirmed western s628 as Modern, corrects the produced MI runtime count to 543, and records Fox River Pathway geometry rescue in data/leads.js."
+      "v23.1.109: Removes the displaced eastern Muskallonge Lake State Park Campground duplicate, retains Tod-confirmed western s628 as Modern, corrects the produced MI runtime count to 543, and records Fox River Pathway geometry rescue in data/leads.js.",
+      "v23.1.112: Eastern U.P. reconciliation adds Newberry and Kritters campgrounds, merges the remaining Two Hearted mouth duplicate, applies audited campground-layer/name corrections, preserves Tank Lake, and corrects Silver Lake access layers from Tod firsthand knowledge."
     ]
   },
   "MN": {

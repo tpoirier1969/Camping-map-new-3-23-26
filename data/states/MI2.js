@@ -10,12 +10,14 @@
   function nameOf(site){ return text(site && site.name).toLowerCase(); }
   function patchByName(pattern, patch){
     let count = 0;
+    const correctionVersion = text(patch && patch.dataCorrectionVersion) || 'v23.0.34';
+    const correctionDate = text(patch && patch.dataCorrectionDate) || checked;
     list.forEach(site => {
       if(pattern.test(nameOf(site))){
         Object.assign(site, patch, {
           dataCorrectionFile: 'data/states/MI2.js',
-          dataCorrectionVersion: 'v23.0.34',
-          dataCorrectionDate: checked
+          dataCorrectionVersion: correctionVersion,
+          dataCorrectionDate: correctionDate
         });
         count++;
       }
@@ -33,16 +35,18 @@
     lng: -86.16794,
     stateCode: 'MI',
     stateName: 'Michigan',
-    layer: 'federal',
+    layer: 'rustic',
     subtype: 'rustic',
     owner: 'National Park Service / Pictured Rocks National Lakeshore',
-    layerLabel: 'Rustic campgrounds',
-    categoryLabel: 'Federal Campgrounds',
+    layerLabel: 'Rustic / Primitive',
+    categoryLabel: 'Rustic / Primitive',
     website: 'https://www.nps.gov/piro/planyourvisit/campgrounds.htm',
     showers: 'No',
     locationPrecision: 'Corrected land-side campground/trailhead-area pin near the Hurricane River mouth access; not offshore.',
-    verificationStatus: 'verified-coordinate-correction',
-    verificationNotes: 'Corrects previously reported offshore/Lake Superior placement. Hurricane River Campground is at the Hurricane River mouth in Pictured Rocks National Lakeshore, with trail access toward Au Sable Light.'
+    verificationStatus: 'verified-coordinate-layer-correction',
+    verificationNotes: 'Corrects previously reported offshore/Lake Superior placement and normalizes the designated drive-in campground to Rustic / Primitive based on NPS no-hookup, vault-toilet/well-water service.',
+    dataCorrectionVersion: 'v23.1.112',
+    dataCorrectionDate: '2026-07-14'
   });
 
   // Fix: Misery Bay is not a modern campground layer item in this project. Keep it with rougher low-service camping.
