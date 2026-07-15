@@ -1,0 +1,27 @@
+BOONDOCKING & CAMPING MAPS — v23.1.117 QA
+
+PASS — JavaScript syntax
+- node --check app.js
+
+PASS — Authenticated UI behavior wiring
+- accountAuthControls begins hidden during startup.
+- updateAuthUi() removes hidden/class state when signed out.
+- updateAuthUi() applies hidden/class state when signed in.
+- sbSignOutBtn uses the inverse signed-in state.
+- aria-hidden is synchronized for the sign-in control group.
+
+PASS — HTML integrity
+- No duplicate element IDs.
+- Existing account, route, community, and admin element IDs preserved.
+
+PASS — Version contract
+- App version: v23.1.117
+- App build: signed-in-auth-controls-hide
+- Data version remains v23.1.116
+- v23.1.117 appears only in version.js among runtime files.
+- index.html included under the version-shell packaging rule.
+
+PASS — Narrow-scope control
+- No data files changed.
+- No Supabase SQL/schema change.
+- No unrelated UI or map behavior changed.

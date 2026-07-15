@@ -4077,8 +4077,15 @@ function updateAuthUi(message){
   }
   const accountAuthControls=$('accountAuthControls');
   const accountSignOut=$('sbSignOutBtn');
-  if(accountAuthControls)accountAuthControls.hidden=signedIn;
-  if(accountSignOut)accountSignOut.hidden=!signedIn;
+  if(accountAuthControls){
+    accountAuthControls.hidden=signedIn;
+    accountAuthControls.classList.toggle('hidden',signedIn);
+    accountAuthControls.setAttribute('aria-hidden',signedIn?'true':'false');
+  }
+  if(accountSignOut){
+    accountSignOut.hidden=!signedIn;
+    accountSignOut.classList.toggle('hidden',!signedIn);
+  }
   const save=$('routeSaveBtn'),load=$('routeLoadBtn'),del=$('routeDeleteBtn');
   if(save)save.disabled=!signedIn;
   if(load)load.disabled=!signedIn;

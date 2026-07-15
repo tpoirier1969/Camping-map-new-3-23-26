@@ -1,0 +1,4 @@
+SQL ACTION: NONE
+
+v23.1.117 changes only the authenticated account-control display in index.html/app.js.
+No Supabase table, policy, function, trigger, role, or schema change is required.

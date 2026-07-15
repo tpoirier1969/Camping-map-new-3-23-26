@@ -1,0 +1,22 @@
+BOONDOCKING & CAMPING MAPS — v23.1.117 BUILD NOTES
+
+Purpose
+- Hide the email/password/sign-in/create-account controls whenever a Supabase user is already signed in.
+- Keep the signed-in account status and Log out button visible.
+
+Changes
+- app.js
+  - updateAuthUi() now synchronizes both the HTML hidden property and the app's .hidden utility class.
+  - Adds aria-hidden state to the sign-in control group.
+  - Keeps Log out hidden only while signed out.
+- index.html
+  - Sign-in controls and Log out start hidden to prevent a startup flash before the saved Supabase session is resolved.
+  - Existing auth-state code reveals the appropriate controls after session initialization.
+- version.js
+  - App version advanced to v23.1.117.
+  - Data version remains v23.1.116 because no campsite, lead, rejected, manifest, or geographic data changed.
+
+Unchanged
+- No campsite or lead data changes.
+- No map, layer, search, state-selection, marker, filter, route, Supabase schema, or admin behavior changes.
+- No config.js change.
