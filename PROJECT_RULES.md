@@ -126,7 +126,7 @@ As the map gains more campsite records, marker icons must scale down at lower zo
 
 Version flag / build identity contract:
 
-The app must have exactly one authoritative runtime version source: `version.js`.
+The app must have exactly one authoritative runtime version source: `version.js`, and the entire application/data package advances as one release unit. Do not assign different app and data version numbers.
 
 `version.js` must define all runtime/build fields consumed by `app.js` and `index.html`:
 
@@ -137,11 +137,18 @@ The app must have exactly one authoritative runtime version source: `version.js`
 * `window.CAMPING_VERSION`
 * `window.CAMPING_BUILD = { version, build, dataVersion, dataBuild, released, label }`
 
+For every release:
+
+* `CAMPING_APP_VERSION`, `CAMPING_DATA_VERSION`, `CAMPING_VERSION`, `CAMPING_BUILD.version`, and `CAMPING_BUILD.dataVersion` must contain the same revision.
+* `CAMPING_APP_BUILD`, `CAMPING_DATA_BUILD`, `CAMPING_BUILD.build`, and `CAMPING_BUILD.dataBuild` must identify the same unified build.
+* A UI-only, data-only, correction-only, or package-only change still advances the single shared revision for the whole application.
+* Do not publish mixed app/data revisions or describe one part of the installed package as remaining on an older version.
+
 Keep `window.APP_VERSION` and `window.DATA_BUILD` only as backward-compatible aliases. Do not make them the only version fields.
 
 No other runtime file should carry the current visible version flag. `version.json` may exist only as a non-authoritative pointer/metadata file and must not contain the current visible app version. `index.html` must load `version.js` and use the variables from `version.js`; it must not hardcode the current visible app version. `app.js` must display the version from `window.CAMPING_BUILD` / `window.CAMPING_APP_VERSION` only.
 
-If `window.CAMPING_BUILD.version` or `window.CAMPING_APP_VERSION` is missing, stale, or duplicated inconsistently in another runtime file, the visible app version can be wrong. That is a packaging failure.
+If the unified revision/build fields are missing, stale, or inconsistent with one another, the package has failed version QA.
 
 Marker zoom-redraw rule:
 
@@ -723,15 +730,17 @@ Required wording when the baseline itself is not sufficient:
 “I need the current live repo/package ZIP before I can safely do this. The repo/available files do not provide the required current baseline.”
 
 
-App/data version architecture rule:
+Unified release-version architecture rule:
 
-Use one global app/software version and one global campsite-data version when the app architecture supports it.
+Use one global revision for the complete application, including UI, behavior, campsite data, state files, supplements, manifests, leads, rejected records, area geometry, and cache-busting.
 
-* APP_VERSION controls UI, behavior, features, and app code.
-* DATA_VERSION controls campsite data, state files, supplements, manifest data, lead/rejected data, and data cache-busting.
-* Do not create per-state data versions unless Tod explicitly requests that later.
+* App and data version fields must always be identical.
+* App and data build identifiers must always describe the same release package.
+* Do not create independent app, data, or per-state release numbers.
+* Any authorized change advances the complete package to the next revision, even when only one file category changed.
+* Runtime loaders may still use the data-version field for cache-busting, but that field must equal the shared application revision.
 
-State files and data manifests should load using DATA_VERSION, not only the app version, so campsite data can be refreshed independently from app feature changes.
+Do not describe a release as having a newer app version with older data, or newer data with an older app. The installed map moves forward as one unit.
 
 Package/build rules:
 

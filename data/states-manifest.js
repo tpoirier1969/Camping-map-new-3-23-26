@@ -209,7 +209,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.109: Removes the displaced eastern Muskallonge Lake State Park Campground duplicate, retains Tod-confirmed western s628 as Modern, corrects the produced MI runtime count to 543, and records Fox River Pathway geometry rescue in data/leads.js.",
       "v23.1.112: Eastern U.P. reconciliation adds Newberry and Kritters campgrounds, merges the remaining Two Hearted mouth duplicate, applies audited campground-layer/name corrections, preserves Tank Lake, and corrects Silver Lake access layers from Tod firsthand knowledge.",
       "v23.1.114: Eastern U.P. closeout adds the three exact official Tahquamenon backcountry sites, corrects Pretty Lake/Fox River/East Branch Fox River coordinates, separates Rivermouth Modern from Rivermouth Rustic/Pines, suppresses the now-redundant Tahquamenon broad backcountry outline, and upgrades unresolved geometry/component leads without fake points.",
-      "v23.1.115: Statewide Michigan Bulldog integration adds 61 source-backed camping records, removes 24 proven duplicate/proxy/restricted/non-camping rows, applies 59 high-confidence coordinate/layer/name/owner/status corrections, and retains all unresolved worker targets in leads/rejected ledgers.",
+      "v23.1.115: Statewide Michigan Bulldog integration adds 61 source-backed camping records, removes 24 proven duplicate/proxy/restricted/non-camping rows, applies 59 high-confidence coordinate/layer/name/owner/status corrections, and retains all unresolved worker targets in leads/rejected ledgers."
     ]
   },
   "MN": {
@@ -434,7 +434,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "WI",
     "name": "Wisconsin",
     "file": "data/states/WI.js",
-    "count": 621,
+    "count": 620,
     "files": [
       "data/states/WI.js",
       "data/supplements/wi-mi-corridor-active-ui-v23.1.55.js",
@@ -443,7 +443,8 @@ window.CAMPING_STATES_MANIFEST = {
     "dynamicSources": [
       "v23.1.48: Wisconsin consolidation cleanup folds all active Wisconsin runtime supplements through v23.1.24 into data/states/WI.js. Final loaded Wisconsin count remains 621; historical supplement files are retired from active manifest loading.",
       "v23.1.55: WI/UP corridor worker reconciliation promotes/updates Florence County Forest camping rule marker to active Boondocking / Dispersed while retaining existing Oconto/Marinette/CNF area markers; no net WI count change. Adds supporting lead/rejected memory for Perch Lake, Marinette park coordinate rescue, CNF/MVUM geometry, and wrong-feature traps.",
-      "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
+      "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate.",
+      "v23.1.118: Removes the misleading Bayfield County Forest generic point at 46.55, -91.05. The official Wisconsin DNR county-forest polygon remains the source-backed Bayfield dispersed-camping rule-area context."
     ]
   },
   "WY": {

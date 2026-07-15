@@ -1,0 +1,48 @@
+BOONDOCKING & CAMPING MAPS — v23.1.118 BUILD NOTES
+
+Release scope
+-------------
+1. Correct Bayfield County Forest representation.
+2. Enforce Tod's unified app/data revision rule.
+3. Carry forward the tested v23.1.117 authenticated-account UI behavior.
+
+Bayfield correction
+-------------------
+Removed active point:
+- ID: wi-bayfield-county-forest-dispersed-area-v23113
+- Name: Bayfield County Forest Dispersed Camping Area
+- Coordinate removed: 46.55, -91.05
+
+The coordinate was only a representative rule-area marker. It was not an exact campsite,
+campground entrance, access/registration point, or officially identified camping location.
+No replacement point was created.
+
+The official Wisconsin DNR county-forest polygon remains as the honest Bayfield County
+Forest dispersed-camping context:
+- wi-bayfield-county-forest-outline-v2311
+
+Wisconsin active count
+----------------------
+Before: 621
+After:  620
+Net:    -1 active point
+
+Unified versioning
+------------------
+All app/data version fields now equal v23.1.118.
+All app/data build fields now identify the same unified release.
+Both project-rule files prohibit split app/data revisions.
+
+Changed files
+-------------
+- app.js
+- index.html
+- version.js
+- PROJECT_RULES.md
+- Project Rules.md
+- data/states/WI.js
+- data/states-manifest.js
+- data/supplements/wi-accelerated-sites-areas-v23.1.13.js
+- data/rejected.js
+
+No GitHub commit, branch, or pull request was created.

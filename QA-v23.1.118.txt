@@ -1,0 +1,22 @@
+BOONDOCKING & CAMPING MAPS — v23.1.118 QA
+
+PASS | Exactly one Wisconsin active point removed
+PASS | Bayfield point ID absent from active WI.js
+PASS | Bayfield point ID absent from source supplement
+PASS | Wisconsin manifest count matches active data | 620
+PASS | Correction ledger row present
+PASS | Rules files match exactly
+PASS | Unified app/data version
+PASS | Unified app/data build
+PASS | Signed-in auth-control fix retained
+PASS | JavaScript syntax: app.js
+PASS | JavaScript syntax: version.js
+PASS | JavaScript syntax: data/states/WI.js
+PASS | JavaScript syntax: data/states-manifest.js
+PASS | JavaScript syntax: data/supplements/wi-accelerated-sites-areas-v23.1.13.js
+PASS | JavaScript syntax: data/rejected.js
+
+Wisconsin active records before: 621
+Wisconsin active records after:  620
+Official Bayfield County Forest outline retained in existing area-outline data.
+No replacement centroid or arbitrary proxy point created.

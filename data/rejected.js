@@ -13874,5 +13874,25 @@ window.CAMPING_REJECTED = [
     "lastCheckedVersion": "v23.1.116",
     "notes": "Retired from data/leads.js during Michigan Bulldog closeout. Active record s280 removed in v23.1.116.",
     "sourceUrl": ""
+  },
+  {
+    "id": "wi-reject-bayfield-county-forest-generic-point-v23118",
+    "state": "WI",
+    "name": "Bayfield County Forest Dispersed Camping Area — Generic Point",
+    "countyRegion": "Bayfield County",
+    "rejectedAsLayer": "Boondocking / Dispersed point marker",
+    "rejectionType": "misleading proxy coordinate / superseded by official rule-area outline",
+    "rejectionStrength": "point representation rejected",
+    "currentDecision": "REJECT GENERIC POINT; KEEP OFFICIAL AREA OUTLINE",
+    "canReopen": true,
+    "reopenIf": [
+      "An official designated campsite coordinate is published.",
+      "An official required camping access or registration point is identified and clearly labeled as an access point."
+    ],
+    "sourceSummary": "The active record used 46.55, -91.05 only as a representative county-forest area marker. It was not an exact campsite, campground entrance, access point, registration point, or officially identified camping location. The official Wisconsin DNR Bayfield County Forest polygon is the proper rule-area context.",
+    "relatedActiveOrPendingRecord": "wi-bayfield-county-forest-outline-v2311",
+    "lastCheckedVersion": "v23.1.118",
+    "notes": "Removed from active Wisconsin point data in v23.1.118. Do not replace it with another forest centroid or arbitrary representative point.",
+    "sourceUrl": "https://services5.arcgis.com/Ul9AyFFeFTjf08DW/ArcGIS/rest/services/County_Forests/FeatureServer/0"
   }
 ];
