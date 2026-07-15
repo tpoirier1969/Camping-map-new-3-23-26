@@ -1,0 +1,3 @@
+SQL ACTION: NONE
+
+v23.1.116 changes static application data, lead/rejected ledgers, version metadata and project rules only. No Supabase schema or SQL change is required. Previously installed hidden/admin/community SQL remains sufficient.

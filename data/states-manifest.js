@@ -189,7 +189,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 584,
+    "count": 690,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",

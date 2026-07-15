@@ -1,0 +1,52 @@
+TOD’S BOONDOCKING & CAMPING MAPS — BUILD NOTES v23.1.116
+
+Build: Michigan Bulldog lead burn-down integration
+Baseline: v23.1.115
+Release date: 2026-07-14
+
+SUMMARY
+- Starting Michigan runtime: 584
+- New active records added: 116
+- Active records removed: 10
+- Active-record patches applied: 12
+- Final Michigan runtime: 690
+- Michigan leads retired: 273
+- Michigan/other leads remaining overall: 2009
+- Rejected/duplicate ledger rows added: 151
+
+MAJOR INTEGRATION WORK
+- Integrated exact add-ready records from the eight-worker Michigan burn-down.
+- Integrated Worker 8’s structured southern/eastern Michigan campground and component rows.
+- Applied Tod’s coordinates for remote, island, outpost, tent-platform and walk-in campground components.
+- Added thirteen Pictured Rocks named backcountry campground guide markers derived from the official NPS schematic map.
+- Added address-geocoded ordinary campground records for Gaylord KOA, Munising/Pictured Rocks KOA, Kona Hills and Manistee River RV Resort.
+- Added honest system markers for the Porcupine Mountains backcountry network and Menominee River primitive river-camp system rather than inventing individual points.
+- Added Orchard Beach walk-in sites at the required park/campground entrance with explicit access-point wording.
+- Corrected High Rock Bay community-report wording, Beaver Island Isle Royale identity, Lime Island tent-platform coordinate, Pretty Lake component wording, Warren Dunes Mt. Randall, Clear Water Campgrounds and Seven Lakes Sand Lake identity/layer.
+- Removed 10 duplicate, wrong-location, unsupported-community or officially contradicted active rows and preserved the supported survivor where applicable.
+- Retired 273 verified, merged, rejected and completed add/correction lead IDs; preserved genuine unresolved rows.
+- Michigan lead backlog reduced from 457 to 184.
+
+COORDINATE POLICY USED
+- Ordinary campground/operator addresses may support campground entrance/area coordinates after map/property confirmation.
+- Connected walk-in components may use the required park/campground entrance when disclosed as an access marker.
+- Official schematic maps may support approximate named campground-cluster guide markers with honest uncertainty wording.
+
+DELIBERATELY REMAINING
+- Nahma user-reported sites 1 and 2 lack original pins or identifying details.
+- Bay de Noc–Grand Island Trail assembly areas still lack separate coordinates.
+- White Pine Valley group-site operation/status and Neebish Light Station identity require status/identity confirmation before promotion.
+- Named Menominee River individual camps remain represented by a system marker until exact named-camp points are recovered.
+
+CHANGED FILES
+- data/states/MI2.js
+- data/leads.js
+- data/rejected.js
+- data/states-manifest.js
+- version.js
+- index.html (included as required version-shell file; no unrelated UI change)
+- PROJECT_RULES.md
+- Project Rules.md
+- BUILD-NOTES-v23.1.116.txt
+- QA-v23.1.116.txt
+- SQL-ACTION-NONE-v23.1.116.txt

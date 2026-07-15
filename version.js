@@ -1,8 +1,15 @@
-window.CAMPING_APP_VERSION = 'v23.1.115';
-window.CAMPING_APP_BUILD = 'v23.1.115';
-window.CAMPING_DATA_VERSION = 'v23.1.115-mi-statewide-bulldog-integration';
-window.CAMPING_DATA_BUILD = 'v23.1.115-mi-statewide-bulldog-integration';
-window.CAMPING_VERSION = 'v23.1.115';
-window.CAMPING_BUILD = { version: 'v23.1.115', build: 'v23.1.115', dataVersion: 'v23.1.115-mi-statewide-bulldog-integration', dataBuild: 'v23.1.115-mi-statewide-bulldog-integration', released: '2026-07-14', label: 'Boondocking & Camping Maps v23.1.115' };
+window.CAMPING_APP_VERSION = "v23.1.116";
+window.CAMPING_APP_BUILD = "michigan-bulldog-lead-burndown";
+window.CAMPING_DATA_VERSION = "v23.1.116";
+window.CAMPING_DATA_BUILD = "michigan-bulldog-lead-burndown";
+window.CAMPING_VERSION = "v23.1.116";
+window.CAMPING_BUILD = {
+  version: "v23.1.116",
+  build: "michigan-bulldog-lead-burndown",
+  dataVersion: "v23.1.116",
+  dataBuild: "michigan-bulldog-lead-burndown",
+  released: "2026-07-14",
+  label: "Michigan Bulldog lead burn-down integration"
+};
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

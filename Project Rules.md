@@ -32,13 +32,6 @@ If a supervisor has assigned a defined number of workers and the next safe integ
 
 If Tod asks a question, answer the question directly. Do not create or package files solely because the question touches a build, audit, worker return, or possible revision unless Tod also asks for a fix/package/revision or gives clear change instructions that make file creation the natural next step.
 
-
-SQL action disclosure rule:
-
-Every package, build handoff, or supervisor return must end with an explicit SQL action statement. Use a prominent heading of either `SQL ACTION REQUIRED` or `SQL ACTION: NONE`.
-
-When SQL must be run, state the exact SQL filename, where to run it, whether it is safe/idempotent to re-run, and which app feature will fail or remain unavailable until it is run. Do not bury SQL instructions in build notes, a changelog, or the middle of the response. When no SQL is required, say so explicitly at the end.
-
 Workflow evolution / rules freshness rule:
 
 When Tod and the assistant make a durable workflow, architecture, data-model, proof-standard, handoff-format, or QA decision during project work, that change should be folded into `Project Rules.md` in the next revision. The controlling rules file should stay current with the way the project is actually being run. Do not let stale handoffs, old proof habits, or older package assumptions override the latest project decisions.
@@ -112,10 +105,6 @@ Basemap-aware high-visibility marker color rule:
 
 When the app changes basemap type, marker colors may change by basemap to preserve visibility, but marker shapes and layer meanings must remain stable. Satellite imagery should use high-visibility fills with black stroke and a white halo so icons do not disappear into forest, field, road, water, or shadow backgrounds. Street/topo basemaps may use less neon but still high-contrast palettes. Cluster markers below zoom 4.5 should also use basemap-aware high-contrast styling.
 
-Overnight Parking wider-zoom visibility rule:
-
-The Overnight Parking P marker must remain legible from zoom 7 outward. Use a much darker burnt-orange palette than Rustic / Primitive on pale street/topographic maps; do not use a black Parking fill. Preserve the P icon and the normal cluster transition below zoom 4.5. Overnight Parking uses the shared marker-scale curve rather than a separate oversized scale floor.
-
 
 Map viewport / state-selection render rule:
 
@@ -133,7 +122,7 @@ Search / place-search behavior rule:
 
 The main search field should support both campsite-record search and geographic place search. A normal search should match campsite names plus city, county/region, waterbody/reservoir, route/location notes, state, layer, and source text. If a typed term is not a loaded campsite match, or if the user chooses to use it as a map place, geocode the term as a U.S. place/geographic feature and center Nearby Search there so the mileage slider can show sites within the chosen distance. This supports searches such as city names, county names, reservoirs, national parks, and notable features like Grand Canyon.
 
-As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. The approved shared target curve is: full/current icon size at zoom 8.5 and above; about 54% size at zoom 7; about 28% size at zoom 6; about 24% size at zoom 4.5. Interpolate smoothly between those levels. These wider-zoom values intentionally raise all individual marker layers by roughly one-quarter of the former gap between the ordinary-marker curve and the oversized Overnight Parking curve. Below zoom 4.5, switch to numbered marker clustering so broad regional views draw grouped counts instead of every individual campsite pin. Preserve existing layer icon meanings, colors, and shapes unless Tod explicitly asks to change them.
+As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. The approved target curve is: full/current icon size at zoom 8.5 and above; about 50% size at zoom 7; about one-sixth size at zoom 6; about one-eighth size at zoom 4.5. Interpolate smoothly between those levels. Below zoom 4.5, switch to numbered marker clustering so broad regional views draw grouped counts instead of every individual campsite pin. Preserve existing layer icon meanings, colors, and shapes unless Tod explicitly asks to change them.
 
 Version flag / build identity contract:
 
@@ -1372,3 +1361,11 @@ The app should expose area/reference outlines as two user-facing overlay control
 Do not keep separate overlapping user controls such as a broad USFS Boundary toggle plus an Official Area Outlines toggle when those controls duplicate the same conceptual geography. Prefer the more detailed original/official area outline when it exists; use broad administrative boundaries only as sparse context where no better detailed outline is available. These overlays must remain reference/context layers, not campsite layers or proof that camping is legal everywhere inside the boundary.
 
 Area overlays must reconcile by difference. If a state/filter/layer selection change leaves an already-drawn outline valid, keep that map object. Add only newly needed outlines and remove only outlines that no longer match the enabled area type or selected states. Avoid full polygon redraws except when the overlay is turned off, the source/data changes, or the rendering mode genuinely changes.
+
+Walk-in campground entrance/access coordinate rule (v23.1.116):
+
+* When walk-in sites are an internal component of a larger developed campground or park campground and campers must pass through the main park/campground entrance to reach them, that required entrance/access coordinate is acceptable for the walk-in component. The popup must clearly state that the marker is the required entrance/access point and not the exact campsite cluster. This does not authorize using a distant visitor center, office, trailhead, launch, or broad park centroid for independent backcountry sites.
+
+Official schematic-map guide-coordinate rule (v23.1.116):
+
+* A named campground cluster shown on an official agency schematic, GeoPDF, geospatial PDF, or defensibly calibrated official map may use an approximate guide coordinate when exact point data are not published and the result is sufficiently accurate for trip planning. The record must disclose that the marker is map-derived, approximate, represents a campground cluster rather than an individual campsite, and is not a navigation/orienteering waypoint. Do not use this rule to invent unnamed sites or false individual-site precision.

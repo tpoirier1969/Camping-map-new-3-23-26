@@ -1,0 +1,50 @@
+TOD’S BOONDOCKING & CAMPING MAPS — QA v23.1.116
+
+RUNTIME COUNTS
+- Baseline Michigan records: 584
+- Added records: 116
+- Removed records: 10
+- Final Michigan records: 690
+- Manifest Michigan count: 690
+
+INTEGRITY
+- Duplicate active IDs: 0
+- Duplicate normalized active names: 0
+- Duplicate lead IDs: 0
+- Duplicate rejected IDs: 0
+- Missing expected additions: 0
+- Patch targets absent from baseline: 0
+- Michigan leads retired: 273
+- Michigan leads before: 457
+- Michigan leads remaining: 184
+- Leads remaining overall: 2009
+
+DETAILS
+- Duplicate active IDs: []
+- Duplicate normalized active names: []
+- Missing additions: []
+- Missing patch targets: []
+- Skipped candidate additions after runtime dedupe: 4
+- Verified removal IDs absent from runtime: 10 of 10
+- Exact-coordinate collision groups: 4
+
+COORDINATE-COLLISION REVIEW
+- Courtney Lake / Norway Lake share a pre-existing coordinate and remain an explicit unresolved lead, not silently merged.
+- Interlochen Duck Lake / Green Lake share a pre-existing coordinate and remain an explicit component-coordinate lead.
+- Orchard Beach parent / six walk-in sites intentionally share the required park entrance; the walk-in popup states that it is an access point.
+- UP state-forest dispersed rule / one-mile exclusion share a rule-marker coordinate; the exclusion is Info / Reference rather than a campsite pin.
+
+POLICY QA
+- Pictured Rocks coordinates are explicitly marked approximate/map-derived campground clusters.
+- Orchard Beach uses the required park entrance as an access marker, not exact internal-site precision.
+- Menominee River and Porcupine records are system markers, not invented individual campsite points.
+- Ordinary campground address coordinates are identified as campground property/entrance points.
+- No new layer names were created.
+- SQL change required: no.
+- JavaScript syntax checks passed for MI2, leads, rejected, manifest and version files.
+- Runtime evaluation loaded 690 Michigan records.
+- PROJECT_RULES.md and Project Rules.md match exactly.
+- index.html contains no hardcoded v23.1.116 runtime version.
+
+RESULT
+PASS
