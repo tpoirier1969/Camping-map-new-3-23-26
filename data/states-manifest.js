@@ -216,13 +216,14 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MN",
     "name": "Minnesota",
     "file": "data/states/MN.js",
-    "count": 330,
+    "count": 415,
     "files": [
       "data/states/MN.js",
       "data/supplements/mn-finish-gap-cleanup-v23.1.57.js",
       "data/supplements/mn-western-closeout-v23.1.58.js",
       "data/supplements/mn-bulldog-missed-campgrounds-v23.1.60.js",
-      "data/supplements/mn-worker23-super-audit-v23.1.61.js"
+      "data/supplements/mn-worker23-super-audit-v23.1.61.js",
+      "data/supplements/mn-final-closeout-v23.1.122.js"
     ],
     "dynamicSources": [
       "v23.1.45: Minnesota runtime data consolidated into data/states/MN.js. Active Minnesota supplement data from v23.1.15 and v23.1.43, plus the 59 accepted v23.1.44 Minnesota large-add records, are now integrated into the owning state file. No Minnesota supplement files were required for runtime loading after that cleanup. Final Minnesota count was 148.",
@@ -230,7 +231,8 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.58: Minnesota western closeout adds 30 supervisor-tightened active records from Worker 3, 5, and 6 returns.",
       "v23.1.60: Minnesota Bulldog missed-campground rescue adds 116 active records from 8 geography-locked Bulldog worker returns plus supervisor/user coordinate rescue. Uses the Bulldog address/map-coordinate standard and does not add fake centroids. Remaining unresolved rows remain in the worker-return backlog for later lead/rejected ledger integration.",
       "v23.1.61: Minnesota Worker 2/3 supervisor audit adds 16 additional active records after personal coordinate/source rescue from Bulldog Worker 2 and Worker 3 returns. Promotes source-proven state park, municipal, and private campground rows that were previously over-held as leads.",
-      "v23.1.121: Minnesota social/public-app Supervisor Bulldog reconciliation adds 11 active records across Boondocking / Dispersed and Rustic / Primitive, enriches Rum River, removes two proven duplicate campground rows, retires three resolved leads, adds focused geometry/status leads, and records new rejection guardrails. Runtime count becomes 330."
+      "v23.1.121: Minnesota social/public-app Supervisor Bulldog reconciliation adds 11 active records across Boondocking / Dispersed and Rustic / Primitive, enriches Rum River, removes two proven duplicate campground rows, retires three resolved leads, adds focused geometry/status leads, and records new rejection guardrails. Runtime count becomes 330.",
+      "v23.1.122: Minnesota final five-worker closeout adds 85 active records: 33 Boondocking / Dispersed, 46 Boat / Backpack, 4 Rustic / Primitive, and 2 Modern Campgrounds. It enriches six existing community/official records, completes the current 22-map Chippewa dispersed/backcountry extraction, adds all ten current Itasca County signed dispersed sites, reconciles correct-layer official systems, repairs and consolidates the Minnesota lead ledger, and enlarges campsite icons by 50% at zoom 6 and closer. Runtime count becomes 415."
     ]
   },
   "MO": {

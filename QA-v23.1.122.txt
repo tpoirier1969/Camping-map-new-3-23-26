@@ -1,0 +1,21 @@
+Tod's Boondocking & Camping Maps
+QA — v23.1.122
+Date: 2026-07-16
+
+Automated QA is performed before packaging:
+- JavaScript syntax checks for all changed JS files.
+- Clean v23.1.121 baseline overlay test.
+- Minnesota runtime count = 415.
+- Minnesota active Boondocking / Dispersed count = 43.
+- New supplement adds 85 IDs and updates 6 existing IDs.
+- Unique runtime IDs.
+- Finite Minnesota coordinates.
+- Manifest file exists and count matches runtime.
+- Both project-rules copies are byte-identical.
+- Zoom-scale function targets: zoom 5.9 unchanged; zoom 6 = 0.42; zoom 7 = 0.81; zoom 8.5 = 1.50.
+- Lead/rejected arrays parse and all IDs are unique.
+- Minnesota leads: 245 -> 241 after 15 additions, 19 resolved/duplicate removals, and 14 material enrichments.
+- Minnesota rejected-memory rows: 57 -> 61.
+- Changed-files-only package path structure verified.
+
+Browser visual smoke test remains a manual repository/deployment check.

@@ -13954,5 +13954,56 @@ window.CAMPING_REJECTED = [
     "lastCheckedVersion": "v23.1.121",
     "notes": "Future exact walk-in camping may belong in Boat / Backpack or Rustic / Primitive after official extraction.",
     "sourceUrl": ""
+  },
+  {
+    "id": "mn-reject-dago-lake-app-pin-day-use-conflict-v23122",
+    "state": "MN",
+    "name": "Dago Lake app pin as active dispersed campsite",
+    "countyRegion": "Pine / General C.C. Andrews State Forest",
+    "rejectionType": "day_use_coordinate_conflict",
+    "status": "rejected_do_not_import",
+    "reason": "The app pin is close to the official Dago Lake Day-Use Area, parking, boat ramp, and vault toilet. One report does not prove a distinct legal clearing.",
+    "reopenCriteria": "Reopen only if parcel/aerial and agency evidence prove a separate eligible Forestry clearing at least one mile from developed camping and outside the day-use footprint.",
+    "lastCheckedVersion": "v23.1.122",
+    "sourceUrl": "https://files.dnr.state.mn.us/maps/state_forests/sft00021.pdf",
+    "notes": "Worker 2 full Bulldog chase; current pin rejected, not the entire surrounding forest."
+  },
+  {
+    "id": "mn-reject-bear-lake-community-pin-cedar-bay-duplicate-v23122",
+    "state": "MN",
+    "name": "Bear Lake community pin near Cedar Bay",
+    "countyRegion": "St. Louis / Cloquet Valley State Forest / Bear Lake",
+    "rejectionType": "duplicate_wrong_identity",
+    "status": "rejected_duplicate",
+    "reason": "The one-report Bear Lake pin falls within the same developed facility area resolved as official Cedar Bay Campground.",
+    "reopenCriteria": "Reopen only with proof of a distinct legal campsite outside the Cedar Bay Campground facility and separate overnight-use evidence.",
+    "lastCheckedVersion": "v23.1.122",
+    "relatedActiveRecord": "mn-v23122-cedar-bay-campground",
+    "notes": "Worker 3 official map and campground evidence controls."
+  },
+  {
+    "id": "mn-reject-sherry-lake-obsolete-itasca-dispersed-listing-v23122",
+    "state": "MN",
+    "name": "Sherry Lake former Itasca dispersed listing",
+    "countyRegion": "Itasca County",
+    "rejectionType": "obsolete_unsigned_access",
+    "status": "rejected_do_not_import",
+    "reason": "Sherry Lake is absent from the county's current complete ten-site signed dispersed inventory. County rules prohibit camping and overnight stays at unsigned accesses.",
+    "reopenCriteria": "Reopen only if Itasca County again lists and signs the location for dispersed camping.",
+    "lastCheckedVersion": "v23.1.122",
+    "sourceUrl": "https://www.itascacountymn.gov/280/Dispersed-Campsites",
+    "notes": "An older public-access inventory is not current camping authorization."
+  },
+  {
+    "id": "mn-reject-foothills-outing-app-blm-operator-claims-v23122",
+    "state": "MN",
+    "name": "Foothills and Outing app listings labeled BLM",
+    "countyRegion": "Minnesota statewide app-discovery guardrail",
+    "rejectionType": "unsupported_operator_and_geometry",
+    "status": "rejected_do_not_import",
+    "reason": "No official BLM, state, or county source corroborated the operator label, legal overnight use, or a distinct campsite coordinate.",
+    "reopenCriteria": "Require correct public owner, exact campsite/cluster geometry, current legality, and official or threshold community proof.",
+    "lastCheckedVersion": "v23.1.122",
+    "notes": "Do not import app-generated BLM labels as public-land proof."
   }
 ];

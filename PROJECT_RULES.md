@@ -122,7 +122,7 @@ Search / place-search behavior rule:
 
 The main search field should support both campsite-record search and geographic place search. A normal search should match campsite names plus city, county/region, waterbody/reservoir, route/location notes, state, layer, and source text. If a typed term is not a loaded campsite match, or if the user chooses to use it as a map place, geocode the term as a U.S. place/geographic feature and center Nearby Search there so the mileage slider can show sites within the chosen distance. This supports searches such as city names, county names, reservoirs, national parks, and notable features like Grand Canyon.
 
-As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. The approved target curve is: full/current icon size at zoom 8.5 and above; about 50% size at zoom 7; about one-sixth size at zoom 6; about one-eighth size at zoom 4.5. Interpolate smoothly between those levels. Below zoom 4.5, switch to numbered marker clustering so broad regional views draw grouped counts instead of every individual campsite pin. Preserve existing layer icon meanings, colors, and shapes unless Tod explicitly asks to change them.
+As the map gains more campsite records, marker icons must scale down at lower zoom levels to prevent broad state/regional views from becoming solid blobs of color. Beginning at zoom level 6, campsite icons must be 50% larger than the previously approved computed zoom size. Zoom levels below 6 remain unchanged. This produces approximately 42% of normal/base size at zoom 6, 81% at zoom 7, and 150% at zoom 8.5 and above. Interpolate smoothly between those levels. Below zoom 4.5, switch to numbered marker clustering so broad regional views draw grouped counts instead of every individual campsite pin. Preserve existing layer icon meanings, colors, and shapes unless Tod explicitly asks to change them.
 
 Version flag / build identity contract:
 
@@ -479,11 +479,13 @@ Zoom-sensitive campsite icon scaling and clustering rule:
 
 When campsite density makes low-zoom map views look like blobs of color, use zoom-sensitive icon scaling and low-zoom clustering instead of globally shrinking all icons. The approved targets are:
 
-* zoom 8.5 and above: 100% of normal icon size
-* zoom 7: about 50% of normal icon size
-* zoom 6: about one-sixth of normal icon size
-* zoom 4.5: about one-eighth of normal icon size
+* zoom 8.5 and above: 150% of normal/base icon size
+* zoom 7: about 81% of normal/base icon size
+* zoom 6: about 42% of normal/base icon size
+* zoom 4.5: unchanged at about 24% of normal/base icon size
 * below zoom 4.5: numbered marker clusters by layer/area instead of drawing every individual campsite pin
+
+The 50% enlargement applies at zoom 6 and every closer zoom. Zoom levels below 6 retain the prior computed scale.
 
 Interpolate smoothly between the icon-size levels. Keep layer icon meanings, colors, and shapes unchanged unless Tod explicitly requests a new icon revision. Low-zoom clusters are a performance/readability display mode only; they do not change active data, layers, or campsite proof status.
 

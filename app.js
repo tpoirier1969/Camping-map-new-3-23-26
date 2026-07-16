@@ -68,12 +68,14 @@ const SMALL_EMPHASIS_LAYERS=new Set(['rest-truck']);
 function markerSizeForLayer(key){if(key==='boat-backpack')return 26;return SMALL_EMPHASIS_LAYERS.has(key)?22:24;}
 function markerIconScaleForZoom(zoom){
   const z=Number(zoom);
-  if(!Number.isFinite(z))return 1;
-  if(z>=8.5)return 1;
-  if(z>=7)return .54+((z-7)/1.5)*.46;
-  if(z>=6)return .28+((z-6))*(.54-.28);
-  if(z>=4.5)return .24+((z-4.5)/1.5)*(.28-.24);
-  return .24;
+  if(!Number.isFinite(z))return 1.5;
+  let base;
+  if(z>=8.5)base=1;
+  else if(z>=7)base=.54+((z-7)/1.5)*.46;
+  else if(z>=6)base=.28+((z-6))*(.54-.28);
+  else if(z>=4.5)base=.24+((z-4.5)/1.5)*(.28-.24);
+  else base=.24;
+  return z>=6?base*1.5:base;
 }
 function currentMarkerIconScale(){return markerIconScaleForZoom(app&&app.map&&app.map.getZoom?app.map.getZoom():8.5);}
 function currentMarkerClusterMode(){const z=app&&app.map&&app.map.getZoom?Number(app.map.getZoom()):8.5;return Number.isFinite(z)&&z<4.5;}

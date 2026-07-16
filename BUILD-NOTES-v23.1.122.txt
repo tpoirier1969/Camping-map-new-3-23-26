@@ -1,0 +1,49 @@
+Tod's Boondocking & Camping Maps
+BUILD NOTES — v23.1.122
+Date: 2026-07-16
+
+SCOPE
+- Final Minnesota five-worker closeout from the verified v23.1.121 baseline.
+- Changed-repository-files-only delivery.
+
+ACTIVE DATA
+- Minnesota runtime: 330 -> 415.
+- 85 active additions:
+  - 33 Boondocking / Dispersed
+  - 46 Boat / Backpack
+  - 4 Rustic / Primitive
+  - 2 Modern Campgrounds
+- 6 existing records enriched:
+  - M44 Big Dick Lake
+  - D29 Cut Foot Sioux
+  - D32 First River Lake
+  - Grace Lake / Tamarack Forest Road
+  - Castle Danger
+  - Camp Cassaway
+- Chippewa National Forest current 22-map inventory reconciled: 62 additions plus 3 enrichments.
+- All 10 current Itasca County signed dispersed-recreation locations added.
+- Isinours, Cannon River, Root River Pilot Mound, Sibley County parks, and fairgrounds/public camping integrated in correct layers.
+
+LEAD / REJECTED LEDGERS
+- Missing named worker leads restored.
+- Resolved active-addition leads retired.
+- Root River and Upper Minnesota River component work consolidated into system leads.
+- Safe duplicate consolidation applied to Voyageurs, Red River SRA, Glacial Lakes, Lake Elmo, Olson Park, Sibley umbrella, and Brown's Creek/Clear River/Norris umbrella.
+- Dago Lake day-use conflict, Bear Lake/Cedar Bay duplicate, obsolete Sherry Lake listing, and unsupported BLM operator claims recorded in rejected memory.
+
+MAP DISPLAY
+- At zoom 6 and every closer zoom, campsite icon computed scale is multiplied by 1.5.
+- Zoom levels below 6 are unchanged.
+- Approximate resulting scales: zoom 6 = 0.42, zoom 7 = 0.81, zoom 8.5+ = 1.50.
+
+FILES
+- app.js
+- version.js
+- data/states-manifest.js
+- data/supplements/mn-final-closeout-v23.1.122.js
+- data/leads.js
+- data/rejected.js
+- PROJECT_RULES.md
+- Project Rules.md
+- BUILD-NOTES-v23.1.122.txt
+- QA-v23.1.122.txt
