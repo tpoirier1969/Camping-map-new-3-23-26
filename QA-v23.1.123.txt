@@ -1,0 +1,42 @@
+Tod's Boondocking & Camping Maps — QA v23.1.123
+
+Baseline:
+- Live repository was verified at v23.1.122 before staging.
+- Staging baseline reconstructed from the clean v23.1.121 full package plus the official v23.1.122 changed-files overlay.
+- Wisconsin baseline runtime count: 620.
+
+Runtime result:
+- Wisconsin runtime count: 594
+- Runtime additions: 9
+- Runtime removals: 35
+- Net Wisconsin count change: -26
+- Boondocking / Dispersed runtime rows: 42
+- Boat / Backpack runtime rows: 207
+- Rustic / Primitive runtime rows: 45
+- Modern runtime rows: 12
+- Info / Reference runtime rows: 4
+- Needs Verification runtime rows: 4
+
+Validation:
+- New Wisconsin supplement syntax: PASS
+- Leads syntax: PASS
+- Rejected syntax: PASS
+- Manifest syntax: PASS
+- Version syntax: PASS
+- Manifest Wisconsin count equals runtime: PASS
+- Duplicate active runtime IDs: 0
+- Invalid Wisconsin coordinates: 0
+- All 9 expected additions loaded: PASS
+- All 35 expected removals applied: PASS
+- Wisconsin leads after reconciliation: 30
+- Wisconsin rejected rows after duplicate consolidation: 18
+- Duplicate lead IDs: 0
+- Duplicate rejected IDs: 0
+- PROJECT_RULES.md and Project Rules.md identical: PASS
+- Repository-first worker baseline rule present: PASS
+
+Supervisor decisions:
+- Afterhours Meadow remains rejected as drive-in camping because current Brule River State Forest rules contradict the app-use pattern. Review count did not override official rules.
+- FlowMama trailhead marker was removed and rejected as a parking/trailhead feature within Sawyer County camping buffers.
+- Robinson Lake was downgraded to Needs Verification because only one independently attributable camper could be recovered.
+- Broad duplicate/system markers were removed where exact or canonical system records already cover the opportunity.

@@ -1,0 +1,16 @@
+Tod's Boondocking & Camping Maps — v23.1.123
+
+Build: wisconsin-northern-five-worker-reconciliation
+Date: 2026-07-16
+
+Wisconsin five-worker Supervisor reconciliation:
+- Added 9 active Wisconsin records.
+- Split the combined Audie Lake / Perch Lake row into two modern campground records.
+- Added Horn Lake Community Reported boondocking cluster.
+- Added Wabasso, High Lake, Perch Lake Trail and Wren Falls remote systems.
+- Added Shay Dam, Goodman Park and McClintock Park rustic campgrounds.
+- Applied official/community enrichments and layer corrections.
+- Removed 35 duplicate, superseded, wrong-feature or officially contradicted Wisconsin runtime rows.
+- Consolidated Wisconsin lead and rejected ledgers.
+- Added repository-first worker baseline requirements to both project-rules files.
+- No unrelated state data changed.

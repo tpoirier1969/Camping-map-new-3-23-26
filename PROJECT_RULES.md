@@ -1390,3 +1390,12 @@ Walk-in campground entrance/access coordinate rule (v23.1.116):
 Official schematic-map guide-coordinate rule (v23.1.116):
 
 * A named campground cluster shown on an official agency schematic, GeoPDF, geospatial PDF, or defensibly calibrated official map may use an approximate guide coordinate when exact point data are not published and the result is sufficiently accurate for trip planning. The record must disclose that the marker is map-derived, approximate, represents a campground cluster rather than an individual campsite, and is not a navigation/orienteering waypoint. Do not use this rule to invent unnamed sites or false individual-site precision.
+
+
+Repository-first worker baseline rule (v23.1.123):
+
+* The live GitHub repository `tpoirier1969/Camping-map-new-3-23-26`, default branch `main`, is the normal worker source of truth. At startup, workers must inspect live `version.js`, `data/states-manifest.js`, `PROJECT_RULES.md`, the manifest-loaded state files, `data/leads.js`, and `data/rejected.js` before relying on chat attachments.
+* A ZIP or file previously uploaded in the chat is a fallback or frozen-baseline artifact, not the default baseline. When an attachment is older than live `main`, the worker must report that it is stale, use the newer live repository, and continue. The worker must not stop or ask Tod to upload another copy merely because the chat attachment is older.
+* Use an uploaded package instead of GitHub only when the live repository is inaccessible, the assignment explicitly names a frozen historical package, or Tod explicitly directs the worker to use that package.
+* Workers must record the live version, build label, branch, and latest commit identifier/date when available. Never blend live-repository files with an older package or reconstruct missing project files from memory.
+* If GitHub is inaccessible and the only available package is older than the required baseline, report the access failure and mismatch. Do not proceed by combining revisions.

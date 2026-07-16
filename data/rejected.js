@@ -1971,166 +1971,6 @@ window.CAMPING_REJECTED = [
     "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
   },
   {
-    "id": "wi-reject-chippewa-flowage-lake-island-center-pins",
-    "state": "WI",
-    "name": "Chippewa Flowage lake-center / island-center primitive campsite pins",
-    "countyRegion": "Sawyer County / Chippewa Flowage",
-    "rejectedAsLayer": "Boat / Backpack",
-    "rejectionType": "wrong_feature_type / no_honest_map_record",
-    "rejectionStrength": "currently_unusable",
-    "currentDecision": "KEEP REJECTED AS POINT IMPORT",
-    "canReopen": true,
-    "reopenIf": [
-      "Official DNR GPS coordinate table, GIS points, or exact public campsite coordinate source is recovered."
-    ],
-    "sourceSummary": "Prior Worker 1 final decision was reject/no map add for Chippewa Flowage primitive island campsites because public exact official campsite coordinates were not recovered.",
-    "relatedActiveOrPendingRecord": null,
-    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "This rejects guessed lake/island-center dots, not the existence of real primitive island campsites.",
-    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
-  },
-  {
-    "id": "wi-reject-willow-flowage-boat-landings-as-campsites",
-    "state": "WI",
-    "name": "Willow Flowage boat landings as campsite pins",
-    "countyRegion": "Oneida County / Willow Flowage",
-    "rejectedAsLayer": "Boat / Backpack",
-    "rejectionType": "wrong_feature_type / no_honest_map_record",
-    "rejectionStrength": "currently_unusable",
-    "currentDecision": "KEEP REJECTED AS POINT IMPORT",
-    "canReopen": true,
-    "reopenIf": [
-      "Official DNR exact campsite coordinates or GIS points are recovered."
-    ],
-    "sourceSummary": "Prior WI backfill identified Willow Flowage boat landings as recurring wrong-feature traps, not exact campsite pins.",
-    "relatedActiveOrPendingRecord": null,
-    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "",
-    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
-  },
-  {
-    "id": "wi-reject-brule-river-lake-superior-shoreline-claims",
-    "state": "WI",
-    "name": "Brule River / Lake Superior shoreline camping claims",
-    "countyRegion": "Douglas County / Brule River and Lake Superior shoreline",
-    "rejectedAsLayer": "Boat / Backpack / Boondocking / Dispersed",
-    "rejectionType": "no_honest_map_record / wrong_feature_type",
-    "rejectionStrength": "currently_unusable",
-    "currentDecision": "KEEP REJECTED UNTIL PROVED",
-    "canReopen": true,
-    "reopenIf": [
-      "Official campsite points/rules or 3+ independent same-spot overnight reports identify a legal campsite without official/posted conflict."
-    ],
-    "sourceSummary": "Prior WI backfill flagged broad shoreline claims as traps without exact, legal campsite proof.",
-    "relatedActiveOrPendingRecord": null,
-    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "Do not use shoreline, beach, access, or river/lake general coordinates as overnight campsite pins.",
-    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
-  },
-  {
-    "id": "wi-reject-cnf-lake-centers-boat-launches-trailheads",
-    "state": "WI",
-    "name": "Chequamegon-Nicolet NF lake centers / boat launches / trailheads as campsite pins",
-    "countyRegion": "Northern Wisconsin / CNF",
-    "rejectedAsLayer": "Rustic / Primitive / Boondocking / Dispersed / Boat / Backpack",
-    "rejectionType": "wrong_feature_type / no_honest_map_record",
-    "rejectionStrength": "wrong_feature_trap",
-    "currentDecision": "KEEP REJECTED",
-    "canReopen": true,
-    "reopenIf": [
-      "Official USFS source identifies the exact feature as a campsite, campground marker, or designated camping area marker."
-    ],
-    "sourceSummary": "Prior WI backfill flagged CNF lake centers, launches, and trailheads as recurring false campsite coordinates.",
-    "relatedActiveOrPendingRecord": null,
-    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "",
-    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
-  },
-  {
-    "id": "wi-reject-county-forest-offices-courthouses-as-camping",
-    "state": "WI",
-    "name": "County forest offices / courthouses as camping-rule pins",
-    "countyRegion": "Wisconsin county forest contexts",
-    "rejectedAsLayer": "Boondocking / Dispersed / Info / Reference",
-    "rejectionType": "wrong_feature_type / no_honest_map_record",
-    "rejectionStrength": "wrong_feature_trap",
-    "currentDecision": "KEEP REJECTED AS EXACT CAMPING PINS",
-    "canReopen": true,
-    "reopenIf": [
-      "Supervisor intentionally approves an approximate area/rule marker or official GIS geometry; never as exact campsite pins."
-    ],
-    "sourceSummary": "Prior WI backfill flagged county offices/courthouses as wrong-feature coordinates for county-forest camping rule areas.",
-    "relatedActiveOrPendingRecord": null,
-    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "",
-    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
-  },
-  {
-    "id": "wi-reject-governor-earl-peshtigo-dams-launches",
-    "state": "WI",
-    "name": "Governor Earl / Peshtigo River dams and boat launches as campsite pins",
-    "countyRegion": "Marinette County / Governor Earl-Peshtigo River context",
-    "rejectedAsLayer": "Boat / Backpack",
-    "rejectionType": "wrong_feature_type / duplicate_or_child_record",
-    "rejectionStrength": "duplicate_watch",
-    "currentDecision": "KEEP REJECTED AS POINT IMPORT",
-    "canReopen": true,
-    "reopenIf": [
-      "Official exact campsite coordinates are recovered and do not duplicate existing Governor Earl/Peshtigo system records."
-    ],
-    "sourceSummary": "Prior WI backfill identified dams and boat launches as traps; Governor Earl/related system records already exist without exact coordinate recovery.",
-    "relatedActiveOrPendingRecord": null,
-    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "",
-    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
-  },
-  {
-    "id": "wi-reject-apostle-islands-visitor-centers-docks",
-    "state": "WI",
-    "name": "Apostle Islands visitor centers / docks as campsite pins",
-    "countyRegion": "Bayfield/Ashland County / Apostle Islands",
-    "rejectedAsLayer": "Boat / Backpack",
-    "rejectionType": "wrong_feature_type / duplicate_or_child_record",
-    "rejectionStrength": "duplicate_watch",
-    "currentDecision": "KEEP REJECTED",
-    "canReopen": true,
-    "reopenIf": [
-      "Official NPS source identifies the exact dock/feature as a campsite point, or a future access/reference layer intentionally covers it."
-    ],
-    "sourceSummary": "Prior WI backfill flagged visitor centers/docks as wrong-feature duplicates; accepted Apostle Islands exact NPS campsite points were handled separately.",
-    "relatedActiveOrPendingRecord": null,
-    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "",
-    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
-  },
-  {
-    "id": "wi-reject-st-croix-namekagon-accesses-as-campsites",
-    "state": "WI",
-    "name": "St. Croix / Namekagon river accesses as campsite pins",
-    "countyRegion": "St. Croix National Scenic Riverway",
-    "rejectedAsLayer": "Boat / Backpack",
-    "rejectionType": "wrong_feature_type / duplicate_or_child_record",
-    "rejectionStrength": "duplicate_watch",
-    "currentDecision": "KEEP REJECTED AS CAMPSITE POINTS",
-    "canReopen": true,
-    "reopenIf": [
-      "Official NPS source identifies the exact access as a legal campsite or distinct overnight opportunity."
-    ],
-    "sourceSummary": "Prior WI backfill flagged river accesses as wrong-feature campsite pins; accepted exact NPS campsite data should stay separate.",
-    "relatedActiveOrPendingRecord": null,
-    "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "",
-    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
-  },
-  {
     "id": "wi-reject-marinette-beaver-dam-lake-town-pin",
     "state": "WI",
     "name": "Marinette Beaver Dam Lake town-pin boondocking lead",
@@ -2178,7 +2018,7 @@ window.CAMPING_REJECTED = [
     "rejectedAsLayer": "Boondocking / Dispersed",
     "rejectionType": "no_honest_map_record",
     "rejectionStrength": "currently_unusable",
-    "currentDecision": "KEEP REJECTED UNTIL PROVED",
+    "currentDecision": "KEEP REJECTED",
     "canReopen": true,
     "reopenIf": [
       "Official/public ownership and legal overnight proof are recovered, or 3+ independent same-spot overnight reports support community boondocking with no official conflict."
@@ -2186,9 +2026,12 @@ window.CAMPING_REJECTED = [
     "sourceSummary": "Prior Wisconsin county-forest hunt rejected/held this because it was not proven to be county forest/legal camping.",
     "relatedActiveOrPendingRecord": null,
     "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "",
-    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
+    "lastCheckedVersion": "v23.1.123",
+    "notes": "The pending active marker was removed in v23.1.123. Official contradiction controls over review count.",
+    "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt",
+    "status": "rejected_do_not_import_as_drive_in",
+    "reason": "Four community reports exist, but the source pin aligns with Brule River State Forest context where official rules allow backpack camping only after hiking at least one mile from the vehicle, at least 100 feet from a trail and out of sight of water. No authoritative parcel evidence proves a separate legal drive-in site.",
+    "reopenCriteria": "Reopen only with authoritative parcel and land-manager proof that the exact cluster lies outside the Brule restrictions and legally permits vehicle-access camping."
   },
   {
     "id": "sd-reject-jewel-cave-national-monument-camping",
@@ -14005,5 +13848,24 @@ window.CAMPING_REJECTED = [
     "reopenCriteria": "Require correct public owner, exact campsite/cluster geometry, current legality, and official or threshold community proof.",
     "lastCheckedVersion": "v23.1.122",
     "notes": "Do not import app-generated BLM labels as public-land proof."
+  },
+  {
+    "id": "wi-reject-flowmama-trailhead-parking-as-camping-v23123",
+    "state": "WI",
+    "name": "FlowMama trailhead parking as dispersed camping",
+    "countyRegion": "Sawyer County Forest / Cable area",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "wrong_feature_type_and_official_buffer_conflict",
+    "rejectionStrength": "strong_official_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "A distinct campsite coordinate outside the trailhead/parking footprint and county road/trail/day-use/landing buffers is proven",
+      "Current Sawyer County approval or permit documentation supports overnight camping at that distinct location"
+    ],
+    "sourceSummary": "Three reviews describe parking/trailhead use. Sawyer County rules prohibit camping within 100 feet of public roads and within one-quarter mile of designated recreational trails, day-use areas or boat landings.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.123",
+    "notes": "The pending active trailhead marker was removed in v23.1.123."
   }
 ];
