@@ -261,6 +261,12 @@ Workers must act like a bulldog, not a mouse. Resolving the seed list is not eno
 
 An assignment return fails supervisor acceptance if Tod can spend about 90 seconds on Google Maps or a basic web search and find obvious campgrounds inside the assigned geography that the worker did not mention.
 
+Bulldog means finishing the reasonable research ladder, not merely identifying what someone else should research next. A worker may not downgrade a plausible public overnight opportunity to coordinate rescue, address rescue, Area / geometry follow-up, one- or two-report lead, official-status check, or external-access task until the worker has personally attempted every ordinary source and tool allowed by the assignment. This includes exact-name and alternate-name searches, official/operator addresses, map and aerial review, reservation systems, official PDFs and GeoPDFs, GIS/parcel/recreation layers, public-app source pins, review chains, road names, nearby landmarks, and relevant agency or operator pages.
+
+A return is incomplete when it says that coordinates, addresses, additional reports, access classification, geometry, or official status "need research" but does not show that the worker performed that research. The worker must document the attempted ladder and the irreducible blocker. Difficulty, awkward websites, missing printed latitude/longitude, or the need to compare maps are not blockers by themselves.
+
+Supervisors must enforce this standard rather than rubber-stamping conservative worker dispositions. Worker labels such as LEAD, HOLD, AREA / GEOMETRY FOLLOW-UP, or EXTERNAL ACCESS REQUIRED are recommendations, not final decisions. Before integration, the Supervisor must challenge suspiciously low promotion rates, rescue official/address/map coordinates when practical, promote qualifying approximate Area/rule or community markers with honest warnings, and integrate real discoveries in the correct non-target layer instead of discarding them because the worker began with a different site type.
+
 Every geography-locked worker must complete an obvious-miss sweep before closing. The closeout must say what geography was swept, what search terms or source families were checked, what additional campground names were found beyond the seed list, and how each was handled.
 
 
@@ -310,6 +316,10 @@ Handoff execution-intent rule:
 Every worker or supervisor handoff must explicitly state what the recipient is supposed to do with the handoff. A handoff must not leave the worker asking whether to run the assignment, whether to merely acknowledge it, or whether to return data.
 
 For normal worker assignments created to keep work moving, the handoff must include clear language near the top such as: “You are to run and complete this assignment now. Return the required research/data tables only. Do not edit files, package changes, or ask whether to proceed unless a required input is missing or the assignment target genuinely conflicts with the supplied files/rules.”
+
+Every worker handoff must also make the role boundary unmistakable. It must state that the receiving ChatGPT is the assigned Worker, not the project Supervisor; that the document is an active work order rather than a worker response, QA return, or handoff to critique; and that the recipient must execute the research instead of reviewing, rewriting, approving, or redistributing the instructions. Required meaning near the top: "Your role in this chat is Worker. This file is the assignment you must execute now. It is not a worker response and you are not the Super. Do the research and return the required findings."
+
+A worker that treats a Supervisor-issued assignment as a bad worker return, audits the instructions instead of performing them, creates replacement handoffs, or says another worker should do the work has failed the assignment. Ask a question only for a genuinely missing required input, inaccessible required file, or material target conflict. A large, difficult, or time-consuming assignment is not ambiguity.
 
 If a handoff is only a standby, review, QA, supervisor-planning, or question-answering assignment, it must say that explicitly. Do not rely on implication, filename, previous chat context, or a separate master instruction. Each standalone handoff block must carry its own execution intent.
 

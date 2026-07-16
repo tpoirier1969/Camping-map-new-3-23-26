@@ -1,0 +1,55 @@
+TOD'S BOONDOCKING & CAMPING MAPS — v23.1.121 QA
+
+PASS | Verified baseline version | v23.1.118
+PASS | Unified target version | v23.1.121
+PASS | Unified build token | minnesota-social-app-supervisor-bulldog-reconciliation
+PASS | Minnesota runtime count | 330
+PASS | Minnesota manifest count | 330
+PASS | Minnesota active IDs unique | 330/330
+PASS | All 11 v23.1.121 active additions present
+PASS | Rum River existing record enriched without duplicate active marker
+PASS | Old Pomme de Terre v23.1.58 duplicate absent
+PASS | Old Mack Lake v23.1.58 duplicate absent
+PASS | Three promoted leads retired
+PASS | Critical Chippewa full-inventory lead strengthened
+PASS | Focused active-upgrade/status leads retained
+PASS | New Lydick / Moose River / Shingobee rejection guardrails present
+PASS | Project Rules compatibility copies match exactly
+PASS | Bulldog completion/enforcement wording present
+PASS | Worker-not-Super active-work-order wording present
+PASS | JavaScript syntax: version.js
+PASS | JavaScript syntax: data/states/MN.js
+PASS | JavaScript syntax: data/states-manifest.js
+PASS | JavaScript syntax: data/leads.js
+PASS | JavaScript syntax: data/rejected.js
+PASS | JavaScript syntax: data/supplements/mn-western-closeout-v23.1.58.js
+PASS | JavaScript syntax: data/supplements/mn-bulldog-missed-campgrounds-v23.1.60.js
+PASS | index.html loads version.js and app.js through the version shell
+PASS | version.json remains non-authoritative metadata and does not contain a visible version token
+PASS | config.js not included in fixed-files ZIP
+PASS | No Supabase/schema action required
+PASS | Fixed-files ZIP overlay install onto fresh v23.1.118 baseline | version v23.1.121 / Minnesota 330
+
+RELEASE ACCOUNTING
+------------------
+Minnesota runtime before: 321
+Active additions:          11
+Duplicate removals:        2
+Minnesota runtime after:   330
+Net change:                +9
+
+Layer accounting:
+- Boondocking / Dispersed: 1 -> 10
+- Rustic / Primitive: 99 -> 100
+- Modern: 94 -> 93
+- Private: 65 -> 65
+- Boat / Backpack: 32 -> 32
+- Rest Areas/Roadside: 24 -> 24
+- Info / Reference: 3 -> 3
+- Needs Verification: 3 -> 3
+
+No arbitrary forest centers, lake centers, offices, landings, parking lots, trailheads, or fabricated campsite coordinates were added.
+
+LIMITATION
+----------
+NOT RUN | Full browser-rendered UI smoke test. The container's headless Chromium process did not produce a usable DOM because of sandbox/runtime constraints. Static version-shell checks, complete Minnesota runtime loading, count/ID QA, and JavaScript syntax checks passed.

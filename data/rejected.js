@@ -13894,5 +13894,65 @@ window.CAMPING_REJECTED = [
     "lastCheckedVersion": "v23.1.118",
     "notes": "Removed from active Wisconsin point data in v23.1.118. Do not replace it with another forest centroid or arbitrary representative point.",
     "sourceUrl": "https://services5.arcgis.com/Ul9AyFFeFTjf08DW/ArcGIS/rest/services/County_Forests/FeatureServer/0"
+  },
+  {
+    "id": "mn-reject-lydick-lake-drive-in-boondocking-v23121",
+    "state": "MN",
+    "name": "Lydick Lake as drive-in boondocking",
+    "countyRegion": "Chippewa National Forest",
+    "rejectedAsLayer": "Boondocking / Dispersed drive-in site",
+    "rejectionType": "official access contradiction",
+    "rejectionStrength": "current official contradiction",
+    "currentDecision": "REJECT DRIVE-IN BOONDOCKING; REVIEW ONLY AS BOAT-ACCESS SITE",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official Forest Service source restores lawful drive-in access",
+      "A separate legal drive-in site is documented at a distinct coordinate"
+    ],
+    "sourceSummary": "Worker 2 found that the user-created road was permanently closed because the site was intended for boat access. Community references do not override the official access decision.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.121",
+    "notes": "Do not import an app road pin as drive-in boondocking.",
+    "sourceUrl": "https://www.fs.usda.gov/r09/chippewa"
+  },
+  {
+    "id": "mn-reject-moose-river-atv-parking-boondocking-v23121",
+    "state": "MN",
+    "name": "Moose River ATV parking/trailhead as boondocking",
+    "countyRegion": "Land O’Lakes State Forest system",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "wrong feature type / parking-trailhead sleeping prohibited",
+    "rejectionStrength": "official rule conflict",
+    "currentDecision": "KEEP PARKING/ASSEMBLY AREA OUT OF BOONDOCKING",
+    "canReopen": true,
+    "reopenIf": [
+      "An officially designated camping area is documented separately from the assembly/parking lot",
+      "A distinct legal dispersed site coordinate is recovered"
+    ],
+    "sourceSummary": "Worker research indicates the surfaced feature is an ATV assembly, parking, or trailhead area. Minnesota state-forest rules prohibit treating parking/trailhead sleeping as dispersed camping.",
+    "relatedActiveOrPendingRecord": "mn-v23121-white-oak-baker-lakes-designated-dispersed-cluster",
+    "lastCheckedVersion": "v23.1.121",
+    "notes": "The official White Oak/Baker dispersed cluster is represented separately.",
+    "sourceUrl": "https://www.dnr.state.mn.us/state_forests/dispersed-camping.html"
+  },
+  {
+    "id": "mn-reject-shingobee-drive-in-boondocking-v23121",
+    "state": "MN",
+    "name": "Shingobee Recreation Area as drive-in boondocking",
+    "countyRegion": "Cass / Chippewa National Forest vicinity",
+    "rejectedAsLayer": "Boondocking / Dispersed drive-in point",
+    "rejectionType": "formal recreation / parking / walk-in access conflation",
+    "rejectionStrength": "wrong layer/access type",
+    "currentDecision": "REJECT DRIVE-IN BOONDOCKING REPRESENTATION",
+    "canReopen": true,
+    "reopenIf": [
+      "A distinct legal drive-in dispersed site is documented outside the formal/parking features",
+      "Official source proves a separate vehicle-access camping component"
+    ],
+    "sourceSummary": "Worker 2 found public-app descriptions conflated parking-area and short walk-in/formal recreation camping. Access type must control the layer.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.121",
+    "notes": "Future exact walk-in camping may belong in Boat / Backpack or Rustic / Primitive after official extraction.",
+    "sourceUrl": ""
   }
 ];

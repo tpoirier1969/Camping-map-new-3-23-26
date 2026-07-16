@@ -1,0 +1,104 @@
+TOD'S BOONDOCKING & CAMPING MAPS
+MINNESOTA SOCIAL / PUBLIC-APP SUPERVISOR BULLDOG RECONCILIATION
+v23.1.121
+
+PURPOSE
+-------
+Reconcile the four completed Minnesota worker returns against the verified v23.1.118 live package. Worker outcomes were treated as recommendations. The Supervisor independently decided whether each result supported active data, enrichment, duplicate cleanup, lead memory, rejected memory, or a written hold.
+
+ACTIVE DECISIONS
+----------------
+ADD — Castle Danger Community Camping Cluster
+- Community threshold: 4 independent overnight-use reports.
+- Coordinate basis: The Dyrt source-map location supplied by Tod, not a routing destination.
+- Active as one rugged tight-cluster marker with private-routing/public-access warnings.
+
+ADD — Carrol Truck Trail Community Camping Cluster
+- Community threshold: 8 independent reports.
+- One cluster marker for approximately three reported clearings near the road end.
+- Landing/parking area and intermediate private-pullout warnings retained.
+
+ADD — Grace Lake / Tamarack Forest Road Community Area
+- Community threshold: 3 independent reports.
+- Worker held it because the displayed pin is not the exact reported clearing and one reported spot violates the water setback.
+- Supervisor rescue: active approximate road-area marker, explicitly not an exact campsite, access point, or legal boundary.
+- Separate critical geometry lead retained to find legal clearings farther down Tamarack Forest Road.
+
+ADD — D29 Dispersed Site
+- Official current Chippewa National Forest mapped site.
+- Three independent community reports corroborate current use.
+
+ADD — M44 Big Dick Lake Dispersed Site
+- Official current Chippewa National Forest mapped site.
+- Community report supplies road/rig context.
+
+ADD — D32 First River Lake Dispersed Site
+- Official current Chippewa National Forest mapped site.
+- Community source chain was correctly deduplicated to one author.
+
+ADD — Camp Cassaway Community Camping Cluster
+- Three independent overnight users.
+- Active Community Reported marker despite current official-map omission.
+- Separate ranger-status lead retained; official omission is disclosed rather than hidden.
+
+ADD — South of Sand Dunes State Forest Road Cluster
+- Sixteen defensible independent campers in the final worker count.
+- Active as a tight road-cluster marker, not a claim that every pullout is legal.
+- Parcel/refuge/SNA, campground-distance, water-setback, and enforcement-conflict warnings retained.
+
+ADD — White Oak–Baker Lakes Designated Dispersed Campsite Cluster
+- Official Minnesota DNR designation and geospatial-map coordinate basis.
+- One approximate official cluster marker until individual pads can be extracted.
+
+ADD — Franklin Landing Campground
+- Official City of Franklin free primitive camping with five-night limit.
+- Added as Rustic / Primitive, not boondocking.
+
+ADD — Lac qui Parle County Park Campground
+- Current county rules prove first-come recreational camping and stay limit.
+- Added as Rustic / Primitive, not boondocking.
+
+ENRICH — Rum River / Game Refuge Road dispersed pullouts
+- Existing coordinate retained.
+- Two Dyrt listings reconciled as one road system.
+- Four-person minimum source count, variable pullout/rig context, and land-class warning added.
+
+DUPLICATE CLEANUP
+-----------------
+REMOVE old duplicate — Pomme de Terre Campground Morris v23.1.58
+KEEP stronger v23.1.60 record near the supported campground location.
+
+REMOVE old duplicate — Mack Lake County Park v23.1.58
+KEEP stronger v23.1.60 record near the supported campground location.
+
+HIGH-PRIORITY UNFINISHED RESCUE
+-------------------------------
+The following are not treated as closed merely because the worker labeled them leads:
+- complete all 22 current Chippewa NF dispersed maps, classify access, and promote every missing honest site;
+- D57 Upper Pigeon Lake current status/renumbering;
+- Hill River 640th Lane third report or official proof plus parcel/buffer check;
+- Paul Bunyan / Steamboat Forest Road third report or official proof plus parcel/buffer check;
+- Mabel Lake separate-site versus formal-campground resolution;
+- State Land / Lax Lake exact owner and same-cluster evidence;
+- Dago Lake separation from day-use facilities;
+- Fond du Lac / Ditch Bank Forest Road independent overnight reports and WMA/parcel check;
+- Bear Lake county/ownership/public-approach review;
+- Isinours two official remote campsites versus parking/roadside claims;
+- Gribben Creek exact road/parcel cluster;
+- Snake Creek exact unit/site rescue;
+- Zumbro Bottoms same-cluster app/parcel sweep;
+- Sibley County Clear Lake, High Island Creek, and Rush River camping-area coordinate rescue;
+- Cannon River Wilderness four exact Boat / Backpack campsite points;
+- Minnesota/Root River official watercraft-site extraction;
+- Traverse and Fillmore County fairground camping-area coordinate rescue.
+
+WRITTEN SUPERVISOR DISPOSITIONS FOR REMAINING WORKER RESULTS
+-----------------------------------------------------------
+- One- and two-report community rows remain targeted evidence/coordinate tasks, not generic statewide leads.
+- Formal campground, county permission-camping, fairground, watercraft, hike-in, and parking discoveries must be integrated in their correct layer when coordinate proof is recovered.
+- Parking lots, trailheads, landings, WMA pullouts, day-use areas, and BWCAW-conflicted app pins remain rejected or wrong-layer until explicit legal overnight proof is obtained.
+- No forest center, lake center, office, trailhead, parking lot, landing, or arbitrary centroid was added as an exact campsite.
+
+NEXT BULLDOG PRIORITY
+---------------------
+The full 22-map Chippewa National Forest dispersed/backcountry extraction is now Critical. The v23.1.121 active additions demonstrate that the official maps contain usable exact records; the remaining map inventory must be completed rather than left as one broad forest-system lead.

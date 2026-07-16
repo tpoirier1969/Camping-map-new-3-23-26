@@ -216,7 +216,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MN",
     "name": "Minnesota",
     "file": "data/states/MN.js",
-    "count": 321,
+    "count": 330,
     "files": [
       "data/states/MN.js",
       "data/supplements/mn-finish-gap-cleanup-v23.1.57.js",
@@ -229,7 +229,8 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.57: Minnesota geography-finish cleanup applies Workers 1–6 returns. Adds 12 clean official map-derived Metro/Southeast active campground/camping-system records; corrects Blue Mounds main campground, Lake Shetek Prairie Campground, Rice Creek, Riverway, and Jay Cooke legacy layer/QA rows; converts most western/southwest candidates without honest coordinates into durable leads instead of fake active pins.",
       "v23.1.58: Minnesota western closeout adds 30 supervisor-tightened active records from Worker 3, 5, and 6 returns.",
       "v23.1.60: Minnesota Bulldog missed-campground rescue adds 116 active records from 8 geography-locked Bulldog worker returns plus supervisor/user coordinate rescue. Uses the Bulldog address/map-coordinate standard and does not add fake centroids. Remaining unresolved rows remain in the worker-return backlog for later lead/rejected ledger integration.",
-      "v23.1.61: Minnesota Worker 2/3 supervisor audit adds 16 additional active records after personal coordinate/source rescue from Bulldog Worker 2 and Worker 3 returns. Promotes source-proven state park, municipal, and private campground rows that were previously over-held as leads."
+      "v23.1.61: Minnesota Worker 2/3 supervisor audit adds 16 additional active records after personal coordinate/source rescue from Bulldog Worker 2 and Worker 3 returns. Promotes source-proven state park, municipal, and private campground rows that were previously over-held as leads.",
+      "v23.1.121: Minnesota social/public-app Supervisor Bulldog reconciliation adds 11 active records across Boondocking / Dispersed and Rustic / Primitive, enriches Rum River, removes two proven duplicate campground rows, retires three resolved leads, adds focused geometry/status leads, and records new rejection guardrails. Runtime count becomes 330."
     ]
   },
   "MO": {

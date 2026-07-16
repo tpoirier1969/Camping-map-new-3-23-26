@@ -1,0 +1,130 @@
+TOD'S BOONDOCKING & CAMPING MAPS — v23.1.121 BUILD NOTES
+
+STATUS
+------
+v23.1.121 is a complete cumulative revision built from the verified v23.1.118 live-site package.
+The uninstalled v23.1.119 and v23.1.120 notes/packages are superseded; do not install them separately.
+
+BASELINE
+--------
+Source: Camping-map-new-3-23-26-main(19).zip
+Verified runtime version: v23.1.118
+Minnesota runtime records before: 321
+Minnesota Boondocking / Dispersed before: 1
+
+WORKER / SUPERVISOR RECONCILIATION
+---------------------------------
+Four completed Minnesota social/public-app worker returns were reconciled as evidence, not accepted as final verdicts.
+The Supervisor promoted qualifying official and community-supported records, rescued Grace Lake as an honest approximate area marker, integrated two strong non-boondocking discoveries in the correct layer, enriched Rum River, removed two proven duplicate campground rows, and retained focused upgrade/status work where an honest active record still could not be made.
+
+ACTIVE ADDS — BOONDOCKING / DISPERSED (9)
+-----------------------------------------
+1. Castle Danger Community Camping Cluster
+2. Carrol Truck Trail Community Camping Cluster
+3. Grace Lake / Tamarack Forest Road Community Area
+4. D29 Dispersed Site
+5. M44 Big Dick Lake Dispersed Site
+6. D32 First River Lake Dispersed Site
+7. Camp Cassaway Community Camping Cluster
+8. South of Sand Dunes State Forest Road Cluster
+9. White Oak–Baker Lakes Designated Dispersed Campsite Cluster
+
+ACTIVE ADDS — RUSTIC / PRIMITIVE (2)
+------------------------------------
+10. Franklin Landing Campground
+11. Lac qui Parle County Park Campground
+
+EXISTING RECORD ENRICHMENT
+--------------------------
+Rum River / Game Refuge Road dispersed pullouts:
+- retains the existing coordinate;
+- adds both direct The Dyrt source trails;
+- documents at least four explicit first-person overnight users;
+- treats nearby public-app markers as one road system instead of duplicate campsite records;
+- adds stronger Forestry/WMA/game-refuge/private-land and parking/trailhead warnings.
+
+DUPLICATE CLEANUP
+-----------------
+Removed two proven duplicate active rows while retaining the stronger v23.1.60 records:
+- mn-pomme-de-terre-campground-morris-v23158
+- mn-mack-lake-county-park-rustic-camping-v23158
+
+LEAD / REJECTED MEMORY
+----------------------
+Retired three leads resolved by active promotion:
+- mn_south_sand_dunes_dispersed_conflict
+- mn-lead-white-oak-baker-lakes-dispersed-sites-coordinate-rescue
+- mn-lead-lac-qui-parle-county-park-campground-proof
+
+Strengthened the existing full Chippewa National Forest dispersed/backcountry extraction lead and added focused high-priority upgrade/status leads for:
+- Grace Lake exact-clearing and ownership geometry
+- Castle Danger public approach and parcel continuity
+- Camp Cassaway ranger-district status
+- D57 Upper Pigeon Lake status
+- Hill River 640th Lane cluster
+- Paul Bunyan / Steamboat Forest Road cluster
+- Zumbro Bottoms road/river cluster
+
+Added rejected-memory guardrails for:
+- Lydick Lake as drive-in boondocking
+- Moose River ATV parking/assembly area as boondocking
+- Shingobee as drive-in boondocking
+
+PROJECT-RULE UPDATES
+--------------------
+Both PROJECT_RULES.md copies now explicitly require:
+- Bulldog workers to perform the reasonable coordinate/address/map/GIS/source ladder rather than merely prescribe future research;
+- workers to document the attempted ladder and the irreducible blocker before returning a lead or geometry hold;
+- Supervisors to challenge suspiciously conservative worker dispositions and rescue qualifying records;
+- every worker handoff to state unmistakably that the recipient is the Worker, the handoff is an active work order, it is not a worker response, and the recipient is not acting as the Super;
+- a worker that critiques, rewrites, redistributes, or supervises the assignment instead of executing it has failed the assignment.
+
+COUNTS
+------
+Minnesota runtime records before: 321
+Active additions:                 +11
+Duplicate active rows removed:    -2
+Minnesota runtime records after:  330
+Net change:                        +9
+
+Layer changes:
+- Boondocking / Dispersed: 1 -> 10
+- Rustic / Primitive: 99 -> 100
+- Modern: 94 -> 93 (one duplicate removed)
+- Other Minnesota layers unchanged
+
+VERSIONING
+----------
+All app/data version fields are unified at v23.1.121.
+Build identifier: minnesota-social-app-supervisor-bulldog-reconciliation
+version.js remains the only authoritative runtime version source.
+index.html is included unchanged in the fixed-files package as required for version-shell packaging.
+
+CHANGED FILES
+-------------
+- version.js
+- data/states/MN.js
+- data/states-manifest.js
+- data/leads.js
+- data/rejected.js
+- data/supplements/mn-western-closeout-v23.1.58.js
+- data/supplements/mn-bulldog-missed-campgrounds-v23.1.60.js
+- PROJECT_RULES.md
+- Project Rules.md
+- BUILD-NOTES-v23.1.121.txt
+- QA-v23.1.121.txt
+- MINNESOTA-SOCIAL-APP-SUPERVISOR-RECONCILIATION-v23.1.121.txt
+- SQL-ACTION-v23.1.121.txt
+
+PACKAGING-ONLY INCLUDED FILE
+----------------------------
+- index.html (unchanged; included because the visible version advanced)
+
+NOT CHANGED
+-----------
+- app.js
+- config.js
+- version.json
+- Supabase schema/policies/functions/tables
+
+No GitHub commit, branch, or pull request was created.
