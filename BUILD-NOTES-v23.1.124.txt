@@ -1,0 +1,30 @@
+BUILD NOTES — v23.1.124
+
+Build: wisconsin-seven-worker-boondocking-technical-reconciliation
+Date: 2026-07-23
+
+Scope
+- Supervisor reconciliation of four Wisconsin boondocking blank-spot returns and three reissued technical GIS/component returns.
+- Current live v23.1.123 was used as the baseline. No GitHub write was performed.
+
+Active data
+- Adds Van Loon Wildlife Area Canoe Campsite in Boat / Backpack.
+- Adds Ball Road and Amundson Road seasonal primitive camping areas from official Wood County Wildlife Area geospatial-PDF symbols in Rustic / Primitive.
+- Adds no new exact drive-in boondocking campsite.
+- Adds Iron County Forest as a State / Local Areas boondocking rule-area outline, not an arbitrary point.
+- Upgrades Ashland and Oneida county-forest outlines with current legal-rule summaries.
+
+Corrections and enrichments
+- Moves Chippewa and Marathon county-forest systems from Rustic / Primitive to Boondocking / Dispersed.
+- Moves Horn Lake, Wood County Forest general camping authority and Eau Claire County Forest camping authority to Needs Verification.
+- Enriches CNF forestwide rules, Marinette, Oconto, Florence, Jackson, Clark, Foster Falls, Brule–St. Croix backpacking, Flambeau backpacking and Black River backpacking.
+- Resolves the Mountain Lake Road #4 duplicate lead and the completed seven-site Governor Earl boat-in portion.
+
+Geometry and honesty controls
+- Wood County Wildlife Area coordinates are approximate official map-symbol centers with 50–150 metre uncertainty, not pads, gates or parking points.
+- Iron County, Ashland and Oneida use official county-forest outlines rather than forest-center dots.
+- Nelligan/Luddington landings, Luna developed-complex context, unsupported lake claims, wildlife-area access points and free-choice backpacking systems are not converted into fake campsite dots.
+
+Ledger
+- Reconciles every named active, lead, wrong-layer, duplicate and rejected result from the seven returns.
+- Preserves actionable permit, polygon, component and agency-contact work while closing resolved, duplicate and contradicted leads.

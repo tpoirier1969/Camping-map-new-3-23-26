@@ -1390,6 +1390,7 @@ Walk-in campground entrance/access coordinate rule (v23.1.116):
 Official schematic-map guide-coordinate rule (v23.1.116):
 
 * A named campground cluster shown on an official agency schematic, GeoPDF, geospatial PDF, or defensibly calibrated official map may use an approximate guide coordinate when exact point data are not published and the result is sufficiently accurate for trip planning. The record must disclose that the marker is map-derived, approximate, represents a campground cluster rather than an individual campsite, and is not a navigation/orienteering waypoint. Do not use this rule to invent unnamed sites or false individual-site precision.
+* When an official geospatial PDF identifies a named camping area with a campsite symbol and recoverable registration/control points, a transformed symbol center may be used as an approximate area marker. Record an honest uncertainty estimate, keep parking/gates/landings separate, and never describe the result as an individual campsite pad.
 
 
 Repository-first worker baseline rule (v23.1.123):
@@ -1399,3 +1400,10 @@ Repository-first worker baseline rule (v23.1.123):
 * Use an uploaded package instead of GitHub only when the live repository is inaccessible, the assignment explicitly names a frozen historical package, or Tod explicitly directs the worker to use that package.
 * Workers must record the live version, build label, branch, and latest commit identifier/date when available. Never blend live-repository files with an older package or reconstruct missing project files from memory.
 * If GitHub is inaccessible and the only available package is older than the required baseline, report the access failure and mismatch. Do not proceed by combining revisions.
+
+
+Lost worker-return / replacement work-order rule (v23.1.124):
+
+* If a worker response is lost, inaccessible, truncated beyond safe recovery, or unavailable before integration, do not treat memory or a short summary as the complete return. Reissue the assignment as an active replacement work order against current live `main`.
+* The replacement worker must repeat the research and return a complete, self-contained source trail, coordinates, dispositions and required tables. “Already completed earlier” is not a valid replacement response.
+* The Supervisor may use surviving complete worker returns, but must reconcile the replacement return rather than reconstructing missing claims from memory.

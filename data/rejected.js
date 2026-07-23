@@ -926,8 +926,8 @@ window.CAMPING_REJECTED = [
     "sourceSummary": "CNF dispersed camping exists, but USFS rules require compliance with site-distance and MVUM restrictions; generic launches, lake centers, gates, and trailheads are not campsite pins. ([US Forest Service][1])",
     "relatedActiveOrPendingRecord": "wi-lead-cnf-forestwide-dispersed-area-geometry",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "Use for Goodman/Robinson/Himley/Turtle/Lincoln/Perch/Armstrong Creek cleanup.",
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "Use for Goodman/Robinson/Himley/Turtle/Lincoln/Perch/Armstrong Creek cleanup. Reaffirmed during v23.1.124 seven-worker reconciliation.",
     "sourceFile": "Pasted text (3).txt"
   },
   {
@@ -946,8 +946,8 @@ window.CAMPING_REJECTED = [
     "sourceSummary": "Prior county forest permit/rule leads need official area/rule geometry or honest area pins, not offices or courthouse coordinates. Assignment specifically flags county forest permit/rule areas and blocked GIS/map-coordinate leads.",
     "relatedActiveOrPendingRecord": "County forest permit/rule leads above",
     "leadRejectedFileResult": "NO PRIOR LEAD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "This should prevent office-coordinate imports during county forest work.",
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "This should prevent office-coordinate imports during county forest work. Reaffirmed during v23.1.124 seven-worker reconciliation.",
     "sourceFile": "Pasted text (3).txt"
   },
   {
@@ -2006,8 +2006,8 @@ window.CAMPING_REJECTED = [
     "sourceSummary": "Prior Wisconsin hard pass rejected Chinty Lake roadside after no-camping sign/posting conflict.",
     "relatedActiveOrPendingRecord": null,
     "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.54-historical-backfill",
-    "notes": "",
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "Reaffirmed during v23.1.124 seven-worker reconciliation.",
     "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt"
   },
   {
@@ -2026,8 +2026,8 @@ window.CAMPING_REJECTED = [
     "sourceSummary": "Prior Wisconsin county-forest hunt rejected/held this because it was not proven to be county forest/legal camping.",
     "relatedActiveOrPendingRecord": null,
     "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND",
-    "lastCheckedVersion": "v23.1.123",
-    "notes": "The pending active marker was removed in v23.1.123. Official contradiction controls over review count.",
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "The pending active marker was removed in v23.1.123. Official contradiction controls over review count. Reaffirmed during v23.1.124 seven-worker reconciliation.",
     "sourceFile": "Worker_11_CrossState_Rejected_Closure_Harvest_RESULTS.txt",
     "status": "rejected_do_not_import_as_drive_in",
     "reason": "Four community reports exist, but the source pin aligns with Brule River State Forest context where official rules allow backpack camping only after hiking at least one mile from the vehicle, at least 100 feet from a trail and out of sight of water. No authoritative parcel evidence proves a separate legal drive-in site.",
@@ -2589,8 +2589,8 @@ window.CAMPING_REJECTED = [
     "sourceSummary": "Worker 1 found USFS/DNR sources identify Himley Lake as boat landing/lake access, not a campground or campsite.",
     "relatedActiveOrPendingRecord": "wi-lead-cnf-himley-lake-coordinate-rescue",
     "leadRejectedFileResult": "NO PRIOR REJECTED RECORD FOUND / worker-return integration",
-    "lastCheckedVersion": "v23.1.55",
-    "notes": "Rejects boat-landing/lake proxy only, not all future valid nearby proof.",
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "Rejects boat-landing/lake proxy only, not all future valid nearby proof. Reaffirmed during v23.1.124 seven-worker reconciliation.",
     "sourceFile": "WI/UP corridor worker returns v23.1.54"
   },
   {
@@ -13734,8 +13734,8 @@ window.CAMPING_REJECTED = [
     ],
     "sourceSummary": "The active record used 46.55, -91.05 only as a representative county-forest area marker. It was not an exact campsite, campground entrance, access point, registration point, or officially identified camping location. The official Wisconsin DNR Bayfield County Forest polygon is the proper rule-area context.",
     "relatedActiveOrPendingRecord": "wi-bayfield-county-forest-outline-v2311",
-    "lastCheckedVersion": "v23.1.118",
-    "notes": "Removed from active Wisconsin point data in v23.1.118. Do not replace it with another forest centroid or arbitrary representative point.",
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "Removed from active Wisconsin point data in v23.1.118. Do not replace it with another forest centroid or arbitrary representative point. Reaffirmed during v23.1.124 seven-worker reconciliation.",
     "sourceUrl": "https://services5.arcgis.com/Ul9AyFFeFTjf08DW/ArcGIS/rest/services/County_Forests/FeatureServer/0"
   },
   {
@@ -13865,7 +13865,403 @@ window.CAMPING_REJECTED = [
     ],
     "sourceSummary": "Three reviews describe parking/trailhead use. Sawyer County rules prohibit camping within 100 feet of public roads and within one-quarter mile of designated recreational trails, day-use areas or boat landings.",
     "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.123",
-    "notes": "The pending active trailhead marker was removed in v23.1.123."
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "The pending active trailhead marker was removed in v23.1.123. Reaffirmed during v23.1.124 seven-worker reconciliation."
+  },
+  {
+    "id": "wi-reject-cnf-nelligan-boat-landing-as-campsite",
+    "state": "WI",
+    "name": "Nelligan Lake boat-landing pin as dispersed camping",
+    "countyRegion": "CNF / Nelligan Lake",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "wrong_feature_type_and_developed_site_buffer",
+    "rejectionStrength": "strong_official_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "A distinct coordinate outside the developed recreation footprint and one-quarter-mile buffer is proved with current official legality."
+    ],
+    "sourceSummary": "USFS facility inventory classifies Nelligan as a boat landing, and current Forest Order prohibits dispersed camping within one-quarter mile of developed recreation sites.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-cnf-luna-lake-developed-complex-as-dispersed",
+    "state": "WI",
+    "name": "Luna Lake historical loose dispersed-camping claim",
+    "countyRegion": "Luna–White Deer complex",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "developed_complex_wrong_classification",
+    "rejectionStrength": "strong_current_official_classification",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "A precise retired or separate site outside the developed complex is documented by current or archival official evidence."
+    ],
+    "sourceSummary": "Current USFS material places Luna Lake in the developed Luna–White Deer campground, trail and boat-ramp complex; no distinct loose dispersed site was recovered.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-cnf-waupee-flowage-unsupported-access-claim",
+    "state": "WI",
+    "name": "Waupee Flowage unsupported access/landing camping claim",
+    "countyRegion": "Mountain / Lakewood area",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "missing_source_pin_and_wrong_feature_risk",
+    "rejectionStrength": "reopenable_unresolved",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Recover the original exact source pin and prove a distinct legal campsite outside the landing/parking footprint with threshold evidence."
+    ],
+    "sourceSummary": "The original source pin was not retained, only one report surfaced and landing/parking risk dominates.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-cnf-logger-lake-unsupported-claim",
+    "state": "WI",
+    "name": "Logger Lake current camping claim",
+    "countyRegion": "Armstrong Creek area",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "unsupported_single_report_no_geometry",
+    "rejectionStrength": "reopenable_unresolved",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Recover the original source pin and prove legal campsite identity plus official or threshold evidence."
+    ],
+    "sourceSummary": "One listing/review surfaced with no exact distinct campsite point or official camping designation.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-cnf-wabikon-lake-unsupported-claim",
+    "state": "WI",
+    "name": "Wabikon Lake current camping claim",
+    "countyRegion": "Forest County / Crandon area",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "unsupported_single_report_no_geometry",
+    "rejectionStrength": "reopenable_unresolved",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Recover the original source pin and prove current public ownership, access and campsite identity."
+    ],
+    "sourceSummary": "One listing surfaced with no exact point, legal route or official camping feature.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-cnf-range-line-lake-unsupported-claim",
+    "state": "WI",
+    "name": "Range Line Lake current camping claim",
+    "countyRegion": "Forest / Wabeno corridor",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "unsupported_claim_no_geometry",
+    "rejectionStrength": "reopenable_unresolved",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Recover the original source/name variant and prove a distinct legal campsite."
+    ],
+    "sourceSummary": "No exact coordinate, manager, campsite identity or official feature was recovered.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-cnf-deer-lake-ambiguous-unsupported-claim",
+    "state": "WI",
+    "name": "Ambiguous Deer Lake camping claim",
+    "countyRegion": "Forest / Wabeno / Armstrong corridor",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "ambiguous_name_no_source_coordinate",
+    "rejectionStrength": "reopenable_unresolved",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Recover the original listing and exact coordinate, then prove manager, access and campsite identity."
+    ],
+    "sourceSummary": "Deer Lake is an ambiguous common name and the surfaced claim has no retained exact source point or official camping feature.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-upper-mississippi-island-centers-and-accesses-as-campsites",
+    "state": "WI",
+    "name": "Upper Mississippi Refuge island centers, landings and accesses as campsite pins",
+    "countyRegion": "Wisconsin side of Upper Mississippi refuge",
+    "rejectedAsLayer": "Boat / Backpack",
+    "rejectionType": "no_fixed_site_inventory_and_facility_buffer",
+    "rejectionStrength": "hard_geometry_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "A current official designated campsite inventory is created, or a distinct officially mapped site is established."
+    ],
+    "sourceSummary": "USFWS uses free-choice eligible-island camping rather than designated campsite points and prohibits camping within facility/access buffers. Island centers and landings would overstate legality and precision.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "Eligible-island area overlay remains a lead."
+  },
+  {
+    "id": "wi-reject-tiffany-wa-parking-landings-as-campsites",
+    "state": "WI",
+    "name": "Tiffany Wildlife Area parking areas and boat landings as campsite pins",
+    "countyRegion": "Tiffany Wildlife Area",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "wrong_feature_type_permit_selected_camping",
+    "rejectionStrength": "strong_official_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "A distinct permit-approved camping area coordinate outside access features is proved."
+    ],
+    "sourceSummary": "DNR camping is permit-controlled and parking areas/boat landings are access features, not campsites.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "Permit-area geometry remains a lead."
+  },
+  {
+    "id": "wi-reject-flambeau-black-river-free-choice-dots",
+    "state": "WI",
+    "name": "Invented Flambeau or Black River free-choice backpack campsite dots",
+    "countyRegion": "Flambeau River and Black River State Forests",
+    "rejectedAsLayer": "Boat / Backpack",
+    "rejectionType": "fake_precision_for_rule_area_system",
+    "rejectionStrength": "hard_geometry_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "DNR publishes a distinct designated campsite or official component coordinate."
+    ],
+    "sourceSummary": "These backpack systems define eligible free-choice areas by permit and distance rules rather than fixed published pads.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-burnett-keizer-boat-launches-as-campsites",
+    "state": "WI",
+    "name": "Burnett Keizer-area boat launches as campsite coordinates",
+    "countyRegion": "Burnett County remote-site systems",
+    "rejectedAsLayer": "Boat / Backpack",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "hard_geometry_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Official county data places the actual campsite at the same coordinate."
+    ],
+    "sourceSummary": "County materials distinguish remote tent pads from launches/access. Launch points cannot substitute for campsite coordinates.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "Four designated remote sites remain leads."
+  },
+  {
+    "id": "wi-reject-monroe-county-forest-open-dispersed-camping",
+    "state": "WI",
+    "name": "Monroe County Forest open roadside/dispersed camping claim",
+    "countyRegion": "Monroe County Forest",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "official_designated_sites_only",
+    "rejectionStrength": "strong_official_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current Monroe County plan or ordinance expressly authorizes camping outside designated sites."
+    ],
+    "sourceSummary": "County plan says camping is allowed only at designated campsites and identifies McMullen as the forest’s designated campground.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-la-crosse-bice-hoeth-camping",
+    "state": "WI",
+    "name": "Camping in La Crosse County Bice or Hoeth forests",
+    "countyRegion": "La Crosse County",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "official_no_camping_rule",
+    "rejectionStrength": "hard_official_prohibition",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official county policy changes to authorize public overnight camping."
+    ],
+    "sourceSummary": "County property pages prohibit camping and fires at Bice and Hoeth forests.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-richland-ash-creek-camping",
+    "state": "WI",
+    "name": "Camping in Ash Creek Community Forest",
+    "countyRegion": "Richland County",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "official_no_camping_rule",
+    "rejectionStrength": "hard_official_prohibition",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official property rules change."
+    ],
+    "sourceSummary": "Richland County explicitly prohibits camping and fires at Ash Creek Community Forest.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-sandhill-wildlife-area-camping",
+    "state": "WI",
+    "name": "Sandhill Wildlife Area campground/boondocking claim",
+    "countyRegion": "Wood County / Sandhill Wildlife Area",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "official_no_campground",
+    "rejectionStrength": "strong_official_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "DNR creates and officially maps a public camping area at Sandhill."
+    ],
+    "sourceSummary": "Current DNR information says Sandhill has no campground and directs campers toward separate neighboring opportunities.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-grand-river-marsh-public-camping",
+    "state": "WI",
+    "name": "Grand River Marsh Wildlife Area public camping claim",
+    "countyRegion": "Marquette / Green Lake area",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "no_public_campground_private_context_only",
+    "rejectionStrength": "strong_official_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "DNR officially authorizes and maps public camping on the wildlife area."
+    ],
+    "sourceSummary": "DNR reports no campground on the public property and only identifies nearby private camping context.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-waushara-county-parks-camping",
+    "state": "WI",
+    "name": "General overnight camping in Waushara County parks",
+    "countyRegion": "Waushara County",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "official_park_no_camping_rule",
+    "rejectionStrength": "hard_official_prohibition",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official county park rules change or a specific exception is officially designated."
+    ],
+    "sourceSummary": "County guidance says camping is not permitted in county parks and establishes nightly closure.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-green-lake-county-parks-general-camping",
+    "state": "WI",
+    "name": "General overnight camping in Green Lake County parks",
+    "countyRegion": "Green Lake County",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "official_park_no_camping_rule",
+    "rejectionStrength": "hard_official_prohibition",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official rules establish general public overnight camping or a specific public campsite."
+    ],
+    "sourceSummary": "County rules prohibit general overnight parking/camping except limited advance-authorized organized youth use at Zobel Park.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-vernon-county-forest-open-camping-without-approval",
+    "state": "WI",
+    "name": "Open arrive-and-camp use at Vernon County forests without approval",
+    "countyRegion": "Duck Egg and Kooyumjian–Lost Creek",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "special_approval_required",
+    "rejectionStrength": "strong_official_conflict",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Current official policy establishes open public camping or a specific approved reusable area."
+    ],
+    "sourceSummary": "Vernon ordinance prohibits ordinary overnight camping outside named campgrounds unless the County approves the precise site through a special permit.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": "Current approval practice remains a lead."
+  },
+  {
+    "id": "wi-reject-generic-wi-dnr-fishery-wildlife-access-as-campsite",
+    "state": "WI",
+    "name": "Generic Wisconsin DNR wildlife, fishery, trout-access or SNA parking as campsite",
+    "countyRegion": "Wisconsin statewide",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "public_ownership_not_camping_permission",
+    "rejectionStrength": "hard_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "A property-specific official camping designation and honest campsite/area geometry are proved."
+    ],
+    "sourceSummary": "Public ownership, hunting access, fishing access, parking or a trailhead does not establish overnight camping. State Natural Areas generally prohibit camping except property-specific designated exceptions.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-pecatonica-mckellar-formal-campgrounds-as-boondocking",
+    "state": "WI",
+    "name": "Pecatonica River Trails Park or McKellar Park as boondocking",
+    "countyRegion": "Lafayette County",
+    "rejectedAsLayer": "Boondocking / Dispersed",
+    "rejectionType": "formal_managed_campground_wrong_layer",
+    "rejectionStrength": "hard_classification_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "A distinct public dispersed location outside the formal campground is proved."
+    ],
+    "sourceSummary": "These are managed designated campgrounds with rules and amenities, not roadside or dispersed camping.",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
+  },
+  {
+    "id": "wi-reject-wood-county-wa-parking-gates-as-campsites",
+    "state": "WI",
+    "name": "Wood County Wildlife Area parking lots or gates as camping pins",
+    "countyRegion": "Wood County Wildlife Area",
+    "rejectedAsLayer": "Rustic / Primitive",
+    "rejectionType": "wrong_feature_type",
+    "rejectionStrength": "hard_geometry_guardrail",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "DNR officially relocates/designates the camping area at an access coordinate."
+    ],
+    "sourceSummary": "Official map campsite symbols support the Ball and Amundson seasonal area markers; associated parking and gates are separate access features.",
+    "relatedActiveOrPendingRecord": "wi-dnr-wood-county-wa-ball-road-seasonal-primitive-v23124 / wi-dnr-wood-county-wa-amundson-road-seasonal-primitive-v23124",
+    "lastCheckedVersion": "v23.1.124",
+    "notes": ""
   }
 ];

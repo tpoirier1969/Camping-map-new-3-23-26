@@ -1,0 +1,90 @@
+Tod's Boondocking & Camping Maps — QA v23.1.124
+
+Baseline
+- Live GitHub main verified at v23.1.123, build wisconsin-northern-five-worker-reconciliation.
+- Live index.html blob SHA: 4f7acd679df690cbd04751871e7c5273259a5607.
+- Removing only the new v23.1.124 area-outline loader from the staged index reproduces that live blob SHA exactly: PASS.
+- All four blank-spot worker returns and all three reissued technical worker returns were reconciled.
+- No GitHub write was performed.
+
+Runtime result
+- Wisconsin baseline runtime count: 594
+- Wisconsin final runtime count: 597
+- Runtime additions: 3
+- Runtime removals: 0
+- Existing runtime records corrected or materially enriched: 15
+- Net Wisconsin runtime change: +3
+
+New active records
+- Van Loon Wildlife Area Canoe Campsite, Boat / Backpack, 44.06145, -91.31016.
+- Wood County Wildlife Area — Ball Road Seasonal Primitive Camping Area, Rustic / Primitive, 44.302642, -90.168265.
+- Wood County Wildlife Area — Amundson Road Seasonal Primitive Camping Area, Rustic / Primitive, 44.254921, -90.191966.
+- Each new ID loads exactly once: PASS.
+- No new exact drive-in boondocking campsite was manufactured.
+
+Final Wisconsin layer counts
+- State / Public: 84
+- Federal: 21
+- Private: 96
+- Modern: 12
+- Rustic / Primitive: 43
+- Local: 15
+- Boat / Backpack: 208
+- Rest / Truck: 60
+- Needs Verification: 7
+- Info / Reference: 4
+- Overnight Parking: 4
+- Boondocking / Dispersed: 43
+- Total: 597
+
+Area-outline result
+- Area outlines after patch loading: 25
+- New Iron County Forest official county-forest outline: PASS.
+- Ashland County Forest outline upgraded with Class 1/Class 2 rule treatment: PASS.
+- Oneida County Forest outline upgraded with current permit treatment: PASS.
+- Duplicate area-outline IDs: 0.
+
+Ledger result
+- Wisconsin leads: 34
+- Wisconsin rejected rows: 40
+- Duplicate Wisconsin lead IDs: 0
+- Duplicate Wisconsin rejected IDs: 0
+- Non-Wisconsin lead records unchanged from v23.1.123: PASS.
+- Non-Wisconsin rejected records unchanged from v23.1.123: PASS.
+
+Validation
+- New Wisconsin supplement syntax: PASS.
+- Area-outline patch syntax: PASS.
+- Leads syntax: PASS.
+- Rejected syntax: PASS.
+- Manifest syntax: PASS.
+- Version syntax: PASS.
+- Manifest Wisconsin count equals evaluated runtime: PASS.
+- Duplicate active Wisconsin IDs: 0.
+- Invalid Wisconsin coordinates: 0.
+- New-record required fields and HTTP/HTTPS source fields: PASS.
+- Nearest active record to Van Loon new point: approximately 2.39 km.
+- Ball Road and Amundson Road are approximately 5.63 km apart and do not duplicate existing runtime points.
+- index.html loads data/area-outlines-v23.1.124.js immediately after the existing v23.1.39 outline file: PASS.
+- Every manifest-listed Wisconsin runtime file exists: PASS.
+- Every changed/new package file exists: PASS.
+- PROJECT_RULES.md and Project Rules.md are byte-identical: PASS.
+- Geospatial-PDF transformed-symbol rule present in both rules files: PASS.
+- Lost worker-return / replacement work-order rule present in both rules files: PASS.
+
+Browser-smoke limitation
+- The execution environment blocks Chromium from opening local and localhost pages by organization policy.
+- Full browser UI smoke testing could not be completed here.
+- Static syntax checks, manifest/file checks, VM runtime evaluation, layer evaluation, duplicate detection, coordinate validation, outline evaluation and ledger evaluation all passed.
+
+Supervisor decisions
+- Wood County Wildlife Area Ball Road and Amundson Road markers use official geospatial-PDF campsite-symbol centers with disclosed 50–150 metre uncertainty. They are area markers, not pads, gates or parking pins.
+- Van Loon is an official water-access campsite and remains Boat / Backpack.
+- Chippewa and Marathon move to Boondocking / Dispersed.
+- Horn Lake, general Wood County Forest authority and Eau Claire County Forest authority move to Needs Verification.
+- Iron County Forest uses an official polygon/rule-area outline instead of a forest-center dot.
+- Mountain Lake Road #4 duplicate lead is closed.
+- Fanny Lake remains a five-site walk-in geometry lead for Boat / Backpack.
+- Nelligan and Luddington boat landings are not campsite proxies.
+- Luna Lake remains developed-complex context, not a loose dispersed marker.
+- Upper Mississippi island-center pins, wildlife-area access pins and invented free-choice backpacking dots remain rejected.

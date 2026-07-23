@@ -437,19 +437,21 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "WI",
     "name": "Wisconsin",
     "file": "data/states/WI.js",
-    "count": 594,
+    "count": 597,
     "files": [
       "data/states/WI.js",
       "data/supplements/wi-mi-corridor-active-ui-v23.1.55.js",
       "data/supplements/wi-mi-closeout-cleanup-v23.1.56.js",
-      "data/supplements/wi-northern-closeout-v23.1.123.js"
+      "data/supplements/wi-northern-closeout-v23.1.123.js",
+      "data/supplements/wi-seven-worker-reconciliation-v23.1.124.js"
     ],
     "dynamicSources": [
       "v23.1.48: Wisconsin consolidation cleanup folds all active Wisconsin runtime supplements through v23.1.24 into data/states/WI.js. Final loaded Wisconsin count remains 621; historical supplement files are retired from active manifest loading.",
       "v23.1.55: WI/UP corridor worker reconciliation promotes/updates Florence County Forest camping rule marker to active Boondocking / Dispersed while retaining existing Oconto/Marinette/CNF area markers; no net WI count change. Adds supporting lead/rejected memory for Perch Lake, Marinette park coordinate rescue, CNF/MVUM geometry, and wrong-feature traps.",
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate.",
       "v23.1.118: Removes the misleading Bayfield County Forest generic point at 46.55, -91.05. The official Wisconsin DNR county-forest polygon remains the source-backed Bayfield dispersed-camping rule-area context.",
-      "v23.1.123: Wisconsin northern five-worker reconciliation adds nine active records, splits the combined Audie/Perch record, applies official/community enrichments, removes 35 duplicate/superseded/contradicted runtime rows, reconciles Wisconsin leads/rejects, and adds the repository-first worker baseline rule."
+      "v23.1.123: Wisconsin northern five-worker reconciliation adds nine active records, splits the combined Audie/Perch record, applies official/community enrichments, removes 35 duplicate/superseded/contradicted runtime rows, reconciles Wisconsin leads/rejects, and adds the repository-first worker baseline rule.",
+      "v23.1.124: Reconciles four Wisconsin blank-spot workers and three technical GIS/component workers. Adds Van Loon canoe camp and two Wood County Wildlife Area seasonal primitive areas; corrects county-forest layers/statuses; adds and enriches official area outlines; and reconciles all named leads and rejected traps without creating arbitrary forest, landing, parking or road-center pins."
     ]
   },
   "WY": {
