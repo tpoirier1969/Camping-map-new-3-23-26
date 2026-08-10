@@ -1,0 +1,126 @@
+TOD'S BOONDOCKING & CAMPING MAPS
+WI WORKER 12 + WORKER 14 NON-ACTIVE MEMORY v23.1.125
+2026-08-10
+
+117 accepted new records are active through the Worker 12/14 v23.1.125 supplements.
+Corrections: s156 Camp New Wood; wi-picnic-point-recreation-area; wi-menominee-casino-resort-rv-sites.
+Big Frank's / former Hahn-a-Lula is corrected to Winnebago County as wi-winnebago-big-franks-campground-v23125.
+Rejected-ledger correction pending: mn-reject-ridgewood-seasonal-members-only-no-public-overnight belongs to Plover / Portage County, Wisconsin; rejection remains.
+
+COORDINATE-HELD ACCEPTED ADDS
+- wi-oconto-holt-park-campground-v23124-w12 | Holt Park Campground | Oconto | Modern | locator: 9601 Holt Park Rd, Suring, WI 54174 | source: https://www.townofspruce.net/community
+- wi-oconto-nicolet-trail-campground-v23124-w12 | Nicolet Trail Campground | Oconto | Rustic / Primitive | locator: 310 E Washington St, Gillett, WI | source: https://cityofgillett.com/2017/07/campground-ordinance/
+- wi-oconto-riverwood-campground-v23124-w12 | Riverwood Campground | Oconto | Private Campgrounds | locator: 4998 State Hwy 22, Lena, WI 54139 | source: https://www.riverwoodcampground.com/
+- wi-shawano-voelz-memorial-park-campground-v23124-w12 | Voelz Memorial Park Campground | Shawano | Rustic / Primitive | locator: Voelz Memorial Park, Shawano County, WI | source: https://www.co.shawano.wi.us/departments/county-parks/general-information/parks/
+- wi-portage-lake-emily-north-campground-v23124-w12 | Lake Emily Park North Campground | Portage | Modern | locator: Lake Emily Park, 3968 Park Drive, Amherst Junction, WI 54407 | source: https://reservations.co.portage.wi.us/parks/camping/lake_emily_park_north_campground/
+- wi-taylor-wood-lake-campground-v23124 | Wood Lake Campground | Taylor | Rustic / Primitive | current county locator only | source: https://co.taylor.wi.us/departments/forestry-recreation-2/county-forest-campgrounds/
+- wi-taylor-camp-8-campground-v23124 | Camp 8 Campground | Taylor | Rustic / Primitive | current county route locator only | source: https://co.taylor.wi.us/departments/forestry-recreation-2/county-forest-campgrounds/
+- wi-rib-lake-pine-island-campsites-v23124 | Pine Island Primitive Campsites | Taylor | Boat / Backpack | no authoritative campsite point | source: https://www.riblakewisconsin.com/camping
+- wi-gilman-village-campground-v23124 | Gilman Village Campground | Taylor | Rustic / Primitive | village park locator only | source: https://www.gilmanwi.gov/camping
+- wi-clark-fairgrounds-campground-v23124 | Clark County Fairgrounds Camping | Clark | Rustic / Primitive | fairgrounds camping-area point unresolved | source: https://www.clarkcountywi.gov/for-fairgrounds
+- wi-bookers-northern-escape-v23124 | Booker's Northern Escape RV Park & Campground | Clark | Private Campgrounds | N722 Meads Ave, Neillsville | source: https://www.bookersnorthernescape.com/
+- wi-docs-bunkhouse-halls-creek-v23124 | Doc's Bunkhouse Campground | Jackson | Private Campgrounds | N11702 Elker Rd, Merrillan | source: https://www.docsbunkhouse.com/
+- wi-whitehall-colonel-larson-campground-v23124 | Colonel Larson Park Campground | Trempealeau | Rustic / Primitive | Colonel Larson Park, Earle St | source: https://www.whitehall-chamber.com/
+- wi-arpin-cranberry-campground-v23124 | Arpin Cranberry Campground | Monroe | Private Campgrounds | N4606 McKenna Rd, Warrens | source: https://www.arpincranberry.com/booking/
+- wi-vernon-county-fairgrounds-campground-v23124 | Vernon County Fairgrounds Campground | Vernon | Rustic / Primitive | 210 Fairground Rd, Viroqua | source: https://www.vernoncountyfair.com/info/camping-info/
+- wi-readstown-village-campground-v23124 | Readstown Tourist Park Campground | Vernon | Rustic / Primitive | Tourist Park, Readstown | source: https://vi.readstown.wi.gov/parks-and-recreation
+- wi-blakley-hobbit-campground-v23124 | Blakley Hobbit Campground | Vernon | Private Campgrounds | S5106 Elk Run Rd, Viola | source: https://www.travelwisconsin.com/stay/campgrounds-rv-parks/blakley-hobbit
+- wi-castle-rock-lake-campground-v23124 | Castle Rock Lake Campground | Juneau | Private Campgrounds | N10038 County Rd G, Necedah | source: https://castlerocklake.org/
+- wi-driftless-glamping-v23124 | Driftless Glamping | Juneau | Private Campgrounds | N5456 Hoff Rd, Kendall | source: accepted Worker 14 return
+- wi-edge-o-dells-camping-resort-v23124 | Edge-O-Dells Resort & Campground | Juneau | Private Campgrounds | N555 US Hwy 12 & 16 | source: https://www.edgeodells.com/lodging/campground/
+- wi-glamping-bros-v23124 | Glamping Bros LLC / Dells Adventure Lodging Camping | Juneau | Private Campgrounds | W2737 55th St | source: accepted Worker 14 return
+- wi-kennedy-park-campground-v23124 | Kennedy Park Campground | Juneau | Rustic / Primitive | County Hwy M, New Lisbon | source: https://www.juneaucountyparks.com/parks/camping/kennedy_park/
+- wi-riverside-campground-new-lisbon-v23124 | Riverside Campground | Juneau | Rustic / Primitive | Hwy 80 / Hog Island Rd | source: https://cityofnewlisbon.com/campground-pool/
+- wi-sandstone-rustic-retreat-v23124 | Sandstone Rustic Retreat | Juneau | Private Campgrounds | N422 County Hwy N | source: https://sandstonerusticretreatwisdells.com/
+- wi-wonewoc-bakers-field-campsites-v23124 | Baker's Field Trail Campsites | Juneau | Boat / Backpack | exact campsite geometry unresolved | source: https://wonewocwisc.com/camping/
+
+W12 REJECT NAMES
+- Green's Green Acres
+- Timberline
+- Wildman Adventure Resort camping
+- Marinette Moose Lodge campground
+- Old Knowles Creek Road Dam pending point
+- Cloud Lake community point
+- Boulder Lake Lodge
+- Camp Lake Resort
+- Northforest Campground
+- Wausau Kayak/Canoe Corporation campground-license record
+- Captain's Cove
+- Generic Menominee tribal-land dispersed camping
+- Powwow/event camping
+- Shotgun Eddy ordinary-public campground interpretation
+- Red Banks
+- Nelson Park camping
+- Spencer Lake Christian Center
+
+W14 REJECT NAMES
+- wi-reject-camp-28-not-campground-v23124
+- wi-reject-sunset-pines-resort-cabins-only-v23124
+- wi-reject-dillys-hatfield-current-noncampground-v23124
+- wi-reject-trempealeau-county-fair-event-only-camping-v23124
+- wi-reject-camp-fox-ridge-ashley-event-only-v23124
+- wi-reject-three-willows-popup-event-camping-v23124
+- wi-reject-la-crosse-bice-hoeth-camping
+- wi-reject-coulee-cabins-fixed-lodging-v23124
+- wi-reject-holmen-rod-gun-members-only-camping-v23124
+- wi-reject-ora-trails-fest-event-camping-v23124
+- wi-reject-monroe-county-forest-open-dispersed-camping
+- wi-reject-tomah-recreation-park-facility-rental-rv-parking-v23124
+- wi-reject-blackhawk-county-park-stale-duplicate-v23124
+- wi-reject-bonfire-music-arts-event-camping-v23124
+- wi-reject-vernon-county-forest-open-camping-without-approval
+- wi-reject-frenchmans-landing-seasonal-only-v23124
+- wi-reject-wisconsin-badger-camp-institutional-v23124
+- wi-reject-richland-ash-creek-camping
+- wi-reject-bucks-crossing-seasonal-member-resort-v23124
+- wi-reject-dells-raceway-special-event-camping-v23124
+- wi-reject-in-the-pines-seasonal-only-v23124
+- wi-reject-stand-rock-seasonal-only-v23124
+- wi-reject-juneau-motocross-special-event-camping-v23124
+- wi-reject-pine-cove-seasonal-lease-v23124
+- wi-reject-sandy-shores-owner-guest-resort-v23124
+- wi-reject-necedah-nwr-camping-prohibited-v23124
+
+W12 TOD NAMES / ACQUISITION ROUTES
+- Fanny Lake Campsites 1-5 / Jones Springs | CNF Lakewood Office 715-276-6333 / sm.fs.cnnfadmin@usda.gov
+- Oconto River Fishing Trail Campsites 1-3 | CNF Lakewood Office 715-276-6333 / sm.fs.cnnfadmin@usda.gov
+- Lincoln County Forest dispersed-camping rule-area geometry | export PROP_NAME='Lincoln County Forest' from WI DNR County_Forests FeatureServer layer 0
+- Horn Lake community point | Lincoln County Forestry, Land & Parks / Lucas Williams / 715-539-1034
+- Nut-Zee's Campground | 715-453-8546
+- Ringle Segment DCA | Ice Age Trail Alliance info@iceagetrail.org / 800-227-0046
+- Rice Lake Preserve DCA | Ice Age Trail Alliance info@iceagetrail.org / 800-227-0046
+- Spring Lake Campground, Unity | 715-302-0413
+- Mayflower Lake Resort campground | 715-449-2225
+- Kellogg's Kampsites | 715-526-2824
+- White Clay Lake Lodge and Campground | 715-745-6254
+- Triangle Farm Campgrounds | 920-446-3707
+
+W14 TOD NAMES / ACQUISITION ROUTES
+- Kathryn Lake Recreation Area current camping status | Chequamegon-Nicolet NF Medford Office / 715-748-4875
+- Taylor County Forest dispersed-camping rule area | Taylor County Forestry & Recreation / Alex Solawetz
+- Wicked Events & Rodeo ordinary-camping status | 715-748-3220
+- Outdoor Adventures LLC transient campground status | 715-743-2000
+- Clark County Forest Levis/Trow + Wildcat Mound exclusion geometry | Clark County Forestry & Parks
+- Vernon County Forest special-permit camping practice | Vernon County Parks/Forestry/Land & Water
+- Big River Campground transient status | 608-326-2712
+- Mississippi Bend Campground transient status | 608-412-0483
+- Bavarian Campground transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Cedar Springs Gas & Camp transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- D.J. Kojo Kampin transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Emily Hendricks campground transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Germantown Jct Store campground transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Muffin Acres transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- River Front Campground transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Riverside & Great Northern Railway campground transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- The Pines Hideaway transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Tiny Oaks transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Eagles Nest Resort LLC campground transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Famous Garage Bar campground transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Moonlite Trails transient-use confirmation | Juneau County Health Department license inventory / operator confirmation
+- Castle Rock Hideaway campground transient-use confirmation | operator / Juneau County Health Department
+- Lost District canoe/kayak camping geometry | Village of Wonewoc 608-464-3114
+- Juneau County Forest permit camping system and eligible geometry | Juneau County Parks & Forest / 608-847-9390
+- UPPER MISSISSIPPI RIVER NWR WISCONSIN ELIGIBLE-ISLAND CAMPING GEOMETRY ACQUISITION | U.S. Fish & Wildlife Service Upper Mississippi River NWR
+
+NEXT LEDGER PASS
+Reconcile against then-current active/leads/rejected data. Only still-unresolved items go to data/leads.js and still-valid guardrails to data/rejected.js. Do not invent proxy pins. Full accepted Worker 12 and Worker 14 returns remain the detailed source trail.
