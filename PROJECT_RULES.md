@@ -1407,3 +1407,48 @@ Lost worker-return / replacement work-order rule (v23.1.124):
 * If a worker response is lost, inaccessible, truncated beyond safe recovery, or unavailable before integration, do not treat memory or a short summary as the complete return. Reissue the assignment as an active replacement work order against current live `main`.
 * The replacement worker must repeat the research and return a complete, self-contained source trail, coordinates, dispositions and required tables. “Already completed earlier” is not a valid replacement response.
 * The Supervisor may use surviving complete worker returns, but must reconcile the replacement return rather than reconstructing missing claims from memory.
+
+
+Worker handoff completion gate / required baseline-file hard stop rule (2026-08-10):
+
+This rule controls worker handoff wording and supersedes any earlier rule that could be read as permission to continue from a partial or connector-truncated required repo baseline.
+
+Every worker handoff must contain a clearly labeled `REQUIRED BASELINE PREFLIGHT` block near the top. The worker must complete this preflight before substantive research begins. For normal state/campsite research, the required baseline includes at minimum `PROJECT_RULES.md`, `version.js`, `data/states-manifest.js`, every manifest-loaded active state file and supplement needed to audit the assigned geography, `data/leads.js`, `data/rejected.js`, and any additional repo file specifically named by the assignment. A handoff may narrow this list only when a file genuinely cannot affect the assignment.
+
+A required file counts as available only when the worker can read enough of the complete current file to perform every audit the assignment requires. A GitHub connector result with an empty body, omitted content, connector truncation, partial enumeration, `too large`, `unsupported`, or similar inability to inspect the required content means the file is NOT available.
+
+If any required repo file is connector-truncated, inaccessible, incomplete, or otherwise unreadable, the worker must STOP the assignment before continuing substantive research and tell Tod exactly which file is needed. The worker must ask Tod to upload that exact current file or the current live repo/package ZIP. Required meaning:
+
+`BLOCKED — REQUIRED FILE NEEDED FROM TOD. I cannot safely complete this assignment because GitHub is not giving me the complete current [FILE]. Please upload [FILE], or the current live repo/package ZIP containing it. I will resume the assignment after I have the complete file.`
+
+The worker must not respond to connector truncation by working from whatever partial data happened to be visible. The worker must not silently substitute an older chat attachment, an older package, a cached copy, a previous worker summary, a remembered record set, or a locally available package that merely appears to match the live revision. After the blocker is reported, Tod may explicitly provide or authorize a particular current file/package as the baseline. Until then, the worker stays blocked.
+
+A required-repo-file blocker is different from a blocked external research source. If an ordinary official GIS, reservation, operator, agency, or web source remains inaccessible after the required research ladder, the assignment may use the handoff's allowed blocked/Tod-action outcome. If a required repo baseline file is unavailable, the assignment itself stops because the worker cannot safely perform active-record, duplicate, lead, reject, or runtime reconciliation.
+
+Do not postpone a required active-record or duplicate audit to integration. Wording such as `full-base duplicate preflight at integration`, `unless already active`, `base file could not be enumerated`, or `integration should verify` is not an acceptable substitute for the required worker audit when the handoff says the worker must perform it.
+
+Every worker handoff must also contain a clearly labeled `RETURN ACCEPTANCE GATE`. It must state that the worker may not describe the assignment, county, region, inventory, target list, or research pass as COMPLETE unless every required preflight and required task has been completed.
+
+A worker return is INCOMPLETE and must not be presented as completed when any of these conditions remains:
+
+* a required repo file was not fully accessible/readable;
+* the required active/runtime/manifest/supplement/lead/rejected duplicate audit was not completed;
+* a named target or discovered in-scope opportunity lacks one allowed final disposition;
+* aliases or name variants for the same physical campground/facility carry contradictory dispositions;
+* a final action is conditional, such as `ADD if`, `REJECT unless`, `unless already active`, `if transient booking remains available`, or a similar unresolved fork;
+* a required proof claim is asserted without enough source identification and source facts for the Supervisor to audit it;
+* a county/geographic inventory is called complete while a required active-record/runtime or duplicate audit remains outstanding;
+* an unresolved required decision is pushed to `integration`, `another worker`, or `future research` instead of being resolved under the handoff's allowed final-action rules;
+* the worker's own required self-QA fails.
+
+Conditional dispositions are not final dispositions. If the evidence does not support a clean final action, the worker must keep researching until it does or use the exact blocked/Tod-action outcome allowed by the handoff. The worker may not hide unresolved conditions inside notes attached to an ADD or REJECT row.
+
+For named-target, deep-dive, proof, rescue, and closeout assignments, the handoff must explicitly enumerate the allowed final outcomes and must prohibit every other final label. When the handoff uses the three-outcome research model, the only final outcomes are `ADD CANDIDATE`, `REJECT / DO NOT IMPORT`, and `TOD ACTION REQUIRED`. If the assignment also requires existing-active-record review, the handoff must separately list any closed existing-record outcomes it allows, such as `CONFIRMED ACTIVE — NO ACTION`, `DUPLICATE / ALREADY PRESENT`, or `MOVE / CORRECTION CANDIDATE`. Do not improvise additional status labels.
+
+`TOD ACTION REQUIRED` is not a generic escape hatch. It must state the exact missing fact, the exact controlling agency/operator/source, the exact URL/phone/email/office/document or acquisition route, a copy/paste-ready question or file request for Tod, why that item prevents a final ADD or REJECT decision, and what answer would lead to ADD versus REJECT. Generic `needs verification`, `hold`, `more research needed`, `external access required`, or `unattainable` wording is not an acceptable named-target closeout unless the handoff explicitly authorizes that label for that pass type.
+
+If a worker discovers a required-file blocker after doing some research, it may preserve that work as clearly labeled provisional notes, but it must return status `BLOCKED — REQUIRED FILE NEEDED FROM TOD`, not COMPLETE. The Supervisor must not integrate those provisional rows as accepted worker findings until the worker receives the required file and completes the assignment.
+
+Every future handoff writer must phrase the assignment so these gates are explicit rather than implied. The handoff must tell the worker: do not begin substantive research until baseline preflight passes; do not return a partial pass as complete; do not leave duplicate preflight to integration; normalize aliases before final counts; use one non-conditional disposition per physical opportunity; and stop to ask Tod for a required repo file whenever GitHub/connector access truncates or withholds it.
+
+Supervisor acceptance must enforce this mechanically. Preserve useful research from an incomplete return, but reject completion and issue targeted rework for the unfinished requirements. Do not accept polished formatting, large source lists, county-count tables, or the phrase `research complete` as a substitute for passing the required baseline, reconciliation, and final-disposition gates.
