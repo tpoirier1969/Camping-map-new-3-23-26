@@ -123,6 +123,7 @@ window.CAMPING_STATES_MANIFEST = {
     "count": 60,
     "files": [
       "data/states/IN.js",
+      "data/supplements/modern-audit-cleanup-v23.1.21.js",
       "data/supplements/in-ne-public-discovery-first-pass-v23.1.68.js",
       "data/supplements/in-ne-coordinate-rescue-closeout-v23.1.69.js"
     ],
@@ -189,7 +190,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 690,
+    "count": 694,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -209,7 +210,8 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.109: Removes the displaced eastern Muskallonge Lake State Park Campground duplicate, retains Tod-confirmed western s628 as Modern, corrects the produced MI runtime count to 543, and records Fox River Pathway geometry rescue in data/leads.js.",
       "v23.1.112: Eastern U.P. reconciliation adds Newberry and Kritters campgrounds, merges the remaining Two Hearted mouth duplicate, applies audited campground-layer/name corrections, preserves Tank Lake, and corrects Silver Lake access layers from Tod firsthand knowledge.",
       "v23.1.114: Eastern U.P. closeout adds the three exact official Tahquamenon backcountry sites, corrects Pretty Lake/Fox River/East Branch Fox River coordinates, separates Rivermouth Modern from Rivermouth Rustic/Pines, suppresses the now-redundant Tahquamenon broad backcountry outline, and upgrades unresolved geometry/component leads without fake points.",
-      "v23.1.115: Statewide Michigan Bulldog integration adds 61 source-backed camping records, removes 24 proven duplicate/proxy/restricted/non-camping rows, applies 59 high-confidence coordinate/layer/name/owner/status corrections, and retains all unresolved worker targets in leads/rejected ledgers."
+      "v23.1.115: Statewide Michigan Bulldog integration adds 61 source-backed camping records, removes 24 proven duplicate/proxy/restricted/non-camping rows, applies 59 high-confidence coordinate/layer/name/owner/status corrections, and retains all unresolved worker targets in leads/rejected ledgers.",
+      "v23.1.125: Adds four western U.P. Community Reported boondocking records: Crowned Creek on South Boundary Road, Ontonagon River Dispersed, Lake Perrault Dispersed Camping, and FR 360 Boondocking near Marenisco. The first three use a camping-app listing plus firsthand overnight evidence; FR 360 was explicitly approved by Tod after Google Maps review."
     ]
   },
   "MN": {
@@ -246,7 +248,7 @@ window.CAMPING_STATES_MANIFEST = {
       "data/supplements/mo-ky-oh-mt-coordinate-component-rescue-v23.1.73.js"
     ],
     "dynamicSources": [
-      "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted official/operator campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps.",
+      "v23.1.70: SD/ND/MO weak-state rescue first wave adds accepted source-backed campground and float-camp rows, preserves coordinate-blocked USACE/MDC/state-park/private/component opportunities as leads, and adds reject-memory guardrails for no-camping/day-use/proxy traps.",
       "v23.1.73: MO/KY/OH/MT coordinate/component rescue promotes safe Recreation.gov/USACE/KDFWR/ODNR/FWP/LBL-backed coordinates and area markers; coordinate-blocked GIS/RIDB/MDC/LBL/CMR/Fort Peck components remain in data/leads.js with no fake pins."
     ],
     "notes": [
