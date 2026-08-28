@@ -1,0 +1,48 @@
+TOD'S BOONDOCKING & CAMPING MAPS — QA v23.1.126
+Date: 2026-08-27
+
+Baseline
+- Current controlling PROJECT_RULES.md reviewed before changes.
+- Live baseline was v23.1.125.
+
+Static code QA
+- ui-hotfix-v23.1.126.js is isolated in an IIFE with a one-time guard.
+- version.js unified fields all report v23.1.126 and the same build label.
+- version.js remains the authoritative visible version source.
+- version.json remains non-authoritative and unchanged.
+
+Mobile layer-toggle path QA
+1. Phone layer checkbox change is captured at #mapLegendMobile.
+2. Matching #mapLegendDesktop input[data-layer] is located.
+3. Its checked state is synchronized to the phone value.
+4. A bubbling change event is dispatched on the already-wired desktop checkbox.
+5. Existing app.js applyLayerCheckboxChange logic therefore remains the single implementation for enabledLayers, local storage, control synchronization, pending metadata, and marker-layer toggling.
+6. No direct duplicate implementation of internal app layer state was added.
+
+Version/update path QA
+1. Existing index.html already requests version.js with buildProbe=Date.now(), bypassing a stale cached version.js.
+2. v23.1.126 version.js loads ui-hotfix-v23.1.126.js with the current version and a timestamp query.
+3. The hotfix automatically fetches version.js with cache:'no-store' plus updateProbe timestamp.
+4. It parses CAMPING_APP_VERSION from the freshly fetched file.
+5. When published version differs from the running version, Options > App version changes the control to Reload latest version.
+6. Reload latest version navigates to CAMPING_APP_ENTRY/index.html with a new reload timestamp query, forcing a fresh app shell request.
+7. Focus/visibility checks are rate-limited to once per five minutes; the initial startup check is forced.
+
+Regression scope
+- No campsite data changed.
+- No manifest count changed.
+- No marker icon/layer meaning changed.
+- No state-selection behavior changed.
+- No search/filter behavior changed.
+- No Supabase/config.js change.
+
+Browser limitation
+- Connector environment does not provide an interactive iPhone/Safari or installed desktop-shortcut runtime for physical click testing.
+- The failure mechanism and repair path were traced directly through the current event wiring and shell loader code.
+
+Expected user smoke test
+- On phone: uncheck a layer -> its map markers disappear; recheck -> they return.
+- On phone: Select all / Clear layers continue working.
+- On desktop: layer controls continue working unchanged.
+- Under Options > App version: current version status appears and Check for update is available.
+- After a later deployment: an older open/shortcut session discovers the newer version and offers Reload latest version.
