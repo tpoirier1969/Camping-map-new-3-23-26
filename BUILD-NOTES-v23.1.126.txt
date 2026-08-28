@@ -1,0 +1,37 @@
+TOD'S BOONDOCKING & CAMPING MAPS — BUILD NOTES v23.1.126
+Date: 2026-08-27
+
+Purpose
+- Repair phone layer checkboxes that visually changed but did not update the map.
+- Add an automatic live-version check and a cache-busted Reload latest version button so desktop shortcuts and long-lived browser sessions do not remain stuck on an older build.
+
+Root cause
+- Since v23.1.30, mobile layer checkboxes have lived in #mapLegendMobile while the actual layer-change event handler remained attached to #layerList / #mapLegendDesktop. The phone checkbox therefore changed only its own visual checked state.
+
+Implementation
+- Added ui-hotfix-v23.1.126.js.
+- Mobile #mapLegendMobile changes are forwarded to the matching wired desktop layer checkbox, which dispatches the existing applyLayerCheckboxChange path. This preserves the existing layer state, persistence, synchronization, and marker-toggle logic rather than duplicating those internals.
+- Added an automatic version probe against version.js using cache: no-store and a timestamp query.
+- The version probe runs shortly after startup and again when the app regains focus/visibility, subject to a five-minute cooldown.
+- When a newer published version is found, Options > App version shows a Reload latest version button.
+- Reload latest version navigates to a timestamped index.html URL so the app shell itself is cache-busted.
+- version.js remains the sole authoritative visible version source and now loads this small hotfix with its own timestamped URL.
+
+Version
+- Unified app/data revision: v23.1.126
+- Build: mobile-layer-toggle-and-version-refresh
+
+Data
+- No campsite records changed.
+- No state counts changed.
+- No layer definitions, marker symbols, filters, search, state selection, or map-data behavior changed.
+
+Files changed/new
+- version.js
+- ui-hotfix-v23.1.126.js
+- BUILD-NOTES-v23.1.126.txt
+- QA_v23.1.126.txt
+
+Notes
+- index.html already cache-busts version.js with Date.now() at startup. The new checker deliberately uses that existing shell behavior so even a cached desktop shortcut shell can discover the current version logic.
+- index.html itself did not require a content change for this live repo hotfix because the always-fresh version.js loader is already present. Any changed-files package for this version should still include the current index.html under the project's version-shell packaging rule.
