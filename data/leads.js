@@ -39127,24 +39127,25 @@ window.CAMPING_LEADS = [
     "verificationDate": "2026-10-14"
   },
   {
-    "id": "mi-v231130-menominee-river-park-s777-correction",
+    "id": "mi-v231131-menominee-county-wallace-primitive-river-park",
     "state": "MI",
-    "name": "Menominee County River Park Campground — Wallace (s777 coordinate correction)",
+    "name": "Menominee County River Park — Wallace Primitive Campground",
     "countyRegion": "Menominee County / Wallace / Menominee River",
-    "leadType": "existing_active_coordinate_and_layer_correction",
+    "leadType": "official_rustic_campground_coordinate_rescue",
     "likelyLayer": "Rustic / Primitive",
     "status": "coordinate_rescue",
     "priority": "High",
     "sourceType": "Menominee County Parks official current campground/reservations",
     "sourceUrl": "https://www.menomineecountyparks.com/parks/camping/river_park/",
-    "sourceSummary": "County operator verifies four primitive sites, two along Menominee River, at N4007 River Drive, Wallace MI, $20/night seasonal camping May-Oct. Legacy active s777 'River Park Campground' appears to describe this facility as modern/private and uses 44.720078,-84.6411613, which is far from Wallace/Menominee County. Do not move to address, river center, launch, or parking proxy without verified campground point.",
+    "sourceSummary": "Official Menominee COUNTY Parks source verifies four primitive campsites at N4007 River Drive, Wallace, two riverside. This is DISTINCT from CITY of Menominee 58-site modern River Park (new active site in v23.1.131), and from River Ranch at Grayling (formerly River Park; existing s777).",
     "coordinate": null,
-    "coordinateConfidence": "Official campground point not yet established; s777 current coordinate likely unrelated misplaced point and should not be advertised as valid.",
-    "blocker": "Get official campsite map or campground-specific point to safely relocate and correctly classify the existing entry.",
-    "nextAction": "Obtain Menominee County Parks reservation campground map / exact camping cluster GIS or confirm with operator 906-753-4582. Once verified, correct s777 in place and preserve existing historical details that remain accurate.",
-    "relatedActiveOrPendingRecord": "s777",
+    "coordinateConfidence": "No accepted Wallace named camping area point; do not use a river launch or park centroid",
+    "blocker": "Acquire exact camping area point for 4-site rustic county campground at Wallace",
+    "nextAction": "Request campground map / approved campsite coordinate from Menominee County Parks 906-753-4582 and validate against actual camping loop.",
+    "relatedActiveOrPendingRecord": null,
     "overnightCampingConfirmed": true,
-    "lastCheckedVersion": "v23.1.130",
-    "verificationDate": "2026-10-14"
+    "lastCheckedVersion": "v23.1.131",
+    "verificationDate": "2026-10-14",
+    "notes": "v23.1.130 erroneously conflated three facilities. v23.1.131 separates Grayling, City Menominee, and Wallace County campground identities."
   }
 ];

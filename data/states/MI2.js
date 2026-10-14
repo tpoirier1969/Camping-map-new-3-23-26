@@ -3606,6 +3606,17 @@
   patchByName(/^poplar\s+campground$/i,{layer:'rustic',subtype:'rustic',layerLabel:'Rustic / Primitive',categoryLabel:'Rustic / Primitive',showers:'No',website:'https://www.michigan.gov/recsearch/parks/newaygo',verificationStatus:'verified-layer-correction-v23.1.128',verificationNotes:'Michigan DNR identifies Poplar as rustic without electricity, showers or modern restrooms; original coordinate retained.',dataCorrectionVersion:'v23.1.128',dataCorrectionDate:'2026-10-14'});
   // Broad Algonac park point stays as a reference, while separate official campground units become active below.
   patchByName(/^algonac state park$/, {layer:'info',subtype:'area reference',rawCategory:'Info / Reference',categoryLabel:'Info / Reference',layerLabel:'Info / Reference',dataCorrectionVersion:'v23.1.129',dataCorrectionDate:'2026-10-14'});
+  // v23.1.131: Preserve the Grayling campsite coordinate but correct its conflated Menominee details.
+  patchByName(/^river park campground$/, {
+    name:'River Ranch Campground (formerly River Park Campground)',owner:'Private operator / Grayling',layer:'private',subtype:'private developed campground',rawCategory:'Private Campgrounds',categoryLabel:'Private Campgrounds',layerLabel:'Private Campgrounds',
+    description:'At 2607 Peters Road, Grayling, River Park was reintroduced as River Ranch Campground in 2026. This coordinate identifies the Grayling site, NOT either of two Menominee County River Park locations. Approximately 100 RV sites; verify current amenities and rates with operator.',
+    website:'https://www.graylingchamber.com/2026/07/06/578283/ribbon-cutting-open-house-river-ranch-campground',sourceName:'Grayling Chamber of Commerce 2026 operator ribbon-cutting',sourceUrl:'https://www.graylingchamber.com/connections/93276-river-ranch-campground',
+    cost:'Check operator current pricing',costNeedsReview:true,showers:'Verify directly',amenities:'Developed private 100-site RV campground, store and family amenities; verify hookups with operator',
+    access:'Drive-in from Peters Road',countyRegion:'Crawford County / Grayling',locationPrecision:'Retained campground-specific Grayling coordinate, not a site pad',
+    verificationStatus:'source-backed-correction-v23.1.131',verificationDate:'2026-10-14',
+    verificationNotes:'Restores location-name consistency. Original s777 incorrectly described distinct 58-site City of Menominee River Park; 4-site Wallace County River Park is yet another facility.',
+    dataCorrectionVersion:'v23.1.131',dataCorrectionDate:'2026-10-14'
+  });
   const additions=[
   {
     "id": "mi-gogebic-county-forest-remote-camping-permit-rule-area-v23115",
@@ -11054,6 +11065,43 @@
     "verificationNotes": "Confirmed as overnight-use campground on current Michigan DNR RecSearch park page; source ID SPCG101. Site/service restrictions must be followed; do not treat group-use locations as open individual-camper sites.",
     "dataCorrectionFile": "data/states/MI2.js",
     "dataCorrectionVersion": "v23.1.129",
+    "dataCorrectionDate": "2026-10-14"
+  },
+  {
+    "id": "mi-v231131-city-menominee-river-park-campground",
+    "name": "City of Menominee River Park Campground",
+    "lat": 45.104586,
+    "lng": -87.620274,
+    "stateCode": "MI",
+    "stateName": "Michigan",
+    "layer": "modern",
+    "subtype": "modern",
+    "siteForm": "developed municipal full-hookup campground",
+    "rawCategory": "Modern Campgrounds",
+    "categoryLabel": "Modern Campgrounds",
+    "sourceFolder": "Michigan TinyFish City campground proof reconciliation v23.1.131",
+    "owner": "City of Menominee Parks & Recreation",
+    "layerLabel": "Modern Campgrounds",
+    "description": "Public Menominee city campground with 54 full-hookup and four electric-only campsites, toilets and showers. Separate from Grayling's River Ranch (formerly River Park) and Menominee County's four-site rustic Wallace River Park.",
+    "website": "https://parksandrec8.wixsite.com/menomineerecreation/campground",
+    "sourceName": "City of Menominee Parks current operator; City official parks plan; corroborated campground POI",
+    "sourceUrl": "https://www.menominee.us/media/1971",
+    "cost": "Check current City rates for hookups and tent stays",
+    "costNeedsReview": true,
+    "showers": "Yes",
+    "amenities": "58 total campsites; 54 full hookups; four electric-only; flush toilets and showers; paved pads, nearby shopping and Menominee River access.",
+    "access": "Drive-in City campground; use City-provided directions via 6th Avenue and GPS 1401 8th Ave, not City Hall.",
+    "season": "Mid-May through mid-October generally; confirm current City dates",
+    "reviewSummary": "City municipal campground at Menominee riverbank, separate from Wallace and Grayling facilities.",
+    "countyRegion": "Menominee County / City of Menominee",
+    "locationPrecision": "Medium-confidence named campground point 45.104586,-87.620274 independently corroborated by named campsite points 45.1046,-87.6212 and City official address near 1400 5th Ave. Not an RV pad.",
+    "coordinateConfidence": "Two independent campground-specific coordinates agree to within 75 m, corroborated by official City facility address and campground description; not individual pad.",
+    "exactCampsiteLocation": false,
+    "verificationStatus": "source-backed-v23.1.131",
+    "verificationDate": "2026-10-14",
+    "verificationNotes": "Official city site says 58 sites. Former s777 held Menominee city description while its coordinate marked the unrelated Grayling private campground. Corrected s777 to Grayling in this release; new city record is separate.",
+    "dataCorrectionFile": "data/states/MI2.js",
+    "dataCorrectionVersion": "v23.1.131",
     "dataCorrectionDate": "2026-10-14"
   }
 ];

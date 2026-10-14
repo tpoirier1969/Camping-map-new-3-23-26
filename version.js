@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.130";
-window.CAMPING_APP_BUILD = "mi-tinyfish-menomb-isabella-lead-reconciliation";
-window.CAMPING_DATA_VERSION = "v23.1.130";
-window.CAMPING_DATA_BUILD = "mi-tinyfish-menomb-isabella-lead-reconciliation";
-window.CAMPING_VERSION = "v23.1.130";
+window.CAMPING_APP_VERSION = "v23.1.131";
+window.CAMPING_APP_BUILD = "mi-river-park-three-identities";
+window.CAMPING_DATA_VERSION = "v23.1.131";
+window.CAMPING_DATA_BUILD = "mi-river-park-three-identities";
+window.CAMPING_VERSION = "v23.1.131";
 window.CAMPING_BUILD = {
-  version: "v23.1.130",
-  build: "mi-tinyfish-menomb-isabella-lead-reconciliation",
-  dataVersion: "v23.1.130",
-  dataBuild: "mi-tinyfish-menomb-isabella-lead-reconciliation",
+  version: "v23.1.131",
+  build: "mi-river-park-three-identities",
+  dataVersion: "v23.1.131",
+  dataBuild: "mi-river-park-three-identities",
   released: "2026-10-14",
-  label: "Michigan TinyFish ledger verification and Fox Park reject reversal"
+  label: "Michigan three distinct River Park campgrounds identity correction"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
