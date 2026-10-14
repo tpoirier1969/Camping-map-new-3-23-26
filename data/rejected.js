@@ -12847,19 +12847,7 @@ window.CAMPING_REJECTED = [
     "notes": "Retired from data/leads.js during Michigan Bulldog closeout. Treat as stale/directory-only; do not preserve another operator-contact lead.",
     "sourceUrl": ""
   },
-  {
-    "id": "mi-v231116-retired-mi-v23192-lead-fox-park",
-    "state": "MI",
-    "name": "Fox Park",
-    "countyRegion": "",
-    "rejectedAsLayer": "Lead ledger candidate",
-    "rejectionType": "REJECT / DO NOT IMPORT",
-    "sourceSummary": "Cedarville Township/Fox Park official and map searches; overnight policy; runtime. Park identity only; no current overnight-camping authority or campsite inventory.",
-    "relatedActiveOrPendingRecord": "—",
-    "lastCheckedVersion": "v23.1.116",
-    "notes": "Retired from data/leads.js during Michigan Bulldog closeout. Reject as a park/day-use lead unless Cedarville Township later publishes a campground product.",
-    "sourceUrl": ""
-  },
+
   {
     "id": "mi-v231116-retired-mi-v23192-lead-park-place-of-the-north",
     "state": "MI",

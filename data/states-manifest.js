@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.130: Official 2026 campground proof reconciled in Michigan leads for Cedarville Fox Park (old no-camping rejection rescinded), Deerfield hike/boat-in, Menominee River Park misplaced legacy s777, Kleinke, and Shakey Lakes; no unverified map pins added.",
       "v23.1.129: Nine Michigan DNR GIS and current park-page campground components added (Highland 2, Ortonville 1, Algonac 3, Brighton 1, Waterloo 1, Bay City 1); Algonac broad legacy park marker changed to Info/Reference without changing coordinates.",
       "v23.1.128: 12 newly verified Michigan campgrounds from official DNR GIS and county/operator pages; Newaygo Oak and Poplar corrected to rustic. Needs Verification data source connected with active deduplication.",
       "v23.1.127: Removes permanently closed Forest Lake s305, adds 35 official NPS Isle Royale Boat/Backpack camps, 10 MI DNR rustic facilities, 10 USFS rustic facilities, and Wayne County Fairgrounds RV park with disclosed address/map-supported coordinate; Michigan total +55.",
