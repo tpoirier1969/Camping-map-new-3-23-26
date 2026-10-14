@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.128";
-window.CAMPING_APP_BUILD = "mi-county-rescue-and-pending-layer";
-window.CAMPING_DATA_VERSION = "v23.1.128";
-window.CAMPING_DATA_BUILD = "mi-county-rescue-and-pending-layer";
-window.CAMPING_VERSION = "v23.1.128";
+window.CAMPING_APP_VERSION = "v23.1.129";
+window.CAMPING_APP_BUILD = "mi-dnr-state-park-campground-components";
+window.CAMPING_DATA_VERSION = "v23.1.129";
+window.CAMPING_DATA_BUILD = "mi-dnr-state-park-campground-components";
+window.CAMPING_VERSION = "v23.1.129";
 window.CAMPING_BUILD = {
-  version: "v23.1.128",
-  build: "mi-county-rescue-and-pending-layer",
-  dataVersion: "v23.1.128",
-  dataBuild: "mi-county-rescue-and-pending-layer",
+  version: "v23.1.129",
+  build: "mi-dnr-state-park-campground-components",
+  dataVersion: "v23.1.129",
+  dataBuild: "mi-dnr-state-park-campground-components",
   released: "2026-10-14",
-  label: "Michigan county campground rescue and Needs Verification layer repair"
+  label: "Michigan missing DNR state park campground components and Algonac layer cleanup"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
