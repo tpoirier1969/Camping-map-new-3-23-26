@@ -86,7 +86,7 @@ Every county must have all of the following before its closure changes to `COMPL
 | Manistee | LP | — | — | — | — | — | OPEN |  |
 | Marquette | UP | — | — | — | — | — | OPEN |  |
 | Mason | LP | — | — | — | — | — | OPEN |  |
-| Mecosta | LP | P | P | P | P | — | OPEN | v23.1.128 integrated Tubbs Lake Mainland, Tubbs Lake Island, Haymarsh Lake; county directory also has 4 preexisting campgrounds. Wider private, township, and remote camping sweep NOT closed. |
+| Mecosta | LP | P | P | P | P | — | OPEN | v23.1.128 integrated Tubbs Lake Mainland, Tubbs Lake Island, Haymarsh Lake; county directory also has 4 preexisting campgrounds. Wider private, township, and remote camping sweep NOT closed. Oct 14 continuation: partial operator-discovery and TinyFish QA; see log below. |
 | Menominee | UP | — | P | P | P | — | OPEN | v23.1.131 resolved distinct River Park campground identities; full county inventory and closure review outstanding. |
 | Midland | LP | — | — | — | — | — | OPEN |  |
 | Missaukee | LP | — | — | — | — | — | OPEN |  |
@@ -94,7 +94,7 @@ Every county must have all of the following before its closure changes to `COMPL
 | Montcalm | LP | — | — | — | — | — | OPEN |  |
 | Montmorency | LP | — | — | — | — | — | OPEN |  |
 | Muskegon | LP | — | — | — | — | — | OPEN |  |
-| Newaygo | LP | P | P | P | P | — | OPEN | v23.1.128 integrated Diamond Lake, Sandy Beach, White Cloud and Ed H. Henning county campgrounds; corrected Oak/Poplar layers. Official 2025 hazard-plan campground inventory and GIS provide many still-to-close names. |
+| Newaygo | LP | P | P | P | P | — | OPEN | v23.1.128 integrated Diamond Lake, Sandy Beach, White Cloud and Ed H. Henning county campgrounds; corrected Oak/Poplar layers. Official 2025 hazard-plan campground inventory and GIS provide many still-to-close names. Oct 14 continuation: partial USFS/operator discovery; see log below. |
 | Oakland | LP | — | — | — | — | — | OPEN |  |
 | Oceana | LP | — | — | — | — | — | OPEN |  |
 | Ogemaw | LP | — | — | — | — | — | OPEN |  |
@@ -154,6 +154,41 @@ Record each bounded assignment here (or link to its complete repo-backed batch l
 | 2026-10-14 | v23.1.128 | Mecosta, Newaygo | 12 source-backed Michigan additions, layer corrections, and linkage of existing Needs Verification map data | Prior integration; county audit closure **not claimed** |
 | 2026-10-14 | v23.1.131 | Menominee | Three distinct River Park identities reconciled, 58-site City of Menominee campground added | Prior integration; county audit closure **not claimed** |
 | 2026-10-14 | v23.1.131 / `1d24d3a9bb77019ccfeafb0169253384ea7bbf09` | 83 counties | Initialized MMAT from live current repository and available primary-source trails | 0 / 83 closed; first audit batch queued: Mecosta + Newaygo |
+
+
+## Continued Mecosta and Newaygo research — 2026-10-14
+
+**PARTIAL; 0 county closeouts. No camping data files changed in this checkpoint.** Audit ran against live `main` `v23.1.131` and current `PROJECT_RULES.md`, manifest, Michigan primary and continuation files, all Michigan runtime supplements, leads, rejected, and pending records. Large files `data/states/MI.js` and `data/leads.js` were fully accessible using GitHub `fetch_blob` by SHA when `fetch_file` returned empty bodies.
+
+### Newaygo: directly source-backed USFS campground candidates
+
+These existing USFS recreation facilities appear absent as separately named records from the manifest-loaded MI active data. **ADD CANDIDATE, Rustic / Primitive**; no import or county completion yet. The coordinates below are published as campground recreation-site positions by USFS and are *not* the forest office postal address.
+
+| Campground | Latitude | Longitude | Controlling official source |
+|---|---:|---:|---|
+| Twinwood Lake | 43.47594802 | -85.76753603 | https://www.fs.usda.gov/r09/huron-manistee/recreation/twinwood-lake-campground |
+| Shelley Lake | 43.712811 | -85.814014 | https://www.fs.usda.gov/r09/huron-manistee/recreation/shelley-lake-campground |
+| Brush Lake | 43.63916667 | -85.68972222 | https://www.fs.usda.gov/r09/huron-manistee/recreation/brush-lake-campground |
+| Indian Lake **in Manistee NF**, not Indian Lake State Park in the U.P. | 43.67181060 | -85.82236579 | https://www.fs.usda.gov/r09/huron-manistee/recreation/indian-lake-campground |
+| Hungerford Horse Camp (main Hungerford campground) | 43.70166667 | -85.62222222 | https://www.fs.usda.gov/r09/huron-manistee/recreation/hungerford-horse-camp |
+
+**Hungerford group geometry issue:** https://www.fs.usda.gov/r09/huron-manistee/recreation/hungerford-group-horse-camp reuses effectively the same 43.701667,-85.62222 point as the main horse camp, but https://www.recreation.gov/camping/campgrounds/234678 explicitly locates its separate reservable group site *1.25 miles north* of the main site. Recreation.gov-derived facility metadata consistently gives approximately **43.716667,-85.624444** for the group facility; direct reservation system/GIS coordinate confirmation is pending. **NEEDS VERIFICATION; do not place this group campsite at the main campground point.** The 48-site Hungerford Lake / Family / Main campground is an alias/identity investigation: do not import it as a third campground without proof of separate physical identity.
+
+### Private campground operator leads and exceptions
+
+**Mecosta ADD CANDIDATES:** Bluegill Lake Family Camping Resort, direct operator GPS **43.696331,-85.228844**, address 15854 Pretty Lake Drive (http://www.bluegillcamping.com/contact-us.html); River Ridge RV Resort, **22265 8 Mile Road, Stanwood**, overnight RV stays (https://riverridgeresort.com/contact-us/); CranHill Family Campground, **14444 17 Mile Road, Rodney**, 2026 individual campsite reservations and operator map link locating main ranch near 43.716942,-85.373779 (https://www.cranhillranch.com/). **Sarns Resort**: official tourism directory confirms campsites at **4398 Newcosta Avenue, Morley** (https://www.bigrapids.org/member-detail/sarns-resort/); verify current transient activity and site coordinate before promotion. Do not place generic office/address centroids as campground pads.
+
+**Newaygo existing-lead ADD CANDIDATES with operator overnight proof:** Mystery Creek (9570 Wisner Ave, https://mystery-creek-campground.com/); Little Switzerland (254 Pickeral Lake Dr, 2026 fall promotions, https://www.littleswissrnc.com/); Timbers Edge (50 sites, https://www.timbersedgecampground.com/, **operator warns final access-road GPS directions may lead onto impassable roads**); Pickerel Lakeside (12666 N Woodbridge Ave, https://lakecamp-cottages.com/); Lonesome Lake (318 W 18 Mile Rd, predominantly seasonal, occasionally transient, https://lonesomelakecampground.com/); Happy Campers (5380 Croton Dr, https://www.happycampers5380.com/); Salmon Run (8845 Felch Ave, reservations, https://www.salmonrunmi.com/); Adventure Bound West Michigan (https://www.abcamping.com/westmichigan/, **already in both leads and pending**, reconcile before promotion). Chinook, Sportsman Park and other existing Newaygo ledger names still need direct status/coordinate rescue. These are NOT 8 new map imports.
+
+**Existing active / reject identity controls:** Newaygo State Park Oak (`s653`) and Poplar (`s737`) are existing two **Rustic** campground units with 99 sites combined; official https://www.michigan.gov/recsearch/parks/newaygo confirms no electricity, modern bathrooms or showers. `mi-v231128-fremont-lake-park` is already an active Fremont Lake Park Campground record; do not reimport it after abbreviated name matching fails. Davis Bridge Park is explicitly **no camping** on https://www.mecostacountyparks.com/park-information.html and already in `data/rejected.js`. Fort Faith is an organized religious camp/retreat, not verified as an ordinary public nightly campsite facility. Pines Point is in **Oceana**, not Newaygo; park it for the next Lake/Oceana batch. Do not add generic boondocking dots to state game areas: check specific current Michigan DNR restrictions and land ownership.
+
+### TinyFish effectiveness and closure blockers
+
+TinyFish **Search / Fetch** exposed these official USFS pages and private operator evidence but are not themselves legal camping or coordinate proof. TinyFish **Agent** run `ee8a69f0-523c-4916-83dc-544e0f71a245` on https://www.bigrapids.org/campgrounds/ reported all 15 listings examined in 4 steps / 24 seconds, **but gave demonstrably false street addresses**, including River Ridge (operator address is Stanwood 8 Mile Road, not a Big Rapids 5 Mile Road address). Accept **zero Agent-issued locations without independent source checking**. Earlier Newaygo directory Agent also returned 0 despite 4 real county campgrounds.
+
+The current official [2026 Newaygo County Hazard Analysis PDF](https://www.newaygocountymi.gov/wp-content/uploads/2025/11/2026-Newaygo-County-Hazard-Analysis.pdf) is ~51MB and exceeds the current web-PDF gateway limit; search-index snippets are *not* a complete campground inventory. **EXTERNAL ACCESS REQUIRED:** acquire this exact PDF with a normal browser download and extract its campground facility table in a local PDF reader; optionally ask Newaygo County Emergency Services for their current facility spreadsheet. Reconcile every named row against all loaded MI active records and leads/rejected/pending before county completion.
+
+**Next work:** complete township/place-anchor and nonmodern searches, official USFS county facility control list and private/seasonal exception rows; resolve Hungerford main/group coordinates, operator-address positions, alias and spatial collisions. Then update actual `data/leads.js`, `data/rejected.js`, pending and active runtime records only for properly closed outcomes in an authorized revision. Both counties stay OPEN.
 
 ## Worker / supervisor handoff rule
 
