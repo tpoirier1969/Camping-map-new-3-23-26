@@ -6,6 +6,26 @@
 
 **This file is the durable, canonical county-closure tracker. It is not itself camping-site data.** Campsite records remain in the established map files and investigation ledgers. Do not manufacture counts, site positions, or county closure status.
 
+## Fast resume checkpoint (maintain after **every** batch)
+
+**Last confirmed:** 2026-10-14; live `main` release **v23.1.135** (commit `93d097860b9e2f41bbe73eb0e6b2d5fffadb6a46`). This is a *snapshot*, not permission to skip a fresh live-repo/version and required baseline check.
+**Michigan inventory:** **780 actual runtime camping records** after v23.1.135; **0/83 counties closed**. Check active data by executing all manifest-loaded Michigan files and supplements, not by static array count.
+**Current geographic lock:** Mecosta + Newaygo counties, both **OPEN / PARTIAL**. **Next queued:** Lake + Oceana only *after* current batch's bounded work is checkpointed; open counties stay OPEN until the full closeout gate is met.
+**Most recent accepted map changes:** v23.1.134 added 8 source-backed private campgrounds; v23.1.135 restored Hungerford Equestrian Group Campsite at separate Recreation.gov official facility coordinates. v23.1.133 superseded the false duplicate import interpretation from v23.1.132.
+**Remaining current work:** Finish the township/place-anchor, private/seasonal exceptions, non-modern, water-access, USFS, and dispersed/rule-area matrices for Mecosta/Newaygo; reconcile the official Newaygo 2025/2026 campground inventory row by row; check unresolved operator/club/event/alias entries in `data/leads.js`. Do not invent points or promote county inventory names without present overnight proof.
+**Canonical data outcomes:** Active sites in owning original `data/states/` file and actual manifest-loaded supplements; unresolved in `data/leads.js`; disproven in `data/rejected.js`; map-visible unverified only when a defensible position is known, via the *existing* Needs Verification dataset. Close out every named lead exactly once.
+**Next safe action:** Take one *bounded* remaining Mecosta/Newaygo source-system or township/forest subarea, use TinyFish Search/Fetch and Agent only where useful, independently verify official/operator sources, run the **complete** required repo baseline and cross-file duplicate check, integrate qualified sites and ledgers with unified release QA, then update this checkpoint and append the short batch record below.
+
+### Low-context execution contract
+
+1. **At chat/session start:** Read current ChatGPT project settings, current `PROJECT_RULES.md`, **this checkpoint**, current `version.js`, current live commit and every required baseline file. For large required files, retrieve/process full content in manageable tool calls (or blob by SHA) and report compact counts, SHAs and targeted excerpts, *not enormous raw bodies*. An incomplete/truncated baseline is still a hard stop under `PROJECT_RULES.md`.
+2. **Discover in bounded geographic pieces:** Normally one county subarea/source-system at a time (or a tightly related 1–2-county slice), not a statewide roaming run. Separate TinyFish Search, Fetch and Agent in the scorecard. An Agent's completion message is not proof of complete discovery.
+3. **Commit at each batch end:** Reconcile all named leads against *all* manifest-loaded Michigan files, pending, leads, rejected, and coordinate neighbors; integrate every import-ready addition/correction; retire promoted duplicates; preserve unresolved and disproven records; run runtime/layer/source/coordinate/version QA. If no records qualify, log an explicit zero-add closeout, not an invented map update. Don't increment the release version for research alone.
+4. **Persist before moving on:** Replace this checkpoint's snapshot fields; append one compact batch record with `date | geographic lock | repo base/release SHA | TinyFish method+URL+run ID | leads and dispositions | active/ledger deltas | QA | exact blockers and acquisition paths | next geographic slice`. Point to full official evidence/record URLs; store detailed material in the repo, not in a long conversation transcript. Never erase earlier batch evidence.
+5. **Handoff/reset:** After several batches or when chat context becomes heavy, start a fresh chat and have it resume from this checkpoint and current repository, **not a conversational retelling**. New workers/supervisors must first follow *both* current ChatGPT project settings and live `PROJECT_RULES.md`. No background processing is implied.
+
+**Checkpoint maintenance rule:** This section is a **replace-in-place operational snapshot**. Historical discoveries, proofs, dispositions, commits, failed TinyFish runs and county closure decisions belong in the append-only sections below. Do not mistake a stale checkpoint count for live truth.
+
 ## Statewide rollup
 
 - **Counties:** 83 total (15 Upper Peninsula, 68 Lower Peninsula).
