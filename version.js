@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.131";
-window.CAMPING_APP_BUILD = "mi-river-park-three-identities";
-window.CAMPING_DATA_VERSION = "v23.1.131";
-window.CAMPING_DATA_BUILD = "mi-river-park-three-identities";
-window.CAMPING_VERSION = "v23.1.131";
+window.CAMPING_APP_VERSION = "v23.1.132";
+window.CAMPING_APP_BUILD = "mi-newaygo-usfs-five-bluegill-one";
+window.CAMPING_DATA_VERSION = "v23.1.132";
+window.CAMPING_DATA_BUILD = "mi-newaygo-usfs-five-bluegill-one";
+window.CAMPING_VERSION = "v23.1.132";
 window.CAMPING_BUILD = {
-  version: "v23.1.131",
-  build: "mi-river-park-three-identities",
-  dataVersion: "v23.1.131",
-  dataBuild: "mi-river-park-three-identities",
+  version: "v23.1.132",
+  build: "mi-newaygo-usfs-five-bluegill-one",
+  dataVersion: "v23.1.132",
+  dataBuild: "mi-newaygo-usfs-five-bluegill-one",
   released: "2026-10-14",
-  label: "Michigan three distinct River Park campgrounds identity correction"
+  label: "Michigan five Newaygo USFS rustic campgrounds and Bluegill Lake private campground"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

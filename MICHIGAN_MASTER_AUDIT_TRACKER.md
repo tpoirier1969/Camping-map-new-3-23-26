@@ -154,6 +154,7 @@ Record each bounded assignment here (or link to its complete repo-backed batch l
 | 2026-10-14 | v23.1.128 | Mecosta, Newaygo | 12 source-backed Michigan additions, layer corrections, and linkage of existing Needs Verification map data | Prior integration; county audit closure **not claimed** |
 | 2026-10-14 | v23.1.131 | Menominee | Three distinct River Park identities reconciled, 58-site City of Menominee campground added | Prior integration; county audit closure **not claimed** |
 | 2026-10-14 | v23.1.131 / `1d24d3a9bb77019ccfeafb0169253384ea7bbf09` | 83 counties | Initialized MMAT from live current repository and available primary-source trails | 0 / 83 closed; first audit batch queued: Mecosta + Newaygo |
+| 2026-10-14 | v23.1.132 | Newaygo, Mecosta | 5 USFS exact-site campground adds and 1 operator-GPS private Bluegill add; two pending promotions; distinct Hungerford group lead retained | 6 active additions; 0 county closures |
 
 
 ## Continued Mecosta and Newaygo research — 2026-10-14
@@ -189,6 +190,16 @@ TinyFish **Search / Fetch** exposed these official USFS pages and private operat
 The current official [2026 Newaygo County Hazard Analysis PDF](https://www.newaygocountymi.gov/wp-content/uploads/2025/11/2026-Newaygo-County-Hazard-Analysis.pdf) is ~51MB and exceeds the current web-PDF gateway limit; search-index snippets are *not* a complete campground inventory. **EXTERNAL ACCESS REQUIRED:** acquire this exact PDF with a normal browser download and extract its campground facility table in a local PDF reader; optionally ask Newaygo County Emergency Services for their current facility spreadsheet. Reconcile every named row against all loaded MI active records and leads/rejected/pending before county completion.
 
 **Next work:** complete township/place-anchor and nonmodern searches, official USFS county facility control list and private/seasonal exception rows; resolve Hungerford main/group coordinates, operator-address positions, alias and spatial collisions. Then update actual `data/leads.js`, `data/rejected.js`, pending and active runtime records only for properly closed outcomes in an authorized revision. Both counties stay OPEN.
+
+## Integration checkpoint: v23.1.132 (October 14, 2026)
+
+**Release action:** Accepted six source-backed candidate sites into `data/states/MI2.js`: Newaygo USFS Twinwood Lake, Shelley Lake, Brush Lake, Indian Lake (Manistee NF), and Hungerford Horse Camp (five Rustic / Primitive); Mecosta Bluegill Lake Family Camping Resort (one Private). Each has USFS named campground GPS or Bluegill operator-published GPS, and the source URLs, owner, season, location confidence, layer, county and overnight-use facts in its active record. No guessed coordinates.
+
+**Pending promotion:** Shelley Lake (`pending-mi-019`) and Indian Lake (`pending-mi-015`) were already verified from current official USFS pages and removed from the static Needs Verification dataset after promotion to active. The other 19 pending records remain unchanged. `data/leads.js` gained one distinct unresolved lead, `mi-v231132-newaygo-hungerford-equestrian-group-coordinate-rescue`: Recreation.gov identifies a separately bookable northern group campsite, but USFS's group webpage repeats the main horse-camp coordinates. **Do not place the separate group camp at the main horse camp pin.**
+
+**Runtime/count QA:** Michigan manifest count 771 → 777; unified application/data version `v23.1.132`. Source-backed active additions 6, pending removals 2, lead additions 1, rejected changes 0. The original other state datasets, marker icon policy, area overlays, user UI, and release app code were not altered. No county-wide completion claimed: **Mecosta OPEN; Newaygo OPEN; 0 of 83 Michigan counties closed.**
+
+**Still required:** Current Newaygo county Hazard Analysis campground roster extraction, USFS family/group Hungerford identity and direct official group location rescue, operator address-to-campground geometry for other private candidates, township and dispersed rule checks, then full duplicate/season/status and end-user map QA. The historical v23.1.131 research matrix above describes the pre-integration condition and remains preserved for audit history.
 
 ## Worker / supervisor handoff rule
 

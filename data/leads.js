@@ -39147,5 +39147,25 @@ window.CAMPING_LEADS = [
     "lastCheckedVersion": "v23.1.131",
     "verificationDate": "2026-10-14",
     "notes": "v23.1.130 erroneously conflated three facilities. v23.1.131 separates Grayling, City Menominee, and Wallace County campground identities."
+  },
+  {
+    "id": "mi-v231132-newaygo-hungerford-equestrian-group-coordinate-rescue",
+    "state": "MI",
+    "name": "Hungerford Equestrian Group Campsite",
+    "countyRegion": "Newaygo County / Manistee National Forest",
+    "leadType": "coordinate_rescue",
+    "likelyLayer": "Rustic / Primitive",
+    "status": "coordinate_rescue",
+    "priority": "High",
+    "sourceType": "USDA Forest Service official site; Recreation.gov facility #234678",
+    "coordinate": null,
+    "coordinateConfidence": "LOCATION CONFLICT: official USFS group-site webpage repeats main horse camp GPS near 43.701667,-85.62222 even though Recreation.gov identifies separate group campsite approximately 1.25 miles north; derived facility coordinates around 43.716667,-85.624444 require direct official RIDB/GIS verification.",
+    "blocker": "Official webpage uses the same point as main horse camp; importing at that position creates a misleading duplicate and confuses independent group facility with main campground.",
+    "nextAction": "Obtain the official Recreation.gov/RIDB facility GPS point or USFS geospatial campground map for campground 234678, spot-check distinct group campsite against aerial/forest roads, and settle main Hungerford Family Campground naming/physical identity before import. Do not use horse camp point as group-site position.",
+    "sourceUrl": "https://www.recreation.gov/camping/campgrounds/234678",
+    "secondarySourceUrl": "https://www.fs.usda.gov/r09/huron-manistee/recreation/hungerford-group-horse-camp",
+    "relatedActiveOrPendingRecord": "mi-v231132-usfs-hungerford-horse (separate facility; not a duplicate)",
+    "lastCheckedVersion": "v23.1.132",
+    "notes": "Confirmed publicly reservable equestrian group opportunity but its USFS source coordinate is unreliable for this distinct facility. Hold in canonical lead list without placing a fake Need Verification pin."
   }
 ];
