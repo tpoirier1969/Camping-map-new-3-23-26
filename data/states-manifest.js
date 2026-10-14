@@ -190,7 +190,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 694,
+    "count": 749,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.127: Removes permanently closed Forest Lake s305, adds 35 official NPS Isle Royale Boat/Backpack camps, 10 MI DNR rustic facilities, 10 USFS rustic facilities, and Wayne County Fairgrounds RV park with disclosed address/map-supported coordinate; Michigan total +55.",
       "v23.1.94: Integrated partial lead address/coordinate rescue worker returns (Workers 1,2,3,4,6,7,8,9). Worker 5 and 10 returns are not included yet.",
       "v23.1.96: Integrates remaining lead rescue worker returns and correction-risk cleanup for MI; uses worker-return source trails, no fake coordinate upgrade.",
       "v23.1.109: Removes the displaced eastern Muskallonge Lake State Park Campground duplicate, retains Tod-confirmed western s628 as Modern, corrects the produced MI runtime count to 543, and records Fox River Pathway geometry rescue in data/leads.js.",

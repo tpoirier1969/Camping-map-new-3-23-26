@@ -14263,5 +14263,24 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "wi-dnr-wood-county-wa-ball-road-seasonal-primitive-v23124 / wi-dnr-wood-county-wa-amundson-road-seasonal-primitive-v23124",
     "lastCheckedVersion": "v23.1.124",
     "notes": ""
+  },
+  {
+    "id": "mi-v231127-forest-lake-permanent-closure",
+    "state": "MI",
+    "name": "Forest Lake State Forest Campground / Forest Lake Campground and Picnic Area",
+    "countyRegion": "Alger County",
+    "rejectedAsLayer": "Rustic / Primitive, Local Campgrounds or any public overnight layer",
+    "rejectionType": "permanently_closed / former public campground on privately owned property",
+    "rejectionStrength": "official_permanent_closure",
+    "currentDecision": "KEEP REJECTED",
+    "canReopen": true,
+    "reopenIf": [
+      "An official public operator or current private owner documents restored legal public overnight campground access at the same actual facility."
+    ],
+    "sourceSummary": "Michigan DNR official 2025-05-23 bulletin states public access ended and campground permanently closed June 9, 2025 after ownership/lease loss. Site record s305 was stale and used a vague unspecified local operator.",
+    "sourceUrl": "https://content.govdelivery.com/accounts/MIDNR/bulletins/3e1d035",
+    "relatedActiveOrPendingRecord": "Removed s305 in v23.1.127",
+    "lastCheckedVersion": "v23.1.127",
+    "notes": "Avoid restoring without explicit current campground public overnight proof and a verified campsite coordinate."
   }
 ];

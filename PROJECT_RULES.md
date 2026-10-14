@@ -412,6 +412,12 @@ Use official/operator sources whenever possible:
 
 Community/social proof may be used when official/operator sources are missing or incomplete.
 
+TinyFish-assisted source discovery rule (v23.1.127):
+
+* Use TinyFish interactive discovery where its browsing, map widgets, expanding/pagination and local operator listings can uncover missed named overnight opportunities, geography-locked to counties/forests/corridors. Follow with official DNR/USFS/NPS/agency, official GIS, reservation/operator and approved community proof, not search result snippets alone.
+* Discovery lists are unproven leads, not automatic additions. Reconcile every name and alias across every manifest-loaded active state file and supplement, plus `data/leads.js` and `data/rejected.js`, then perform a coordinate-neighbor duplicate check before counting a new opportunity.
+* TinyFish 'completed' is not a substitute for a nonempty complete result. A failed/empty comparison must be rechecked against the current repo. Preserve provenance of discovery method versus import proof and never fabricate campsite coordinates.
+
 Community/social proof rule:
 
 If three or more independent listings, reviews, or user reports concur that a site exists and supports overnight camping, that can support a Community Reported map record, provided no official source disproves camping.
