@@ -190,7 +190,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 779,
+    "count": 780,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.135: Official Recreation.gov facility API proves separate northern Hungerford Equestrian Group Campsite at 43.7166667,-85.6244444; one Rustic site added, misplaced old alias remains retired and coordinate-rescue lead closed. Michigan 780. Counties OPEN.",
       "v23.1.134: Eight operator-backed Mecosta/Newaygo private campgrounds integrated, six old leads and Adventure Bound pending promoted, 13 county inventory exceptions held. 0/83 counties closed.",
       "v23.1.133: Critical MI2.js scope fix restores all preexisting later MI2 additions and corrections to runtime; five v23.1.132 USFS candidates were already active in v23.1.115 first IIFE and duplicate definitions removed. Bluegill private campground is the one genuine new import. Existing Hungerford Group Horse Camp reused unrelated main horse camp GPS; removed misplaced active pin and tracked group geometry in leads. Actual Michigan runtime total restored to 771; pending promotions valid, counties remain OPEN.",
       "v23.1.132: 6 net verified Michigan campground additions: 5 officially located USFS Newaygo rustic campgrounds (Twinwood, Shelley, Brush, Indian, Hungerford Horse Camp) and 1 operator-GPS Mecosta Bluegill Lake private campground; 2 official USFS pending sites promoted and removed from Needs Verification; Hungerford group distinct coordinate mismatch held in leads; both counties remain OPEN.",

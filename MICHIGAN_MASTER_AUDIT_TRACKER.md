@@ -11,7 +11,7 @@
 - **Counties:** 83 total (15 Upper Peninsula, 68 Lower Peninsula).
 - **Closed against the full current-source audit standard:** **0 / 83**. Existing statewide releases and earlier campground corrections are NOT evidence that every county has completed the full current discovery matrix.
 - **County work partially documented:** Mecosta, Newaygo, Keweenaw, Menominee, Wayne. Partial means evidence or integration exists; it does **not** mean all county targets were found and reconciled.
-- **Current Michigan map manifest count:** 779 in `data/states-manifest.js` at the initial baseline. This count may change; verify the live manifest after each integration.
+- **Current Michigan map manifest count:** 780 in `data/states-manifest.js` at the initial baseline. This count may change; verify the live manifest after each integration.
 - **Active input files:** `data/states/MI.js`, `data/states/MI2.js` and every Michigan-related supplement listed in the current state manifest. Never reconcile only the first Michigan file.
 - **Two permanent non-active result lists:** `data/rejected.js` is the disproven / permanently closed / prohibited / nonpublic ledger; `data/leads.js` is the genuinely unresolved evidence/coordinate ledger. A credible lead with a defensible actual camping-area position may also appear in the existing `Needs Verification` map layer via `data/pending-sites-v22.3.3.js` (runtime `window.CAMPING_PENDING_DATA`). Leads without an honest mapped location stay in the ledger only.
 
@@ -226,3 +226,8 @@ Every handoff must explicitly instruct the recipient to **read and follow both t
 **Canonical ledger:** 6 promoted Newaygo leads retired and `pending-mi-020` removed after promotion. 13 unresolved Newaygo/Mecosta county-roster cases added to `data/leads.js` with source/blocker, including Croton Dam Float Trips, Sarns, fair-event camping and ten club/mobile-home/alias exceptions. Hungerford separate northern group coordinate still held. Other pending/rejected records unchanged.
 
 **Source:** TinyFish Search/Fetch retrieved the previously inaccessible Newaygo Hazard Analysis 2026 PDF at https://www.newaygocountymi.gov/wp-content/uploads/2025/11/2026-Newaygo-County-Hazard-Analysis.pdf containing 43-site historical 2025 county campground table. Treat as credible inventory, not automatic live public booking proof. County-wide nonmodern, township, dispersed, canoe, and private exception closures remain undone. **Mecosta and Newaygo OPEN**. Next: finish those source anchors then Lake/Oceana. Import accepted discoveries at each bounded batch end as Tod directed.
+
+
+## v23.1.135 microbatch integration, 2026-10-14
+
+**ADD (1) Rustic / Primitive:** Hungerford Equestrian Group Campsite, Newaygo, **43.7166667, -85.6244444**. Direct first-party Recreation.gov JSON `https://www.recreation.gov/api/camps/campgrounds/234678` publishes campground facility `facility_latitude` and `facility_longitude`; official text places reservable group facility 1.25 mi north of main Horse Camp. USFS group webpage repeats incorrect main Horse Camp position `43.70166667,-85.62222` and must NOT override Recreation.gov facility coordinate. New unique `mi-v231135-hungerford-equestrian-group-campsite` added after v23.1.133 retirement of mislocated original. Canonical lead `mi-v231132-newaygo-hungerford-equestrian-group-coordinate-rescue` retired. 779 → 780 active Michigan runtime. 0/83 counties closed. Coordinates are facility guide point, not campsite pad.

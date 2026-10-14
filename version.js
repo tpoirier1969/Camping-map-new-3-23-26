@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.134";
-window.CAMPING_APP_BUILD = "mi-mecosta-newaygo-8-campgrounds";
-window.CAMPING_DATA_VERSION = "v23.1.134";
-window.CAMPING_DATA_BUILD = "mi-mecosta-newaygo-8-campgrounds";
-window.CAMPING_VERSION = "v23.1.134";
+window.CAMPING_APP_VERSION = "v23.1.135";
+window.CAMPING_APP_BUILD = "mi-hungerford-group-ridb-rescue";
+window.CAMPING_DATA_VERSION = "v23.1.135";
+window.CAMPING_DATA_BUILD = "mi-hungerford-group-ridb-rescue";
+window.CAMPING_VERSION = "v23.1.135";
 window.CAMPING_BUILD = {
-  version: "v23.1.134",
-  build: "mi-mecosta-newaygo-8-campgrounds",
-  dataVersion: "v23.1.134",
-  dataBuild: "mi-mecosta-newaygo-8-campgrounds",
+  version: "v23.1.135",
+  build: "mi-hungerford-group-ridb-rescue",
+  dataVersion: "v23.1.135",
+  dataBuild: "mi-hungerford-group-ridb-rescue",
   released: "2026-10-14",
-  label: "Michigan batch: 8 new Mecosta/Newaygo campgrounds"
+  label: "Michigan official Hungerford northern group campground location rescued"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
