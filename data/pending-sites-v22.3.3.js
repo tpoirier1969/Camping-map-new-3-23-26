@@ -442,29 +442,6 @@ window.CAMPING_PENDING_DATA = [
     "reviewNotes": "Seeded from official forest-service source comparison. Verify placement and promote when satisfied."
   },
   {
-    "id": "pending-mi-020",
-    "name": "Adventure Bound West Michigan",
-    "lat": 43.47371525,
-    "lng": -85.74699567,
-    "stateCode": "MI",
-    "stateName": "Michigan",
-    "layer": "private",
-    "subtype": "private",
-    "siteForm": "campground candidate",
-    "description": "Operator confirms public RV and tent camping, but this approximate map point is not operator/GIS-confirmed as a campsite location. Review the actual campground loop before navigation.",
-    "website": "https://www.abcamping.com/westmichigan/",
-    "owner": "Adventure Bound Camping Resorts",
-    "layerLabel": "Needs Verification",
-    "verificationStatus": "pending",
-    "pending": true,
-    "confidence": 55,
-    "sourceCount": 2,
-    "reviewFlags": [
-      "coordinate_not_operator_verified"
-    ],
-    "reviewNotes": "Operator confirms campground at 4495 S Spruce Ave; approximate third-party named campground point needs independent campground-loop corroboration."
-  },
-  {
     "id": "pending-mi-021",
     "name": "Sportsman Park Campground and Boat Slips",
     "lat": 43.51120023,

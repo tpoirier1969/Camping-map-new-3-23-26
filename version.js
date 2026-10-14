@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.133";
-window.CAMPING_APP_BUILD = "mi-newaygo-runtime-repair-bluegill";
-window.CAMPING_DATA_VERSION = "v23.1.133";
-window.CAMPING_DATA_BUILD = "mi-newaygo-runtime-repair-bluegill";
-window.CAMPING_VERSION = "v23.1.133";
+window.CAMPING_APP_VERSION = "v23.1.134";
+window.CAMPING_APP_BUILD = "mi-mecosta-newaygo-8-campgrounds";
+window.CAMPING_DATA_VERSION = "v23.1.134";
+window.CAMPING_DATA_BUILD = "mi-mecosta-newaygo-8-campgrounds";
+window.CAMPING_VERSION = "v23.1.134";
 window.CAMPING_BUILD = {
-  version: "v23.1.133",
-  build: "mi-newaygo-runtime-repair-bluegill",
-  dataVersion: "v23.1.133",
-  dataBuild: "mi-newaygo-runtime-repair-bluegill",
+  version: "v23.1.134",
+  build: "mi-mecosta-newaygo-8-campgrounds",
+  dataVersion: "v23.1.134",
+  dataBuild: "mi-mecosta-newaygo-8-campgrounds",
   released: "2026-10-14",
-  label: "Michigan runtime loading repaired; Bluegill campground added; misplaced Hungerford group held"
+  label: "Michigan batch: 8 new Mecosta/Newaygo campgrounds"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

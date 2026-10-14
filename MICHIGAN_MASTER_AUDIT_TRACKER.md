@@ -11,7 +11,7 @@
 - **Counties:** 83 total (15 Upper Peninsula, 68 Lower Peninsula).
 - **Closed against the full current-source audit standard:** **0 / 83**. Existing statewide releases and earlier campground corrections are NOT evidence that every county has completed the full current discovery matrix.
 - **County work partially documented:** Mecosta, Newaygo, Keweenaw, Menominee, Wayne. Partial means evidence or integration exists; it does **not** mean all county targets were found and reconciled.
-- **Current Michigan map manifest count:** 771 in `data/states-manifest.js` at the initial baseline. This count may change; verify the live manifest after each integration.
+- **Current Michigan map manifest count:** 779 in `data/states-manifest.js` at the initial baseline. This count may change; verify the live manifest after each integration.
 - **Active input files:** `data/states/MI.js`, `data/states/MI2.js` and every Michigan-related supplement listed in the current state manifest. Never reconcile only the first Michigan file.
 - **Two permanent non-active result lists:** `data/rejected.js` is the disproven / permanently closed / prohibited / nonpublic ledger; `data/leads.js` is the genuinely unresolved evidence/coordinate ledger. A credible lead with a defensible actual camping-area position may also appear in the existing `Needs Verification` map layer via `data/pending-sites-v22.3.3.js` (runtime `window.CAMPING_PENDING_DATA`). Leads without an honest mapped location stay in the ledger only.
 
@@ -217,3 +217,12 @@ The existing later MI2 IIFE was also calling `patchByName` defined only inside t
 ## Worker / supervisor handoff rule
 
 Every handoff must explicitly instruct the recipient to **read and follow both the current ChatGPT project settings and the current repo `PROJECT_RULES.md` before starting**. Include `REQUIRED BASELINE PREFLIGHT`, a precise named geographic lock, and `RETURN ACCEPTANCE GATE` using the outcomes applicable to that assignment, as required by current `PROJECT_RULES.md`. A polished partial inventory, zero-result TinyFish call or incomplete manifest reconciliation never qualifies as `COMPLETE`.
+
+
+## v23.1.134 batch-end integration, 2026-10-14
+
+**8 active additions, 771 to 779 Michigan runtime, 0/83 county closures:** River Ridge RV Resort (Mecosta County 43.58164,-85.53218); CranHill Ranch Family Campground (Mecosta County 43.716942,-85.373779); Chinook Campground (Newaygo County 43.34705,-85.936); Salmon Run Campground & Vic's Canoes (Newaygo County 43.39072,-85.83216); Mystery Creek Campground (Newaygo County 43.38063,-85.87097); Timbers Edge Campground (Newaygo County 43.632383,-85.942665); Adventure Bound West Michigan (Newaygo County 43.47371525,-85.74699567); Little Switzerland Resort & Campground (Newaygo County 43.4527,-85.808). Private layer. All are operator-proved overnight campgrounds with named campground-area point cross-checks; guide points, never individual campsite GPS.
+
+**Canonical ledger:** 6 promoted Newaygo leads retired and `pending-mi-020` removed after promotion. 13 unresolved Newaygo/Mecosta county-roster cases added to `data/leads.js` with source/blocker, including Croton Dam Float Trips, Sarns, fair-event camping and ten club/mobile-home/alias exceptions. Hungerford separate northern group coordinate still held. Other pending/rejected records unchanged.
+
+**Source:** TinyFish Search/Fetch retrieved the previously inaccessible Newaygo Hazard Analysis 2026 PDF at https://www.newaygocountymi.gov/wp-content/uploads/2025/11/2026-Newaygo-County-Hazard-Analysis.pdf containing 43-site historical 2025 county campground table. Treat as credible inventory, not automatic live public booking proof. County-wide nonmodern, township, dispersed, canoe, and private exception closures remain undone. **Mecosta and Newaygo OPEN**. Next: finish those source anchors then Lake/Oceana. Import accepted discoveries at each bounded batch end as Tod directed.

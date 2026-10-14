@@ -1468,3 +1468,9 @@ Michigan TinyFish lead, reject, and Needs Verification integrity rule (v23.1.128
 * `data/pending-sites-v22.3.3.js` exports `window.CAMPING_PENDING_DATA`, which `app.js` must read; suppress any identical named-location records already promoted to active camping data, to prevent the pending layer from showing stale duplicates.
 * Records with controlling official proof of a permanent closure, private/nonpublic or day-use-only restrictions belong only in `data/rejected.js`; don't display them as plausible campsite pins. Reopen only with newer controlling operator/agency evidence.
 * TinyFish Search, Fetch, and Agent are discovery/provenance methods, not legal overnight or exact-coordinate proof. A completed Agent run returning zero results must be challenged against official index/park-directory counts. Geographic county-by-county coverage is complete only when the public-discovery matrix and audited final outcomes satisfy this rules file; one statewide GIS source inventory is not statewide completeness.
+
+
+Michigan TinyFish batch integration and historical county inventory rule (v23.1.134, 2026-10-14):
+
+* After every bounded Michigan discovery/verification batch, promptly integrate **all qualified new source-backed camping records** into the owning original data file before the next batch. Retire resolved lead and pending aliases, preserve unverified/disproven in proper ledgers, update MMAT, unified version and runtime QA. Never call a county COMPLETE merely because a partial batch was integrated.
+* Accept official 2025 county PDFs/campground lists as presumptively useful discovery/historical inventory evidence in 2026; age alone is not a rejection. Current operator/agency restrictions override older listings. Confirm public transient overnight access and honest campground/entrance position; don't promote private clubs, mobile-home or event-only facilities solely from a government inventory line.
