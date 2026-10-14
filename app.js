@@ -177,7 +177,7 @@ function currentBasemapKey(){
 
 const $=id=>document.getElementById(id); const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 window.CAMPING_STATE_DATA = window.CAMPING_STATE_DATA || {};
-window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING || [];
+window.CAMPING_PENDING_SITES = window.CAMPING_PENDING_SITES || window.CAMPING_PENDING_DATA || window.CAMPING_PENDING || [];
 const app={map:null,markerLayer:null,markerGroups:{},markerIndex:{},markerLayerCacheKey:'',markerBaseCandidates:[],renderWindowBounds:null,renderWindowMode:false,userMarker:null,userAccuracyCircle:null,liveLocationWatchId:null,liveLocationStarted:false,liveLocationLoading:false,liveLocationLastLoadCenter:null,draftMarker:null,nearCenterMarker:null,baseLayers:{},sites:[],shownSites:[],stateData:{},enabledStates:new Set(),enabledLayers:new Set(),filters:{},search:{active:false,query:''},searchRevealMarker:null,draftPoint:null,draftQueue:[],supabase:null,session:null,communityFavorites:{},communityComments:{},communityCurrentSite:null,currentProfile:null,adminHiddenSites:{},adminFlagsAvailable:true,adminFlagsError:null,communityAvailable:true,communityError:null,communityUnavailableNotified:false,restRoadsideStats:null,localAreaCenter:null,nearMeActive:false,nearRadiusMiles:180,nearPickMode:false,loadSeq:0,restOnlyMode:false,routeSearch:{active:false,coords:[],basePoints:[],shapePoints:[],bufferMiles:25,layer:null,previousStates:null,distanceMiles:null,durationMinutes:null,pickMode:null},areaOutline:{layer:null,cache:{},registry:{},standalone:[],active:{},layers:{},labelMarkers:[],requestSeq:0,paused:false},usfsBoundary:{layer:null,cache:{},cacheOrder:[],requestSeq:0,refreshTimer:null,lastKey:'',lastFeatureCount:0,paused:false,loading:false},savedRoutes:[],savedRoutesLoaded:false,savedRoutesError:null,miDynamicLoaded:{mdot:false,localTraveler:false,privateRv:false,overnight:false},renderSeq:0,renderDiagnostics:{last:null,warnings:[]}};
 window.__campingApp=app;
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
@@ -1669,7 +1669,25 @@ async function loadState(code){
   if(code==='MI')await ensureMichiganDynamicSupplements(app.stateData[code]);
 }
 
-function getPendingSites(){const raw=window.CAMPING_PENDING_SITES||window.CAMPING_PENDING||[];return Array.isArray(raw)?raw.map(s=>Object.assign({pending:true},s)):[]}
+function getPendingSites(){
+  const raw=window.CAMPING_PENDING_DATA||window.CAMPING_PENDING_SITES||window.CAMPING_PENDING||[];
+  if(!Array.isArray(raw))return [];
+  const active=Array.isArray(window.CAMPING_STATE_DATA&&window.CAMPING_STATE_DATA.MI)?window.CAMPING_STATE_DATA.MI:[];
+  const canon=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').replace(/\b(state|forest|national|campground|campsites|camp|park)\b/g,' ').replace(/\s+/g,' ').trim();
+  return raw.filter(site=>{
+    if(!site||!Number.isFinite(Number(site.lat))||!Number.isFinite(Number(site.lng)))return false;
+    const name=canon(site.name);
+    if(!name)return false;
+    return !active.some(existing=>{
+      if(!existing||!Number.isFinite(Number(existing.lat))||!Number.isFinite(Number(existing.lng)))return false;
+      const other=canon(existing.name);
+      if(other!==name&&!(name.length>=12&&other.length>=12&&(other.startsWith(name)||name.startsWith(other))))return false;
+      const dlat=(Number(site.lat)-Number(existing.lat))*111132;
+      const dlng=(Number(site.lng)-Number(existing.lng))*111132*Math.cos(Number(site.lat)*Math.PI/180);
+      return dlat*dlat+dlng*dlng<500*500;
+    });
+  }).map(site=>Object.assign({},site,{pending:true,verificationStatus:'pending'}));
+}
 function markerIcon(site){const key=layerKey(site);const d=layerDef(key);const size=markerSizeForLayer(key);const anchor=Math.round(size/2);const pinStyle=`width:${size}px;height:${size}px;flex:0 0 ${size}px;`;const hiddenClass=isAdminUser()&&siteIsAdminHidden(site)?' admin-hidden-marker':'';return L.divIcon({className:'',html:`<span class="map-pin ${d.css}${hiddenClass}" style="${pinStyle}">${d.icon}</span>`,iconSize:[size,size],iconAnchor:[anchor,anchor],popupAnchor:[0,-anchor]})}
 
 function markerClusterIcon(key,count){

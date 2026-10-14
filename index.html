@@ -171,6 +171,7 @@
     document.write('<script src="' + url + '"' + err + '><\/script>');
   }
   loadCampingScript('data/states-manifest.js', false, true);
+  // Load canonical Needs Verification records; app.js suppresses already-promoted active duplicates.
   loadCampingScript('data/pending-sites-v22.3.3.js', false, true);
   loadCampingScript('data/area-outlines-v23.1.39.js', true, true);
   loadCampingScript('data/area-outlines-v23.1.124.js', true, true);

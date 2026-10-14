@@ -14282,5 +14282,35 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "Removed s305 in v23.1.127",
     "lastCheckedVersion": "v23.1.127",
     "notes": "Avoid restoring without explicit current campground public overnight proof and a verified campsite coordinate."
+  },
+  {
+    "id": "mi-v231128-reject-davis-bridge-dayuse",
+    "state": "MI",
+    "name": "Davis Bridge Park",
+    "countyRegion": "Mecosta County",
+    "rejectedAsLayer": "All public overnight campsite layers",
+    "rejectionType": "official_day_use_only",
+    "rejectionStrength": "official_explicit_no_camping",
+    "currentDecision": "KEEP REJECTED",
+    "sourceSummary": "Mecosta County Parks says camping is not available and the park is day use only.",
+    "sourceUrl": "https://www.mecostacountyparks.com/davis-bridge-park.html",
+    "relatedActiveOrPendingRecord": "none",
+    "lastCheckedVersion": "v23.1.128",
+    "notes": "Boat launch, picnic area and occasional campground host do not establish visitor overnight access."
+  },
+  {
+    "id": "mi-v231128-reject-white-pine-valley-public",
+    "state": "MI",
+    "name": "White Pine Valley Recreation Area — public campground claim",
+    "countyRegion": "Mecosta County",
+    "rejectedAsLayer": "Ordinary public overnight campground layers",
+    "rejectionType": "official_day_use_organizational_permit_only",
+    "rejectionStrength": "official_public_camping_disproven",
+    "currentDecision": "KEEP REJECTED",
+    "sourceSummary": "Official county operator describes day-use nonmotorized recreation; organizational camping only on special use permit, no general-public campground.",
+    "sourceUrl": "https://www.mecostacountyparks.com/white-pine-valley.html",
+    "relatedActiveOrPendingRecord": "retired unverifiable public campground lead",
+    "lastCheckedVersion": "v23.1.128",
+    "notes": "Special-permit group opportunities should not be shown as public walk-up/drive-in campsite."
   }
 ];

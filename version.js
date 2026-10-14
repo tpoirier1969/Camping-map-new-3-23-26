@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.127";
-window.CAMPING_APP_BUILD = "mi-official-campground-gis-integration";
-window.CAMPING_DATA_VERSION = "v23.1.127";
-window.CAMPING_DATA_BUILD = "mi-official-campground-gis-integration";
-window.CAMPING_VERSION = "v23.1.127";
+window.CAMPING_APP_VERSION = "v23.1.128";
+window.CAMPING_APP_BUILD = "mi-county-rescue-and-pending-layer";
+window.CAMPING_DATA_VERSION = "v23.1.128";
+window.CAMPING_DATA_BUILD = "mi-county-rescue-and-pending-layer";
+window.CAMPING_VERSION = "v23.1.128";
 window.CAMPING_BUILD = {
-  version: "v23.1.127",
-  build: "mi-official-campground-gis-integration",
-  dataVersion: "v23.1.127",
-  dataBuild: "mi-official-campground-gis-integration",
+  version: "v23.1.128",
+  build: "mi-county-rescue-and-pending-layer",
+  dataVersion: "v23.1.128",
+  dataBuild: "mi-county-rescue-and-pending-layer",
   released: "2026-10-14",
-  label: "Michigan official campground additions and Forest Lake closure"
+  label: "Michigan county campground rescue and Needs Verification layer repair"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
