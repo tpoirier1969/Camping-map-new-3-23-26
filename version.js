@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.132";
-window.CAMPING_APP_BUILD = "mi-newaygo-usfs-five-bluegill-one";
-window.CAMPING_DATA_VERSION = "v23.1.132";
-window.CAMPING_DATA_BUILD = "mi-newaygo-usfs-five-bluegill-one";
-window.CAMPING_VERSION = "v23.1.132";
+window.CAMPING_APP_VERSION = "v23.1.133";
+window.CAMPING_APP_BUILD = "mi-newaygo-runtime-repair-bluegill";
+window.CAMPING_DATA_VERSION = "v23.1.133";
+window.CAMPING_DATA_BUILD = "mi-newaygo-runtime-repair-bluegill";
+window.CAMPING_VERSION = "v23.1.133";
 window.CAMPING_BUILD = {
-  version: "v23.1.132",
-  build: "mi-newaygo-usfs-five-bluegill-one",
-  dataVersion: "v23.1.132",
-  dataBuild: "mi-newaygo-usfs-five-bluegill-one",
+  version: "v23.1.133",
+  build: "mi-newaygo-runtime-repair-bluegill",
+  dataVersion: "v23.1.133",
+  dataBuild: "mi-newaygo-runtime-repair-bluegill",
   released: "2026-10-14",
-  label: "Michigan five Newaygo USFS rustic campgrounds and Bluegill Lake private campground"
+  label: "Michigan runtime loading repaired; Bluegill campground added; misplaced Hungerford group held"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

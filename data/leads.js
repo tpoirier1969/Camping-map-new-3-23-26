@@ -39164,8 +39164,8 @@ window.CAMPING_LEADS = [
     "nextAction": "Obtain the official Recreation.gov/RIDB facility GPS point or USFS geospatial campground map for campground 234678, spot-check distinct group campsite against aerial/forest roads, and settle main Hungerford Family Campground naming/physical identity before import. Do not use horse camp point as group-site position.",
     "sourceUrl": "https://www.recreation.gov/camping/campgrounds/234678",
     "secondarySourceUrl": "https://www.fs.usda.gov/r09/huron-manistee/recreation/hungerford-group-horse-camp",
-    "relatedActiveOrPendingRecord": "mi-v231132-usfs-hungerford-horse (separate facility; not a duplicate)",
-    "lastCheckedVersion": "v23.1.132",
-    "notes": "Confirmed publicly reservable equestrian group opportunity but its USFS source coordinate is unreliable for this distinct facility. Hold in canonical lead list without placing a fake Need Verification pin."
+    "relatedActiveOrPendingRecord": "mi-v231115-hungerford-group-horse-camp (retired wrong-coordinate active marker v23.1.133); mi-v231115-hungerford-horse-camp (separate main facility)",
+    "lastCheckedVersion": "v23.1.133",
+    "notes": "Confirmed publicly reservable equestrian group opportunity but its USFS source coordinate is unreliable for this distinct facility. Original v23.1.115 active group camp pin incorrectly used the main Horse Camp coordinate; retired from active v23.1.133. Keep the group in leads until direct campground-specific RIDB/GIS geometry is confirmed. No fake pending pin."
   }
 ];

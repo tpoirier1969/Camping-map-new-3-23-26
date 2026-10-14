@@ -154,7 +154,8 @@ Record each bounded assignment here (or link to its complete repo-backed batch l
 | 2026-10-14 | v23.1.128 | Mecosta, Newaygo | 12 source-backed Michigan additions, layer corrections, and linkage of existing Needs Verification map data | Prior integration; county audit closure **not claimed** |
 | 2026-10-14 | v23.1.131 | Menominee | Three distinct River Park identities reconciled, 58-site City of Menominee campground added | Prior integration; county audit closure **not claimed** |
 | 2026-10-14 | v23.1.131 / `1d24d3a9bb77019ccfeafb0169253384ea7bbf09` | 83 counties | Initialized MMAT from live current repository and available primary-source trails | 0 / 83 closed; first audit batch queued: Mecosta + Newaygo |
-| 2026-10-14 | v23.1.132 | Newaygo, Mecosta | 5 USFS exact-site campground adds and 1 operator-GPS private Bluegill add; two pending promotions; distinct Hungerford group lead retained | 6 active additions; 0 county closures |
+| 2026-10-14 | v23.1.132 | Newaygo, Mecosta | Six candidate definitions serialized, but five USFS definitions duplicated older v23.1.115 active names; MI2 later-block runtime error uncovered on deeper QA | **Superseded by v23.1.133 reconciliation**, not six net additions |
+| 2026-10-14 | v23.1.133 | Mecosta, Newaygo | Repair MI2 runtime correction helper, restore older active blocks, keep 1 truly new Bluegill private, retire 1 wrongly placed Hungerford group marker to leads, remove two stale pending duplicates | 771 actual MI runtime, 0 counties closed |
 
 
 ## Continued Mecosta and Newaygo research — 2026-10-14
@@ -193,13 +194,25 @@ The current official [2026 Newaygo County Hazard Analysis PDF](https://www.neway
 
 ## Integration checkpoint: v23.1.132 (October 14, 2026)
 
-**Release action:** Accepted six source-backed candidate sites into `data/states/MI2.js`: Newaygo USFS Twinwood Lake, Shelley Lake, Brush Lake, Indian Lake (Manistee NF), and Hungerford Horse Camp (five Rustic / Primitive); Mecosta Bluegill Lake Family Camping Resort (one Private). Each has USFS named campground GPS or Bluegill operator-published GPS, and the source URLs, owner, season, location confidence, layer, county and overnight-use facts in its active record. No guessed coordinates.
+**Superseded candidate-based report (corrected in v23.1.133):** Attempted to add six source-backed candidate sites into `data/states/MI2.js`: Newaygo USFS Twinwood Lake, Shelley Lake, Brush Lake, Indian Lake (Manistee NF), and Hungerford Horse Camp (five Rustic / Primitive); Mecosta Bluegill Lake Family Camping Resort (one Private). Each has USFS named campground GPS or Bluegill operator-published GPS, and the source URLs, owner, season, location confidence, layer, county and overnight-use facts in its active record. No guessed coordinates.
 
 **Pending promotion:** Shelley Lake (`pending-mi-019`) and Indian Lake (`pending-mi-015`) were already verified from current official USFS pages and removed from the static Needs Verification dataset after promotion to active. The other 19 pending records remain unchanged. `data/leads.js` gained one distinct unresolved lead, `mi-v231132-newaygo-hungerford-equestrian-group-coordinate-rescue`: Recreation.gov identifies a separately bookable northern group campsite, but USFS's group webpage repeats the main horse-camp coordinates. **Do not place the separate group camp at the main horse camp pin.**
 
 **Runtime/count QA:** Michigan manifest count 771 → 777; unified application/data version `v23.1.132`. Source-backed active additions 6, pending removals 2, lead additions 1, rejected changes 0. The original other state datasets, marker icon policy, area overlays, user UI, and release app code were not altered. No county-wide completion claimed: **Mecosta OPEN; Newaygo OPEN; 0 of 83 Michigan counties closed.**
 
 **Still required:** Current Newaygo county Hazard Analysis campground roster extraction, USFS family/group Hungerford identity and direct official group location rescue, operator address-to-campground geometry for other private candidates, township and dispersed rule checks, then full duplicate/season/status and end-user map QA. The historical v23.1.131 research matrix above describes the pre-integration condition and remains preserved for audit history.
+
+## Integration correction: v23.1.133, October 14, 2026
+
+**Supersedes the v23.1.132 release's new-site count.** Full runtime evaluation of `data/states/MI.js` followed by the entirety of `data/states/MI2.js` proved that Twinwood Lake, Shelley Lake, Brush Lake, Indian Lake (Newaygo/Manistee NF), and Hungerford Horse Camp **were already present** as original v23.1.115 active records in MI2's *first*, separate IIFE. Earlier static reconciliation inspected only the `const additions` array near the end, mistakenly interpreting these as new. The five v23.1.132 duplicate array entries were rejected by the runtime name de-duplication and have now been removed from the source. **Do not report these five as new additions.**
+
+The existing later MI2 IIFE was also calling `patchByName` defined only inside the previously closed earlier IIFE. This caused `ReferenceError: patchByName is not defined` and prevented the entire later MI2 block, including prior v23.1.116–v23.1.131 additions, from loading. v23.1.133 repairs that helper's scope *within the original MI2 source file* so all preexisting intended data additions and correction logic run again. The actual runtime audit (base MI, complete MI2, and all four Michigan manifest supplements) is the QA acceptance basis, **not** a partial static count.
+
+**Net accepted inventory change relative to functional v23.1.131 baseline:** `+1` public overnight private campground, Bluegill Lake Family Camping Resort, at operator GPS **43.696331,-85.228844** (https://www.bluegillcamping.com/contact-us.html); `-1` existing active Hungerford Equestrian Group Campsite whose marker incorrectly reused the distinct Hungerford Horse Camp coordinates. Recreation.gov (https://www.recreation.gov/camping/campgrounds/234678) confirms that the separate group facility is about 1.25 miles *north* of the main camp. The group opportunity is retained in the canonical lead `mi-v231132-newaygo-hungerford-equestrian-group-coordinate-rescue` until direct official campground-specific RIDB/GIS coordinate rescue allows a correct active marker. Preserve the valid main Horse Camp pin unchanged. Retiring this one materially wrong location is source-backed, not an assumption that group camping is prohibited.
+
+**Needs Verification:** `pending-mi-015` Indian Lake and `pending-mi-019` Shelley Lake were stale preexisting pending duplicates of v23.1.115 active sites. Their removal remains correct; all other pending records stay intact.
+
+**Expected runtime QA:** MI total `771`; six previously listed USFS campgrounds have only their original five real source records (plus the now-retired group represented as a lead), and new Bluegill once; Oak and Poplar remain Rustic; Menominee Grayling correction and historical additions execute. County closeouts remain **0/83**, both Mecosta and Newaygo **OPEN**. MMAT's older v23.1.132 numbers reflect the superseded candidate-based interpretation, not the authoritative current active count.
 
 ## Worker / supervisor handoff rule
 
