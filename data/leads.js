@@ -38858,9 +38858,9 @@ window.CAMPING_LEADS = [
     "coordinate": null,
     "coordinateConfidence": "No yet-approved campground entrance, campsite-area point or named camp polygon coordinate.",
     "sourceUrl": "https://www.happycampers5380.com/",
-    "blocker": "Official operator confirms rustic/electric overnight camping; campground-specific coordinate rescue remains.",
-    "nextAction": "Confirm current public access with operator, then identify exact named campground entrance/loop using official GIS/site map/aerial or trusted campground-specific geocoding.",
-    "lastCheckedVersion": "v23.1.128",
+    "blocker": "Operator independently confirms current public rustic/electric overnight camping at 5380 Croton Drive, but a campground-specific location was found only in community/review-site GPS; first-party or reliable named map/parcel geospatial confirmation remains required for a defensible pin.",
+    "nextAction": "Rescue Happy Campers actual campground grounds point from operator's campground map PDF, a named OSM/Apple/Google map feature or county parcel/aerial map; confirm distinct property from Croton Dam Float Trips at 5355 Croton Drive. Operator map: https://www.happycampers5380.com/prices-and-sites",
+    "lastCheckedVersion": "v23.1.136",
     "notes": "TinyFish Search/Fetch-assisted Michigan county audit. Not eligible for active map marker without honest named campground location."
   },
   {
@@ -38877,24 +38877,6 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No yet-approved campground entrance, campsite-area point or named camp polygon coordinate.",
     "sourceUrl": "https://lonesomelakecampground.com/",
     "blocker": "Operator says predominantly seasonal but occasional transient camping available; independently corroborated campground point required.",
-    "nextAction": "Confirm current public access with operator, then identify exact named campground entrance/loop using official GIS/site map/aerial or trusted campground-specific geocoding.",
-    "lastCheckedVersion": "v23.1.128",
-    "notes": "TinyFish Search/Fetch-assisted Michigan county audit. Not eligible for active map marker without honest named campground location."
-  },
-  {
-    "id": "mi-v231128-tinyfish-lead-pickerel-lakeside-campground-and-cottages",
-    "state": "MI",
-    "name": "Pickerel Lakeside Campground and Cottages",
-    "countyRegion": "Bitely / Newaygo",
-    "leadType": "coordinate_source_status_rescue",
-    "likelyLayer": "Private Campgrounds",
-    "status": "coordinate_source_status_rescue",
-    "priority": "Medium",
-    "sourceType": "Official county inventory / campground operator",
-    "coordinate": null,
-    "coordinateConfidence": "No yet-approved campground entrance, campsite-area point or named camp polygon coordinate.",
-    "sourceUrl": "https://lakecamp-cottages.com/",
-    "blocker": "Operator advertises 46 sites including 4 rustic; verify mapped campground loop/entrance.",
     "nextAction": "Confirm current public access with operator, then identify exact named campground entrance/loop using official GIS/site map/aerial or trusted campground-specific geocoding.",
     "lastCheckedVersion": "v23.1.128",
     "notes": "TinyFish Search/Fetch-assisted Michigan county audit. Not eligible for active map marker without honest named campground location."
@@ -39049,9 +39031,9 @@ window.CAMPING_LEADS = [
     "sourceType": "County official historical inventory/operator",
     "coordinate": null,
     "sourceUrl": "https://www.crotondamfloattrips.com/",
-    "blocker": "Operator currently proves reservable camping but only a user-review-site campground coordinate is available; need campground-area position.",
-    "nextAction": "Check present public transient eligibility, actual camping location and duplicate/alias; do not import unproven pin.",
-    "lastCheckedVersion": "v23.1.134"
+    "blocker": "Current operator confirms 24-ish named public rustic camping sites, cabins and 20/30 amp sites at 5355 Croton Drive, but the only campsite-specific GPS found is from a user-review platform; need OSM/Apple/Google operator-address campground-area geospatial confirmation before creating a public pin.",
+    "nextAction": "Obtain named campground POI from OSM/Apple/Google or official parcel/aerial map for Croton Dam Float Trips (5355 Croton Drive); verify it is distinct from Happy Campers opposite the road. Operator: https://www.crotondamfloattrips.com/home-1; county inventory https://www.newaygocountymi.gov/wp-content/uploads/2025/03/2025_Newaygo_County_Community_Profile.pdf",
+    "lastCheckedVersion": "v23.1.136"
   },
   {
     "id": "mi-v231134-followup-sarns-resort",

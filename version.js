@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.135";
-window.CAMPING_APP_BUILD = "mi-hungerford-group-ridb-rescue";
-window.CAMPING_DATA_VERSION = "v23.1.135";
-window.CAMPING_DATA_BUILD = "mi-hungerford-group-ridb-rescue";
-window.CAMPING_VERSION = "v23.1.135";
+window.CAMPING_APP_VERSION = "v23.1.136";
+window.CAMPING_APP_BUILD = "mi-newaygo-pickerel-croton-layer-audit";
+window.CAMPING_DATA_VERSION = "v23.1.136";
+window.CAMPING_DATA_BUILD = "mi-newaygo-pickerel-croton-layer-audit";
+window.CAMPING_VERSION = "v23.1.136";
 window.CAMPING_BUILD = {
-  version: "v23.1.135",
-  build: "mi-hungerford-group-ridb-rescue",
-  dataVersion: "v23.1.135",
-  dataBuild: "mi-hungerford-group-ridb-rescue",
-  released: "2026-10-14",
-  label: "Michigan official Hungerford northern group campground location rescued"
+  version: "v23.1.136",
+  build: "mi-newaygo-pickerel-croton-layer-audit",
+  dataVersion: "v23.1.136",
+  dataBuild: "mi-newaygo-pickerel-croton-layer-audit",
+  released: "2026-10-15",
+  label: "Michigan Pickerel Lakeside campground import and Croton Township Modern layer correction"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
