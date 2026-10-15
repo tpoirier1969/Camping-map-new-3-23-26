@@ -190,7 +190,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 783,
+    "count": 785,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.139: Imports Sportsman Park Campground and Leisure Time RV Park from existing Newaygo leads using current campground operator/association proof and named Apple Maps facility coordinates. MI 785, 0/83 counties closed.",
       "v23.1.138: Newaygo Bitely source policy audit rejects Pettibone Lake County Park former camping due to controlling no-camping day-use plan despite stale hazard inventory; Lonesome Lake remains operator-proven but coordinate-blocked. 783 Michigan sites; 0/83 counties closed.",
       "v23.1.137: Two distinct Croton Drive Newaygo private campgrounds added from first-party current overnight proof plus named Apple Maps RV Park/Campground point coordinates; 2 leads retired, 783 Michigan runtime; no county fully closed.",
       "v23.1.136: Newaygo County Pickerel Lakeside private campground imported using current operator overnight proof and OSM named campground-area point; existing Croton Township electric-service campground corrected Rustic to Modern in original MI.js. 781 Michigan runtime; 0/83 counties closed.",

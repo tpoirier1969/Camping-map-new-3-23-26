@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.138";
-window.CAMPING_APP_BUILD = "mi-bitely-pettibone-dayuse-closure";
-window.CAMPING_DATA_VERSION = "v23.1.138";
-window.CAMPING_DATA_BUILD = "mi-bitely-pettibone-dayuse-closure";
-window.CAMPING_VERSION = "v23.1.138";
+window.CAMPING_APP_VERSION = "v23.1.139";
+window.CAMPING_APP_BUILD = "mi-white-cloud-sportsman-leisure-campgrounds";
+window.CAMPING_DATA_VERSION = "v23.1.139";
+window.CAMPING_DATA_BUILD = "mi-white-cloud-sportsman-leisure-campgrounds";
+window.CAMPING_VERSION = "v23.1.139";
 window.CAMPING_BUILD = {
-  version: "v23.1.138",
-  build: "mi-bitely-pettibone-dayuse-closure",
-  dataVersion: "v23.1.138",
-  dataBuild: "mi-bitely-pettibone-dayuse-closure",
+  version: "v23.1.139",
+  build: "mi-white-cloud-sportsman-leisure-campgrounds",
+  dataVersion: "v23.1.139",
+  dataBuild: "mi-white-cloud-sportsman-leisure-campgrounds",
   released: "2026-10-15",
-  label: "Michigan Pettibone day-use rejection and Lonesome Lake verification review"
+  label: "Michigan adds Sportsman Park and Leisure Time RV Park in Newaygo"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
