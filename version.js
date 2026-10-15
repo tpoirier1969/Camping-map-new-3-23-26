@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.140";
-window.CAMPING_APP_BUILD = "mi-dragon-adventures-base-camp-camping";
-window.CAMPING_DATA_VERSION = "v23.1.140";
-window.CAMPING_DATA_BUILD = "mi-dragon-adventures-base-camp-camping";
-window.CAMPING_VERSION = "v23.1.140";
+window.CAMPING_APP_VERSION = "v23.1.141";
+window.CAMPING_APP_BUILD = "mi-lonesome-lake-google-campground-rescue";
+window.CAMPING_DATA_VERSION = "v23.1.141";
+window.CAMPING_DATA_BUILD = "mi-lonesome-lake-google-campground-rescue";
+window.CAMPING_VERSION = "v23.1.141";
 window.CAMPING_BUILD = {
-  version: "v23.1.140",
-  build: "mi-dragon-adventures-base-camp-camping",
-  dataVersion: "v23.1.140",
-  dataBuild: "mi-dragon-adventures-base-camp-camping",
+  version: "v23.1.141",
+  build: "mi-lonesome-lake-google-campground-rescue",
+  dataVersion: "v23.1.141",
+  dataBuild: "mi-lonesome-lake-google-campground-rescue",
   released: "2026-10-15",
-  label: "Michigan adds verified Dragon Adventures Base Camp campground"
+  label: "Michigan Newaygo Lonesome Lake Campground coordinate rescue"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
