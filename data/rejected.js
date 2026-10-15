@@ -14300,5 +14300,21 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "retired unverifiable public campground lead",
     "lastCheckedVersion": "v23.1.128",
     "notes": "Special-permit group opportunities should not be shown as public walk-up/drive-in campsite."
+  },
+  {
+    "id": "mi-v231138-reject-pettibone-lake-county-park-no-camping",
+    "state": "MI",
+    "name": "Pettibone Lake County Park — former campground claim",
+    "countyRegion": "Newaygo County / Lilley Township / Bitely / 490 Pettibone Drive",
+    "rejectedAsLayer": "All public overnight campsite and Needs Verification camping layers",
+    "rejectionType": "official_day_use_conversion_no_camping",
+    "rejectionStrength": "current_county_recreation_plan_explicit_no_camping",
+    "currentDecision": "REJECT / DO NOT IMPORT",
+    "sourceSummary": "Newaygo County Recreation Plan 2023–2027, page 17, describes Pettibone Lake County Park as day-use only and explicitly states 'No camping is permitted.' Page 20 confirms conversion of former campground to day-use park. Earlier county camping handout and historical hazard-plan inventory include 16 obsolete camping spaces; they do not supersede the direct Parks policy or prove reopening.",
+    "sourceUrl": "https://wmsrdc.org/wp-content/uploads/2023/01/Newaygo-Co-Rec-Plan_2023-2027-2.pdf",
+    "contradictingHistoricalSourceUrl": "https://www.newaygocountymi.gov/wp-content/uploads/2025/11/2026-Newaygo-County-Hazard-Analysis.pdf",
+    "relatedActiveOrPendingRecord": "none; retired former lead mi-v231128-tinyfish-lead-pettibone-lake-park-camping-area",
+    "lastCheckedVersion": "v23.1.138",
+    "notes": "Do not restore camping marker unless newer direct Newaygo County Parks public overnight authorization is published; boat launch, park grounds and lake center are not campsite pins."
   }
 ];

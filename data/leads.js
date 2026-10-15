@@ -38858,10 +38858,10 @@ window.CAMPING_LEADS = [
     "coordinate": null,
     "coordinateConfidence": "No yet-approved campground entrance, campsite-area point or named camp polygon coordinate.",
     "sourceUrl": "https://lonesomelakecampground.com/",
-    "blocker": "Operator says predominantly seasonal but occasional transient camping available; independently corroborated campground point required.",
-    "nextAction": "Confirm current public access with operator, then identify exact named campground entrance/loop using official GIS/site map/aerial or trusted campground-specific geocoding.",
-    "lastCheckedVersion": "v23.1.128",
-    "notes": "TinyFish Search/Fetch-assisted Michigan county audit. Not eligible for active map marker without honest named campground location."
+    "blocker": "Operator currently advertises 53-site mostly seasonal campground with occasional transient nightly camping at 318 W 18 Mile Rd, Bitely. Apple Maps interactive search returned NO named campground POI, only generic geocoded address/area; actual campground entrance or campsite-area point remains unresolved. Do not pin a generic address, lake center or parcel centroid.",
+    "nextAction": "EXTERNAL ACCESS REQUIRED: retrieve a named OSM campground point/polygon or county parcel/aerial campsite entrance or official operator site map. If unavailable, ask Lonesome Lake Campground (210) 667-6163, llcampground@yahoo.com for campground entrance GPS or marked site map. Operator source: https://lonesomelakecampground.com/.",
+    "lastCheckedVersion": "v23.1.138",
+    "notes": "TinyFish Search/Fetch-assisted Michigan county audit. Not eligible for active map marker without honest named campground location. 2026-10-15 TinyFish Search confirms first-party transient overnight offer. TinyFish Apple Maps Agent run 391e4d88-dd6e-42ea-8560-1c3b0f44f2e9, 14 steps/118 seconds: NO named Lonesome Lake Campground listing, no acceptable point; generic address mapping disallowed."
   },
   {
     "id": "mi-v231128-tinyfish-lead-sportsman-park-campground-and-boat-slips",
@@ -38877,24 +38877,6 @@ window.CAMPING_LEADS = [
     "coordinateConfidence": "No yet-approved campground entrance, campsite-area point or named camp polygon coordinate.",
     "sourceUrl": "https://sportsmanparkcampground.com/",
     "blocker": "Operator confirms seasonal and limited rustic stays but public transient availability and actual campground pin must be checked.",
-    "nextAction": "Confirm current public access with operator, then identify exact named campground entrance/loop using official GIS/site map/aerial or trusted campground-specific geocoding.",
-    "lastCheckedVersion": "v23.1.128",
-    "notes": "TinyFish Search/Fetch-assisted Michigan county audit. Not eligible for active map marker without honest named campground location."
-  },
-  {
-    "id": "mi-v231128-tinyfish-lead-pettibone-lake-park-camping-area",
-    "state": "MI",
-    "name": "Pettibone Lake Park camping area",
-    "countyRegion": "Bitely / Newaygo",
-    "leadType": "coordinate_source_status_rescue",
-    "likelyLayer": "Needs Verification",
-    "status": "coordinate_source_status_rescue",
-    "priority": "Medium",
-    "sourceType": "Official county inventory / campground operator",
-    "coordinate": null,
-    "coordinateConfidence": "No yet-approved campground entrance, campsite-area point or named camp polygon coordinate.",
-    "sourceUrl": "https://www.newaygocountymi.gov/wp-content/uploads/2025/03/2025_Newaygo_County_Community_Profile.pdf",
-    "blocker": "County 2025 table reports 16 sites, but current general-public overnight access is not confirmed; campground polygon/entrance proof needed.",
     "nextAction": "Confirm current public access with operator, then identify exact named campground entrance/loop using official GIS/site map/aerial or trusted campground-specific geocoding.",
     "lastCheckedVersion": "v23.1.128",
     "notes": "TinyFish Search/Fetch-assisted Michigan county audit. Not eligible for active map marker without honest named campground location."
