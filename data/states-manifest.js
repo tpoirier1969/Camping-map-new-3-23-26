@@ -190,7 +190,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 788,
+    "count": 790,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.143: Two Mecosta named campground POIs verified: Youngs Lake from 2026 county official visitor-camping inventory, New Tubbs private resort from direct 2026 operator public booking. Two leads retired; MI 790 active, 0 of 83 counties closed.",
       "v23.1.142: Adds Grays Riverside Campground, Mecosta, with operator booking and named Google POI; five named leads and Canadian Lakes nonpublic rejected, 788 Michigan active; 0 of 83 counties closed.",
       "v23.1.141: Verified Newaygo Lonesome Lake Campground published transient overnight offer and campground-specific Google Maps named POI coordinate; historic coordinate-blocked lead promoted. MI runtime 787, no county completed.",
       "v23.1.140: One additional Newaygo commercial campsite grounds at Dragon Adventures Base Camp 6782 E 16th St, White Cloud; operator verifies electric/rustic/van overnight sites, named Apple Maps POI marks correct campground address rather than separate store. Michigan runtime 786; 0/83 county audits closed.",

@@ -39154,38 +39154,6 @@ window.CAMPING_LEADS = [
     "lastCheckedVersion": "v23.1.142"
   },
   {
-    "id": "mi-v231142-mecosta-tubbs-resort-private-alias",
-    "state": "MI",
-    "name": "Tubbs Resort",
-    "countyRegion": "Mecosta / Tubbs Lake vicinity uncertain",
-    "leadType": "current_overnight_policy_and_coordinate_rescue",
-    "likelyLayer": "Private Campgrounds",
-    "status": "unresolved_named_source_lead",
-    "priority": "Medium",
-    "sourceType": "Mecosta County official 2026-2030 recreation inventory and public operator searches",
-    "sourceUrl": "https://www.mecostacountyparks.com/uploads/9/2/6/3/92633552/final_approved_-_mecosta_parks_and_rec_plan_2026.pdf",
-    "coordinate": null,
-    "blocker": "County 2026 plan lists a 60-unit private resort, but no independently verified current operator/venue; already-active Tubbs Lake DNR mainland and island campground records are distinct and must not be cloned.",
-    "nextAction": "Ask Mecosta County Parks Commission/health licensing for operator and property address; compare with Tubbs Lake State Forest campgrounds before any new private marker.",
-    "lastCheckedVersion": "v23.1.142"
-  },
-  {
-    "id": "mi-v231142-mecosta-youngs-lake-current-status",
-    "state": "MI",
-    "name": "Youngs Lake Campground",
-    "countyRegion": "Mecosta / Big Rapids / Youngs Lake Road",
-    "leadType": "current_overnight_policy_and_coordinate_rescue",
-    "likelyLayer": "Private Campgrounds",
-    "status": "unresolved_named_source_lead",
-    "priority": "Medium",
-    "sourceType": "Mecosta County official 2026-2030 recreation inventory and public operator searches",
-    "sourceUrl": "https://www.mecostacountyparks.com/uploads/9/2/6/3/92633552/final_approved_-_mecosta_parks_and_rec_plan_2026.pdf",
-    "coordinate": null,
-    "blocker": "County 2026 plan lists 160 sites and older directories identify campground near Youngs Lake Rd. 2026 firsthand/operator public nightly reservations and an honest current campground site/entrance point not independently established.",
-    "nextAction": "Get current licensed operator public reservation policy and map address from county/health department; verify first-party booking and named campground POI/aerial before activation.",
-    "lastCheckedVersion": "v23.1.142"
-  },
-  {
     "id": "mi-v231142-newaygo-white-river-roughing-historic",
     "state": "MI",
     "name": "White River Roughing Area Campground",

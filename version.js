@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.142";
-window.CAMPING_APP_BUILD = "mi-mecosta-grays-riverside-operator-proof";
-window.CAMPING_DATA_VERSION = "v23.1.142";
-window.CAMPING_DATA_BUILD = "mi-mecosta-grays-riverside-operator-proof";
-window.CAMPING_VERSION = "v23.1.142";
+window.CAMPING_APP_VERSION = "v23.1.143";
+window.CAMPING_APP_BUILD = "mi-mecosta-youngs-tubbs-rescue";
+window.CAMPING_DATA_VERSION = "v23.1.143";
+window.CAMPING_DATA_BUILD = "mi-mecosta-youngs-tubbs-rescue";
+window.CAMPING_VERSION = "v23.1.143";
 window.CAMPING_BUILD = {
-  version: "v23.1.142",
-  build: "mi-mecosta-grays-riverside-operator-proof",
-  dataVersion: "v23.1.142",
-  dataBuild: "mi-mecosta-grays-riverside-operator-proof",
+  version: "v23.1.143",
+  build: "mi-mecosta-youngs-tubbs-rescue",
+  dataVersion: "v23.1.143",
+  dataBuild: "mi-mecosta-youngs-tubbs-rescue",
   released: "2026-10-15",
-  label: "Michigan Mecosta Grays Riverside verified campground"
+  label: "Michigan Mecosta Youngs Lake and Tubbs Resort campground rescue"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
