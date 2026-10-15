@@ -14316,5 +14316,24 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "none; retired former lead mi-v231128-tinyfish-lead-pettibone-lake-park-camping-area",
     "lastCheckedVersion": "v23.1.138",
     "notes": "Do not restore camping marker unless newer direct Newaygo County Parks public overnight authorization is published; boat launch, park grounds and lake center are not campsite pins."
+  },
+  {
+    "id": "mi-v231142-mecosta-canadian-lakes-members-sponsored-only",
+    "state": "MI",
+    "name": "Canadian Lakes Campground (CLPOC membership restricted)",
+    "countyRegion": "Mecosta / Canadian Lakes / Stanwood",
+    "rejectedAsLayer": "Public-facing Private Campgrounds",
+    "rejectionType": "nonpublic_membership_restricted_sponsored_guests_only",
+    "rejectionStrength": "first_party_operator_policy",
+    "currentDecision": "REJECT / DO NOT IMPORT general-public campground",
+    "canReopen": true,
+    "reopenIf": [
+      "CLPOC adopts direct independent public transient campsite reservation policy without a sponsoring member."
+    ],
+    "sourceSummary": "Current available Canadian Lakes Property Owners Corporation campground policy Article II: only eligible members may reserve their sites and member-sponsored guests may be booked by members; not independently bookable by general-public visitors. Real licensed 370-site campground, not closed.",
+    "sourceUrl": "https://canadianlakes.org/wp-content/uploads/2026/02/CanadianLakesRules-2.3_editedbyLMH2.pdf",
+    "relatedActiveOrPendingRecord": null,
+    "lastCheckedVersion": "v23.1.142",
+    "notes": "County 2026 official roster includes this real facility but its first-party operating rules limit campground eligibility. Reopen only if public policy changes."
   }
 ];
