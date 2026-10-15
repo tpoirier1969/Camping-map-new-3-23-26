@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.136";
-window.CAMPING_APP_BUILD = "mi-newaygo-pickerel-croton-layer-audit";
-window.CAMPING_DATA_VERSION = "v23.1.136";
-window.CAMPING_DATA_BUILD = "mi-newaygo-pickerel-croton-layer-audit";
-window.CAMPING_VERSION = "v23.1.136";
+window.CAMPING_APP_VERSION = "v23.1.137";
+window.CAMPING_APP_BUILD = "mi-croton-operator-apple-map-campground-rescue";
+window.CAMPING_DATA_VERSION = "v23.1.137";
+window.CAMPING_DATA_BUILD = "mi-croton-operator-apple-map-campground-rescue";
+window.CAMPING_VERSION = "v23.1.137";
 window.CAMPING_BUILD = {
-  version: "v23.1.136",
-  build: "mi-newaygo-pickerel-croton-layer-audit",
-  dataVersion: "v23.1.136",
-  dataBuild: "mi-newaygo-pickerel-croton-layer-audit",
+  version: "v23.1.137",
+  build: "mi-croton-operator-apple-map-campground-rescue",
+  dataVersion: "v23.1.137",
+  dataBuild: "mi-croton-operator-apple-map-campground-rescue",
   released: "2026-10-15",
-  label: "Michigan Pickerel Lakeside campground import and Croton Township Modern layer correction"
+  label: "Michigan Croton Drive two confirmed campground operator/Apple map additions"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

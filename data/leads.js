@@ -38846,24 +38846,6 @@ window.CAMPING_LEADS = [
     "leadRejectedFileResult": "v23.1.124 SEVEN-WORKER RECONCILIATION"
   },
   {
-    "id": "mi-v231128-tinyfish-lead-happy-campers-campground",
-    "state": "MI",
-    "name": "Happy Campers Campground",
-    "countyRegion": "Croton / Newaygo",
-    "leadType": "coordinate_source_status_rescue",
-    "likelyLayer": "Private Campgrounds",
-    "status": "coordinate_source_status_rescue",
-    "priority": "Medium",
-    "sourceType": "Official county inventory / campground operator",
-    "coordinate": null,
-    "coordinateConfidence": "No yet-approved campground entrance, campsite-area point or named camp polygon coordinate.",
-    "sourceUrl": "https://www.happycampers5380.com/",
-    "blocker": "Operator independently confirms current public rustic/electric overnight camping at 5380 Croton Drive, but a campground-specific location was found only in community/review-site GPS; first-party or reliable named map/parcel geospatial confirmation remains required for a defensible pin.",
-    "nextAction": "Rescue Happy Campers actual campground grounds point from operator's campground map PDF, a named OSM/Apple/Google map feature or county parcel/aerial map; confirm distinct property from Croton Dam Float Trips at 5355 Croton Drive. Operator map: https://www.happycampers5380.com/prices-and-sites",
-    "lastCheckedVersion": "v23.1.136",
-    "notes": "TinyFish Search/Fetch-assisted Michigan county audit. Not eligible for active map marker without honest named campground location."
-  },
-  {
     "id": "mi-v231128-tinyfish-lead-lonesome-lake-campground",
     "state": "MI",
     "name": "Lonesome Lake Campground",
@@ -39018,22 +39000,6 @@ window.CAMPING_LEADS = [
     "lastCheckedVersion": "v23.1.131",
     "verificationDate": "2026-10-14",
     "notes": "v23.1.130 erroneously conflated three facilities. v23.1.131 separates Grayling, City Menominee, and Wallace County campground identities."
-  },
-  {
-    "id": "mi-v231134-followup-croton-dam-float-trips-camping",
-    "state": "MI",
-    "name": "Croton Dam Float Trips camping",
-    "countyRegion": "Newaygo / 5355 Croton Dr",
-    "leadType": "county_roster_policy_coordinate_rescue",
-    "likelyLayer": "Needs Verification",
-    "status": "unresolved named source lead",
-    "priority": "Medium",
-    "sourceType": "County official historical inventory/operator",
-    "coordinate": null,
-    "sourceUrl": "https://www.crotondamfloattrips.com/",
-    "blocker": "Current operator confirms 24-ish named public rustic camping sites, cabins and 20/30 amp sites at 5355 Croton Drive, but the only campsite-specific GPS found is from a user-review platform; need OSM/Apple/Google operator-address campground-area geospatial confirmation before creating a public pin.",
-    "nextAction": "Obtain named campground POI from OSM/Apple/Google or official parcel/aerial map for Croton Dam Float Trips (5355 Croton Drive); verify it is distinct from Happy Campers opposite the road. Operator: https://www.crotondamfloattrips.com/home-1; county inventory https://www.newaygocountymi.gov/wp-content/uploads/2025/03/2025_Newaygo_County_Community_Profile.pdf",
-    "lastCheckedVersion": "v23.1.136"
   },
   {
     "id": "mi-v231134-followup-sarns-resort",
