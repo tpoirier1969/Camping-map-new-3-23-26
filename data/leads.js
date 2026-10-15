@@ -37244,25 +37244,6 @@ window.CAMPING_LEADS = [
     "notes": "Why actionable: Public-facing private campground.. Worker final action: LEAD ONLY."
   },
   {
-    "id": "mi-v231115-w6-g-newaygo-state-park-rustic-campgrounds",
-    "state": "MI",
-    "name": "Newaygo State Park rustic campgrounds",
-    "countyRegion": "Newaygo",
-    "leadType": "coordinate_source_status_rescue",
-    "likelyLayer": "active data",
-    "status": "coordinate_source_status_rescue",
-    "priority": "Medium",
-    "sourceType": "DNR RecSearch/camping inventory.",
-    "coordinate": null,
-    "coordinateConfidence": "NO NEW ACTIVE COORDINATE — retain as lead until the stated acquisition path is complete.",
-    "blocker": "Exact component points not extracted; generic park centroid not acceptable.",
-    "nextAction": "Open current DNR reservation map; extract both campground components and duplicate-check.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.115",
-    "leadRejectedFileResult": "Retained from Worker 6 section G; not promoted without sufficient proof.",
-    "notes": "Why actionable: DNR park has two rustic campground components.. Worker final action: LEAD ONLY."
-  },
-  {
     "id": "mi-v231115-w6-g-fishermans-landing-campground",
     "state": "MI",
     "name": "Fisherman’s Landing Campground",

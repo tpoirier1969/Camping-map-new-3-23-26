@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.143";
-window.CAMPING_APP_BUILD = "mi-mecosta-youngs-tubbs-rescue";
-window.CAMPING_DATA_VERSION = "v23.1.143";
-window.CAMPING_DATA_BUILD = "mi-mecosta-youngs-tubbs-rescue";
-window.CAMPING_VERSION = "v23.1.143";
+window.CAMPING_APP_VERSION = "v23.1.144";
+window.CAMPING_APP_BUILD = "mi-newaygo-oak-poplar-dnr-correction";
+window.CAMPING_DATA_VERSION = "v23.1.144";
+window.CAMPING_DATA_BUILD = "mi-newaygo-oak-poplar-dnr-correction";
+window.CAMPING_VERSION = "v23.1.144";
 window.CAMPING_BUILD = {
-  version: "v23.1.143",
-  build: "mi-mecosta-youngs-tubbs-rescue",
-  dataVersion: "v23.1.143",
-  dataBuild: "mi-mecosta-youngs-tubbs-rescue",
+  version: "v23.1.144",
+  build: "mi-newaygo-oak-poplar-dnr-correction",
+  dataVersion: "v23.1.144",
+  dataBuild: "mi-newaygo-oak-poplar-dnr-correction",
   released: "2026-10-15",
-  label: "Michigan Mecosta Youngs Lake and Tubbs Resort campground rescue"
+  label: "Michigan Newaygo Oak and Poplar DNR record corrections"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
