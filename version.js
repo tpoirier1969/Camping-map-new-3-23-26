@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.144";
-window.CAMPING_APP_BUILD = "mi-newaygo-oak-poplar-dnr-correction";
-window.CAMPING_DATA_VERSION = "v23.1.144";
-window.CAMPING_DATA_BUILD = "mi-newaygo-oak-poplar-dnr-correction";
-window.CAMPING_VERSION = "v23.1.144";
+window.CAMPING_APP_VERSION = "v23.1.145";
+window.CAMPING_APP_BUILD = "mi-au-train-lake-official-promotion";
+window.CAMPING_DATA_VERSION = "v23.1.145";
+window.CAMPING_DATA_BUILD = "mi-au-train-lake-official-promotion";
+window.CAMPING_VERSION = "v23.1.145";
 window.CAMPING_BUILD = {
-  version: "v23.1.144",
-  build: "mi-newaygo-oak-poplar-dnr-correction",
-  dataVersion: "v23.1.144",
-  dataBuild: "mi-newaygo-oak-poplar-dnr-correction",
-  released: "2026-10-15",
-  label: "Michigan Newaygo Oak and Poplar DNR record corrections"
+  version: "v23.1.145",
+  build: "mi-au-train-lake-official-promotion",
+  dataVersion: "v23.1.145",
+  dataBuild: "mi-au-train-lake-official-promotion",
+  released: "2026-10-22",
+  label: "Michigan Au Train Lake USFS seasonal campground promotion"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

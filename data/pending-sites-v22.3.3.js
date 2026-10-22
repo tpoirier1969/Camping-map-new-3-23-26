@@ -1,31 +1,5 @@
 window.CAMPING_PENDING_DATA = [
   {
-    "id": "pending-mi-001",
-    "legacyId": "pending-mi-001",
-    "name": "Au Train Lake Campground",
-    "lat": 46.3933107,
-    "lng": -86.836261,
-    "stateCode": "MI",
-    "stateName": "Michigan",
-    "layer": "federal",
-    "subtype": "rustic",
-    "siteForm": "campsite",
-    "description": "Missing from current MI file; official Hiawatha page lists campground and coordinates.",
-    "website": "https://www.fs.usda.gov/r09/hiawatha/recreation/au-train-lake-campground",
-    "owner": "US Forest Service",
-    "layerLabel": "Needs verification",
-    "cost": "",
-    "showers": "",
-    "verificationStatus": "pending",
-    "confidence": 75,
-    "sourceCount": 1,
-    "pending": true,
-    "reviewFlags": [
-      "missing_from_verified"
-    ],
-    "reviewNotes": "Seeded from official forest-service source comparison. Verify placement and promote when satisfied."
-  },
-  {
     "id": "pending-mi-002",
     "legacyId": "pending-mi-002",
     "name": "Bay View Campground",
