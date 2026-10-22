@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.146";
-window.CAMPING_APP_BUILD = "mi-mecosta-sarns-nv-geo-policy-review";
-window.CAMPING_DATA_VERSION = "v23.1.146";
-window.CAMPING_DATA_BUILD = "mi-mecosta-sarns-nv-geo-policy-review";
-window.CAMPING_VERSION = "v23.1.146";
+window.CAMPING_APP_VERSION = "v23.1.147";
+window.CAMPING_APP_BUILD = "mi-mecosta-private-licensing-ledger-rescue";
+window.CAMPING_DATA_VERSION = "v23.1.147";
+window.CAMPING_DATA_BUILD = "mi-mecosta-private-licensing-ledger-rescue";
+window.CAMPING_VERSION = "v23.1.147";
 window.CAMPING_BUILD = {
-  version: "v23.1.146",
-  build: "mi-mecosta-sarns-nv-geo-policy-review",
-  dataVersion: "v23.1.146",
-  dataBuild: "mi-mecosta-sarns-nv-geo-policy-review",
+  version: "v23.1.147",
+  build: "mi-mecosta-private-licensing-ledger-rescue",
+  dataVersion: "v23.1.147",
+  dataBuild: "mi-mecosta-private-licensing-ledger-rescue",
   released: "2026-10-22",
-  label: "Michigan Mecosta Sarns seasonal campground Needs Verification review"
+  label: "Michigan Mecosta Speed's and Holiday Terrace licensing research"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

@@ -39123,28 +39123,44 @@ window.CAMPING_LEADS = [
     "likelyLayer": "Private Campgrounds",
     "status": "unresolved_named_source_lead",
     "priority": "Medium",
-    "sourceType": "Mecosta County official 2026-2030 recreation inventory and public operator searches",
+    "sourceType": "Mecosta County 2026-2030 parks inventory; same-address manufactured-housing community listing; EGLE public campground licensing threshold and active register",
     "sourceUrl": "https://www.mecostacountyparks.com/uploads/9/2/6/3/92633552/final_approved_-_mecosta_parks_and_rec_plan_2026.pdf",
     "coordinate": null,
-    "blocker": "County 2026 plan lists 4 camping units; current operator web directories list primarily mobile homes and lot rent, with no independently proven public nightly camping.",
-    "nextAction": "Confirm public nightly booking and a distinct camping footprint via current operator or district health campground license. Do not point to a mobile home address without onsite camping proof.",
-    "lastCheckedVersion": "v23.1.142"
+    "blocker": "2026 county park plan printed p31 lists Holiday Terrace Campground as 4 camping units with visitation outside the county, but 10845 Percy Lane is also Holiday Terrace Mobile Home Park with approximately 71 manufactured-home sites; no verified publicly bookable campsite space, distinct camping footprint, or operator short-stay policy. Under Michigan EGLE's official rule, campground licenses are required only for FIVE or more recreational units; absence from a 5+ license list would NOT disprove a 4-unit camping claim. Official EGLE live license registry could not be filtered to Mecosta, so current license status NOT checked.",
+    "nextAction": "TOD ACTION REQUIRED / EXACT OPERATOR + PARCEL AUDIT: Ask DHD#10 Mecosta Environmental Health at ehmecostacounty@dhd10.org (231-592-0130), and if necessary EGLE campground licensing at EGLE-DWEHD-CampgroundProgram@Michigan.gov (517-282-4032): 'The county 2026 parks plan lists Holiday Terrace Campground at 10845 Percy Ln, Mecosta with four camping units, while the address is also a mobile-home park. Are there currently four legal publicly available overnight tent/RV camping units distinct from manufactured-home residences? Who operates them; can transient visitors book; and where precisely are the camping units/entrance located?' Require positive operator/public transient proof and honest actual camping-area point before any active/pending map marker. Reject only with controlling no-public-camping evidence.",
+    "lastCheckedVersion": "v23.1.147",
+    "additionalSourceUrls": [
+      "https://www.mecostacountyparks.com/uploads/9/2/6/3/92633552/final_approved_-_mecosta_parks_and_rec_plan_2026.pdf",
+      "https://www.mhvillage.com/parks/15594",
+      "https://www.michigan.gov/egle/about/organization/drinking-water-and-environmental-health/campgrounds",
+      "https://app.powerbigov.us/view?r=eyJrIjoiZjQ1MTFlYjAtNzQ0My00ODgxLTk4MWMtYzM1ODA4OWMzNjdiIiwidCI6ImQ1ZmI3MDg3LTM3NzctNDJhZC05NjZhLTg5MmVmNDcyMjVkMSJ9",
+      "https://www.dhd10.org/contact/"
+    ],
+    "notes": "2026-10-22: official 2026 county table at printed p31 carries 4-site Holiday Terrace; current manufactured housing listing identifies same property as 71-site residential mobile-home community. EGLE official licensing threshold five recreational campsites; a 4-unit facility may not appear in state campground license registry. TinyFish run https://agent.tinyfish.ai/runs/9d424d39-8bda-4f4e-ad8e-a37ca1e81152 found live licensed campground dashboard refreshed 2026-10-21 but could not filter; no false claim of absence. Do not place pin at generic 10845 Percy address/mobile home lot. Keep single unresolved original lead only."
   },
   {
     "id": "mi-v231142-mecosta-speeds-campground-identity",
     "state": "MI",
     "name": "Speed's Campground",
-    "countyRegion": "Mecosta / location unresolved",
+    "countyRegion": "Mecosta / Mecosta Township per township government master-plan indexed text; exact facility address and coordinate still unknown",
     "leadType": "current_overnight_policy_and_coordinate_rescue",
     "likelyLayer": "Private Campgrounds",
     "status": "unresolved_named_source_lead",
     "priority": "Medium",
-    "sourceType": "Mecosta County official 2026-2030 recreation inventory and public operator searches",
+    "sourceType": "Mecosta County Parks Commission 2014 and 2026-2030 plans; Mecosta Township master-plan indexed lead; EGLE live public licensed campground list attempted but county filtering not completed",
     "sourceUrl": "https://www.mecostacountyparks.com/uploads/9/2/6/3/92633552/final_approved_-_mecosta_parks_and_rec_plan_2026.pdf",
     "coordinate": null,
-    "blocker": "County 2026 and earlier plan lists 20 campground spaces; exact-name current operator/phone, public booking, and campground-specific coordinate not available.",
-    "nextAction": "Ask Mecosta County Parks Commission or District Health Department #10 for exact current licensed campground/operator/address; confirm 2026 public short-stay access and recover named onsite point.",
-    "lastCheckedVersion": "v23.1.142"
+    "blocker": "Mecosta County official 2014 and 2026 inventory shows Speed's Campground 20 nominal campsites; indexed Mecosta Township plan reports 'Speeds Campground' 22 sites, but its PDF direct open returned HTTP 403. No current operator/address/license identifier or defensible campground-area coordinate found. EGLE public Power BI active licensed campground registry was live refreshed 2026-10-21, but TinyFish Agent could not finish Mecosta county slicer; NOT evidence of absence. Current public transient camping remains unproven.",
+    "nextAction": "TOD ACTION REQUIRED / EXTERNAL LICENSING RECORD: Ask DHD#10 Mecosta Environmental Health (ehmecostacounty@dhd10.org, 231-592-0130) and/or Michigan EGLE campground program (EGLE-DWEHD-CampgroundProgram@Michigan.gov, 517-282-4032): 'Is Speed’s/Speeds Campground named in the Mecosta County 2026 plan (20 sites) or the Mecosta Township plan (22 sites) currently licensed/operating? Please provide current licensee business name, exact campground entrance/address, licensing number/status and current operator contact. Are individual short-stay RV/tent overnight sites available to the general public?' Current public-night eligibility and actual campsite location are the necessary ADD vs REJECT discriminators. Use EGLE public dashboard county Mecosta as first external acquisition route.",
+    "lastCheckedVersion": "v23.1.147",
+    "additionalSourceUrls": [
+      "https://www.mecostacountyparks.com/uploads/9/2/6/3/92633552/mecosta_county_parks_master_plan_2014-2018.pdf",
+      "https://www.mecostatwp.org/wp-content/uploads/2021/08/MECOSTA-TOWNSHIP-MASTER-PLAN-.pdf",
+      "https://www.michigan.gov/egle/about/organization/drinking-water-and-environmental-health/campgrounds",
+      "https://app.powerbigov.us/view?r=eyJrIjoiZjQ1MTFlYjAtNzQ0My00ODgxLTk4MWMtYzM1ODA4OWMzNjdiIiwidCI6ImQ1ZmI3MDg3LTM3NzctNDJhZC05NjZhLTg5MmVmNDcyMjVkMSJ9",
+      "https://www.dhd10.org/contact/"
+    ],
+    "notes": "2026-10-22 source-system rescue: exact-name TinyFish Search and official listings did not identify owner or address. EGLE public powerbigov.us Active Licensed Campgrounds table last refresh 2026-10-21, columns County, CG Number, Campground, Issued, Expiration, Campground Status, License Status, Municipality, Municipality Type, Phone. TinyFish interactive Agent https://agent.tinyfish.ai/runs/9d424d39-8bda-4f4e-ad8e-a37ca1e81152 reached report but could not apply county filter; no positive/negative license status claim. No campsite pin invented. County/Mecosta Township plans show 20 vs 22 historical count, not proof of 2026 actual operating spaces."
   },
   {
     "id": "mi-v231142-newaygo-white-river-roughing-historic",
