@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.145";
-window.CAMPING_APP_BUILD = "mi-au-train-lake-official-promotion";
-window.CAMPING_DATA_VERSION = "v23.1.145";
-window.CAMPING_DATA_BUILD = "mi-au-train-lake-official-promotion";
-window.CAMPING_VERSION = "v23.1.145";
+window.CAMPING_APP_VERSION = "v23.1.146";
+window.CAMPING_APP_BUILD = "mi-mecosta-sarns-nv-geo-policy-review";
+window.CAMPING_DATA_VERSION = "v23.1.146";
+window.CAMPING_DATA_BUILD = "mi-mecosta-sarns-nv-geo-policy-review";
+window.CAMPING_VERSION = "v23.1.146";
 window.CAMPING_BUILD = {
-  version: "v23.1.145",
-  build: "mi-au-train-lake-official-promotion",
-  dataVersion: "v23.1.145",
-  dataBuild: "mi-au-train-lake-official-promotion",
+  version: "v23.1.146",
+  build: "mi-mecosta-sarns-nv-geo-policy-review",
+  dataVersion: "v23.1.146",
+  dataBuild: "mi-mecosta-sarns-nv-geo-policy-review",
   released: "2026-10-22",
-  label: "Michigan Au Train Lake USFS seasonal campground promotion"
+  label: "Michigan Mecosta Sarns seasonal campground Needs Verification review"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

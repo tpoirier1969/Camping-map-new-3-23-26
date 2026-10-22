@@ -1,5 +1,38 @@
 window.CAMPING_PENDING_DATA = [
   {
+    "id": "pending-mi-v231146-sarns-family-resort",
+    "legacyId": "pending-mi-v231146-sarns-family-resort",
+    "name": "Sarns Family Resort, Campground & Marina",
+    "lat": 43.5331479,
+    "lng": -85.5575566,
+    "stateCode": "MI",
+    "stateName": "Michigan",
+    "layer": "private",
+    "subtype": "private",
+    "siteForm": "existing campground property, seasonal-only concern; public nightly stay not verified",
+    "description": "Official 2026 Mecosta County inventory and local visitors bureau identify Sarns Resort as a campground. September 2026 operator business-sale MLS describes about 100 campsites all fully rented seasonally. Public short-stay RV/tent booking is NOT proven; do not travel expecting an available overnight campsite without speaking to the operator. Current 2026 sale is not proof of campground closure.",
+    "website": "https://www.bigrapids.org/member-detail/sarns-resort/",
+    "sourceUrl": "https://www.mecostacountyparks.com/uploads/9/2/6/3/92633552/final_approved_-_mecosta_parks_and_rec_plan_2026.pdf",
+    "secondarySourceUrl": "https://www.coldwellbankerhomes.com/mi/morley/4398-newcosta-ave-parcel-b/pid_73473604/",
+    "coordinateSourceUrl": "https://www.google.com/maps/place/Sarns+Family+Resort,+Campground,+%26+Marina/data=!4m6!3m5!1s0x8818d84a963d7d4b:0x8efe6f66e958871a!8m2!3d43.5331479!4d-85.5575566!16s%252Fg%252F1tdbrgx1?coh=318247&entry=tt&shorturl=1",
+    "owner": "Sarns Family Resort (private)",
+    "countyRegion": "Mecosta County / 4398 Newcosta Ave / Morley",
+    "layerLabel": "Needs Verification",
+    "cost": "Unknown; no verified public nightly rate",
+    "showers": "Current 2026 commercial property listing says two bathhouses with showers; visitor use/rental access unverified",
+    "verificationStatus": "pending",
+    "pending": true,
+    "confidence": 70,
+    "sourceCount": 4,
+    "reviewFlags": [
+      "public_nightly_transient_access_unverified",
+      "seasonal_sites_fully_rented",
+      "business_point_not_campsite_or_verified_entrance",
+      "county_historic_capacity_differs_from_current_MLS"
+    ],
+    "reviewNotes": "2026 county official recreation plan p31 lists Sarn's Resort among private campgrounds, with historic size 200 and visitors outside Mecosta. Chamber tourist directory confirms tent/rustic and full hookups. September 2026 owner's business-sale MLS #26047198 states roughly 100 sites all rented for the full season (not proof of a public nightly stay). TinyFish Google Maps named venue POI (Agent run 757c0bc6-5dc7-4b79-bfaf-713881076dd7) at 43.5331479,-85.5575566 is a property guide and close to separately listed resort Lot 84, NOT the exact visitor gate or campsite. Resort operator (231) 598-0422 must verify public short-stay access, booking and current entrance. If short stays not publicly permitted, close as non-public transient; do not promote without proof."
+  },
+  {
     "id": "pending-mi-002",
     "legacyId": "pending-mi-002",
     "name": "Bay View Campground",

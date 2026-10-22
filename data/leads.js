@@ -38917,14 +38917,26 @@ window.CAMPING_LEADS = [
     "countyRegion": "Mecosta / 4398 Newcosta Ave",
     "leadType": "county_roster_policy_coordinate_rescue",
     "likelyLayer": "Needs Verification",
-    "status": "unresolved named source lead",
+    "status": "campground_exists_named_POI_verified; transient_public_short_stay_unconfirmed",
     "priority": "Medium",
-    "sourceType": "County official historical inventory/operator",
-    "coordinate": null,
+    "sourceType": "2026 Mecosta County Park Commission recreation inventory; Mecosta County Visitors Bureau campground directory; September 2026 MLS business-sale listing (commercial operator/owner evidence); named Google Maps business",
+    "coordinate": {
+      "lat": 43.5331479,
+      "lng": -85.5575566
+    },
     "sourceUrl": "https://www.bigrapids.org/member-detail/sarns-resort/",
-    "blocker": "2026 property sale and divergent business GPS: verify current public overnight operation and precise campground grounds.",
-    "nextAction": "Check present public transient eligibility, actual camping location and duplicate/alias; do not import unproven pin.",
-    "lastCheckedVersion": "v23.1.134"
+    "blocker": "Official 2026 county plan and tourism directory support an existing private campground; the September 2026 business-sale MLS says all ~100 campsites are fully rented seasonally, though county master plan historical size column shows 200. Current nightly/transient public reservations are NOT proven. Google Maps 'operational' label is not proof of transient camping. Named POI 43.5331479,-85.5575566 is the resort business marker close to a separately listed individual Lot 84, not independently verified campground entrance or individual pad.",
+    "nextAction": "TOD ACTION REQUIRED: call current resort operator (231) 598-0422 (Mecosta County Visitors Bureau listing) and ask: 'Do you currently accept one-night or short-stay RV/tent campers from the public, separate from your season-long leased sites? If yes, which dates, booking method, and visitor entrance should we use on our map?' ADD active only with confirmed public short-stay eligibility and defensible venue/entrance placement; if strictly seasonal private leases without public transient access, reject active import. Otherwise retain as Needs Verification. Direct operator contact is the missing controlling policy proof.",
+    "lastCheckedVersion": "v23.1.146",
+    "coordinateConfidence": "Named Google Maps specific Sarns Family Resort Campground & Marina business POI, not a campsite pad or proven public entrance; coincides closely with an individually listed resort lot and must not be used for turn-by-turn arrival navigation.",
+    "coordinateSourceUrl": "https://www.google.com/maps/place/Sarns+Family+Resort,+Campground,+%26+Marina/data=!4m6!3m5!1s0x8818d84a963d7d4b:0x8efe6f66e958871a!8m2!3d43.5331479!4d-85.5575566!16s%252Fg%252F1tdbrgx1?coh=318247&entry=tt&shorturl=1",
+    "additionalSourceUrls": [
+      "https://www.mecostacountyparks.com/uploads/9/2/6/3/92633552/final_approved_-_mecosta_parks_and_rec_plan_2026.pdf",
+      "https://www.coldwellbankerhomes.com/mi/morley/4398-newcosta-ave-parcel-b/pid_73473604/",
+      "https://www.google.com/maps/place/Sarns+Family+Resort,+Campground,+%26+Marina/data=!4m6!3m5!1s0x8818d84a963d7d4b:0x8efe6f66e958871a!8m2!3d43.5331479!4d-85.5575566!16s%252Fg%252F1tdbrgx1?coh=318247&entry=tt&shorturl=1"
+    ],
+    "relatedActiveOrPendingRecord": "pending-mi-v231146-sarns-family-resort",
+    "notes": "2026-10-22 bounded Mecosta verification. County 2026–2030 park plan PDF p31 lists 'Sarn's Resort' as private campground with visitor catchment and historical size 200; tourism bureau 4398 Newcosta Ave Morley (231) 598-0422 describes rustic/full-hookup sites and showers. Current Sept 2026 MLS #26047198 describes 53-acre operating business, ~100 campsites, 5 cabins and states 'all sites fully rented each season for many many years', no direct proof of single-night public bookings. TinyFish Google Maps named-business Agent https://agent.tinyfish.ai/runs/757c0bc6-5dc7-4b79-bfaf-713881076dd7, 4 steps, 46 sec, returned 43.5331479,-85.5575566 named POI, not a campground-pad precision claim. 2026 property sale != closure. Venue has no same-name active record and closest existing map campground is Big Bend Park ~1.52 miles away; keep separate. No active promotion until operator nightly policy is resolved."
   },
   {
     "id": "mi-v231134-followup-mecosta-county-free-fair-camping",
