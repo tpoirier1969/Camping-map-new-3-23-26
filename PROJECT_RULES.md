@@ -346,7 +346,7 @@ When multiple workers or supervisors are being assigned, write a separate standa
 * duplicate-check requirement
 * coordinate honesty rules
 * layer rules
-* community/social proof rule if allowed
+* approved three-independent-report community proof rule
 * Needs Verification restrictions
 * area/rule marker or area-outline instructions when relevant
 * required output table
@@ -418,24 +418,22 @@ TinyFish-assisted source discovery rule (v23.1.127):
 * Discovery lists are unproven leads, not automatic additions. Reconcile every name and alias across every manifest-loaded active state file and supplement, plus `data/leads.js` and `data/rejected.js`, then perform a coordinate-neighbor duplicate check before counting a new opportunity.
 * TinyFish 'completed' is not a substitute for a nonempty complete result. A failed/empty comparison must be rechecked against the current repo. Preserve provenance of discovery method versus import proof and never fabricate campsite coordinates.
 
-Community/social proof rule:
+Community/social proof rule — current controlling standard (2026-10-26):
 
-If three or more independent listings, reviews, or user reports concur that a site exists and supports overnight camping, that can support a Community Reported map record, provided no official source disproves camping.
+**Community Reported is an approved evidence/status pathway for active camping records**, not merely a source of leads. Three or more genuinely independent firsthand overnight-use reports, social listings or mapped observations that agree on the *same specific spot or bounded area* can support an active, clearly marked Community Reported record in the correct existing camping layer, including Boondocking / Dispersed. No invented new map layer or official verification claim.
 
-Community/social sources may include The Dyrt, Campendium, iOverlander, Google reviews, AllTrails, Gaia, Facebook, campground directories, user reports, or similar sources.
+* Independence is essential: three different original people/source chains count; reposts, automated copied pins and duplicate directory listings from one original source count once.
+* Each independent report must describe actual overnight camping at the same named/mapped location, not simply recreation, parking, a lake, or land that looks campable. Keep the report URLs, source/date when available, cross-source comparison, and geolocation basis in the record.
+* Use honest, defensible spot/campground coordinates or a properly marked approximate rule-area position. Never pin a lake center, forest centroid, office, parking lot, boat ramp or irrelevant feature as an exact campsite.
+* Check accessible current agency/property/access/closure/posting evidence for contradictions. A clear no-camping/no-overnight order, no-public-access restriction, permanent closure or verified unsafe/illegal access controls over reports; mere land-ownership uncertainty is not proof of prohibition.
+* Label qualifying records clearly **Community Reported** in visible description/status, without implying a government-sanctioned site. Warn users to verify current permission, ownership, access, postings, fire restrictions, stay limits, season and road conditions.
+* One or two independent community reports are leads requiring further work, not grounds for automatic rejection. Without an honest usable location, retain the named case in `data/leads.js`; map-visible Needs Verification must still meet its existing coordinate standard.
+* Official/agency and legitimate campground-operator sources remain preferred and can establish their own records without three community reports. This three-independent-report pathway supersedes older instructions that confine social/review sources to leads only.
 
-When community/social proof is used:
+Permitted reports can include independent listings/posts from The Dyrt, Campendium, iOverlander, Google, AllTrails, Gaia, Facebook, campground directories, and firsthand campers. Apply cross-source independence and official-disproof checks.
 
-* Clearly state in the site details that the site was proofed by social/community sources, not official listing.
-* Use Community Reported or Research Needed status as appropriate.
-* Do not present community proof as official verification.
-* Do not use community proof to override an official source that disproves camping.
-* Still verify the coordinate as honestly as possible.
-* Still reject the record if no honest map record can be made.
+Suggested visible label: “Community Reported — independent overnight reports support camping at this location, but it is not an officially verified campsite. Confirm current legality, ownership, access, postings, closures and road conditions before staying.”
 
-Recommended wording:
-
-“Community Reported — overnight camping supported by multiple independent user/social listings; not confirmed by official agency source. Verify current legality, access, fees, and posted rules before staying.”
 
 Coordinate rules:
 
@@ -554,13 +552,13 @@ If the source supports a broad area but not an exact campsite, the record must c
 
 For **Boondocking / Dispersed** records, community/social evidence may be primary proof.
 
-Three or more independent community/social pins, reports, reviews, or listings in close proximity, from different parties or clearly independent source chains, count as proof equivalent to one official listing for a Boondocking / Dispersed candidate.
+Three or more genuinely independent same-location community/social overnight-use reports support publishing a Boondocking / Dispersed location as active **Community Reported**, subject to defensible location and the contradictory-evidence check. This remains community proof, not official proof.
 
 This applies especially where official agencies provide only broad dispersed-camping rule areas and do not publish exact usable dispersed locations.
 
 Use this standard:
 
-* **3+ independent community/social pins, reviews, listings, or firsthand overnight-use reports in close proximity:** valid proof for a Community-supported Boondocking / Dispersed candidate unless clearly disproven. Three separate anecdotal reports that people stayed overnight at the same spot should be treated as truth until contradicted by stronger evidence.
+* **3+ independent community/social pins, reviews, listings, or firsthand overnight-use reports in close proximity:** valid proof for a Community-supported Boondocking / Dispersed candidate unless clearly disproven. Three independent original overnight reports at the same location qualify for a plainly labeled Community Reported record with warnings, not an official campsite claim.
 * **1–2 community/social pins or reports:** valid lead requiring more research. Do not reject solely because it is community-sourced.
 * **Same pin/listing recycled across multiple sites from one party or source chain:** count as one source, not multiple independent confirmations.
 * **Land ownership uncertainty is not disproof.** Do not require land-ownership proof before accepting a 3+ report community-supported boondocking candidate. Private land can be open, tolerated, leased, permitted, or otherwise available to the public. Ownership uncertainty belongs in warning text unless clear evidence shows no public access or no camping.
@@ -601,7 +599,7 @@ Use Needs Verification only after extensive research shows that:
 * the correct layer, legality, identity, or coordinate cannot be resolved honestly, and
 * further research would adversely impact the current project goal or assigned priority.
 
-Before using Needs Verification, workers must perform a serious source chase: active app row/source, official/operator source, reservation source if applicable, map/PDF/GIS if applicable, exact-name and alternate-name searches, relevant local/agency pages, and community/social proof if allowed.
+Before using Needs Verification, workers must perform a serious source chase: active app row/source, official/operator source, reservation source if applicable, map/PDF/GIS if applicable, exact-name and alternate-name searches, relevant local/agency pages, and community/social proof under the approved independent-report standard.
 
 Do not use Needs Verification as a casual holding bucket. Do not write “needs another worker.” Explain exactly what was checked, what could not be resolved, and why no other layer can honestly be assigned.
 
@@ -860,7 +858,7 @@ Every supervisor handoff must include:
 * source ladder
 * duplicate-check requirement
 * layer rules
-* whether community/social proof is allowed
+* how the approved independent-report standard applies
 * Needs Verification restrictions
 * required output table
 * stop condition
@@ -992,7 +990,7 @@ Proof workers must check:
 * active app/repo records first
 * duplicate/supplement risk
 * official/operator sources where available
-* community/social proof if allowed
+* community/social proof under the approved independent-report standard
 * correct layer
 * coordinate honesty
 * whether the site is an exact point, system marker, or area/rule marker

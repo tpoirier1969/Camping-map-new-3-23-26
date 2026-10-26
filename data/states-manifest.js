@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.148: User-selected Michigan U.P. queue, verified 3-independent-source Community Reported policy, retired ten already-active pending aliases; 791 active unchanged, raw pending 8, no county closures.",
       "v23.1.147: Mecosta Speed’s Campground and Holiday Terrace county inventory lead/licensing evidence updated; no active or pending additions, 791 Michigan active sites, 18 pending; EGLE 2026-10-21 live license dashboard access blocked at county filter.",
       "v23.1.146: Sarns Family Resort Mecosta existing named business mapped in Needs Verification only; MLS reports ~100 sites all rented seasonally; public nightly access unverified. Current map MI active remains 791; 0/83 counties closed.",
       "v23.1.145: Au Train Lake USFS-developed seasonal rustic campground promoted from pending-mi-001 using exact published Forest Service campground coordinates and current Recreation.gov inventory. Site closed seasonally in October, not legal boondocking. MI 791 active; Alger not county-closed.",
