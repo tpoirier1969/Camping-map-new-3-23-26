@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.148";
-window.CAMPING_APP_BUILD = "mi-up-queue-community-pending-cleanup";
-window.CAMPING_DATA_VERSION = "v23.1.148";
-window.CAMPING_DATA_BUILD = "mi-up-queue-community-pending-cleanup";
-window.CAMPING_VERSION = "v23.1.148";
+window.CAMPING_APP_VERSION = "v23.1.149";
+window.CAMPING_APP_BUILD = "mi-newaygo-muskegon-river-modern";
+window.CAMPING_DATA_VERSION = "v23.1.149";
+window.CAMPING_DATA_BUILD = "mi-newaygo-muskegon-river-modern";
+window.CAMPING_VERSION = "v23.1.149";
 window.CAMPING_BUILD = {
-  version: "v23.1.148",
-  build: "mi-up-queue-community-pending-cleanup",
-  dataVersion: "v23.1.148",
-  dataBuild: "mi-up-queue-community-pending-cleanup",
+  version: "v23.1.149",
+  build: "mi-newaygo-muskegon-river-modern",
+  dataVersion: "v23.1.149",
+  dataBuild: "mi-newaygo-muskegon-river-modern",
   released: "2026-10-26",
-  label: "Michigan U.P. queue, community proof, pending cleanup"
+  label: "Michigan Newaygo Muskegon River Campground integration"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
