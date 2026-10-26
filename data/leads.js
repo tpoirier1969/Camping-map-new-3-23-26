@@ -39177,5 +39177,26 @@ window.CAMPING_LEADS = [
     "blocker": "Historical USGS geographic feature reports campground but current USFS campground directory/public overnight status not confirmed; historic map coordinates are not proof of today's campsites.",
     "nextAction": "Contact Manistee NF district and review current USFS recreation/GIS and parcels; verify overnight legality and campsite footprint. Otherwise reject obsolete feature; no historical proxy pin.",
     "lastCheckedVersion": "v23.1.142"
+  },
+  {
+    "id": "mi-v231151-newaygo-norwich-hungerford-secluded-campsites",
+    "state": "MI",
+    "name": "Secluded Campsites (Hipcamp; Hungerford Recreation Area)",
+    "countyRegion": "Newaygo County / Norwich Township or Paris-area mailing designation / 12 Mile Road-Hemlock approach near Hungerford Recreation Area",
+    "leadType": "private_bookable_campground_exact_location_intentionally_withheld",
+    "likelyLayer": "Private Campgrounds",
+    "status": "existing_operator_bookable_coordinates_protected_no_active_pin",
+    "priority": "Medium",
+    "sourceType": "Operator-hosted Hipcamp listing with direct 2026 overnight camper reviews; Norwich Township Newaygo county government for county scope",
+    "sourceUrl": "https://www.hipcamp.com/en-US/land/michigan-secluded-campsites-mxvhk7do",
+    "coordinate": null,
+    "blocker": "Current Hipcamp host Steven advertises six RV/tent 30A electric sites as one private whole-campground booking opposite Hungerford Recreation Area, with 2026/2025 firsthand camper reviews and 12 Mile Road/Hemlock approach. Hipcamp intentionally withholds the property's precise address until booking to protect host privacy. No campground-specific publicly disclosed defensible guide marker, campsite polygon, host-approved approximate public location, parcel or entrance is yet established; vague Paris/Newaygo locale, trailhead or road center are unacceptable campsite proxies. Do not infer ownership from adjacency to national forest.",
+    "nextAction": "HOST CONTACT VIA HIPCAMP LISTING: Ask Steven, 'Your Secluded Campsites listing describes six private 30A RV/tent sites opposite Hungerford Recreation Area. May this campground be shown on a free public camping map? If so, could you provide a publicly shareable campground-specific approximate map point or site-area location (not your private home/driveway or any precise location you prefer to keep hidden), plus the correct county/nearest road approach and public overnight booking policy?' If host allows a defensible public map guide coordinate and no contradiction, promote as Private with explicit approximate marker; otherwise retain as searchable research lead and honor location privacy. This is not automatic rejection.",
+    "lastCheckedVersion": "v23.1.151",
+    "additionalSourceUrls": [
+      "https://norwichtwp.org/",
+      "https://www.airbnb.com.au/rooms/612954213397145316"
+    ],
+    "notes": "2026-10-26 bounded White Cloud / Norwich-Hungerford TinyFish Search discovered operator-hosted Hipcamp Secluded Campsites. TinyFish Fetch showed host Steven, six 30A hookups, water spigots, no toilets, outdoor shower, private six-site group booking, 2026 original overnight camper testimonials; exact property withheld until reservation. An Airbnb result named 'Private 6-Site Group Campground in National Forest' in Norwich Township may be an alias or separate property; identity NOT established, do not count the same six-site size as proof of a duplicate or split the campground without parcel/host evidence. Historical location naming 'Paris, Newaygo, Michigan' is a broad reservation-app label, not an exact camping position. Independent county scope confirmed by Norwich Township local government. No GPS proxy at Hungerford group horse camp, trailhead, forest center, or 12 Mile Road. This source stays in leads only."
   }
 ];

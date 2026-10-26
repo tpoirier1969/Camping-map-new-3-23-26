@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.151: Newaygo Norwich/Hungerford six-site bookable private camping operation verified on Hipcamp but precise site mapping intentionally withheld; one well-sourced lead added, no fake active/pending point; Michigan active stays 793.",
       "v23.1.150: Adds one operator-verified current Martiny Lakes Hide-Away (former Shooltz Landing) private campground at named operator-linked business POI in Mecosta Martiny Chain; Michigan active 793; no duplicate Aliases/pending moves; both current counties OPEN.",
       "v23.1.149: Adds Muskegon River Campground, Newaygo Bridgeton/Grant, as source-backed Modern with 24 nightly water/electric sites, bathhouse/showers, approximate campground guide GPS; 792 Michigan active, 8 pending, counties OPEN.",
       "v23.1.148: User-selected Michigan U.P. queue, verified 3-independent-source Community Reported policy, retired ten already-active pending aliases; 791 active unchanged, raw pending 8, no county closures.",
