@@ -39382,5 +39382,30 @@ window.CAMPING_LEADS = [
     "relatedActiveOrPendingRecord": "original s519 removed v23.1.160; related rejected mi-v231160-alger-beachfront-posted-no-camping-pin-retired",
     "lastCheckedVersion": "v23.1.160",
     "notes": "This is a legitimate bounded agency acquisition/geometry task, not permission to camp. 1–2 old positive claims do not override distinct current no-camping observations; if new independent same-location overnight evidence is obtained, apply current three-report Community Reported rule and official contradicting evidence check."
+  },
+  {
+    "id": "mi-v231162-alger-rock-river-canyon-wilderness-camping-area-geometry-review",
+    "state": "MI",
+    "name": "Rock River Canyon Wilderness official camping-permission and wilderness boundary review",
+    "countyRegion": "Alger / Onota and Rock River Townships / Eben Ice Caves / Rock River Falls",
+    "leadType": "wilderness_area_rule_and_polygon_coordinate_rescue",
+    "likelyLayer": "Boat / Backpack or Boondocking / Dispersed area/rule if permitted and bounded",
+    "status": "official_camping_rules_and_gis_geometry_required",
+    "priority": "Medium",
+    "sourceType": "US Forest Service Hiawatha official wilderness and Onota Township planning",
+    "coordinate": null,
+    "coordinateConfidence": "no defensible designated legal campsite GPS or clear rule-area camping boundary acquired",
+    "blocker": "Wilderness is proven public recreation unit, but official Rock River material does not publish a campsite or prove precise permitted overnight area. Access over some private parcels and unsafe/sensitive Eben Ice Caves route. No campground/shore/lake/cave/trailhead proxy may become camping pin.",
+    "nextAction": "Obtain current USFS/EDW Rock River Canyon Wilderness polygon and parcel/inholding boundary, specific Forest Order camping/cave/setback restrictions, and written Munising Ranger District confirmation of where backpack dispersed overnight camping is allowed (906-387-2512). Use official polygon/clearly approximate rule area marker only after legal proof; else retain this named lead.",
+    "sourceUrl": "https://www.fs.usda.gov/r09/hiawatha/wilderness",
+    "relatedSourceUrls": [
+      "https://www.fs.usda.gov/r09/hiawatha/wilderness/sustainable-recreation-strategy-rock-river-canyon-wilderness-eben-ice-caves",
+      "https://www.onotatownship.org/recreation",
+      "https://www.fs.usda.gov/r09/hiawatha/alerts/occupancy-and-use-within-hiawatha-national-forest",
+      "https://wilderness.net/visit-wilderness/?ID=499"
+    ],
+    "relatedActiveOrPendingRecord": "No designated Rock River Canyon campsite confirmed in loaded Michigan active files or pending records",
+    "lastCheckedVersion": "v23.1.162",
+    "notes": "Wilderness area is not itself proof of legal campground or exact pad; no new active pin; Hiawatha 50ft water setback and no-camping postings control where applicable."
   }
 ];

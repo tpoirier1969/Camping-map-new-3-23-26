@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.161";
-window.CAMPING_APP_BUILD = "mi-alger-superior-times-fort-koa-batch";
-window.CAMPING_DATA_VERSION = "v23.1.161";
-window.CAMPING_DATA_BUILD = "mi-alger-superior-times-fort-koa-batch";
-window.CAMPING_VERSION = "v23.1.161";
+window.CAMPING_APP_VERSION = "v23.1.162";
+window.CAMPING_APP_BUILD = "mi-alger-onota-tyoga-rustic-correction";
+window.CAMPING_DATA_VERSION = "v23.1.162";
+window.CAMPING_DATA_BUILD = "mi-alger-onota-tyoga-rustic-correction";
+window.CAMPING_VERSION = "v23.1.162";
 window.CAMPING_BUILD = {
-  version: "v23.1.161",
-  build: "mi-alger-superior-times-fort-koa-batch",
-  dataVersion: "v23.1.161",
-  dataBuild: "mi-alger-superior-times-fort-koa-batch",
+  version: "v23.1.162",
+  build: "mi-alger-onota-tyoga-rustic-correction",
+  dataVersion: "v23.1.162",
+  dataBuild: "mi-alger-onota-tyoga-rustic-correction",
   released: "2026-10-27",
-  label: "Michigan Alger Superior Times, Fort Superior and KOA alias integration"
+  label: "Michigan Alger Tyoga rustic site correction and wilderness source lead"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

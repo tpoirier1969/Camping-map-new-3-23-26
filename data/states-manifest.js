@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.162: Corrects existing Onota Tyoga s917 Local/Modern to first-party four-site Rustic, verified township/DNR source; one nonmodern Rock River Canyon camping-geometry lead retained; Michigan 798 active unchanged.",
       "v23.1.161: Alger Au Train/Munising +2 active (Superior Times Resort Modern and Fort Superior 39-site Rustic), existing Wetmore KOA corrected Private→Modern, Wandering Wheels reclassified as historical KOA alias in rejected; Michigan 798, county OPEN.",
       "v23.1.160: Alger west Munising Bay Lake Superior Beachfront disputed boondocking s519 retired following 3 independent no-camping sign observations and Forest Order #R910-16-10; exact old pin rejected, adjacent potential lawful area retained as lead; MI 796.",
       "v23.1.159: Alger Christmas operator Pictured Rocks RV Park & Campground +1 Modern at first-party GPS; Otter Lake s671 Local→Modern with current first-party service/source; promoted prior lead retired; Michigan 797, Alger OPEN.",
