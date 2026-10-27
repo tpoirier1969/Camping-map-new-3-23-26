@@ -8,14 +8,14 @@
 
 ## Fast resume checkpoint (maintain after **every** batch)
 
-**Last confirmed:** 2026-10-27 **v23.1.156**, parent `3619aa24296785a82cab51abae823e54dc897cce`; Michigan **797 active** following Hovey Lake duplicate retirement, raw pending **5**, 0/83 counties closed. Verify live main HEAD on restart.
-**Current geographic lock:** Alger / Hiawatha National Forest Munising/western Alger primitive campground source system (partial); Hovey Lake duplicate resolved. Continue forest-west primitive/water corridor named matrix, then remaining Alger anchors. County OPEN.
+**Last confirmed:** 2026-10-27 **v23.1.157**, parent `bc41fdcfe49a114f9117161f61d41fc8b273789c`; Michigan **797 active**, raw pending **5**, global leads **2,032**, rejected **813**, 0/83 counties closed. Verify live main HEAD on restart.
+**Current geographic lock:** Alger / Hiawatha National Forest western forest/lake corridor (partial). Three official existing rustic corrections incorporated; continue unswept Alger anchors. Alger OPEN.
 **Binding NEXT geographic queue after these counties:** **Alger → Delta → Menominee → Dickinson → Schoolcraft → Luce → Iron → Baraga → Houghton → Ontonagon → Gogebic → Keweenaw → Mackinac → Chippewa → Marquette**. Return to Lower Peninsula afterwards, beginning Lake → Oceana. Marquette County is explicitly the FINAL U.P. county in Tod's 2026-10-26 order and remains OPEN until its full county closeout.
-**Latest integration:** v23.1.156 corrects the existing four-site Hovey Lake official rustic record and removes one false local/Modern duplicate. Michigan 798→797; pending/leads/rejected unchanged; no invented new campsite.
-**Latest TinyFish bounded finding:** Hovey Lake Campsites (Alger), official USFS 4 no-fee sites at 46.2905,-86.7006, already active as s412; s411 Hovey Lake Campground at ~30 m was a duplicate with wrong local/Modern layer. Nearby s252 Hovey Lake Equine Trailhead is not assumed the same campground; retain for separately sourced access/overnight rule review.
+**Latest integration:** v23.1.157 corrects original MI.js Pete's Lake and Widewaters Local→Rustic; Island Lake official current fees/source and campground guide GPS. Michigan remains 797 active; no new sites/ledger deltas.
+**Latest TinyFish bounded finding:** Pete's Lake, Widewaters and Island Lake official Hiawatha Forest Service pages verify nonelectric/vault-toilet rustic use and location. Ewing Point is walk-in-only and appears in Schoolcraft County, so defer its correction to Schoolcraft geographic lock. Hovey equine trailhead legality/community source audit remains outstanding.
 **Accepted earlier changes:** Au Train Lake Campground v23.1.145 as seasonal Rustic (not former-camp boondocking); Sarns pending v23.1.146; Mecosta licensing leads v23.1.147; full prior additions preserved.
 **Previous Alger integration:** v23.1.153 separated Juniper Flats Group Campsite from Murray Bay; full prior source trail retained below.
-**Next safe action:** Continue Alger Hiawatha Munising/forest-west named rustic/water corridor matrix, verify dispersed camping restrictions and distinct equine trailhead overnight legality; then remaining Alger county matrix. Delta next; Marquette LAST.
+**Next safe action:** Continue Alger Hiawatha west/water corridors and remaining whole-county place-anchor matrix, with non-modern and community reported evidence sweep, then Delta. Marquette LAST U.P.
 
 ### Low-context execution contract
 
@@ -563,3 +563,19 @@ Tod explicitly amended the prior U.P. queue to add **Marquette County LAST**, af
 **Disposition:** `s412` Hovey Lake Campsites ALREADY ACTIVE, source/amenity/access clarified in original MI.js, Rustic / Primitive retained, exact USFS campground-area coordinates retained. `s411` Hovey Lake Campground DUPLICATE / REMOVE: falsely classified local/Modern, at 46.2905062,-86.7009877 (~30 m from s412); not a separate public camping facility. `s252` Dispersed Camping Hovey Lake Equine Trailhead at 46.2872885,-86.7027427 is a separate trailhead/community pin and NOT automatically merged or proved as campground overnight; review legality separately. Ewing Point, Mowe Lake and other sampled forest named sites already occur in the active base; no new campground added in this bounded correction batch.
 
 **QA:** Exact s411/s412 matching and JSON integrity verified; no invented coordinate, no new layer, no other active rows deleted. MI base 533→532, Michigan runtime/manifest 798→797 (net -1), pending 5, leads/rejected unchanged, all version.js runtime version/build fields unified v23.1.156. Source page: https://www.fs.usda.gov/r09/hiawatha/recreation/hovey-lake-campsites . No county closure; Alger remains OPEN. Next bounded forest-west source/system inventory.
+
+## v23.1.157 Alger Hiawatha western forest campground operator corrections — 2026-10-27
+
+**Repo/base:** `bc41fdcfe49a114f9117161f61d41fc8b273789c` (live main), verified full current PROJECT_RULES.md and ChatGPT project settings. Michigan baseline fully checked: original MI.js (532), MI2.js additions (222), four loaded supplements, pending (5), global leads (2,032), rejected (813), manifest and version. Oversize MI.js and leads.js recovered via full SHA Git blobs. **Geographic lock:** Alger Hiawatha Munising Ranger District western forest/lake corridor only; county remains OPEN.
+
+**TinyFish:** Search for Hiawatha west forest primitive, water-access and dispersed names; Fetch corroborated [Pete's Lake](https://www.fs.usda.gov/r09/hiawatha/recreation/petes-lake-campground), [Widewaters](https://www.fs.usda.gov/r09/hiawatha/recreation/widewaters-campground), [Island Lake](https://www.fs.usda.gov/r09/hiawatha/recreation/island-lake-campground), [Council Lake](https://www.fs.usda.gov/r09/hiawatha/recreation/council-lake-campsites), [Hovey](https://www.fs.usda.gov/r09/hiawatha/recreation/hovey-lake-campsites), [Ewing Point](https://www.fs.usda.gov/r09/hiawatha/recreation/ewing-point-campsite) and neighboring Bass/Bear/Little Bass/Mowe. Agent not needed for direct official HTML. No genuinely new Alger site found in this bounded correction pass.
+
+| Existing original ID | Disposition | Coordinate basis / service facts |
+|---|---|---|
+| Pete's Lake `s690` | CORRECT Local to Rustic and operator/source | Official USFS **46.231281,-86.604125** campground guide; nonelectric, vault toilets/potable water, standard $24–26 / group $50, May 13–Sep 30; Site Closed Oct 27 |
+| Widewaters `s999` | CORRECT Local to Rustic and operator/source | Official USFS **46.21950445,-86.62840611** campground guide; nonelectric, vault toilets/potable water, single $22/double $44, May 15–Sep 15; Site Closed Oct 27 |
+| Island Lake `s433` | CORRECT stale price/citation, retain Rustic | Official USFS **46.270452,-86.65081** campground guide; nonelectric, vault toilets/potable water, standard $26/group $65, May 15–Sep 7; Site Closed Oct 27; previous $15 Huron-Manistee citation inaccurate |
+
+**Outside-lock review:** Ewing Point `s1088` appears in Schoolcraft County and is a reservation-only hike/walk-in campsite with a 650-foot trail, not public drive-up Rustic as its current data claims; handle only during Schoolcraft county lock. Hovey equine trailhead `s252` remains a distinct community-origin active record without a proven independent three-report same-site chain or controlling official trailhead overnight status; do not assume a duplicate or legal dispersed campsite without further proof. No invented coordinates or pads, all agency GPS are explicitly campground-area guides.
+
+**QA:** No new pins; original MI.js retains 532 unique IDs; MI2 and all supplements untouched; manifest MI remains 797; pending 5, leads 2,032, rejected 813 unchanged; 0/83 counties closed. Unified `version.js` app/data/build `v23.1.157`. index.html unchanged, its existing dynamic version.js loader remains authoritative. Next Alger unswept anchored matrix, then Delta; Marquette last U.P.
