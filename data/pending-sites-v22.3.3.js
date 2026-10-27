@@ -111,32 +111,6 @@ window.CAMPING_PENDING_DATA = [
     "reviewNotes": "Seeded from official forest-service source comparison. Verify placement and promote when satisfied."
   },
   {
-    "id": "pending-mi-009",
-    "legacyId": "pending-mi-009",
-    "name": "Little Dune 2 Campsite on Grand Island",
-    "lat": 46.477564,
-    "lng": -86.628804,
-    "stateCode": "MI",
-    "stateName": "Michigan",
-    "layer": "federal",
-    "subtype": "rustic",
-    "siteForm": "campsite",
-    "description": "Missing from current MI file; Grand Island campsite with explicit coordinates.",
-    "website": "https://www.fs.usda.gov/r09/hiawatha/recreation/little-dune-2-campsite-grand-island",
-    "owner": "US Forest Service",
-    "layerLabel": "Needs verification",
-    "cost": "",
-    "showers": "",
-    "verificationStatus": "pending",
-    "confidence": 75,
-    "sourceCount": 1,
-    "pending": true,
-    "reviewFlags": [
-      "missing_from_verified"
-    ],
-    "reviewNotes": "Seeded from official forest-service source comparison. Verify placement and promote when satisfied."
-  },
-  {
     "id": "pending-mi-018",
     "legacyId": "pending-mi-018",
     "name": "Round Lake Campground and Day Use Area",
