@@ -12847,7 +12847,6 @@ window.CAMPING_REJECTED = [
     "notes": "Retired from data/leads.js during Michigan Bulldog closeout. Treat as stale/directory-only; do not preserve another operator-contact lead.",
     "sourceUrl": ""
   },
-
   {
     "id": "mi-v231116-retired-mi-v23192-lead-park-place-of-the-north",
     "state": "MI",
@@ -14335,5 +14334,24 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": null,
     "lastCheckedVersion": "v23.1.142",
     "notes": "County 2026 official roster includes this real facility but its first-party operating rules limit campground eligibility. Reopen only if public policy changes."
+  },
+  {
+    "id": "mi-v231158-alger-council-lake-distributed-alias-duplicate",
+    "state": "MI",
+    "name": "Council Lake Dispersed Campsite (duplicate of USFS Council Lake Campsites)",
+    "countyRegion": "Alger County / Council Lake / Munising Ranger District",
+    "rejectedAsLayer": "Duplicate public Rustic / Primitive or Boondocking / Dispersed record",
+    "rejectionType": "duplicate_federal_campsite_legacy_false_dnr_ownership",
+    "rejectionStrength": "same_four_site_source_count_and_colocated_named_usfs_campground",
+    "currentDecision": "REJECT / DO NOT IMPORT duplicate",
+    "sourceSummary": "Official USFS Council Lake Campsites page and Recreation.gov facility 233210 establish four primitive reservable sites at Council Lake. Third-party campsitephotos 'Council Lake Dispersed Campsite' directory page also identifies Munising Ranger District and exactly four campsites, with GPS ~38m from official USFS campground point. Former active s214 represented this same physical campground with incorrect Michigan DNR operator, DNR fee and first-come claims, not another campground or proven legal free dispersed point. Original official facility remains active s1077.",
+    "sourceUrl": "https://www.fs.usda.gov/r09/hiawatha/recreation/council-lake-campsites",
+    "supportingUrls": [
+      "https://www.recreation.gov/camping/campgrounds/233210",
+      "https://www.campsitephotos.com/campground/mi/council-lake-dispersed-campsite/"
+    ],
+    "relatedActiveOrPendingRecord": "s1077 Council Lake Campsites; retired duplicate s214",
+    "lastCheckedVersion": "v23.1.158",
+    "notes": "Preserve this alias/reject memory; do not reintroduce another campsite pin based solely on name, DNR hallucination, third-party duplicate GIS point, or adjacency. Revisit only with evidence of physically independent authorized camping site distinct from USFS four."
   }
 ];

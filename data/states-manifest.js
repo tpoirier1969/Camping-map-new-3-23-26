@@ -190,7 +190,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 797,
+    "count": 796,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.158: Alger Council Lake duplicate s214 retired into rejection/alias memory; s1077 official four-site Rustic location/source clarified; MI 796 active; Alger remains OPEN.",
       "v23.1.157: Alger Hiawatha west official Pete's Lake and Widewaters local-to-Rustic corrections and Island Lake source/fee/GPS cleanup; MI still 797, Alger OPEN.",
       "v23.1.156: Alger Hovey Lake duplicate s411 retired; official rustic Hovey Lake Campsites s412 source, water, access and description corrected; Michigan 797 active.",
       "v23.1.155: Pictured Rocks official Grand Sable Lake boat-in-only one-site campground added as approximate NPS-sourced guide point, NPS 2026 planner and Recreation.gov permit. MI 798 active, pending 5; Alger OPEN.",

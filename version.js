@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.157";
-window.CAMPING_APP_BUILD = "mi-alger-hiawatha-west-rustic-operator-corrections";
-window.CAMPING_DATA_VERSION = "v23.1.157";
-window.CAMPING_DATA_BUILD = "mi-alger-hiawatha-west-rustic-operator-corrections";
-window.CAMPING_VERSION = "v23.1.157";
+window.CAMPING_APP_VERSION = "v23.1.158";
+window.CAMPING_APP_BUILD = "mi-alger-council-lake-duplicate-retirement";
+window.CAMPING_DATA_VERSION = "v23.1.158";
+window.CAMPING_DATA_BUILD = "mi-alger-council-lake-duplicate-retirement";
+window.CAMPING_VERSION = "v23.1.158";
 window.CAMPING_BUILD = {
-  version: "v23.1.157",
-  build: "mi-alger-hiawatha-west-rustic-operator-corrections",
-  dataVersion: "v23.1.157",
-  dataBuild: "mi-alger-hiawatha-west-rustic-operator-corrections",
+  version: "v23.1.158",
+  build: "mi-alger-council-lake-duplicate-retirement",
+  dataVersion: "v23.1.158",
+  dataBuild: "mi-alger-council-lake-duplicate-retirement",
   released: "2026-10-27",
-  label: "Michigan Alger Hiawatha-west three USFS campground corrections"
+  label: "Michigan Alger Council Lake USFS alias duplicate retirement"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
