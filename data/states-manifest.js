@@ -190,7 +190,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 795,
+    "count": 796,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.153: Alger Grand Island Juniper Flats independent USFS/Recreation.gov group campsite, distinct from Murray Bay; +1 Boat / Backpack. Michigan 796 active, 6 raw pending, 0 counties closed.",
       "v23.1.152: Alger Grand Island exact official Channel Marker and Hardwood hike/boat-in campsites promoted from pending; Michigan active 795, raw pending 6; 0 counties complete.",
       "v23.1.151: Newaygo Norwich/Hungerford six-site bookable private camping operation verified on Hipcamp but precise site mapping intentionally withheld; one well-sourced lead added, no fake active/pending point; Michigan active stays 793.",
       "v23.1.150: Adds one operator-verified current Martiny Lakes Hide-Away (former Shooltz Landing) private campground at named operator-linked business POI in Mecosta Martiny Chain; Michigan active 793; no duplicate Aliases/pending moves; both current counties OPEN.",
