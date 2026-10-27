@@ -14353,5 +14353,41 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "s1077 Council Lake Campsites; retired duplicate s214",
     "lastCheckedVersion": "v23.1.158",
     "notes": "Preserve this alias/reject memory; do not reintroduce another campsite pin based solely on name, DNR hallucination, third-party duplicate GIS point, or adjacency. Revisit only with evidence of physically independent authorized camping site distinct from USFS four."
+  },
+  {
+    "id": "mi-v231160-alger-beachfront-posted-no-camping-pin-retired",
+    "state": "MI",
+    "name": "Lake Superior Beachfront (US Forest Land) — former disputed boondocking pin",
+    "countyRegion": "Alger County / Munising Bay / west Munising Tourist Park–Bay Furnace shoreline",
+    "rejectedAsLayer": "Boondocking / Dispersed active exact-site pin",
+    "rejectionType": "reported_posted_no_camping_and_unsafe_exact_site_geolocation",
+    "rejectionStrength": "three_independent_firsthand_sign_reports_and_controlling_usfs_occupancy_order",
+    "currentDecision": "REJECT / DO NOT IMPORT original exact-position active overnight pin",
+    "sourceSummary": "Current USDA Hiawatha Forest Alerts lists occupancy order #R910-16-10, which prohibits dispersed camping on posted 'No Camping' areas and within 50 ft of a waterbody unless otherwise posted; applies where land is Hiawatha National Forest. The original The Dyrt same-location listing at 46.43867848,-86.68928482 reports 2024-07-29 Bayou G firsthand multiple 'No Camping'/'Day Use Only' signs, 2024-09-26 Rachel S firsthand 'no camping or overnight parking' signs, and 2026-09-19 Alex R firsthand 'no camp signs' at the shore/approach. The listing itself now advises the site is not currently available for free camping. Earlier/higher positive reports refer to informal camps/fire rings and uncertain boundary, but do not verify legally allowed overnight camping at this precise pin. Ownership/adjacent USFS versus day-use land boundary not obtained: this rejection applies to the UNSAFE CURRENT PIN, not a blanket prohibition on all dispersed camping on nearby lawfully accessible Forest Service land. Reopen only when the exact campsite/zone, public ownership, posted permissions and lawful setbacks or permit exception are documented.",
+    "sourceUrl": "https://www.fs.usda.gov/sites/nfs/files/r09/hiawatha/publication/alerts/Dev-Disp%20Recreation%20Occupancy%20and%20Use_R9-10-16-10_0_508c.pdf",
+    "supportingUrls": [
+      "https://www.fs.usda.gov/r09/hiawatha/alerts",
+      "https://thedyrt.com/camping/michigan/lake-superior-beachfront-us-forest-land"
+    ],
+    "observedReports": [
+      {
+        "source": "Bayou G.",
+        "date": "2024-07-29",
+        "summary": "Firsthand visitor observed multiple 'No Camping'/'Day Use Only' signs."
+      },
+      {
+        "source": "Rachel S.",
+        "date": "2024-09-26",
+        "summary": "Firsthand visitor observed 'no camping or overnight parking' signs throughout named site."
+      },
+      {
+        "source": "Alex R.",
+        "date": "2026-09-19",
+        "summary": "Firsthand visitor reported 'no camp' signs and difficult beach access; could not drive through."
+      }
+    ],
+    "relatedActiveOrPendingRecord": "retired active s519; unresolved potential adjacent legal subarea preserved as mi-v231160-alger-beachfront-adjacent-legal-geometry-review in data/leads.js",
+    "lastCheckedVersion": "v23.1.160",
+    "notes": "The named older camping reports do not override published Forest Order where applicable or observed posted No Camping restrictions. No fake new point at a boat ramp, beach center, parking area or property centroid. If lawful adjacent areas are eventually proved they require distinct geometry and current evidence."
   }
 ];

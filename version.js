@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.159";
-window.CAMPING_APP_BUILD = "mi-alger-christmas-otter-operator-batch";
-window.CAMPING_DATA_VERSION = "v23.1.159";
-window.CAMPING_DATA_BUILD = "mi-alger-christmas-otter-operator-batch";
-window.CAMPING_VERSION = "v23.1.159";
+window.CAMPING_APP_VERSION = "v23.1.160";
+window.CAMPING_APP_BUILD = "mi-alger-beachfront-illegal-pin-retirement";
+window.CAMPING_DATA_VERSION = "v23.1.160";
+window.CAMPING_DATA_BUILD = "mi-alger-beachfront-illegal-pin-retirement";
+window.CAMPING_VERSION = "v23.1.160";
 window.CAMPING_BUILD = {
-  version: "v23.1.159",
-  build: "mi-alger-christmas-otter-operator-batch",
-  dataVersion: "v23.1.159",
-  dataBuild: "mi-alger-christmas-otter-operator-batch",
+  version: "v23.1.160",
+  build: "mi-alger-beachfront-illegal-pin-retirement",
+  dataVersion: "v23.1.160",
+  dataBuild: "mi-alger-beachfront-illegal-pin-retirement",
   released: "2026-10-27",
-  label: "Michigan Alger Christmas Pictured Rocks RV and Otter Lake operator integration"
+  label: "Michigan Alger beach no-camping sign and official Forest Order reconciliation"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;

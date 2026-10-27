@@ -39359,5 +39359,28 @@ window.CAMPING_LEADS = [
     "lastCheckedVersion": "v23.1.154",
     "discoveryMethod": "TinyFish Search surfaced original USFS/booking name and TinyFish Fetch read USFS/Recreation.gov source; no Agent",
     "notes": "Distinct named missing Grand Island site; do not add a fabricated exact map marker. Preserve official named-identity provenance until coordinate rescue."
+  },
+  {
+    "id": "mi-v231160-alger-beachfront-adjacent-legal-geometry-review",
+    "state": "MI",
+    "name": "West Munising Bay / Lake Superior Beachfront adjacent lawful dispersed-area boundary check",
+    "countyRegion": "Alger / Munising Bay western shoreline / Au Train Township eastern shore",
+    "leadType": "specific_boundary_legal_status_and_area_geometry_review",
+    "likelyLayer": "Boondocking / Dispersed ONLY if official legal area is independently located",
+    "status": "official_rule_area_boundary_external_action",
+    "priority": "High — remove confusion about posted day-use shore; do not import an unverified pin",
+    "sourceType": "USDA Hiawatha Forest Order plus original camper observations, not 3 uncontradicted same-spot legal overnights",
+    "coordinate": null,
+    "coordinateConfidence": "NO CURRENT DEFENSIBLE LEGAL CAMPING-SITE COORDINATE",
+    "blocker": "The former s519 user pin is on/next to reported 'No Camping'/'Day Use Only' beachfront. Three firsthand reports show signs in 2024/2026, although another visitor described unmarked wooded/forest camping near day-use area. Exact federal/other ownership line, closure signs, legal 50-ft setback, permitted campsites and vehicle route not independently mapped.",
+    "nextAction": "Contact Hiawatha National Forest Munising Ranger District at 906-387-2512 with original source point 46.43867848,-86.68928482. Request parcel/ownership and recreation/day-use/forest-order sign geometry for the beachfront and nearest adjoining forest road, whether ANY public overnight camping exists outside posted area and at least 50ft from Lake Superior, and a shareable designated exact campsite or bounded rule-area official GIS polygon if affirmative. Also check Alger County parcel GIS/USFS surface ownership and current MVUM. Do not restore s519 or invent a close-by proxy coordinate.",
+    "sourceUrl": "https://thedyrt.com/camping/michigan/lake-superior-beachfront-us-forest-land",
+    "relatedSourceUrls": [
+      "https://www.fs.usda.gov/sites/nfs/files/r09/hiawatha/publication/alerts/Dev-Disp%20Recreation%20Occupancy%20and%20Use_R9-10-16-10_0_508c.pdf",
+      "https://www.fs.usda.gov/r09/hiawatha/alerts"
+    ],
+    "relatedActiveOrPendingRecord": "original s519 removed v23.1.160; related rejected mi-v231160-alger-beachfront-posted-no-camping-pin-retired",
+    "lastCheckedVersion": "v23.1.160",
+    "notes": "This is a legitimate bounded agency acquisition/geometry task, not permission to camp. 1–2 old positive claims do not override distinct current no-camping observations; if new independent same-location overnight evidence is obtained, apply current three-report Community Reported rule and official contradicting evidence check."
   }
 ];
