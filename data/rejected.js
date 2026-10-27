@@ -12747,14 +12747,20 @@ window.CAMPING_REJECTED = [
     "id": "mi-v231116-retired-mi-v23192-lead-wandering-wheels-campground",
     "state": "MI",
     "name": "Wandering Wheels Campground",
-    "countyRegion": "",
-    "rejectedAsLayer": "Lead ledger candidate",
-    "rejectionType": "REJECT / DO NOT IMPORT",
-    "sourceSummary": "Operator/current business, reservation, map/POI and runtime searches. No current public campground operator or booking proof was recovered.",
-    "relatedActiveOrPendingRecord": "—",
-    "lastCheckedVersion": "v23.1.116",
-    "notes": "Retired from data/leads.js during Michigan Bulldog closeout. Treat as stale/defunct until a current operator demonstrates public transient camping.",
-    "sourceUrl": ""
+    "countyRegion": "Alger County / Wetmore / E10102 M-28",
+    "rejectedAsLayer": "Duplicate historical name of active KOA, NOT a separate campground",
+    "rejectionType": "historical_operator_renamed_same_physical_campground",
+    "sourceSummary": "The older Wandering Wheels Campground operated at E10102 Highway M-28 in Wetmore with phone 906-387-3315. Current Munising / Pictured Rocks KOA Journey lists the same E10102 address and number. RVing Women 2018 rally notice explicitly says 'This campground will become a KOA in 2018'; CampgroundViews describes it as formerly Wandering Wheels. Prior rejection incorrectly said no current operator recovered. The site never vanished physically: it continues as current KOA, represented by active mi-private-munising-pictured-rocks-koa-journey. Avoid a second site pin under obsolete name.",
+    "relatedActiveOrPendingRecord": "mi-private-munising-pictured-rocks-koa-journey",
+    "lastCheckedVersion": "v23.1.161",
+    "notes": "Retain only this alias/duplicate memory, not a permanent closure claim. KOA itself is active and source-backed. The name Wandering Wheels may remain in historical directories that lag operator branding.",
+    "sourceUrl": "https://koa.com/campgrounds/pictured-rocks/site-type/rv-camping-sites/",
+    "rejectionStrength": "same_street_address_and_phone_and_2018_conversion_documentation",
+    "currentDecision": "REJECT / DO NOT IMPORT second Wanderings Wheels pin; CURRENT ACTIVE KOA is the same campground",
+    "supportingUrls": [
+      "https://www.campgroundviews.com/campground/wandering-wheels-campground",
+      "https://www.rvingwomen.org/events/EventDetails.aspx?id=1020622"
+    ]
   },
   {
     "id": "mi-v231116-retired-mi-v23192-lead-anderson-lake-pathway-dispersed-backpack-camping",
