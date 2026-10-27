@@ -34805,25 +34805,6 @@ window.CAMPING_LEADS = [
     "notes": ""
   },
   {
-    "id": "mi-v23192-lead-pictured-rocks-rv-park-and-campground",
-    "state": "MI",
-    "name": "Pictured Rocks RV Park & Campground",
-    "countyRegion": "Alger / Christmas",
-    "leadType": "up_public_discovery_coordinate_or_correction_rescue_v23192",
-    "likelyLayer": "Private Campgrounds",
-    "status": "coordinate_rescue",
-    "priority": "High",
-    "sourceType": "UP public-discovery worker return",
-    "coordinate": null,
-    "coordinateConfidence": "NO HONEST ACTIVE-MAP COORDINATE ACCEPTED",
-    "blocker": "Operator proof and address only; exact campground pin needed.",
-    "nextAction": "Acquire official/operator map, reservation map, Google/Apple/Bing map POI, OSM/Overpass point, DNR/USFS GIS, aerial-confirmed campground loop, or direct agency/operator confirmation. Do not use lake centers, park centroids, offices, boat launches, ferry docks, beaches, trailheads, or broad property centers.",
-    "relatedActiveOrPendingRecord": null,
-    "lastCheckedVersion": "v23.1.92",
-    "leadRejectedFileResult": "Added/retained as durable lead from U.P. public-discovery workers because the active import gate would not accept missing/weak/ambiguous coordinates or unresolved proof.",
-    "notes": ""
-  },
-  {
     "id": "mi-v23192-lead-runkle-lake-campground",
     "state": "MI",
     "name": "Runkle Lake Campground",
