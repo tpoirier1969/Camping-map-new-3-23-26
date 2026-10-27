@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.151";
-window.CAMPING_APP_BUILD = "mi-newaygo-hungerford-private-location-lead";
-window.CAMPING_DATA_VERSION = "v23.1.151";
-window.CAMPING_DATA_BUILD = "mi-newaygo-hungerford-private-location-lead";
-window.CAMPING_VERSION = "v23.1.151";
+window.CAMPING_APP_VERSION = "v23.1.152";
+window.CAMPING_APP_BUILD = "mi-alger-grand-island-pending-promotion";
+window.CAMPING_DATA_VERSION = "v23.1.152";
+window.CAMPING_DATA_BUILD = "mi-alger-grand-island-pending-promotion";
+window.CAMPING_VERSION = "v23.1.152";
 window.CAMPING_BUILD = {
-  version: "v23.1.151",
-  build: "mi-newaygo-hungerford-private-location-lead",
-  dataVersion: "v23.1.151",
-  dataBuild: "mi-newaygo-hungerford-private-location-lead",
-  released: "2026-10-26",
-  label: "Michigan Newaygo private Hungerford source-and-location lead"
+  version: "v23.1.152",
+  build: "mi-alger-grand-island-pending-promotion",
+  dataVersion: "v23.1.152",
+  dataBuild: "mi-alger-grand-island-pending-promotion",
+  released: "2026-10-27",
+  label: "Alger Grand Island two verified backcountry campsite promotions"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
