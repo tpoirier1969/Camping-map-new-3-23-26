@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.163";
-window.CAMPING_APP_BUILD = "mi-alger-burt-woodland-park-2026-operator-update";
-window.CAMPING_DATA_VERSION = "v23.1.163";
-window.CAMPING_DATA_BUILD = "mi-alger-burt-woodland-park-2026-operator-update";
-window.CAMPING_VERSION = "v23.1.163";
+window.CAMPING_APP_VERSION = "v23.1.164";
+window.CAMPING_APP_BUILD = "mi-alger-bay-furnace-usfs-rustic-correction";
+window.CAMPING_DATA_VERSION = "v23.1.164";
+window.CAMPING_DATA_BUILD = "mi-alger-bay-furnace-usfs-rustic-correction";
+window.CAMPING_VERSION = "v23.1.164";
 window.CAMPING_BUILD = {
-  version: "v23.1.163",
-  build: "mi-alger-burt-woodland-park-2026-operator-update",
-  dataVersion: "v23.1.163",
-  dataBuild: "mi-alger-burt-woodland-park-2026-operator-update",
+  version: "v23.1.164",
+  build: "mi-alger-bay-furnace-usfs-rustic-correction",
+  dataVersion: "v23.1.164",
+  dataBuild: "mi-alger-bay-furnace-usfs-rustic-correction",
   released: "2026-10-28",
-  label: "Michigan Alger Woodland Park township booking and season update"
+  label: "Michigan Alger Bay Furnace operator rustic correction"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
