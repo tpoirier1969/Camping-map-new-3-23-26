@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.165: Hickey Marsh existing boondocking site labeled Community Reported using original independent overnight campers and USFS restriction caveats; no added pin, MI 798.",
       "v23.1.164: Alger Bay Furnace s55 official Rustic classification, campground guide GPS, 2026 fees/season and no-restroom warning; MI 798 unchanged.",
       "v23.1.163: Burt Township Woodland Park existing s1021 corrected to current official 167-site all-reservation, late-season phone-only policies; Michigan 798 remains unchanged, Alger OPEN.",
       "v23.1.162: Corrects existing Onota Tyoga s917 Local/Modern to first-party four-site Rustic, verified township/DNR source; one nonmodern Rock River Canyon camping-geometry lead retained; Michigan 798 active unchanged.",
