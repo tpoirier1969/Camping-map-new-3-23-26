@@ -39560,5 +39560,34 @@ window.CAMPING_LEADS = [
     "lastCheckedDate": "2026-11-04",
     "lastCheckedVersion": "v23.1.169",
     "notes": "Found by targeted TinyFish Search 'Deerton camping Hipcamp -Wilderness' (not by generic Onota campground query), then verified by direct Fetch. Unavailable booking and no precise legal camping location: durable lead only, NOT active and NOT Needs Verification map pin."
+  },
+  {
+    "id": "mi-v231170-alger-hovey-oakwood-equine-trailhead-exact-overnight-review",
+    "state": "MI",
+    "name": "Hovey Lake Equine Trailhead / Oakwood Trails by Hovey Lake — specific overnight legality and location",
+    "countyRegion": "Alger County / Munising Township / Hovey Lake Road / Oakwood Horse Trail",
+    "leadType": "retired_unsupported_existing_active_record_s252 / exact_overight_permission_and_site_geometry",
+    "likelyLayer": "Boondocking / Dispersed only if valid exact same-spot camping independently confirmed; Rustic if officially designated equestrian camp",
+    "status": "specific_overnight_not_proven_source_listing_only_no_firsthand_review",
+    "priority": "High — external USFS campground/staging-lot permission needed",
+    "sourceType": "The Dyrt two named place listings, zero original reviews for both; township official recreation plan describes Oakwood Horse Trail as equestrian TRAIL rather than campground",
+    "coordinate": {
+      "lat": 46.287288525247135,
+      "lng": -86.70274273218466
+    },
+    "coordinateConfidence": "Legacy s252 exact directory trailhead point, NOT a verified legal campsite; Oakwood Trails directory pin 46.287188,-86.7030855 is roughly 30m away.",
+    "blocker": "Former s252 expressly warned that exact camping legality and access were not proved. The Dyrt named equine trailhead and Oakwood Trails listings each have ZERO first-person camper reviews; their summaries are directory/automated assertions, not 3 independent original firsthand stays or controlling official site proof. Official township inventory calls Oakwood an 11-mile horse trail. Valid nearby Hovey Lake Campsites s412 is a distinct four-site no-fee campground ~400m northeast; its permission cannot be projected onto horse-trailer parking.",
+    "nextAction": "Ask Hiawatha National Forest Munising Ranger District (906-387-2512) about actual horse-camp/vehicle sleeping legality at 46.287288525,-86.702742732, current use restrictions and exact campground or lawful dispersed pull-in geometry. Alternatively document 3 independent original same-location overnight reports and controlling rule/ownership/posting checks. Keep old trailhead coordinate only as a research clue, never as an active/pending campsite proxy.",
+    "sourceUrl": "https://thedyrt.com/camping/michigan/dispersed-camping-hovey-lake-equine-trailhead",
+    "sourceUrls": [
+      "https://thedyrt.com/camping/michigan/dispersed-camping-hovey-lake-equine-trailhead",
+      "https://thedyrt.com/camping/michigan/oakwood-trails-by-hovey-lake",
+      "https://www.fs.usda.gov/r09/hiawatha/recreation/hovey-lake-campsites",
+      "https://www.munisingtownship.org/wp-content/uploads/2023/10/Draft-Recreation-Plan.pdf"
+    ],
+    "relatedActiveOrPendingRecord": "Retired previous active s252 in v23.1.170; distinct valid s412 Hovey Lake Campsites retained; no Needs Verification pin.",
+    "lastCheckedDate": "2026-11-04",
+    "lastCheckedVersion": "v23.1.170",
+    "notes": "Do not invent camping at trailhead; no legal ban is asserted on surrounding eligible national-forest dispersed camping. The two listings from one site with zero reviews are not separate original camper reports. USFS contact is next acquisition route."
   }
 ];
