@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.169";
-window.CAMPING_APP_BUILD = "mi-alger-onota-deerton-camping-evidence-closeout";
-window.CAMPING_DATA_VERSION = "v23.1.169";
-window.CAMPING_DATA_BUILD = "mi-alger-onota-deerton-camping-evidence-closeout";
-window.CAMPING_VERSION = "v23.1.169";
+window.CAMPING_APP_VERSION = "v23.1.170";
+window.CAMPING_APP_BUILD = "mi-alger-h13-ewing-hovey-source-audit";
+window.CAMPING_DATA_VERSION = "v23.1.170";
+window.CAMPING_DATA_BUILD = "mi-alger-h13-ewing-hovey-source-audit";
+window.CAMPING_VERSION = "v23.1.170";
 window.CAMPING_BUILD = {
-  version: "v23.1.169",
-  build: "mi-alger-onota-deerton-camping-evidence-closeout",
-  dataVersion: "v23.1.169",
-  dataBuild: "mi-alger-onota-deerton-camping-evidence-closeout",
+  version: "v23.1.170",
+  build: "mi-alger-h13-ewing-hovey-source-audit",
+  dataVersion: "v23.1.170",
+  dataBuild: "mi-alger-h13-ewing-hovey-source-audit",
   released: "2026-11-04",
-  label: "Alger Onota Deerton camping and conservancy evidence closeout"
+  label: "Alger H-13 Ewing hike-in and Hovey exact-pin source QA"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
