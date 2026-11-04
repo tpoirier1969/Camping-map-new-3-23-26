@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.165";
-window.CAMPING_APP_BUILD = "mi-alger-hickey-marsh-community-proof";
-window.CAMPING_DATA_VERSION = "v23.1.165";
-window.CAMPING_DATA_BUILD = "mi-alger-hickey-marsh-community-proof";
-window.CAMPING_VERSION = "v23.1.165";
+window.CAMPING_APP_VERSION = "v23.1.166";
+window.CAMPING_APP_BUILD = "mi-alger-h58-joeida-rustic-add";
+window.CAMPING_DATA_VERSION = "v23.1.166";
+window.CAMPING_DATA_BUILD = "mi-alger-h58-joeida-rustic-add";
+window.CAMPING_VERSION = "v23.1.166";
 window.CAMPING_BUILD = {
-  version: "v23.1.165",
-  build: "mi-alger-hickey-marsh-community-proof",
-  dataVersion: "v23.1.165",
-  dataBuild: "mi-alger-hickey-marsh-community-proof",
-  released: "2026-10-28",
-  label: "Michigan Alger Bay Furnace operator rustic correction"
+  version: "v23.1.166",
+  build: "mi-alger-h58-joeida-rustic-add",
+  dataVersion: "v23.1.166",
+  dataBuild: "mi-alger-h58-joeida-rustic-add",
+  released: "2026-11-04",
+  label: "Alger H-58 JoeIda eight-site Rustic campground added"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
