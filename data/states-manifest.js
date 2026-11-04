@@ -190,7 +190,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 799,
+    "count": 798,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.170: Alger southern Munising H-13 Ewing Point s1088 Rustic to Boat/Backpack (hike-in proof), unsupported equine staging-lot s252 retired to lead, Valley Spur/Moccasin access false-camp guardrail; MI 798 and pending 5; Alger OPEN.",
       "v23.1.169: Alger Onota/Deerton bounded zero-add: confirmed Wilderness Haven active but withheld campground coordinate, one not-bookable Deerton Swamp Camp lead, two nature preserves and Onota day-use/launch guardrail rejected; MI 799 and pending 5 unchanged; Alger OPEN.",
       "v23.1.168: Alger Limestone/Chatham/Trenary bounded zero-add, +3 Alger camping location/access leads (Hidden Meadow, Spiral Center, Deerton Wilderness Haven), +1 geographically Delta North 41 deferred lead, +1 exhibitor-only Alger Fairgrounds reject; MI 799 unchanged, Alger OPEN.",
       "v23.1.167: Alger southern Burt/Adams Trail: existing s6 DNR LOTS Alger Forestry parcel correction; +1 Rhody Trail rejected safety guardrail; +1 Adams active-record legality-review lead; MI 799 unchanged; Alger OPEN.",
