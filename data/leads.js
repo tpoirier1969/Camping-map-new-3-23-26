@@ -39589,5 +39589,58 @@ window.CAMPING_LEADS = [
     "lastCheckedDate": "2026-11-04",
     "lastCheckedVersion": "v23.1.170",
     "notes": "Do not invent camping at trailhead; no legal ban is asserted on surrounding eligible national-forest dispersed camping. The two listings from one site with zero reviews are not separate original camper reports. USFS contact is next acquisition route."
+  },
+  {
+    "id": "mi-v231171-alger-coalwood-trail-s1092-exact-overnight-proof-rescue",
+    "state": "MI",
+    "name": "Coalwood Trail Dispersed Campsite (former s1092) — named claimed pond pull-in near Coalwood Trail",
+    "countyRegion": "Alger County / Munising Township / east Coalwood Recreational ORV Trail / Wetmore southwest of Shingleton",
+    "leadType": "retired_existing_active_exact_campsite_community_reports_and_USFS_legal_site_geometry_review",
+    "likelyLayer": "Boondocking / Dispersed only after 3 independent same-specific-site original reports OR controlling USFS site/area permission, actual nonproxy camp spot position, fire and forest orders checked",
+    "status": "one_original_first_person_visit_report_only_no_overnight_confirmation",
+    "priority": "High — preserve legitimate site lead and rescue exact legal camp position",
+    "coordinate": {
+      "lat": 46.36429086,
+      "lng": -86.5648994
+    },
+    "coordinateConfidence": "Historic map s1092 point copied from The Dyrt; independently not verified as a permitted overnight space, tent pad or existing fire ring. Near a small pond; proximity to water triggers USFS 50-ft restriction unless specifically excepted.",
+    "sourceType": "The Dyrt original independent reviewer Brad W, visited August 2024 (one original observation, mosquitoes beside a small pond); Dyrt syndicated pages and TheOutdoorsApp/campinginusa repeats are copies, NOT independent original reports.",
+    "sourceDate": "2024-08-10",
+    "sourceUrl": "https://thedyrt.com/camping/michigan/dispersed-camping-off-coalwood-trail",
+    "sourceUrls": [
+      "https://thedyrt.com/camping/michigan/dispersed-camping-off-coalwood-trail",
+      "https://www.fs.usda.gov/r09/hiawatha/alerts/occupancy-and-use-within-hiawatha-national-forest",
+      "https://www.anyplaceamerica.com/directory/mi/alger-county-26003/trails/coalwood-recreational-trail-2098029/"
+    ],
+    "blocker": "One Dyrt eyewitness describes mosquitoes near a small pond, but does not expressly attest sleeping overnight at the pin. No other genuinely independent SAME SITE original overnight camper account or officially designated campground, site-specific exception or legal dispersed spot established. 2016 USFS Order R910-16-10 currently listed with no end date forbids dispersed camping within 50 ft of water except as otherwise posted; named Coalwood is an ORV trail, not itself a federally designated campsite. The site point's position relative to forest ownership, road right-of-way, water and posted closure is unknown.",
+    "nextAction": "Contact USFS Munising Ranger District 906-387-2512 about the reported 46.36429086,-86.5648994 camp pull-in; obtain official current MVUM/land/road, posted orders, minimum 50-ft water setback and off-trail exact camp point; separately obtain at least 3 independent genuine same-location camper original reports. A separate general Hiawatha dispersed-use rule does not license a pondside campsite or ORV trail right-of-way.",
+    "relatedActiveOrPendingRecord": "Previously active MI.js s1092 retired v23.1.171, no Needs Verification/active proxy; no effect on designated campgrounds",
+    "lastCheckedDate": "2026-11-04",
+    "lastCheckedVersion": "v23.1.171",
+    "notes": "Do not call this disproven or closed: one real firsthand visitor report is a lead, not automatic reject. Generic Dyrt roundup articles, mirrored listings and cell signal checks are not independent overnight accounts. No camping pin at unvalidated precise site. Record-only until exact overnight legality or 3 independent original same-spot campers plus no conflicting order."
+  },
+  {
+    "id": "mi-v231171-alger-shingleton-hanley-chamberlain-fr2251-roadside-listing-location-rescue",
+    "state": "MI",
+    "name": "National Forest Road 2251 / Hanley–Chamberlain Road free campsite listing",
+    "countyRegion": "Shingleton / Munising Township Alger–Schoolcraft county boundary corridor / FR 2251–M-94, exact segment and county assignment unproven",
+    "leadType": "community_map_listing_one_source_exact_site_url_GIS_road_legality_rescue",
+    "likelyLayer": "Boondocking / Dispersed only for a defensible lawfully campable specific pull-in or bounded rule-area marker",
+    "status": "one_directory_map_listing_named_road_only_site_spot_unretrieved",
+    "priority": "Medium — specific named lead but no exact campsite pin",
+    "sourceType": "FreeCampsites.net indexed original map listing: 'National Forest Rd 2251 - Chamberlain Road - Shingleton, Michigan'; onX independently corroborates road name FS 2251 Hanley/Chamberlain Road, NOT proof of camping.",
+    "sourceUrl": "https://freecampsites.net/#!Michigan",
+    "sourceUrls": [
+      "https://freecampsites.net/#!hiawatha+national+forest",
+      "https://www.onxmaps.com/offroad/beginner-offroad-trails-near-me/munising-mi",
+      "https://www.fs.usda.gov/r09/hiawatha/alerts/occupancy-and-use-within-hiawatha-national-forest"
+    ],
+    "coordinate": null,
+    "coordinateConfidence": "NO CAMPSITE COORDINATES: map category search only, not record-specific permalink. Road is ~8.7 miles long and is not a valid proxy site pin; county segment may cross into Schoolcraft.",
+    "blocker": "Search retrieved name only as an indexed FreeCampsites.net region-map result; no unique original location detail, source date, actual review text, camper photo, exact camping turn-out, ownership or road-side permissions surfaced. USFS road route existence by onX is NOT permission to stop overnight anywhere along its length. Exact map page uses JavaScript fragment and did not expose a static site detail via two targeted Search paths; no costly map Agent run. No three independent original overnight reports.",
+    "nextAction": "Open the FreeCampsites.net interactive map and select original 'National Forest Rd 2251 - Chamberlain Road' result; obtain specific original source detail URL, reporter date, visitor text, map pin, photos and genuine camp spot. Cross-check 2025 Munising MVUM, Alger/Schoolcraft parcel boundary, Hiawatha Occupancy and Use Order R910-16-10, water distance, posted restrictions, actual pull-in not road center. Treat as 1 report/lead until verified, never use road centroid or segment-average pin.",
+    "lastCheckedDate": "2026-11-04",
+    "lastCheckedVersion": "v23.1.171",
+    "notes": "Original discovery = targeted TinyFish Search (freecampsites.net regional listings); independent onX secondary confirms road, not camping. No TinyFish run ID surfaced. Keep named lead durable, no false point."
   }
 ];
