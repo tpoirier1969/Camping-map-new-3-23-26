@@ -39408,4 +39408,32 @@ window.CAMPING_LEADS = [
     "lastCheckedVersion": "v23.1.162",
     "notes": "Wilderness area is not itself proof of legal campground or exact pad; no new active pin; Hiawatha 50ft water setback and no-camping postings control where applicable."
   }
+,
+  {
+    "id": "mi-v231167-alger-adams-trail-dirt-lot-exact-overnight-policy-review",
+    "state": "MI",
+    "name": "Adams Trail Dirt Lot (existing s6) — exact staging-lot overnight legality review",
+    "countyRegion": "Alger / southern Burt Township / Adams Trail near Kingston Plains",
+    "leadType": "existing_active_record_review / overnight_parking_legality",
+    "status": "specific_site_overnight_permission_unresolved",
+    "priority": "High",
+    "likelyLayer": "Overnight Parking if specific overnight parking legal; otherwise Needs Verification/ledger-only or retire active s6",
+    "sourceType": "Michigan DNR LOTS official parcel, DNR general dispersed camping policy, two independent firsthand The Dyrt camper reports",
+    "coordinate": {
+      "lat": 46.52726419,
+      "lng": -86.22152352
+    },
+    "coordinateConfidence": "Same named snowmobile/gravel staging lot community point; DNR-owned forestry parcel confirmed, not official campground coordinate",
+    "blocker": "Michigan DNR LOTS Parcels confirmed Alger County Forest Resources Division property ParID 11849 at reported lot point; 2 distinct The Dyrt original campers describe overnight use, but there is NO specific official confirmation that this working gravel/snowmobile staging lot permits overnight parking/camping. General state forest dispersed permission is not a blanket staging-lot authorization. No 3rd independent original same-site camper report found. Existing s6 falsely attributed ownership to Hiawatha NF; corrected in place. Correct permanent active-layer disposition remains unresolved.",
+    "nextAction": "Ask Michigan DNR Shingleton Forest Management Unit (906-452-6227, https://www.michigan.gov/dnr/about/contact/forestry): 'Does overnight sleeping/camping in vehicles at the exact Adams Trail Dirt Lot at 46.52726419,-86.22152352, Alger County DNR LOTS parcel 11849, comply with current DNR forest recreation rules, including parking/staging restrictions, permits and postings? Is it a legal overnight parking area, or is camping prohibited there?' Obtain written/local current answer or parcel/road-use GIS, and seek third genuinely independent firsthand overnight report before marking Community Reported. If overnight lot use is prohibited, retire s6 to rejection; if allowed, correct existing s6 layer to Overnight Parking or another proved type and verify exact entrance/posted site basis. Do not invent a campsite pad.",
+    "relatedActiveOrPendingRecord": "s6 Adams Trail Dirt Lot currently active, ownership corrected v23.1.167 but layer retained pending legal clarification",
+    "sourceUrls": [
+      "https://services3.arcgis.com/Jdnp1TjADvSDxMAX/ArcGIS/rest/services/DNRLOTSParcelsOPENDATA/FeatureServer/0/query?geometry=-86.22152352%2C46.52726419&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=County%2CParcelType%2CParcelStatus%2CDivisionDepartment%2CParID&returnGeometry=false&f=pjson",
+      "https://www.michigan.gov/dnr/things-to-do/camping-and-lodging/backpack",
+      "https://www.michigan.gov/dnr/about/contact/forestry",
+      "https://thedyrt.com/camping/michigan/adams-trail-dirt-lot"
+    ],
+    "lastCheckedVersion": "v23.1.167",
+    "notes": "The Dyrt original campers Laura M. Oct 7 2023 review (Aug overnight) and Nikki V. different overnight account; multiple syndications of this page count as same two sources. Live official parcels point query returned County Alger, Forestry managed ParcelID 11849. The LOTS result concerns land ownership only, not permission to occupy the lot."
+  }
 ];

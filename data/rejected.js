@@ -14396,4 +14396,34 @@ window.CAMPING_REJECTED = [
     "lastCheckedVersion": "v23.1.160",
     "notes": "The named older camping reports do not override published Forest Order where applicable or observed posted No Camping restrictions. No fake new point at a boat ramp, beach center, parking area or property centroid. If lawful adjacent areas are eventually proved they require distinct geometry and current evidence."
   }
+,
+  {
+    "id": "mi-v231167-alger-rhody-trail-pull-off-dnr-enforcement-warning",
+    "state": "MI",
+    "name": "Rhody Trail Pull Off — Grand Marais (DNR-enforcement no-camping warning)",
+    "countyRegion": "Alger / Burt Township / Grand Marais / Rhody Trail",
+    "rejectedAsLayer": "Boondocking / Dispersed or Overnight Parking",
+    "rejectionType": "reported_DNR_field_enforcement / non_designated_site / unsuitable_unverified_public_access",
+    "rejectionStrength": "reopenable_enforcement_conflict",
+    "currentDecision": "REJECT / DO NOT IMPORT AS ACTIVE AS SUBMITTED",
+    "canReopen": true,
+    "reopenIf": [
+      "Written current controlling DNR/operator/property permission establishes this exact location permits public overnight camping",
+      "Official parcel ownership and posted route/overnight rules supersede the first-person DNR no-camp enforcement account"
+    ],
+    "sourceSummary": "The only identifiable firsthand campsite review at the exact map pin (Kathleen B., 2025-05-31) reports camping there and receiving a DNR note at the tent on day two; she states a DNR officer explicitly explained the point is not a campsite and not the state land they believed it was, and Rhody is a winter trail rather than summer through road. No later authoritative permission or independent positive reports found. This is a reported field-officer warning via a camper, not a separately obtained official DNR prohibition order; avoid absolute legal claims without official confirmation.",
+    "coordinate": {
+      "lat": 46.62786468,
+      "lng": -86.09568057
+    },
+    "coordinateSource": "Named The Dyrt exact listed point; record for exclusion memory only, never an active overnight pin",
+    "sourceUrls": [
+      "https://thedyrt.com/camping/michigan/rhody-trail-pull-off",
+      "https://www.michigan.gov/dnr/things-to-do/camping-and-lodging/backpack",
+      "https://www.michigan.gov/dnr/about/contact/forestry"
+    ],
+    "relatedActiveOrPendingRecord": "No matching active/pending/rule-area campground at exact named location in live MI/MI2 and supplements",
+    "lastCheckedVersion": "v23.1.167",
+    "notes": "Reject trap: directory labels it dispersed but the only original visitor report is negative and cites a DNR officer note. Do not turn snowmobile/winter trail access or nearby lands into a legal exact camping point. DNR Shingleton Forestry 906-452-6227 for any formal reopening."
+  }
 ];

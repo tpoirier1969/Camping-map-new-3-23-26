@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.166";
-window.CAMPING_APP_BUILD = "mi-alger-h58-joeida-rustic-add";
-window.CAMPING_DATA_VERSION = "v23.1.166";
-window.CAMPING_DATA_BUILD = "mi-alger-h58-joeida-rustic-add";
-window.CAMPING_VERSION = "v23.1.166";
+window.CAMPING_APP_VERSION = "v23.1.167";
+window.CAMPING_APP_BUILD = "mi-alger-adams-rhody-source-reconciliation";
+window.CAMPING_DATA_VERSION = "v23.1.167";
+window.CAMPING_DATA_BUILD = "mi-alger-adams-rhody-source-reconciliation";
+window.CAMPING_VERSION = "v23.1.167";
 window.CAMPING_BUILD = {
-  version: "v23.1.166",
-  build: "mi-alger-h58-joeida-rustic-add",
-  dataVersion: "v23.1.166",
-  dataBuild: "mi-alger-h58-joeida-rustic-add",
+  version: "v23.1.167",
+  build: "mi-alger-adams-rhody-source-reconciliation",
+  dataVersion: "v23.1.167",
+  dataBuild: "mi-alger-adams-rhody-source-reconciliation",
   released: "2026-11-04",
-  label: "Alger H-58 JoeIda eight-site Rustic campground added"
+  label: "Alger southern Burt Adams DNR owner correction and Rhody reject reconciliation"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
