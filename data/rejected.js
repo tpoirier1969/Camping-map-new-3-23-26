@@ -14395,8 +14395,7 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "retired active s519; unresolved potential adjacent legal subarea preserved as mi-v231160-alger-beachfront-adjacent-legal-geometry-review in data/leads.js",
     "lastCheckedVersion": "v23.1.160",
     "notes": "The named older camping reports do not override published Forest Order where applicable or observed posted No Camping restrictions. No fake new point at a boat ramp, beach center, parking area or property centroid. If lawful adjacent areas are eventually proved they require distinct geometry and current evidence."
-  }
-,
+  },
   {
     "id": "mi-v231167-alger-rhody-trail-pull-off-dnr-enforcement-warning",
     "state": "MI",
@@ -14451,5 +14450,65 @@ window.CAMPING_REJECTED = [
     "lastCheckedDate": "2026-11-04",
     "lastCheckedVersion": "v23.1.168",
     "notes": "Not a camping ban for eligible exhibitors or vendors; it is an eligibility restriction. Current 2026 horses page references the dated 2022 rules, no recent contrary first-party public-access proof found. Reopen if current operator publicly changes overnight eligibility."
+  },
+  {
+    "id": "mi-v231169-alger-onota-laughing-whitefish-lake-preserve-no-camping",
+    "state": "MI",
+    "name": "Laughing Whitefish Lake Preserve — camping explicitly prohibited",
+    "countyRegion": "Alger County / Onota Township / Deerton / Laughing Whitefish Lake",
+    "rejectedAsLayer": "Boondocking / Dispersed or Boat / Backpack",
+    "rejectionType": "controlling_operator_explicit_no_camping",
+    "rejectionStrength": "hard_closure",
+    "currentDecision": "KEEP REJECTED — no camping",
+    "canReopen": false,
+    "reopenIf": [
+      "Only if The Nature Conservancy officially changes the preserve's no-camping rules and designates lawful public overnight access"
+    ],
+    "sourceSummary": "The Nature Conservancy, which owns and manages this 1,728-acre preserve, explicitly lists 'No camping, bonfires, fireworks or other fires' among prohibited activities; access is for foot recreation and specified activities, not overnight camping.",
+    "sourceUrl": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/laughing-whitefish-lake-preserve/",
+    "relatedActiveOrPendingRecord": "No campground pin, as checked against MI original, MI2, four loaded supplements and five pending; this is a prevent-false-pin guardrail.",
+    "lastCheckedDate": "2026-11-04",
+    "lastCheckedVersion": "v23.1.169",
+    "notes": "Township lists the preserve as a nature-hiking destination, not an overnight campground. No lake-center/trailhead pin. Do not confuse with nearby Tyoga's legal four-site campground."
+  },
+  {
+    "id": "mi-v231169-alger-onota-torys-woods-daylight-only-preserve",
+    "state": "MI",
+    "name": "Tory's Woods Conservation Preserve — daylight-only access",
+    "countyRegion": "Alger County / Onota Township / Sand River / Section Five Trail",
+    "rejectedAsLayer": "Boondocking / Dispersed / Overnight Parking",
+    "rejectionType": "owner_operator_daylight_only_and_noncamping_land_use",
+    "rejectionStrength": "hard_closure_for_public_overnight",
+    "currentDecision": "KEEP REJECTED — daylight recreation only",
+    "canReopen": true,
+    "reopenIf": [
+      "Upper Peninsula Land Conservancy first-party public overnight camping authorization or special camping policy is published"
+    ],
+    "sourceSummary": "Upper Peninsula Land Conservancy describes its 230-acre preserve near Sand River as open for passive recreation during daylight hours only; it is a nature-trail preserve, not a campground.",
+    "sourceUrl": "https://www.uplandconservancy.org/tori-s-woods",
+    "relatedActiveOrPendingRecord": "No source-backed overnight camping pin; reject public campground/boondocking conjecture at trailhead or preserve.",
+    "lastCheckedDate": "2026-11-04",
+    "lastCheckedVersion": "v23.1.169",
+    "notes": "No claimed statutory blanket no-camping order; this decision concerns the operator's expressly daylight-only public-access offering. Do not use its parking area as an overnight campsite."
+  },
+  {
+    "id": "mi-v231169-alger-onota-deer-lake-launch-whitefish-launch-day-use-sites",
+    "state": "MI",
+    "name": "Onota Deer Lake Park and boat-access sites — no campground established",
+    "countyRegion": "Alger County / Onota Township / Deer Lake / Laughing Whitefish River mouth / Lake Superior boat access",
+    "rejectedAsLayer": "Rustic / Primitive; Boat / Backpack; Overnight Parking",
+    "rejectionType": "wrong_feature_type_public_day_recreation_facilities_no_overnight_proof",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "KEEP REJECTED AS CAMPGROUND PINS — no site-specific public overnight permission proved",
+    "canReopen": true,
+    "reopenIf": [
+      "Current Onota Township, DNR or USFS source expressly designates a specific overnight camping/parking area at one of these facilities and gives usable camping-area location"
+    ],
+    "sourceSummary": "Onota Township inventories Deer Lake roadside swimming/picnic park, Deer Lake boat launch, Lake Superior boat launch, and John H. Hammer Laughing Whitefish River launch as water recreation facilities, while separately identifying Tyoga as the township's only established publicly available campground. No camping area, permission or independent overnight-use report at these access sites was identified.",
+    "sourceUrl": "https://www.onotatownship.org/recreation",
+    "relatedActiveOrPendingRecord": "Existing s917 Tyoga four-site Rustic is the distinct approved public campground. No campground pin should be assigned to the listed ramps, shore turnouts or picnic lot.",
+    "lastCheckedDate": "2026-11-04",
+    "lastCheckedVersion": "v23.1.169",
+    "notes": "Not a blanket camping prohibition on surrounding legal state or national forest land. Refuses campsite proxy coordinates only; revisit a specifically proven named legal overnight camping zone."
   }
 ];
