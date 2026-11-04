@@ -14510,5 +14510,30 @@ window.CAMPING_REJECTED = [
     "lastCheckedDate": "2026-11-04",
     "lastCheckedVersion": "v23.1.169",
     "notes": "Not a blanket camping prohibition on surrounding legal state or national forest land. Refuses campsite proxy coordinates only; revisit a specifically proven named legal overnight camping zone."
+  },
+  {
+    "id": "mi-v231170-alger-munising-valleyspur-moccasin-noncamping-feature-guardrail",
+    "state": "MI",
+    "name": "Valley Spur trail/lodge parking and H-13 Moccasin Lake picnic/paddle launch — not standalone campsites",
+    "countyRegion": "Alger County / southern Munising Township / M-94 Valley Spur / H-13 Moccasin Lake",
+    "rejectedAsLayer": "Boondocking / Dispersed; Overnight Parking; Rustic / Primitive when pin is placed directly on trailhead, picnic parking or launch",
+    "rejectionType": "wrong_feature_type_no_documented_site_specific_overnight_use",
+    "rejectionStrength": "reopenable_conflict",
+    "currentDecision": "REJECT AS CAMPGROUND PINS, not blanket dispersed prohibition",
+    "canReopen": true,
+    "reopenIf": [
+      "USFS specifically confirms lawful overnight use at an exact camping area or signed trailhead overnight lot and mapped position, or qualifying independent same-spot reports with no controlling contradiction"
+    ],
+    "sourceSummary": "Munising Township recreation plan names Moccasin Lake as a paddle launch/picnic area; USFS calls Valley Spur a ski/bike/day-use trailhead with lodge/parking, not an operating overnight campground. Both are distinct from official nearby Pete's/Widewaters/Ewing sites.",
+    "sourceUrl": "https://www.munisingtownship.org/wp-content/uploads/2023/10/Draft-Recreation-Plan.pdf",
+    "relatedSourceUrls": [
+      "https://www.fs.usda.gov/r09/hiawatha/recreation/trails/valley-spur-single-track-mountain-bike-trail",
+      "https://valleyspur.org/",
+      "https://www.fs.usda.gov/sites/nfs/files/r09/hiawatha/publication/BrunosRun_TrailMap_11x17Port_20250616.pdf"
+    ],
+    "relatedActiveOrPendingRecord": "Actual overnight camps s690 Pete's, s999 Widewaters and s1088 Ewing Point remain active. No false boat-ramp or lodge-entrance pins.",
+    "lastCheckedDate": "2026-11-04",
+    "lastCheckedVersion": "v23.1.170",
+    "notes": "No general no-camping prohibition claimed for surrounding national forest; guardrail concerns unsupported EXACT camping facility pins at named recreation access facilities."
   }
 ];
