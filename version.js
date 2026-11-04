@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.170";
-window.CAMPING_APP_BUILD = "mi-alger-h13-ewing-hovey-source-audit";
-window.CAMPING_DATA_VERSION = "v23.1.170";
-window.CAMPING_DATA_BUILD = "mi-alger-h13-ewing-hovey-source-audit";
-window.CAMPING_VERSION = "v23.1.170";
+window.CAMPING_APP_VERSION = "v23.1.171";
+window.CAMPING_APP_BUILD = "mi-alger-shingleton-coalwood-community-sources";
+window.CAMPING_DATA_VERSION = "v23.1.171";
+window.CAMPING_DATA_BUILD = "mi-alger-shingleton-coalwood-community-sources";
+window.CAMPING_VERSION = "v23.1.171";
 window.CAMPING_BUILD = {
-  version: "v23.1.170",
-  build: "mi-alger-h13-ewing-hovey-source-audit",
-  dataVersion: "v23.1.170",
-  dataBuild: "mi-alger-h13-ewing-hovey-source-audit",
+  version: "v23.1.171",
+  build: "mi-alger-shingleton-coalwood-community-sources",
+  dataVersion: "v23.1.171",
+  dataBuild: "mi-alger-shingleton-coalwood-community-sources",
   released: "2026-11-04",
-  label: "Alger H-13 Ewing hike-in and Hovey exact-pin source QA"
+  label: "Alger Shingleton Coalwood exact-camp evidence and county assignment"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
