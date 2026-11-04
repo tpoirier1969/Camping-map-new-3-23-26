@@ -39407,8 +39407,7 @@ window.CAMPING_LEADS = [
     "relatedActiveOrPendingRecord": "No designated Rock River Canyon campsite confirmed in loaded Michigan active files or pending records",
     "lastCheckedVersion": "v23.1.162",
     "notes": "Wilderness area is not itself proof of legal campground or exact pad; no new active pin; Hiawatha 50ft water setback and no-camping postings control where applicable."
-  }
-,
+  },
   {
     "id": "mi-v231167-alger-adams-trail-dirt-lot-exact-overnight-policy-review",
     "state": "MI",
@@ -39491,26 +39490,26 @@ window.CAMPING_LEADS = [
     "id": "mi-v231168-alger-onota-deerton-wilderness-haven-hipcamp-location-rescue",
     "state": "MI",
     "name": "Wilderness Haven near Marquette MI — Deerton private primitive site",
-    "countyRegion": "Alger County / Onota-Deerton area; deferred Onota Township geographic lock",
-    "leadType": "operator_confirmed_public_bookable_private_tent_campsite_deferred_geography_coordinate_rescue",
+    "countyRegion": "Alger County / Onota Township / Deerton (specific campground location privately withheld)",
+    "leadType": "operator_confirmed_public_bookable_rustic_private_site_location_rescue",
     "likelyLayer": "Rustic / Primitive (one privately operated basic drive-in tent site with fire ring and outhouse)",
-    "status": "operator_verified_overnight_bookable_deerton_exact_location_withheld_deferred",
-    "priority": "High — during Onota/Deerton audit",
+    "status": "operator_verified_overnight_bookable_exact_location_withheld_onota_pass_completed",
+    "priority": "High — external host permission needed; do not repeat broad search",
     "sourceType": "Hipcamp operator page and independent firsthand overnight reviews; listing explicitly states meet guests in Deerton because camp has no street address",
     "coordinate": null,
     "coordinateConfidence": "NONE. Operator meets travelers in Deerton and escorts them to secluded camp; the town and nearby woods must not be used as a campsite marker.",
-    "blocker": "Hipcamp first-party Judy S. page describes one site on five acres near Deerton, Alger County, with 50+ firsthand visitor reviews, and states the site has NO ADDRESS; owner meets campers in the village before guiding them in. No publicly authorized entrance coordinate or honest exact campsite point exists. The site is in the later Onota/Deerton geographic sweep, not Limestone/Chatham.",
-    "nextAction": "At Onota Township/Deerton lock, confirm current bookings and request from Judy via Hipcamp a public/authorized campground entrance or designated campsite coordinate. If unavailable retain named ledger record with bookable Hipcamp link only; never map Deerton meeting location as a site.",
+    "blocker": "Operator Judy confirms one off-grid private 5-acre Deerton tent campground with no mailing or street address; guests meet the host in the village and are escorted. Host makes the site deliberately private until a confirmed booking. Neither Deerton village, a public Hipcamp approximate/radius pin, a nearby M-28 roadside area, nor her residence is a defensible campground coordinate. Site listing accepting bookings 12 months out, host check-in required before 7 PM, two-night minimum, 4WD recommended, max one vehicle.",
+    "nextAction": "One external action only: request via Hipcamp message Judy S.'s consent to publish an independently confirmed entrance/campsite coordinate; if denied, preserve booking link and keep map-pin absent. Do not attempt to reverse-engineer a private customer's post-booking location from property data.",
     "sourceUrl": "https://www.hipcamp.com/en-US/land/michigan-wilderness-haven-near-marquette-mi-g2ejh266",
     "sourceUrls": [
       "https://www.hipcamp.com/en-US/land/michigan-wilderness-haven-near-marquette-mi-g2ejh266",
       "https://support.hipcamp.com/hc/en-us/articles/360056118552-Where-can-I-find-the-address-for-a-Hipcamp"
     ],
-    "independentOvernightProof": "Owner-host Judy S. and more than 50 genuine first-person Hipcamp review accounts; platform marks it Staff Verified, but that is NOT an officially validated public parcel/campground coordinate.",
+    "independentOvernightProof": "Hipcamp first-party operator listing, staff verification, 55 separate reviews / 67 ratings and firsthand overnight guest accounts extending through October 2026. Operator permits overnight stay; community reports prove use but do not make the site's address public.",
     "relatedActiveOrPendingRecord": "No Wilderness Haven near Marquette MI alias in current Michigan originals, supplements, pending or ledgers. Named location Deerton Alger, not Marquette County.",
     "lastCheckedDate": "2026-11-04",
-    "lastCheckedVersion": "v23.1.168",
-    "notes": "This was a side discovery on Chatham Hipcamp nearby inventory, not a completed Deerton/Onota search. Move to local source matrix at the next matching Alger subarea; permit exact coords only with operator consent."
+    "lastCheckedVersion": "v23.1.169",
+    "notes": "2026-11-04 Onota batch: TinyFish direct Fetch read current complete operator page; publicly shown address is expressly withheld, site has no formal address, host rendezvous in Deerton. Rustic private-access camping with outhouse, fire ring, no drinking water/showers/electric, max four guests, two-night minimum, current bookability. No coordinate or pending pin added. Previous v23.1.168 side discovery now fully reviewed; host coordinate-consent is sole remaining blocker."
   },
   {
     "id": "mi-v231168-delta-trenary-north41-woodland-meadows-deferred",
@@ -39537,5 +39536,29 @@ window.CAMPING_LEADS = [
     "lastCheckedDate": "2026-11-04",
     "lastCheckedVersion": "v23.1.168",
     "notes": "Trenary mailing name crosses expected Alger county assumptions. Hipcamp explicitly assigns this named property to DELTA, so it was only captured for later Delta audit, not researched/integrated as Alger. Old alias retained."
+  },
+  {
+    "id": "mi-v231169-alger-onota-deerton-swamp-camp-hipcamp-booking-location-review",
+    "state": "MI",
+    "name": "Swamp camp / Swampy Acres — Deerton private camping listing",
+    "countyRegion": "Alger County / Onota Township / Deerton as listed by Hipcamp (exact property withheld)",
+    "leadType": "inactive_private_operator_camping_listing_current_booking_and_location_review",
+    "likelyLayer": "Rustic / Primitive if operator later offers actual bookable primitive campsites; amenities/site details currently unproven",
+    "status": "named_operator_listing_not_accepting_bookings_no_current_overnight_offer",
+    "priority": "Low — external operator reactivation only; do not rerun blocked coordinate search",
+    "sourceType": "TinyFish Search original operator-host Hipcamp listing; current direct TinyFish Fetch 2026-11-04",
+    "coordinate": null,
+    "coordinateConfidence": "NONE — Hipcamp hides precise parcel address; Deerton place name is not an exact campsite",
+    "blocker": "Hipcamp first-party page names host Josh H. and 'Swamp camp' in Deerton but explicitly says 'Not currently accepting bookings on Hipcamp' and shows no customer reviews. No currently proved public overnight access, campground site inventory, public address or authorized entrance GPS.",
+    "nextAction": "Ask host Josh H. if public nightly camping is planned or resumed, the operating dates, real campsites/services, legal booking method and whether a named campsite/entrance point may be publicly published; only then map a source-backed point. If operator confirms permanent closure, move to rejected with proof.",
+    "sourceUrl": "https://www.hipcamp.com/en-US/land/michigan-swamp-camp-5x5hxxvm",
+    "sourceUrls": [
+      "https://www.hipcamp.com/en-US/land/michigan-swamp-camp-5x5hxxvm",
+      "https://support.hipcamp.com/hc/en-us/articles/360056118552-Where-can-I-find-the-address-for-a-Hipcamp"
+    ],
+    "relatedActiveOrPendingRecord": "No matching original active Michigan, MI2, four loaded supplements, five pending or existing ledgers (v23.1.168 full baseline)",
+    "lastCheckedDate": "2026-11-04",
+    "lastCheckedVersion": "v23.1.169",
+    "notes": "Found by targeted TinyFish Search 'Deerton camping Hipcamp -Wilderness' (not by generic Onota campground query), then verified by direct Fetch. Unavailable booking and no precise legal camping location: durable lead only, NOT active and NOT Needs Verification map pin."
   }
 ];
