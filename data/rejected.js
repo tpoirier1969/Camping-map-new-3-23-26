@@ -14425,5 +14425,31 @@ window.CAMPING_REJECTED = [
     "relatedActiveOrPendingRecord": "No matching active/pending/rule-area campground at exact named location in live MI/MI2 and supplements",
     "lastCheckedVersion": "v23.1.167",
     "notes": "Reject trap: directory labels it dispersed but the only original visitor report is negative and cites a DNR officer note. Do not turn snowmobile/winter trail access or nearby lands into a legal exact camping point. DNR Shingleton Forestry 906-452-6227 for any formal reopening."
+  },
+  {
+    "id": "mi-v231168-alger-chatham-fairgrounds-2026-exhibitor-only-camping",
+    "state": "MI",
+    "name": "Alger County Fairgrounds — exhibitors/concessionaires-only fair camping",
+    "countyRegion": "Alger County / Rock River Township / Chatham",
+    "rejectedAsLayer": "Modern, Rustic / Primitive or Private public transient campground",
+    "rejectionType": "event_restricted_nonpublic_general_overnight_camping",
+    "rejectionStrength": "first_party_fair_event_rules_2022_reused_2026",
+    "currentDecision": "REJECT / DO NOT IMPORT AS GENERAL-PUBLIC OVERNIGHT CAMPING",
+    "canReopen": true,
+    "reopenIf": [
+      "Alger County Fair/Chatham Lions published current rules or a first-party reservation page explicitly opens event/non-event nightly camping to the general public without exhibitor/concessionaire eligibility",
+      "Independent current operator evidence for a separately authorized public overnight campground on the fairgrounds"
+    ],
+    "sourceSummary": "The Alger County Fair first-party 2022 camping registration PDF expressly says camping is a privilege allowed ONLY to participating livestock/equine exhibitors and concessionaires. The official 2026 fair website still links that 2022 PDF from its horses page, instructs stall-holders staying on the grounds to submit the camping form by July 15, and the 2025 premium book similarly ties camping to exhibitor wristbands. No first-party evidence of public transient campground booking outside fair events. Fairgrounds infrastructure is NOT a public campground merely because temporary electric/rustic sites are rented during fair weekend.",
+    "sourceUrls": [
+      "https://www.algercountyfair.com/uploads/9/6/0/5/9605141/camping_2022.pdf",
+      "https://www.algercountyfair.com/horses.html",
+      "https://www.algercountyfair.com/uploads/9/6/0/5/9605141/fairbook_2025f.pdf",
+      "https://www.rockrivertownship.org/parksandrec.html"
+    ],
+    "relatedActiveOrPendingRecord": "No Alger County Fairgrounds public overnight record in Michigan originals, manifest-loaded supplements or pending. Reject opportunity as general-public campsite; do not remove ordinary non-camping fairgrounds place context if it exists.",
+    "lastCheckedDate": "2026-11-04",
+    "lastCheckedVersion": "v23.1.168",
+    "notes": "Not a camping ban for eligible exhibitors or vendors; it is an eligibility restriction. Current 2026 horses page references the dated 2022 rules, no recent contrary first-party public-access proof found. Reopen if current operator publicly changes overnight eligibility."
   }
 ];

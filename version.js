@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.167";
-window.CAMPING_APP_BUILD = "mi-alger-adams-rhody-source-reconciliation";
-window.CAMPING_DATA_VERSION = "v23.1.167";
-window.CAMPING_DATA_BUILD = "mi-alger-adams-rhody-source-reconciliation";
-window.CAMPING_VERSION = "v23.1.167";
+window.CAMPING_APP_VERSION = "v23.1.168";
+window.CAMPING_APP_BUILD = "mi-alger-chatham-hipcamp-ledger-closeout";
+window.CAMPING_DATA_VERSION = "v23.1.168";
+window.CAMPING_DATA_BUILD = "mi-alger-chatham-hipcamp-ledger-closeout";
+window.CAMPING_VERSION = "v23.1.168";
 window.CAMPING_BUILD = {
-  version: "v23.1.167",
-  build: "mi-alger-adams-rhody-source-reconciliation",
-  dataVersion: "v23.1.167",
-  dataBuild: "mi-alger-adams-rhody-source-reconciliation",
+  version: "v23.1.168",
+  build: "mi-alger-chatham-hipcamp-ledger-closeout",
+  dataVersion: "v23.1.168",
+  dataBuild: "mi-alger-chatham-hipcamp-ledger-closeout",
   released: "2026-11-04",
-  label: "Alger southern Burt Adams DNR owner correction and Rhody reject reconciliation"
+  label: "Alger Limestone Chatham Trenary campground leads and fairgrounds exclusion"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
