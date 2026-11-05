@@ -39642,5 +39642,35 @@ window.CAMPING_LEADS = [
     "lastCheckedDate": "2026-11-04",
     "lastCheckedVersion": "v23.1.171",
     "notes": "Original discovery = targeted TinyFish Search (freecampsites.net regional listings); independent onX secondary confirms road, not camping. No TinyFish run ID surfaced. Keep named lead durable, no false point."
+  },
+  {
+    "id": "mi-20261105-alger-shingleton-m28-pullout-original-report-access-review",
+    "state": "MI",
+    "name": "Pull out off of M28 — Shingleton roadside overnight report",
+    "countyRegion": "Alger County / Munising Township / M-28 corridor southwest of Shingleton; source-supplied point 46.365838,-86.531822",
+    "leadType": "one_original_overnight_report_roadside_camp_location_safety_ownership_permission_review",
+    "likelyLayer": "Overnight Parking only if lawful overnight parking confirmed; Boondocking / Dispersed only if actual safely accessible, lawful off-highway camping location demonstrated",
+    "status": "ONE independent original actual overnight account; NOT proven designated or lawful campsite; NOT ACTIVE / NOT pending pin",
+    "priority": "Medium — high roadside legality and location risk",
+    "sourceType": "Original FreeCampsites.net listing submitted anonymously 2017-08-09; independent reviewer Kelly reports an overnight stay with passenger vehicle and tent on 2021-06-22; reviewer Cindy 2019-09-10 says listed point is simply side of main road; Mrmotofy 2026-10-05 describes multiple generic pulloffs but does not report staying at this same site. BoondockingLocations 2025 repeats exactly the original GPS and is a derivative reference, NOT an independent camper overnight account.",
+    "sourceUrl": "https://freecampsites.net/#!127169&query=sitedetails",
+    "sourceUrls": [
+      "https://freecampsites.net/#!127169&query=sitedetails",
+      "https://boondockinglocations.com/pictured-rocks-boondocking/",
+      "https://www.michigan.gov/dnr/things-to-do/camping-and-lodging/backpack",
+      "https://www.fs.usda.gov/r09/hiawatha/alerts/occupancy-and-use-within-hiawatha-national-forest"
+    ],
+    "coordinate": {
+      "lat": 46.365838,
+      "lng": -86.531822,
+      "role": "original directory reported map point ONLY; not accepted as legal campsite or safely located pull-in"
+    },
+    "coordinateConfidence": "Original directory-supplied latitude/longitude is exact AS REPORTED; physical pull-in footprint, shoulder versus forest spur, highway right-of-way, ownership and access are not independently verified. Do not put a pin on the active map or Needs Verification.",
+    "blocker": "One original same-site stay plus a contradictory original observation that this is simply highway shoulder. No three independent same-spot overnight accounts, no operator/agency overnight authority, and no map/aerial validation of a legitimate camp pull-in. FreeCampsites labels management 'Public - National Park Service (Unofficial)' but that is unproven and likely mistaken; do NOT inherit it as legal authorization. Secondary boondocking guide repeats the exact directory coordinates and gives inconsistent east/west M-28 directions, so it is not independent verification. Existing Hickey Marsh Dispersed Camping s385 is roughly 1.6 miles away, and must NOT be conflated or duplicated. State-forest rule-area permission cannot be inferred across the highway, forest ownership, or wildlife-area boundary.",
+    "nextAction": "At reported GPS 46.365838,-86.531822, inspect current aerial/street mapping and Alger County parcel map, USFS surface ownership, Michigan DOT M-28 right-of-way, field-posted signs, and Hiawatha Munising 2025/2026 MVUM/Forest Order R910-16-10. Ask Hiawatha NF Munising Ranger District whether this precise turnout is managed public land, safe to occupy overnight, and whether camping/parking is authorized. Seek at least two MORE genuinely independent firsthand overnight campers at the SAME physical pull-in or official written permission. If merely highway shoulder, signed no camping, or illegal access is confirmed, move to rejected; if lawful exact roadside overnight use is confirmed, classify correctly without borrowing the nearby Hickey Marsh pin.",
+    "nearbyActive": "Hickey Marsh Dispersed Camping s385 approximately 1.6 mi southeast; unrelated distinct physical location; Catchin' Crickets s171 approximately 4 mi northeast.",
+    "lastCheckedDate": "2026-11-05",
+    "lastCheckedVersion": "v23.1.171",
+    "notes": "NEW discovery via TinyFish targeted Search exact query 'Shingleton M-28 campsites' and original detail via TinyFish Fetch 2026-11-05 (no Agent, no run ID surfaced). Search results using 2025 BoondockingLocations are copies, not 3 reports. No additional pin. Geographic lock northern Munising Township / Shingleton–Van Meer / Prairie Creek–Cusino."
   }
 ];
