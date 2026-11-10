@@ -1,15 +1,15 @@
-window.CAMPING_APP_VERSION = "v23.1.173";
-window.CAMPING_APP_BUILD = "mi-alger-grand-island-historic-ridb-northshore";
-window.CAMPING_DATA_VERSION = "v23.1.173";
-window.CAMPING_DATA_BUILD = "mi-alger-grand-island-historic-ridb-northshore";
-window.CAMPING_VERSION = "v23.1.173";
+window.CAMPING_APP_VERSION = "v23.1.174";
+window.CAMPING_APP_BUILD = "mi-alger-grand-island-usfs-ownership";
+window.CAMPING_DATA_VERSION = "v23.1.174";
+window.CAMPING_DATA_BUILD = "mi-alger-grand-island-usfs-ownership";
+window.CAMPING_VERSION = "v23.1.174";
 window.CAMPING_BUILD = {
-  version: "v23.1.173",
-  build: "mi-alger-grand-island-historic-ridb-northshore",
-  dataVersion: "v23.1.173",
-  dataBuild: "mi-alger-grand-island-historic-ridb-northshore",
+  version: "v23.1.174",
+  build: "mi-alger-grand-island-usfs-ownership",
+  dataVersion: "v23.1.174",
+  dataBuild: "mi-alger-grand-island-usfs-ownership",
   released: "2026-11-10",
-  label: "Alger Grand Island three named site additions and Freighter View correction"
+  label: "Alger Grand Island federal campsite owner attribution corrections"
 };
 window.APP_VERSION = window.CAMPING_APP_VERSION;
 window.DATA_BUILD = window.CAMPING_DATA_BUILD;
