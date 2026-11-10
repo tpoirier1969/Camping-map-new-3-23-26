@@ -190,7 +190,7 @@ window.CAMPING_STATES_MANIFEST = {
     "code": "MI",
     "name": "Michigan",
     "file": "data/states/MI.js",
-    "count": 797,
+    "count": 800,
     "files": [
       "data/states/MI.js",
       "data/states/MI2.js",
@@ -205,6 +205,7 @@ window.CAMPING_STATES_MANIFEST = {
       "v23.1.56: WI/MI/UP combined closeout cleanup adds no new area pins; applies Worker 1/2 closeout QA corrections and memory updates. MI corrections move East Lake Campsites, Swan Lake Campsites, Lake Gogebic County Park, and Little Girls Point County Park to Rustic / Primitive where Modern proof is not met; adds closeout lead/rejected memory for official GPS extraction and the bad legacy Paint River Forks coordinate."
     ],
     "notes": [
+      "v23.1.173: Alger Grand Island north shore +3 named Boat/Backpack sites Preservation Point, Shelter Ridge and Gull Point with historical federal RIDB named-facility APPROXIMATE guide coordinates and 2026 USDA schematic map corroboration; s318 Freighterview corrected (298 m/hike-only ownership and amenities) not duplicated; four old coordinate-rescue lead aliases retired. All points warn not exact tent pads. Effective 6-file Michigan 800 unique, pending 5, leads 2039, rejected 821, Alger OPEN.",
       "v23.1.172: Alger Au Train Township Northwoods Resort RV Sites verified by direct operator: three public-facing full-hookup RV pads, not 28 cabin rentals. Added as Private due unverified shared showers/restrooms; approximate matched Northwoods resort property marker (not exact RV pad); separate from Superior Times, USFS Au Train Lake and Au Train Beach. River canoe trail/launch points not promoted. Alger remains OPEN; actual 6-file runtime MI 796 before and 797 after, fixing pre-existing manifest count overstatement (was 797 before import); pending 5.",
       "v23.1.171: Alger Shingleton H-15/Coalwood review: unsupported one-report Coalwood Trail exact camping pin s1092 retired to durable lead; FR 2251 Hanley-Chamberlain one-source roadside listing held as lead with no invented point; official JoeIda already active in MI2.js; neighboring Herman, Clear, Steuben, Colwell are Schoolcraft, deferred. MI 797, pending 5, Alger OPEN.",
       "v23.1.170: Alger southern Munising H-13 Ewing Point s1088 Rustic to Boat/Backpack (hike-in proof), unsupported equine staging-lot s252 retired to lead, Valley Spur/Moccasin access false-camp guardrail; MI 798 and pending 5; Alger OPEN.",
